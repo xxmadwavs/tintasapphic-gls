@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — GL Series Calendar</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fdf6f9;
+  --surface: #fff;
+  --surface2: #fdf0f5;
+  --border: rgba(220,150,180,0.2);
+  --border2: rgba(220,150,180,0.4);
+  --text: #3a2535;
+  --muted: #9c7a8a;
+  --accent: #d4608a;
+  --accent2: #e891b0;
+  --accent-soft: #f7dce9;
+  --teal: #5bbcb0;
+  --teal-soft: #d4f0ed;
+  --lavender: #9b82c9;
+  --lavender-soft: #ede7f8;
+  --yellow: #e8c16a;
+  --yellow-soft: #fdf3d8;
+  --danger: #d45c5c;
+  --success: #5bb88a;
+  --radius: 14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;font-size:14px;line-height:1.6;min-height:100vh}
+
+/* Subtle petal bg */
+body::before{content:'';position:fixed;inset:0;background:
+  radial-gradient(circle at 10% 20%, rgba(212,96,138,0.05) 0%, transparent 50%),
+  radial-gradient(circle at 90% 80%, rgba(155,130,201,0.07) 0%, transparent 50%),
+  radial-gradient(circle at 50% 50%, rgba(91,188,176,0.04) 0%, transparent 60%);
+  pointer-events:none;z-index:0}
+
+.topbar{background:var(--surface);border-bottom:1px solid var(--border2);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:58px;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(212,96,138,0.06)}
+.logo{font-family:'Playfair Display',serif;font-size:20px;color:var(--accent);display:flex;align-items:center;gap:8px}
+.logo-badge{background:var(--accent-soft);color:var(--accent);font-family:'Nunito',sans-serif;font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;letter-spacing:.05em}
+.topbar-actions{display:flex;gap:8px}
+
+.container{max-width:960px;margin:0 auto;padding:2rem 1.5rem;position:relative;z-index:1}
+.page-title{font-family:'Playfair Display',serif;font-size:30px;color:var(--text);margin-bottom:.2rem}
+.page-sub{color:var(--muted);font-size:13px;margin-bottom:2rem}
+
+.card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:1.5rem;margin-bottom:1rem;box-shadow:0 2px 16px rgba(212,96,138,0.05)}
+.card-title{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:1rem;font-weight:600}
+
+.series-grid{display:grid;gap:10px}
+.series-item{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:1rem 1.25rem;display:flex;align-items:center;gap:1rem;transition:box-shadow .2s}
+.series-item:hover{box-shadow:0 4px 16px rgba(212,96,138,0.1)}
+.series-poster{width:40px;height:58px;border-radius:8px;object-fit:cover;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.series-poster-ph{width:40px;height:58px;border-radius:8px;background:var(--accent-soft);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;color:var(--accent)}
+.series-info{flex:1;min-width:0}
+.series-name{font-size:15px;font-weight:600;color:var(--text)}
+.series-meta{font-size:12px;color:var(--muted);margin-top:2px}
+.series-actions{display:flex;gap:6px;flex-shrink:0}
+
+.btn{padding:7px 16px;border-radius:20px;border:1.5px solid var(--border2);cursor:pointer;font-size:13px;font-family:'Nunito',sans-serif;font-weight:600;background:transparent;color:var(--text);transition:all .15s}
+.btn:hover{background:var(--accent-soft);border-color:var(--accent2);color:var(--accent)}
+.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn.primary:hover{background:var(--accent2);border-color:var(--accent2)}
+.btn.danger{color:var(--danger);border-color:rgba(212,92,92,.3)}
+.btn.danger:hover{background:rgba(212,92,92,.08)}
+.btn.small{padding:5px 12px;font-size:12px}
+.btn.export{background:var(--teal);color:#fff;border-color:var(--teal)}
+.btn.export:hover{opacity:.88}
+
+.modal-bg{position:fixed;inset:0;background:rgba(58,37,53,.5);display:none;align-items:center;justify-content:center;z-index:200;padding:1rem;backdrop-filter:blur(2px)}
+.modal-bg.open{display:flex}
+.modal{background:var(--surface);border:1.5px solid var(--border2);border-radius:20px;padding:1.75rem;width:100%;max-width:500px;max-height:92vh;overflow-y:auto;box-shadow:0 20px 60px rgba(212,96,138,0.15)}
+.modal-title{font-family:'Playfair Display',serif;font-size:22px;margin-bottom:1.25rem;color:var(--text)}
+
+.form-row{margin-bottom:14px}
+.form-label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+.form-row input,.form-row select{width:100%;padding:9px 14px;border-radius:10px;border:1.5px solid var(--border2);background:var(--surface2);color:var(--text);font-size:14px;font-family:'Nunito',sans-serif;outline:none;transition:border-color .15s}
+.form-row input:focus,.form-row select:focus{border-color:var(--accent)}
+.btn-row{display:flex;gap:8px;justify-content:flex-end;margin-top:1.25rem}
+
+.poster-row{display:flex;align-items:flex-start;gap:14px;margin-top:8px}
+.poster-preview{width:58px;height:86px;border-radius:10px;object-fit:cover;border:1.5px solid var(--border2);flex-shrink:0;display:none;background:var(--surface2)}
+.poster-hint{font-size:12px;color:var(--muted);line-height:1.8}
+.poster-hint a{color:var(--accent);text-decoration:none;font-weight:600}
+.poster-hint a:hover{text-decoration:underline}
+.poster-hint strong{color:var(--text)}
+
+.ep-list{display:grid;gap:5px;max-height:360px;overflow-y:auto;margin-top:8px}
+.ep-row{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:10px;border:1px solid var(--border);background:var(--surface2);cursor:pointer;transition:all .15s}
+.ep-row:hover{border-color:var(--border2);background:var(--accent-soft)}
+.ep-num{font-size:12px;color:var(--muted);min-width:26px;font-weight:600}
+.ep-date{flex:1;font-size:13px;color:var(--text)}
+.ep-status{font-size:11px;padding:2px 10px;border-radius:20px;font-weight:600}
+.ep-status.aired{background:var(--teal-soft);color:var(--teal)}
+.ep-status.pending{background:var(--accent-soft);color:var(--accent)}
+.ep-status.skipped{background:#f0eeee;color:#aaa;text-decoration:line-through}
+
+.notice{background:var(--accent-soft);border:1.5px solid var(--border2);border-radius:12px;padding:12px 16px;font-size:13px;color:var(--text);margin-bottom:1.5rem;line-height:1.7}
+.notice strong{color:var(--accent)}
+
+.export-box{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:1.25rem}
+.export-instructions{font-size:13px;color:var(--muted);line-height:1.8}
+.export-instructions strong{color:var(--text)}
+.export-instructions ol{padding-left:1.25rem;margin-top:.5rem}
+.export-instructions li{margin-bottom:4px}
+code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;border-radius:6px;font-size:12px}
+
+.empty{text-align:center;color:var(--muted);padding:2.5rem;font-size:13px}
+.progress-wrap{margin-top:6px;height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;border-radius:2px;transition:width .3s}
+
+.cherry{font-size:16px;margin-right:4px}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="logo">🌸 GL Series Calendar <span class="logo-badge">ADMIN</span></span>
+  <div class="topbar-actions">
+    <button class="btn small" onclick="window.open('index.html','_blank')">👁 Ver público</button>
+    <button class="btn export small" onclick="exportData()">⬇ Exportar data.json</button>
+  </div>
+</div>
+
+<div class="container">
+  <h1 class="page-title">✦ Panel de administración</h1>
+  <p class="page-sub">Gestiona las series GL y exporta para actualizar la web.</p>
+
+  <div class="notice">
+    <strong>¿Cómo funciona?</strong> Añade aquí todas las series. Cuando quieras que tus amig@s vean los cambios, pulsa <strong>"Exportar data.json"</strong> y súbelo a GitHub.
+  </div>
+
+  <div class="card">
+    <div class="card-title">🌷 Mis series GL</div>
+    <button class="btn primary" style="margin-bottom:1rem;width:100%" onclick="openAddSeries()">+ Añadir nueva serie</button>
+    <div class="series-grid" id="seriesGrid"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📤 Cómo publicar cambios</div>
+    <div class="export-box">
+      <div class="export-instructions">Cada vez que hagas cambios, sigue estos pasos:
+        <ol>
+          <li>Pulsa <strong>"Exportar data.json"</strong> arriba (se descargará un archivo).</li>
+          <li>Ve a tu repositorio en <strong>github.com</strong>.</li>
+          <li>Haz clic en el archivo <code>data.json</code> y luego en el icono del lápiz ✏️</li>
+          <li>Borra todo el contenido y pega el del archivo descargado.</li>
+          <li>Pulsa <strong>"Commit changes"</strong>. En segundos tus amig@s verán los cambios.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal serie -->
+<div class="modal-bg" id="seriesModal">
+  <div class="modal">
+    <div class="modal-title" id="seriesModalTitle"></div>
+    <div id="seriesModalBody"></div>
+  </div>
+</div>
+
+<!-- Modal episodios -->
+<div class="modal-bg" id="epsModal">
+  <div class="modal">
+    <div class="modal-title" id="epsModalTitle"></div>
+    <div id="epsModalBody"></div>
+  </div>
+</div>
+
+<!-- Modal editar episodio -->
+<div class="modal-bg" id="epEditModal">
+  <div class="modal">
+    <div class="modal-title">Editar episodio</div>
+    <div id="epEditBody"></div>
+  </div>
+</div>
+
+<script>
+const DAYS_ES=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
+const MONTHS_ES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+const PALETTE=['#d4608a','#5bbcb0','#9b82c9','#e8a84a','#e06fa0','#4eadb5','#b07ad4','#d47a4e'];
+const PALETTE_SOFT=['#f7dce9','#d4f0ed','#ede7f8','#fdf3d8','#fce4ef','#d8f0f5','#ead8f8','#fce8da'];
+
+let series = JSON.parse(localStorage.getItem('gl_series') || '[]');
+function save(){ localStorage.setItem('gl_series', JSON.stringify(series)); }
+
+function getDow(d){ return (new Date(d+'T12:00:00').getDay()+6)%7; }
+function addDays(d,n){ const x=new Date(d+'T12:00:00'); x.setDate(x.getDate()+n); return x.toISOString().slice(0,10); }
+function fmtDate(d){ const x=new Date(d+'T12:00:00'); return `${x.getDate()} ${MONTHS_ES[x.getMonth()].slice(0,3)} ${x.getFullYear()}`; }
+
+function genEpisodes(s){
+  const eps=[], diff=(s.dayOfWeek - getDow(s.startDate) + 7)%7;
+  let cur=addDays(s.startDate, diff);
+  for(let i=0;i<s.totalEpisodes;i++){
+    const ov=(s.episodes||[]).find(e=>e.num===i+1);
+    eps.push(ov||{num:i+1,date:cur,skipped:false});
+    cur=addDays(cur,7);
+  }
+  return eps;
+}
+
+function render(){
+  const grid=document.getElementById('seriesGrid');
+  if(!series.length){ grid.innerHTML='<div class="empty">🌸 No hay series todavía. ¡Añade una!</div>'; return; }
+  grid.innerHTML='';
+  series.forEach((s,si)=>{
+    const eps=genEpisodes(s), now=new Date();
+    const aired=eps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
+    const pct=Math.round(aired/s.totalEpisodes*100);
+    const col=PALETTE[si%PALETTE.length];
+    const div=document.createElement('div'); div.className='series-item';
+    const posterEl=s.poster
+      ? `<img class="series-poster" src="${s.poster}" alt="${s.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+      : '';
+    const phEl=`<div class="series-poster-ph" style="${s.poster?'display:none':''}">🎬</div>`;
+    div.innerHTML=`${posterEl}${phEl}
+      <div class="series-info">
+        <div class="series-name">${s.name}</div>
+        <div class="series-meta">${s.network?s.network+' · ':''}${s.totalEpisodes} ep · ${DAYS_ES[s.dayOfWeek]}s · desde ${fmtDate(s.startDate)}</div>
+        <div class="progress-wrap"><div class="progress-fill" style="width:${pct}%;background:${col}"></div></div>
+        <div style="font-size:11px;color:var(--muted);margin-top:3px">${aired}/${s.totalEpisodes} emitidos</div>
+      </div>
+      <div class="series-actions">
+        <button class="btn small" onclick="openEps(${si})">Episodios</button>
+        <button class="btn small" onclick="openEdit(${si})">Editar</button>
+        <button class="btn small danger" onclick="delSeries(${si})">✕</button>
+      </div>`;
+    grid.appendChild(div);
+  });
+}
+
+function closeAll(){ document.querySelectorAll('.modal-bg').forEach(m=>m.classList.remove('open')); }
+document.querySelectorAll('.modal-bg').forEach(m=>m.addEventListener('click',e=>{ if(e.target===m)closeAll(); }));
+
+function bindPoster(){
+  const inp=document.getElementById('f_poster'), prev=document.getElementById('posterPreview');
+  if(!inp||!prev) return;
+  inp.addEventListener('input',()=>{ if(inp.value.trim()){prev.src=inp.value.trim();prev.style.display='block';}else{prev.style.display='none';} });
+  if(inp.value.trim()){prev.src=inp.value.trim();prev.style.display='block';}
+}
+
+function formHtml(s){
+  const today=new Date().toISOString().slice(0,10);
+  return `
+  <div class="form-row"><label class="form-label">Nombre de la serie *</label><input id="f_name" placeholder="Ej: Bloom Into You" value="${s?s.name:''}"/></div>
+  <div class="form-row">
+    <label class="form-label">URL de la portada</label>
+    <input id="f_poster" placeholder="https://image.tmdb.org/..." value="${s&&s.poster?s.poster:''}"/>
+    <div class="poster-row">
+      <img id="posterPreview" class="poster-preview" alt="Portada">
+      <div class="poster-hint">
+        Cómo conseguir la URL de la portada:<br>
+        1. Ve a <a href="https://www.themoviedb.org" target="_blank">themoviedb.org</a> o <a href="https://myanimelist.net" target="_blank">myanimelist.net</a><br>
+        2. Busca la serie y abre su página<br>
+        3. Clic derecho en la portada → <strong>"Copiar dirección de imagen"</strong><br>
+        4. Pégala en el campo de arriba
+      </div>
+    </div>
+  </div>
+  <div class="form-row"><label class="form-label">Fecha del primer episodio *</label><input id="f_start" type="date" value="${s?s.startDate:today}"/></div>
+  <div class="form-row"><label class="form-label">Día de emisión semanal *</label>
+    <select id="f_dow">${DAYS_ES.map((d,i)=>`<option value="${i}"${s&&i===s.dayOfWeek?' selected':''}>${d}</option>`).join('')}</select>
+  </div>
+  <div class="form-row"><label class="form-label">Número total de episodios *</label><input id="f_eps" type="number" min="1" max="200" value="${s?s.totalEpisodes:12}"/></div>
+  <div class="form-row"><label class="form-label">Plataforma / Canal (opcional)</label><input id="f_net" placeholder="Ej: Netflix, Crunchyroll, WeTV…" value="${s&&s.network?s.network:''}"/></div>`;
+}
+
+function openAddSeries(){
+  document.getElementById('seriesModalTitle').textContent='🌸 Añadir serie GL';
+  document.getElementById('seriesModalBody').innerHTML=formHtml(null)+`
+    <div class="btn-row"><button class="btn" onclick="closeAll()">Cancelar</button><button class="btn primary" onclick="saveSeries(-1)">Guardar</button></div>`;
+  document.getElementById('seriesModal').classList.add('open');
+  bindPoster();
+  const si=document.getElementById('f_start');
+  document.getElementById('f_dow').value=getDow(si.value);
+  si.addEventListener('change',()=>document.getElementById('f_dow').value=getDow(si.value));
+}
+
+function openEdit(si){
+  document.getElementById('seriesModalTitle').textContent='✏️ Editar serie';
+  document.getElementById('seriesModalBody').innerHTML=formHtml(series[si])+`
+    <div class="btn-row"><button class="btn" onclick="closeAll()">Cancelar</button><button class="btn primary" onclick="saveSeries(${si})">Guardar cambios</button></div>`;
+  document.getElementById('seriesModal').classList.add('open');
+  bindPoster();
+}
+
+function saveSeries(si){
+  const name=document.getElementById('f_name').value.trim();
+  const poster=document.getElementById('f_poster').value.trim();
+  const start=document.getElementById('f_start').value;
+  const dow=parseInt(document.getElementById('f_dow').value);
+  const eps=parseInt(document.getElementById('f_eps').value);
+  const net=document.getElementById('f_net').value.trim();
+  if(!name||!start||isNaN(eps)||eps<1){alert('Rellena los campos obligatorios (*)');return;}
+  if(si===-1) series.push({id:Date.now().toString(),name,poster,startDate:start,dayOfWeek:dow,totalEpisodes:eps,network:net,episodes:[]});
+  else series[si]={...series[si],name,poster,startDate:start,dayOfWeek:dow,totalEpisodes:eps,network:net};
+  save(); closeAll(); render();
+}
+
+function delSeries(si){
+  if(!confirm(`¿Eliminar "${series[si].name}"?`)) return;
+  series.splice(si,1); save(); render();
+}
+
+function openEps(si){
+  const s=series[si], eps=genEpisodes(s), now=new Date();
+  document.getElementById('epsModalTitle').textContent=`📋 ${s.name}`;
+  let html='<p style="font-size:12px;color:var(--muted);margin-bottom:10px">Pulsa un episodio para cambiar su fecha o marcarlo como no emitido.</p><div class="ep-list">';
+  eps.forEach(ep=>{
+    const isPast=new Date(ep.date+'T12:00:00')<=now;
+    const st=ep.skipped?'skipped':isPast?'aired':'pending';
+    const lb=ep.skipped?'No emitido':isPast?'Emitido':'Pendiente';
+    html+=`<div class="ep-row" onclick="openEpEdit(${si},${ep.num})"><span class="ep-num">E${ep.num}</span><span class="ep-date">${fmtDate(ep.date)}</span><span class="ep-status ${st}">${lb}</span></div>`;
+  });
+  html+=`</div><div class="btn-row" style="margin-top:1rem"><button class="btn" onclick="closeAll()">Cerrar</button></div>`;
+  document.getElementById('epsModalBody').innerHTML=html;
+  document.getElementById('epsModal').classList.add('open');
+}
+
+function openEpEdit(si,epNum){
+  const s=series[si], ep=genEpisodes(s).find(e=>e.num===epNum);
+  document.getElementById('epEditBody').innerHTML=`
+    <p style="font-size:13px;color:var(--muted);margin-bottom:1rem">${s.name} · Episodio ${epNum}</p>
+    <div class="form-row"><label class="form-label">Fecha de emisión</label><input id="fe_date" type="date" value="${ep.date}"/></div>
+    <div class="form-row"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--text)">
+      <input type="checkbox" id="fe_skip" ${ep.skipped?'checked':''} style="width:auto;accent-color:var(--accent)"/>
+      No se emite este episodio (cancelado / pospuesto)
+    </label></div>
+    <div class="btn-row"><button class="btn" onclick="openEps(${si})">← Volver</button><button class="btn primary" onclick="saveEp(${si},${epNum})">Guardar</button></div>`;
+  document.getElementById('epEditModal').classList.add('open');
+}
+
+function saveEp(si,epNum){
+  const date=document.getElementById('fe_date').value, skipped=document.getElementById('fe_skip').checked;
+  if(!series[si].episodes) series[si].episodes=[];
+  const idx=series[si].episodes.findIndex(e=>e.num===epNum);
+  if(idx>=0) series[si].episodes[idx]={num:epNum,date,skipped};
+  else series[si].episodes.push({num:epNum,date,skipped});
+  save(); openEps(si);
+}
+
+function exportData(){
+  const blob=new Blob([JSON.stringify({series,exportedAt:new Date().toISOString()},null,2)],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='data.json'; a.click();
+}
+
+render();
+</script>
+</body>
+</html>
