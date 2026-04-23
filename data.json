@@ -1091,6 +1091,121 @@
       "totalEpisodes": 10,
       "skipDates": [],
       "episodes": []
+    },
+    {
+      "id": "1776974136082",
+      "name": "Khom Khlang",
+      "poster": "https://i.mydramalist.com/nOlYeW_4f.jpg",
+      "synopsis": "Una racional agente de policía se ve obligada a colaborar con una maestra espiritual que cree en la fe y los rituales ancestrales.\n\nJuntos, deben descubrir una verdad oculta en un mundo de escrituras sagradas, símbolos místicos y prácticas ocultas. A medida que la investigación se profundiza, también lo hace una conexión innegable entre ellas, una que se vuelve demasiado poderosa como para ignorarla.",
+      "year": "",
+      "country": "Tailandia",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/II86VoZ6v3A?si=p0dX_ZBvIpN73KVe",
+      "bookSource": "Formidable eyes",
+      "basedOnBook": true,
+      "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/364040/Thumbnail/book_detail_large.gif?2",
+      "bookLinks": [
+        {
+          "lang": "es",
+          "store": "MEB",
+          "url": "https://en.mebmarket.com/?action=book_details&book_id=364040"
+        },
+        {
+          "lang": "en",
+          "store": "MEB",
+          "url": "https://en.mebmarket.com/?action=book_details&book_id=332990"
+        },
+        {
+          "lang": "th",
+          "store": "MEB",
+          "url": "https://www.mebmarket.com/ebook-301657-%E0%B8%82%E0%B9%88%E0%B8%A1%E0%B8%82%E0%B8%A5%E0%B8%B1%E0%B8%87"
+        }
+      ],
+      "bookUrl": "https://en.mebmarket.com/?action=book_details&book_id=364040",
+      "upcoming": true,
+      "skipDates": [],
+      "episodes": []
+    },
+    {
+      "id": "1776974252950",
+      "name": "Hidden Heart",
+      "poster": "https://i.mydramalist.com/3odRdm_4f.jpg",
+      "synopsis": "La persona adecuada en el momento adecuado es sin duda amor, pero la persona adecuada en el momento equivocado sólo puede ser valorada como...\n\nEl corazón oculto del amor.",
+      "year": "",
+      "country": "Tailandia",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/DBfacLBfsrA?si=jtgVCc984JsbZZdh",
+      "bookSource": "Hidden Heart",
+      "basedOnBook": true,
+      "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/157052/Thumbnail/book_detail_large.gif?10",
+      "bookLinks": [
+        {
+          "lang": "th",
+          "store": "MEB",
+          "url": "https://www.mebmarket.com/ebook-157052-Hidden-Heart-%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%9E%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B9%83%E0%B8%88"
+        }
+      ],
+      "bookUrl": "https://www.mebmarket.com/ebook-157052-Hidden-Heart-%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%9E%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B9%83%E0%B8%88",
+      "upcoming": true,
+      "skipDates": [],
+      "episodes": []
+    },
+    {
+      "id": "1776974479970",
+      "name": "My Only Sunshine",
+      "poster": "https://i.mydramalist.com/l0p7eE_4f.jpg",
+      "synopsis": "La prometedora actriz Sun lleva años intentando conquistar a Rafah, una influyente ejecutiva de coches de lujo y hermana mayor de su mejor amiga.\n\nPero cuando la química en pantalla de Sun con una actriz también en ascenso desata rumores de romance, los sentimientos reprimidos de Rafah se transforman en celos. Mientras escándalos, fotos filtradas y avistamientos sospechosos empiezan a surgir, Rafah se muda al apartamento de Sun para protegerla y controlarla.\n\nSin embargo, cuando Sun comienza a aparecer en lugares donde jura no haber estado nunca, empieza a dudar de todo. La verdad es más impactante que cualquier rumor: Sun tiene una hermana gemela perdida hace mucho tiempo.\n\nCon una exnovia decidida a recuperar a Rafah y un vídeo filtrado que amenaza con destruir la carrera de Sun, el amor se convierte en un campo de batalla de confianza, obsesión y secretos ocultos.",
+      "year": 2026,
+      "country": "Tailandia",
+      "network": "iQiyi",
+      "networkUrl": "https://www.iq.com/album/my-only-sunshine-2026-1e2grren3yh?lang=en_us",
+      "watchLinks": [
+        {
+          "name": "iQiyi",
+          "url": "https://www.iq.com/album/my-only-sunshine-2026-1e2grren3yh?lang=en_us"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/j-sUaX2b6lw?si=AJSyW8CjhyLMKAT9",
+      "bookSource": "My Only Sunshine",
+      "basedOnBook": true,
+      "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/211350/Thumbnail/book_detail_large.gif?11",
+      "bookLinks": [
+        {
+          "lang": "es",
+          "store": "MEB",
+          "url": "https://www.mebmarket.com/ebook-352957-My-Only-Sunshine-Spanish-Version"
+        },
+        {
+          "lang": "en",
+          "store": "MEB",
+          "url": "https://www.mebmarket.com/ebook-340414-My-Only-Sunshine-%E0%B8%95%E0%B8%B0%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%A3%E0%B8%B0%E0%B8%9F%E0%B9%89%E0%B8%B2-English-Version"
+        },
+        {
+          "lang": "th",
+          "store": "MEB",
+          "url": "https://www.mebmarket.com/ebook-211350-My-only-sunshine-%E0%B8%95%E0%B8%B0%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%A3%E0%B8%B0%E0%B8%9F%E0%B9%89%E0%B8%B2"
+        }
+      ],
+      "bookUrl": "https://www.mebmarket.com/ebook-352957-My-Only-Sunshine-Spanish-Version",
+      "upcoming": false,
+      "startDate": "2026-02-25",
+      "dayOfWeek": 2,
+      "emissionDays": [
+        2
+      ],
+      "totalEpisodes": 8,
+      "skipDates": [],
+      "episodes": [
+        {
+          "num": 8,
+          "date": "2026-04-22",
+          "skipped": false
+        }
+      ]
     }
   ],
   "movies": [
@@ -1136,5 +1251,5 @@
       "bookUrl": ""
     }
   ],
-  "exportedAt": "2026-04-23T19:45:31.764Z"
+  "exportedAt": "2026-04-23T20:02:50.663Z"
 }
