@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — GL Series Calendar</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fdf6f9; --surface: #fff; --surface2: #fdf0f5;
+  --border: rgba(220,150,180,0.2); --border2: rgba(220,150,180,0.4);
+  --text: #3a2535; --muted: #9c7a8a; --accent: #d4608a; --accent2: #e891b0;
+  --accent-soft: #f7dce9; --teal: #5bbcb0; --teal-soft: #d4f0ed;
+  --lavender: #9b82c9; --lavender-soft: #ede7f8;
+  --yellow: #e8c16a; --yellow-soft: #fdf3d8;
+  --danger: #d45c5c; --success: #5bb88a; --radius: 14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;font-size:14px;line-height:1.6;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background:
+  radial-gradient(circle at 10% 20%,rgba(212,96,138,0.05) 0%,transparent 50%),
+  radial-gradient(circle at 90% 80%,rgba(155,130,201,0.07) 0%,transparent 50%);
+  pointer-events:none;z-index:0}
+.topbar{background:var(--surface);border-bottom:1px solid var(--border2);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:58px;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(212,96,138,0.06)}
+.logo{font-family:'Playfair Display',serif;font-size:20px;color:var(--accent);display:flex;align-items:center;gap:8px}
+.logo-badge{background:var(--accent-soft);color:var(--accent);font-family:'Nunito',sans-serif;font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;letter-spacing:.05em}
+.topbar-actions{display:flex;gap:8px}
+.container{max-width:980px;margin:0 auto;padding:2rem 1.5rem;position:relative;z-index:1}
+.page-title{font-family:'Playfair Display',serif;font-size:30px;color:var(--text);margin-bottom:.2rem}
+.page-sub{color:var(--muted);font-size:13px;margin-bottom:2rem}
+.card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:1.5rem;margin-bottom:1rem;box-shadow:0 2px 16px rgba(212,96,138,0.05)}
+.card-title{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:1rem;font-weight:600}
+.section-tabs{display:flex;gap:6px;margin-bottom:1rem}
+.stab{padding:6px 18px;border-radius:20px;border:1.5px solid var(--border2);cursor:pointer;font-size:13px;font-weight:600;background:transparent;color:var(--muted);font-family:'Nunito',sans-serif;transition:all .15s}
+.stab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.series-grid{display:grid;gap:10px}
+.series-item{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:1rem 1.25rem;display:flex;align-items:center;gap:1rem;transition:box-shadow .2s}
+.series-item:hover{box-shadow:0 4px 16px rgba(212,96,138,0.1)}
+.series-poster{width:40px;height:58px;border-radius:8px;object-fit:cover;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.series-poster-ph{width:40px;height:58px;border-radius:8px;background:var(--accent-soft);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;color:var(--accent)}
+.series-info{flex:1;min-width:0}
+.series-name{font-size:15px;font-weight:600;color:var(--text);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.series-meta{font-size:12px;color:var(--muted);margin-top:2px}
+.series-actions{display:flex;gap:6px;flex-shrink:0}
+.badge{font-size:10px;padding:2px 8px;border-radius:20px;font-weight:700;white-space:nowrap}
+.badge-book{background:#fdf3d8;color:#b08a00;border:1px solid rgba(176,138,0,0.25)}
+.badge-upcoming{background:var(--lavender-soft);color:var(--lavender);border:1px solid rgba(155,130,201,0.3)}
+.btn{padding:7px 16px;border-radius:20px;border:1.5px solid var(--border2);cursor:pointer;font-size:13px;font-family:'Nunito',sans-serif;font-weight:600;background:transparent;color:var(--text);transition:all .15s}
+.btn:hover{background:var(--accent-soft);border-color:var(--accent2);color:var(--accent)}
+.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn.primary:hover{background:var(--accent2);border-color:var(--accent2)}
+.btn.danger{color:var(--danger);border-color:rgba(212,92,92,.3)}
+.btn.danger:hover{background:rgba(212,92,92,.08)}
+.btn.small{padding:5px 12px;font-size:12px}
+.btn.export{background:var(--teal);color:#fff;border-color:var(--teal)}
+.btn.export:hover{opacity:.88}
+.modal-bg{position:fixed;inset:0;background:rgba(58,37,53,.5);display:none;align-items:center;justify-content:center;z-index:200;padding:1rem;backdrop-filter:blur(2px)}
+.modal-bg.open{display:flex}
+.modal{background:var(--surface);border:1.5px solid var(--border2);border-radius:20px;padding:1.75rem;width:100%;max-width:540px;max-height:92vh;overflow-y:auto;box-shadow:0 20px 60px rgba(212,96,138,0.15)}
+.modal-title{font-family:'Playfair Display',serif;font-size:22px;margin-bottom:1.25rem;color:var(--text)}
+.form-row{margin-bottom:14px}
+.form-label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+.form-row input,.form-row select,.form-row textarea{width:100%;padding:9px 14px;border-radius:10px;border:1.5px solid var(--border2);background:var(--surface2);color:var(--text);font-size:14px;font-family:'Nunito',sans-serif;outline:none;transition:border-color .15s}
+.form-row textarea{resize:vertical;min-height:70px;line-height:1.5}
+.form-row input:focus,.form-row select:focus,.form-row textarea:focus{border-color:var(--accent)}
+.form-row-half{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn-row{display:flex;gap:8px;justify-content:flex-end;margin-top:1.25rem}
+.toggle-row{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;background:var(--surface2);border:1px solid var(--border);margin-bottom:8px;cursor:pointer}
+.toggle-row input[type=checkbox]{accent-color:var(--accent);width:16px;height:16px}
+.toggle-label{font-size:13px;color:var(--text);font-weight:600;flex:1}
+.toggle-desc{font-size:11px;color:var(--muted)}
+.dow-selector{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.dow-chip{padding:6px 14px;border-radius:20px;border:1.5px solid var(--border2);cursor:pointer;font-size:13px;font-weight:600;background:var(--surface2);color:var(--muted);transition:all .15s;user-select:none}
+.dow-chip.selected{background:var(--accent);border-color:var(--accent);color:#fff}
+.dow-chip:hover:not(.selected){border-color:var(--accent2);color:var(--accent)}
+.poster-row{display:flex;align-items:flex-start;gap:14px;margin-top:8px}
+.poster-preview{width:58px;height:86px;border-radius:10px;object-fit:cover;border:1.5px solid var(--border2);flex-shrink:0;display:none;background:var(--surface2)}
+.poster-hint{font-size:12px;color:var(--muted);line-height:1.8}
+.poster-hint a{color:var(--accent);text-decoration:none;font-weight:600}
+.poster-hint a:hover{text-decoration:underline}
+.ep-list{display:grid;gap:5px;max-height:360px;overflow-y:auto;margin-top:8px}
+.ep-row{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:10px;border:1px solid var(--border);background:var(--surface2);cursor:pointer;transition:all .15s}
+.ep-row:hover{border-color:var(--border2);background:var(--accent-soft)}
+.ep-num{font-size:12px;color:var(--muted);min-width:26px;font-weight:600}
+.ep-date{flex:1;font-size:13px;color:var(--text)}
+.ep-status{font-size:11px;padding:2px 10px;border-radius:20px;font-weight:600}
+.ep-status.aired{background:var(--teal-soft);color:var(--teal)}
+.ep-status.pending{background:var(--accent-soft);color:var(--accent)}
+.ep-status.skipped{background:#f0eeee;color:#aaa}
+.ep-status.modified{background:var(--yellow-soft);color:#b08a00}
+.notice{background:var(--accent-soft);border:1.5px solid var(--border2);border-radius:12px;padding:12px 16px;font-size:13px;color:var(--text);margin-bottom:1.5rem;line-height:1.7}
+.notice strong{color:var(--accent)}
+.export-box{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:1.25rem}
+.export-instructions{font-size:13px;color:var(--muted);line-height:1.8}
+.export-instructions strong{color:var(--text)}
+.export-instructions ol{padding-left:1.25rem;margin-top:.5rem}
+.export-instructions li{margin-bottom:4px}
+code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;border-radius:6px;font-size:12px}
+.empty{text-align:center;color:var(--muted);padding:2.5rem;font-size:13px}
+.progress-wrap{margin-top:6px;height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;border-radius:2px;transition:width .3s}
+.ep-edit-info{font-size:13px;color:var(--muted);background:var(--surface2);border-radius:10px;padding:10px 14px;margin-bottom:1rem;line-height:1.6}
+.ep-edit-info strong{color:var(--text)}
+.divider{height:1px;background:var(--border);margin:14px 0}
+.section-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:600;margin-bottom:10px}
+.form-hint{font-size:11px;color:var(--muted);margin-top:4px}
+.unsaved-bar{position:sticky;top:58px;z-index:49;background:#fff8e1;border-bottom:2px solid #f0c030;padding:8px 2rem;display:none;align-items:center;justify-content:space-between;font-size:13px;color:#7a5a00;font-weight:600}
+.unsaved-bar.visible{display:flex}
+.unsaved-bar span{display:flex;align-items:center;gap:6px}
+.book-item{background:#fdf3d8;border:1px solid rgba(176,138,0,0.2);border-radius:12px;padding:1rem 1.25rem;display:flex;align-items:center;gap:1rem}
+.book-item-cover{width:40px;height:58px;border-radius:6px;object-fit:cover;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.book-item-cover-ph{width:40px;height:58px;border-radius:6px;background:#f0e0a0;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.book-item-info{flex:1;min-width:0}
+.book-item-title{font-size:14px;font-weight:700;color:#7a5a00;line-height:1.3}
+.book-item-meta{font-size:12px;color:#b08a00;margin-top:2px}
+
+/* Admin toolbar */
+.admin-toolbar{display:flex;flex-direction:column;gap:10px;margin-bottom:1rem}
+.admin-search-wrap{position:relative}
+.admin-search-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);font-size:14px;pointer-events:none}
+.admin-search-input{width:100%;padding:9px 14px 9px 38px;border-radius:20px;border:1.5px solid var(--border2);background:var(--surface2);color:var(--text);font-size:14px;font-family:'Nunito',sans-serif;outline:none;transition:border-color .15s}
+.admin-search-input:focus{border-color:var(--accent)}
+.admin-filter-pills{display:flex;gap:6px;flex-wrap:wrap}
+.admin-pill{padding:5px 14px;border-radius:20px;border:1.5px solid var(--border2);cursor:pointer;font-size:12px;font-weight:700;background:transparent;color:var(--muted);font-family:'Nunito',sans-serif;transition:all .15s;white-space:nowrap}
+.admin-pill:hover{border-color:var(--accent2);color:var(--accent)}
+.admin-pill.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.series-count-label{font-size:12px;color:var(--muted);margin-bottom:.75rem}
+.series-count-label strong{color:var(--text)}
+
+/* Multiple platforms */
+.platforms-list{display:flex;flex-direction:column;gap:7px;margin-top:6px}
+.platform-row{display:flex;gap:7px;align-items:center}
+.platform-row input{flex:1;padding:8px 12px;border-radius:10px;border:1.5px solid var(--border2);background:var(--surface2);color:var(--text);font-size:13px;font-family:'Nunito',sans-serif;outline:none;transition:border-color .15s}
+.platform-row input:focus{border-color:var(--accent)}
+.platform-row input::placeholder{color:var(--muted)}
+.platform-del-btn{width:30px;height:30px;border-radius:8px;border:1.5px solid rgba(212,92,92,.3);background:transparent;color:var(--danger);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;font-family:'Nunito',sans-serif}
+.platform-del-btn:hover{background:rgba(212,92,92,.08);border-color:var(--danger)}
+.platform-add-btn{font-size:12px;font-weight:700;color:var(--accent);background:var(--accent-soft);border:1.5px solid var(--border2);border-radius:20px;padding:4px 13px;cursor:pointer;font-family:'Nunito',sans-serif;margin-top:4px;transition:all .15s}
+.platform-add-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* Status badges in admin list */
+.badge-airing{background:var(--accent-soft);color:var(--accent);border:1px solid var(--border2)}
+.badge-finished{background:var(--teal-soft);color:var(--teal);border:1px solid rgba(91,188,176,0.3)}
+
+/* Book editions widget */
+.book-editions-list{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.book-edition-row{display:grid;grid-template-columns:auto 110px 1fr auto;gap:6px;align-items:center;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:8px 10px}
+.book-edition-lang{font-size:20px;flex-shrink:0;cursor:default;user-select:none}
+.book-edition-row select,.book-edition-row input{padding:7px 10px;border-radius:8px;border:1.5px solid var(--border2);background:var(--surface);color:var(--text);font-size:13px;font-family:'Nunito',sans-serif;outline:none;transition:border-color .15s;width:100%}
+.book-edition-row select:focus,.book-edition-row input:focus{border-color:var(--accent)}
+@media(max-width:480px){
+  .book-edition-row{grid-template-columns:auto 1fr auto;grid-template-rows:auto auto}
+  .book-edition-row input{grid-column:1/-2;grid-row:2}
+  .book-edition-row .platform-del-btn{grid-row:1;grid-column:3}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="logo">🌸 GL Series Calendar <span class="logo-badge">ADMIN</span></span>
+  <div class="topbar-actions">
+    <button class="btn small" onclick="document.getElementById('importFile').click()">⬆ Importar data.json</button>
+    <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
+    <button class="btn small" onclick="window.open('index.html','_blank')">👁 Ver público</button>
+    <button class="btn export small" onclick="exportData()">⬇ Exportar data.json</button>
+  </div>
+</div>
+<div class="unsaved-bar" id="unsavedBar">
+  <span>⚠️ Tienes cambios sin exportar. Recuerda exportar <code>data.json</code> y subirlo a GitHub.</span>
+  <button class="btn small export" onclick="exportData()">⬇ Exportar ahora</button>
+</div>
+<div class="container">
+  <h1 class="page-title">✦ Panel de administración</h1>
+  <p class="page-sub">Gestiona las series GL y exporta para actualizar la web.</p>
+  <div class="notice"><strong>¿Cómo funciona?</strong> Añade aquí todas las series. Cuando quieras que tus amig@s vean los cambios, pulsa <strong>"Exportar data.json"</strong> y súbelo a GitHub.</div>
+
+  <div class="card">
+    <div class="card-title">🌷 Series</div>
+    <div class="admin-toolbar">
+      <div class="admin-search-wrap">
+        <span class="admin-search-icon">🔍</span>
+        <input class="admin-search-input" id="adminSeriesQ" placeholder="Buscar por nombre, país, plataforma…" oninput="render()">
+      </div>
+      <div class="admin-filter-pills" id="adminStatusPills">
+        <button class="admin-pill active" data-status="all" onclick="setAdminStatus('all',this)">Todas</button>
+        <button class="admin-pill" data-status="airing" onclick="setAdminStatus('airing',this)">🌸 Emisión</button>
+        <button class="admin-pill" data-status="finished" onclick="setAdminStatus('finished',this)">✓ Finalizadas</button>
+        <button class="admin-pill" data-status="upcoming" onclick="setAdminStatus('upcoming',this)">📅 Próximas</button>
+      </div>
+    </div>
+    <button class="btn primary" style="margin-bottom:1rem;width:100%" onclick="openAddSeries()">+ Añadir nueva serie</button>
+    <div class="series-count-label" id="seriesCountLabel"></div>
+    <div class="series-grid" id="seriesGrid"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🎥 Películas</div>
+    <button class="btn primary" style="margin-bottom:1rem;width:100%" onclick="openAddMovie()">+ Añadir película</button>
+    <div class="series-grid" id="moviesGrid"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📚 Libros registrados</div>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:1rem">Libros, novelas y manhwas enlazados desde series o películas marcadas como <strong>"Basada en libro"</strong>. Para añadir o editar, edita la serie/película correspondiente.</p>
+    <div class="series-grid" id="booksGrid"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📤 Cómo publicar cambios</div>
+    <div class="export-box"><div class="export-instructions">Cada vez que hagas cambios, sigue estos pasos:
+      <ol>
+        <li>Pulsa <strong>"Exportar data.json"</strong> arriba.</li>
+        <li>Ve a tu repositorio en <strong>github.com</strong>.</li>
+        <li>Haz clic en el archivo <code>data.json</code> y luego en el icono del lápiz ✏️</li>
+        <li>Borra todo el contenido y pega el del archivo descargado.</li>
+        <li>Pulsa <strong>"Commit changes"</strong>. En segundos tus amig@s verán los cambios.</li>
+      </ol>
+    </div></div>
+  </div>
+</div>
+
+<!-- Modal serie -->
+<div class="modal-bg" id="seriesModal">
+  <div class="modal">
+    <div class="modal-title" id="seriesModalTitle"></div>
+    <div id="seriesModalBody"></div>
+  </div>
+</div>
+<!-- Modal película -->
+<div class="modal-bg" id="movieModal">
+  <div class="modal">
+    <div class="modal-title" id="movieModalTitle"></div>
+    <div id="movieModalBody"></div>
+  </div>
+</div>
+<!-- Modal episodios -->
+<div class="modal-bg" id="epsModal">
+  <div class="modal">
+    <div class="modal-title" id="epsModalTitle"></div>
+    <div id="epsModalBody"></div>
+  </div>
+</div>
+<!-- Modal editar episodio -->
+<div class="modal-bg" id="epEditModal">
+  <div class="modal">
+    <div class="modal-title">✏️ Editar episodio</div>
+    <div id="epEditBody"></div>
+  </div>
+</div>
+
+<script>
+const DAYS_ES=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
+const MONTHS_ES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+const PALETTE=['#d4608a','#5bbcb0','#9b82c9','#e8a84a','#e06fa0','#4eadb5','#b07ad4','#d47a4e'];
+
+let series = [];
+let movies = [];
+let currentStab = 'active';
+function save(){
+  /* los datos viven solo en memoria; exporta data.json para guardar permanentemente */
+  document.getElementById('unsavedBar').classList.add('visible');
+}
+
+async function initData(){
+  try{
+    const r = await fetch('data.json?t='+Date.now());
+    if(r.ok){
+      const d = await r.json();
+      if(d.series) series = d.series;
+      if(d.movies) movies = d.movies;
+    }
+  } catch(e){ /* sin data.json disponible, empezamos vacíos */ }
+  render(); renderBooks();
+}
+
+function getDow(d){ return (new Date(d+'T12:00:00').getDay()+6)%7; }
+function addDays(d,n){ const x=new Date(d+'T12:00:00'); x.setDate(x.getDate()+n); return x.toISOString().slice(0,10); }
+function fmtDate(d){ const x=new Date(d+'T12:00:00'); return `${x.getDate()} ${MONTHS_ES[x.getMonth()].slice(0,3)} ${x.getFullYear()}`; }
+function getEmissionDays(s){ if(s.emissionDays&&s.emissionDays.length>0) return [...s.emissionDays].sort((a,b)=>a-b); if(s.dayOfWeek!==undefined) return [s.dayOfWeek]; return [0]; }
+
+function genEpisodes(s){
+  const days=getEmissionDays(s), skipDates=new Set(s.skipDates||[]), epOverrides=s.episodes||[];
+  let firstDate=null;
+  for(let o=0;o<14;o++){ const c=addDays(s.startDate,o); if(days.includes(getDow(c))){ firstDate=c; break; } }
+  if(!firstDate) firstDate=s.startDate;
+  const weekStart=addDays(firstDate,-getDow(firstDate));
+  const slots=[], weeksNeeded=Math.ceil((s.totalEpisodes+(skipDates.size||0))/days.length)+4;
+  for(let w=0;w<weeksNeeded&&slots.length<s.totalEpisodes+skipDates.size+10;w++){
+    for(const d of days){ const date=addDays(weekStart,d+w*7); if(date>=firstDate) slots.push(date); }
+  }
+  const validSlots=slots.filter(d=>!skipDates.has(d));
+  const eps=[];
+  for(let i=0;i<s.totalEpisodes;i++){
+    const epNum=i+1, baseDate=validSlots[i]||addDays(firstDate,i*7);
+    const ov=epOverrides.find(e=>e.num===epNum);
+    eps.push(ov?{...ov}:{num:epNum,date:baseDate,skipped:false});
+  }
+  return eps;
+}
+
+let adminSeriesStatus = 'all';
+function setAdminStatus(status, btn){
+  adminSeriesStatus = status;
+  document.querySelectorAll('.admin-pill').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+}
+
+function getSeriesStatus(s){
+  if(s.upcoming) return 'upcoming';
+  const now=new Date();
+  const eps=genEpisodes(s);
+  return eps.some(e=>new Date(e.date+'T12:00:00')>now&&!e.skipped)?'airing':'finished';
+}
+
+function switchStab(tab){
+  const map={active:'all',upcoming:'upcoming'};
+  adminSeriesStatus=map[tab]||'all';
+  document.querySelectorAll('.admin-pill').forEach(p=>{
+    p.classList.toggle('active', p.dataset.status===adminSeriesStatus);
+  });
+  render();
+}
+
+function render(){
+  const grid=document.getElementById('seriesGrid');
+  const q=(document.getElementById('adminSeriesQ')?.value||'').toLowerCase().trim();
+  let filtered=series.filter(s=>{
+    if(adminSeriesStatus!=='all'){
+      const st=getSeriesStatus(s);
+      if(adminSeriesStatus!==st) return false;
+    }
+    if(q){
+      return s.name.toLowerCase().includes(q)||(s.country||'').toLowerCase().includes(q)||(s.network||'').toLowerCase().includes(q)||
+        (s.watchLinks||[]).some(l=>(l.name||'').toLowerCase().includes(q)||(l.url||'').toLowerCase().includes(q));
+    }
+    return true;
+  });
+
+  const countLabel=document.getElementById('seriesCountLabel');
+  if(countLabel){
+    const total=series.length;
+    countLabel.innerHTML=filtered.length===total
+      ?`<strong>${total}</strong> series en total`
+      :`Mostrando <strong>${filtered.length}</strong> de <strong>${total}</strong> series`;
+  }
+
+  if(!filtered.length){
+    grid.innerHTML=`<div class="empty">${q?'🔍 No se encontró ninguna serie con esa búsqueda.':adminSeriesStatus==='upcoming'?'📅 No hay series próximamente.':'🌸 No hay series todavía.'}</div>`;
+  } else {
+    grid.innerHTML='';
+    filtered.forEach((s)=>{
+      const si=series.indexOf(s);
+      const col=PALETTE[si%PALETTE.length];
+      const status=getSeriesStatus(s);
+      const div=document.createElement('div'); div.className='series-item';
+      const posterEl=s.poster?`<img class="series-poster" src="${s.poster}" alt="${s.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`:'' ;
+      const phEl=`<div class="series-poster-ph" style="${s.poster?'display:none':''}">🎬</div>`;
+      let metaStr='';
+      const statusBadge=s.upcoming
+        ?'<span class="badge badge-upcoming">📅 Próximamente</span>'
+        :status==='airing'?'<span class="badge badge-airing">🌸 En emisión</span>'
+        :'<span class="badge badge-finished">✓ Finalizada</span>';
+      if(s.upcoming){
+        metaStr=`${s.year?s.year+' · ':''}${s.country||''}`;
+      } else {
+        const eps=genEpisodes(s), now=new Date();
+        const aired=eps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
+        const pct=Math.round(aired/s.totalEpisodes*100);
+        const daysLabel=getEmissionDays(s).map(d=>DAYS_ES[d]).join(' y ');
+        metaStr=`${s.network?s.network+' · ':''}${s.totalEpisodes} ep · ${daysLabel}`;
+      }
+      const bookBadge=s.basedOnBook?'<span class="badge badge-book">📖 Libro</span>':'';
+      div.innerHTML=`${posterEl}${phEl}
+        <div class="series-info">
+          <div class="series-name">${s.name} ${statusBadge}${bookBadge}</div>
+          <div class="series-meta">${metaStr}</div>
+          ${!s.upcoming?`<div class="progress-wrap" style="margin-top:6px;height:4px;background:var(--border);border-radius:2px;overflow:hidden"><div class="progress-fill" style="width:${(()=>{const eps=genEpisodes(s),now=new Date(),a=eps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;return Math.round(a/s.totalEpisodes*100)})()}%;background:${col}"></div></div>`:''}
+        </div>
+        <div class="series-actions">
+          ${!s.upcoming?`<button class="btn small" onclick="openEps(${si})">Episodios</button>`:''}
+          <button class="btn small" onclick="openEdit(${si})">Editar</button>
+          <button class="btn small danger" onclick="delSeries(${si})">✕</button>
+        </div>`;
+      grid.appendChild(div);
+    });
+  }
+  renderMovies();
+}
+
+function renderMovies(){
+  const grid=document.getElementById('moviesGrid');
+  if(!movies.length){grid.innerHTML='<div class="empty">🎥 No hay películas todavía.</div>';return;}
+  grid.innerHTML='';
+  movies.forEach((mv,mi)=>{
+    const div=document.createElement('div'); div.className='series-item';
+    const posterEl=mv.poster?`<img class="series-poster" src="${mv.poster}" alt="${mv.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`:'' ;
+    const phEl=`<div class="series-poster-ph" style="${mv.poster?'display:none':''}">🎥</div>`;
+    const bookBadge=mv.basedOnBook?'<span class="badge badge-book">📖 Libro</span>':'';
+    const now=new Date();
+    const isPast=mv.date&&new Date(mv.date+'T12:00:00')<=now;
+    const statusBadge=mv.date?(isPast?'<span class="badge" style="background:var(--teal-soft);color:var(--teal)">✓ Estrenada</span>':'<span class="badge badge-upcoming">📅 Pendiente</span>'):'<span class="badge" style="background:var(--surface2);color:var(--muted)">Sin fecha</span>';
+    const metaStr=`${mv.network?mv.network+' · ':''}${mv.date?fmtDate(mv.date):'Fecha por confirmar'}`;
+    div.innerHTML=`${posterEl}${phEl}
+      <div class="series-info">
+        <div class="series-name">${mv.name} ${bookBadge}${statusBadge}</div>
+        <div class="series-meta">${metaStr}</div>
+      </div>
+      <div class="series-actions">
+        <button class="btn small" onclick="openEditMovie(${mi})">Editar</button>
+        <button class="btn small danger" onclick="delMovie(${mi})">✕</button>
+      </div>`;
+    grid.appendChild(div);
+  });
+}
+
+function closeAll(){ document.querySelectorAll('.modal-bg').forEach(m=>m.classList.remove('open')); }
+document.querySelectorAll('.modal-bg').forEach(m=>m.addEventListener('click',e=>{ if(e.target===m)closeAll(); }));
+
+function bindPoster(){
+  const inp=document.getElementById('f_poster'),prev=document.getElementById('posterPreview');
+  if(!inp||!prev) return;
+  inp.addEventListener('input',()=>{ if(inp.value.trim()){prev.src=inp.value.trim();prev.style.display='block';}else{prev.style.display='none';} });
+  if(inp.value.trim()){prev.src=inp.value.trim();prev.style.display='block';}
+  const bcInp=document.getElementById('f_bookcoverurl'),bcPrev=document.getElementById('bookCoverPreview');
+  if(bcInp&&bcPrev){
+    bcInp.addEventListener('input',()=>{ if(bcInp.value.trim()){bcPrev.src=bcInp.value.trim();bcPrev.style.display='block';}else{bcPrev.style.display='none';} });
+  }
+}
+function toggleBookFields(){
+  const checked=document.getElementById('f_book')?.checked;
+  const el=document.getElementById('bookExtraFields');
+  if(el) el.style.display=checked?'':'none';
+}
+function bindDowChips(){ document.querySelectorAll('.dow-chip').forEach(c=>c.addEventListener('click',()=>c.classList.toggle('selected'))); }
+function getSelectedDays(){ return [...document.querySelectorAll('.dow-chip.selected')].map(c=>parseInt(c.dataset.dow)).sort((a,b)=>a-b); }
+function toggleUpcomingFields(){
+  const up=document.getElementById('f_upcoming')?.checked;
+  const schedFields=document.getElementById('schedFields');
+  if(schedFields) schedFields.style.display=up?'none':'';
+}
+
+function formHtml(s){
+  const today=new Date().toISOString().slice(0,10);
+  const currentDays=s?getEmissionDays(s):[];
+  const chips=DAYS_ES.map((d,i)=>`<div class="dow-chip${currentDays.includes(i)?' selected':''}" data-dow="${i}">${d}</div>`).join('');
+  const isUpcoming=s&&s.upcoming;
+  return `
+  <div class="form-row"><label class="form-label">Nombre *</label><input id="f_name" placeholder="Ej: Bloom Into You" value="${s?s.name:''}"/></div>
+  <div class="form-row">
+    <label class="form-label">URL de la portada</label>
+    <input id="f_poster" placeholder="https://image.tmdb.org/..." value="${s&&s.poster?s.poster:''}"/>
+    <div class="poster-row"><img id="posterPreview" class="poster-preview" alt="Portada">
+      <div class="poster-hint">1. Ve a <a href="https://www.themoviedb.org" target="_blank">themoviedb.org</a> o <a href="https://myanimelist.net" target="_blank">myanimelist.net</a><br>
+        2. Abre la página de la serie<br>3. Clic derecho en la portada → <strong>"Copiar dirección de imagen"</strong></div>
+    </div>
+  </div>
+  <div class="form-row"><label class="form-label">Sinopsis / Descripción</label><textarea id="f_synopsis" placeholder="Breve descripción de la serie…">${s&&s.synopsis?s.synopsis:''}</textarea></div>
+  <div class="form-row-half">
+    <div class="form-row" style="margin-bottom:0"><label class="form-label">Año</label><input id="f_year" type="number" placeholder="2026" min="2000" max="2030" value="${s&&s.year?s.year:''}"/></div>
+    <div class="form-row" style="margin-bottom:0"><label class="form-label">País</label><input id="f_country" placeholder="Ej: Tailandia, Corea…" value="${s&&s.country?s.country:''}"/></div>
+  </div>
+  <div class="form-row"><label class="form-label">Plataforma / Canal principal</label><input id="f_net" placeholder="Ej: Netflix, WeTV, GMMTV…" value="${s&&s.network?s.network:''}"/></div>
+  <div class="form-row">
+    <label class="form-label">🔗 Dónde ver <span style="text-transform:none;letter-spacing:0;font-weight:400;font-size:11px">(puedes añadir varias plataformas)</span></label>
+    <div class="platforms-list" id="platformsList"></div>
+    <button type="button" class="platform-add-btn" onclick="addPlatformRow()">+ Añadir plataforma</button>
+    <div class="form-hint">Nombre visible (ej: "Netflix España") y enlace directo a la serie.</div>
+  </div>
+  <div class="form-row"><label class="form-label">▶ URL del trailer (YouTube)</label><input id="f_trailer" placeholder="https://www.youtube.com/watch?v=..." value="${s&&s.trailerUrl?s.trailerUrl:''}"/>
+    <div class="form-hint">Pega la URL normal de YouTube. Si no tiene trailer, déjalo vacío.</div>
+  </div>
+  <div class="form-row"><label class="form-label">Libro / Novela original (si aplica)</label><input id="f_booksource" placeholder="Ej: Título de la novela o manhwa" value="${s&&s.bookSource?s.bookSource:''}"/></div>
+  <div id="bookExtraFields" style="${s&&s.basedOnBook?'':'display:none'}">
+    <div class="form-row"><label class="form-label">URL portada del libro</label>
+      <input id="f_bookcoverurl" placeholder="https://..." value="${s&&s.bookCoverUrl?s.bookCoverUrl:''}"/>
+      <div class="poster-row" style="margin-top:6px"><img id="bookCoverPreview" class="poster-preview" alt="Portada libro" style="${s&&s.bookCoverUrl?'display:block':'display:none'}" src="${s&&s.bookCoverUrl?s.bookCoverUrl:''}">
+        <div class="poster-hint">Clic derecho en la portada del libro → <strong>"Copiar dirección de imagen"</strong></div>
+      </div>
+    </div>
+    <div class="form-row"><label class="form-label">Ediciones disponibles <span style="text-transform:none;letter-spacing:0;font-weight:400;font-size:11px">(idioma · tienda · enlace)</span></label>
+      <div class="book-editions-list" id="bookEditionsList"></div>
+      <button type="button" class="platform-add-btn" onclick="addBookEditionRow()" style="margin-top:6px">+ Añadir edición</button>
+      <div class="form-hint">Ej: 🇪🇸 Español en Amazon, 🇬🇧 English en MEB, 🇹🇭 ภาษาไทย en sitio oficial…</div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <label class="toggle-row" onclick="">
+    <input type="checkbox" id="f_book" ${s&&s.basedOnBook?'checked':''} style="width:auto;accent-color:var(--accent)" onchange="toggleBookFields()">
+    <div><div class="toggle-label">📖 Basada en libro / novela / manhwa</div><div class="toggle-desc">Se mostrará una etiqueta especial en la serie</div></div>
+  </label>
+  <label class="toggle-row">
+    <input type="checkbox" id="f_upcoming" ${isUpcoming?'checked':''} style="width:auto;accent-color:var(--lavender)" onchange="toggleUpcomingFields()">
+    <div><div class="toggle-label">📅 Próximamente (sin fecha de emisión)</div><div class="toggle-desc">Se mostrará en la sección "Próximamente", sin calendario</div></div>
+  </label>
+  <div id="schedFields" style="${isUpcoming?'display:none':''}">
+    <div class="divider"></div>
+    <div class="section-label">Programación</div>
+    <div class="form-row"><label class="form-label">Fecha del primer episodio *</label><input id="f_start" type="date" value="${s&&s.startDate?s.startDate:today}"/></div>
+    <div class="form-row">
+      <label class="form-label">Días de emisión * <span style="font-size:11px;text-transform:none;letter-spacing:0;font-weight:400">(puedes seleccionar varios)</span></label>
+      <div class="dow-selector" id="dowSelector">${chips}</div>
+      <div class="form-hint">💡 Si emite varios días a la semana, selecciona todos.</div>
+    </div>
+    <div class="form-row"><label class="form-label">Número total de episodios *</label><input id="f_eps" type="number" min="1" max="500" value="${s&&s.totalEpisodes?s.totalEpisodes:12}"/></div>
+  </div>`;
+}
+
+function openAddSeries(){
+  document.getElementById('seriesModalTitle').textContent='🌸 Añadir serie GL';
+  document.getElementById('seriesModalBody').innerHTML=formHtml(null)+`
+    <div class="btn-row"><button class="btn" onclick="closeAll()">Cancelar</button><button class="btn primary" onclick="saveSeries(-1)">Guardar</button></div>`;
+  document.getElementById('seriesModal').classList.add('open');
+  bindPoster(); bindDowChips(); initPlatforms([]); initBookEditions('bookEditionsList',[],null);
+}
+function openEdit(si){
+  document.getElementById('seriesModalTitle').textContent='✏️ Editar serie';
+  document.getElementById('seriesModalBody').innerHTML=formHtml(series[si])+`
+    <div class="btn-row"><button class="btn" onclick="closeAll()">Cancelar</button><button class="btn primary" onclick="saveSeries(${si})">Guardar cambios</button></div>`;
+  document.getElementById('seriesModal').classList.add('open');
+  bindPoster(); bindDowChips();
+  const links=series[si].watchLinks||(series[si].networkUrl?[{name:series[si].network||'Ver serie',url:series[si].networkUrl}]:[]);
+  initPlatforms(links);
+  initBookEditions('bookEditionsList', series[si].bookLinks||[], series[si].bookUrl||'');
+}
+
+function initPlatforms(links){
+  const list=document.getElementById('platformsList');
+  if(!list) return;
+  list.innerHTML='';
+  if(!links.length){ addPlatformRow('',''); return; }
+  links.forEach(l=>addPlatformRow(l.name,l.url));
+}
+function addPlatformRow(name='',url=''){
+  const list=document.getElementById('platformsList');
+  if(!list) return;
+  const row=document.createElement('div'); row.className='platform-row';
+  row.innerHTML=`<input placeholder="Nombre (ej: Netflix España)" value="${name}" style="max-width:170px">
+    <input placeholder="https://…" value="${url}" style="flex:2">
+    <button type="button" class="platform-del-btn" onclick="this.parentElement.remove()" title="Eliminar">✕</button>`;
+  list.appendChild(row);
+}
+function getWatchLinks(){
+  const rows=document.querySelectorAll('#platformsList .platform-row');
+  const links=[];
+  rows.forEach(r=>{
+    const inputs=r.querySelectorAll('input');
+    const name=inputs[0].value.trim(), url=inputs[1].value.trim();
+    if(url) links.push({name:name||'Ver serie',url});
+  });
+  return links;
+}
+
+/* Book editions */
+const LANG_OPTIONS=[
+  {val:'es',flag:'🇪🇸',label:'Español'},
+  {val:'en',flag:'🇬🇧',label:'English'},
+  {val:'pt',flag:'🇧🇷',label:'Português'},
+  {val:'th',flag:'🇹🇭',label:'ภาษาไทย'},
+  {val:'ko',flag:'🇰🇷',label:'한국어'},
+  {val:'ja',flag:'🇯🇵',label:'日本語'},
+  {val:'zh',flag:'🇨🇳',label:'中文'},
+  {val:'fr',flag:'🇫🇷',label:'Français'},
+  {val:'de',flag:'🇩🇪',label:'Deutsch'},
+  {val:'it',flag:'🇮🇹',label:'Italiano'},
+  {val:'other',flag:'🌐',label:'Otro'},
+];
+const STORE_OPTIONS=['Amazon','MEB','Fnac','BookDepository','Kobo','Apple Books','Google Play','Web oficial','Otro'];
+
+function langFlag(val){ return (LANG_OPTIONS.find(l=>l.val===val)||{flag:'🌐'}).flag; }
+
+function buildEditionRow(listId, lang='es', store='Amazon', url=''){
+  const list=document.getElementById(listId); if(!list) return;
+  const row=document.createElement('div'); row.className='book-edition-row';
+  const langOpts=LANG_OPTIONS.map(l=>`<option value="${l.val}"${l.val===lang?' selected':''}>${l.flag} ${l.label}</option>`).join('');
+  const storeOpts=STORE_OPTIONS.map(s=>`<option${s===store?' selected':''}>${s}</option>`).join('');
+  row.innerHTML=`
+    <select class="edition-lang" onchange="this.previousElementSibling&&(this.previousElementSibling.textContent=langFlag(this.value))" title="Idioma" style="grid-column:1/3">${langOpts}</select>
+    <select class="edition-store" title="Tienda">${storeOpts}</select>
+    <input class="edition-url" placeholder="https://…" value="${url}">
+    <button type="button" class="platform-del-btn" onclick="this.parentElement.remove()" title="Eliminar">✕</button>`;
+  list.appendChild(row);
+}
+
+function addBookEditionRow(){ buildEditionRow('bookEditionsList'); }
+function addMovieBookEditionRow(){ buildEditionRow('movieBookEditionsList'); }
+
+function initBookEditions(listId, editions, legacyUrl){
+  const list=document.getElementById(listId); if(!list) return;
+  list.innerHTML='';
+  if(editions&&editions.length){
+    editions.forEach(e=>buildEditionRow(listId, e.lang||'es', e.store||'Amazon', e.url||''));
+  } else if(legacyUrl){
+    buildEditionRow(listId, 'es', 'Amazon', legacyUrl);
+  }
+}
+
+function getBookEditions(listId){
+  const rows=document.querySelectorAll(`#${listId} .book-edition-row`);
+  const editions=[];
+  rows.forEach(r=>{
+    const lang=r.querySelector('.edition-lang')?.value||'es';
+    const store=r.querySelector('.edition-store')?.value||'Amazon';
+    const url=r.querySelector('.edition-url')?.value.trim()||'';
+    if(url) editions.push({lang,store,url});
+  });
+  return editions;
+}
+
+function saveSeries(si){
+  const name=document.getElementById('f_name').value.trim();
+  const poster=document.getElementById('f_poster').value.trim();
+  const synopsis=document.getElementById('f_synopsis').value.trim();
+  const year=document.getElementById('f_year').value.trim();
+  const country=document.getElementById('f_country').value.trim();
+  const net=document.getElementById('f_net').value.trim();
+  const watchLinks=getWatchLinks();
+  const networkUrl=watchLinks.length?watchLinks[0].url:'';
+  const bookSource=document.getElementById('f_booksource').value.trim();
+  const basedOnBook=document.getElementById('f_book').checked;
+  const bookCoverUrl=document.getElementById('f_bookcoverurl')?.value.trim()||'';
+  const upcoming=document.getElementById('f_upcoming').checked;
+  if(!name){alert('El nombre es obligatorio');return;}
+  const trailerUrl=document.getElementById('f_trailer')?.value.trim()||'';
+  const bookLinks=getBookEditions('bookEditionsList');
+  const bookUrl=bookLinks.length?bookLinks[0].url:'';
+  let payload={name,poster,synopsis,year:year?parseInt(year):'',country,network:net,networkUrl,watchLinks,trailerUrl,bookSource,basedOnBook,bookCoverUrl,bookLinks,bookUrl,upcoming};
+  if(!upcoming){
+    const start=document.getElementById('f_start').value;
+    const eps=parseInt(document.getElementById('f_eps').value);
+    const emissionDays=getSelectedDays();
+    if(!start||isNaN(eps)||eps<1){alert('Rellena fecha, días y número de episodios');return;}
+    if(emissionDays.length===0){alert('Selecciona al menos un día de emisión');return;}
+    payload={...payload,startDate:start,dayOfWeek:emissionDays[0],emissionDays,totalEpisodes:eps};
+  }
+  if(si===-1) series.push({id:Date.now().toString(),...payload,skipDates:[],episodes:[]});
+  else series[si]={...series[si],...payload};
+  save(); closeAll(); render(); renderBooks();
+}
+
+function delSeries(si){
+  if(!confirm(`¿Eliminar "${series[si].name}"?`)) return;
+  series.splice(si,1); save(); render(); renderBooks();
+}
+
+function openEps(si){
+  const s=series[si], eps=genEpisodes(s), now=new Date();
+  document.getElementById('epsModalTitle').textContent=`📋 ${s.name}`;
+  const days=getEmissionDays(s), skipDates=new Set(s.skipDates||[]), epOverrides=s.episodes||[];
+  let firstDate=null;
+  for(let o=0;o<14;o++){ const c=addDays(s.startDate,o); if(days.includes(getDow(c))){ firstDate=c; break; } }
+  if(!firstDate) firstDate=s.startDate;
+  const weekStart=addDays(firstDate,-getDow(firstDate));
+  const allSlots=[], weeksNeeded=Math.ceil((s.totalEpisodes+(skipDates.size||0))/days.length)+4;
+  for(let w=0;w<weeksNeeded&&allSlots.length<s.totalEpisodes+(skipDates.size||0)+10;w++){
+    for(const d of days){ const date=addDays(weekStart,d+w*7); if(date>=firstDate) allSlots.push(date); }
+  }
+  let epCount=0,slotIdx=0,rows=[];
+  while(epCount<s.totalEpisodes&&slotIdx<allSlots.length){
+    const date=allSlots[slotIdx++];
+    if(skipDates.has(date)){ rows.push({type:'skip',date}); }
+    else{ const ov=epOverrides.find(e=>e.num===epCount+1); rows.push({type:'ep',num:epCount+1,date:ov?ov.date:date,skipped:ov?ov.skipped:false,overridden:!!ov}); epCount++; }
+  }
+  let html=`<p style="font-size:12px;color:var(--muted);margin-bottom:10px">Pulsa un episodio para editar. <strong>"+ Descanso"</strong> para marcar semana sin emisión.</p>
+  <button class="btn small" style="margin-bottom:10px;width:100%" onclick="openAddSkip(${si})">+ Añadir semana de descanso</button>
+  <div class="ep-list">`;
+  rows.forEach(row=>{
+    if(row.type==='skip'){
+      html+=`<div class="ep-row" style="background:#f5f5f5;border-color:#e0e0e0;cursor:default;justify-content:space-between">
+        <span style="font-size:12px;color:#aaa">🚫 Descanso</span>
+        <span class="ep-date" style="color:#aaa">${fmtDate(row.date)}</span>
+        <button class="btn small danger" onclick="removeSkip(${si},'${row.date}')">✕</button>
+      </div>`;
+    } else {
+      const isPast=new Date(row.date+'T12:00:00')<=now;
+      let st,lb;
+      if(row.skipped){st='skipped';lb='No emitido';}
+      else if(row.overridden){st='modified';lb='Fecha cambiada';}
+      else if(isPast){st='aired';lb='Emitido';}
+      else{st='pending';lb='Pendiente';}
+      html+=`<div class="ep-row" onclick="openEpEdit(${si},${row.num})"><span class="ep-num">E${row.num}</span><span class="ep-date">${fmtDate(row.date)}</span><span class="ep-status ${st}">${lb}</span></div>`;
+    }
+  });
+  html+=`</div><div class="btn-row" style="margin-top:1rem"><button class="btn" onclick="closeAll()">Cerrar</button></div>`;
+  document.getElementById('epsModalBody').innerHTML=html;
+  document.getElementById('epsModal').classList.add('open');
+}
+
+function openAddSkip(si){
+  const s=series[si], days=getEmissionDays(s), skipDates=new Set(s.skipDates||[]);
+  let suggestion='', firstDate=null;
+  for(let o=0;o<14;o++){ const c=addDays(s.startDate,o); if(days.includes(getDow(c))){ firstDate=c; break; } }
+  if(firstDate){
+    const ws=addDays(firstDate,-getDow(firstDate)), now=new Date().toISOString().slice(0,10);
+    for(let w=0;w<104&&!suggestion;w++){
+      for(const d of days){ const date=addDays(ws,d+w*7); if(date>=now&&!skipDates.has(date)){suggestion=date;break;} }
+    }
+  }
+  document.getElementById('epEditBody').innerHTML=`
+    <div class="ep-edit-info"><strong>${s.name}</strong><br>Elige la fecha del slot que <strong>no se emite</strong>. Los episodios siguientes se desplazarán automáticamente.</div>
+    <div class="form-row"><label class="form-label">Fecha del descanso *</label><input id="skip_date" type="date" value="${suggestion}"/></div>
+    <div class="btn-row"><button class="btn" onclick="openEps(${si})">← Volver</button><button class="btn primary" onclick="saveSkip(${si})">Añadir descanso</button></div>`;
+  document.getElementById('epEditModal').classList.add('open');
+}
+function saveSkip(si){
+  const date=document.getElementById('skip_date').value;
+  if(!date){alert('Selecciona una fecha');return;}
+  if(!series[si].skipDates) series[si].skipDates=[];
+  if(!series[si].skipDates.includes(date)){series[si].skipDates.push(date);series[si].skipDates.sort();}
+  save(); openEps(si);
+}
+function removeSkip(si,date){ if(!series[si].skipDates) return; series[si].skipDates=series[si].skipDates.filter(d=>d!==date); save(); openEps(si); }
+
+function openEpEdit(si,epNum){
+  const s=series[si], ep=genEpisodes(s).find(e=>e.num===epNum), hasOv=(s.episodes||[]).some(e=>e.num===epNum);
+  document.getElementById('epEditBody').innerHTML=`
+    <div class="ep-edit-info"><strong>${s.name}</strong> · Episodio ${epNum}<br>Fecha calculada: <strong>${fmtDate(ep.date)}</strong>${hasOv?'<br><span style="color:#b08a00;font-weight:600">⚠ Fecha cambiada manualmente</span>':''}</div>
+    <div class="section-label">Mover este episodio a otro día</div>
+    <div class="form-row"><label class="form-label">Nueva fecha</label><input id="fe_date" type="date" value="${ep.date}"/>
+      <div class="form-hint">Úsalo si este episodio en concreto se adelanta o retrasa, sin afectar al resto.</div>
+    </div>
+    <div class="divider"></div>
+    <div class="section-label">Estado</div>
+    <div class="form-row"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--text)">
+      <input type="checkbox" id="fe_skip" ${ep.skipped?'checked':''} style="width:auto;accent-color:var(--accent)"/>
+      Marcar como no emitido (cancelado / pospuesto indefinidamente)
+    </label></div>
+    ${hasOv?`<div class="divider"></div><div style="text-align:center"><button class="btn danger small" onclick="resetEp(${si},${epNum})">↩ Restablecer fecha automática</button></div>`:''}
+    <div class="btn-row" style="margin-top:1rem"><button class="btn" onclick="openEps(${si})">← Volver</button><button class="btn primary" onclick="saveEp(${si},${epNum})">Guardar</button></div>`;
+  document.getElementById('epEditModal').classList.add('open');
+}
+function saveEp(si,epNum){
+  const date=document.getElementById('fe_date').value, skipped=document.getElementById('fe_skip').checked;
+  if(!series[si].episodes) series[si].episodes=[];
+  const idx=series[si].episodes.findIndex(e=>e.num===epNum);
+  if(idx>=0) series[si].episodes[idx]={num:epNum,date,skipped};
+  else series[si].episodes.push({num:epNum,date,skipped});
+  save(); openEps(si);
+}
+function resetEp(si,epNum){ if(!series[si].episodes) return; series[si].episodes=series[si].episodes.filter(e=>e.num!==epNum); save(); openEps(si); }
+
+function movieFormHtml(mv){
+  const today=new Date().toISOString().slice(0,10);
+  return `
+  <div class="form-row"><label class="form-label">Nombre *</label><input id="mf_name" placeholder="Ej: The Hidden Moon" value="${mv?mv.name:''}"/></div>
+  <div class="form-row">
+    <label class="form-label">URL de la portada</label>
+    <input id="mf_poster" placeholder="https://image.tmdb.org/..." value="${mv&&mv.poster?mv.poster:''}"/>
+    <div class="poster-row"><img id="moviePosterPreview" class="poster-preview" alt="Portada" style="${mv&&mv.poster?'display:block':'display:none'}" src="${mv&&mv.poster?mv.poster:''}">
+      <div class="poster-hint">Clic derecho en la portada → <strong>"Copiar dirección de imagen"</strong></div>
+    </div>
+  </div>
+  <div class="form-row"><label class="form-label">Sinopsis / Descripción</label><textarea id="mf_synopsis" placeholder="Breve descripción…">${mv&&mv.synopsis?mv.synopsis:''}</textarea></div>
+  <div class="form-row-half">
+    <div class="form-row" style="margin-bottom:0"><label class="form-label">Año</label><input id="mf_year" type="number" placeholder="2026" min="2000" max="2030" value="${mv&&mv.year?mv.year:''}"/></div>
+    <div class="form-row" style="margin-bottom:0"><label class="form-label">País</label><input id="mf_country" placeholder="Ej: Tailandia…" value="${mv&&mv.country?mv.country:''}"/></div>
+  </div>
+  <div class="form-row" style="margin-top:14px"><label class="form-label">Plataforma / Canal principal</label><input id="mf_net" placeholder="Ej: Netflix, iQIYI…" value="${mv&&mv.network?mv.network:''}"/></div>
+  <div class="form-row">
+    <label class="form-label">🔗 Dónde ver <span style="text-transform:none;letter-spacing:0;font-weight:400;font-size:11px">(puedes añadir varias)</span></label>
+    <div class="platforms-list" id="moviePlatformsList"></div>
+    <button type="button" class="platform-add-btn" onclick="addMoviePlatformRow()">+ Añadir plataforma</button>
+  </div>
+  <div class="form-row"><label class="form-label">▶ URL del trailer (YouTube)</label><input id="mf_trailer" placeholder="https://www.youtube.com/watch?v=..." value="${mv&&mv.trailerUrl?mv.trailerUrl:''}"/>
+    <div class="form-hint">Pega la URL normal de YouTube. Si no tiene trailer, déjalo vacío.</div>
+  </div>
+  <div class="form-row"><label class="form-label">Fecha de estreno</label><input id="mf_date" type="date" value="${mv&&mv.date?mv.date:''}"/>
+    <div class="form-hint">Déjalo vacío si aún no tiene fecha confirmada.</div>
+  </div>
+  <div class="divider"></div>
+  <label class="toggle-row">
+    <input type="checkbox" id="mf_book" ${mv&&mv.basedOnBook?'checked':''} style="width:auto;accent-color:var(--accent)" onchange="toggleMovieBookFields()">
+    <div><div class="toggle-label">📖 Basada en libro / novela / manhwa</div><div class="toggle-desc">Se mostrará una etiqueta especial y la info del libro</div></div>
+  </label>
+  <div id="movieBookFields" style="${mv&&mv.basedOnBook?'':'display:none'}">
+    <div class="form-row"><label class="form-label">Título del libro</label><input id="mf_booksource" placeholder="Ej: Título de la novela o manhwa" value="${mv&&mv.bookSource?mv.bookSource:''}"/></div>
+    <div class="form-row"><label class="form-label">URL portada del libro</label>
+      <input id="mf_bookcoverurl" placeholder="https://..." value="${mv&&mv.bookCoverUrl?mv.bookCoverUrl:''}"/>
+      <div class="poster-row" style="margin-top:6px"><img id="movieBookCoverPreview" class="poster-preview" alt="Portada libro" style="${mv&&mv.bookCoverUrl?'display:block':'display:none'}" src="${mv&&mv.bookCoverUrl?mv.bookCoverUrl:''}">
+        <div class="poster-hint">Clic derecho en la portada del libro → <strong>"Copiar dirección de imagen"</strong></div>
+      </div>
+    </div>
+    <div class="form-row"><label class="form-label">Ediciones disponibles <span style="text-transform:none;letter-spacing:0;font-weight:400;font-size:11px">(idioma · tienda · enlace)</span></label>
+      <div class="book-editions-list" id="movieBookEditionsList"></div>
+      <button type="button" class="platform-add-btn" onclick="addMovieBookEditionRow()" style="margin-top:6px">+ Añadir edición</button>
+      <div class="form-hint">Ej: 🇪🇸 Español en Amazon, 🇬🇧 English en MEB…</div>
+    </div>
+  </div>`;
+}
+
+function bindMovieForm(){
+  const p=document.getElementById('mf_poster'),pp=document.getElementById('moviePosterPreview');
+  if(p&&pp){ p.addEventListener('input',()=>{ if(p.value.trim()){pp.src=p.value.trim();pp.style.display='block';}else{pp.style.display='none';} }); }
+  const bc=document.getElementById('mf_bookcoverurl'),bcp=document.getElementById('movieBookCoverPreview');
+  if(bc&&bcp){ bc.addEventListener('input',()=>{ if(bc.value.trim()){bcp.src=bc.value.trim();bcp.style.display='block';}else{bcp.style.display='none';} }); }
+}
+function toggleMovieBookFields(){
+  const checked=document.getElementById('mf_book')?.checked;
+  const el=document.getElementById('movieBookFields');
+  if(el) el.style.display=checked?'':'none';
+}
+
+function openAddMovie(){
+  document.getElementById('movieModalTitle').textContent='🎥 Añadir película';
+  document.getElementById('movieModalBody').innerHTML=movieFormHtml(null)+
+    `<div class="btn-row"><button class="btn" onclick="closeAll()">Cancelar</button><button class="btn primary" onclick="saveMovie(-1)">Guardar</button></div>`;
+  document.getElementById('movieModal').classList.add('open');
+  bindMovieForm(); initMoviePlatforms([]); initBookEditions('movieBookEditionsList',[],null);
+}
+function openEditMovie(mi){
+  document.getElementById('movieModalTitle').textContent='✏️ Editar película';
+  document.getElementById('movieModalBody').innerHTML=movieFormHtml(movies[mi])+
+    `<div class="btn-row"><button class="btn" onclick="closeAll()">Cancelar</button><button class="btn primary" onclick="saveMovie(${mi})">Guardar cambios</button></div>`;
+  document.getElementById('movieModal').classList.add('open');
+  bindMovieForm();
+  const mv=movies[mi];
+  const links=mv.watchLinks||(mv.networkUrl?[{name:mv.network||'Ver película',url:mv.networkUrl}]:[]);
+  initMoviePlatforms(links);
+  initBookEditions('movieBookEditionsList', mv.bookLinks||[], mv.bookUrl||'');
+}
+function initMoviePlatforms(links){
+  const list=document.getElementById('moviePlatformsList'); if(!list) return;
+  list.innerHTML='';
+  if(!links.length){ addMoviePlatformRow('',''); return; }
+  links.forEach(l=>addMoviePlatformRow(l.name,l.url));
+}
+function addMoviePlatformRow(name='',url=''){
+  const list=document.getElementById('moviePlatformsList'); if(!list) return;
+  const row=document.createElement('div'); row.className='platform-row';
+  row.innerHTML=`<input placeholder="Nombre (ej: iQIYI)" value="${name}" style="max-width:160px">
+    <input placeholder="https://…" value="${url}" style="flex:2">
+    <button type="button" class="platform-del-btn" onclick="this.parentElement.remove()" title="Eliminar">✕</button>`;
+  list.appendChild(row);
+}
+function getMovieWatchLinks(){
+  const rows=document.querySelectorAll('#moviePlatformsList .platform-row'); const links=[];
+  rows.forEach(r=>{ const inputs=r.querySelectorAll('input'); const name=inputs[0].value.trim(),url=inputs[1].value.trim(); if(url) links.push({name:name||'Ver película',url}); });
+  return links;
+}
+function saveMovie(mi){
+  const name=document.getElementById('mf_name').value.trim();
+  if(!name){alert('El nombre es obligatorio');return;}
+  const watchLinks=getMovieWatchLinks();
+  const bookLinks=getBookEditions('movieBookEditionsList');
+  const payload={
+    name,
+    poster:document.getElementById('mf_poster').value.trim(),
+    synopsis:document.getElementById('mf_synopsis').value.trim(),
+    year:document.getElementById('mf_year').value?parseInt(document.getElementById('mf_year').value):'',
+    country:document.getElementById('mf_country').value.trim(),
+    network:document.getElementById('mf_net').value.trim(),
+    networkUrl:watchLinks.length?watchLinks[0].url:'',
+    watchLinks,
+    trailerUrl:document.getElementById('mf_trailer')?.value.trim()||'',
+    date:document.getElementById('mf_date').value||'',
+    basedOnBook:document.getElementById('mf_book').checked,
+    bookSource:document.getElementById('mf_booksource')?.value.trim()||'',
+    bookCoverUrl:document.getElementById('mf_bookcoverurl')?.value.trim()||'',
+    bookLinks,
+    bookUrl:bookLinks.length?bookLinks[0].url:'',
+  };
+  if(mi===-1) movies.push({id:Date.now().toString(),...payload});
+  else movies[mi]={...movies[mi],...payload};
+  save(); closeAll(); render(); renderBooks();
+}
+function delMovie(mi){
+  if(!confirm(`¿Eliminar "${movies[mi].name}"?`)) return;
+  movies.splice(mi,1); save(); render(); renderBooks();
+}
+
+function renderBooks(){
+  const grid=document.getElementById('booksGrid');
+  if(!grid) return;
+  const books=[];
+  series.forEach(s=>{
+    if(s.basedOnBook&&(s.bookSource||s.bookCoverUrl)){
+      const editions=s.bookLinks&&s.bookLinks.length?s.bookLinks:(s.bookUrl?[{lang:'es',store:'Amazon',url:s.bookUrl}]:[]);
+      books.push({title:s.bookSource||'Libro sin título',cover:s.bookCoverUrl||'',editions,from:s.name,fromType:'serie'});
+    }
+  });
+  movies.forEach(mv=>{
+    if(mv.basedOnBook&&(mv.bookSource||mv.bookCoverUrl)){
+      const editions=mv.bookLinks&&mv.bookLinks.length?mv.bookLinks:(mv.bookUrl?[{lang:'es',store:'Amazon',url:mv.bookUrl}]:[]);
+      books.push({title:mv.bookSource||'Libro sin título',cover:mv.bookCoverUrl||'',editions,from:mv.name,fromType:'película'});
+    }
+  });
+  if(!books.length){
+    grid.innerHTML='<div class="empty">📚 Ninguna serie o película marcada como "Basada en libro" con datos de libro todavía.</div>';
+    return;
+  }
+  grid.innerHTML=books.map(b=>{
+    const coverEl=b.cover?`<img class="book-item-cover" src="${b.cover}" alt="${b.title}" onerror="this.outerHTML='<div class=book-item-cover-ph>📖</div>'">`:`<div class="book-item-cover-ph">📖</div>`;
+    const editionLinks=b.editions.map(e=>`<a href="${e.url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:700;color:#b08a00;text-decoration:none;background:rgba(176,138,0,0.1);border-radius:20px;padding:2px 9px;border:1px solid rgba(176,138,0,0.25);white-space:nowrap">${langFlag(e.lang)} ${e.store} →</a>`).join('');
+    return `<div class="book-item">${coverEl}
+      <div class="book-item-info">
+        <div class="book-item-title">📖 ${b.title}</div>
+        <div class="book-item-meta" style="margin-bottom:5px">Adaptada en <strong>${b.from}</strong> · ${b.fromType}</div>
+        ${b.editions.length?`<div style="display:flex;flex-wrap:wrap;gap:4px">${editionLinks}</div>`:''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function exportData(){
+  document.getElementById('unsavedBar').classList.remove('visible');
+  const blob=new Blob([JSON.stringify({series,movies,exportedAt:new Date().toISOString()},null,2)],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='data.json'; a.click();
+}
+
+function importData(e){
+  const file=e.target.files[0]; if(!file) return;
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    try{
+      const d=JSON.parse(ev.target.result);
+      if(d.series) series=d.series;
+      if(d.movies) movies=d.movies;
+      save(); render(); renderBooks();
+      alert('✓ Datos importados correctamente');
+    }catch(err){ alert('Error al leer el archivo: '+err.message); }
+  };
+  reader.readAsText(file);
+  e.target.value='';
+}
+
+initData();
+</script>
+</body>
+</html>
