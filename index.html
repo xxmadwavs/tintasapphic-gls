@@ -927,15 +927,15 @@ function langLabel(val){return (LANG_META[val]||{label:val}).label;}
 function getAllBooks(){
   const books=[];
   state.series.forEach((s,i)=>{
-    if(s.basedOnBook&&(s.bookSource||s.bookCoverUrl)){
+    if(s.basedOnBook){
       const editions=s.bookLinks&&s.bookLinks.length?s.bookLinks:(s.bookUrl?[{lang:'es',store:'Amazon',url:s.bookUrl}]:[]);
-      books.push({title:s.bookSource||'Libro',cover:s.bookCoverUrl||'',editions,seriesName:s.name,type:'serie',order:i});
+      books.push({title:s.bookSource||'Sin título',cover:s.bookCoverUrl||'',editions,seriesName:s.name,type:'serie',order:i});
     }
   });
   (state.movies||[]).forEach((mv,i)=>{
-    if(mv.basedOnBook&&(mv.bookSource||mv.bookCoverUrl)){
+    if(mv.basedOnBook){
       const editions=mv.bookLinks&&mv.bookLinks.length?mv.bookLinks:(mv.bookUrl?[{lang:'es',store:'Amazon',url:mv.bookUrl}]:[]);
-      books.push({title:mv.bookSource||'Libro',cover:mv.bookCoverUrl||'',editions,seriesName:mv.name,type:'película',order:1000+i});
+      books.push({title:mv.bookSource||'Sin título',cover:mv.bookCoverUrl||'',editions,seriesName:mv.name,type:'película',order:1000+i});
     }
   });
   return books;
