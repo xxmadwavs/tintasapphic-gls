@@ -406,10 +406,18 @@ body::before{content:'';position:fixed;inset:0;background:
   box-shadow:var(--shadow-sm);max-width:100%;
 }
 .filter-select:focus{border-color:var(--accent)}
+.filter-clear-btn{
+  padding:6px 12px;border-radius:20px;border:1.5px solid rgba(201,79,124,0.3);
+  background:var(--accent-soft);color:var(--accent);
+  font-size:12px;font-weight:700;cursor:pointer;font-family:var(--font-body);
+  transition:all .15s;white-space:nowrap;
+}
+.filter-clear-btn:hover{background:var(--accent);color:#fff}
 @media(max-width:600px){
   .books-toolbar{gap:6px}
   .books-toolbar .search-wrap{width:100%}
   .filter-group{flex:1;min-width:calc(50% - 6px)}
+  .date-filter-group{min-width:calc(50% - 6px)}
   .filter-select{width:100%;font-size:12px;padding:6px 8px}
   .filter-label{display:none}
 }
@@ -578,12 +586,66 @@ body::before{content:'';position:fixed;inset:0;background:
 .error-box{background:rgba(212,92,92,.07);border:1.5px solid rgba(212,92,92,.2);border-radius:12px;padding:1.25rem;color:#c05;font-size:13px;line-height:1.8;margin:1rem 0}
 code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;border-radius:6px;font-size:12px}
 .empty{text-align:center;color:var(--muted);padding:3.5rem;font-size:13px;line-height:1.8}
-.trailer-wrap{position:relative;width:100%;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;margin-bottom:12px}
-.trailer-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+/* Search overlay móvil */
+.search-overlay{
+  display:none;position:fixed;inset:0;z-index:300;
+  background:rgba(20,10,18,.7);backdrop-filter:blur(8px);
+  align-items:flex-start;justify-content:center;
+  padding:1rem;
+}
+.search-overlay.open{display:flex}
+.search-overlay-box{
+  background:var(--surface);border-radius:20px;
+  padding:1.25rem;width:100%;max-width:480px;
+  box-shadow:0 20px 60px rgba(150,60,100,0.25);
+  margin-top:4rem;
+}
+.search-overlay-input{
+  width:100%;padding:12px 16px 12px 44px;
+  border-radius:12px;border:1.5px solid var(--border2);
+  background:var(--surface2);color:var(--text);
+  font-size:16px;font-family:var(--font-body);outline:none;
+  transition:border-color .15s;
+}
+.search-overlay-input:focus{border-color:var(--accent)}
+.search-overlay-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:16px;pointer-events:none}
+.search-overlay-results{margin-top:1rem;display:grid;gap:6px;max-height:60vh;overflow-y:auto}
+.search-result-row{
+  display:flex;align-items:center;gap:10px;
+  padding:8px 10px;border-radius:10px;
+  background:var(--surface2);border:1px solid var(--border);
+  cursor:pointer;transition:all .15s;
+}
+.search-result-row:hover{border-color:var(--accent2);background:var(--accent-soft)}
+.search-result-thumb{width:28px;height:40px;border-radius:5px;object-fit:cover;flex-shrink:0}
+.search-result-thumb-ph{width:28px;height:40px;border-radius:5px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+.search-result-name{font-size:13px;font-weight:600;color:var(--text);flex:1}
+.search-result-meta{font-size:11px;color:var(--muted)}
+.topbar-search-btn{
+  display:none;background:transparent;border:none;cursor:pointer;
+  font-size:20px;padding:8px;border-radius:10px;
+  transition:background .15s;
+}
+.topbar-search-btn:hover{background:var(--surface2)}
+@media(max-width:600px){.topbar-search-btn{display:flex;align-items:center}}
 </style>
 </head>
 <body>
 <div class="petal">🌸</div><div class="petal">🌷</div><div class="petal">🌸</div><div class="petal">🌺</div><div class="petal">🌸</div>
+
+<!-- Search overlay móvil -->
+<div class="search-overlay" id="searchOverlay" onclick="if(event.target===this)closeSearch()">
+  <div class="search-overlay-box">
+    <div style="position:relative">
+      <span class="search-overlay-icon">🔍</span>
+      <input class="search-overlay-input" id="searchOverlayInput" placeholder="Buscar series, películas…" oninput="renderSearchResults(this.value)" autocomplete="off">
+    </div>
+    <div class="search-overlay-results" id="searchOverlayResults"></div>
+    <div style="text-align:right;margin-top:.75rem">
+      <button class="btn" onclick="closeSearch()" style="font-size:12px;padding:6px 14px">Cerrar</button>
+    </div>
+  </div>
+</div>
 
 <div class="topbar">
   <div class="logo-wrap">
@@ -592,6 +654,7 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
     <span class="logo-divider"></span>
     <span class="logo-sub">GL Series & Películas</span>
   </div>
+  <button class="topbar-search-btn" onclick="openSearch()" title="Buscar">🔍</button>
 </div>
 
 <div class="hero">
@@ -820,7 +883,7 @@ function seriesCardHtml(s, si){
 }
 
 let seriesSubtab='airing';
-let seriesFilters={q:'',country:'',sort:'az',book:'all'};
+let seriesFilters={q:'',country:'',sort:'az',book:'all',dateFrom:'',dateTo:''};
 
 function switchSeriesSubtab(sub){ seriesSubtab=sub; renderList(); }
 
@@ -833,9 +896,12 @@ function applySeriesFilters(arr){
   if(seriesFilters.country) r=r.filter(s=>s.country===seriesFilters.country);
   if(seriesFilters.book==='yes') r=r.filter(s=>s.basedOnBook);
   if(seriesFilters.book==='no') r=r.filter(s=>!s.basedOnBook);
+  if(seriesFilters.dateFrom) r=r.filter(s=>s.startDate&&s.startDate>=seriesFilters.dateFrom);
+  if(seriesFilters.dateTo) r=r.filter(s=>s.startDate&&s.startDate<=seriesFilters.dateTo);
   if(seriesFilters.sort==='az') r.sort((a,b)=>a.name.localeCompare(b.name,'es'));
   else if(seriesFilters.sort==='za') r.sort((a,b)=>b.name.localeCompare(a.name,'es'));
   else if(seriesFilters.sort==='eps') r.sort((a,b)=>b.totalEpisodes-a.totalEpisodes);
+  else if(seriesFilters.sort==='date') r.sort((a,b)=>(a.startDate||'').localeCompare(b.startDate||''));
   return r;
 }
 
@@ -878,8 +944,18 @@ function renderList(){
         <option value="az"${seriesFilters.sort==='az'?' selected':''}>A → Z</option>
         <option value="za"${seriesFilters.sort==='za'?' selected':''}>Z → A</option>
         <option value="eps"${seriesFilters.sort==='eps'?' selected':''}>Más episodios</option>
+        <option value="date"${seriesFilters.sort==='date'?' selected':''}>Por fecha</option>
       </select>
     </div>
+    <div class="filter-group date-filter-group">
+      <span class="filter-label">Desde</span>
+      <input type="date" class="filter-select" value="${seriesFilters.dateFrom}" onchange="seriesFilters.dateFrom=this.value;renderList()" style="cursor:pointer">
+    </div>
+    <div class="filter-group date-filter-group">
+      <span class="filter-label">Hasta</span>
+      <input type="date" class="filter-select" value="${seriesFilters.dateTo}" onchange="seriesFilters.dateTo=this.value;renderList()" style="cursor:pointer">
+    </div>
+    ${seriesFilters.dateFrom||seriesFilters.dateTo?`<button class="filter-clear-btn" onclick="seriesFilters.dateFrom='';seriesFilters.dateTo='';renderList()">✕ Fechas</button>`:''}
   </div>`;
 
   if(!filtered.length){
@@ -1137,7 +1213,7 @@ function openMovie(mi){
   document.getElementById('modalBg').classList.add('open');
 }
 
-let moviesFilters={q:'',country:'',sort:'date',book:'all'};
+let moviesFilters={q:'',country:'',sort:'date',book:'all',dateFrom:'',dateTo:''};
 
 function applyMoviesFilters(arr){
   let r=[...arr];
@@ -1146,6 +1222,8 @@ function applyMoviesFilters(arr){
   if(moviesFilters.country) r=r.filter(mv=>mv.country===moviesFilters.country);
   if(moviesFilters.book==='yes') r=r.filter(mv=>mv.basedOnBook);
   if(moviesFilters.book==='no') r=r.filter(mv=>!mv.basedOnBook);
+  if(moviesFilters.dateFrom) r=r.filter(mv=>mv.date&&mv.date>=moviesFilters.dateFrom);
+  if(moviesFilters.dateTo) r=r.filter(mv=>mv.date&&mv.date<=moviesFilters.dateTo);
   if(moviesFilters.sort==='az') r.sort((a,b)=>a.name.localeCompare(b.name,'es'));
   else if(moviesFilters.sort==='za') r.sort((a,b)=>b.name.localeCompare(a.name,'es'));
   else if(moviesFilters.sort==='date') r.sort((a,b)=>{if(!a.date&&!b.date)return 0;if(!a.date)return 1;if(!b.date)return-1;return a.date.localeCompare(b.date);});
@@ -1221,6 +1299,15 @@ function renderMovies(){
         <option value="za"${moviesFilters.sort==='za'?' selected':''}>Z → A</option>
       </select>
     </div>
+    <div class="filter-group date-filter-group">
+      <span class="filter-label">Desde</span>
+      <input type="date" class="filter-select" value="${moviesFilters.dateFrom}" onchange="moviesFilters.dateFrom=this.value;renderMovies()" style="cursor:pointer">
+    </div>
+    <div class="filter-group date-filter-group">
+      <span class="filter-label">Hasta</span>
+      <input type="date" class="filter-select" value="${moviesFilters.dateTo}" onchange="moviesFilters.dateTo=this.value;renderMovies()" style="cursor:pointer">
+    </div>
+    ${moviesFilters.dateFrom||moviesFilters.dateTo?`<button class="filter-clear-btn" onclick="moviesFilters.dateFrom='';moviesFilters.dateTo='';renderMovies()">✕ Fechas</button>`:''}
   </div>`;
 
   if(!filtered.length){
@@ -1384,6 +1471,44 @@ function switchTab(tab){
 document.getElementById('prevBtn').onclick=()=>{state.month--;if(state.month<0){state.month=11;state.year--;}renderCal();};
 document.getElementById('nextBtn').onclick=()=>{state.month++;if(state.month>11){state.month=0;state.year++;}renderCal();};
 document.getElementById('todayBtn').onclick=()=>{state.month=new Date().getMonth();state.year=new Date().getFullYear();renderCal();};
+
+function openSearch(){
+  document.getElementById('searchOverlay').classList.add('open');
+  setTimeout(()=>document.getElementById('searchOverlayInput').focus(),100);
+  renderSearchResults('');
+}
+function closeSearch(){
+  document.getElementById('searchOverlay').classList.remove('open');
+  document.getElementById('searchOverlayInput').value='';
+}
+function renderSearchResults(q){
+  const box=document.getElementById('searchOverlayResults');
+  const term=q.toLowerCase().trim();
+  if(!term){box.innerHTML='<div style="text-align:center;color:var(--muted);font-size:13px;padding:1rem">Escribe para buscar series o películas</div>';return;}
+  const results=[];
+  state.series.forEach((s,si)=>{
+    if(s.name.toLowerCase().includes(term)||(s.network||'').toLowerCase().includes(term)||(s.country||'').toLowerCase().includes(term))
+      results.push({type:'serie',s,si});
+  });
+  state.movies.forEach((mv,mi)=>{
+    if(mv.name.toLowerCase().includes(term)||(mv.network||'').toLowerCase().includes(term)||(mv.country||'').toLowerCase().includes(term))
+      results.push({type:'pelicula',s:mv,si:mi});
+  });
+  if(!results.length){box.innerHTML='<div style="text-align:center;color:var(--muted);font-size:13px;padding:1rem">Sin resultados para "'+q+'"</div>';return;}
+  box.innerHTML=results.slice(0,12).map(r=>{
+    const thumb=r.s.poster
+      ?`<img class="search-result-thumb" src="${r.s.poster}" alt="" onerror="this.outerHTML='<div class=search-result-thumb-ph>${r.type==='serie'?'🎬':'🎥'}</div>'">`
+      :`<div class="search-result-thumb-ph">${r.type==='serie'?'🎬':'🎥'}</div>`;
+    const onclick=r.type==='serie'?`closeSearch();switchTab('list');setTimeout(()=>openSeries(${r.si}),50)`:`closeSearch();switchTab('movies');setTimeout(()=>openMovie(${r.si}),50)`;
+    return `<div class="search-result-row" onclick="${onclick}">
+      ${thumb}
+      <div>
+        <div class="search-result-name">${r.s.name}</div>
+        <div class="search-result-meta">${r.type==='serie'?'Serie':'Película'}${r.s.country?' · '+r.s.country:''}${r.s.network?' · '+r.s.network:''}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
 
 (async()=>{ if(await loadData()){renderStats();renderCal();} })();
 
