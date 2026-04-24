@@ -916,6 +916,15 @@ const DAYS=['L','M','X','J','V','S','D'];
 const DAYS_L=['lunes','martes','miércoles','jueves','viernes','sábado','domingo'];
 const PALETTE=['#d4608a','#5bbcb0','#9b82c9','#e8a84a','#e06fa0','#4eadb5','#b07ad4','#d47a4e'];
 const PALETTE_SOFT=['rgba(212,96,138,0.13)','rgba(91,188,176,0.13)','rgba(155,130,201,0.13)','rgba(232,168,74,0.13)','rgba(224,111,160,0.13)','rgba(78,173,181,0.13)','rgba(176,122,212,0.13)','rgba(212,122,78,0.13)'];
+const GENRES=[
+  'Romance','Drama','Comedia','Acción','Thriller','Misterio','Terror',
+  'Fantasía','Ciencia Ficción','Sobrenatural','Aventura','Crimen',
+  'Histórico','Médico','Legal','Político','Negocios','Deportes','Musical','Documental',
+  'Slice of Life','Vida cotidiana','Melodrama','Psicológico',
+  'Escolar','Universitario','Coming of Age','Familia','Amistad',
+  'Artes marciales','Militar','Misterio sobrenatural',
+  'Reencarnación','Viaje en el tiempo','Idols / Entretenimiento','Oficina / Trabajo','Food / Cocina',
+];
 
 let state={month:new Date().getMonth(),year:new Date().getFullYear(),tab:'cal',series:[],movies:[]};
 
@@ -1235,7 +1244,7 @@ function renderList(){
     const countriesOpts=allCountries.map(c=>`<option value="${c}"${seriesFilters.country===c?' selected':''}>${c}</option>`).join('');
     const yearsOpts=allYears.map(y=>`<option value="${y}"${seriesFilters.year===y?' selected':''}>${y}</option>`).join('');
     const allGenres=[...new Set(state.series.filter(s=>s.genres).flatMap(s=>s.genres))].sort((a,b)=>a.localeCompare(b,'es'));
-    const genreOpts=allGenres.map(g=>`<option value="${g}">${g}</option>`).join('');
+    const genreOpts=GENRES.map(g=>`<option value="${g}">${g}</option>`).join('');
     view.innerHTML=`<div class="list-toolbar-shell books-toolbar">
       <div class="toolbar-search-row">
         <div class="search-wrap" style="position:relative;margin-bottom:0;width:100%">
@@ -1380,7 +1389,7 @@ function renderUpcoming(){
     const upYears=[...new Set(allUpcoming.map(s=>s.startDate?s.startDate.substring(0,4):'').filter(Boolean))].sort((a,b)=>b-a);
     const yearsOpts=upYears.map(y=>`<option value="${y}">${y}</option>`).join('');
     const upGenres=[...new Set(allUpcoming.filter(s=>s.genres).flatMap(s=>s.genres))].sort((a,b)=>a.localeCompare(b,'es'));
-    const genreOpts=upGenres.map(g=>`<option value="${g}">${g}</option>`).join('');
+    const genreOpts=GENRES.map(g=>`<option value="${g}">${g}</option>`).join('');
     view.innerHTML=`<div class="section-heading" style="margin-bottom:.25rem">✨ Próximamente</div>
     <p class="section-desc" style="margin-bottom:.85rem">Series anunciadas que aún no tienen fecha de emisión confirmada.</p>
     <div class="upcoming-toolbar-shell books-toolbar">
@@ -1397,12 +1406,12 @@ function renderUpcoming(){
             <option value="">🌍 País</option>${countriesOpts}
           </select>
         </div>
-        ${genreOpts?`<div class="filter-group">
+        <div class="filter-group">
           <span class="filter-label">Género</span>
           <select id="upcomingGenreSel" class="filter-select" onchange="upcomingFilters.genre=this.value;renderUpcomingResults()">
             <option value="">🎭 Género</option>${genreOpts}
           </select>
-        </div>`:''}
+        </div>
         <div class="filter-group">
           <span class="filter-label">Orden</span>
           <select id="upcomingSortSel" class="filter-select" onchange="upcomingFilters.sort=this.value;renderUpcomingResults()">
@@ -1752,7 +1761,7 @@ function renderMovies(){
     const countriesOpts=allCountries.map(c=>`<option value="${c}">${c}</option>`).join('');
     const yearsOpts=mvYears.map(y=>`<option value="${y}">${y}</option>`).join('');
     const mvGenres=[...new Set(state.movies.filter(mv=>mv.genres).flatMap(mv=>mv.genres))].sort((a,b)=>a.localeCompare(b,'es'));
-    const genreOpts=mvGenres.map(g=>`<option value="${g}">${g}</option>`).join('');
+    const genreOpts=GENRES.map(g=>`<option value="${g}">${g}</option>`).join('');
     view.innerHTML=`<div class="movies-toolbar-shell books-toolbar">
       <div class="toolbar-search-row">
         <div class="search-wrap" style="position:relative;margin-bottom:0;width:100%">
@@ -1767,12 +1776,12 @@ function renderMovies(){
             <option value="">🌍 País</option>${countriesOpts}
           </select>
         </div>
-        ${genreOpts?`<div class="filter-group">
+        <div class="filter-group">
           <span class="filter-label">Género</span>
           <select id="moviesGenreSel" class="filter-select" onchange="moviesFilters.genre=this.value;renderMoviesResults()">
             <option value="">🎭 Género</option>${genreOpts}
           </select>
-        </div>`:''}
+        </div>
         <div class="filter-group">
           <span class="filter-label">Orden</span>
           <select id="moviesSortSel" class="filter-select" onchange="moviesFilters.sort=this.value;renderMoviesResults()">
