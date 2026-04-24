@@ -1172,12 +1172,15 @@ function seriesCardHtml(s, si){
     <div class="progress-fill" style="width:${pct}%;background:${col}"></div>
     ${pct>0&&pct<100?`<div class="progress-today-marker" style="left:${pct}%"></div>`:''}
   </div>`;
+  const genrePills=s.genres&&s.genres.length
+    ?`<div style="display:flex;flex-wrap:wrap;gap:3px;margin-top:5px">${s.genres.slice(0,3).map(g=>`<span style="font-size:9.5px;padding:2px 7px;border-radius:20px;background:var(--surface2);border:1px solid var(--border);color:var(--muted);font-weight:600;cursor:pointer" onclick="event.stopPropagation();seriesFilters.genre='${g}';renderListResults()">${g}</span>`).join('')}${s.genres.length>3?`<span style="font-size:9.5px;padding:2px 6px;border-radius:20px;background:var(--surface2);color:var(--muted)">+${s.genres.length-3}</span>`:''}</div>`:'';
   return `<div class="series-card" onclick="openSeries(${si})">
     ${posterEl}
     <div class="series-card-body">
       <div class="card-badges">${s.basedOnBook?'<span class="badge badge-book">📖 Libro</span>':''}${s.country?`<span class="badge" style="background:var(--surface2);color:var(--muted)">${s.country}</span>`:''}</div>
       <div class="series-card-name">${s.name}</div>
       <div class="series-card-meta">${s.network?s.network+' · ':''}${days}</div>
+      ${genrePills}
       ${watchRow}
       ${nextLine}
       ${progressBar}
@@ -1188,7 +1191,7 @@ function seriesCardHtml(s, si){
 }
 
 let seriesSubtab='airing';
-let seriesFilters={q:'',country:'',sort:'az',book:'all',year:''};
+let seriesFilters={q:'',country:'',sort:'az',book:'all',year:'',genre:''};
 
 function getCountries(arr){ return [...new Set(arr.map(s=>s.country).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es')); }
 
@@ -1213,6 +1216,7 @@ function applySeriesFilters(arr){
   if(seriesFilters.book==='yes') r=r.filter(s=>s.basedOnBook);
   if(seriesFilters.book==='no') r=r.filter(s=>!s.basedOnBook);
   if(seriesFilters.year) r=r.filter(s=>s.startDate&&s.startDate.startsWith(seriesFilters.year));
+  if(seriesFilters.genre) r=r.filter(s=>s.genres&&s.genres.includes(seriesFilters.genre));
   if(seriesFilters.sort==='az') r.sort((a,b)=>a.name.localeCompare(b.name,'es'));
   else if(seriesFilters.sort==='za') r.sort((a,b)=>b.name.localeCompare(a.name,'es'));
   else if(seriesFilters.sort==='eps') r.sort((a,b)=>b.totalEpisodes-a.totalEpisodes);
@@ -1230,6 +1234,8 @@ function renderList(){
     const allYears=[...new Set([...state.series].map(s=>s.startDate?s.startDate.substring(0,4):'').filter(Boolean))].sort((a,b)=>b-a);
     const countriesOpts=allCountries.map(c=>`<option value="${c}"${seriesFilters.country===c?' selected':''}>${c}</option>`).join('');
     const yearsOpts=allYears.map(y=>`<option value="${y}"${seriesFilters.year===y?' selected':''}>${y}</option>`).join('');
+    const allGenres=[...new Set(state.series.filter(s=>s.genres).flatMap(s=>s.genres))].sort((a,b)=>a.localeCompare(b,'es'));
+    const genreOpts=allGenres.map(g=>`<option value="${g}">${g}</option>`).join('');
     view.innerHTML=`<div class="list-toolbar-shell books-toolbar">
       <div class="toolbar-search-row">
         <div class="search-wrap" style="position:relative;margin-bottom:0;width:100%">
@@ -1241,7 +1247,13 @@ function renderList(){
         <div class="filter-group">
           <span class="filter-label">País</span>
           <select class="filter-select" onchange="seriesFilters.country=this.value;renderListResults()">
-            <option value="">🌍 País</option>${countriesOpts}
+            <option value="">🌍 País</option>${allCountries.map(c=>`<option value="${c}">${c}</option>`).join('')}
+          </select>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Género</span>
+          <select id="seriesGenreSel" class="filter-select" onchange="seriesFilters.genre=this.value;renderListResults()">
+            <option value="">🎭 Género</option>${genreOpts}
           </select>
         </div>
         <div class="filter-group">
@@ -1265,10 +1277,10 @@ function renderList(){
         <div class="filter-group">
           <span class="filter-label">Año</span>
           <select id="seriesYearSel" class="filter-select" onchange="seriesFilters.year=this.value;renderListResults()">
-            <option value="">📅 Año</option>${yearsOpts}
+            <option value="">📅 Año</option>${allYears.map(y=>`<option value="${y}">${y}</option>`).join('')}
           </select>
         </div>
-        <button id="seriesClearBtn" class="filter-clear-btn" onclick="seriesFilters.country='';seriesFilters.book='all';seriesFilters.year='';document.getElementById('seriesBookSel').value='all';document.getElementById('seriesYearSel').value='';renderListResults()" style="display:none">✕ Limpiar</button>
+        <button id="seriesClearBtn" class="filter-clear-btn" onclick="seriesFilters.country='';seriesFilters.book='all';seriesFilters.year='';seriesFilters.genre='';document.getElementById('seriesBookSel').value='all';document.getElementById('seriesYearSel').value='';document.getElementById('seriesGenreSel').value='';renderListResults()" style="display:none">✕ Limpiar</button>
       </div>
     </div>
     <div id="listResults"></div>`;
@@ -1283,10 +1295,12 @@ function renderListResults(){
   const sortSel=document.getElementById('seriesSortSel');
   const bookSel=document.getElementById('seriesBookSel');
   const yearSel=document.getElementById('seriesYearSel');
+  const genreSel=document.getElementById('seriesGenreSel');
   const clearBtn=document.getElementById('seriesClearBtn');
   if(sortSel) sortSel.value=seriesFilters.sort;
   if(bookSel) bookSel.value=seriesFilters.book;
-  if(clearBtn) clearBtn.style.display=(seriesFilters.country||seriesFilters.book!=='all'||seriesFilters.year)?'':'none';
+  if(genreSel) genreSel.value=seriesFilters.genre;
+  if(clearBtn) clearBtn.style.display=(seriesFilters.country||seriesFilters.book!=='all'||seriesFilters.year||seriesFilters.genre)?'':'none';
 
   const active=state.series.filter(s=>!s.upcoming);
   const filtered=applySeriesFilters(active);
@@ -1331,7 +1345,7 @@ function renderListResults(){
 
 function switchSeriesSubtab(sub){ seriesSubtab=sub; renderListResults(); }
 
-let upcomingFilters={q:'',country:'',sort:'az',book:'all',year:''};
+let upcomingFilters={q:'',country:'',sort:'az',book:'all',year:'',genre:''};
 
 function applyUpcomingFilters(arr){
   let r=[...arr];
@@ -1341,6 +1355,7 @@ function applyUpcomingFilters(arr){
   if(upcomingFilters.book==='yes') r=r.filter(s=>s.basedOnBook);
   if(upcomingFilters.book==='no') r=r.filter(s=>!s.basedOnBook);
   if(upcomingFilters.year) r=r.filter(s=>s.startDate&&s.startDate.startsWith(upcomingFilters.year));
+  if(upcomingFilters.genre) r=r.filter(s=>s.genres&&s.genres.includes(upcomingFilters.genre));
   if(upcomingFilters.sort==='az') r.sort((a,b)=>a.name.localeCompare(b.name,'es'));
   else if(upcomingFilters.sort==='za') r.sort((a,b)=>b.name.localeCompare(a.name,'es'));
   else if(upcomingFilters.sort==='recent') r.sort((a,b)=>{
@@ -1364,6 +1379,8 @@ function renderUpcoming(){
     const countriesOpts=allCountries.map(c=>`<option value="${c}">${c}</option>`).join('');
     const upYears=[...new Set(allUpcoming.map(s=>s.startDate?s.startDate.substring(0,4):'').filter(Boolean))].sort((a,b)=>b-a);
     const yearsOpts=upYears.map(y=>`<option value="${y}">${y}</option>`).join('');
+    const upGenres=[...new Set(allUpcoming.filter(s=>s.genres).flatMap(s=>s.genres))].sort((a,b)=>a.localeCompare(b,'es'));
+    const genreOpts=upGenres.map(g=>`<option value="${g}">${g}</option>`).join('');
     view.innerHTML=`<div class="section-heading" style="margin-bottom:.25rem">✨ Próximamente</div>
     <p class="section-desc" style="margin-bottom:.85rem">Series anunciadas que aún no tienen fecha de emisión confirmada.</p>
     <div class="upcoming-toolbar-shell books-toolbar">
@@ -1380,6 +1397,12 @@ function renderUpcoming(){
             <option value="">🌍 País</option>${countriesOpts}
           </select>
         </div>
+        ${genreOpts?`<div class="filter-group">
+          <span class="filter-label">Género</span>
+          <select id="upcomingGenreSel" class="filter-select" onchange="upcomingFilters.genre=this.value;renderUpcomingResults()">
+            <option value="">🎭 Género</option>${genreOpts}
+          </select>
+        </div>`:''}
         <div class="filter-group">
           <span class="filter-label">Orden</span>
           <select id="upcomingSortSel" class="filter-select" onchange="upcomingFilters.sort=this.value;renderUpcomingResults()">
@@ -1403,7 +1426,7 @@ function renderUpcoming(){
           </select>
         </div>
         <button id="upcomingClearBtn" class="filter-clear-btn" style="display:none"
-          onclick="upcomingFilters.country='';upcomingFilters.book='all';upcomingFilters.year='';document.getElementById('upcomingBookSel').value='all';document.getElementById('upcomingYearSel').value='';renderUpcomingResults()">✕ Limpiar</button>
+          onclick="upcomingFilters.country='';upcomingFilters.book='all';upcomingFilters.year='';upcomingFilters.genre='';document.getElementById('upcomingBookSel').value='all';document.getElementById('upcomingYearSel').value='';const ug=document.getElementById('upcomingGenreSel');if(ug)ug.value='';renderUpcomingResults()">✕ Limpiar</button>
       </div>
     </div>
     <div id="upcomingResults"></div>`;
@@ -1416,8 +1439,10 @@ function renderUpcomingResults(){
   if(!resultsEl) return;
   const sortSel=document.getElementById('upcomingSortSel');
   const clearBtn=document.getElementById('upcomingClearBtn');
+  const genreSel=document.getElementById('upcomingGenreSel');
   if(sortSel) sortSel.value=upcomingFilters.sort;
-  if(clearBtn) clearBtn.style.display=(upcomingFilters.country||upcomingFilters.book!=='all'||upcomingFilters.year)?'':'none';
+  if(genreSel) genreSel.value=upcomingFilters.genre;
+  if(clearBtn) clearBtn.style.display=(upcomingFilters.country||upcomingFilters.book!=='all'||upcomingFilters.year||upcomingFilters.genre)?'':'none';
 
   const allUpcoming=state.series.filter(s=>s.upcoming);
   const upcoming=applyUpcomingFilters(allUpcoming);
@@ -1671,7 +1696,7 @@ function openMovie(mi){
   document.getElementById('modalBg').classList.add('open');
 }
 
-let moviesFilters={q:'',country:'',sort:'date',book:'all',year:''};
+let moviesFilters={q:'',country:'',sort:'date',book:'all',year:'',genre:''};
 
 function applyMoviesFilters(arr){
   let r=[...arr];
@@ -1681,6 +1706,7 @@ function applyMoviesFilters(arr){
   if(moviesFilters.book==='yes') r=r.filter(mv=>mv.basedOnBook);
   if(moviesFilters.book==='no') r=r.filter(mv=>!mv.basedOnBook);
   if(moviesFilters.year) r=r.filter(mv=>mv.date&&mv.date.startsWith(moviesFilters.year));
+  if(moviesFilters.genre) r=r.filter(mv=>mv.genres&&mv.genres.includes(moviesFilters.genre));
   if(moviesFilters.sort==='az') r.sort((a,b)=>a.name.localeCompare(b.name,'es'));
   else if(moviesFilters.sort==='za') r.sort((a,b)=>b.name.localeCompare(a.name,'es'));
   else if(moviesFilters.sort==='date') r.sort((a,b)=>{if(!a.date&&!b.date)return 0;if(!a.date)return 1;if(!b.date)return-1;return a.date.localeCompare(b.date);});
@@ -1701,11 +1727,14 @@ function movieCardHtml(mv){
     ?(isPast?`<div class="movie-card-date" style="color:var(--teal)">✓ ${fmtDate(mv.date)}</div>`
             :`<div class="movie-card-date">📅 ${fmtDate(mv.date)}</div>`)
     :'<div class="movie-card-date" style="color:var(--muted)">Fecha por confirmar</div>';
+  const mvGenrePills=mv.genres&&mv.genres.length
+    ?`<div style="display:flex;flex-wrap:wrap;gap:3px;margin-top:5px">${mv.genres.slice(0,3).map(g=>`<span style="font-size:9.5px;padding:2px 7px;border-radius:20px;background:var(--surface2);border:1px solid var(--border);color:var(--muted);font-weight:600;cursor:pointer" onclick="event.stopPropagation();moviesFilters.genre='${g}';renderMoviesResults()">${g}</span>`).join('')}${mv.genres.length>3?`<span style="font-size:9.5px;padding:2px 6px;border-radius:20px;background:var(--surface2);color:var(--muted)">+${mv.genres.length-3}</span>`:''}</div>`:'';
   return `<div class="movie-card" onclick="openMovie(${mi})">${posterEl}
     <div class="movie-card-body">
       <div class="card-badges">${mv.basedOnBook?'<span class="badge badge-book">📖 Libro</span>':''}${mv.country?`<span class="badge" style="background:var(--surface2);color:var(--muted)">${mv.country}</span>`:''}</div>
       <div class="movie-card-name">${mv.name}</div>
       <div class="movie-card-meta">${mv.network||''}</div>
+      ${mvGenrePills}
       ${dateEl}
       ${watchRow}
     </div></div>`;
@@ -1722,6 +1751,8 @@ function renderMovies(){
     const mvYears=[...new Set(state.movies.map(mv=>mv.date?mv.date.substring(0,4):'').filter(Boolean))].sort((a,b)=>b-a);
     const countriesOpts=allCountries.map(c=>`<option value="${c}">${c}</option>`).join('');
     const yearsOpts=mvYears.map(y=>`<option value="${y}">${y}</option>`).join('');
+    const mvGenres=[...new Set(state.movies.filter(mv=>mv.genres).flatMap(mv=>mv.genres))].sort((a,b)=>a.localeCompare(b,'es'));
+    const genreOpts=mvGenres.map(g=>`<option value="${g}">${g}</option>`).join('');
     view.innerHTML=`<div class="movies-toolbar-shell books-toolbar">
       <div class="toolbar-search-row">
         <div class="search-wrap" style="position:relative;margin-bottom:0;width:100%">
@@ -1736,6 +1767,12 @@ function renderMovies(){
             <option value="">🌍 País</option>${countriesOpts}
           </select>
         </div>
+        ${genreOpts?`<div class="filter-group">
+          <span class="filter-label">Género</span>
+          <select id="moviesGenreSel" class="filter-select" onchange="moviesFilters.genre=this.value;renderMoviesResults()">
+            <option value="">🎭 Género</option>${genreOpts}
+          </select>
+        </div>`:''}
         <div class="filter-group">
           <span class="filter-label">Orden</span>
           <select id="moviesSortSel" class="filter-select" onchange="moviesFilters.sort=this.value;renderMoviesResults()">
@@ -1760,7 +1797,7 @@ function renderMovies(){
           </select>
         </div>
         <button id="moviesClearBtn" class="filter-clear-btn" style="display:none"
-          onclick="moviesFilters.country='';moviesFilters.book='all';moviesFilters.year='';document.getElementById('moviesBookSel').value='all';document.getElementById('moviesYearSel').value='';renderMoviesResults()">✕ Limpiar</button>
+          onclick="moviesFilters.country='';moviesFilters.book='all';moviesFilters.year='';moviesFilters.genre='';document.getElementById('moviesBookSel').value='all';document.getElementById('moviesYearSel').value='';const mg=document.getElementById('moviesGenreSel');if(mg)mg.value='';renderMoviesResults()">✕ Limpiar</button>
       </div>
     </div>
     <div id="moviesResults"></div>`;
@@ -1775,8 +1812,10 @@ function renderMoviesResults(){
   if(!resultsEl) return;
   const sortSel=document.getElementById('moviesSortSel');
   const clearBtn=document.getElementById('moviesClearBtn');
+  const genreSel=document.getElementById('moviesGenreSel');
   if(sortSel) sortSel.value=moviesFilters.sort;
-  if(clearBtn) clearBtn.style.display=(moviesFilters.country||moviesFilters.book!=='all'||moviesFilters.year)?'':'none';
+  if(genreSel) genreSel.value=moviesFilters.genre;
+  if(clearBtn) clearBtn.style.display=(moviesFilters.country||moviesFilters.book!=='all'||moviesFilters.year||moviesFilters.genre)?'':'none';
 
   const now=new Date();
   const filtered=applyMoviesFilters(state.movies);

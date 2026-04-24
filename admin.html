@@ -133,6 +133,38 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
 .platform-row input{flex:1;padding:8px 12px;border-radius:10px;border:1.5px solid var(--border2);background:var(--surface2);color:var(--text);font-size:13px;font-family:'Nunito',sans-serif;outline:none;transition:border-color .15s}
 .platform-row input:focus{border-color:var(--accent)}
 .platform-row input::placeholder{color:var(--muted)}
+
+/* ═══ PLATFORM QUICK SELECT ═══ */
+.platform-net-wrap{display:flex;gap:6px;align-items:center}
+.platform-net-wrap input{flex:1}
+.platform-net-select{
+  background:var(--surface2);border:1.5px solid var(--border2);
+  border-radius:10px;padding:0 10px;height:40px;font-size:12px;
+  font-family:'Nunito',sans-serif;color:var(--text);cursor:pointer;
+  flex-shrink:0;transition:all .15s;max-width:150px;
+}
+.platform-net-select:focus{border-color:var(--accent);outline:none}
+.platform-row-sel{display:flex;gap:6px;align-items:center;margin-bottom:6px}
+.platform-row-sel input{flex:1;padding:8px 12px;border-radius:10px;border:1.5px solid var(--border2);background:var(--surface2);color:var(--text);font-size:13px;font-family:'Nunito',sans-serif;outline:none;transition:border-color .15s}
+.platform-row-sel input:focus{border-color:var(--accent)}
+.platform-row-sel select{
+  background:var(--surface2);border:1.5px solid var(--border2);
+  border-radius:10px;padding:0 8px;height:40px;font-size:12px;
+  font-family:'Nunito',sans-serif;color:var(--text);cursor:pointer;
+  max-width:145px;flex-shrink:0;
+}
+.platform-row-sel select:focus{border-color:var(--accent);outline:none}
+
+/* ═══ GENRE CHIPS ═══ */
+.genre-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px}
+.genre-chip{
+  padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700;
+  border:1.5px solid var(--border2);background:var(--surface2);
+  color:var(--muted);cursor:pointer;transition:all .15s;
+  font-family:'Nunito',sans-serif;user-select:none;
+}
+.genre-chip:hover{border-color:var(--accent2);color:var(--accent);background:var(--accent-soft)}
+.genre-chip.selected{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
 .platform-del-btn{width:30px;height:30px;border-radius:8px;border:1.5px solid rgba(212,92,92,.3);background:transparent;color:var(--danger);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;font-family:'Nunito',sans-serif}
 .platform-del-btn:hover{background:rgba(212,92,92,.08);border-color:var(--danger)}
 .platform-add-btn{font-size:12px;font-weight:700;color:var(--accent);background:var(--accent-soft);border:1.5px solid var(--border2);border-radius:20px;padding:4px 13px;cursor:pointer;font-family:'Nunito',sans-serif;margin-top:4px;transition:all .15s}
@@ -262,6 +294,47 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
 const DAYS_ES=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
 const MONTHS_ES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 const PALETTE=['#d4608a','#5bbcb0','#9b82c9','#e8a84a','#e06fa0','#4eadb5','#b07ad4','#d47a4e'];
+
+const PLATFORMS=[
+  {name:'GagaOOLala', url:'https://www.gagaoolala.com'},
+  {name:'WeTV',       url:'https://wetv.vip'},
+  {name:'iQIYI',      url:'https://www.iqiyi.com'},
+  {name:'Viki',       url:'https://www.viki.com'},
+  {name:'VIU',        url:'https://www.viu.com'},
+  {name:'YouTube',    url:'https://www.youtube.com'},
+  {name:'Netflix',    url:'https://www.netflix.com'},
+  {name:'Prime Video',url:'https://www.primevideo.com'},
+  {name:'HBO Max',    url:'https://www.max.com'},
+  {name:'CH3+',       url:'https://www.ch3plus.com'},
+  {name:'OneD',       url:'https://www.one31.net'},
+  {name:'Otros',      url:''},
+];
+
+const GENRES=[
+  // Géneros principales (MDL)
+  'Romance','Drama','Comedia','Acción','Thriller','Misterio','Terror',
+  'Fantasía','Ciencia Ficción','Sobrenatural','Aventura','Crimen',
+  // Géneros de ambientación
+  'Histórico','Wuxia','Xianxia','Médico','Legal','Político','Negocios',
+  'Deportes','Musical','Documental',
+  // Tags/subgéneros muy usados en MDL
+  'Slice of Life','Vida cotidiana','Melodrama','Psicológico',
+  'Escolar','Universitario','Coming of Age','Familia','Amistad',
+  'Artes marciales','Militar','Misterio sobrenatural',
+  // Específicos del drama asiático GL
+  'BL adyacente','Isekai','Reencarnación','Viaje en el tiempo',
+  'Idols / Entretenimiento','Oficina / Trabajo','Food / Cocina',
+];
+
+function genreChipsHtml(selected=[]){
+  return GENRES.map(g=>`<span class="genre-chip${selected.includes(g)?' selected':''}" onclick="this.classList.toggle('selected')">${g}</span>`).join('');
+}
+function getSelectedGenres(containerId){
+  return [...document.querySelectorAll(`#${containerId} .genre-chip.selected`)].map(c=>c.textContent);
+}
+function platformSelectHtml(){
+  return `<option value="">— Seleccionar —</option>`+PLATFORMS.map(p=>`<option value="${p.name}">${p.name}</option>`).join('');
+}
 
 let series = [];
 let movies = [];
@@ -402,10 +475,13 @@ function render(){
         metaStr=`${s.network?s.network+' · ':''}${s.totalEpisodes} ep · ${daysLabel}`;
       }
       const bookBadge=s.basedOnBook?'<span class="badge badge-book">📖 Libro</span>':'';
+      const genrePills=s.genres&&s.genres.length
+        ?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:5px">${s.genres.map(g=>`<span style="font-size:10px;padding:2px 8px;border-radius:20px;background:var(--surface2);border:1px solid var(--border2);color:var(--muted);font-weight:600">${g}</span>`).join('')}</div>`:'';
       div.innerHTML=`${posterEl}${phEl}
         <div class="series-info">
           <div class="series-name">${s.name} ${statusBadge}${bookBadge}</div>
           <div class="series-meta">${metaStr}</div>
+          ${genrePills}
           ${!s.upcoming?`<div class="progress-wrap" style="margin-top:6px;height:4px;background:var(--border);border-radius:2px;overflow:hidden"><div class="progress-fill" style="width:${(()=>{const eps=genEpisodes(s),now=new Date(),a=eps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;return Math.round(a/s.totalEpisodes*100)})()}%;background:${col}"></div></div>`:''}
         </div>
         <div class="series-actions">
@@ -432,10 +508,13 @@ function renderMovies(){
     const isPast=mv.date&&new Date(mv.date+'T12:00:00')<=now;
     const statusBadge=mv.date?(isPast?'<span class="badge" style="background:var(--teal-soft);color:var(--teal)">✓ Estrenada</span>':'<span class="badge badge-upcoming">📅 Pendiente</span>'):'<span class="badge" style="background:var(--surface2);color:var(--muted)">Sin fecha</span>';
     const metaStr=`${mv.network?mv.network+' · ':''}${mv.date?fmtDate(mv.date):'Fecha por confirmar'}`;
+    const mvGenrePills=mv.genres&&mv.genres.length
+      ?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:5px">${mv.genres.map(g=>`<span style="font-size:10px;padding:2px 8px;border-radius:20px;background:var(--surface2);border:1px solid var(--border2);color:var(--muted);font-weight:600">${g}</span>`).join('')}</div>`:'';
     div.innerHTML=`${posterEl}${phEl}
       <div class="series-info">
         <div class="series-name">${mv.name} ${bookBadge}${statusBadge}</div>
         <div class="series-meta">${metaStr}</div>
+        ${mvGenrePills}
       </div>
       <div class="series-actions">
         <button class="btn small" onclick="openEditMovie(${mi})">Editar</button>
@@ -491,7 +570,19 @@ function formHtml(s){
     <div class="form-row" style="margin-bottom:0"><label class="form-label">Año</label><input id="f_year" type="number" placeholder="2026" min="2000" max="2030" value="${s&&s.year?s.year:''}"/></div>
     <div class="form-row" style="margin-bottom:0"><label class="form-label">País</label><input id="f_country" placeholder="Ej: Tailandia, Corea…" value="${s&&s.country?s.country:''}"/></div>
   </div>
-  <div class="form-row"><label class="form-label">Plataforma / Canal principal</label><input id="f_net" placeholder="Ej: Netflix, WeTV, GMMTV…" value="${s&&s.network?s.network:''}"/></div>
+  <div class="form-row">
+    <label class="form-label">Plataforma / Canal principal</label>
+    <div class="platform-net-wrap">
+      <input id="f_net" placeholder="Ej: Netflix, WeTV…" value="${s&&s.network?s.network:''}"/>
+      <select class="platform-net-select" onchange="if(this.value){document.getElementById('f_net').value=this.value;this.value=''}">
+        ${platformSelectHtml()}
+      </select>
+    </div>
+  </div>
+  <div class="form-row">
+    <label class="form-label">Géneros <span style="text-transform:none;letter-spacing:0;font-weight:400;font-size:11px">(selecciona todos los que apliquen)</span></label>
+    <div class="genre-chips" id="f_genres">${genreChipsHtml(s&&s.genres?s.genres:[])}</div>
+  </div>
   <div class="form-row">
     <label class="form-label">🔗 Dónde ver <span style="text-transform:none;letter-spacing:0;font-weight:400;font-size:11px">(puedes añadir varias plataformas)</span></label>
     <div class="platforms-list" id="platformsList"></div>
@@ -565,14 +656,19 @@ function initPlatforms(links){
 function addPlatformRow(name='',url=''){
   const list=document.getElementById('platformsList');
   if(!list) return;
-  const row=document.createElement('div'); row.className='platform-row';
-  row.innerHTML=`<input placeholder="Nombre (ej: Netflix España)" value="${name}" style="max-width:170px">
+  const row=document.createElement('div'); row.className='platform-row-sel';
+  row.innerHTML=`
+    <select onchange="if(this.value){const p=PLATFORMS.find(x=>x.name===this.value);this.previousElementSibling.previousElementSibling.value=this.value;if(p&&p.url&&!this.nextElementSibling.value)this.nextElementSibling.value=p.url;this.value=''}">
+      ${platformSelectHtml()}
+    </select>
+    <input placeholder="Nombre visible" value="${name}">
     <input placeholder="https://…" value="${url}" style="flex:2">
     <button type="button" class="platform-del-btn" onclick="this.parentElement.remove()" title="Eliminar">✕</button>`;
+  // Fix: reorder so select → name → url → del
   list.appendChild(row);
 }
 function getWatchLinks(){
-  const rows=document.querySelectorAll('#platformsList .platform-row');
+  const rows=document.querySelectorAll('#platformsList .platform-row-sel');
   const links=[];
   rows.forEach(r=>{
     const inputs=r.querySelectorAll('input');
@@ -663,7 +759,8 @@ function saveSeries(si){
   const trailerUrl=document.getElementById('f_trailer')?.value.trim()||'';
   const bookLinks=getBookEditions('bookEditionsList');
   const bookUrl=bookLinks.length?bookLinks[0].url:'';
-  let payload={name,poster,synopsis,year:year?parseInt(year):'',country,network:net,networkUrl,watchLinks,trailerUrl,bookSource,basedOnBook,bookCoverUrl,bookLinks,bookUrl,upcoming};
+  const genres=getSelectedGenres('f_genres');
+  let payload={name,poster,synopsis,year:year?parseInt(year):'',country,network:net,networkUrl,watchLinks,trailerUrl,bookSource,basedOnBook,bookCoverUrl,bookLinks,bookUrl,upcoming,genres};
   if(!upcoming){
     const start=document.getElementById('f_start').value;
     const eps=parseInt(document.getElementById('f_eps').value);
@@ -794,7 +891,19 @@ function movieFormHtml(mv){
     <div class="form-row" style="margin-bottom:0"><label class="form-label">Año</label><input id="mf_year" type="number" placeholder="2026" min="2000" max="2030" value="${mv&&mv.year?mv.year:''}"/></div>
     <div class="form-row" style="margin-bottom:0"><label class="form-label">País</label><input id="mf_country" placeholder="Ej: Tailandia…" value="${mv&&mv.country?mv.country:''}"/></div>
   </div>
-  <div class="form-row" style="margin-top:14px"><label class="form-label">Plataforma / Canal principal</label><input id="mf_net" placeholder="Ej: Netflix, iQIYI…" value="${mv&&mv.network?mv.network:''}"/></div>
+  <div class="form-row" style="margin-top:14px">
+    <label class="form-label">Plataforma / Canal principal</label>
+    <div class="platform-net-wrap">
+      <input id="mf_net" placeholder="Ej: Netflix, iQIYI…" value="${mv&&mv.network?mv.network:''}"/>
+      <select class="platform-net-select" onchange="if(this.value){document.getElementById('mf_net').value=this.value;this.value=''}">
+        ${platformSelectHtml()}
+      </select>
+    </div>
+  </div>
+  <div class="form-row">
+    <label class="form-label">Géneros <span style="text-transform:none;letter-spacing:0;font-weight:400;font-size:11px">(selecciona todos los que apliquen)</span></label>
+    <div class="genre-chips" id="mf_genres">${genreChipsHtml(mv&&mv.genres?mv.genres:[])}</div>
+  </div>
   <div class="form-row">
     <label class="form-label">🔗 Dónde ver <span style="text-transform:none;letter-spacing:0;font-weight:400;font-size:11px">(puedes añadir varias)</span></label>
     <div class="platforms-list" id="moviePlatformsList"></div>
@@ -865,21 +974,24 @@ function initMoviePlatforms(links){
 }
 function addMoviePlatformRow(name='',url=''){
   const list=document.getElementById('moviePlatformsList'); if(!list) return;
-  const row=document.createElement('div'); row.className='platform-row';
-  row.innerHTML=`<input placeholder="Nombre (ej: iQIYI)" value="${name}" style="max-width:160px">
+  const row=document.createElement('div'); row.className='platform-row-sel';
+  row.innerHTML=`
+    <select onchange="if(this.value){const p=PLATFORMS.find(x=>x.name===this.value);this.nextElementSibling.value=this.value;if(p&&p.url&&!this.nextElementSibling.nextElementSibling.value)this.nextElementSibling.nextElementSibling.value=p.url;this.value=''}">
+      ${platformSelectHtml()}
+    </select>
+    <input placeholder="Nombre visible" value="${name}">
     <input placeholder="https://…" value="${url}" style="flex:2">
     <button type="button" class="platform-del-btn" onclick="this.parentElement.remove()" title="Eliminar">✕</button>`;
   list.appendChild(row);
 }
 function getMovieWatchLinks(){
-  const rows=document.querySelectorAll('#moviePlatformsList .platform-row'); const links=[];
+  const rows=document.querySelectorAll('#moviePlatformsList .platform-row-sel'); const links=[];
   rows.forEach(r=>{ const inputs=r.querySelectorAll('input'); const name=inputs[0].value.trim(),url=inputs[1].value.trim(); if(url) links.push({name:name||'Ver película',url}); });
   return links;
 }
 function saveMovie(mi){
   const name=document.getElementById('mf_name').value.trim();
   if(!name){alert('El nombre es obligatorio');return;}
-  // Comprobación de duplicados
   const dupMovie=movies.find((mv,i)=>i!==mi&&mv.name.trim().toLowerCase()===name.toLowerCase());
   const dupSeries=(series||[]).find(s=>s.name.trim().toLowerCase()===name.toLowerCase());
   if(dupMovie){
@@ -889,6 +1001,7 @@ function saveMovie(mi){
   }
   const watchLinks=getMovieWatchLinks();
   const bookLinks=getBookEditions('movieBookEditionsList');
+  const genres=getSelectedGenres('mf_genres');
   const payload={
     name,
     poster:document.getElementById('mf_poster').value.trim(),
@@ -905,6 +1018,7 @@ function saveMovie(mi){
     bookCoverUrl:document.getElementById('mf_bookcoverurl')?.value.trim()||'',
     bookLinks,
     bookUrl:bookLinks.length?bookLinks[0].url:'',
+    genres,
   };
   if(mi===-1) movies.push({id:Date.now().toString(),...payload});
   else movies[mi]={...movies[mi],...payload};
