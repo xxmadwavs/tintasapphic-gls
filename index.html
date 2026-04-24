@@ -699,7 +699,8 @@ function renderStats(){
 
 function getEpMap(y,m){
   const map={};
-  state.series.filter(s=>!s.upcoming).forEach((s,si)=>{
+  state.series.filter(s=>!s.upcoming).forEach((s)=>{
+    const si=state.series.indexOf(s);
     genEps(s).forEach(ep=>{
       if(ep.skipped) return;
       const d=new Date(ep.date+'T12:00:00');
