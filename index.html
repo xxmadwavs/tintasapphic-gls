@@ -34,7 +34,13 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:14px;line-height:1.6;min-height:100vh;overflow-x:clip}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:14px;line-height:1.6;min-height:100vh}
+
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:14px;line-height:1.6;min-height:100vh}
+
+/* Contenedor raíz para cortar overflow sin bloquear scroll */
+body > *:not(.bottom-nav):not(.modal-bg){max-width:100%}
 
 /* Background atmosphere */
 body::before{content:'';position:fixed;inset:0;background:
@@ -43,14 +49,14 @@ body::before{content:'';position:fixed;inset:0;background:
   radial-gradient(ellipse at 50% 50%,rgba(74,173,160,0.03) 0%,transparent 60%);
   pointer-events:none;z-index:0}
 
-/* Floating petals */
+/* Floating petals — sin rotate para no salirse del viewport */
 .petal{position:fixed;pointer-events:none;z-index:0;opacity:.1;animation:floatPetal 14s ease-in-out infinite}
 .petal:nth-child(1){top:6%;left:3%;font-size:18px;animation-delay:0s}
 .petal:nth-child(2){top:22%;right:2.5%;font-size:12px;animation-delay:4s}
 .petal:nth-child(3){top:58%;left:1.5%;font-size:10px;animation-delay:8s}
 .petal:nth-child(4){top:78%;right:4%;font-size:16px;animation-delay:2s}
 .petal:nth-child(5){top:42%;right:1.5%;font-size:13px;animation-delay:11s}
-@keyframes floatPetal{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-14px) rotate(10deg)}}
+@keyframes floatPetal{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
 
 /* ═══ TOPBAR ═══ */
 .topbar{
