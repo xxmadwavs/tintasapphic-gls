@@ -413,13 +413,25 @@ body::before{content:'';position:fixed;inset:0;background:
   transition:all .15s;white-space:nowrap;
 }
 .filter-clear-btn:hover{background:var(--accent);color:#fff}
+/* Toolbar rows para separar búsqueda de filtros */
+.toolbar-search-row{width:100%;margin-bottom:0}
+.toolbar-filters-row{display:flex;flex-wrap:wrap;gap:8px;width:100%;align-items:center}
 @media(max-width:600px){
-  .books-toolbar{gap:6px}
-  .books-toolbar .search-wrap{width:100%}
-  .filter-group{flex:1;min-width:calc(50% - 6px)}
-  .date-filter-group{min-width:calc(50% - 6px)}
-  .filter-select{width:100%;font-size:12px;padding:6px 8px}
+  .books-toolbar{gap:6px;flex-direction:column;align-items:stretch}
+  .books-toolbar .search-wrap{width:100%;margin-bottom:0}
+  .toolbar-search-row{width:100%}
+  .toolbar-filters-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;width:100%}
+  .toolbar-filters-row .filter-group{width:100%;min-width:0}
+  .toolbar-filters-row .filter-group select,
+  .toolbar-filters-row .filter-group input{width:100%}
+  .filter-group{flex:1;min-width:0}
+  .filter-select{width:100%;font-size:12px;padding:7px 8px}
+  .filter-label{font-size:10px;display:block;margin-bottom:2px;color:var(--muted)}
+  .filter-clear-btn{width:100%;text-align:center;margin-top:2px}
+}
+@media(min-width:601px){
   .filter-label{display:none}
+  .toolbar-search-row,.toolbar-filters-row{display:contents}
 }
 .alpha-bar{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:1.25rem}
 .alpha-btn{
@@ -883,7 +895,7 @@ function seriesCardHtml(s, si){
 }
 
 let seriesSubtab='airing';
-let seriesFilters={q:'',country:'',sort:'az',book:'all',dateFrom:'',dateTo:''};
+let seriesFilters={q:'',country:'',sort:'az',book:'all',year:''};
 
 function switchSeriesSubtab(sub){ seriesSubtab=sub; renderList(); }
 
@@ -896,8 +908,7 @@ function applySeriesFilters(arr){
   if(seriesFilters.country) r=r.filter(s=>s.country===seriesFilters.country);
   if(seriesFilters.book==='yes') r=r.filter(s=>s.basedOnBook);
   if(seriesFilters.book==='no') r=r.filter(s=>!s.basedOnBook);
-  if(seriesFilters.dateFrom) r=r.filter(s=>s.startDate&&s.startDate>=seriesFilters.dateFrom);
-  if(seriesFilters.dateTo) r=r.filter(s=>s.startDate&&s.startDate<=seriesFilters.dateTo);
+  if(seriesFilters.year) r=r.filter(s=>s.startDate&&s.startDate.startsWith(seriesFilters.year));
   if(seriesFilters.sort==='az') r.sort((a,b)=>a.name.localeCompare(b.name,'es'));
   else if(seriesFilters.sort==='za') r.sort((a,b)=>b.name.localeCompare(a.name,'es'));
   else if(seriesFilters.sort==='eps') r.sort((a,b)=>b.totalEpisodes-a.totalEpisodes);
@@ -918,44 +929,48 @@ function renderList(){
   if(seriesFilters.q&&seriesSubtab==='finished'&&!finished.length&&airing.length) seriesSubtab='airing';
 
   const countriesOpts=allCountries.map(c=>`<option value="${c}"${seriesFilters.country===c?' selected':''}>${c}</option>`).join('');
+  const allYears=[...new Set([...state.series].map(s=>s.startDate?s.startDate.substring(0,4):'').filter(Boolean))].sort((a,b)=>b-a);
+  const yearsOpts=allYears.map(y=>`<option value="${y}"${seriesFilters.year===y?' selected':''}>${y}</option>`).join('');
 
   let html=`<div class="books-toolbar">
-    <div class="search-wrap" style="position:relative;margin-bottom:0">
-      <span class="search-icon">🔍</span>
-      <input class="search-input" placeholder="Buscar serie, país, plataforma…" value="${seriesFilters.q}" oninput="seriesFilters.q=this.value;renderList()">
+    <div class="toolbar-search-row">
+      <div class="search-wrap" style="position:relative;margin-bottom:0;width:100%">
+        <span class="search-icon">🔍</span>
+        <input class="search-input" placeholder="Buscar serie, país, plataforma…" value="${seriesFilters.q}" oninput="seriesFilters.q=this.value;renderList()">
+      </div>
     </div>
-    <div class="filter-group">
-      <span class="filter-label">País</span>
-      <select class="filter-select" onchange="seriesFilters.country=this.value;renderList()">
-        <option value=""${!seriesFilters.country?' selected':''}>Todos</option>${countriesOpts}
-      </select>
+    <div class="toolbar-filters-row">
+      <div class="filter-group">
+        <span class="filter-label">País</span>
+        <select class="filter-select" onchange="seriesFilters.country=this.value;renderList()">
+          <option value=""${!seriesFilters.country?' selected':''}>🌍 País</option>${countriesOpts}
+        </select>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Orden</span>
+        <select class="filter-select" onchange="seriesFilters.sort=this.value;renderList()">
+          <option value="az"${seriesFilters.sort==='az'?' selected':''}>A → Z</option>
+          <option value="za"${seriesFilters.sort==='za'?' selected':''}>Z → A</option>
+          <option value="eps"${seriesFilters.sort==='eps'?' selected':''}>+ Episodios</option>
+          <option value="date"${seriesFilters.sort==='date'?' selected':''}>Por fecha</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Libro</span>
+        <select class="filter-select" onchange="seriesFilters.book=this.value;renderList()">
+          <option value="all"${seriesFilters.book==='all'?' selected':''}>📚 Libro</option>
+          <option value="yes"${seriesFilters.book==='yes'?' selected':''}>📖 Con libro</option>
+          <option value="no"${seriesFilters.book==='no'?' selected':''}>Sin libro</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Año</span>
+        <select class="filter-select" onchange="seriesFilters.year=this.value;renderList()">
+          <option value=""${!seriesFilters.year?' selected':''}>📅 Año</option>${yearsOpts}
+        </select>
+      </div>
+      ${seriesFilters.country||seriesFilters.book!=='all'||seriesFilters.year?`<button class="filter-clear-btn" onclick="seriesFilters.country='';seriesFilters.book='all';seriesFilters.year='';renderList()">✕ Limpiar</button>`:''}
     </div>
-    <div class="filter-group">
-      <span class="filter-label">Libro</span>
-      <select class="filter-select" onchange="seriesFilters.book=this.value;renderList()">
-        <option value="all"${seriesFilters.book==='all'?' selected':''}>Todos</option>
-        <option value="yes"${seriesFilters.book==='yes'?' selected':''}>📖 Solo con libro</option>
-        <option value="no"${seriesFilters.book==='no'?' selected':''}>Sin libro</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <span class="filter-label">Orden</span>
-      <select class="filter-select" onchange="seriesFilters.sort=this.value;renderList()">
-        <option value="az"${seriesFilters.sort==='az'?' selected':''}>A → Z</option>
-        <option value="za"${seriesFilters.sort==='za'?' selected':''}>Z → A</option>
-        <option value="eps"${seriesFilters.sort==='eps'?' selected':''}>Más episodios</option>
-        <option value="date"${seriesFilters.sort==='date'?' selected':''}>Por fecha</option>
-      </select>
-    </div>
-    <div class="filter-group date-filter-group">
-      <span class="filter-label">Desde</span>
-      <input type="date" class="filter-select" value="${seriesFilters.dateFrom}" onchange="seriesFilters.dateFrom=this.value;renderList()" style="cursor:pointer">
-    </div>
-    <div class="filter-group date-filter-group">
-      <span class="filter-label">Hasta</span>
-      <input type="date" class="filter-select" value="${seriesFilters.dateTo}" onchange="seriesFilters.dateTo=this.value;renderList()" style="cursor:pointer">
-    </div>
-    ${seriesFilters.dateFrom||seriesFilters.dateTo?`<button class="filter-clear-btn" onclick="seriesFilters.dateFrom='';seriesFilters.dateTo='';renderList()">✕ Fechas</button>`:''}
   </div>`;
 
   if(!filtered.length){
@@ -992,7 +1007,7 @@ function renderList(){
   view.innerHTML=html;
 }
 
-let upcomingFilters={q:'',country:'',sort:'az',book:'all'};
+let upcomingFilters={q:'',country:'',sort:'az',book:'all',year:''};
 
 function applyUpcomingFilters(arr){
   let r=[...arr];
@@ -1001,6 +1016,7 @@ function applyUpcomingFilters(arr){
   if(upcomingFilters.country) r=r.filter(s=>s.country===upcomingFilters.country);
   if(upcomingFilters.book==='yes') r=r.filter(s=>s.basedOnBook);
   if(upcomingFilters.book==='no') r=r.filter(s=>!s.basedOnBook);
+  if(upcomingFilters.year) r=r.filter(s=>s.startDate&&s.startDate.startsWith(upcomingFilters.year));
   if(upcomingFilters.sort==='az') r.sort((a,b)=>a.name.localeCompare(b.name,'es'));
   else if(upcomingFilters.sort==='za') r.sort((a,b)=>b.name.localeCompare(a.name,'es'));
   return r;
@@ -1012,35 +1028,48 @@ function renderUpcoming(){
   if(!allUpcoming.length){view.innerHTML='<div class="empty">✨ No hay series próximamente de momento. ¡Pronto habrá novedades!</div>';return;}
   const allCountries=getCountries(allUpcoming);
   const countriesOpts=allCountries.map(c=>`<option value="${c}"${upcomingFilters.country===c?' selected':''}>${c}</option>`).join('');
+  const upYears=[...new Set(allUpcoming.map(s=>s.startDate?s.startDate.substring(0,4):'').filter(Boolean))].sort((a,b)=>b-a);
+  const allUpcomingYears=upYears.map(y=>`<option value="${y}"${upcomingFilters.year===y?' selected':''}>${y}</option>`).join('');
   const upcoming=applyUpcomingFilters(allUpcoming);
 
   let html=`<div class="section-heading" style="margin-bottom:.25rem">✨ Próximamente</div>
   <p class="section-desc" style="margin-bottom:.85rem">Series anunciadas que aún no tienen fecha de emisión confirmada.</p>
   <div class="books-toolbar">
-    <div class="search-wrap" style="position:relative;margin-bottom:0">
-      <span class="search-icon">🔍</span>
-      <input class="search-input" placeholder="Buscar serie, país, plataforma…" value="${upcomingFilters.q}" oninput="upcomingFilters.q=this.value;renderUpcoming()">
+    <div class="toolbar-search-row">
+      <div class="search-wrap" style="position:relative;margin-bottom:0;width:100%">
+        <span class="search-icon">🔍</span>
+        <input class="search-input" placeholder="Buscar serie, país, plataforma…" value="${upcomingFilters.q}" oninput="upcomingFilters.q=this.value;renderUpcoming()">
+      </div>
     </div>
-    <div class="filter-group">
-      <span class="filter-label">País</span>
-      <select class="filter-select" onchange="upcomingFilters.country=this.value;renderUpcoming()">
-        <option value=""${!upcomingFilters.country?' selected':''}>Todos</option>${countriesOpts}
-      </select>
-    </div>
-    <div class="filter-group">
-      <span class="filter-label">Libro</span>
-      <select class="filter-select" onchange="upcomingFilters.book=this.value;renderUpcoming()">
-        <option value="all"${upcomingFilters.book==='all'?' selected':''}>Todos</option>
-        <option value="yes"${upcomingFilters.book==='yes'?' selected':''}>📖 Solo con libro</option>
-        <option value="no"${upcomingFilters.book==='no'?' selected':''}>Sin libro</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <span class="filter-label">Orden</span>
-      <select class="filter-select" onchange="upcomingFilters.sort=this.value;renderUpcoming()">
-        <option value="az"${upcomingFilters.sort==='az'?' selected':''}>A → Z</option>
-        <option value="za"${upcomingFilters.sort==='za'?' selected':''}>Z → A</option>
-      </select>
+    <div class="toolbar-filters-row">
+      <div class="filter-group">
+        <span class="filter-label">País</span>
+        <select class="filter-select" onchange="upcomingFilters.country=this.value;renderUpcoming()">
+          <option value=""${!upcomingFilters.country?' selected':''}>🌍 País</option>${countriesOpts}
+        </select>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Orden</span>
+        <select class="filter-select" onchange="upcomingFilters.sort=this.value;renderUpcoming()">
+          <option value="az"${upcomingFilters.sort==='az'?' selected':''}>A → Z</option>
+          <option value="za"${upcomingFilters.sort==='za'?' selected':''}>Z → A</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Libro</span>
+        <select class="filter-select" onchange="upcomingFilters.book=this.value;renderUpcoming()">
+          <option value="all"${upcomingFilters.book==='all'?' selected':''}>📚 Libro</option>
+          <option value="yes"${upcomingFilters.book==='yes'?' selected':''}>📖 Con libro</option>
+          <option value="no"${upcomingFilters.book==='no'?' selected':''}>Sin libro</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Año</span>
+        <select class="filter-select" onchange="upcomingFilters.year=this.value;renderUpcoming()">
+          <option value=""${!upcomingFilters.year?' selected':''}>📅 Año</option>${allUpcomingYears}
+        </select>
+      </div>
+      ${upcomingFilters.country||upcomingFilters.book!=='all'||upcomingFilters.year?`<button class="filter-clear-btn" onclick="upcomingFilters.country='';upcomingFilters.book='all';upcomingFilters.year='';renderUpcoming()">✕ Limpiar</button>`:''}
     </div>
   </div>`;
 
@@ -1213,7 +1242,7 @@ function openMovie(mi){
   document.getElementById('modalBg').classList.add('open');
 }
 
-let moviesFilters={q:'',country:'',sort:'date',book:'all',dateFrom:'',dateTo:''};
+let moviesFilters={q:'',country:'',sort:'date',book:'all',year:''};
 
 function applyMoviesFilters(arr){
   let r=[...arr];
@@ -1222,8 +1251,7 @@ function applyMoviesFilters(arr){
   if(moviesFilters.country) r=r.filter(mv=>mv.country===moviesFilters.country);
   if(moviesFilters.book==='yes') r=r.filter(mv=>mv.basedOnBook);
   if(moviesFilters.book==='no') r=r.filter(mv=>!mv.basedOnBook);
-  if(moviesFilters.dateFrom) r=r.filter(mv=>mv.date&&mv.date>=moviesFilters.dateFrom);
-  if(moviesFilters.dateTo) r=r.filter(mv=>mv.date&&mv.date<=moviesFilters.dateTo);
+  if(moviesFilters.year) r=r.filter(mv=>mv.date&&mv.date.startsWith(moviesFilters.year));
   if(moviesFilters.sort==='az') r.sort((a,b)=>a.name.localeCompare(b.name,'es'));
   else if(moviesFilters.sort==='za') r.sort((a,b)=>b.name.localeCompare(a.name,'es'));
   else if(moviesFilters.sort==='date') r.sort((a,b)=>{if(!a.date&&!b.date)return 0;if(!a.date)return 1;if(!b.date)return-1;return a.date.localeCompare(b.date);});
@@ -1261,7 +1289,8 @@ function renderMovies(){
   if(!state.movies.length){view.innerHTML='<div class="empty">🎥 No hay películas todavía.</div>';return;}
   const now=new Date();
   const allCountries=getCountries(state.movies);
-  const countriesOpts=allCountries.map(c=>`<option value="${c}"${moviesFilters.country===c?' selected':''}>${c}</option>`).join('');
+  const mvYears=[...new Set(state.movies.map(mv=>mv.date?mv.date.substring(0,4):'').filter(Boolean))].sort((a,b)=>b-a);
+  const mvYearsOpts=mvYears.map(y=>`<option value="${y}"${moviesFilters.year===y?' selected':''}>${y}</option>`).join('');
   const filtered=applyMoviesFilters(state.movies);
   const inTheaters=filtered.filter(mv=>mv.date&&new Date(mv.date+'T12:00:00')<=now);
   const comingSoon=filtered.filter(mv=>!mv.date||new Date(mv.date+'T12:00:00')>now);
@@ -1273,41 +1302,43 @@ function renderMovies(){
   const shown = moviesSubtab==='theaters'?inTheaters : moviesSubtab==='soon'?comingSoon : filtered;
 
   let html=`<div class="books-toolbar">
-    <div class="search-wrap" style="position:relative;margin-bottom:0">
-      <span class="search-icon">🔍</span>
-      <input class="search-input" placeholder="Buscar película, país, plataforma…" value="${moviesFilters.q}" oninput="moviesFilters.q=this.value;renderMovies()">
+    <div class="toolbar-search-row">
+      <div class="search-wrap" style="position:relative;margin-bottom:0;width:100%">
+        <span class="search-icon">🔍</span>
+        <input class="search-input" placeholder="Buscar película, país, plataforma…" value="${moviesFilters.q}" oninput="moviesFilters.q=this.value;renderMovies()">
+      </div>
     </div>
-    <div class="filter-group">
-      <span class="filter-label">País</span>
-      <select class="filter-select" onchange="moviesFilters.country=this.value;renderMovies()">
-        <option value=""${!moviesFilters.country?' selected':''}>Todos</option>${countriesOpts}
-      </select>
+    <div class="toolbar-filters-row">
+      <div class="filter-group">
+        <span class="filter-label">País</span>
+        <select class="filter-select" onchange="moviesFilters.country=this.value;renderMovies()">
+          <option value=""${!moviesFilters.country?' selected':''}>🌍 País</option>${countriesOpts}
+        </select>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Orden</span>
+        <select class="filter-select" onchange="moviesFilters.sort=this.value;renderMovies()">
+          <option value="date"${moviesFilters.sort==='date'?' selected':''}>Por fecha</option>
+          <option value="az"${moviesFilters.sort==='az'?' selected':''}>A → Z</option>
+          <option value="za"${moviesFilters.sort==='za'?' selected':''}>Z → A</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Libro</span>
+        <select class="filter-select" onchange="moviesFilters.book=this.value;renderMovies()">
+          <option value="all"${moviesFilters.book==='all'?' selected':''}>📚 Libro</option>
+          <option value="yes"${moviesFilters.book==='yes'?' selected':''}>📖 Con libro</option>
+          <option value="no"${moviesFilters.book==='no'?' selected':''}>Sin libro</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Año</span>
+        <select class="filter-select" onchange="moviesFilters.year=this.value;renderMovies()">
+          <option value=""${!moviesFilters.year?' selected':''}>📅 Año</option>${mvYearsOpts}
+        </select>
+      </div>
+      ${moviesFilters.country||moviesFilters.book!=='all'||moviesFilters.year?`<button class="filter-clear-btn" onclick="moviesFilters.country='';moviesFilters.book='all';moviesFilters.year='';renderMovies()">✕ Limpiar</button>`:''}
     </div>
-    <div class="filter-group">
-      <span class="filter-label">Libro</span>
-      <select class="filter-select" onchange="moviesFilters.book=this.value;renderMovies()">
-        <option value="all"${moviesFilters.book==='all'?' selected':''}>Todos</option>
-        <option value="yes"${moviesFilters.book==='yes'?' selected':''}>📖 Solo con libro</option>
-        <option value="no"${moviesFilters.book==='no'?' selected':''}>Sin libro</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <span class="filter-label">Orden</span>
-      <select class="filter-select" onchange="moviesFilters.sort=this.value;renderMovies()">
-        <option value="date"${moviesFilters.sort==='date'?' selected':''}>Por fecha</option>
-        <option value="az"${moviesFilters.sort==='az'?' selected':''}>A → Z</option>
-        <option value="za"${moviesFilters.sort==='za'?' selected':''}>Z → A</option>
-      </select>
-    </div>
-    <div class="filter-group date-filter-group">
-      <span class="filter-label">Desde</span>
-      <input type="date" class="filter-select" value="${moviesFilters.dateFrom}" onchange="moviesFilters.dateFrom=this.value;renderMovies()" style="cursor:pointer">
-    </div>
-    <div class="filter-group date-filter-group">
-      <span class="filter-label">Hasta</span>
-      <input type="date" class="filter-select" value="${moviesFilters.dateTo}" onchange="moviesFilters.dateTo=this.value;renderMovies()" style="cursor:pointer">
-    </div>
-    ${moviesFilters.dateFrom||moviesFilters.dateTo?`<button class="filter-clear-btn" onclick="moviesFilters.dateFrom='';moviesFilters.dateTo='';renderMovies()">✕ Fechas</button>`:''}
   </div>`;
 
   if(!filtered.length){
@@ -1343,13 +1374,34 @@ function closeModal(){ document.getElementById('modalBg').classList.remove('open
 
 function getYoutubeId(url){
   if(!url) return null;
-  const m=url.match(/(?:v=|youtu\.be\/|embed\/)([\w-]{11})/);
-  return m?m[1]:null;
+  // Normalize: trim whitespace
+  url = url.trim();
+  // Already an 11-char ID (no slashes or dots)
+  if(/^[\w-]{11}$/.test(url)) return url;
+  // youtu.be/ID or youtu.be/ID?si=...
+  let m=url.match(/youtu\.be\/([\w-]{11})/);
+  if(m) return m[1];
+  // ?v=ID or &v=ID
+  m=url.match(/[?&]v=([\w-]{11})/);
+  if(m) return m[1];
+  // /embed/ID
+  m=url.match(/\/embed\/([\w-]{11})/);
+  if(m) return m[1];
+  // /shorts/ID
+  m=url.match(/\/shorts\/([\w-]{11})/);
+  if(m) return m[1];
+  // /watch/ID
+  m=url.match(/\/watch\/([\w-]{11})/);
+  if(m) return m[1];
+  // Last resort: any 11-char word after last /
+  m=url.match(/\/([\w-]{11})(?:[?&]|$)/);
+  if(m) return m[1];
+  return null;
 }
 function trailerHtml(url){
   const id=getYoutubeId(url);
   if(!id) return '';
-  return `<div class="trailer-wrap"><iframe src="https://www.youtube.com/embed/${id}" allowfullscreen loading="lazy"></iframe></div>`;
+  return `<div class="trailer-wrap"><iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0" allowfullscreen loading="lazy" title="Trailer"></iframe></div>`;
 }
 
 const LANG_META={es:{flag:'🇪🇸',label:'Español'},en:{flag:'🇬🇧',label:'English'},pt:{flag:'🇧🇷',label:'Português'},th:{flag:'🇹🇭',label:'ภาษาไทย'},ko:{flag:'🇰🇷',label:'한국어'},ja:{flag:'🇯🇵',label:'日本語'},zh:{flag:'🇨🇳',label:'中文'},fr:{flag:'🇫🇷',label:'Français'},de:{flag:'🇩🇪',label:'Deutsch'},it:{flag:'🇮🇹',label:'Italiano'},other:{flag:'🌐',label:'Otro'}};
