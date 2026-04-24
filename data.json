@@ -1323,14 +1323,14 @@
     {
       "id": "1776976452500",
       "name": "Lunar Secret",
-      "poster": "",
+      "poster": "https://pbs.twimg.com/media/HGq3ZijXoAALEqv?format=jpg&name=large",
       "synopsis": "Bajo las luces de la pista de aterrizaje, dos estrellas se cruzan: Honey, la princesa impecable, y Alin, el ángel con cicatrices ocultas.\n\nBajo la misma luna, los secretos se transforman en anhelo y la rivalidad se suaviza hasta convertirse en algo real. En un mundo que valora tanto la belleza como el amor, sus corazones aprenden a buscar no lo que el mundo puede ver, sino lo que solo el amor puede revelar.\n\nA la sombra de la luna, el amor florece silenciosamente.",
       "year": "",
       "country": "Tailandia",
       "network": "",
       "networkUrl": "",
       "watchLinks": [],
-      "trailerUrl": "",
+      "trailerUrl": "https://www.youtube.com/watch?v=TDY-ZwAtCPI",
       "bookSource": "Lunar Secret",
       "basedOnBook": true,
       "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/12745/Thumbnail/book_detail_large.gif?18",
@@ -1514,6 +1514,46 @@
       "upcoming": true,
       "skipDates": [],
       "episodes": []
+    },
+    {
+      "id": "1777032925125",
+      "name": "Beauty & The Bike",
+      "poster": "https://pbs.twimg.com/media/HGqse-2aAAAMM9w?format=jpg&name=4096x4096",
+      "synopsis": "En medio de los innumerables problemas que enfrenta Ingdao, siempre está Earth, su hermosa y genial hermana mayor, que es motociclista, dispuesta a ayudarla. \nNo te pierdas la serie \"Beauty and the Bike\", protagonizada por Mew Thanyatip como Earth y Renee Rerita como Ingdao",
+      "year": "",
+      "country": "Tailandia",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://www.youtube.com/watch?v=sY15eXJcRMU",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": true,
+      "skipDates": [],
+      "episodes": []
+    },
+    {
+      "id": "1777033081952",
+      "name": "Third Person",
+      "poster": "https://pbs.twimg.com/media/HGqwDHsbMAAqZdh?format=jpg&name=small",
+      "synopsis": "Desde que perdí la memoria hace cuatro años… por fin veo a la mujer bajo el paraguas amarillo con la que sueño cada noche. ⛱️\n\nUna historia de amor, secretos y recuerdos ocultos… está a punto de revelarse. No te pierdas la serie Third Person – Words of Love and Deception, protagonizada por Karn-Natacha como “Chris” y Mimi-Patchara como “Sun”.",
+      "year": "",
+      "country": "Tailandia",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://www.youtube.com/watch?v=b8Fa97kmgwQ",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": true,
+      "skipDates": [],
+      "episodes": []
     }
   ],
   "movies": [
@@ -1559,5 +1599,5 @@
       "bookUrl": ""
     }
   ],
-  "exportedAt": "2026-04-24T08:11:32.680Z"
+  "exportedAt": "2026-04-24T12:18:45.463Z"
 }
