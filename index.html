@@ -1200,6 +1200,7 @@ function openUpcoming(si){
   <div class="modal-title">${s.name}</div>
   <div style="font-size:12px;color:var(--muted);margin-bottom:12px">Fecha de emisión por confirmar</div>
   ${(()=>{const links=s.watchLinks&&s.watchLinks.length?s.watchLinks:(s.networkUrl?[{name:s.network||'Ver serie',url:s.networkUrl}]:[]);if(!links.length)return '';return `<div class="watch-links-label">▶ Dónde ver</div><div class="watch-links">${links.map(l=>`<a class="watch-link" href="${l.url}" target="_blank" rel="noopener"><span class="watch-link-icon">▶</span>${l.name}</a>`).join('')}</div>`;})()}
+  ${s.trailerUrl?trailerHtml(s.trailerUrl):''}
   ${metaGrid?`<div class="modal-meta-grid">${metaGrid}</div>`:''}
   ${s.synopsis?`<div class="synopsis">${s.synopsis}</div>`:''}
   ${s.basedOnBook?(()=>{
@@ -1312,6 +1313,7 @@ function renderMovies(){
   if(moviesSubtab==='soon'&&!comingSoon.length) moviesSubtab='all';
 
   const shown = moviesSubtab==='theaters'?inTheaters : moviesSubtab==='soon'?comingSoon : filtered;
+  const countriesOpts=allCountries.map(c=>`<option value="${c}"${moviesFilters.country===c?' selected':''}>${c}</option>`).join('');
 
   let html=`<div class="books-toolbar">
     <div class="toolbar-search-row">
