@@ -32,10 +32,7 @@
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'DM Sans', system-ui, sans-serif;
 }
-*{box-sizing:border-box;margin:0;padding:0;max-width:100%}
-/* Excepciones donde max-width:100% rompería el layout */
-img,svg,video,canvas,iframe{max-width:100%}
-.series-grid,.upcoming-grid,.movies-grid,.books-grid{max-width:100%}
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:14px;line-height:1.6;min-height:100vh}
 
@@ -103,7 +100,7 @@ body::before{content:'';position:fixed;inset:0;background:
 /* ═══ CONTAINER ═══ */
 .container{max-width:1020px;margin:0 auto;padding:2rem 1.5rem;position:relative;z-index:1}
 @media(max-width:600px){
-  .container{padding:1.25rem 1rem 6rem;width:100%;}
+  .container{padding:1.25rem 1rem 2rem;width:100%;}
   .hero-stats{flex-wrap:wrap}
   #viewList,#viewMovies,#viewUpcoming,#viewBooks{width:100%;}
 }
@@ -111,37 +108,24 @@ body::before{content:'';position:fixed;inset:0;background:
 /* Legacy page-header (hidden now) */
 .page-header{display:none}
 
-/* ═══ BOTTOM NAV (móvil) ═══ */
-.bottom-nav{display:none}
+/* ═══ TABS móvil: grid ═══ */
 @media(max-width:600px){
-  .tabs{display:none}
-  .bottom-nav{
-    display:flex;
-    position:fixed;bottom:0;left:0;right:0;
-    z-index:100;
-    background:rgba(255,255,255,0.96);
-    border-top:1px solid var(--border2);
-    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-    box-shadow:0 -4px 24px rgba(180,80,120,0.10);
-    padding:0 0 env(safe-area-inset-bottom,0);
+  .tabs{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:6px;width:100%;
+    background:transparent;border:none;box-shadow:none;padding:0;
+    margin-bottom:1.25rem;
   }
-  .bnav-item{
-    flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
-    gap:3px;padding:9px 4px 8px;cursor:pointer;
-    border:none;background:transparent;font-family:var(--font-body);
-    color:var(--muted);transition:color .15s;
-    -webkit-tap-highlight-color:transparent;
+  .tab{
+    justify-content:center;flex-direction:column;
+    padding:9px 4px;border-radius:12px;font-size:11px;font-weight:700;
+    background:var(--surface);border:1.5px solid var(--border2);
+    box-shadow:var(--shadow-sm);gap:2px;text-align:center;
   }
-  .bnav-item.active{color:var(--accent)}
-  .bnav-icon{font-size:19px;line-height:1;transition:transform .18s}
-  .bnav-item.active .bnav-icon{transform:scale(1.15)}
-  .bnav-label{font-size:9.5px;font-weight:600;letter-spacing:.02em;white-space:nowrap}
-  .bnav-dot{
-    width:4px;height:4px;border-radius:50%;background:var(--accent);
-    position:absolute;bottom:6px;opacity:0;transition:opacity .15s;
-  }
-  .bnav-item{position:relative}
-  .bnav-item.active .bnav-dot{opacity:1}
+  .tab:nth-child(4){grid-column:1/2}
+  .tab:nth-child(5){grid-column:3/4}
+  .tab.active{border-color:var(--accent);box-shadow:0 3px 14px rgba(201,79,124,0.25)}
 }
 
 /* ═══ TABS ═══ */
@@ -1374,10 +1358,6 @@ function switchTab(tab){
     if(btn) btn.className='tab'+(tab===t?' active':'');
     if(view) view.style.display=tab===t?'':'none';
   });
-  // Sync bottom nav
-  document.querySelectorAll('.bnav-item').forEach(el=>{
-    el.classList.toggle('active', el.dataset.tab===tab);
-  });
   if(tab==='list') renderList();
   if(tab==='movies') renderMovies();
   if(tab==='upcoming') renderUpcoming();
@@ -1391,34 +1371,6 @@ document.getElementById('todayBtn').onclick=()=>{state.month=new Date().getMonth
 (async()=>{ if(await loadData()){renderStats();renderCal();} })();
 
 </script>
-
-<nav class="bottom-nav">
-  <button class="bnav-item active" data-tab="cal" onclick="switchTab('cal')">
-    <span class="bnav-icon">📅</span>
-    <span class="bnav-label">Calendario</span>
-    <span class="bnav-dot"></span>
-  </button>
-  <button class="bnav-item" data-tab="list" onclick="switchTab('list')">
-    <span class="bnav-icon">🎬</span>
-    <span class="bnav-label">Series</span>
-    <span class="bnav-dot"></span>
-  </button>
-  <button class="bnav-item" data-tab="movies" onclick="switchTab('movies')">
-    <span class="bnav-icon">🎥</span>
-    <span class="bnav-label">Películas</span>
-    <span class="bnav-dot"></span>
-  </button>
-  <button class="bnav-item" data-tab="upcoming" onclick="switchTab('upcoming')">
-    <span class="bnav-icon">✨</span>
-    <span class="bnav-label">Próximas</span>
-    <span class="bnav-dot"></span>
-  </button>
-  <button class="bnav-item" data-tab="books" onclick="switchTab('books')">
-    <span class="bnav-icon">📚</span>
-    <span class="bnav-label">Libros</span>
-    <span class="bnav-dot"></span>
-  </button>
-</nav>
 
 </body>
 </html>
