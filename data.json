@@ -95,7 +95,7 @@
       "networkUrl": "https://ch3plus.com/drama/1790",
       "watchLinks": [
         {
-          "name": "Ver serie",
+          "name": "CH3+",
           "url": "https://ch3plus.com/drama/1790"
         }
       ],
@@ -133,7 +133,7 @@
       "networkUrl": "https://www.youtube.com/@kongthupsproduction",
       "watchLinks": [
         {
-          "name": "Ver serie",
+          "name": "YouTube",
           "url": "https://www.youtube.com/@kongthupsproduction"
         }
       ],
@@ -167,7 +167,7 @@
       "upcoming": false,
       "watchLinks": [
         {
-          "name": "Ver serie",
+          "name": "iQIYI",
           "url": "https://www.iq.com/album/hometown-romance-2026-1pg1klzlrtl"
         }
       ],
@@ -208,7 +208,7 @@
       "upcoming": false,
       "watchLinks": [
         {
-          "name": "Ver serie",
+          "name": "iQIYI",
           "url": "https://www.iq.com/album/the-water-4-elements-2026-2fxxh4am0kx"
         }
       ],
@@ -341,7 +341,7 @@
       "upcoming": false,
       "watchLinks": [
         {
-          "name": "Ver serie",
+          "name": "YouTube",
           "url": "https://www.youtube.com/@FabelEntertainment"
         }
       ],
@@ -414,6 +414,9 @@
           "store": "MEB",
           "url": "https://www.mebmarket.com/ebook-265834-THE-FIRE-%E0%B9%82%E0%B8%8B%E0%B9%88%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%AD%E0%B8%B1%E0%B8%84%E0%B8%99%E0%B8%B5"
         }
+      ],
+      "genres": [
+        "Romance"
       ]
     },
     {
@@ -450,6 +453,10 @@
           "store": "MEB",
           "url": "https://www.mebmarket.com/ebook-354792-%E0%B8%A7%E0%B8%B2%E0%B8%94%E0%B8%9D%E0%B8%B1%E0%B8%99%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%A7%E0%B8%B4%E0%B8%A7%E0%B8%B2%E0%B8%AB%E0%B9%8C"
         }
+      ],
+      "genres": [
+        "Romance",
+        "Drama"
       ]
     },
     {
@@ -476,6 +483,9 @@
           "store": "MEB",
           "url": "https://www.mebmarket.com/ebook-374428-PLS-LOVE-%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B9%84%E0%B8%94%E0%B9%89%E0%B9%84%E0%B8%AB%E0%B8%A1"
         }
+      ],
+      "genres": [
+        "Romance"
       ]
     },
     {
@@ -507,6 +517,9 @@
           "store": "MEB",
           "url": "https://www.mebmarket.com/ebook-402930-%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%99%E0%B8%B5%E0%B9%89%E0%B8%95%E0%B8%B5%E0%B8%95%E0%B8%A3%E0%B8%B2"
         }
+      ],
+      "genres": [
+        "Romance"
       ]
     },
     {
@@ -556,6 +569,17 @@
           "date": "2026-04-24",
           "skipped": true
         }
+      ],
+      "watchLinks": [
+        {
+          "name": "Youtube",
+          "url": "https://www.youtube.com/@sukfilm274"
+        }
+      ],
+      "trailerUrl": "",
+      "bookLinks": [],
+      "genres": [
+        "Romance"
       ]
     },
     {
@@ -582,7 +606,11 @@
       "totalEpisodes": 7,
       "skipDates": [],
       "episodes": [],
-      "bookLinks": []
+      "bookLinks": [],
+      "genres": [
+        "Romance",
+        "Viaje en el tiempo"
+      ]
     },
     {
       "id": "1776965794937",
@@ -608,7 +636,12 @@
       "totalEpisodes": 7,
       "skipDates": [],
       "episodes": [],
-      "bookLinks": []
+      "bookLinks": [],
+      "genres": [
+        "Romance",
+        "Comedia",
+        "Ciencia Ficción"
+      ]
     },
     {
       "id": "1776966024996",
@@ -639,6 +672,9 @@
           "store": "Otro",
           "url": "https://www.wattpad.com/story/402023880-beyond-the-ocean"
         }
+      ],
+      "genres": [
+        "Romance"
       ]
     },
     {
@@ -713,6 +749,9 @@
           "store": "MEB",
           "url": "https://www.mebmarket.com/ebook-249145-THE-EARTH-%E0%B8%A7%E0%B8%B4%E0%B8%A7%E0%B8%B2%E0%B8%AB%E0%B9%8C%E0%B8%9B%E0%B8%90%E0%B8%9E%E0%B8%B5"
         }
+      ],
+      "genres": [
+        "Romance"
       ]
     },
     {
@@ -739,6 +778,12 @@
           "store": "MEB",
           "url": "https://www.mebmarket.com/ebook-423525-%E0%B9%80%E0%B8%A5%E0%B8%B7%E0%B8%AD%E0%B8%94%E0%B8%AB%E0%B9%89%E0%B8%B2%E0%B8%A1%E0%B8%A3%E0%B8%B1%E0%B8%81-THE-HIDDEN-BLOOD"
         }
+      ],
+      "genres": [
+        "Romance",
+        "Drama",
+        "Terror",
+        "Fantasía"
       ]
     },
     {
@@ -785,6 +830,10 @@
           "store": "MEB",
           "url": "https://www.mebmarket.com/ebook-304713-BUILT-IN-LOVE-Indonesian-Version"
         }
+      ],
+      "genres": [
+        "Romance",
+        "Drama"
       ]
     },
     {
@@ -818,12 +867,14 @@
       "skipDates": [],
       "episodes": [],
       "startDate": "2026-05-29",
-      "dayOfWeek": 0,
+      "dayOfWeek": 4,
       "emissionDays": [
-        0,
         4
       ],
-      "totalEpisodes": 8
+      "totalEpisodes": 8,
+      "genres": [
+        "Romance"
+      ]
     },
     {
       "id": "1776971297117",
@@ -843,7 +894,12 @@
       "bookUrl": "",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance",
+        "Drama",
+        "Escolar"
+      ]
     },
     {
       "id": "1776971352334",
@@ -863,7 +919,11 @@
       "bookUrl": "",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance",
+        "Drama"
+      ]
     },
     {
       "id": "1776971502360",
@@ -894,7 +954,11 @@
       "bookUrl": "https://www.mebmarket.com/ebook-351465-Moon-Shadow-%E0%B9%80%E0%B8%87%E0%B8%B2%E0%B9%83%E0%B8%95%E0%B9%89%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%88%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B9%8C-English-version",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance",
+        "Drama"
+      ]
     },
     {
       "id": "1776971628835",
@@ -935,7 +999,11 @@
       "bookUrl": "https://www.mebmarket.com/ebook-359476-REMAIN-1-%E0%B8%AA%E0%B8%B4%E0%B9%88%E0%B8%87%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%80%E0%B8%AB%E0%B8%A5%E0%B8%B7%E0%B8%AD%E0%B8%AD%E0%B8%A2%E0%B8%B9%E0%B9%88-English-Version",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance",
+        "Drama"
+      ]
     },
     {
       "id": "1776972053631",
@@ -966,7 +1034,12 @@
       "bookUrl": "https://www.mebmarket.com/ebook-343259-Buy-My-Boss-%E0%B8%89%E0%B8%B1%E0%B8%99%E0%B8%8B%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B9%80%E0%B8%88%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%B2%E0%B8%A2%E0%B8%81%E0%B8%B4%E0%B8%99-English-version",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance",
+        "Drama",
+        "Oficina / Trabajo"
+      ]
     },
     {
       "id": "1776972122133",
@@ -986,7 +1059,10 @@
       "bookUrl": "",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance"
+      ]
     },
     {
       "id": "1776972237357",
@@ -1017,7 +1093,11 @@
       "bookUrl": "https://www.mebmarket.com/ebook-409971-Ditto-Rafah-Fallen-from-Heaven-Ditto-%E0%B8%A3%E0%B8%B0%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B8%AB%E0%B8%A5%E0%B9%88%E0%B8%99%E0%B8%AA%E0%B8%A7%E0%B8%A3%E0%B8%A3%E0%B8%84%E0%B9%8C-English-Version",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance",
+        "Drama"
+      ]
     },
     {
       "id": "1776972424986",
@@ -1037,7 +1117,13 @@
       "bookUrl": "",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance",
+        "Drama",
+        "Escolar",
+        "Viaje en el tiempo"
+      ]
     },
     {
       "id": "1776972733396",
@@ -1062,7 +1148,12 @@
       "bookUrl": "",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance",
+        "Drama",
+        "Histórico"
+      ]
     },
     {
       "id": "1776972993462",
@@ -1082,7 +1173,11 @@
       "bookUrl": "",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance",
+        "Drama"
+      ]
     },
     {
       "id": "1776973104361",
@@ -1118,7 +1213,12 @@
       "bookUrl": "https://en.mebmarket.com/?action=book_details&book_id=410048",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance",
+        "Drama",
+        "Comedia"
+      ]
     },
     {
       "id": "1776973507673",
@@ -1135,7 +1235,7 @@
           "url": "https://www.netflix.com/title/82056570"
         },
         {
-          "name": "Yotube",
+          "name": "YouTube",
           "url": "https://www.youtube.com/watch?v=w8x8AedJzbY&list=PLszepnkojZI4qpSumzOHRdNa79JRiC-cE"
         }
       ],
@@ -1169,7 +1269,11 @@
       ],
       "totalEpisodes": 10,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance",
+        "Drama"
+      ]
     },
     {
       "id": "1776974136082",
@@ -1205,7 +1309,12 @@
       "bookUrl": "https://en.mebmarket.com/?action=book_details&book_id=364040",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance",
+        "Misterio",
+        "Terror"
+      ]
     },
     {
       "id": "1776974252950",
@@ -1231,7 +1340,10 @@
       "bookUrl": "https://www.mebmarket.com/ebook-157052-Hidden-Heart-%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%9E%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B9%83%E0%B8%88",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance"
+      ]
     },
     {
       "id": "1776974479970",
@@ -1284,6 +1396,10 @@
           "date": "2026-04-22",
           "skipped": false
         }
+      ],
+      "genres": [
+        "Romance",
+        "Drama"
       ]
     },
     {
@@ -1297,7 +1413,7 @@
       "networkUrl": "https://www.youtube.com/watch?v=1EauB0mRMGo&list=PLszepnkojZI7mOWtISfvxWVPikIM6yiXE",
       "watchLinks": [
         {
-          "name": "youtube",
+          "name": "YouTube",
           "url": "https://www.youtube.com/watch?v=1EauB0mRMGo&list=PLszepnkojZI7mOWtISfvxWVPikIM6yiXE"
         }
       ],
@@ -1326,7 +1442,11 @@
       ],
       "totalEpisodes": 12,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance",
+        "Drama"
+      ]
     },
     {
       "id": "1776976209757",
@@ -1346,7 +1466,10 @@
       "bookUrl": "",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance"
+      ]
     },
     {
       "id": "1776976249517",
@@ -1366,7 +1489,12 @@
       "bookUrl": "",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance",
+        "Comedia",
+        "Acción"
+      ]
     },
     {
       "id": "1776976364805",
@@ -1397,7 +1525,11 @@
       "bookUrl": "https://www.mebmarket.com/ebook-409980-Love-on-Hire-English-Version",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance",
+        "Drama"
+      ]
     },
     {
       "id": "1776976452500",
@@ -1428,7 +1560,10 @@
       "bookUrl": "https://www.mebmarket.com/ebook-416828-Lunar-Secret-English-Version-%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%88%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B9%8C%E0%B8%8B%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%87%E0%B8%B2",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance"
+      ]
     },
     {
       "id": "1776976491416",
@@ -1448,7 +1583,11 @@
       "bookUrl": "",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance",
+        "Drama"
+      ]
     },
     {
       "id": "1776976636268",
@@ -1479,7 +1618,13 @@
       ],
       "totalEpisodes": 7,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance",
+        "Drama",
+        "Acción",
+        "Misterio"
+      ]
     },
     {
       "id": "1777017936367",
@@ -1505,7 +1650,12 @@
       "bookUrl": "https://www.readawrite.com/a/2576b71bb3c93c03e1676c12a07c4833",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance",
+        "Drama",
+        "Acción"
+      ]
     },
     {
       "id": "1777017989605",
@@ -1531,7 +1681,10 @@
       "bookUrl": "https://www.mebmarket.com/ebook-285784-being-of-love-%E0%B8%AB%E0%B8%A2%E0%B8%B8%E0%B8%94%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%A2%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B9%80%E0%B8%98%E0%B8%AD%E0%B8%A3%E0%B8%B1%E0%B8%81",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance"
+      ]
     },
     {
       "id": "1777018102689",
@@ -1567,7 +1720,11 @@
       "bookUrl": "https://www.mebmarket.com/ebook-413114-My-Sassy-Bodyguard-Spanish-Version",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance",
+        "Oficina / Trabajo"
+      ]
     },
     {
       "id": "1777018271372",
@@ -1618,7 +1775,10 @@
       "bookUrl": "",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance"
+      ]
     },
     {
       "id": "1777033081952",
@@ -1638,7 +1798,10 @@
       "bookUrl": "",
       "upcoming": true,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance"
+      ]
     },
     {
       "id": "1777048197930",
@@ -1690,7 +1853,11 @@
       ],
       "totalEpisodes": 16,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance",
+        "Histórico"
+      ]
     },
     {
       "id": "1777048586253",
@@ -1722,7 +1889,11 @@
       ],
       "totalEpisodes": 10,
       "skipDates": [],
-      "episodes": []
+      "episodes": [],
+      "genres": [
+        "Romance",
+        "Idols / Entretenimiento"
+      ]
     },
     {
       "id": "1777065549680",
@@ -1758,6 +1929,44 @@
         "Romance",
         "Comedia"
       ]
+    },
+    {
+      "id": "1777068097582",
+      "name": "Climax",
+      "poster": "https://i.mydramalist.com/mOpzwQ_4f.jpg",
+      "synopsis": "En un intento desesperado por reavivar su carrera estancada, el fiscal Bang Tae Seop (Ju Ji Hoon) elabora un plan descabellado y audaz, que consiste en acabar con la alcaldesa de Seúl. Para ello, se propone exponer la corrupción que la une a Lee Yang Mi (Cha Joo Young), la máxima responsable del grupo empresarial WR Group. Es así como Tae Seop recluta a Hwang Jeong Won (Nana) para que sea su informante y convence de unirse a su causa a Kwon Jong Uk (Oh Jung Se), heredero de WR Group que guarda rencor contra Yang Mi. Sin embargo, la situación se complica cuando Tae Seop descubre que su esposa, Chu Sang Ah (Ha Ji Won), quien una vez fue una reconocida actriz, podría ocultar secretos peligrosos.",
+      "year": 2026,
+      "country": "Corea del Sur",
+      "network": "Viki",
+      "networkUrl": "https://www.viki.com/tv/41436c-climax#about",
+      "watchLinks": [
+        {
+          "name": "Viki",
+          "url": "https://www.viki.com/tv/41436c-climax#about"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/lPn5YTdLfSc?si=22D9xN8fvrIxLlXc",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Thriller",
+        "Misterio",
+        "Político",
+        "Melodrama"
+      ],
+      "startDate": "2026-03-16",
+      "dayOfWeek": 0,
+      "emissionDays": [
+        0,
+        1
+      ],
+      "totalEpisodes": 10,
+      "skipDates": [],
+      "episodes": []
     }
   ],
   "movies": [
@@ -1776,13 +1985,17 @@
       "bookCoverUrl": "https://m.media-amazon.com/images/I/81VkKFSxr-L._SL1500_.jpg",
       "bookUrl": "https://amzn.eu/d/0iUIkBzi",
       "watchLinks": [],
-      "trailerUrl": "",
+      "trailerUrl": "https://youtu.be/ZC1kEknG2ro?si=pM3t52qzLmz9EctD",
       "bookLinks": [
         {
           "lang": "es",
           "store": "Amazon",
           "url": "https://amzn.eu/d/0iUIkBzi"
         }
+      ],
+      "genres": [
+        "Romance",
+        "Drama"
       ]
     },
     {
@@ -1800,8 +2013,13 @@
       "basedOnBook": false,
       "bookSource": "",
       "bookCoverUrl": "",
-      "bookUrl": ""
+      "bookUrl": "",
+      "bookLinks": [],
+      "genres": [
+        "Romance",
+        "Drama"
+      ]
     }
   ],
-  "exportedAt": "2026-04-24T21:44:21.908Z"
+  "exportedAt": "2026-04-24T22:02:02.129Z"
 }
