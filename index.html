@@ -913,6 +913,19 @@ function switchSeriesSubtab(sub){ seriesSubtab=sub; renderList(); }
 
 function getCountries(arr){ return [...new Set(arr.map(s=>s.country).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es')); }
 
+function getSeriesLastActivity(s){
+  // Returns the most recent aired or upcoming episode date, or startDate as fallback
+  const eps=genEps(s);
+  const now=new Date();
+  // Find the most recent aired ep date
+  const aired=eps.filter(e=>!e.skipped&&new Date(e.date+'T12:00:00')<=now).map(e=>e.date);
+  if(aired.length) return aired[aired.length-1];
+  // Or the next upcoming ep
+  const upcoming=eps.filter(e=>!e.skipped&&new Date(e.date+'T12:00:00')>now).map(e=>e.date);
+  if(upcoming.length) return upcoming[0];
+  return s.startDate||'';
+}
+
 function applySeriesFilters(arr){
   let r=[...arr];
   const q=seriesFilters.q.toLowerCase().trim();
@@ -925,6 +938,7 @@ function applySeriesFilters(arr){
   else if(seriesFilters.sort==='za') r.sort((a,b)=>b.name.localeCompare(a.name,'es'));
   else if(seriesFilters.sort==='eps') r.sort((a,b)=>b.totalEpisodes-a.totalEpisodes);
   else if(seriesFilters.sort==='date') r.sort((a,b)=>(a.startDate||'').localeCompare(b.startDate||''));
+  else if(seriesFilters.sort==='recent') r.sort((a,b)=>getSeriesLastActivity(b).localeCompare(getSeriesLastActivity(a)));
   return r;
 }
 
@@ -965,6 +979,7 @@ function renderList(){
           <option value="za"${seriesFilters.sort==='za'?' selected':''}>Z → A</option>
           <option value="eps"${seriesFilters.sort==='eps'?' selected':''}>+ Episodios</option>
           <option value="date"${seriesFilters.sort==='date'?' selected':''}>Por fecha</option>
+          <option value="recent"${seriesFilters.sort==='recent'?' selected':''}>🕐 Actualizado recientemente</option>
         </select>
       </div>
       <div class="filter-group">
@@ -1031,6 +1046,14 @@ function applyUpcomingFilters(arr){
   if(upcomingFilters.year) r=r.filter(s=>s.startDate&&s.startDate.startsWith(upcomingFilters.year));
   if(upcomingFilters.sort==='az') r.sort((a,b)=>a.name.localeCompare(b.name,'es'));
   else if(upcomingFilters.sort==='za') r.sort((a,b)=>b.name.localeCompare(a.name,'es'));
+  else if(upcomingFilters.sort==='recent') r.sort((a,b)=>{
+    // Score by completeness (poster+synopsis+trailer = more recently updated)
+    const score=s=>((s.poster?2:0)+(s.synopsis?2:0)+(s.trailerUrl?1:0)+(s.bookCoverUrl?1:0));
+    const sd=score(b)-score(a);
+    if(sd!==0) return sd;
+    // Fallback: higher ID = added later
+    return Number(b.id||0)-Number(a.id||0);
+  });
   return r;
 }
 
@@ -1065,6 +1088,7 @@ function renderUpcoming(){
         <select class="filter-select" onchange="upcomingFilters.sort=this.value;renderUpcoming()">
           <option value="az"${upcomingFilters.sort==='az'?' selected':''}>A → Z</option>
           <option value="za"${upcomingFilters.sort==='za'?' selected':''}>Z → A</option>
+          <option value="recent"${upcomingFilters.sort==='recent'?' selected':''}>🕐 Actualizado recientemente</option>
         </select>
       </div>
       <div class="filter-group">
@@ -1268,6 +1292,7 @@ function applyMoviesFilters(arr){
   if(moviesFilters.sort==='az') r.sort((a,b)=>a.name.localeCompare(b.name,'es'));
   else if(moviesFilters.sort==='za') r.sort((a,b)=>b.name.localeCompare(a.name,'es'));
   else if(moviesFilters.sort==='date') r.sort((a,b)=>{if(!a.date&&!b.date)return 0;if(!a.date)return 1;if(!b.date)return-1;return a.date.localeCompare(b.date);});
+  else if(moviesFilters.sort==='recent') r.sort((a,b)=>{const da=a.date||'';const db=b.date||'';return db.localeCompare(da);});
   return r;
 }
 
@@ -1335,6 +1360,7 @@ function renderMovies(){
           <option value="date"${moviesFilters.sort==='date'?' selected':''}>Por fecha</option>
           <option value="az"${moviesFilters.sort==='az'?' selected':''}>A → Z</option>
           <option value="za"${moviesFilters.sort==='za'?' selected':''}>Z → A</option>
+          <option value="recent"${moviesFilters.sort==='recent'?' selected':''}>🕐 Actualizado recientemente</option>
         </select>
       </div>
       <div class="filter-group">
