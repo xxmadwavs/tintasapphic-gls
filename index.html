@@ -1136,7 +1136,8 @@ function renderWeekPanel(){
   const now=new Date();
   const todayStr=toStr(now.getFullYear(),now.getMonth(),now.getDate());
   const items=[];
-  state.series.filter(s=>!s.upcoming).forEach((s,si)=>{
+  state.series.filter(s=>!s.upcoming).forEach((s)=>{
+    const si=state.series.indexOf(s);
     genEps(s).forEach(ep=>{
       if(!ep.skipped && ep.date===todayStr)
         items.push({type:'series',s,ep,si});
