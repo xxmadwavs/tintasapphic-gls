@@ -69,6 +69,54 @@
       "genres": [
         "Romance",
         "Drama"
+      ],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-03-09",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            0
+          ],
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 6,
+              "date": "2026-04-20",
+              "skipped": false
+            },
+            {
+              "num": 7,
+              "date": "2026-04-27",
+              "skipped": false
+            },
+            {
+              "num": 8,
+              "date": "2026-05-04",
+              "skipped": false
+            },
+            {
+              "num": 12,
+              "date": "2026-06-01",
+              "skipped": false
+            },
+            {
+              "num": 11,
+              "date": "2026-05-25",
+              "skipped": false
+            },
+            {
+              "num": 10,
+              "date": "2026-05-18",
+              "skipped": false
+            },
+            {
+              "num": 9,
+              "date": "2026-05-11",
+              "skipped": false
+            }
+          ]
+        }
       ]
     },
     {
@@ -182,6 +230,18 @@
       "genres": [
         "Romance",
         "Comedia"
+      ],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-04-03",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            4
+          ],
+          "skipDates": [],
+          "episodes": []
+        }
       ]
     },
     {
@@ -2663,6 +2723,190 @@
           "episodes": []
         }
       ]
+    },
+    {
+      "id": "1777149248949",
+      "name": "Saneha Stories Season 4: Pratthana | Saneha",
+      "poster": "https://i.mydramalist.com/2yYvO_4f.jpg",
+      "synopsis": "Thongkwao se encuentra en una encrucijada emocional. A pesar de tener un novio desde hace mucho tiempo, la estabilidad de su relación se ve sacudida por una sensación desconocida: cada vez que se acerca a cierta mujer, su corazón da un vuelco que no puede ignorar.\n\nConfundida acerca de sus preferencias, Thongkwao se embarca en un viaje introspectivo para entender si lo que siente es una simple curiosidad o el despertar de sus verdaderos sentimientos.\n\nEn este proceso de autodescubrimiento, deberá decidir si se aferra a la seguridad de lo que conoce o si se atreve a explorar la atracción que está revolucionando su mundo.",
+      "year": 2022,
+      "country": "Tailandia",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Romance",
+        "Drama"
+      ],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2022-05-05",
+          "totalEpisodes": 2,
+          "emissionDays": [
+            3
+          ],
+          "skipDates": [],
+          "episodes": []
+        }
+      ]
+    },
+    {
+      "id": "1777149412505",
+      "name": "Show Me Love",
+      "poster": "https://i.mydramalist.com/eY075E_4f.jpg",
+      "synopsis": "Meena, una chica de pueblo, se muda a Bangkok para cumplir sus sueños. Allí conoce a Cherine, quien le propone unirse a una agencia para competir en el certamen de belleza Miss Grand. Al principio, Meena se niega porque no le interesa. Sin embargo, acepta tras recibir una oferta de una generosa suma mensual durante toda la competición. Comienza la aventura de Meena por la corona y surge un romance inesperado con Cherine.",
+      "year": 2023,
+      "country": "Tailandia",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Romance"
+      ],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2023-03-03",
+          "totalEpisodes": 9,
+          "emissionDays": [
+            4
+          ],
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2023-02-28",
+              "skipped": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1777149797784",
+      "name": "Reverse 4 You",
+      "poster": "https://i.mydramalist.com/x4WDdz_4f.jpg",
+      "synopsis": "Jattawa, de diecinueve años, parece una estudiante de derecho común y corriente de primer año, pero guarda un secreto extraordinario: tiene la habilidad de controlar el tiempo. Por su parte, su hermana menor, Vivi, posee el don de ver el futuro.\n\nSin embargo, las visiones de Vivi han comenzado a fallar últimamente, lo que lleva a Jattawa a dudar profundamente de su última y más inquietante predicción: que su alma gemela es P'Four, una estudiante de cuarto año de negocios internacionales conocida por su mala reputación y carácter difícil.\n\nA pesar del escepticismo inicial, cuando las piezas del destino comienzan a encajar y su amor prometido parece estar condenado a la tragedia, Jattawa y P'Four se verán obligadas a unir fuerzas. En una carrera contra lo inevitable, ambas se disponen a luchar contra el tiempo y el destino para cambiar el final de su propia historia.",
+      "year": 2024,
+      "country": "Tailandia",
+      "network": "Netflix",
+      "networkUrl": "https://www.netflix.com/es/title/81925635",
+      "watchLinks": [
+        {
+          "name": "Netflix",
+          "url": "https://www.netflix.com/es/title/81925635"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/ThWo_Kf41DQ?si=hkUbkTpLtDk9mme0",
+      "bookSource": "Reverse 4 You",
+      "basedOnBook": true,
+      "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/268542/Thumbnail/book_detail_large.gif?2",
+      "bookLinks": [
+        {
+          "lang": "es",
+          "store": "MEB",
+          "url": "https://www.mebmarket.com/ebook-332614-Reverse-4-You-Spanish-Version"
+        },
+        {
+          "lang": "en",
+          "store": "MEB",
+          "url": "https://www.mebmarket.com/ebook-268542-Reverse-4-you-English-Version"
+        },
+        {
+          "lang": "th",
+          "store": "MEB",
+          "url": "https://www.mebmarket.com/ebook-97335-Reverse-4-you-%E0%B8%94%E0%B8%B2%E0%B8%A7%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%A7%E0%B8%B2%E0%B8%A3"
+        }
+      ],
+      "bookUrl": "https://www.mebmarket.com/ebook-332614-Reverse-4-You-Spanish-Version",
+      "upcoming": false,
+      "genres": [
+        "Romance",
+        "Fantasía",
+        "Sobrenatural"
+      ],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2024-09-03",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            1
+          ],
+          "skipDates": [],
+          "episodes": []
+        }
+      ]
+    },
+    {
+      "id": "1777150051367",
+      "name": "Blank",
+      "poster": "https://i.mydramalist.com/x4XONj_4c.jpg?v=1",
+      "synopsis": "Khun Nueng, bajo la identidad de ML Sippakorn, es una mujer de una belleza serena que creció bajo la asfixiante presión de su abuela. Nunca se le permitió ser ella misma, viviendo en un entorno donde el amor y la valía personal parecían conceptos inalcanzables.\n\nTodo cambia cuando conoce a Anueng, una joven alegre y radiante. Sin embargo, tras esa energía desbordante, Nueng percibe una tristeza oculta en sus ojos que la atrae irremediablemente. Por primera vez en su vida, siente que su corazón se acelera de una manera que nunca antes había experimentado.\n\nDesafortunadamente, su camino no es sencillo: la diferencia de edad de dieciséis años, junto con las rígidas normas familiares y sociales, se levantan como muros que impiden que su amor florezca con libertad.",
+      "year": 2024,
+      "country": "Tailandia",
+      "network": "YouTube",
+      "networkUrl": "https://youtube.com/playlist?list=PLc6EfuKFtZrLLHsGgC9yUTRNQxqB8mffk&si=aGM-XIKPoILtOc8W",
+      "watchLinks": [
+        {
+          "name": "YouTube",
+          "url": "https://youtube.com/playlist?list=PLc6EfuKFtZrLLHsGgC9yUTRNQxqB8mffk&si=aGM-XIKPoILtOc8W"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/bQSU74hRedU?si=LurAaJ8DGyj5AioK",
+      "bookSource": "Blank",
+      "basedOnBook": true,
+      "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/278699/Thumbnail/book_detail_large.gif?2",
+      "bookLinks": [
+        {
+          "lang": "en",
+          "store": "MEB",
+          "url": "https://www.mebmarket.com/ebook-278699-Blank--English-version"
+        }
+      ],
+      "bookUrl": "https://www.mebmarket.com/ebook-278699-Blank--English-version",
+      "upcoming": false,
+      "genres": [
+        "Romance",
+        "Drama"
+      ],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2024-03-02",
+          "totalEpisodes": 6,
+          "emissionDays": [
+            5
+          ],
+          "skipDates": [],
+          "episodes": []
+        },
+        {
+          "label": "Temporada 2",
+          "startDate": "2024-05-18",
+          "totalEpisodes": 6,
+          "emissionDays": [
+            5
+          ],
+          "skipDates": [],
+          "episodes": []
+        }
+      ]
     }
   ],
   "movies": [
@@ -2796,5 +3040,5 @@
       "genres": []
     }
   ],
-  "exportedAt": "2026-04-25T13:31:41.544Z"
+  "exportedAt": "2026-04-25T21:14:13.320Z"
 }
