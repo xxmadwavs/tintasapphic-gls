@@ -659,6 +659,61 @@ body::before{content:'';position:fixed;inset:0;background:
   .filter-select{font-size:12px;padding:6px 10px}
 }
 
+/* ═══ COUNTRY MULTI-PICKER ═══ */
+.country-picker-wrap{position:relative;display:inline-block}
+.country-picker-btn{
+  display:flex;align-items:center;gap:6px;
+  padding:7px 12px;border-radius:var(--radius-lg);
+  border:1.5px solid var(--border2);background:var(--surface);color:var(--text);
+  font-size:13px;font-family:var(--font-body);font-weight:600;
+  outline:none;cursor:pointer;transition:border-color .15s;
+  box-shadow:var(--shadow-sm);white-space:nowrap;
+  min-width:110px;justify-content:space-between;
+}
+.country-picker-btn:focus,.country-picker-btn.open{border-color:var(--accent)}
+.country-picker-btn .cpb-arrow{font-size:10px;opacity:.5;transition:transform .2s}
+.country-picker-btn.open .cpb-arrow{transform:rotate(180deg)}
+.country-picker-active-count{
+  background:var(--accent);color:#fff;
+  font-size:10px;font-weight:700;
+  padding:1px 6px;border-radius:20px;
+  min-width:18px;text-align:center;
+}
+.country-picker-dropdown{
+  position:absolute;top:calc(100% + 6px);left:0;z-index:100;
+  background:var(--surface);border:1.5px solid var(--border2);
+  border-radius:var(--radius);box-shadow:var(--shadow-lg);
+  padding:6px;min-width:200px;max-height:340px;overflow-y:auto;
+  display:none;
+}
+.country-picker-dropdown.open{display:block}
+.cpd-item{
+  display:flex;align-items:center;gap:8px;
+  padding:7px 10px;border-radius:10px;
+  cursor:pointer;font-size:13px;font-weight:500;color:var(--text);
+  transition:background .12s;user-select:none;
+}
+.cpd-item:hover{background:var(--surface2)}
+.cpd-item.selected{background:var(--accent-soft);color:var(--accent);font-weight:700}
+.cpd-item input[type=checkbox]{
+  accent-color:var(--accent);width:14px;height:14px;flex-shrink:0;cursor:pointer;
+}
+.cpd-separator{height:1px;background:var(--border);margin:4px 0}
+.cpd-other-wrap{padding:4px 2px 2px}
+.cpd-other-input{
+  width:100%;padding:6px 10px;border-radius:8px;
+  border:1.5px solid var(--border2);background:var(--surface2);
+  color:var(--text);font-size:12px;font-family:var(--font-body);
+  outline:none;transition:border-color .15s;
+}
+.cpd-other-input:focus{border-color:var(--accent)}
+.cpd-other-hint{font-size:10.5px;color:var(--muted);padding:2px 2px 0;font-style:italic}
+.cpd-empty{font-size:12px;color:var(--muted);padding:10px;text-align:center;font-style:italic}
+@media(max-width:600px){
+  .country-picker-btn{font-size:12px;padding:7px 8px;min-width:90px}
+  .country-picker-dropdown{min-width:180px}
+}
+
 /* ═══ MODAL ═══ */
 .modal-bg{
   position:fixed;inset:0;
@@ -1199,8 +1254,194 @@ function seriesCardHtml(s, si){
   </div>`;
 }
 
+/* ═══ COUNTRY MULTI-PICKER LOGIC ═══ */
+// availableCountries is passed in each time the picker is built/refreshed
+function buildCountryPicker(id, onChange, availableCountries){
+  const wrap=document.createElement('div');
+  wrap.className='country-picker-wrap';
+  wrap.id='cpWrap_'+id;
+  const btn=document.createElement('button');
+  btn.type='button';
+  btn.className='country-picker-btn';
+  btn.innerHTML='<span class="cpb-label">🌍 País</span><span class="cpb-arrow">▼</span>';
+  const drop=document.createElement('div');
+  drop.className='country-picker-dropdown';
+  let selected=[];
+  function getAll(){return [...selected];}
+  function updateBtn(){
+    const all=getAll();
+    if(!all.length){btn.innerHTML='<span class="cpb-label">🌍 País</span><span class="cpb-arrow">▼</span>';}
+    else if(all.length===1){btn.innerHTML=`<span class="cpb-label">${all[0]}</span><span class="cpb-arrow">▼</span>`;}
+    else{btn.innerHTML=`<span class="cpb-label">🌍 País <span class="country-picker-active-count">${all.length}</span></span><span class="cpb-arrow">▼</span>`;}
+    btn.classList.toggle('open',drop.classList.contains('open'));
+  }
+  function buildDrop(){
+    drop.innerHTML='';
+    if(!availableCountries||!availableCountries.length){
+      const empty=document.createElement('div');empty.className='cpd-empty';empty.textContent='Sin países disponibles';drop.appendChild(empty);return;
+    }
+    availableCountries.forEach(country=>{
+      const item=document.createElement('div');
+      item.className='cpd-item'+(selected.includes(country)?' selected':'');
+      item.innerHTML=`<input type="checkbox" ${selected.includes(country)?'checked':''}><span>${country}</span>`;
+      item.querySelector('input').addEventListener('change',e=>{
+        if(e.target.checked){if(!selected.includes(country))selected.push(country);}
+        else{selected=selected.filter(x=>x!==country);}
+        item.classList.toggle('selected',selected.includes(country));
+        updateBtn();onChange(getAll());
+      });
+      drop.appendChild(item);
+    });
+  }
+  btn.addEventListener('click',e=>{
+    e.stopPropagation();
+    const isOpen=drop.classList.contains('open');
+    document.querySelectorAll('.country-picker-dropdown.open').forEach(d=>d.classList.remove('open'));
+    document.querySelectorAll('.country-picker-btn.open').forEach(b=>b.classList.remove('open'));
+    if(!isOpen){buildDrop();drop.classList.add('open');btn.classList.add('open');}
+  });
+  document.addEventListener('click',()=>{drop.classList.remove('open');btn.classList.remove('open');});
+  drop.addEventListener('click',e=>e.stopPropagation());
+  wrap.appendChild(btn);wrap.appendChild(drop);
+  wrap._getSelected=getAll;
+  wrap._reset=()=>{selected=[];buildDrop();updateBtn();onChange([]);};
+  wrap._updateCountries=(newCountries)=>{
+    availableCountries=newCountries;
+    // Remove selected that no longer exist
+    selected=selected.filter(s=>newCountries.includes(s));
+    updateBtn();onChange(getAll());
+  };
+  return wrap;
+}
+
 let seriesSubtab='airing';
-let seriesFilters={q:'',country:'',sort:'az',book:'all',year:'',genre:''};
+let seriesFilters={q:'',countries:[],sort:'az',book:'all',year:'',genre:''};
+
+function renderListResults(){
+  const resultsEl=document.getElementById('listResults');
+  if(!resultsEl) return;
+  // Sync select values in case called from filter clear
+  const sortSel=document.getElementById('seriesSortSel');
+  const bookSel=document.getElementById('seriesBookSel');
+  const yearSel=document.getElementById('seriesYearSel');
+  const genreSel=document.getElementById('seriesGenreSel');
+  const clearBtn=document.getElementById('seriesClearBtn');
+  if(sortSel) sortSel.value=seriesFilters.sort;
+  if(bookSel) bookSel.value=seriesFilters.book;
+  if(genreSel) genreSel.value=seriesFilters.genre;
+  if(clearBtn) clearBtn.style.display=(seriesFilters.countries&&seriesFilters.countries.length||seriesFilters.book!=='all'||seriesFilters.year||seriesFilters.genre)?'':'none';
+
+  const active=state.series.filter(s=>!s.upcoming);
+  const filtered=applySeriesFilters(active);
+  const now=new Date();
+
+  // "En emisión": tiene episodios futuros (ya empezó a emitirse)
+  const airing=filtered.filter(s=>{
+    const eps=genEps(s);
+    const hasAired=eps.some(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped);
+    const hasFuture=eps.some(e=>new Date(e.date+'T12:00:00')>now&&!e.skipped);
+    return hasFuture; // tiene episodios pendientes (puede o no tener emitidos)
+  });
+
+  // "Estreno Próximo": todos los episodios son futuros, ninguno emitido aún
+  const notStarted=filtered.filter(s=>{
+    const eps=genEps(s);
+    const hasAired=eps.some(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped);
+    const hasFuture=eps.some(e=>new Date(e.date+'T12:00:00')>now&&!e.skipped);
+    return hasFuture&&!hasAired;
+  });
+
+  // "Finalizadas": sin episodios futuros
+  const finished=filtered.filter(s=>{
+    const eps=genEps(s);
+    return !eps.some(e=>new Date(e.date+'T12:00:00')>now&&!e.skipped);
+  });
+
+  // Auto-switch subtab if current subtab has no results
+  if(seriesSubtab==='airing'&&!airing.length){
+    if(notStarted.length) seriesSubtab='notstarted';
+    else if(finished.length) seriesSubtab='finished';
+  }
+  if(seriesSubtab==='notstarted'&&!notStarted.length){
+    if(airing.length) seriesSubtab='airing';
+    else if(finished.length) seriesSubtab='finished';
+  }
+  if(seriesSubtab==='finished'&&!finished.length){
+    if(airing.length) seriesSubtab='airing';
+    else if(notStarted.length) seriesSubtab='notstarted';
+  }
+
+  if(!filtered.length){
+    resultsEl.innerHTML='<div class="search-empty">No se encontró ninguna serie con esos filtros.</div>';
+    return;
+  }
+
+  // Build subtabs — only show "Estreno Próximo" tab if there are any
+  let tabsHtml=`<div class="subtabs">
+    <button class="subtab${seriesSubtab==='airing'?' active':''}" onclick="switchSeriesSubtab('airing')">
+      🌸 En emisión<span class="subtab-count">${airing.length}</span>
+    </button>`;
+  if(notStarted.length){
+    tabsHtml+=`<button class="subtab${seriesSubtab==='notstarted'?' active':''}" onclick="switchSeriesSubtab('notstarted')">
+      🗓️ Estreno Próximo<span class="subtab-count">${notStarted.length}</span>
+    </button>`;
+  }
+  tabsHtml+=`<button class="subtab${seriesSubtab==='finished'?' active':''}" onclick="switchSeriesSubtab('finished')">
+      ✓ Finalizadas<span class="subtab-count">${finished.length}</span>
+    </button>
+  </div>`;
+
+  let html=tabsHtml;
+
+  if(seriesSubtab==='airing'){
+    // Within "airing", split between truly ongoing (has aired eps) and not-yet-started-but-scheduled
+    const trulyAiring=airing.filter(s=>{
+      const eps=genEps(s);
+      return eps.some(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped);
+    });
+    const scheduledNotStarted=airing.filter(s=>{
+      const eps=genEps(s);
+      return !eps.some(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped);
+    });
+    if(airing.length){
+      // Show truly airing first, then scheduled-not-started as a sub-group
+      html+=`<div class="books-count">Mostrando <strong>${airing.length}</strong> serie${airing.length!==1?'s':''}</div>`;
+      if(trulyAiring.length){
+        html+=`<div class="series-grid">`;
+        trulyAiring.forEach(s=>{ html+=seriesCardHtml(s, state.series.indexOf(s)); });
+        html+='</div>';
+      }
+      if(scheduledNotStarted.length){
+        html+=`<div style="margin:1.25rem 0 .75rem;display:flex;align-items:center;gap:8px">
+          <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)">🗓️ Estreno próximo</span>
+          <span style="flex:1;height:1px;background:var(--border)"></span>
+          <span style="font-size:11px;color:var(--muted);font-weight:600">${scheduledNotStarted.length}</span>
+        </div><div class="series-grid">`;
+        scheduledNotStarted.forEach(s=>{ html+=seriesCardHtml(s, state.series.indexOf(s)); });
+        html+='</div>';
+      }
+    } else {
+      html+='<div class="search-empty">No hay series en emisión con esos filtros.</div>';
+    }
+  } else if(seriesSubtab==='notstarted'){
+    if(notStarted.length){
+      html+=`<div class="books-count">Mostrando <strong>${notStarted.length}</strong> serie${notStarted.length!==1?'s':''} sin estrenar</div><div class="series-grid">`;
+      notStarted.forEach(s=>{ html+=seriesCardHtml(s, state.series.indexOf(s)); });
+      html+='</div>';
+    } else {
+      html+='<div class="search-empty">No hay series sin estrenar con esos filtros.</div>';
+    }
+  } else {
+    if(finished.length){
+      html+=`<div class="books-count">Mostrando <strong>${finished.length}</strong> serie${finished.length!==1?'s':''}</div><div class="series-grid">`;
+      finished.forEach(s=>{ html+=seriesCardHtml(s, state.series.indexOf(s)); });
+      html+='</div>';
+    } else {
+      html+='<div class="search-empty">No hay series finalizadas con esos filtros.</div>';
+    }
+  }
+  resultsEl.innerHTML=html;
+}
 
 function getCountries(arr){ return [...new Set(arr.map(s=>s.country).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es')); }
 
@@ -1221,7 +1462,7 @@ function applySeriesFilters(arr){
   let r=[...arr];
   const q=seriesFilters.q.toLowerCase().trim();
   if(q) r=r.filter(s=>s.name.toLowerCase().includes(q)||(s.country||'').toLowerCase().includes(q)||(s.network||'').toLowerCase().includes(q));
-  if(seriesFilters.country) r=r.filter(s=>s.country===seriesFilters.country);
+  if(seriesFilters.countries&&seriesFilters.countries.length) r=r.filter(s=>seriesFilters.countries.includes(s.country));
   if(seriesFilters.book==='yes') r=r.filter(s=>s.basedOnBook);
   if(seriesFilters.book==='no') r=r.filter(s=>!s.basedOnBook);
   if(seriesFilters.year) r=r.filter(s=>s.startDate&&s.startDate.startsWith(seriesFilters.year));
@@ -1238,12 +1479,8 @@ function renderList(){
   const view=document.getElementById('viewList');
   // First render: build the static toolbar shell
   if(!view.querySelector('.list-toolbar-shell')){
-    const active=state.series.filter(s=>!s.upcoming);
-    const allCountries=getCountries(active);
     const allYears=[...new Set([...state.series].map(s=>s.startDate?s.startDate.substring(0,4):'').filter(Boolean))].sort((a,b)=>b-a);
-    const countriesOpts=allCountries.map(c=>`<option value="${c}"${seriesFilters.country===c?' selected':''}>${c}</option>`).join('');
     const yearsOpts=allYears.map(y=>`<option value="${y}"${seriesFilters.year===y?' selected':''}>${y}</option>`).join('');
-    const allGenres=[...new Set(state.series.filter(s=>s.genres).flatMap(s=>s.genres))].sort((a,b)=>a.localeCompare(b,'es'));
     const genreOpts=GENRES.map(g=>`<option value="${g}">${g}</option>`).join('');
     view.innerHTML=`<div class="list-toolbar-shell books-toolbar">
       <div class="toolbar-search-row">
@@ -1252,12 +1489,9 @@ function renderList(){
           <input id="seriesSearchInput" class="search-input" placeholder="Buscar serie, país, plataforma…" value="${seriesFilters.q}" oninput="seriesFilters.q=this.value;renderListResults()" autocomplete="off">
         </div>
       </div>
-      <div class="toolbar-filters-row">
-        <div class="filter-group">
+      <div class="toolbar-filters-row" id="seriesFiltersRow">
+        <div class="filter-group" id="seriesCountryPickerSlot">
           <span class="filter-label">País</span>
-          <select class="filter-select" onchange="seriesFilters.country=this.value;renderListResults()">
-            <option value="">🌍 País</option>${allCountries.map(c=>`<option value="${c}">${c}</option>`).join('')}
-          </select>
         </div>
         <div class="filter-group">
           <span class="filter-label">Género</span>
@@ -1289,78 +1523,28 @@ function renderList(){
             <option value="">📅 Año</option>${allYears.map(y=>`<option value="${y}">${y}</option>`).join('')}
           </select>
         </div>
-        <button id="seriesClearBtn" class="filter-clear-btn" onclick="seriesFilters.country='';seriesFilters.book='all';seriesFilters.year='';seriesFilters.genre='';document.getElementById('seriesBookSel').value='all';document.getElementById('seriesYearSel').value='';document.getElementById('seriesGenreSel').value='';renderListResults()" style="display:none">✕ Limpiar</button>
+        <button id="seriesClearBtn" class="filter-clear-btn" onclick="seriesFilters.countries=[];seriesFilters.book='all';seriesFilters.year='';seriesFilters.genre='';document.getElementById('seriesBookSel').value='all';document.getElementById('seriesYearSel').value='';document.getElementById('seriesGenreSel').value='';const scp=document.getElementById('cpWrap_series');if(scp&&scp._reset)scp._reset();renderListResults()" style="display:none">✕ Limpiar</button>
       </div>
     </div>
     <div id="listResults"></div>`;
+    // Inject country picker with countries from active series
+    const slot=document.getElementById('seriesCountryPickerSlot');
+    const activeCountries=getCountries(state.series.filter(s=>!s.upcoming));
+    const picker=buildCountryPicker('series',countries=>{seriesFilters.countries=countries;renderListResults();},activeCountries);
+    slot.appendChild(picker);
   }
   renderListResults();
 }
 
-function renderListResults(){
-  const resultsEl=document.getElementById('listResults');
-  if(!resultsEl) return;
-  // Sync select values in case called from filter clear
-  const sortSel=document.getElementById('seriesSortSel');
-  const bookSel=document.getElementById('seriesBookSel');
-  const yearSel=document.getElementById('seriesYearSel');
-  const genreSel=document.getElementById('seriesGenreSel');
-  const clearBtn=document.getElementById('seriesClearBtn');
-  if(sortSel) sortSel.value=seriesFilters.sort;
-  if(bookSel) bookSel.value=seriesFilters.book;
-  if(genreSel) genreSel.value=seriesFilters.genre;
-  if(clearBtn) clearBtn.style.display=(seriesFilters.country||seriesFilters.book!=='all'||seriesFilters.year||seriesFilters.genre)?'':'none';
-
-  const active=state.series.filter(s=>!s.upcoming);
-  const filtered=applySeriesFilters(active);
-  const now=new Date();
-  const airing=filtered.filter(s=>{ const eps=genEps(s); return eps.some(e=>new Date(e.date+'T12:00:00')>now&&!e.skipped); });
-  const finished=filtered.filter(s=>{ const eps=genEps(s); return !eps.some(e=>new Date(e.date+'T12:00:00')>now&&!e.skipped); });
-
-  if(seriesFilters.q&&seriesSubtab==='airing'&&!airing.length&&finished.length) seriesSubtab='finished';
-  if(seriesFilters.q&&seriesSubtab==='finished'&&!finished.length&&airing.length) seriesSubtab='airing';
-
-  if(!filtered.length){
-    resultsEl.innerHTML='<div class="search-empty">No se encontró ninguna serie con esos filtros.</div>';
-    return;
-  }
-  let html=`<div class="subtabs">
-    <button class="subtab${seriesSubtab==='airing'?' active':''}" onclick="switchSeriesSubtab('airing')">
-      🌸 En emisión<span class="subtab-count">${airing.length}</span>
-    </button>
-    <button class="subtab${seriesSubtab==='finished'?' active':''}" onclick="switchSeriesSubtab('finished')">
-      ✓ Finalizadas<span class="subtab-count">${finished.length}</span>
-    </button>
-  </div>`;
-  if(seriesSubtab==='airing'){
-    if(airing.length){
-      html+=`<div class="books-count">Mostrando <strong>${airing.length}</strong> serie${airing.length!==1?'s':''}</div><div class="series-grid">`;
-      airing.forEach(s=>{ html+=seriesCardHtml(s, state.series.indexOf(s)); });
-      html+='</div>';
-    } else {
-      html+='<div class="search-empty">No hay series en emisión con esos filtros.</div>';
-    }
-  } else {
-    if(finished.length){
-      html+=`<div class="books-count">Mostrando <strong>${finished.length}</strong> serie${finished.length!==1?'s':''}</div><div class="series-grid">`;
-      finished.forEach(s=>{ html+=seriesCardHtml(s, state.series.indexOf(s)); });
-      html+='</div>';
-    } else {
-      html+='<div class="search-empty">No hay series finalizadas con esos filtros.</div>';
-    }
-  }
-  resultsEl.innerHTML=html;
-}
-
 function switchSeriesSubtab(sub){ seriesSubtab=sub; renderListResults(); }
 
-let upcomingFilters={q:'',country:'',sort:'az',book:'all',year:'',genre:''};
+let upcomingFilters={q:'',countries:[],sort:'az',book:'all',year:'',genre:''};
 
 function applyUpcomingFilters(arr){
   let r=[...arr];
   const q=upcomingFilters.q.toLowerCase().trim();
   if(q) r=r.filter(s=>s.name.toLowerCase().includes(q)||(s.country||'').toLowerCase().includes(q)||(s.network||'').toLowerCase().includes(q));
-  if(upcomingFilters.country) r=r.filter(s=>s.country===upcomingFilters.country);
+  if(upcomingFilters.countries&&upcomingFilters.countries.length) r=r.filter(s=>upcomingFilters.countries.includes(s.country));
   if(upcomingFilters.book==='yes') r=r.filter(s=>s.basedOnBook);
   if(upcomingFilters.book==='no') r=r.filter(s=>!s.basedOnBook);
   if(upcomingFilters.year) r=r.filter(s=>s.startDate&&s.startDate.startsWith(upcomingFilters.year));
@@ -1384,11 +1568,8 @@ function renderUpcoming(){
   if(!allUpcoming.length){view.innerHTML='<div class="empty">✨ No hay series próximamente de momento. ¡Pronto habrá novedades!</div>';return;}
 
   if(!view.querySelector('.upcoming-toolbar-shell')){
-    const allCountries=getCountries(allUpcoming);
-    const countriesOpts=allCountries.map(c=>`<option value="${c}">${c}</option>`).join('');
     const upYears=[...new Set(allUpcoming.map(s=>s.startDate?s.startDate.substring(0,4):'').filter(Boolean))].sort((a,b)=>b-a);
     const yearsOpts=upYears.map(y=>`<option value="${y}">${y}</option>`).join('');
-    const upGenres=[...new Set(allUpcoming.filter(s=>s.genres).flatMap(s=>s.genres))].sort((a,b)=>a.localeCompare(b,'es'));
     const genreOpts=GENRES.map(g=>`<option value="${g}">${g}</option>`).join('');
     view.innerHTML=`<div class="section-heading" style="margin-bottom:.25rem">✨ Próximamente</div>
     <p class="section-desc" style="margin-bottom:.85rem">Series anunciadas que aún no tienen fecha de emisión confirmada.</p>
@@ -1400,11 +1581,8 @@ function renderUpcoming(){
         </div>
       </div>
       <div class="toolbar-filters-row">
-        <div class="filter-group">
+        <div class="filter-group" id="upcomingCountryPickerSlot">
           <span class="filter-label">País</span>
-          <select class="filter-select" onchange="upcomingFilters.country=this.value;renderUpcomingResults()">
-            <option value="">🌍 País</option>${countriesOpts}
-          </select>
         </div>
         <div class="filter-group">
           <span class="filter-label">Género</span>
@@ -1435,10 +1613,15 @@ function renderUpcoming(){
           </select>
         </div>
         <button id="upcomingClearBtn" class="filter-clear-btn" style="display:none"
-          onclick="upcomingFilters.country='';upcomingFilters.book='all';upcomingFilters.year='';upcomingFilters.genre='';document.getElementById('upcomingBookSel').value='all';document.getElementById('upcomingYearSel').value='';const ug=document.getElementById('upcomingGenreSel');if(ug)ug.value='';renderUpcomingResults()">✕ Limpiar</button>
+          onclick="upcomingFilters.countries=[];upcomingFilters.book='all';upcomingFilters.year='';upcomingFilters.genre='';document.getElementById('upcomingBookSel').value='all';document.getElementById('upcomingYearSel').value='';const ug=document.getElementById('upcomingGenreSel');if(ug)ug.value='';const ucp=document.getElementById('cpWrap_upcoming');if(ucp&&ucp._reset)ucp._reset();renderUpcomingResults()">✕ Limpiar</button>
       </div>
     </div>
     <div id="upcomingResults"></div>`;
+    // Inject country picker with countries from upcoming series
+    const slot=document.getElementById('upcomingCountryPickerSlot');
+    const upcomingCountries=getCountries(allUpcoming);
+    const picker=buildCountryPicker('upcoming',countries=>{upcomingFilters.countries=countries;renderUpcomingResults();},upcomingCountries);
+    slot.appendChild(picker);
   }
   renderUpcomingResults();
 }
@@ -1451,7 +1634,7 @@ function renderUpcomingResults(){
   const genreSel=document.getElementById('upcomingGenreSel');
   if(sortSel) sortSel.value=upcomingFilters.sort;
   if(genreSel) genreSel.value=upcomingFilters.genre;
-  if(clearBtn) clearBtn.style.display=(upcomingFilters.country||upcomingFilters.book!=='all'||upcomingFilters.year||upcomingFilters.genre)?'':'none';
+  if(clearBtn) clearBtn.style.display=(upcomingFilters.countries&&upcomingFilters.countries.length||upcomingFilters.book!=='all'||upcomingFilters.year||upcomingFilters.genre)?'':'none';
 
   const allUpcoming=state.series.filter(s=>s.upcoming);
   const upcoming=applyUpcomingFilters(allUpcoming);
@@ -1705,13 +1888,11 @@ function openMovie(mi){
   document.getElementById('modalBg').classList.add('open');
 }
 
-let moviesFilters={q:'',country:'',sort:'date',book:'all',year:'',genre:''};
-
 function applyMoviesFilters(arr){
   let r=[...arr];
   const q=moviesFilters.q.toLowerCase().trim();
   if(q) r=r.filter(mv=>mv.name.toLowerCase().includes(q)||(mv.country||'').toLowerCase().includes(q)||(mv.network||'').toLowerCase().includes(q));
-  if(moviesFilters.country) r=r.filter(mv=>mv.country===moviesFilters.country);
+  if(moviesFilters.countries&&moviesFilters.countries.length) r=r.filter(mv=>moviesFilters.countries.includes(mv.country));
   if(moviesFilters.book==='yes') r=r.filter(mv=>mv.basedOnBook);
   if(moviesFilters.book==='no') r=r.filter(mv=>!mv.basedOnBook);
   if(moviesFilters.year) r=r.filter(mv=>mv.date&&mv.date.startsWith(moviesFilters.year));
@@ -1749,6 +1930,7 @@ function movieCardHtml(mv){
     </div></div>`;
 }
 
+let moviesFilters={q:'',countries:[],sort:'date',book:'all',year:'',genre:''};
 let moviesSubtab='all';
 
 function renderMovies(){
@@ -1756,11 +1938,8 @@ function renderMovies(){
   if(!state.movies.length){view.innerHTML='<div class="empty">🎥 No hay películas todavía.</div>';return;}
 
   if(!view.querySelector('.movies-toolbar-shell')){
-    const allCountries=getCountries(state.movies);
     const mvYears=[...new Set(state.movies.map(mv=>mv.date?mv.date.substring(0,4):'').filter(Boolean))].sort((a,b)=>b-a);
-    const countriesOpts=allCountries.map(c=>`<option value="${c}">${c}</option>`).join('');
     const yearsOpts=mvYears.map(y=>`<option value="${y}">${y}</option>`).join('');
-    const mvGenres=[...new Set(state.movies.filter(mv=>mv.genres).flatMap(mv=>mv.genres))].sort((a,b)=>a.localeCompare(b,'es'));
     const genreOpts=GENRES.map(g=>`<option value="${g}">${g}</option>`).join('');
     view.innerHTML=`<div class="movies-toolbar-shell books-toolbar">
       <div class="toolbar-search-row">
@@ -1770,11 +1949,8 @@ function renderMovies(){
         </div>
       </div>
       <div class="toolbar-filters-row">
-        <div class="filter-group">
+        <div class="filter-group" id="moviesCountryPickerSlot">
           <span class="filter-label">País</span>
-          <select class="filter-select" onchange="moviesFilters.country=this.value;renderMoviesResults()">
-            <option value="">🌍 País</option>${countriesOpts}
-          </select>
         </div>
         <div class="filter-group">
           <span class="filter-label">Género</span>
@@ -1806,10 +1982,15 @@ function renderMovies(){
           </select>
         </div>
         <button id="moviesClearBtn" class="filter-clear-btn" style="display:none"
-          onclick="moviesFilters.country='';moviesFilters.book='all';moviesFilters.year='';moviesFilters.genre='';document.getElementById('moviesBookSel').value='all';document.getElementById('moviesYearSel').value='';const mg=document.getElementById('moviesGenreSel');if(mg)mg.value='';renderMoviesResults()">✕ Limpiar</button>
+          onclick="moviesFilters.countries=[];moviesFilters.book='all';moviesFilters.year='';moviesFilters.genre='';document.getElementById('moviesBookSel').value='all';document.getElementById('moviesYearSel').value='';const mg=document.getElementById('moviesGenreSel');if(mg)mg.value='';const mcp=document.getElementById('cpWrap_movies');if(mcp&&mcp._reset)mcp._reset();renderMoviesResults()">✕ Limpiar</button>
       </div>
     </div>
     <div id="moviesResults"></div>`;
+    // Inject country picker with countries from movies
+    const slot=document.getElementById('moviesCountryPickerSlot');
+    const moviesCountries=getCountries(state.movies);
+    const picker=buildCountryPicker('movies',countries=>{moviesFilters.countries=countries;renderMoviesResults();},moviesCountries);
+    slot.appendChild(picker);
   }
   renderMoviesResults();
 }
@@ -1824,7 +2005,7 @@ function renderMoviesResults(){
   const genreSel=document.getElementById('moviesGenreSel');
   if(sortSel) sortSel.value=moviesFilters.sort;
   if(genreSel) genreSel.value=moviesFilters.genre;
-  if(clearBtn) clearBtn.style.display=(moviesFilters.country||moviesFilters.book!=='all'||moviesFilters.year||moviesFilters.genre)?'':'none';
+  if(clearBtn) clearBtn.style.display=(moviesFilters.countries&&moviesFilters.countries.length||moviesFilters.book!=='all'||moviesFilters.year||moviesFilters.genre)?'':'none';
 
   const now=new Date();
   const filtered=applyMoviesFilters(state.movies);

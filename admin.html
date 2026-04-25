@@ -98,6 +98,25 @@ body::before{content:'';position:fixed;inset:0;background:
 code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;border-radius:6px;font-size:12px}
 .empty{text-align:center;color:var(--muted);padding:2.5rem;font-size:13px}
 .progress-wrap{margin-top:6px;height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+
+/* Country multi-row list (like platforms) */
+.country-list{display:flex;flex-direction:column;gap:7px;margin-top:6px}
+.country-row{display:flex;gap:7px;align-items:center}
+.country-row-select{
+  flex:1;padding:8px 12px;border-radius:10px;border:1.5px solid var(--border2);
+  background:var(--surface2);color:var(--text);font-size:13px;
+  font-family:'Nunito',sans-serif;outline:none;transition:border-color .15s;cursor:pointer;
+}
+.country-row-select:focus{border-color:var(--accent)}
+.country-row-input{
+  flex:1;padding:8px 12px;border-radius:10px;border:1.5px solid var(--border2);
+  background:var(--surface2);color:var(--text);font-size:13px;
+  font-family:'Nunito',sans-serif;outline:none;transition:border-color .15s;
+  display:none;
+}
+.country-row-input.visible{display:block}
+.country-row-input:focus{border-color:var(--accent)}
+.country-row-input::placeholder{color:var(--muted)}
 .progress-fill{height:100%;border-radius:2px;transition:width .3s}
 .ep-edit-info{font-size:13px;color:var(--muted);background:var(--surface2);border-radius:10px;padding:10px 14px;margin-bottom:1rem;line-height:1.6}
 .ep-edit-info strong{color:var(--text)}
@@ -336,6 +355,71 @@ function platformSelectHtml(){
   return `<option value="">— Seleccionar —</option>`+PLATFORMS.map(p=>`<option value="${p.name}">${p.name}</option>`).join('');
 }
 
+const PRESET_COUNTRIES_ADMIN=[
+  {flag:'🇪🇸',name:'España'},
+  {flag:'🇺🇸',name:'Estados Unidos'},
+  {flag:'🇨🇳',name:'China'},
+  {flag:'🇹🇭',name:'Tailandia'},
+  {flag:'🇰🇷',name:'Corea del Sur'},
+  {flag:'🇯🇵',name:'Japón'},
+  {flag:'🇹🇼',name:'Taiwan'},
+  {flag:'🇸🇬',name:'Singapur'},
+  {flag:'🇵🇭',name:'Filipinas'},
+  {flag:'🇲🇽',name:'México'},
+  {flag:'🇦🇷',name:'Argentina'},
+  {flag:'🇧🇷',name:'Brasil'},
+];
+
+function countryPresetSelectHtml(){
+  return `<option value="">— Seleccionar país —</option>`
+    + PRESET_COUNTRIES_ADMIN.map(c=>`<option value="${c.name}">${c.flag} ${c.name}</option>`).join('')
+    + `<option value="__otro__">✏️ Otro…</option>`;
+}
+
+function addCountryRow(listId, value=''){
+  const list=document.getElementById(listId);
+  if(!list) return;
+  const row=document.createElement('div');
+  row.className='country-row';
+  const isOther = value && !PRESET_COUNTRIES_ADMIN.some(c=>c.name===value);
+  row.innerHTML=`
+    <select class="country-row-select" onchange="
+      const inp=this.nextElementSibling;
+      if(this.value==='__otro__'){inp.classList.add('visible');inp.focus();}
+      else{inp.classList.remove('visible');inp.value='';}
+    ">${countryPresetSelectHtml()}</select>
+    <input class="country-row-input${isOther?' visible':''}" type="text" placeholder="Escribe el país…" value="${isOther?value.replace(/"/g,'&quot;'):''}">
+    <button type="button" class="platform-del-btn" onclick="this.parentElement.remove()" title="Eliminar">✕</button>`;
+  // Set select value if preset
+  if(value && !isOther) row.querySelector('select').value=value;
+  else if(isOther) row.querySelector('select').value='__otro__';
+  list.appendChild(row);
+}
+
+function initCountries(listId, countryStr){
+  const list=document.getElementById(listId);
+  if(!list) return;
+  list.innerHTML='';
+  // country may be stored as "España / Corea del Sur" or plain "España"
+  const parts=(countryStr||'').split('/').map(s=>s.trim()).filter(Boolean);
+  if(parts.length){ parts.forEach(p=>addCountryRow(listId,p)); }
+  else { addCountryRow(listId,''); }
+}
+
+function getCountries(listId){
+  const rows=document.querySelectorAll(`#${listId} .country-row`);
+  const result=[];
+  rows.forEach(r=>{
+    const sel=r.querySelector('select');
+    const inp=r.querySelector('input');
+    let val='';
+    if(sel.value==='__otro__') val=(inp?inp.value.trim():'');
+    else val=sel.value;
+    if(val) result.push(val);
+  });
+  return result.join(' / ');
+}
+
 let series = [];
 let movies = [];
 let currentStab = 'active';
@@ -568,7 +652,10 @@ function formHtml(s){
   <div class="form-row"><label class="form-label">Sinopsis / Descripción</label><textarea id="f_synopsis" placeholder="Breve descripción de la serie…">${s&&s.synopsis?s.synopsis:''}</textarea></div>
   <div class="form-row-half">
     <div class="form-row" style="margin-bottom:0"><label class="form-label">Año</label><input id="f_year" type="number" placeholder="2026" min="2000" max="2030" value="${s&&s.year?s.year:''}"/></div>
-    <div class="form-row" style="margin-bottom:0"><label class="form-label">País</label><input id="f_country" placeholder="Ej: Tailandia, Corea…" value="${s&&s.country?s.country:''}"/></div>
+    <div class="form-row" style="margin-bottom:0"><label class="form-label">País</label>
+      <div class="country-list" id="countriesList"></div>
+      <button type="button" class="platform-add-btn" onclick="addCountryRow('countriesList')">+ Añadir país</button>
+    </div>
   </div>
   <div class="form-row">
     <label class="form-label">Plataforma / Canal principal</label>
@@ -634,6 +721,7 @@ function openAddSeries(){
     <div class="btn-row"><button class="btn" onclick="closeAll()">Cancelar</button><button class="btn primary" onclick="saveSeries(-1)">Guardar</button></div>`;
   document.getElementById('seriesModal').classList.add('open');
   bindPoster(); bindDowChips(); initPlatforms([]); initBookEditions('bookEditionsList',[],null);
+  initCountries('countriesList','');
 }
 function openEdit(si){
   document.getElementById('seriesModalTitle').textContent='✏️ Editar serie';
@@ -644,6 +732,7 @@ function openEdit(si){
   const links=series[si].watchLinks||(series[si].networkUrl?[{name:series[si].network||'Ver serie',url:series[si].networkUrl}]:[]);
   initPlatforms(links);
   initBookEditions('bookEditionsList', series[si].bookLinks||[], series[si].bookUrl||'');
+  initCountries('countriesList', series[si].country||'');
 }
 
 function initPlatforms(links){
@@ -739,7 +828,7 @@ function saveSeries(si){
   const poster=document.getElementById('f_poster').value.trim();
   const synopsis=document.getElementById('f_synopsis').value.trim();
   const year=document.getElementById('f_year').value.trim();
-  const country=document.getElementById('f_country').value.trim();
+  const country=getCountries('countriesList');
   const net=document.getElementById('f_net').value.trim();
   const watchLinks=getWatchLinks();
   const networkUrl=watchLinks.length?watchLinks[0].url:'';
@@ -889,7 +978,10 @@ function movieFormHtml(mv){
   <div class="form-row"><label class="form-label">Sinopsis / Descripción</label><textarea id="mf_synopsis" placeholder="Breve descripción…">${mv&&mv.synopsis?mv.synopsis:''}</textarea></div>
   <div class="form-row-half">
     <div class="form-row" style="margin-bottom:0"><label class="form-label">Año</label><input id="mf_year" type="number" placeholder="2026" min="2000" max="2030" value="${mv&&mv.year?mv.year:''}"/></div>
-    <div class="form-row" style="margin-bottom:0"><label class="form-label">País</label><input id="mf_country" placeholder="Ej: Tailandia…" value="${mv&&mv.country?mv.country:''}"/></div>
+    <div class="form-row" style="margin-bottom:0"><label class="form-label">País</label>
+      <div class="country-list" id="movieCountriesList"></div>
+      <button type="button" class="platform-add-btn" onclick="addCountryRow('movieCountriesList')">+ Añadir país</button>
+    </div>
   </div>
   <div class="form-row" style="margin-top:14px">
     <label class="form-label">Plataforma / Canal principal</label>
@@ -954,6 +1046,7 @@ function openAddMovie(){
     `<div class="btn-row"><button class="btn" onclick="closeAll()">Cancelar</button><button class="btn primary" onclick="saveMovie(-1)">Guardar</button></div>`;
   document.getElementById('movieModal').classList.add('open');
   bindMovieForm(); initMoviePlatforms([]); initBookEditions('movieBookEditionsList',[],null);
+  initCountries('movieCountriesList','');
 }
 function openEditMovie(mi){
   document.getElementById('movieModalTitle').textContent='✏️ Editar película';
@@ -965,6 +1058,7 @@ function openEditMovie(mi){
   const links=mv.watchLinks||(mv.networkUrl?[{name:mv.network||'Ver película',url:mv.networkUrl}]:[]);
   initMoviePlatforms(links);
   initBookEditions('movieBookEditionsList', mv.bookLinks||[], mv.bookUrl||'');
+  initCountries('movieCountriesList', mv.country||'');
 }
 function initMoviePlatforms(links){
   const list=document.getElementById('moviePlatformsList'); if(!list) return;
@@ -1007,7 +1101,7 @@ function saveMovie(mi){
     poster:document.getElementById('mf_poster').value.trim(),
     synopsis:document.getElementById('mf_synopsis').value.trim(),
     year:document.getElementById('mf_year').value?parseInt(document.getElementById('mf_year').value):'',
-    country:document.getElementById('mf_country').value.trim(),
+    country:getCountries('movieCountriesList'),
     network:document.getElementById('mf_net').value.trim(),
     networkUrl:watchLinks.length?watchLinks[0].url:'',
     watchLinks,
