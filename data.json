@@ -383,6 +383,18 @@
         "Drama",
         "Comedia",
         "Escolar"
+      ],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-04-18",
+          "totalEpisodes": 6,
+          "emissionDays": [
+            5
+          ],
+          "skipDates": [],
+          "episodes": []
+        }
       ]
     },
     {
@@ -580,6 +592,44 @@
       "bookLinks": [],
       "genres": [
         "Romance"
+      ],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-03-06",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            4
+          ],
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 4,
+              "date": "2026-04-03",
+              "skipped": false
+            },
+            {
+              "num": 5,
+              "date": "2026-04-17",
+              "skipped": false
+            },
+            {
+              "num": 6,
+              "date": "2026-04-10",
+              "skipped": true
+            },
+            {
+              "num": 7,
+              "date": "2026-04-17",
+              "skipped": true
+            },
+            {
+              "num": 8,
+              "date": "2026-04-24",
+              "skipped": true
+            }
+          ]
+        }
       ]
     },
     {
@@ -707,6 +757,18 @@
         "Drama",
         "Comedia",
         "Escolar"
+      ],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-04-25",
+          "totalEpisodes": 6,
+          "emissionDays": [
+            5
+          ],
+          "skipDates": [],
+          "episodes": []
+        }
       ]
     },
     {
@@ -2394,6 +2456,161 @@
           ]
         }
       ]
+    },
+    {
+      "id": "1777115712295",
+      "name": "Pluribus",
+      "poster": "https://m.media-amazon.com/images/M/MV5BOWNlM2E1MDMtYmI5MS00NDQ1LWI3NTctM2VlNjQ5OTAxYTNmXkEyXkFqcGc@._V1_.jpg",
+      "synopsis": "Una escritora se enfrenta a una misión crucial: debe impedir que el mundo sucumba ante una epidemia que amenaza con cambiar la humanidad para siempre.",
+      "year": 2025,
+      "country": "Estados Unidos",
+      "network": "Apple Tv",
+      "networkUrl": "https://tv.apple.com/es/episode/nosotros-es-nosotros/umc.cmc.3qfbkp7tcby9ylcjpx2km05p7?at=1000l3V2&ct=tmdb_tvplus&itscg=30200&itsct=justwatch_tv&playableId=tvs.sbd.4000%3AA0152501001&showId=umc.cmc.37axgovs2yozlyh3c2cmwzlza",
+      "watchLinks": [
+        {
+          "name": "Apple Tv",
+          "url": "https://tv.apple.com/es/episode/nosotros-es-nosotros/umc.cmc.3qfbkp7tcby9ylcjpx2km05p7?at=1000l3V2&ct=tmdb_tvplus&itscg=30200&itsct=justwatch_tv&playableId=tvs.sbd.4000%3AA0152501001&showId=umc.cmc.37axgovs2yozlyh3c2cmwzlza"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/aXUJi2zOINU?si=TDRCCHHFmAL_fMTD",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2025-11-07",
+          "totalEpisodes": 9,
+          "emissionDays": [
+            4
+          ],
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 2,
+              "date": "2025-11-07",
+              "skipped": false
+            },
+            {
+              "num": 3,
+              "date": "2025-11-14",
+              "skipped": false
+            },
+            {
+              "num": 4,
+              "date": "2025-11-21",
+              "skipped": false
+            },
+            {
+              "num": 5,
+              "date": "2025-11-26",
+              "skipped": false
+            },
+            {
+              "num": 6,
+              "date": "2025-12-05",
+              "skipped": false
+            },
+            {
+              "num": 7,
+              "date": "2025-12-12",
+              "skipped": false
+            },
+            {
+              "num": 8,
+              "date": "2025-12-19",
+              "skipped": false
+            },
+            {
+              "num": 9,
+              "date": "2025-12-26",
+              "skipped": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1777116291060",
+      "name": "On & Off",
+      "poster": "https://i.mydramalist.com/3oRzJe_4c.jpg?v=1",
+      "synopsis": "Esas miradas intensas, esa tensión... ¿De verdad me estás diciendo que no hay nada entre ellas? ¡La sutil corriente subterránea que fluye entre ellas crea un suspenso impresionante! ¿Compañeras? ¿Rivales? ¿Amantes? Los límites se están desdibujando.",
+      "year": 2025,
+      "country": "Corea del Sur",
+      "network": "YouTube",
+      "networkUrl": "https://youtu.be/h9u5l8ZtHgg?si=hLmCweftPXczOu5Z",
+      "watchLinks": [
+        {
+          "name": "YouTube",
+          "url": "https://youtu.be/h9u5l8ZtHgg?si=hLmCweftPXczOu5Z"
+        }
+      ],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Romance",
+        "Drama"
+      ],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2025-08-01",
+          "totalEpisodes": 4,
+          "emissionDays": [
+            5
+          ],
+          "skipDates": [],
+          "episodes": []
+        }
+      ]
+    },
+    {
+      "id": "1777116358969",
+      "name": "On & Off Season 2",
+      "poster": "https://i.mydramalist.com/NdJY5Y_4c.jpg?v=1",
+      "synopsis": "",
+      "year": 2025,
+      "country": "Corea del Sur",
+      "network": "YouTube",
+      "networkUrl": "https://youtu.be/EKgy5EM-Vhw?si=nimAyKDOR74-lBCt",
+      "watchLinks": [
+        {
+          "name": "YouTube",
+          "url": "https://youtu.be/EKgy5EM-Vhw?si=nimAyKDOR74-lBCt"
+        }
+      ],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Romance",
+        "Drama"
+      ],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2025-12-05",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            4
+          ],
+          "skipDates": [],
+          "episodes": []
+        }
+      ]
     }
   ],
   "movies": [
@@ -2527,5 +2744,5 @@
       "genres": []
     }
   ],
-  "exportedAt": "2026-04-25T09:09:19.184Z"
+  "exportedAt": "2026-04-25T11:26:04.361Z"
 }
