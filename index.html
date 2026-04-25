@@ -1015,24 +1015,53 @@ function fmtDate(d){const x=new Date(d+'T12:00:00');return`${x.getDate()} ${MONT
 function toStr(y,m,d){return`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`}
 function getEmissionDays(s){if(s.emissionDays&&s.emissionDays.length>0)return[...s.emissionDays].sort((a,b)=>a-b);if(s.dayOfWeek!==undefined)return[s.dayOfWeek];return[0]}
 
-function genEps(s){
-  const days=getEmissionDays(s), skipDates=new Set(s.skipDates||[]), epOverrides=s.episodes||[];
+// Normalize a series to always have a seasons array (backward compat)
+function getSeasons(s){
+  if(s.seasons&&s.seasons.length) return s.seasons;
+  // Legacy: single-season series
+  if(s.startDate&&s.totalEpisodes) return [{
+    label:'Temporada 1',
+    startDate:s.startDate, totalEpisodes:s.totalEpisodes,
+    emissionDays:s.emissionDays||[s.dayOfWeek||0],
+    skipDates:s.skipDates||[], episodes:s.episodes||[]
+  }];
+  return [];
+}
+
+// Generate episodes for a single season object
+function genSeasonEps(season, globalEpOffset=0){
+  const days=(season.emissionDays&&season.emissionDays.length)?[...season.emissionDays].sort((a,b)=>a-b):[season.dayOfWeek||0];
+  const skipDates=new Set(season.skipDates||[]);
+  const epOverrides=season.episodes||[];
   let firstDate=null;
-  for(let o=0;o<14;o++){const c=addDays(s.startDate,o);if(days.includes(getDow(c))){firstDate=c;break;}}
-  if(!firstDate) firstDate=s.startDate;
+  for(let o=0;o<14;o++){const c=addDays(season.startDate,o);if(days.includes(getDow(c))){firstDate=c;break;}}
+  if(!firstDate) firstDate=season.startDate;
   const weekStart=addDays(firstDate,-getDow(firstDate));
-  const slots=[], wn=Math.ceil((s.totalEpisodes+(skipDates.size||0))/days.length)+4;
-  for(let w=0;w<wn&&slots.length<s.totalEpisodes+skipDates.size+10;w++){
+  const slots=[], wn=Math.ceil((season.totalEpisodes+(skipDates.size||0))/days.length)+4;
+  for(let w=0;w<wn&&slots.length<season.totalEpisodes+skipDates.size+10;w++){
     for(const d of days){const date=addDays(weekStart,d+w*7);if(date>=firstDate)slots.push(date);}
   }
   const valid=slots.filter(d=>!skipDates.has(d));
   const eps=[];
-  for(let i=0;i<s.totalEpisodes;i++){
-    const epNum=i+1, base=valid[i]||addDays(firstDate,i*7);
+  for(let i=0;i<season.totalEpisodes;i++){
+    const epNum=i+1, globalNum=globalEpOffset+epNum, base=valid[i]||addDays(firstDate,i*7);
     const ov=epOverrides.find(e=>e.num===epNum);
-    eps.push(ov?{...ov}:{num:epNum,date:base,skipped:false});
+    eps.push(ov?{...ov,num:globalNum,seasonNum:epNum}:{num:globalNum,seasonNum:epNum,date:base,skipped:false});
   }
   return eps;
+}
+
+function genEps(s){
+  const seasons=getSeasons(s);
+  if(!seasons.length) return [];
+  const allEps=[];
+  let offset=0;
+  seasons.forEach((season,idx)=>{
+    const eps=genSeasonEps(season,offset);
+    eps.forEach(ep=>allEps.push({...ep,season:idx+1,seasonLabel:season.label||`T${idx+1}`}));
+    offset+=season.totalEpisodes;
+  });
+  return allEps;
 }
 
 async function loadData(){
@@ -1063,7 +1092,7 @@ function renderStats(){
     const hasFuture=eps.some(e=>new Date(e.date+'T12:00:00')>now&&!e.skipped);
     return hasAired&&hasFuture;
   });
-  const totalEps=activeSeries.reduce((a,s)=>a+s.totalEpisodes,0);
+  const totalEps=activeSeries.reduce((a,s)=>{ return a+getSeasons(s).reduce((b,t)=>b+t.totalEpisodes,0); },0);
   const airedEps=activeSeries.reduce((a,s)=>{ const eps=genEps(s); return a+eps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length; },0);
   const upcoming=state.series.filter(s=>s.upcoming).length;
   const bookBased=state.series.filter(s=>s.basedOnBook).length;
@@ -1246,12 +1275,17 @@ function seriesCardHtml(s, si){
   const now=new Date();
   const todayStr=toStr(now.getFullYear(),now.getMonth(),now.getDate());
   const eps=genEps(s);
+  const seasons=getSeasons(s);
+  const totalEps=seasons.reduce((a,t)=>a+t.totalEpisodes,0);
   const aired=eps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
-  const pct=Math.round(aired/s.totalEpisodes*100);
+  const pct=Math.round(aired/Math.max(totalEps,1)*100);
   const col=PALETTE[si%PALETTE.length];
   const next=eps.find(e=>new Date(e.date+'T12:00:00')>now&&!e.skipped);
   const todayEps=eps.filter(e=>e.date===todayStr&&!e.skipped);
-  const days=getEmissionDays(s).map(d=>DAYS_L[d]).join(' y ');
+  // Days label: use last season's emission days (currently airing season)
+  const activeSeason=seasons[seasons.length-1];
+  const activeDays=((activeSeason?.emissionDays&&activeSeason.emissionDays.length)?activeSeason.emissionDays:[activeSeason?.dayOfWeek||0]).map(d=>DAYS_L[d]).join(' y ');
+  const seasonsBadge=seasons.length>1?`<span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">T${seasons.length}</span>`:'';
   const posterEl=s.poster
     ?`<div class="series-card-poster-wrap"><img class="series-card-poster" src="${s.poster}" alt="${s.name}" onerror="this.outerHTML='<div class=series-card-poster-ph>🎬</div>'"></div>`
     :`<div class="series-card-poster-wrap"><div class="series-card-poster-ph">🎬</div></div>`;
@@ -1261,7 +1295,8 @@ function seriesCardHtml(s, si){
   if(todayEps.length){
     nextLine=`<div class="series-card-today">🌸 Hoy · Ep. ${todayEps.map(e=>e.num).join(' & ')}</div>`;
   } else if(next){
-    nextLine=`<div class="series-card-next">▶ Ep. ${next.num} — ${fmtDate(next.date)}</div>`;
+    const seasonLabel=seasons.length>1?` <span style="font-size:9px;opacity:.7">${next.seasonLabel}</span>`:'';
+    nextLine=`<div class="series-card-next">▶ Ep. ${next.seasonNum}${seasonLabel} — ${fmtDate(next.date)}</div>`;
   } else {
     nextLine=`<div class="series-card-done">✓ Finalizada</div>`;
   }
@@ -1274,15 +1309,15 @@ function seriesCardHtml(s, si){
   return `<div class="series-card" onclick="openSeries(${si})">
     ${posterEl}
     <div class="series-card-body">
-      <div class="card-badges">${s.basedOnBook?'<span class="badge badge-book">📖 Libro</span>':''}${s.country?`<span class="badge" style="background:var(--surface2);color:var(--muted)">${s.country}</span>`:''}</div>
+      <div class="card-badges">${s.basedOnBook?'<span class="badge badge-book">📖 Libro</span>':''}${seasonsBadge}${s.country?`<span class="badge" style="background:var(--surface2);color:var(--muted)">${s.country}</span>`:''}</div>
       <div class="series-card-name">${s.name}</div>
-      <div class="series-card-meta">${s.network?s.network+' · ':''}${days}</div>
+      <div class="series-card-meta">${s.network?s.network+' · ':''}${activeDays}</div>
       ${genrePills}
       ${watchRow}
       ${nextLine}
       ${progressBar}
-      <div style="font-size:10px;color:var(--muted);margin-top:3px">${aired}/${s.totalEpisodes} emitidos</div>
-      ${s.basedOnBook&&s.bookCoverUrl?`<div style="margin-top:8px;display:flex;align-items:center;gap:6px"><img src="${s.bookCoverUrl}" style="width:28px;height:40px;border-radius:4px;object-fit:cover;box-shadow:0 1px 4px rgba(0,0,0,.1)" onerror="this.style.display='none'">${s.bookUrl?`<a href="${s.bookUrl}" target="_blank" rel="noopener" style="font-size:10px;color:#b08a00;font-weight:600;text-decoration:none" onclick="event.stopPropagation()">📖 Ver libro</a>`:''}${!s.bookUrl&&s.bookSource?`<span style="font-size:10px;color:#b08a00;font-weight:600">${s.bookSource}</span>`:''}</div>`:''}
+      <div style="font-size:10px;color:var(--muted);margin-top:3px">${aired}/${totalEps} emitidos${seasons.length>1?` · ${seasons.length} temporadas`:''}</div>
+      ${s.basedOnBook&&s.bookCoverUrl?`<div style="margin-top:8px;display:flex;align-items:center;gap:6px"><img src="${s.bookCoverUrl}" style="width:28px;height:40px;border-radius:4px;object-fit:cover;box-shadow:0 1px 4px rgba(0,0,0,.1)" onerror="this.style.display='none'">${s.bookUrl?`<a href="${s.bookUrl}" target="_blank" rel="noopener" style="font-size:10px;color:#b08a00;font-weight:600;text-decoration:none" onclick="event.stopPropagation()">📖 Ver libro</a>`:''}${!s.bookUrl&&s.bookSource?`<span style="font-size:10px;color:#b08a00;font-weight:600">${s.bookSource}</span>`:''}</div>`:''} 
     </div>
   </div>`;
 }
@@ -1457,44 +1492,32 @@ function renderListResults(){
   resultsEl.innerHTML=html;
 }
 
-function getCountries(arr){
-  const all=[];
-  arr.forEach(s=>{
-    if(!s.country) return;
-    s.country.split('/').map(c=>c.trim()).filter(Boolean).forEach(c=>all.push(c));
-  });
-  return [...new Set(all)].sort((a,b)=>a.localeCompare(b,'es'));
-}
+function getCountries(arr){ return [...new Set(arr.map(s=>s.country).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es')); }
 
 function getSeriesLastActivity(s){
-  // Returns the most recent aired or upcoming episode date, or startDate as fallback
   const eps=genEps(s);
   const now=new Date();
-  // Find the most recent aired ep date
   const aired=eps.filter(e=>!e.skipped&&new Date(e.date+'T12:00:00')<=now).map(e=>e.date);
   if(aired.length) return aired[aired.length-1];
-  // Or the next upcoming ep
   const upcoming=eps.filter(e=>!e.skipped&&new Date(e.date+'T12:00:00')>now).map(e=>e.date);
   if(upcoming.length) return upcoming[0];
-  return s.startDate||'';
+  const seasons=getSeasons(s);
+  return (seasons[0]&&seasons[0].startDate)||s.startDate||'';
 }
 
 function applySeriesFilters(arr){
   let r=[...arr];
   const q=seriesFilters.q.toLowerCase().trim();
   if(q) r=r.filter(s=>s.name.toLowerCase().includes(q)||(s.country||'').toLowerCase().includes(q)||(s.network||'').toLowerCase().includes(q));
-  if(seriesFilters.countries&&seriesFilters.countries.length) r=r.filter(s=>{
-    const parts=(s.country||'').split('/').map(c=>c.trim());
-    return seriesFilters.countries.some(sel=>parts.includes(sel));
-  });
+  if(seriesFilters.countries&&seriesFilters.countries.length) r=r.filter(s=>seriesFilters.countries.includes(s.country));
   if(seriesFilters.book==='yes') r=r.filter(s=>s.basedOnBook);
   if(seriesFilters.book==='no') r=r.filter(s=>!s.basedOnBook);
-  if(seriesFilters.year) r=r.filter(s=>s.startDate&&s.startDate.startsWith(seriesFilters.year));
+  if(seriesFilters.year) r=r.filter(s=>{ const seasons=getSeasons(s); return seasons.some(t=>t.startDate&&t.startDate.startsWith(seriesFilters.year))||(s.startDate&&s.startDate.startsWith(seriesFilters.year)); });
   if(seriesFilters.genre) r=r.filter(s=>s.genres&&s.genres.includes(seriesFilters.genre));
   if(seriesFilters.sort==='az') r.sort((a,b)=>a.name.localeCompare(b.name,'es'));
   else if(seriesFilters.sort==='za') r.sort((a,b)=>b.name.localeCompare(a.name,'es'));
   else if(seriesFilters.sort==='eps') r.sort((a,b)=>b.totalEpisodes-a.totalEpisodes);
-  else if(seriesFilters.sort==='date') r.sort((a,b)=>(a.startDate||'').localeCompare(b.startDate||''));
+  else if(seriesFilters.sort==='date') r.sort((a,b)=>{ const da=(getSeasons(a)[0]?.startDate||a.startDate||''); const db=(getSeasons(b)[0]?.startDate||b.startDate||''); return da.localeCompare(db); });
   else if(seriesFilters.sort==='recent') r.sort((a,b)=>getSeriesLastActivity(b).localeCompare(getSeriesLastActivity(a)));
   return r;
 }
@@ -1503,7 +1526,7 @@ function renderList(){
   const view=document.getElementById('viewList');
   // First render: build the static toolbar shell
   if(!view.querySelector('.list-toolbar-shell')){
-    const allYears=[...new Set([...state.series].map(s=>s.startDate?s.startDate.substring(0,4):'').filter(Boolean))].sort((a,b)=>b-a);
+    const allYears=[...new Set([...state.series].flatMap(s=>{ const seasons=getSeasons(s); return seasons.length?seasons.map(t=>t.startDate?t.startDate.substring(0,4):''):[s.startDate?s.startDate.substring(0,4):'']; }).filter(Boolean))].sort((a,b)=>b-a);
     const yearsOpts=allYears.map(y=>`<option value="${y}"${seriesFilters.year===y?' selected':''}>${y}</option>`).join('');
     const genreOpts=GENRES.map(g=>`<option value="${g}">${g}</option>`).join('');
     view.innerHTML=`<div class="list-toolbar-shell books-toolbar">
@@ -1568,10 +1591,7 @@ function applyUpcomingFilters(arr){
   let r=[...arr];
   const q=upcomingFilters.q.toLowerCase().trim();
   if(q) r=r.filter(s=>s.name.toLowerCase().includes(q)||(s.country||'').toLowerCase().includes(q)||(s.network||'').toLowerCase().includes(q));
-  if(upcomingFilters.countries&&upcomingFilters.countries.length) r=r.filter(s=>{
-    const parts=(s.country||'').split('/').map(c=>c.trim());
-    return upcomingFilters.countries.some(sel=>parts.includes(sel));
-  });
+  if(upcomingFilters.countries&&upcomingFilters.countries.length) r=r.filter(s=>upcomingFilters.countries.includes(s.country));
   if(upcomingFilters.book==='yes') r=r.filter(s=>s.basedOnBook);
   if(upcomingFilters.book==='no') r=r.filter(s=>!s.basedOnBook);
   if(upcomingFilters.year) r=r.filter(s=>s.startDate&&s.startDate.startsWith(upcomingFilters.year));
@@ -1730,57 +1750,55 @@ function daysUntil(dateStr){
 }
 
 function openSeries(si){
-  const s=state.series[si], eps=genEps(s), now=new Date();
+  const s=state.series[si], allEps=genEps(s), now=new Date();
+  const seasons=getSeasons(s);
+  const totalEps=seasons.reduce((a,t)=>a+t.totalEpisodes,0);
   const col=PALETTE[si%PALETTE.length];
-  const aired=eps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
-  const pct=Math.round(aired/s.totalEpisodes*100);
-  const days=getEmissionDays(s).map(d=>DAYS_L[d]).join(' y ');
-  const next=eps.find(e=>new Date(e.date+'T12:00:00')>now&&!e.skipped);
+  const aired=allEps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
+  const pct=Math.round(aired/Math.max(totalEps,1)*100);
+  const activeSeason=seasons[seasons.length-1];
+  const activeDays=((activeSeason?.emissionDays&&activeSeason.emissionDays.length)?activeSeason.emissionDays:[activeSeason?.dayOfWeek||0]).map(d=>DAYS_L[d]).join(' y ');
+  const next=allEps.find(e=>new Date(e.date+'T12:00:00')>now&&!e.skipped);
   const todayStr=toStr(now.getFullYear(),now.getMonth(),now.getDate());
-  const todayEps=eps.filter(e=>e.date===todayStr&&!e.skipped);
+  const todayEps=allEps.filter(e=>e.date===todayStr&&!e.skipped);
   const isFinished=!next;
-  // Start / end dates
-  const datesWithEps=eps.filter(e=>!e.skipped).map(e=>e.date).sort();
-  const firstEpDate=datesWithEps[0]||s.startDate;
+  const datesWithEps=allEps.filter(e=>!e.skipped).map(e=>e.date).sort();
+  const firstEpDate=datesWithEps[0]||(seasons[0]&&seasons[0].startDate)||s.startDate;
   const lastEpDate=datesWithEps[datesWithEps.length-1];
-  // Next ep badge
   let nextBadgeHtml='';
   if(todayEps.length){
-    nextBadgeHtml=`<div class="modal-next-badge today">🌸 Hoy · Ep. ${todayEps.map(e=>e.num).join(' & ')}</div>`;
+    nextBadgeHtml=`<div class="modal-next-badge today">🌸 Hoy · Ep. ${todayEps.map(e=>e.seasonNum).join(' & ')}${seasons.length>1?' ('+todayEps[0].seasonLabel+')':''}</div>`;
   } else if(next){
     const du=daysUntil(next.date);
     const label=du===1?'mañana':du===0?'hoy':`en ${du} días`;
-    nextBadgeHtml=`<div class="modal-next-badge soon">▶ Ep. ${next.num} — ${fmtDate(next.date)} · ${label}</div>`;
+    const seasonHint=seasons.length>1?` · ${next.seasonLabel}`:'';
+    nextBadgeHtml=`<div class="modal-next-badge soon">▶ Ep. ${next.seasonNum}${seasonHint} — ${fmtDate(next.date)} · ${label}</div>`;
   } else {
     nextBadgeHtml=`<div class="modal-next-badge done">✓ Serie finalizada</div>`;
   }
-  // Dates row
   let datesRowHtml='<div class="modal-dates-row">';
   if(firstEpDate) datesRowHtml+=`<span class="modal-date-chip">🎬 Inicio: ${fmtDate(firstEpDate)}</span>`;
   if(isFinished && lastEpDate) datesRowHtml+=`<span class="modal-date-chip">🏁 Final: ${fmtDate(lastEpDate)}</span>`;
   if(s.country) datesRowHtml+=`<span class="modal-date-chip">🌍 ${s.country}</span>`;
   datesRowHtml+='</div>';
-
   const posterEl=s.poster?`<img class="modal-poster-full" src="${s.poster}" alt="${s.name}" onerror="this.outerHTML='<div class=modal-poster-full-ph>🎬</div>'">`:`<div class="modal-poster-full-ph">🎬</div>`;
   let metaGrid='';
   if(s.year) metaGrid+=`<div class="meta-item"><div class="meta-key">Año</div><div class="meta-val">${s.year}</div></div>`;
   if(s.country) metaGrid+=`<div class="meta-item"><div class="meta-key">País</div><div class="meta-val">${s.country}</div></div>`;
   if(s.network) metaGrid+=`<div class="meta-item"><div class="meta-key">Plataforma</div><div class="meta-val">${s.network}</div></div>`;
-  metaGrid+=`<div class="meta-item"><div class="meta-key">Episodios</div><div class="meta-val">${s.totalEpisodes}</div></div>`;
+  metaGrid+=`<div class="meta-item"><div class="meta-key">Episodios</div><div class="meta-val">${totalEps}${seasons.length>1?` (${seasons.length}T)`:''}</div></div>`;
   const watchLinksHtml=(()=>{const links=s.watchLinks&&s.watchLinks.length?s.watchLinks:(s.networkUrl?[{name:s.network||'Ver serie',url:s.networkUrl}]:[]);if(!links.length)return '';return `<div class="watch-links-label">▶ Dónde ver</div><div class="watch-links">${links.map(l=>`<a class="watch-link" href="${l.url}" target="_blank" rel="noopener"><span class="watch-link-icon">▶</span>${l.name}</a>`).join('')}</div>`;})();
-  // Progress block
   const progressBlock=`<div class="modal-progress-block">
     <div class="modal-progress-header">
-      <span class="modal-progress-label">${aired} / ${s.totalEpisodes} emitidos · ${days}</span>
+      <span class="modal-progress-label">${aired} / ${totalEps} emitidos · ${activeDays}</span>
       <span class="modal-progress-pct" style="color:${col}">${pct}%</span>
     </div>
     <div style="height:6px;background:var(--border);border-radius:3px;overflow:hidden;position:relative">
       <div style="width:${pct}%;height:100%;background:${col};border-radius:3px;transition:width .4s"></div>
     </div>
   </div>`;
-
   let html=`${posterEl}<div class="modal-body">
-  <div class="modal-badges">${s.basedOnBook?'<span class="badge badge-book">📖 Basada en libro</span>':''}</div>
+  <div class="modal-badges">${s.basedOnBook?'<span class="badge badge-book">📖 Basada en libro</span>':''}${seasons.length>1?`<span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">${seasons.length} temporadas</span>`:''}</div>
   <div class="modal-title">${s.name}</div>
   ${datesRowHtml}
   ${nextBadgeHtml}
@@ -1801,15 +1819,43 @@ function openSeries(si){
       ${editions.length?`<div class="book-editions-row">${edPills}</div>`:''}
     </div></div>`;
   })():''}
-  <div class="divider"></div>
-  <div class="ep-detail-list">`;
-  eps.forEach(ep=>{
-    const isPast=new Date(ep.date+'T12:00:00')<=now;
-    const isEpToday=ep.date===todayStr;
-    const st=ep.skipped?'skipped':isPast?'aired':'pending', lb=ep.skipped?'No emitido':isEpToday?'¡Hoy!':isPast?'Emitido':'Pendiente';
-    html+=`<div class="ep-detail-row"><span class="ep-detail-num" style="color:${col}">E${ep.num}</span><span class="ep-detail-date">${fmtDate(ep.date)}</span><span class="chip ${isEpToday&&!ep.skipped?'pending':st}" style="${isEpToday&&!ep.skipped?'background:var(--accent);color:#fff':''}">${lb}</span></div>`;
-  });
-  html+=`</div><div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div></div>`;
+  <div class="divider"></div>`;
+
+  // Episodes grouped by season
+  if(seasons.length===1){
+    html+=`<div class="ep-detail-list">`;
+    allEps.forEach(ep=>{
+      const isPast=new Date(ep.date+'T12:00:00')<=now;
+      const isEpToday=ep.date===todayStr;
+      const st=ep.skipped?'skipped':isPast?'aired':'pending', lb=ep.skipped?'No emitido':isEpToday?'¡Hoy!':isPast?'Emitido':'Pendiente';
+      html+=`<div class="ep-detail-row"><span class="ep-detail-num" style="color:${col}">E${ep.seasonNum}</span><span class="ep-detail-date">${fmtDate(ep.date)}</span><span class="chip ${isEpToday&&!ep.skipped?'pending':st}" style="${isEpToday&&!ep.skipped?'background:var(--accent);color:#fff':''}">${lb}</span></div>`;
+    });
+    html+=`</div>`;
+  } else {
+    seasons.forEach((season,idx)=>{
+      const seasonEps=allEps.filter(e=>e.season===idx+1);
+      const sAired=seasonEps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
+      const sPct=Math.round(sAired/Math.max(season.totalEpisodes,1)*100);
+      html+=`<div style="margin-bottom:1rem">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+          <span style="font-size:12px;font-weight:700;color:var(--text)">${season.label||`Temporada ${idx+1}`}</span>
+          <span style="font-size:11px;color:var(--muted)">${sAired}/${season.totalEpisodes} · ${sPct}%</span>
+        </div>
+        <div style="height:3px;background:var(--border);border-radius:2px;margin-bottom:8px;overflow:hidden">
+          <div style="width:${sPct}%;height:100%;background:${col};border-radius:2px"></div>
+        </div>
+        <div class="ep-detail-list">`;
+      seasonEps.forEach(ep=>{
+        const isPast=new Date(ep.date+'T12:00:00')<=now;
+        const isEpToday=ep.date===todayStr;
+        const st=ep.skipped?'skipped':isPast?'aired':'pending', lb=ep.skipped?'No emitido':isEpToday?'¡Hoy!':isPast?'Emitido':'Pendiente';
+        html+=`<div class="ep-detail-row"><span class="ep-detail-num" style="color:${col}">E${ep.seasonNum}</span><span class="ep-detail-date">${fmtDate(ep.date)}</span><span class="chip ${isEpToday&&!ep.skipped?'pending':st}" style="${isEpToday&&!ep.skipped?'background:var(--accent);color:#fff':''}">${lb}</span></div>`;
+      });
+      html+=`</div></div>`;
+    });
+  }
+
+  html+=`<div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div></div>`;
   document.getElementById('modalBox').innerHTML=html;
   document.getElementById('modalBg').classList.add('open');
 }
@@ -1919,10 +1965,7 @@ function applyMoviesFilters(arr){
   let r=[...arr];
   const q=moviesFilters.q.toLowerCase().trim();
   if(q) r=r.filter(mv=>mv.name.toLowerCase().includes(q)||(mv.country||'').toLowerCase().includes(q)||(mv.network||'').toLowerCase().includes(q));
-  if(moviesFilters.countries&&moviesFilters.countries.length) r=r.filter(mv=>{
-    const parts=(mv.country||'').split('/').map(c=>c.trim());
-    return moviesFilters.countries.some(sel=>parts.includes(sel));
-  });
+  if(moviesFilters.countries&&moviesFilters.countries.length) r=r.filter(mv=>moviesFilters.countries.includes(mv.country));
   if(moviesFilters.book==='yes') r=r.filter(mv=>mv.basedOnBook);
   if(moviesFilters.book==='no') r=r.filter(mv=>!mv.basedOnBook);
   if(moviesFilters.year) r=r.filter(mv=>mv.date&&mv.date.startsWith(moviesFilters.year));

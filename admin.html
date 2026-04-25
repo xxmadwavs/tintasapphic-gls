@@ -122,6 +122,15 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
 .ep-edit-info strong{color:var(--text)}
 .divider{height:1px;background:var(--border);margin:14px 0}
 .section-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:600;margin-bottom:10px}
+/* Seasons */
+.seasons-list{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+.season-block{border:1.5px solid var(--border2);border-radius:12px;padding:14px;background:var(--surface2);position:relative}
+.season-block-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:8px}
+.season-block-title{font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;flex:1}
+.season-block-title input{font-size:13px;font-weight:700;color:var(--text);background:transparent;border:none;border-bottom:1.5px solid var(--border2);outline:none;font-family:'Nunito',sans-serif;width:100%;padding:2px 0;transition:border-color .15s}
+.season-block-title input:focus{border-color:var(--accent)}
+.season-del-btn{width:26px;height:26px;border-radius:7px;border:1.5px solid rgba(212,92,92,.3);background:transparent;color:var(--danger);cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;font-family:'Nunito',sans-serif}
+.season-del-btn:hover{background:rgba(212,92,92,.08);border-color:var(--danger)}
 .form-hint{font-size:11px;color:var(--muted);margin-top:4px}
 .unsaved-bar{position:sticky;top:58px;z-index:49;background:#fff8e1;border-bottom:2px solid #f0c030;padding:8px 2rem;display:none;align-items:center;justify-content:space-between;font-size:13px;color:#7a5a00;font-weight:600}
 .unsaved-bar.visible{display:flex}
@@ -445,24 +454,41 @@ function addDays(d,n){ const x=new Date(d+'T12:00:00'); x.setDate(x.getDate()+n)
 function fmtDate(d){ const x=new Date(d+'T12:00:00'); return `${x.getDate()} ${MONTHS_ES[x.getMonth()].slice(0,3)} ${x.getFullYear()}`; }
 function getEmissionDays(s){ if(s.emissionDays&&s.emissionDays.length>0) return [...s.emissionDays].sort((a,b)=>a-b); if(s.dayOfWeek!==undefined) return [s.dayOfWeek]; return [0]; }
 
+function getSeasons(s){
+  if(s.seasons&&s.seasons.length) return s.seasons;
+  if(s.startDate&&s.totalEpisodes) return [{
+    label:'Temporada 1', startDate:s.startDate, totalEpisodes:s.totalEpisodes,
+    emissionDays:s.emissionDays||[s.dayOfWeek||0], skipDates:s.skipDates||[], episodes:s.episodes||[]
+  }];
+  return [];
+}
+
 function genEpisodes(s){
-  const days=getEmissionDays(s), skipDates=new Set(s.skipDates||[]), epOverrides=s.episodes||[];
-  let firstDate=null;
-  for(let o=0;o<14;o++){ const c=addDays(s.startDate,o); if(days.includes(getDow(c))){ firstDate=c; break; } }
-  if(!firstDate) firstDate=s.startDate;
-  const weekStart=addDays(firstDate,-getDow(firstDate));
-  const slots=[], weeksNeeded=Math.ceil((s.totalEpisodes+(skipDates.size||0))/days.length)+4;
-  for(let w=0;w<weeksNeeded&&slots.length<s.totalEpisodes+skipDates.size+10;w++){
-    for(const d of days){ const date=addDays(weekStart,d+w*7); if(date>=firstDate) slots.push(date); }
-  }
-  const validSlots=slots.filter(d=>!skipDates.has(d));
-  const eps=[];
-  for(let i=0;i<s.totalEpisodes;i++){
-    const epNum=i+1, baseDate=validSlots[i]||addDays(firstDate,i*7);
-    const ov=epOverrides.find(e=>e.num===epNum);
-    eps.push(ov?{...ov}:{num:epNum,date:baseDate,skipped:false});
-  }
-  return eps;
+  // Kept for admin compat — generates all eps flat
+  const seasons=getSeasons(s);
+  if(!seasons.length) return [];
+  const all=[]; let offset=0;
+  seasons.forEach((season,idx)=>{
+    const days=(season.emissionDays&&season.emissionDays.length)?[...season.emissionDays].sort((a,b)=>a-b):[season.dayOfWeek||0];
+    const skipDates=new Set(season.skipDates||[]);
+    const epOverrides=season.episodes||[];
+    let firstDate=null;
+    for(let o=0;o<14;o++){const c=addDays(season.startDate,o);if(days.includes(getDow(c))){firstDate=c;break;}}
+    if(!firstDate) firstDate=season.startDate;
+    const weekStart=addDays(firstDate,-getDow(firstDate));
+    const slots=[],wn=Math.ceil((season.totalEpisodes+(skipDates.size||0))/days.length)+4;
+    for(let w=0;w<wn&&slots.length<season.totalEpisodes+skipDates.size+10;w++){
+      for(const d of days){const date=addDays(weekStart,d+w*7);if(date>=firstDate)slots.push(date);}
+    }
+    const valid=slots.filter(d=>!skipDates.has(d));
+    for(let i=0;i<season.totalEpisodes;i++){
+      const epNum=i+1,globalNum=offset+epNum,base=valid[i]||addDays(firstDate,i*7);
+      const ov=epOverrides.find(e=>e.num===epNum);
+      all.push(ov?{...ov,num:globalNum,seasonNum:epNum,season:idx+1}:{num:globalNum,seasonNum:epNum,season:idx+1,date:base,skipped:false});
+    }
+    offset+=season.totalEpisodes;
+  });
+  return all;
 }
 
 let adminSeriesStatus = 'all';
@@ -519,7 +545,7 @@ function render(){
     });
   } else if(sort==='progress'){
     filtered.sort((a,b)=>{
-      const pct=s=>{ if(s.upcoming||!s.totalEpisodes) return -1; const aired=genEpisodes(s).filter(e=>new Date(e.date+'T12:00:00')<=now2&&!e.skipped).length; return aired/s.totalEpisodes; };
+      const pct=s=>{ if(s.upcoming) return -1; const seasons=getSeasons(s),tot=seasons.reduce((a,t)=>a+t.totalEpisodes,0); if(!tot) return -1; const aired=genEpisodes(s).filter(e=>new Date(e.date+'T12:00:00')<=now2&&!e.skipped).length; return aired/tot; };
       return pct(b)-pct(a);
     });
   }
@@ -553,10 +579,13 @@ function render(){
         metaStr=`${s.year?s.year+' · ':''}${s.country||''}`;
       } else {
         const eps=genEpisodes(s), now=new Date();
+        const seasons=getSeasons(s);
+        const totalEps=seasons.reduce((a,t)=>a+t.totalEpisodes,0);
         const aired=eps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
-        const pct=Math.round(aired/s.totalEpisodes*100);
-        const daysLabel=getEmissionDays(s).map(d=>DAYS_ES[d]).join(' y ');
-        metaStr=`${s.network?s.network+' · ':''}${s.totalEpisodes} ep · ${daysLabel}`;
+        const pct=Math.round(aired/Math.max(totalEps,1)*100);
+        const lastSeason=seasons[seasons.length-1];
+        const daysLabel=((lastSeason?.emissionDays&&lastSeason.emissionDays.length)?lastSeason.emissionDays:[lastSeason?.dayOfWeek||0]).map(d=>DAYS_ES[d]).join(' y ');
+        metaStr=`${s.network?s.network+' · ':''}${totalEps} ep${seasons.length>1?' · '+seasons.length+'T':''} · ${daysLabel}`;
       }
       const bookBadge=s.basedOnBook?'<span class="badge badge-book">📖 Libro</span>':'';
       const genrePills=s.genres&&s.genres.length
@@ -566,7 +595,7 @@ function render(){
           <div class="series-name">${s.name} ${statusBadge}${bookBadge}</div>
           <div class="series-meta">${metaStr}</div>
           ${genrePills}
-          ${!s.upcoming?`<div class="progress-wrap" style="margin-top:6px;height:4px;background:var(--border);border-radius:2px;overflow:hidden"><div class="progress-fill" style="width:${(()=>{const eps=genEpisodes(s),now=new Date(),a=eps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;return Math.round(a/s.totalEpisodes*100)})()}%;background:${col}"></div></div>`:''}
+          ${!s.upcoming?`<div class="progress-wrap" style="margin-top:6px;height:4px;background:var(--border);border-radius:2px;overflow:hidden"><div class="progress-fill" style="width:${(()=>{const eps2=genEpisodes(s),now2=new Date(),seasons2=getSeasons(s),tot=seasons2.reduce((a,t)=>a+t.totalEpisodes,0),a=eps2.filter(e=>new Date(e.date+'T12:00:00')<=now2&&!e.skipped).length;return Math.round(a/Math.max(tot,1)*100)})()}%;background:${col}"></div></div>`:''}
         </div>
         <div class="series-actions">
           ${!s.upcoming?`<button class="btn small" onclick="openEps(${si})">Episodios</button>`:''}
@@ -634,10 +663,88 @@ function toggleUpcomingFields(){
   if(schedFields) schedFields.style.display=up?'none':'';
 }
 
+function dowChipsHtml(selectedDays=[]){
+  return DAYS_ES.map((d,i)=>`<div class="dow-chip${selectedDays.includes(i)?' selected':''}" data-dow="${i}" onclick="this.classList.toggle('selected')">${d}</div>`).join('');
+}
+
+function addSeasonBlock(seasonData=null, idx=null){
+  const list=document.getElementById('seasonsList');
+  if(!list) return;
+  const blockIdx=list.children.length;
+  const label=seasonData?.label||(blockIdx===0?'Temporada 1':`Temporada ${blockIdx+1}`);
+  const startDate=seasonData?.startDate||new Date().toISOString().slice(0,10);
+  const totalEps=seasonData?.totalEpisodes||12;
+  const emDays=seasonData?.emissionDays||(seasonData?.dayOfWeek!==undefined?[seasonData.dayOfWeek]:[]);
+  const block=document.createElement('div');
+  block.className='season-block';
+  block.dataset.seasonIdx=blockIdx;
+  block.innerHTML=`
+    <div class="season-block-header">
+      <div class="season-block-title">
+        <input type="text" value="${label}" placeholder="Ej: Temporada 1">
+      </div>
+      <button type="button" class="season-del-btn" onclick="this.closest('.season-block').remove();renumberSeasons()" title="Eliminar temporada">✕</button>
+    </div>
+    <div class="form-row" style="margin-bottom:10px">
+      <label class="form-label">Fecha del primer episodio *</label>
+      <input type="date" class="s-start" value="${startDate}"/>
+    </div>
+    <div class="form-row" style="margin-bottom:10px">
+      <label class="form-label">Días de emisión *</label>
+      <div class="dow-selector s-dow">${dowChipsHtml(emDays)}</div>
+    </div>
+    <div class="form-row" style="margin-bottom:0">
+      <label class="form-label">Número de episodios *</label>
+      <input type="number" class="s-eps" min="1" max="500" value="${totalEps}"/>
+    </div>`;
+  list.appendChild(block);
+}
+
+function renumberSeasons(){
+  const list=document.getElementById('seasonsList');
+  if(!list) return;
+  [...list.children].forEach((block,i)=>{
+    const inp=block.querySelector('.season-block-title input');
+    if(inp&&(inp.value===`Temporada ${i+2}`||inp.value===`Temporada ${i}`)){
+      inp.value=`Temporada ${i+1}`;
+    }
+  });
+}
+
+function initSeasons(seasonsData){
+  const list=document.getElementById('seasonsList');
+  if(!list) return;
+  list.innerHTML='';
+  if(seasonsData&&seasonsData.length){
+    seasonsData.forEach((s,i)=>addSeasonBlock(s,i));
+  } else {
+    addSeasonBlock();
+  }
+}
+
+function getSeasonsData(){
+  const list=document.getElementById('seasonsList');
+  if(!list) return [];
+  const seasons=[];
+  let valid=true;
+  [...list.children].forEach((block,idx)=>{
+    const label=block.querySelector('.season-block-title input').value.trim()||`Temporada ${idx+1}`;
+    const startDate=block.querySelector('.s-start').value;
+    const totalEps=parseInt(block.querySelector('.s-eps').value);
+    const emissionDays=[...block.querySelectorAll('.s-dow .dow-chip.selected')].map(c=>parseInt(c.dataset.dow)).sort((a,b)=>a-b);
+    if(!startDate||isNaN(totalEps)||totalEps<1){
+      alert(`Temporada "${label}": rellena fecha y número de episodios`);valid=false;return;
+    }
+    if(!emissionDays.length){
+      alert(`Temporada "${label}": selecciona al menos un día de emisión`);valid=false;return;
+    }
+    seasons.push({label,startDate,totalEpisodes:totalEps,emissionDays,skipDates:[],episodes:[]});
+  });
+  return valid?seasons:null;
+}
+
 function formHtml(s){
   const today=new Date().toISOString().slice(0,10);
-  const currentDays=s?getEmissionDays(s):[];
-  const chips=DAYS_ES.map((d,i)=>`<div class="dow-chip${currentDays.includes(i)?' selected':''}" data-dow="${i}">${d}</div>`).join('');
   const isUpcoming=s&&s.upcoming;
   return `
   <div class="form-row"><label class="form-label">Nombre *</label><input id="f_name" placeholder="Ej: Bloom Into You" value="${s?s.name:''}"/></div>
@@ -704,14 +811,9 @@ function formHtml(s){
   </label>
   <div id="schedFields" style="${isUpcoming?'display:none':''}">
     <div class="divider"></div>
-    <div class="section-label">Programación</div>
-    <div class="form-row"><label class="form-label">Fecha del primer episodio *</label><input id="f_start" type="date" value="${s&&s.startDate?s.startDate:today}"/></div>
-    <div class="form-row">
-      <label class="form-label">Días de emisión * <span style="font-size:11px;text-transform:none;letter-spacing:0;font-weight:400">(puedes seleccionar varios)</span></label>
-      <div class="dow-selector" id="dowSelector">${chips}</div>
-      <div class="form-hint">💡 Si emite varios días a la semana, selecciona todos.</div>
-    </div>
-    <div class="form-row"><label class="form-label">Número total de episodios *</label><input id="f_eps" type="number" min="1" max="500" value="${s&&s.totalEpisodes?s.totalEpisodes:12}"/></div>
+    <div class="section-label">Temporadas</div>
+    <div class="seasons-list" id="seasonsList"></div>
+    <button type="button" class="platform-add-btn" onclick="addSeasonBlock()" style="margin-top:8px">+ Añadir temporada</button>
   </div>`;
 }
 
@@ -720,19 +822,21 @@ function openAddSeries(){
   document.getElementById('seriesModalBody').innerHTML=formHtml(null)+`
     <div class="btn-row"><button class="btn" onclick="closeAll()">Cancelar</button><button class="btn primary" onclick="saveSeries(-1)">Guardar</button></div>`;
   document.getElementById('seriesModal').classList.add('open');
-  bindPoster(); bindDowChips(); initPlatforms([]); initBookEditions('bookEditionsList',[],null);
+  bindPoster(); initPlatforms([]); initBookEditions('bookEditionsList',[],null);
   initCountries('countriesList','');
+  initSeasons(null);
 }
 function openEdit(si){
   document.getElementById('seriesModalTitle').textContent='✏️ Editar serie';
   document.getElementById('seriesModalBody').innerHTML=formHtml(series[si])+`
     <div class="btn-row"><button class="btn" onclick="closeAll()">Cancelar</button><button class="btn primary" onclick="saveSeries(${si})">Guardar cambios</button></div>`;
   document.getElementById('seriesModal').classList.add('open');
-  bindPoster(); bindDowChips();
+  bindPoster();
   const links=series[si].watchLinks||(series[si].networkUrl?[{name:series[si].network||'Ver serie',url:series[si].networkUrl}]:[]);
   initPlatforms(links);
   initBookEditions('bookEditionsList', series[si].bookLinks||[], series[si].bookUrl||'');
   initCountries('countriesList', series[si].country||'');
+  initSeasons(getSeasons(series[si]));
 }
 
 function initPlatforms(links){
@@ -851,14 +955,17 @@ function saveSeries(si){
   const genres=getSelectedGenres('f_genres');
   let payload={name,poster,synopsis,year:year?parseInt(year):'',country,network:net,networkUrl,watchLinks,trailerUrl,bookSource,basedOnBook,bookCoverUrl,bookLinks,bookUrl,upcoming,genres};
   if(!upcoming){
-    const start=document.getElementById('f_start').value;
-    const eps=parseInt(document.getElementById('f_eps').value);
-    const emissionDays=getSelectedDays();
-    if(!start||isNaN(eps)||eps<1){alert('Rellena fecha, días y número de episodios');return;}
-    if(emissionDays.length===0){alert('Selecciona al menos un día de emisión');return;}
-    payload={...payload,startDate:start,dayOfWeek:emissionDays[0],emissionDays,totalEpisodes:eps};
+    const seasons=getSeasonsData();
+    if(!seasons) return;
+    if(!seasons.length){alert('Añade al menos una temporada');return;}
+    const existing=si>=0?getSeasons(series[si]):[];
+    seasons.forEach((s,i)=>{
+      const prev=existing[i];
+      if(prev){s.skipDates=prev.skipDates||[];s.episodes=prev.episodes||[];}
+    });
+    payload={...payload,seasons};
   }
-  if(si===-1) series.push({id:Date.now().toString(),...payload,skipDates:[],episodes:[]});
+  if(si===-1) series.push({id:Date.now().toString(),...payload});
   else series[si]={...series[si],...payload};
   save(); closeAll(); render(); renderBooks();
 }
@@ -869,100 +976,139 @@ function delSeries(si){
 }
 
 function openEps(si){
-  const s=series[si], eps=genEpisodes(s), now=new Date();
+  const s=series[si], allEps=genEpisodes(s), now=new Date();
+  const seasons=getSeasons(s);
   document.getElementById('epsModalTitle').textContent=`📋 ${s.name}`;
-  const days=getEmissionDays(s), skipDates=new Set(s.skipDates||[]), epOverrides=s.episodes||[];
-  let firstDate=null;
-  for(let o=0;o<14;o++){ const c=addDays(s.startDate,o); if(days.includes(getDow(c))){ firstDate=c; break; } }
-  if(!firstDate) firstDate=s.startDate;
-  const weekStart=addDays(firstDate,-getDow(firstDate));
-  const allSlots=[], weeksNeeded=Math.ceil((s.totalEpisodes+(skipDates.size||0))/days.length)+4;
-  for(let w=0;w<weeksNeeded&&allSlots.length<s.totalEpisodes+(skipDates.size||0)+10;w++){
-    for(const d of days){ const date=addDays(weekStart,d+w*7); if(date>=firstDate) allSlots.push(date); }
-  }
-  let epCount=0,slotIdx=0,rows=[];
-  while(epCount<s.totalEpisodes&&slotIdx<allSlots.length){
-    const date=allSlots[slotIdx++];
-    if(skipDates.has(date)){ rows.push({type:'skip',date}); }
-    else{ const ov=epOverrides.find(e=>e.num===epCount+1); rows.push({type:'ep',num:epCount+1,date:ov?ov.date:date,skipped:ov?ov.skipped:false,overridden:!!ov}); epCount++; }
-  }
-  let html=`<p style="font-size:12px;color:var(--muted);margin-bottom:10px">Pulsa un episodio para editar. <strong>"+ Descanso"</strong> para marcar semana sin emisión.</p>
-  <button class="btn small" style="margin-bottom:10px;width:100%" onclick="openAddSkip(${si})">+ Añadir semana de descanso</button>
-  <div class="ep-list">`;
-  rows.forEach(row=>{
-    if(row.type==='skip'){
-      html+=`<div class="ep-row" style="background:#f5f5f5;border-color:#e0e0e0;cursor:default;justify-content:space-between">
-        <span style="font-size:12px;color:#aaa">🚫 Descanso</span>
-        <span class="ep-date" style="color:#aaa">${fmtDate(row.date)}</span>
-        <button class="btn small danger" onclick="removeSkip(${si},'${row.date}')">✕</button>
-      </div>`;
-    } else {
-      const isPast=new Date(row.date+'T12:00:00')<=now;
-      let st,lb;
-      if(row.skipped){st='skipped';lb='No emitido';}
-      else if(row.overridden){st='modified';lb='Fecha cambiada';}
-      else if(isPast){st='aired';lb='Emitido';}
-      else{st='pending';lb='Pendiente';}
-      html+=`<div class="ep-row" onclick="openEpEdit(${si},${row.num})"><span class="ep-num">E${row.num}</span><span class="ep-date">${fmtDate(row.date)}</span><span class="ep-status ${st}">${lb}</span></div>`;
+  let html=`<p style="font-size:12px;color:var(--muted);margin-bottom:10px">Pulsa un episodio para editar su fecha o marcarlo como no emitido.</p>`;
+  seasons.forEach((season,sIdx)=>{
+    const seasonEps=allEps.filter(e=>e.season===sIdx+1);
+    const skipDates=new Set(season.skipDates||[]);
+    if(seasons.length>1) html+=`<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);margin:${sIdx>0?'14px':0} 0 8px">${season.label||`Temporada ${sIdx+1}`}</div>`;
+    html+=`<button class="btn small" style="margin-bottom:8px;width:100%" onclick="openAddSkip(${si},${sIdx})">+ Añadir descanso en ${season.label||'T'+(sIdx+1)}</button>`;
+    html+=`<div class="ep-list" style="margin-bottom:8px">`;
+    // Build rows with skips interleaved
+    const days=(season.emissionDays&&season.emissionDays.length)?[...season.emissionDays].sort((a,b)=>a-b):[season.dayOfWeek||0];
+    let firstDate=null;
+    for(let o=0;o<14;o++){const c=addDays(season.startDate,o);if(days.includes(getDow(c))){firstDate=c;break;}}
+    if(!firstDate) firstDate=season.startDate;
+    const weekStart=addDays(firstDate,-getDow(firstDate));
+    const allSlots=[],wn=Math.ceil((season.totalEpisodes+(skipDates.size||0))/days.length)+4;
+    for(let w=0;w<wn&&allSlots.length<season.totalEpisodes+skipDates.size+10;w++){
+      for(const d of days){const date=addDays(weekStart,d+w*7);if(date>=firstDate)allSlots.push(date);}
     }
+    let epCount=0,slotIdx=0;
+    while(epCount<season.totalEpisodes&&slotIdx<allSlots.length){
+      const date=allSlots[slotIdx++];
+      if(skipDates.has(date)){
+        html+=`<div class="ep-row" style="background:#f5f5f5;border-color:#e0e0e0;cursor:default;justify-content:space-between">
+          <span style="font-size:12px;color:#aaa">🚫 Descanso</span>
+          <span class="ep-date" style="color:#aaa">${fmtDate(date)}</span>
+          <button class="btn small danger" onclick="removeSkip(${si},${sIdx},'${date}')">✕</button>
+        </div>`;
+      } else {
+        epCount++;
+        const ep=seasonEps.find(e=>e.seasonNum===epCount);
+        if(!ep) continue;
+        const globalNum=ep.num;
+        const isPast=new Date(ep.date+'T12:00:00')<=now;
+        const hasOv=(season.episodes||[]).some(e=>e.num===epCount);
+        let st,lb;
+        if(ep.skipped){st='skipped';lb='No emitido';}
+        else if(hasOv){st='modified';lb='Fecha cambiada';}
+        else if(isPast){st='aired';lb='Emitido';}
+        else{st='pending';lb='Pendiente';}
+        html+=`<div class="ep-row" onclick="openEpEdit(${si},${sIdx},${epCount})"><span class="ep-num">E${epCount}</span><span class="ep-date">${fmtDate(ep.date)}</span><span class="ep-status ${st}">${lb}</span></div>`;
+      }
+    }
+    html+=`</div>`;
   });
-  html+=`</div><div class="btn-row" style="margin-top:1rem"><button class="btn" onclick="closeAll()">Cerrar</button></div>`;
+  html+=`<div class="btn-row" style="margin-top:1rem"><button class="btn" onclick="closeAll()">Cerrar</button></div>`;
   document.getElementById('epsModalBody').innerHTML=html;
   document.getElementById('epsModal').classList.add('open');
 }
 
-function openAddSkip(si){
-  const s=series[si], days=getEmissionDays(s), skipDates=new Set(s.skipDates||[]);
+function openAddSkip(si, sIdx){
+  const s=series[si];
+  const season=getSeasons(s)[sIdx];
+  const days=(season.emissionDays&&season.emissionDays.length)?[...season.emissionDays].sort((a,b)=>a-b):[season.dayOfWeek||0];
+  const skipDates=new Set(season.skipDates||[]);
   let suggestion='', firstDate=null;
-  for(let o=0;o<14;o++){ const c=addDays(s.startDate,o); if(days.includes(getDow(c))){ firstDate=c; break; } }
+  for(let o=0;o<14;o++){const c=addDays(season.startDate,o);if(days.includes(getDow(c))){firstDate=c;break;}}
   if(firstDate){
     const ws=addDays(firstDate,-getDow(firstDate)), now=new Date().toISOString().slice(0,10);
     for(let w=0;w<104&&!suggestion;w++){
-      for(const d of days){ const date=addDays(ws,d+w*7); if(date>=now&&!skipDates.has(date)){suggestion=date;break;} }
+      for(const d of days){const date=addDays(ws,d+w*7);if(date>=now&&!skipDates.has(date)){suggestion=date;break;}}
     }
   }
   document.getElementById('epEditBody').innerHTML=`
-    <div class="ep-edit-info"><strong>${s.name}</strong><br>Elige la fecha del slot que <strong>no se emite</strong>. Los episodios siguientes se desplazarán automáticamente.</div>
+    <div class="ep-edit-info"><strong>${s.name}</strong> · ${season.label||'Temporada '+(sIdx+1)}<br>Elige la fecha del slot que <strong>no se emite</strong>.</div>
     <div class="form-row"><label class="form-label">Fecha del descanso *</label><input id="skip_date" type="date" value="${suggestion}"/></div>
-    <div class="btn-row"><button class="btn" onclick="openEps(${si})">← Volver</button><button class="btn primary" onclick="saveSkip(${si})">Añadir descanso</button></div>`;
+    <div class="btn-row"><button class="btn" onclick="openEps(${si})">← Volver</button><button class="btn primary" onclick="saveSkip(${si},${sIdx})">Añadir descanso</button></div>`;
   document.getElementById('epEditModal').classList.add('open');
 }
-function saveSkip(si){
+
+function saveSkip(si, sIdx){
   const date=document.getElementById('skip_date').value;
   if(!date){alert('Selecciona una fecha');return;}
-  if(!series[si].skipDates) series[si].skipDates=[];
-  if(!series[si].skipDates.includes(date)){series[si].skipDates.push(date);series[si].skipDates.sort();}
+  const seasons=getSeasons(series[si]);
+  if(!series[si].seasons) series[si].seasons=seasons;
+  if(!series[si].seasons[sIdx].skipDates) series[si].seasons[sIdx].skipDates=[];
+  if(!series[si].seasons[sIdx].skipDates.includes(date)){
+    series[si].seasons[sIdx].skipDates.push(date);
+    series[si].seasons[sIdx].skipDates.sort();
+  }
   save(); openEps(si);
 }
-function removeSkip(si,date){ if(!series[si].skipDates) return; series[si].skipDates=series[si].skipDates.filter(d=>d!==date); save(); openEps(si); }
 
-function openEpEdit(si,epNum){
-  const s=series[si], ep=genEpisodes(s).find(e=>e.num===epNum), hasOv=(s.episodes||[]).some(e=>e.num===epNum);
+function removeSkip(si, sIdx, date){
+  const seasons=getSeasons(series[si]);
+  if(!series[si].seasons) series[si].seasons=seasons;
+  series[si].seasons[sIdx].skipDates=(series[si].seasons[sIdx].skipDates||[]).filter(d=>d!==date);
+  save(); openEps(si);
+}
+
+function openEpEdit(si, sIdx, epNum){
+  const s=series[si];
+  const season=getSeasons(s)[sIdx];
+  const allEps=genEpisodes(s);
+  const globalEps=allEps.filter(e=>e.season===sIdx+1);
+  const ep=globalEps.find(e=>e.seasonNum===epNum);
+  const hasOv=(season.episodes||[]).some(e=>e.num===epNum);
   document.getElementById('epEditBody').innerHTML=`
-    <div class="ep-edit-info"><strong>${s.name}</strong> · Episodio ${epNum}<br>Fecha calculada: <strong>${fmtDate(ep.date)}</strong>${hasOv?'<br><span style="color:#b08a00;font-weight:600">⚠ Fecha cambiada manualmente</span>':''}</div>
+    <div class="ep-edit-info"><strong>${s.name}</strong> · ${season.label||'T'+(sIdx+1)} · Episodio ${epNum}<br>Fecha calculada: <strong>${fmtDate(ep.date)}</strong>${hasOv?'<br><span style="color:#b08a00;font-weight:600">⚠ Fecha cambiada manualmente</span>':''}</div>
     <div class="section-label">Mover este episodio a otro día</div>
     <div class="form-row"><label class="form-label">Nueva fecha</label><input id="fe_date" type="date" value="${ep.date}"/>
-      <div class="form-hint">Úsalo si este episodio en concreto se adelanta o retrasa, sin afectar al resto.</div>
+      <div class="form-hint">Solo afecta a este episodio.</div>
     </div>
     <div class="divider"></div>
     <div class="section-label">Estado</div>
     <div class="form-row"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--text)">
       <input type="checkbox" id="fe_skip" ${ep.skipped?'checked':''} style="width:auto;accent-color:var(--accent)"/>
-      Marcar como no emitido (cancelado / pospuesto indefinidamente)
+      Marcar como no emitido
     </label></div>
-    ${hasOv?`<div class="divider"></div><div style="text-align:center"><button class="btn danger small" onclick="resetEp(${si},${epNum})">↩ Restablecer fecha automática</button></div>`:''}
-    <div class="btn-row" style="margin-top:1rem"><button class="btn" onclick="openEps(${si})">← Volver</button><button class="btn primary" onclick="saveEp(${si},${epNum})">Guardar</button></div>`;
+    ${hasOv?`<div class="divider"></div><div style="text-align:center"><button class="btn danger small" onclick="resetEp(${si},${sIdx},${epNum})">↩ Restablecer fecha automática</button></div>`:''}
+    <div class="btn-row" style="margin-top:1rem"><button class="btn" onclick="openEps(${si})">← Volver</button><button class="btn primary" onclick="saveEp(${si},${sIdx},${epNum})">Guardar</button></div>`;
   document.getElementById('epEditModal').classList.add('open');
 }
-function saveEp(si,epNum){
+
+function saveEp(si, sIdx, epNum){
   const date=document.getElementById('fe_date').value, skipped=document.getElementById('fe_skip').checked;
-  if(!series[si].episodes) series[si].episodes=[];
-  const idx=series[si].episodes.findIndex(e=>e.num===epNum);
-  if(idx>=0) series[si].episodes[idx]={num:epNum,date,skipped};
-  else series[si].episodes.push({num:epNum,date,skipped});
+  const seasons=getSeasons(series[si]);
+  if(!series[si].seasons) series[si].seasons=seasons;
+  if(!series[si].seasons[sIdx].episodes) series[si].seasons[sIdx].episodes=[];
+  const eps=series[si].seasons[sIdx].episodes;
+  const idx=eps.findIndex(e=>e.num===epNum);
+  if(idx>=0) eps[idx]={num:epNum,date,skipped};
+  else eps.push({num:epNum,date,skipped});
   save(); openEps(si);
 }
-function resetEp(si,epNum){ if(!series[si].episodes) return; series[si].episodes=series[si].episodes.filter(e=>e.num!==epNum); save(); openEps(si); }
+
+function resetEp(si, sIdx, epNum){
+  const seasons=getSeasons(series[si]);
+  if(!series[si].seasons) series[si].seasons=seasons;
+  series[si].seasons[sIdx].episodes=(series[si].seasons[sIdx].episodes||[]).filter(e=>e.num!==epNum);
+  save(); openEps(si);
+}
 
 function movieFormHtml(mv){
   const today=new Date().toISOString().slice(0,10);
