@@ -202,48 +202,7 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
 .badge-airing{background:var(--accent-soft);color:var(--accent);border:1px solid var(--border2)}
 .badge-finished{background:var(--teal-soft);color:var(--teal);border:1px solid rgba(91,188,176,0.3)}
 
-/* ═══ AI AUTOFILL ═══ */
-.ai-autofill-bar{
-  background:linear-gradient(135deg,rgba(212,96,138,0.07) 0%,rgba(155,130,201,0.07) 100%);
-  border:1.5px solid rgba(155,130,201,0.3);
-  border-radius:14px;padding:14px 16px;margin-bottom:18px;
-}
-.ai-apikey-row{display:flex;gap:7px;align-items:center;margin-bottom:8px}
-.ai-apikey-input{
-  flex:1;padding:8px 13px;border-radius:10px;border:1.5px solid rgba(155,130,201,0.35);
-  background:var(--surface);color:var(--text);font-size:12px;font-family:'Nunito',sans-serif;
-  outline:none;transition:border-color .15s;
-}
-.ai-apikey-input:focus{border-color:var(--lavender)}
-.ai-apikey-input::placeholder{color:var(--muted)}
-.ai-apikey-save{
-  padding:7px 13px;border-radius:10px;border:1.5px solid rgba(155,130,201,0.4);
-  background:transparent;color:var(--lavender);font-size:12px;font-weight:700;
-  font-family:'Nunito',sans-serif;cursor:pointer;white-space:nowrap;transition:all .15s;flex-shrink:0;
-}
-.ai-apikey-save:hover{background:var(--lavender);color:#fff;border-color:var(--lavender)}
-.ai-autofill-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--lavender);font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:5px}
-.ai-autofill-row{display:flex;gap:7px;align-items:center}
-.ai-autofill-input{
-  flex:1;padding:9px 13px;border-radius:10px;border:1.5px solid rgba(155,130,201,0.35);
-  background:var(--surface);color:var(--text);font-size:13px;font-family:'Nunito',sans-serif;
-  outline:none;transition:border-color .15s;
-}
-.ai-autofill-input:focus{border-color:var(--lavender)}
-.ai-autofill-input::placeholder{color:var(--muted)}
-.ai-autofill-btn{
-  padding:9px 16px;border-radius:10px;border:none;cursor:pointer;
-  background:linear-gradient(135deg,var(--accent) 0%,var(--lavender) 100%);
-  color:#fff;font-size:13px;font-weight:700;font-family:'Nunito',sans-serif;
-  white-space:nowrap;transition:opacity .15s;flex-shrink:0;
-}
-.ai-autofill-btn:hover{opacity:.88}
-.ai-autofill-btn:disabled{opacity:.5;cursor:not-allowed}
-.ai-autofill-status{font-size:12px;margin-top:8px;color:var(--muted);min-height:16px;display:flex;align-items:center;gap:5px}
-.ai-autofill-status.ok{color:var(--success)}
-.ai-autofill-status.err{color:var(--danger)}
-@keyframes ai-spin{to{transform:rotate(360deg)}}
-.ai-spinner{display:inline-block;width:12px;height:12px;border:2px solid rgba(139,114,190,.3);border-top-color:var(--lavender);border-radius:50%;animation:ai-spin .7s linear infinite}
+
 
 /* Book editions widget */
 .book-editions-list{display:flex;flex-direction:column;gap:8px;margin-top:6px}
@@ -862,7 +821,7 @@ function formHtml(s){
 
 function openAddSeries(){
   document.getElementById('seriesModalTitle').textContent='🌸 Añadir serie GL';
-  document.getElementById('seriesModalBody').innerHTML=aiAutofillBarHtml('series')+formHtml(null)+`
+  document.getElementById('seriesModalBody').innerHTML=formHtml(null)+`
     <div class="btn-row"><button class="btn" onclick="closeAll()">Cancelar</button><button class="btn primary" onclick="saveSeries(-1)">Guardar</button></div>`;
   document.getElementById('seriesModal').classList.add('open');
   bindPoster(); initPlatforms([]); initBookEditions('bookEditionsList',[],null);
@@ -1231,7 +1190,7 @@ function toggleMovieBookFields(){
 
 function openAddMovie(){
   document.getElementById('movieModalTitle').textContent='🎥 Añadir película';
-  document.getElementById('movieModalBody').innerHTML=aiAutofillBarHtml('movie')+movieFormHtml(null)+
+  document.getElementById('movieModalBody').innerHTML=movieFormHtml(null)+
     `<div class="btn-row"><button class="btn" onclick="closeAll()">Cancelar</button><button class="btn primary" onclick="saveMovie(-1)">Guardar</button></div>`;
   document.getElementById('movieModal').classList.add('open');
   bindMovieForm(); initMoviePlatforms([]); initBookEditions('movieBookEditionsList',[],null);
@@ -1365,215 +1324,6 @@ function importData(e){
   };
   reader.readAsText(file);
   e.target.value='';
-}
-
-/* ═══ AI AUTOFILL ═══ */
-function aiAutofillBarHtml(type='series'){
-  const savedKey = localStorage.getItem('anthropic_api_key')||'';
-  const keyMasked = savedKey ? '••••••••'+savedKey.slice(-4) : '';
-  return `<div class="ai-autofill-bar">
-    <div class="ai-autofill-label">✨ Autocompletar con IA</div>
-    <div class="ai-apikey-row">
-      <input class="ai-apikey-input" id="aiKeyInput" placeholder="API Key de Anthropic (sk-ant-…)" type="password" value="${savedKey}" autocomplete="off">
-      <button class="ai-apikey-save" onclick="saveAiKey()">💾 Guardar key</button>
-    </div>
-    <div class="ai-autofill-row">
-      <input class="ai-autofill-input" id="aiLinkInput" placeholder="Pega un link de MyDramaList o Letterboxd…" type="url">
-      <button class="ai-autofill-btn" id="aiAutofillBtn" onclick="runAiAutofill('${type}')">Rellenar</button>
-    </div>
-    <div class="ai-autofill-status" id="aiAutofillStatus">${savedKey ? '🔑 Key guardada.' : '⚠ Introduce tu API key de Anthropic para usar esta función.'}</div>
-  </div>`;
-}
-
-function saveAiKey(){
-  const k = (document.getElementById('aiKeyInput')?.value||'').trim();
-  if(!k){ alert('Pega tu API key primero.'); return; }
-  localStorage.setItem('anthropic_api_key', k);
-  const s = document.getElementById('aiAutofillStatus');
-  if(s){ s.className='ai-autofill-status ok'; s.innerHTML='✓ Key guardada correctamente.'; }
-}
-
-async function runAiAutofill(type){
-  const input = document.getElementById('aiLinkInput');
-  const btn = document.getElementById('aiAutofillBtn');
-  const status = document.getElementById('aiAutofillStatus');
-  const url = (input?.value||'').trim();
-  const apiKey = (document.getElementById('aiKeyInput')?.value || localStorage.getItem('anthropic_api_key') || '').trim();
-
-  if(!apiKey){ status.className='ai-autofill-status err'; status.innerHTML='⚠ Introduce y guarda tu API key primero.'; return; }
-  if(!url){ status.className='ai-autofill-status err'; status.innerHTML='⚠ Pega un link primero.'; return; }
-
-  btn.disabled = true;
-  status.className = 'ai-autofill-status';
-  status.innerHTML = '<span class="ai-spinner"></span> Analizando la página…';
-
-  const isSeries = type === 'series';
-  const today = new Date().toISOString().slice(0,10);
-
-  const prompt = `Eres un asistente que extrae información de series/películas GL (Girls Love, yuri, amor entre mujeres) a partir de una URL de MyDramaList o Letterboxd.
-
-La URL a analizar es: ${url}
-
-Tipo de contenido: ${isSeries ? 'serie/drama' : 'película'}
-Fecha de hoy: ${today}
-
-Visita la URL, extrae toda la información disponible y devuelve SOLO un objeto JSON válido (sin markdown, sin explicaciones, sin comillas de código) con estos campos exactos:
-
-{
-  "name": "Título en inglés o idioma original",
-  "year": 2026,
-  "country": "País de producción en español (ej: Tailandia, Corea del Sur)",
-  "synopsis": "Sinopsis en español, 3-5 frases",
-  "network": "Plataforma o canal (ej: Netflix, iQIYI, CH3+, YouTube)",
-  "networkUrl": "URL directa a la serie en esa plataforma si la conoces, si no ''",
-  "poster": "URL directa a la imagen del póster desde mydramalist (busca la imagen _4f.jpg)",
-  "trailerUrl": "URL del trailer de YouTube si lo ves mencionado, si no ''",
-  "genres": ["Romance", "Drama"],
-  "basedOnBook": false,
-  "bookSource": "Título del libro/novela original si aplica, si no ''",
-  ${isSeries ? `"totalEpisodes": 12,
-  "startDate": "2026-01-01",
-  "emissionDays": [0],
-  "upcoming": false,` : `"date": "2026-06-01",`}
-  "watchLinks": [{"name": "NombrePlataforma", "url": "https://..."}]
-}
-
-Notas importantes:
-- emissionDays usa formato lunes=0, martes=1, miércoles=2, jueves=3, viernes=4, sábado=5, domingo=6
-- genres debe ser un array con géneros del español de esta lista: Romance, Drama, Comedia, Thriller, Misterio, Acción, Aventura, Fantasía, Ciencia ficción, Horror, Sobrenatural, Histórico, Médico, Escolar, Universitario, Slice of Life, Coming of Age, Melodrama, Psicológico
-- Si no encuentras un dato, usa '' o el valor por defecto razonable
-- country SIEMPRE en español
-- synopsis SIEMPRE en español
-- Devuelve SOLO el JSON, nada más`;
-
-  try {
-    // Multi-turn loop to handle web_search tool use
-    const messages = [{ role: 'user', content: prompt }];
-    let text = '';
-    let maxTurns = 8;
-
-    while(maxTurns-- > 0){
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-api-key': apiKey,
-          'anthropic-version': '2023-06-01',
-          'anthropic-dangerous-direct-browser-calls': 'true'
-        },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 2000,
-          tools: [{ type: 'web_search_20250305', name: 'web_search' }],
-          messages
-        })
-      });
-      const data = await res.json();
-      if(!res.ok) throw new Error(data.error?.message || `Error API (${res.status})`);
-
-      // Collect text blocks from this response
-      for(const block of (data.content||[])){
-        if(block.type === 'text') text += block.text;
-      }
-
-      // If stop_reason is end_turn, we're done
-      if(data.stop_reason === 'end_turn') break;
-
-      // If there are tool_use blocks, continue the conversation
-      const toolUseBlocks = (data.content||[]).filter(b => b.type === 'tool_use');
-      if(toolUseBlocks.length === 0) break;
-
-      // Add assistant message to history
-      messages.push({ role: 'assistant', content: data.content });
-
-      // Add tool_result placeholders so the model continues
-      const toolResults = toolUseBlocks.map(block => ({
-        type: 'tool_result',
-        tool_use_id: block.id,
-        content: block.content || ''
-      }));
-      messages.push({ role: 'user', content: toolResults });
-    }
-
-    // Parse JSON from final response
-    const match = text.match(/\{[\s\S]*\}/);
-    if(!match) throw new Error('No se encontró JSON en la respuesta');
-    const info = JSON.parse(match[0]);
-
-    // Fill series form
-    if(isSeries){
-      if(info.name) document.getElementById('f_name').value = info.name;
-      if(info.synopsis) document.getElementById('f_synopsis').value = info.synopsis;
-      if(info.year) document.getElementById('f_year').value = info.year;
-      if(info.network) document.getElementById('f_net').value = info.network;
-      if(info.trailerUrl) document.getElementById('f_trailer').value = info.trailerUrl;
-      if(info.bookSource) document.getElementById('f_booksource').value = info.bookSource;
-      if(info.basedOnBook){
-        const cb = document.getElementById('f_book');
-        if(cb){ cb.checked = true; toggleBookFields(); }
-      }
-      if(info.upcoming !== undefined){
-        const cb = document.getElementById('f_upcoming');
-        if(cb){ cb.checked = !!info.upcoming; toggleUpcomingFields(); }
-      }
-      if(info.poster){
-        const pf = document.getElementById('f_poster');
-        if(pf){ pf.value = info.poster; pf.dispatchEvent(new Event('input')); }
-      }
-      if(info.country) initCountries('countriesList', info.country);
-      if(info.watchLinks && info.watchLinks.length) initPlatforms(info.watchLinks);
-      else if(info.networkUrl) initPlatforms([{name:info.network||'Ver serie',url:info.networkUrl}]);
-      // Genres
-      document.querySelectorAll('#f_genres .genre-chip').forEach(chip=>{
-        chip.classList.toggle('selected', (info.genres||[]).includes(chip.textContent));
-      });
-      // Season defaults
-      if(!info.upcoming && info.startDate && info.totalEpisodes){
-        const seasonsList = document.getElementById('seasonsList');
-        if(seasonsList){
-          seasonsList.innerHTML = '';
-          addSeasonBlock({
-            label: 'Temporada 1',
-            startDate: info.startDate,
-            totalEpisodes: info.totalEpisodes,
-            emissionDays: info.emissionDays || [0],
-            skipDates: [], episodes: []
-          });
-        }
-      }
-    } else {
-      // Movie form
-      if(info.name) document.getElementById('mf_name').value = info.name;
-      if(info.synopsis) document.getElementById('mf_synopsis').value = info.synopsis;
-      if(info.year) document.getElementById('mf_year').value = info.year;
-      if(info.network) document.getElementById('mf_net').value = info.network;
-      if(info.trailerUrl) document.getElementById('mf_trailer').value = info.trailerUrl;
-      if(info.bookSource) document.getElementById('mf_booksource').value = info.bookSource;
-      if(info.date) document.getElementById('mf_date').value = info.date;
-      if(info.basedOnBook){
-        const cb = document.getElementById('mf_book');
-        if(cb){ cb.checked = true; toggleMovieBookFields(); }
-      }
-      if(info.poster){
-        const pf = document.getElementById('mf_poster');
-        if(pf){ pf.value = info.poster; pf.dispatchEvent(new Event('input')); }
-      }
-      if(info.country) initCountries('movieCountriesList', info.country);
-      if(info.watchLinks && info.watchLinks.length) initMoviePlatforms(info.watchLinks);
-      else if(info.networkUrl) initMoviePlatforms([{name:info.network||'Ver película',url:info.networkUrl}]);
-      document.querySelectorAll('#mf_genres .genre-chip').forEach(chip=>{
-        chip.classList.toggle('selected', (info.genres||[]).includes(chip.textContent));
-      });
-    }
-
-    status.className = 'ai-autofill-status ok';
-    status.innerHTML = '✓ ¡Formulario rellenado! Revisa y ajusta los datos antes de guardar.';
-  } catch(err){
-    status.className = 'ai-autofill-status err';
-    status.innerHTML = '✕ Error: ' + err.message;
-  } finally {
-    btn.disabled = false;
-  }
 }
 
 initData();
