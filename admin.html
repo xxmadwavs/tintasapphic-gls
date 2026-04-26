@@ -202,7 +202,20 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
 .badge-airing{background:var(--accent-soft);color:var(--accent);border:1px solid var(--border2)}
 .badge-finished{background:var(--teal-soft);color:var(--teal);border:1px solid rgba(91,188,176,0.3)}
 
-
+/* ═══ PASTE AUTOFILL ═══ */
+.paste-bar{background:linear-gradient(135deg,rgba(212,96,138,0.07) 0%,rgba(155,130,201,0.07) 100%);border:1.5px solid rgba(155,130,201,0.3);border-radius:14px;padding:14px 16px;margin-bottom:18px;}
+.paste-bar-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--lavender);font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:5px}
+.paste-bar-hint{font-size:12px;color:var(--muted);margin-bottom:8px;line-height:1.6}
+.paste-bar-hint strong{color:var(--text)}
+.paste-bar-row{display:flex;gap:7px;align-items:flex-start}
+.paste-bar-textarea{flex:1;padding:9px 13px;border-radius:10px;border:1.5px solid rgba(155,130,201,0.35);background:var(--surface);color:var(--text);font-size:12px;font-family:'Nunito',sans-serif;outline:none;transition:border-color .15s;resize:vertical;min-height:72px;line-height:1.4;}
+.paste-bar-textarea:focus{border-color:var(--lavender)}
+.paste-bar-textarea::placeholder{color:var(--muted)}
+.paste-bar-btn{padding:9px 16px;border-radius:10px;border:none;cursor:pointer;background:linear-gradient(135deg,var(--accent) 0%,var(--lavender) 100%);color:#fff;font-size:13px;font-weight:700;font-family:'Nunito',sans-serif;white-space:nowrap;transition:opacity .15s;flex-shrink:0;}
+.paste-bar-btn:hover{opacity:.88}
+.paste-bar-status{font-size:12px;margin-top:8px;color:var(--muted);min-height:16px}
+.paste-bar-status.ok{color:var(--success)}
+.paste-bar-status.err{color:var(--danger)}
 
 /* Book editions widget */
 .book-editions-list{display:flex;flex-direction:column;gap:8px;margin-top:6px}
@@ -821,7 +834,7 @@ function formHtml(s){
 
 function openAddSeries(){
   document.getElementById('seriesModalTitle').textContent='🌸 Añadir serie GL';
-  document.getElementById('seriesModalBody').innerHTML=formHtml(null)+`
+  document.getElementById('seriesModalBody').innerHTML=pasteBarHtml('series')+formHtml(null)+`
     <div class="btn-row"><button class="btn" onclick="closeAll()">Cancelar</button><button class="btn primary" onclick="saveSeries(-1)">Guardar</button></div>`;
   document.getElementById('seriesModal').classList.add('open');
   bindPoster(); initPlatforms([]); initBookEditions('bookEditionsList',[],null);
@@ -1190,7 +1203,7 @@ function toggleMovieBookFields(){
 
 function openAddMovie(){
   document.getElementById('movieModalTitle').textContent='🎥 Añadir película';
-  document.getElementById('movieModalBody').innerHTML=movieFormHtml(null)+
+  document.getElementById('movieModalBody').innerHTML=pasteBarHtml('movie')+movieFormHtml(null)+
     `<div class="btn-row"><button class="btn" onclick="closeAll()">Cancelar</button><button class="btn primary" onclick="saveMovie(-1)">Guardar</button></div>`;
   document.getElementById('movieModal').classList.add('open');
   bindMovieForm(); initMoviePlatforms([]); initBookEditions('movieBookEditionsList',[],null);
@@ -1324,6 +1337,134 @@ function importData(e){
   };
   reader.readAsText(file);
   e.target.value='';
+}
+
+/* ═══ PASTE AUTOFILL ═══ */
+function pasteBarHtml(type){
+  window._pasteType = type;
+  return '<div class="paste-bar">'
+    +'<div class="paste-bar-label">Autocompletar desde MyDramaList</div>'
+    +'<div class="paste-bar-hint">Ve a la serie en <strong>MyDramaList</strong>, selecciona todo (Ctrl+A), copia (Ctrl+C) y pega aqui:</div>'
+    +'<div class="paste-bar-row">'
+    +'<textarea class="paste-bar-textarea" id="pasteInput" placeholder="Pega aqui el texto de MyDramaList..."></textarea>'
+    +'<button class="paste-bar-btn" onclick="runPasteAutofill(window._pasteType)">Rellenar</button>'
+    +'</div>'
+    +'<div class="paste-bar-status" id="pasteStatus"></div>'
+    +'</div>';
+}
+
+function runPasteAutofill(type){
+  var ta = document.getElementById('pasteInput');
+  var status = document.getElementById('pasteStatus');
+  var text = ta ? ta.value.trim() : '';
+  if(!text){ status.className='paste-bar-status err'; status.textContent='⚠ Pega primero el texto de la página.'; return; }
+  var isSeries = type === 'series';
+  var info = {emissionDays:[]};
+
+  // TITULO
+  var m = text.match(/^(.+?)\s*\(\d{4}\)/m);
+  if(m) info.name = m[1].trim();
+
+  // AÑO
+  m = text.match(/(20[012]\d)/);
+  if(m) info.year = parseInt(m[1]);
+
+  // SINOPSIS: parrafo largo despues de la puntuacion
+  m = text.match(/\/10[\s\S]{0,10}?([\s\S]{60,600}?)(?:Native Title:|Also Known|Related Content|\* \[)/i);
+  if(m) info.synopsis = m[1].replace(/\s+/g,' ').trim();
+
+  // PAIS
+  m = text.match(/Country:\s*(.+)/i);
+  if(m){
+    var cmap = {'Thailand':'Tailandia','China':'China','South Korea':'Corea del Sur','Korea':'Corea del Sur','Japan':'Japón','Taiwan':'Taiwán','Philippines':'Filipinas','Vietnam':'Vietnam','Indonesia':'Indonesia','Spain':'España','United States':'Estados Unidos','Hong Kong':'Hong Kong'};
+    info.country = cmap[m[1].trim()] || m[1].trim();
+  }
+
+  // EPISODIOS
+  m = text.match(/Episodes:\s*(\d+)/i);
+  if(m) info.totalEpisodes = parseInt(m[1]);
+
+  // FECHA INICIO
+  m = text.match(/Aired:\s*(\w+ \d+,\s*\d{4})/i);
+  if(m){ var d=new Date(m[1]); if(!isNaN(d)) info.startDate=d.toISOString().slice(0,10); }
+
+  // DIAS DE EMISION
+  m = text.match(/Aired On:\s*(.+)/i);
+  if(m){
+    var dmap = {'Monday':0,'Tuesday':1,'Wednesday':2,'Thursday':3,'Friday':4,'Saturday':5,'Sunday':6};
+    for(var day in dmap){ if(m[1].indexOf(day)>=0) info.emissionDays.push(dmap[day]); }
+  }
+  if(!info.emissionDays.length) info.emissionDays=[0];
+
+  // NETWORK
+  m = text.match(/Original Network:\s*(.+)/i);
+  if(m) info.network = m[1].trim();
+
+  // GENEROS
+  m = text.match(/Genres:\s*(.+)/i);
+  if(m){
+    var gmap = {'Comedy':'Comedia','Romance':'Romance','Drama':'Drama','Action':'Acción','Thriller':'Thriller','Mystery':'Misterio','Horror':'Terror','Fantasy':'Fantasía','Supernatural':'Sobrenatural','Historical':'Histórico','Medical':'Médico','School':'Escolar','Youth':'Escolar','Melodrama':'Melodrama','Psychological':'Psicológico','Slice of Life':'Slice of Life','Coming of Age':'Coming of Age','Adventure':'Aventura','Crime':'Crimen','Sports':'Deportes','Family':'Familia'};
+    info.genres = [];
+    var gline = m[1];
+    for(var ge in gmap){ if(gline.indexOf(ge)>=0 && info.genres.indexOf(gmap[ge])<0) info.genres.push(gmap[ge]); }
+  }
+
+  // BASADA EN LIBRO
+  if(/Adapted From A Novel|adapted from the (novel|manhwa|manga|webtoon)/i.test(text)){
+    info.basedOnBook = true;
+    m = text.match(/[Aa]dapted from the [a-z]+ "([^"]+)"/i) || text.match(/[Aa]dapted from[^"]+"([^"]+)"/i);
+    if(m) info.bookSource = m[1].trim();
+  }
+
+  // RELLENAR FORMULARIO
+  var filled = 0;
+  if(isSeries){
+    if(info.name){ document.getElementById('f_name').value=info.name; filled++; }
+    if(info.synopsis){ document.getElementById('f_synopsis').value=info.synopsis; filled++; }
+    if(info.year){ document.getElementById('f_year').value=info.year; filled++; }
+    if(info.network){ document.getElementById('f_net').value=info.network; filled++; }
+    if(info.country){ initCountries('countriesList',info.country); filled++; }
+    if(info.basedOnBook){
+      var cb=document.getElementById('f_book');
+      if(cb){ cb.checked=true; toggleBookFields(); }
+      if(info.bookSource){ var bs=document.getElementById('f_booksource'); if(bs) bs.value=info.bookSource; }
+      filled++;
+    }
+    if(info.genres && info.genres.length){
+      document.querySelectorAll('#f_genres .genre-chip').forEach(function(chip){ chip.classList.toggle('selected',info.genres.indexOf(chip.textContent)>=0); });
+      filled++;
+    }
+    if(info.startDate || info.totalEpisodes || info.emissionDays.length){
+      var sl=document.getElementById('seasonsList');
+      if(sl){ sl.innerHTML=''; addSeasonBlock({label:'Temporada 1',startDate:info.startDate||'',totalEpisodes:info.totalEpisodes||12,emissionDays:info.emissionDays,skipDates:[],episodes:[]}); filled++; }
+    }
+  } else {
+    if(info.name){ document.getElementById('mf_name').value=info.name; filled++; }
+    if(info.synopsis){ document.getElementById('mf_synopsis').value=info.synopsis; filled++; }
+    if(info.year){ document.getElementById('mf_year').value=info.year; filled++; }
+    if(info.network){ document.getElementById('mf_net').value=info.network; filled++; }
+    if(info.country){ initCountries('movieCountriesList',info.country); filled++; }
+    if(info.basedOnBook){
+      var cb2=document.getElementById('mf_book');
+      if(cb2){ cb2.checked=true; toggleMovieBookFields(); }
+      if(info.bookSource){ var bs2=document.getElementById('mf_booksource'); if(bs2) bs2.value=info.bookSource; }
+      filled++;
+    }
+    if(info.genres && info.genres.length){
+      document.querySelectorAll('#mf_genres .genre-chip').forEach(function(chip){ chip.classList.toggle('selected',info.genres.indexOf(chip.textContent)>=0); });
+      filled++;
+    }
+    if(info.startDate){ document.getElementById('mf_date').value=info.startDate; filled++; }
+  }
+
+  if(filled>0){
+    status.className='paste-bar-status ok';
+    status.textContent='✓ Rellenados '+filled+' campo(s). Revisa y completa lo que falte.';
+    ta.value='';
+  } else {
+    status.className='paste-bar-status err';
+    status.textContent='✕ No se encontraron datos. Asegúrate de copiar toda la página.';
+  }
 }
 
 initData();
