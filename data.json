@@ -3448,6 +3448,66 @@
           "episodes": []
         }
       ]
+    },
+    {
+      "id": "1777228963657",
+      "name": "Somewhere Somehow",
+      "poster": "https://i.mydramalist.com/yWXDA3_4f.jpg",
+      "synopsis": "Kee, una chica tsundere genial, y Peem, una chica rica y traviesa, se convierten en amigas inseparables. Sin embargo, nadie sabe la verdad: que en realidad, han estado secretamente enamoradas la una de la otra desde la secundaria. Desde hilo dental de cerdo hecho a mano, un collar de engranajes como muestra de amor, hasta un primer beso accidental, sus corazones latirán con fuerza. Pero el amor nunca es tan fácil, y el destino juega sus malas pasadas. Las dos se separan y pasarán siete años antes de que se reencuentren... como jefa y empleada.",
+      "year": 2025,
+      "country": "Tailandia",
+      "network": "YouTube",
+      "networkUrl": "https://www.youtube.com/playlist?list=PL4D0KlUVq4Ix1AF1_vliipbSFOvvGUNWO",
+      "watchLinks": [
+        {
+          "name": "YouTube",
+          "url": "https://www.youtube.com/playlist?list=PL4D0KlUVq4Ix1AF1_vliipbSFOvvGUNWO"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/ZUotNR6SSsM?si=0q706dFLnkQjMSD6",
+      "bookSource": "Somewhere Somehow Vol. 1 & 2",
+      "basedOnBook": true,
+      "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/343980/Thumbnail/book_detail_large.gif?8",
+      "bookLinks": [
+        {
+          "lang": "en",
+          "store": "MEB",
+          "url": "https://en.mebmarket.com/?action=book_details&book_id=343980"
+        },
+        {
+          "lang": "en",
+          "store": "MEB",
+          "url": "https://en.mebmarket.com/?action=book_details&book_id=361134"
+        },
+        {
+          "lang": "en",
+          "store": "Amazon",
+          "url": "https://www.amazon.com/Somewhere-Somehow-Vol-1-Mon-Maw-ebook/dp/B0DTVYKRQH"
+        },
+        {
+          "lang": "en",
+          "store": "Amazon",
+          "url": "https://www.amazon.com/Somewhere-Somehow-Vol-2-Mon-Maw-ebook/dp/B0FD8LFM58"
+        }
+      ],
+      "bookUrl": "https://en.mebmarket.com/?action=book_details&book_id=343980",
+      "upcoming": false,
+      "genres": [
+        "Romance",
+        "Drama"
+      ],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2025-08-08",
+          "totalEpisodes": 13,
+          "emissionDays": [
+            4
+          ],
+          "skipDates": [],
+          "episodes": []
+        }
+      ]
     }
   ],
   "movies": [
@@ -3581,5 +3641,5 @@
       "genres": []
     }
   ],
-  "exportedAt": "2026-04-26T18:22:45.411Z"
+  "exportedAt": "2026-04-26T18:47:19.130Z"
 }
