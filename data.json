@@ -2907,6 +2907,149 @@
           "episodes": []
         }
       ]
+    },
+    {
+      "id": "1777222930712",
+      "name": "Cranium",
+      "poster": "https://i.mydramalist.com/Kp0JoD_4f.jpg",
+      "synopsis": "omo dos de los pocos antropólogos biológicos del país, un catastrófico accidente aéreo obliga a dos médicos y antiguos rivales universitarios, Bussaya y Phinya, a trabajar juntos. Mientras identifican a las víctimas, el descubrimiento de un cráneo inesperado añade un nuevo misterio a la investigación. En algún momento de su trabajo, se produce un cambio en su relación, normalmente antagónica.",
+      "year": "",
+      "country": "Tailandia",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/lgbQKzoliY4?si=uDh44ICEyGBoTayv",
+      "bookSource": "Cranium",
+      "basedOnBook": true,
+      "bookCoverUrl": "https://m.media-amazon.com/images/I/712ZnWTh5qL._UF1000,1000_QL80_.jpg",
+      "bookLinks": [
+        {
+          "lang": "es",
+          "store": "MEB",
+          "url": "https://en.mebmarket.com/?action=book_details&book_id=353321"
+        },
+        {
+          "lang": "en",
+          "store": "Amazon",
+          "url": "https://www.amazon.es/Cranium-English-Nalan-ebook/dp/B0DM1NXY4F"
+        },
+        {
+          "lang": "en",
+          "store": "MEB",
+          "url": "https://en.mebmarket.com/ebook-331090-Cranium-English-Version"
+        }
+      ],
+      "bookUrl": "https://en.mebmarket.com/?action=book_details&book_id=353321",
+      "upcoming": true,
+      "genres": [
+        "Romance",
+        "Drama",
+        "Misterio"
+      ]
+    },
+    {
+      "id": "1777223129027",
+      "name": "Pluto",
+      "poster": "https://i.mydramalist.com/73X4eD_4f.jpg",
+      "synopsis": "Ai-oon es la gemela decepcionante de la exitosa y querida Ob-oom. No son cercanas. En la noche de bodas de Ob-oom, ella aparta a Ai-oon y le hace una petición. Ob-oom y su esposo Paul se irán de luna de miel y ella dejará algo importante atrás: una amante, May, con quien no ha terminado su relación, y quiere que Ai-oon lo haga por ella. A la mañana siguiente de la boda, Ai-oon se entera de que los recién casados ​​sufrieron un accidente. Paul falleció y Ob-oom está en coma. Cuando Ai-oon decide cumplir la petición de su hermana, se sorprende al descubrir que May es ciega y mujer. Se da cuenta de que no está preparada para la tarea",
+      "year": 2024,
+      "country": "Tailandia",
+      "network": "YouTube",
+      "networkUrl": "https://www.youtube.com/playlist?list=PLszepnkojZI6L1DHV2vEaGdjo_QkQizF_",
+      "watchLinks": [
+        {
+          "name": "YouTube",
+          "url": "https://www.youtube.com/playlist?list=PLszepnkojZI6L1DHV2vEaGdjo_QkQizF_"
+        },
+        {
+          "name": "iQIYI",
+          "url": "https://www.iq.com/album/pluto-2025-10twowz4bwd?lang=en_us"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/cBq6p5lMxvg?si=m6gLRP6_gypAYFKW",
+      "bookSource": "Pluto",
+      "basedOnBook": true,
+      "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/260047/Thumbnail/book_detail_large.gif?2",
+      "bookLinks": [
+        {
+          "lang": "en",
+          "store": "MEB",
+          "url": "https://en.mebmarket.com/ebook-260047-Pluto--English-version"
+        }
+      ],
+      "bookUrl": "https://en.mebmarket.com/ebook-260047-Pluto--English-version",
+      "upcoming": false,
+      "genres": [
+        "Romance",
+        "Drama",
+        "Misterio"
+      ],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2024-10-19",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            5
+          ],
+          "skipDates": [],
+          "episodes": []
+        }
+      ]
+    },
+    {
+      "id": "1777223788983",
+      "name": "Mate",
+      "poster": "https://i.mydramalist.com/81ZlJK_4f.jpg",
+      "synopsis": "Soy Kenlong, una mujer nacida con belleza, riqueza y una gran inteligencia. Todo en mí tiene que ser perfecto, especialmente mi persona especial. Nada me había conmovido hasta que conocí a mi amiga de la infancia, una niña inocente e infantil como Oengoei, quien me contagió piojos cuando éramos pequeñas. ¿Por qué me entrego a una chica así? Quizás fueron esos dulces ojos los que me distrajeron. Me molestaba sentirme sensible hacia mi amiga más cercana, ¡y encima es una chica!",
+      "year": 2024,
+      "country": "Tailandia",
+      "network": "WeTV",
+      "networkUrl": "https://wetv.vip/en/play/5otuxjhuyyf07zc/l41002p1dbd-EP01%3A_Mate_the_series_(Uncut_Ver.)",
+      "watchLinks": [
+        {
+          "name": "WeTV",
+          "url": "https://wetv.vip/en/play/5otuxjhuyyf07zc/l41002p1dbd-EP01%3A_Mate_the_series_(Uncut_Ver.)"
+        },
+        {
+          "name": "YouTube",
+          "url": "https://www.youtube.com/playlist?list=PL-GesbDOxBcjTgdHiZsCSi9QUJQ6WBBbY"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/geaToaLds0c?si=fvxT_G25CbX9giWB",
+      "bookSource": "Mate",
+      "basedOnBook": true,
+      "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/230854/Thumbnail/book_detail_large.gif?2",
+      "bookLinks": [
+        {
+          "lang": "en",
+          "store": "MEB",
+          "url": "https://www.mebmarket.com/ebook-230854-MATE-1-%E0%B9%80%E0%B8%9E%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B8%A3%E0%B8%B1%E0%B8%81-English-version"
+        },
+        {
+          "lang": "en",
+          "store": "MEB",
+          "url": "https://en.mebmarket.com/ebook-230855-Mate-2--English-version"
+        }
+      ],
+      "bookUrl": "https://www.mebmarket.com/ebook-230854-MATE-1-%E0%B9%80%E0%B8%9E%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B8%A3%E0%B8%B1%E0%B8%81-English-version",
+      "upcoming": false,
+      "genres": [
+        "Romance",
+        "Drama"
+      ],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2024-11-26",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            1
+          ],
+          "skipDates": [],
+          "episodes": []
+        }
+      ]
     }
   ],
   "movies": [
@@ -3040,5 +3183,5 @@
       "genres": []
     }
   ],
-  "exportedAt": "2026-04-25T21:14:13.320Z"
+  "exportedAt": "2026-04-26T17:16:31.301Z"
 }
