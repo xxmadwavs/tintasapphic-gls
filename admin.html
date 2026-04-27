@@ -217,6 +217,41 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
 .paste-bar-status.ok{color:var(--success)}
 .paste-bar-status.err{color:var(--danger)}
 
+/* ═══ QUICK NAV BAR ═══ */
+.quicknav{
+  position:sticky;top:58px;z-index:48;
+  background:var(--surface);
+  border-bottom:1px solid var(--border2);
+  padding:0 2rem;
+  display:flex;align-items:center;gap:8px;
+  height:46px;
+  box-shadow:0 2px 8px rgba(212,96,138,0.06);
+}
+.quicknav-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-right:4px;white-space:nowrap}
+.quicknav-sep{width:1px;height:24px;background:var(--border2);margin:0 4px;flex-shrink:0}
+.qnav-btn{
+  display:flex;align-items:center;gap:5px;
+  padding:5px 14px;border-radius:20px;
+  border:1.5px solid var(--border2);
+  cursor:pointer;font-size:12px;font-weight:700;
+  background:transparent;color:var(--muted);
+  font-family:'Nunito',sans-serif;
+  transition:all .15s;white-space:nowrap;
+  text-decoration:none;
+}
+.qnav-btn:hover{background:var(--accent-soft);border-color:var(--accent2);color:var(--accent)}
+.qnav-btn.add{background:var(--accent);color:#fff;border-color:var(--accent)}
+.qnav-btn.add:hover{background:var(--accent2);border-color:var(--accent2)}
+.qnav-btn.add-movie{background:var(--teal);color:#fff;border-color:var(--teal)}
+.qnav-btn.add-movie:hover{opacity:.88}
+@media(max-width:600px){
+  .quicknav{padding:0 1rem;gap:5px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .quicknav-label{display:none}
+  .quicknav-sep{display:none}
+}
+
+#section-series,#section-movies,#section-books{scroll-margin-top:116px}
+
 /* Book editions widget */
 .book-editions-list{display:flex;flex-direction:column;gap:8px;margin-top:6px}
 .book-edition-row{display:grid;grid-template-columns:auto 110px 1fr auto;gap:6px;align-items:center;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:8px 10px}
@@ -244,12 +279,23 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
   <span>⚠️ Tienes cambios sin exportar. Recuerda exportar <code>data.json</code> y subirlo a GitHub.</span>
   <button class="btn small export" onclick="exportData()">⬇ Exportar ahora</button>
 </div>
+<!-- Quick navigation bar -->
+<nav class="quicknav" id="quicknav">
+  <span class="quicknav-label">Ir a →</span>
+  <a class="qnav-btn" href="#section-series" onclick="document.getElementById('section-series').scrollIntoView({behavior:'smooth'});return false;">🌷 Series</a>
+  <a class="qnav-btn" href="#section-movies" onclick="document.getElementById('section-movies').scrollIntoView({behavior:'smooth'});return false;">🎥 Películas</a>
+  <a class="qnav-btn" href="#section-books" onclick="document.getElementById('section-books').scrollIntoView({behavior:'smooth'});return false;">📚 Libros</a>
+  <div class="quicknav-sep"></div>
+  <button class="qnav-btn add" onclick="openAddSeries()">+ Nueva serie</button>
+  <button class="qnav-btn add-movie" onclick="openAddMovie()">+ Nueva película</button>
+</nav>
+
 <div class="container">
   <h1 class="page-title">✦ Panel de administración</h1>
   <p class="page-sub">Gestiona las series GL y exporta para actualizar la web.</p>
   <div class="notice"><strong>¿Cómo funciona?</strong> Añade aquí todas las series. Cuando quieras que tus amig@s vean los cambios, pulsa <strong>"Exportar data.json"</strong> y súbelo a GitHub.</div>
 
-  <div class="card">
+  <div class="card" id="section-series">
     <div class="card-title">🌷 Series</div>
     <div class="admin-toolbar">
       <div class="admin-search-wrap">
@@ -278,13 +324,13 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
     <div class="series-grid" id="seriesGrid"></div>
   </div>
 
-  <div class="card">
+  <div class="card" id="section-movies">
     <div class="card-title">🎥 Películas</div>
     <button class="btn primary" style="margin-bottom:1rem;width:100%" onclick="openAddMovie()">+ Añadir película</button>
     <div class="series-grid" id="moviesGrid"></div>
   </div>
 
-  <div class="card">
+  <div class="card" id="section-books">
     <div class="card-title">📚 Libros registrados</div>
     <p style="font-size:13px;color:var(--muted);margin-bottom:1rem">Libros, novelas y manhwas enlazados desde series o películas marcadas como <strong>"Basada en libro"</strong>. Para añadir o editar, edita la serie/película correspondiente.</p>
     <div class="series-grid" id="booksGrid"></div>
