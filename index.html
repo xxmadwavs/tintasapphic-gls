@@ -903,6 +903,8 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
 }
 .topbar-search-btn:hover{background:var(--surface2)}
 @media(max-width:600px){.topbar-search-btn{display:flex;align-items:center}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.container>div[id^="view"]{animation:fadeIn .25s ease}
 </style>
 </head>
 <body>
@@ -929,6 +931,7 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
     <span class="logo-sub">GL Series & Películas</span>
   </div>
   <div class="topbar-right">
+    <span id="updateBadge" style="font-size:10.5px;color:var(--muted);font-weight:500;display:none"></span>
     <a class="topbar-x-btn" href="https://x.com/xxmadwavs" target="_blank" rel="noopener" title="@xxmadwavs en X">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
       <span class="x-handle">@xxmadwavs</span>
@@ -944,7 +947,7 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
 <div class="hero">
   <div class="hero-inner">
     <h1 class="hero-title"><span class="hero-tinta">TINTA</span><br><em>Sapphic</em></h1>
-    <p class="hero-desc">Calendario de series en emisión y películas GL — series asiáticas y occidentales donde las protagonistas son sáficas</p>
+    <p class="hero-desc">Calendario de series en emisión y películas GL — historias donde las protagonistas son sáficas, de cualquier país y plataforma</p>
     <div class="hero-stats" id="statsBar"></div>
   </div>
 </div>
@@ -968,7 +971,7 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
       </div>
     </div>
     <div id="weekPanel"></div>
-    <div id="calInner"><div class="loading">🌸 Cargando…</div></div>
+    <div id="calInner"><div class="loading" style="animation:fadeIn .4s ease">🌸 Cargando calendario…</div></div>
     <div id="calLegend"></div>
   </div>
   <div id="viewList" style="display:none"></div>
@@ -1073,7 +1076,7 @@ async function loadData(){
     state.movies=d.movies||[];
     if(d.exportedAt){
       const dt=new Date(d.exportedAt);
-      const badge=document.getElementById('updateBadge'); if(badge) badge.textContent='✓ Act. '+dt.toLocaleDateString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+      const badge=document.getElementById('updateBadge'); if(badge){badge.textContent='✓ Act. '+dt.toLocaleDateString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});badge.style.display='';}
     }
     return true;
   }catch(e){
@@ -1100,6 +1103,7 @@ function renderStats(){
   const stats=[
     {num:airingNow.length, label:'series activas', cls:''},
   ];
+  if(totalEps) stats.push({num:totalEps, label:'episodios en total', cls:'teal'});
   if(movieCount) stats.push({num:movieCount, label:'películas', cls:'lav'});
   if(upcoming) stats.push({num:upcoming, label:'próximamente', cls:'lav'});
   if(bookBased) stats.push({num:bookBased, label:'basadas en libro', cls:'gold'});
@@ -2048,7 +2052,7 @@ function movieCardHtml(mv){
     ?`<div style="display:flex;flex-wrap:wrap;gap:3px;margin-top:5px">${mv.genres.slice(0,3).map(g=>`<span style="font-size:9.5px;padding:2px 7px;border-radius:20px;background:var(--surface2);border:1px solid var(--border);color:var(--muted);font-weight:600;cursor:pointer" onclick="event.stopPropagation();moviesFilters.genre='${g}';renderMoviesResults()">${g}</span>`).join('')}${mv.genres.length>3?`<span style="font-size:9.5px;padding:2px 6px;border-radius:20px;background:var(--surface2);color:var(--muted)">+${mv.genres.length-3}</span>`:''}</div>`:'';
   return `<div class="movie-card" onclick="openMovie(${mi})">${posterEl}
     <div class="movie-card-body">
-      <div class="card-badges">${mv.basedOnBook?'<span class="badge badge-book">📖 Libro</span>':''}${mv.country?`<span class="badge" style="background:var(--surface2);color:var(--muted)">${mv.country}</span>`:''}</div>
+      <div class="card-badges">${mv.basedOnBook?'<span class="badge badge-book">📖 Libro</span>':''}${mv.country?`<span class="badge" style="background:var(--surface2);color:var(--muted)">${countryFlag(mv.country)} ${mv.country}</span>`:''}</div>
       <div class="movie-card-name">${mv.name}</div>
       <div class="movie-card-meta">${mv.network||''}</div>
       ${mvGenrePills}
@@ -2370,6 +2374,8 @@ function switchTab(tab){
     if(btn) btn.className='tab'+(tab===t?' active':'');
     if(view) view.style.display=tab===t?'':'none';
   });
+  // Scroll to top of content on mobile
+  if(window.innerWidth<=600) window.scrollTo({top:0,behavior:'smooth'});
   if(tab==='cal') renderCal();
   if(tab==='list') renderList();
   if(tab==='movies') renderMovies();
@@ -2419,9 +2425,35 @@ function renderSearchResults(q){
   }).join('');
 }
 
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    if(document.getElementById('searchOverlay').classList.contains('open')){closeSearch();return;}
+    if(document.getElementById('modalBg').classList.contains('open')){closeModal();return;}
+    if(document.getElementById('monthPickerBg').classList.contains('open')){closeMonthPicker();return;}
+  }
+});
+
 (async()=>{ if(await loadData()){renderStats();renderCal();} })();
 
 </script>
+
+<footer style="
+  margin-top:3rem;padding:1.5rem 2rem;
+  border-top:1px solid var(--border);
+  background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(8px);
+  text-align:center;
+  position:relative;z-index:1;
+">
+  <div style="max-width:1020px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+    <span style="font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--muted)">
+      <span style="color:var(--text);font-weight:700;letter-spacing:.06em">TINTA</span> <em style="color:var(--accent)">Sapphic</em>
+    </span>
+    <span style="font-size:11.5px;color:var(--muted)">Series & películas GL de todo el mundo 🌸</span>
+    <a href="https://x.com/xxmadwavs" target="_blank" rel="noopener" style="font-size:11.5px;color:var(--muted);text-decoration:none;font-weight:600;transition:color .15s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">@xxmadwavs en X</a>
+  </div>
+</footer>
+
 
 </body>
 </html>
