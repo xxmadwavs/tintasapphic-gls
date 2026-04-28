@@ -1310,7 +1310,7 @@ function seriesCardHtml(s, si){
   return `<div class="series-card" onclick="openSeries(${si})">
     ${posterEl}
     <div class="series-card-body">
-      <div class="card-badges">${s.basedOnBook?'<span class="badge badge-book">📖 Libro</span>':''}${seasonsBadge}${s.country?`<span class="badge" style="background:var(--surface2);color:var(--muted)">${s.country}</span>`:''}</div>
+      <div class="card-badges">${s.basedOnBook?'<span class="badge badge-book">📖 Libro</span>':''}${seasonsBadge}${s.country?`<span class="badge" style="background:var(--surface2);color:var(--muted)">${countryFlag(s.country)} ${s.country}</span>`:''}</div>
       <div class="series-card-name">${s.name}</div>
       <div class="series-card-meta">${s.network?s.network+' · ':''}${activeDays}</div>
       ${genrePills}
@@ -1321,6 +1321,41 @@ function seriesCardHtml(s, si){
       ${s.basedOnBook&&s.bookCoverUrl?`<div style="margin-top:8px;display:flex;align-items:center;gap:6px"><img src="${s.bookCoverUrl}" style="width:28px;height:40px;border-radius:4px;object-fit:cover;box-shadow:0 1px 4px rgba(0,0,0,.1)" onerror="this.style.display='none'">${s.bookUrl?`<a href="${s.bookUrl}" target="_blank" rel="noopener" style="font-size:10px;color:#b08a00;font-weight:600;text-decoration:none" onclick="event.stopPropagation()">📖 Ver libro</a>`:''}${!s.bookUrl&&s.bookSource?`<span style="font-size:10px;color:#b08a00;font-weight:600">${s.bookSource}</span>`:''}</div>`:''} 
     </div>
   </div>`;
+}
+
+/* ═══ COUNTRY FLAG + REGION HELPERS ═══ */
+const COUNTRY_FLAGS={
+  'Corea del Sur':'🇰🇷','Corea':'🇰🇷','Japón':'🇯🇵','China':'🇨🇳','Taiwán':'🇹🇼','Tailandia':'🇹🇭',
+  'Filipinas':'🇵🇭','Hong Kong':'🇭🇰','Indonesia':'🇮🇩','Vietnam':'🇻🇳','Singapur':'🇸🇬','India':'🇮🇳',
+  'Malasia':'🇲🇾','Mongolia':'🇲🇳',
+  'España':'🇪🇸','Francia':'🇫🇷','Italia':'🇮🇹','Reino Unido':'🇬🇧','Alemania':'🇩🇪','Portugal':'🇵🇹',
+  'Suecia':'🇸🇪','Noruega':'🇳🇴','Dinamarca':'🇩🇰','Finlandia':'🇫🇮','Países Bajos':'🇳🇱','Bélgica':'🇧🇪',
+  'Polonia':'🇵🇱','Rusia':'🇷🇺','Grecia':'🇬🇷','Turquía':'🇹🇷','Israel':'🇮🇱',
+  'EE.UU.':'🇺🇸','EEUU':'🇺🇸','Estados Unidos':'🇺🇸','Canadá':'🇨🇦','México':'🇲🇽','Brasil':'🇧🇷',
+  'Argentina':'🇦🇷','Colombia':'🇨🇴','Chile':'🇨🇱','Perú':'🇵🇪',
+  'Australia':'🇦🇺','Nueva Zelanda':'🇳🇿',
+};
+const COUNTRY_REGIONS={
+  asia:['Corea del Sur','Corea','Japón','China','Taiwán','Tailandia','Filipinas','Hong Kong','Indonesia','Vietnam','Singapur','India','Malasia','Mongolia'],
+  europa:['España','Francia','Italia','Reino Unido','Alemania','Portugal','Suecia','Noruega','Dinamarca','Finlandia','Países Bajos','Bélgica','Polonia','Rusia','Grecia','Turquía','Israel'],
+  america:['EE.UU.','EEUU','Estados Unidos','Canadá','México','Brasil','Argentina','Colombia','Chile','Perú'],
+  oceania:['Australia','Nueva Zelanda'],
+};
+const REGION_LABELS={'asia':'🌏 Asia','europa':'🌍 Europa','america':'🌎 América','oceania':'🌏 Oceanía','otros':'🌐 Otros'};
+
+function countryFlag(country){return COUNTRY_FLAGS[country]||'🌐';}
+function getRegion(country){
+  for(const [r,list] of Object.entries(COUNTRY_REGIONS)){if(list.includes(country))return r;}
+  return 'otros';
+}
+function groupByRegion(countries){
+  const groups={};
+  countries.forEach(c=>{
+    const r=getRegion(c);
+    if(!groups[r])groups[r]=[];
+    groups[r].push(c);
+  });
+  return groups;
 }
 
 /* ═══ COUNTRY MULTI-PICKER LOGIC ═══ */
@@ -1340,7 +1375,7 @@ function buildCountryPicker(id, onChange, availableCountries){
   function updateBtn(){
     const all=getAll();
     if(!all.length){btn.innerHTML='<span class="cpb-label">🌍 País</span><span class="cpb-arrow">▼</span>';}
-    else if(all.length===1){btn.innerHTML=`<span class="cpb-label">${all[0]}</span><span class="cpb-arrow">▼</span>`;}
+    else if(all.length===1){btn.innerHTML=`<span class="cpb-label">${countryFlag(all[0])} ${all[0]}</span><span class="cpb-arrow">▼</span>`;}
     else{btn.innerHTML=`<span class="cpb-label">🌍 País <span class="country-picker-active-count">${all.length}</span></span><span class="cpb-arrow">▼</span>`;}
     btn.classList.toggle('open',drop.classList.contains('open'));
   }
@@ -1349,12 +1384,13 @@ function buildCountryPicker(id, onChange, availableCountries){
     if(!availableCountries||!availableCountries.length){
       const empty=document.createElement('div');empty.className='cpd-empty';empty.textContent='Sin países disponibles';drop.appendChild(empty);return;
     }
-    availableCountries.forEach(country=>{
+    const useGroups=availableCountries.length>4;
+    function makeItem(country){
       const item=document.createElement('div');
       item.className='cpd-item'+(selected.includes(country)?' selected':'');
-      item.innerHTML=`<input type="checkbox" ${selected.includes(country)?'checked':''}><span>${country}</span>`;
+      const flag=countryFlag(country);
+      item.innerHTML=`<input type="checkbox" ${selected.includes(country)?'checked':''}><span style="display:flex;align-items:center;gap:6px"><span style="font-size:15px">${flag}</span>${country}</span>`;
       item.addEventListener('click',e=>{
-        // Toggle regardless of whether user clicked checkbox or text
         const cb=item.querySelector('input');
         if(e.target!==cb) cb.checked=!cb.checked;
         if(cb.checked){if(!selected.includes(country))selected.push(country);}
@@ -1362,8 +1398,25 @@ function buildCountryPicker(id, onChange, availableCountries){
         item.classList.toggle('selected',selected.includes(country));
         updateBtn();onChange(getAll());
       });
-      drop.appendChild(item);
-    });
+      return item;
+    }
+    if(useGroups){
+      const groups=groupByRegion(availableCountries);
+      const regionOrder=['asia','europa','america','oceania','otros'];
+      let first=true;
+      regionOrder.forEach(r=>{
+        if(!groups[r]||!groups[r].length) return;
+        if(!first){const sep=document.createElement('div');sep.className='cpd-separator';drop.appendChild(sep);}
+        first=false;
+        const label=document.createElement('div');
+        label.style.cssText='font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);padding:5px 10px 3px';
+        label.textContent=REGION_LABELS[r];
+        drop.appendChild(label);
+        groups[r].forEach(c=>drop.appendChild(makeItem(c)));
+      });
+    } else {
+      availableCountries.forEach(c=>drop.appendChild(makeItem(c)));
+    }
   }
   btn.addEventListener('click',e=>{
     e.stopPropagation();
@@ -1705,7 +1758,7 @@ function renderUpcomingResults(){
       <div class="upcoming-body">
         <div class="card-badges"><span class="badge badge-upcoming">📅 Próximamente</span>${s.basedOnBook?'<span class="badge badge-book">📖 Libro</span>':''}</div>
         <div class="upcoming-name">${s.name}</div>
-        <div class="upcoming-meta">${[s.year,s.country,s.network].filter(Boolean).join(' · ')||'Sin detalles aún'}</div>
+        <div class="upcoming-meta">${[s.year,s.country?(countryFlag(s.country)+' '+s.country):null,s.network].filter(Boolean).join(' · ')||'Sin detalles aún'}</div>
         ${watchRow}
       </div>
     </div>`;
@@ -1780,12 +1833,12 @@ function openSeries(si){
   let datesRowHtml='<div class="modal-dates-row">';
   if(firstEpDate) datesRowHtml+=`<span class="modal-date-chip">🎬 Inicio: ${fmtDate(firstEpDate)}</span>`;
   if(isFinished && lastEpDate) datesRowHtml+=`<span class="modal-date-chip">🏁 Final: ${fmtDate(lastEpDate)}</span>`;
-  if(s.country) datesRowHtml+=`<span class="modal-date-chip">🌍 ${s.country}</span>`;
+  if(s.country) datesRowHtml+=`<span class="modal-date-chip">${countryFlag(s.country)} ${s.country}</span>`;
   datesRowHtml+='</div>';
   const posterEl=s.poster?`<img class="modal-poster-full" src="${s.poster}" alt="${s.name}" onerror="this.outerHTML='<div class=modal-poster-full-ph>🎬</div>'">`:`<div class="modal-poster-full-ph">🎬</div>`;
   let metaGrid='';
   if(s.year) metaGrid+=`<div class="meta-item"><div class="meta-key">Año</div><div class="meta-val">${s.year}</div></div>`;
-  if(s.country) metaGrid+=`<div class="meta-item"><div class="meta-key">País</div><div class="meta-val">${s.country}</div></div>`;
+  if(s.country) metaGrid+=`<div class="meta-item"><div class="meta-key">País</div><div class="meta-val">${countryFlag(s.country)} ${s.country}</div></div>`;
   if(s.network) metaGrid+=`<div class="meta-item"><div class="meta-key">Plataforma</div><div class="meta-val">${s.network}</div></div>`;
   metaGrid+=`<div class="meta-item"><div class="meta-key">Episodios</div><div class="meta-val">${totalEps}${seasons.length>1?` (${seasons.length}T)`:''}</div></div>`;
   const watchLinksHtml=(()=>{const links=s.watchLinks&&s.watchLinks.length?s.watchLinks:(s.networkUrl?[{name:s.network||'Ver serie',url:s.networkUrl}]:[]);if(!links.length)return '';return `<div class="watch-links-label">▶ Dónde ver</div><div class="watch-links">${links.map(l=>`<a class="watch-link" href="${l.url}" target="_blank" rel="noopener"><span class="watch-link-icon">▶</span>${l.name}</a>`).join('')}</div>`;})();
@@ -1872,7 +1925,7 @@ function openUpcoming(si){
   const posterEl=s.poster?`<img class="upcoming-detail-img" src="${s.poster}" alt="${s.name}" onerror="this.outerHTML='<div class=upcoming-detail-img-ph>🎬</div>'">`:`<div class="upcoming-detail-img-ph">🎬</div>`;
   let metaGrid='';
   if(s.year) metaGrid+=`<div class="meta-item"><div class="meta-key">Año aprox.</div><div class="meta-val">${s.year}</div></div>`;
-  if(s.country) metaGrid+=`<div class="meta-item"><div class="meta-key">País</div><div class="meta-val">${s.country}</div></div>`;
+  if(s.country) metaGrid+=`<div class="meta-item"><div class="meta-key">País</div><div class="meta-val">${countryFlag(s.country)} ${s.country}</div></div>`;
   if(s.network) metaGrid+=`<div class="meta-item"><div class="meta-key">Plataforma</div><div class="meta-val">${s.network}</div></div>`;
   const watchLinksHtml=(()=>{const links=s.watchLinks&&s.watchLinks.length?s.watchLinks:(s.networkUrl?[{name:s.network||'Ver serie',url:s.networkUrl}]:[]);if(!links.length)return '';return `<div class="watch-links-label">▶ Dónde ver</div><div class="watch-links">${links.map(l=>`<a class="watch-link" href="${l.url}" target="_blank" rel="noopener"><span class="watch-link-icon">▶</span>${l.name}</a>`).join('')}</div>`;})();
   let html=`${posterEl}<div class="modal-body">
@@ -1883,7 +1936,7 @@ function openUpcoming(si){
     <div class="modal-completeness-bar"><div class="modal-completeness-fill" style="width:${pctInfo}%"></div></div>
     <span style="white-space:nowrap">${pctInfo}%</span>
   </div>
-  ${s.country?`<div class="modal-dates-row"><span class="modal-date-chip">🌍 ${s.country}</span>${s.year?`<span class="modal-date-chip">📆 ${s.year}</span>`:''}</div>`:''}
+  ${s.country?`<div class="modal-dates-row"><span class="modal-date-chip">${countryFlag(s.country)} ${s.country}</span>${s.year?`<span class="modal-date-chip">📆 ${s.year}</span>`:''}</div>`:''}
   ${watchLinksHtml}
   ${s.trailerUrl?trailerHtml(s.trailerUrl):''}
   ${metaGrid?`<div class="modal-meta-grid">${metaGrid}</div>`:''}
@@ -1924,13 +1977,13 @@ function openMovie(mi){
   }
   // Chips row
   let chipsHtml='<div class="modal-dates-row">';
-  if(mv.country) chipsHtml+=`<span class="modal-date-chip">🌍 ${mv.country}</span>`;
+  if(mv.country) chipsHtml+=`<span class="modal-date-chip">${countryFlag(mv.country)} ${mv.country}</span>`;
   if(mv.year) chipsHtml+=`<span class="modal-date-chip">📆 ${mv.year}</span>`;
   chipsHtml+='</div>';
 
   let metaGrid='';
   if(mv.year) metaGrid+=`<div class="meta-item"><div class="meta-key">Año</div><div class="meta-val">${mv.year}</div></div>`;
-  if(mv.country) metaGrid+=`<div class="meta-item"><div class="meta-key">País</div><div class="meta-val">${mv.country}</div></div>`;
+  if(mv.country) metaGrid+=`<div class="meta-item"><div class="meta-key">País</div><div class="meta-val">${countryFlag(mv.country)} ${mv.country}</div></div>`;
   if(mv.network) metaGrid+=`<div class="meta-item"><div class="meta-key">Plataforma</div><div class="meta-val">${mv.network}</div></div>`;
   if(mv.date) metaGrid+=`<div class="meta-item"><div class="meta-key">Estreno</div><div class="meta-val">${fmtDate(mv.date)}</div></div>`;
   const bookBlock=(()=>{
@@ -2360,7 +2413,7 @@ function renderSearchResults(q){
       ${thumb}
       <div>
         <div class="search-result-name">${r.s.name}</div>
-        <div class="search-result-meta">${r.type==='serie'?'Serie':'Película'}${r.s.country?' · '+r.s.country:''}${r.s.network?' · '+r.s.network:''}</div>
+        <div class="search-result-meta">${r.type==='serie'?'Serie':'Película'}${r.s.country?' · '+countryFlag(r.s.country)+' '+r.s.country:''}${r.s.network?' · '+r.s.network:''}</div>
       </div>
     </div>`;
   }).join('');
