@@ -1391,10 +1391,10 @@ function importData(e){
 function pasteBarHtml(type){
   window._pasteType = type;
   return '<div class="paste-bar">'
-    +'<div class="paste-bar-label">Autocompletar desde MyDramaList</div>'
-    +'<div class="paste-bar-hint">Ve a la serie en <strong>MyDramaList</strong>, selecciona todo (Ctrl+A), copia (Ctrl+C) y pega aqui:</div>'
+    +'<div class="paste-bar-label">✦ Autocompletar desde formato personalizado</div>'
+    +'<div class="paste-bar-hint">Pega la ficha en el formato: <strong>AÑO NOMBRE ESTADO PLATAFORMA TIPO EPS/DURACIÓN ACTRICES PAÍS CANAL BOOK/MANGA LINK-IMAGEN DESCRIPCIÓN LINK-VER</strong><br>Ejemplo: <em>2019 REALLY LILY? FINALIZADA YOUTUBE SHORT 6MIN EUNJEONG-YOOJEONG COREA DEL SUR SL-TV _ https://imagen.jpg Descripción https://youtu.be/xxx</em></div>'
     +'<div class="paste-bar-row">'
-    +'<textarea class="paste-bar-textarea" id="pasteInput" placeholder="Pega aqui el texto de MyDramaList..."></textarea>'
+    +'<textarea class="paste-bar-textarea" id="pasteInput" placeholder="Pega aquí la ficha..."></textarea>'
     +'<button class="paste-bar-btn" onclick="runPasteAutofill(window._pasteType)">Rellenar</button>'
     +'</div>'
     +'<div class="paste-bar-status" id="pasteStatus"></div>'
@@ -1404,114 +1404,254 @@ function pasteBarHtml(type){
 function runPasteAutofill(type){
   var ta = document.getElementById('pasteInput');
   var status = document.getElementById('pasteStatus');
-  var text = ta ? ta.value.trim() : '';
-  if(!text){ status.className='paste-bar-status err'; status.textContent='⚠ Pega primero el texto de la página.'; return; }
+  var raw = ta ? ta.value.trim() : '';
+  if(!raw){ status.className='paste-bar-status err'; status.textContent='\u26a0 Pega primero la ficha.'; return; }
   var isSeries = type === 'series';
   var info = {emissionDays:[]};
 
-  // TITULO
-  var m = text.match(/^(.+?)\s*\(\d{4}\)/m);
-  if(m) info.name = m[1].trim();
+  // ─── Normalizar: unir líneas en un solo bloque de tokens ───────────────────
+  // Preservamos los saltos porque la descripción puede estar en línea aparte
+  var lines = raw.split(/\n/).map(function(l){ return l.trim(); }).filter(Boolean);
+  var fullText = raw;
 
-  // AÑO
-  m = text.match(/(20[012]\d)/);
+  // ─── YEAR: primer token de 4 dígitos ──────────────────────────────────────
+  var m = fullText.match(/\b(20\d{2}|19\d{2})\b/);
   if(m) info.year = parseInt(m[1]);
 
-  // SINOPSIS: parrafo largo despues de la puntuacion
-  m = text.match(/\/10[\s\S]{0,10}?([\s\S]{60,600}?)(?:Native Title:|Also Known|Related Content|\* \[)/i);
-  if(m) info.synopsis = m[1].replace(/\s+/g,' ').trim();
-
-  // PAIS
-  m = text.match(/Country:\s*(.+)/i);
-  if(m){
-    var cmap = {'Thailand':'Tailandia','China':'China','South Korea':'Corea del Sur','Korea':'Corea del Sur','Japan':'Japón','Taiwan':'Taiwán','Philippines':'Filipinas','Vietnam':'Vietnam','Indonesia':'Indonesia','Spain':'España','United States':'Estados Unidos','Hong Kong':'Hong Kong'};
-    info.country = cmap[m[1].trim()] || m[1].trim();
+  // ─── ESTADO DE PRODUCCIÓN ─────────────────────────────────────────────────
+  var statusMap = {
+    'FINALIZADA':'finished','FINALIZADAS':'finished',
+    'EMITIENDOSE':'airing','EMITIÉNDOSE':'airing','EMITIENDO':'airing',
+    'CAST':'cast','PRODUCCION':'production','PRODUCCIÓN':'production',
+    'ANUNCIADO':'announced','ANUNCIADA':'announced',
+    'CANCELADO':'cancelled','CANCELADA':'cancelled'
+  };
+  var prodStatus = null;
+  for(var sk in statusMap){
+    if(fullText.toUpperCase().indexOf(sk)>=0){ prodStatus = statusMap[sk]; break; }
   }
+  info.productionStatus = prodStatus;
 
-  // EPISODIOS
-  m = text.match(/Episodes:\s*(\d+)/i);
+  // ─── TIPO (determina si es serie, movie, short, etc.) ─────────────────────
+  var typeUpper = fullText.toUpperCase();
+  var detectedType = null;
+  if(/\bSHORT\b/.test(typeUpper)) detectedType='short';
+  else if(/\bMINI[\s-]?SERIE\b|\bMINISERIE\b/.test(typeUpper)) detectedType='miniseries';
+  else if(/\bPEL[IÍ]CULA\b|\bMOVIE\b/.test(typeUpper)) detectedType='movie';
+  else if(/\bSERIE\b|\bSERIES\b/.test(typeUpper)) detectedType='series';
+  info.detectedType = detectedType;
+
+  // ─── DURACIÓN / EPISODIOS ─────────────────────────────────────────────────
+  // Formato: "6MIN", "6 MIN", "45MIN", "12EPS", "12 EPS", "12 EPISODIOS"
+  m = fullText.match(/(\d+)\s*(?:MIN|MINUTOS?)\b/i);
+  if(m) info.duration = parseInt(m[1]);
+
+  m = fullText.match(/(\d+)\s*(?:EPS?|EPISODIOS?|CAPÍTULOS?|CAPITULOS?)\b/i);
   if(m) info.totalEpisodes = parseInt(m[1]);
 
-  // FECHA INICIO
-  m = text.match(/Aired:\s*(\w+ \d+,\s*\d{4})/i);
-  if(m){ var d=new Date(m[1]); if(!isNaN(d)) info.startDate=d.toISOString().slice(0,10); }
+  // ─── ACTRICES (token con guiones entre nombres, todo mayúsculas) ──────────
+  // Detecta segmentos tipo "NOMBRE1-NOMBRE2" o "NOMBRE1 NOMBRE2" antes del país
+  // Buscamos el patrón: palabras en mayúsculas separadas por guión antes de un país conocido
+  var actressesRaw = null;
+  m = fullText.match(/([A-ZÁÉÍÓÚÑ][A-ZÁÉÍÓÚÑ\-]{3,}(?:\s*[-–]\s*[A-ZÁÉÍÓÚÑ][A-ZÁÉÍÓÚÑ\-]+)+)/);
+  if(m) actressesRaw = m[1].replace(/[-–]/g,' / ').trim();
+  info.actresses = actressesRaw;
 
-  // DIAS DE EMISION
-  m = text.match(/Aired On:\s*(.+)/i);
-  if(m){
-    var dmap = {'Monday':0,'Tuesday':1,'Wednesday':2,'Thursday':3,'Friday':4,'Saturday':5,'Sunday':6};
-    for(var day in dmap){ if(m[1].indexOf(day)>=0) info.emissionDays.push(dmap[day]); }
+  // ─── PAÍS ─────────────────────────────────────────────────────────────────
+  var countryMap = {
+    'COREA DEL SUR':'Corea del Sur','SOUTH KOREA':'Corea del Sur','KOREA':'Corea del Sur',
+    'TAILANDIA':'Tailandia','THAILAND':'Tailandia',
+    'CHINA':'China',
+    'JAPÓN':'Japón','JAPON':'Japón','JAPAN':'Japón',
+    'TAIWÁN':'Taiwán','TAIWAN':'Taiwán',
+    'FILIPINAS':'Filipinas','PHILIPPINES':'Filipinas',
+    'VIETNAM':'Vietnam',
+    'INDONESIA':'Indonesia',
+    'ESPAÑA':'España','SPAIN':'España',
+    'ESTADOS UNIDOS':'Estados Unidos','UNITED STATES':'Estados Unidos','USA':'Estados Unidos',
+    'HONG KONG':'Hong Kong',
+    'MALASIA':'Malasia','MALAYSIA':'Malasia',
+    'INDIA':'India',
+    'MÉXICO':'México','MEXICO':'México',
+    'ARGENTINA':'Argentina',
+    'BRASIL':'Brasil','BRAZIL':'Brasil'
+  };
+  var upperFull = fullText.toUpperCase();
+  for(var ck in countryMap){
+    if(upperFull.indexOf(ck)>=0){ info.country=countryMap[ck]; break; }
   }
-  if(!info.emissionDays.length) info.emissionDays=[0];
 
-  // NETWORK
-  m = text.match(/Original Network:\s*(.+)/i);
-  if(m) info.network = m[1].trim();
-
-  // GENEROS
-  m = text.match(/Genres:\s*(.+)/i);
-  if(m){
-    var gmap = {'Comedy':'Comedia','Romance':'Romance','Drama':'Drama','Action':'Acción','Thriller':'Thriller','Mystery':'Misterio','Horror':'Terror','Fantasy':'Fantasía','Supernatural':'Sobrenatural','Historical':'Histórico','Medical':'Médico','School':'Escolar','Youth':'Escolar','Melodrama':'Melodrama','Psychological':'Psicológico','Slice of Life':'Slice of Life','Coming of Age':'Coming of Age','Adventure':'Aventura','Crime':'Crimen','Sports':'Deportes','Family':'Familia'};
-    info.genres = [];
-    var gline = m[1];
-    for(var ge in gmap){ if(gline.indexOf(ge)>=0 && info.genres.indexOf(gmap[ge])<0) info.genres.push(gmap[ge]); }
+  // ─── PLATAFORMA / CANAL ───────────────────────────────────────────────────
+  var platformList = ['NETFLIX','YOUTUBE','IQIYI','IQIYI','WETV','VIKI','BILIBILI','LINE TV','GMM25','ONE31','GMMTV','PRIME VIDEO','AMAZON','HBO','DISNEY','WEVERSE','WATCHA','TVING','WAVVE','NAVER','KAKAO','SBS','KBS','MBC','TVN','JTBC','MBS','TBS','NTV','FUJI','TV ASAHI','CTITV','FTV','PTS','CANAL+','MOVISTAR','ATRESPLAYER','RTVE','BBC','ITV','CHANNEL 4','YOUKU','MANGO','VIUTV'];
+  var foundPlatforms = [];
+  for(var pi=0;pi<platformList.length;pi++){
+    if(upperFull.indexOf(platformList[pi])>=0){
+      // Extract original casing from raw text
+      var pidx = upperFull.indexOf(platformList[pi]);
+      foundPlatforms.push(fullText.substring(pidx,pidx+platformList[pi].length));
+    }
   }
+  // También buscar "SL-TV", "SL TV" u otros canales custom (token corto antes del país)
+  if(foundPlatforms.length===0){
+    m = fullText.match(/\b([A-Z]{2,}(?:[-\s][A-Z]{2,})?TV)\b/);
+    if(m) foundPlatforms.push(m[1]);
+  }
+  if(foundPlatforms.length) info.network = foundPlatforms.join(', ');
 
-  // BASADA EN LIBRO
-  if(/Adapted From A Novel|adapted from the (novel|manhwa|manga|webtoon)/i.test(text)){
+  // ─── TIPO DE LIBRO / FUENTE ───────────────────────────────────────────────
+  // Detecta: BOOK, MANGA, MANHWA, COMIC, WEBTOON seguido de un título
+  m = fullText.match(/\b(BOOK|MANGA|MANHWA|COMIC|WEBTOON|NOVEL|NOVELA)\b[^_\n]*/i);
+  if(m && m[0].trim().length > 5){
     info.basedOnBook = true;
-    m = text.match(/[Aa]dapted from the [a-z]+ "([^"]+)"/i) || text.match(/[Aa]dapted from[^"]+"([^"]+)"/i);
-    if(m) info.bookSource = m[1].trim();
+    // Intentar extraer título si hay algo después del tipo
+    var src = m[0].replace(/^(BOOK|MANGA|MANHWA|COMIC|WEBTOON|NOVEL|NOVELA)\s*/i,'').trim();
+    if(src && src.length>1 && !/^https?/i.test(src)) info.bookSource = src;
   }
 
-  // RELLENAR FORMULARIO
+  // ─── URL DE IMAGEN (portada) ──────────────────────────────────────────────
+  // Busca URL con extensiones de imagen
+  m = fullText.match(/https?:\/\/[^\s]+\.(?:jpg|jpeg|png|webp|gif)(?:\?[^\s]*)?/i);
+  if(m) info.poster = m[0];
+
+  // ─── URL PARA VER (trailer/watch) ────────────────────────────────────────
+  // Busca URL de YouTube u otras
+  var watchUrls = [];
+  var urlRe = /https?:\/\/(?:www\.)?(?:youtube\.com|youtu\.be|iq\.com|wetv\.vip|viki\.com|netflix\.com|bilibili\.com)[^\s]*/gi;
+  var um;
+  while((um=urlRe.exec(fullText))!==null){ watchUrls.push(um[0]); }
+  // Cualquier otra URL que no sea imagen
+  var anyUrlRe = /https?:\/\/[^\s]+/gi;
+  while((um=anyUrlRe.exec(fullText))!==null){
+    var u=um[0];
+    if(!watchUrls.includes(u) && !/\.(?:jpg|jpeg|png|webp|gif)/i.test(u)) watchUrls.push(u);
+  }
+  if(watchUrls.length) info.trailerUrl = watchUrls[0];
+  if(watchUrls.length>1) info.watchUrl = watchUrls[1];
+
+  // ─── NOMBRE: primera línea que no sea URL ni un token suelto ─────────────
+  // Estrategia: buscar la cadena que sigue al año y antes del estado de producción
+  var nameCandidate = null;
+  // Intenta extraer el nombre: texto en mayúsculas (o mixto) tras el año
+  m = fullText.match(/\b(?:20\d{2}|19\d{2})\b\s+([^\n\r]+?)(?:\s+(?:FINALIZADA|FINALIZADAS|EMITIENDOSE|EMITIÉNDOSE|EMITIENDO|CAST|PRODUCCION|PRODUCCIÓN|ANUNCIADO|ANUNCIADA|CANCELADO|CANCELADA)\b)/i);
+  if(m) nameCandidate = m[1].trim();
+  // Fallback: primera línea completa si es corta (<80 chars) y no es URL
+  if(!nameCandidate && lines.length){
+    var fl = lines[0];
+    if(fl.length<80 && !/^https?/.test(fl)){
+      // quitar el año si aparece al inicio
+      nameCandidate = fl.replace(/^\s*(?:20\d{2}|19\d{2})\s*/,'').trim();
+    }
+  }
+  // Limpiar estado/tipo del nombre
+  if(nameCandidate){
+    nameCandidate = nameCandidate.replace(/\b(FINALIZADA|FINALIZADAS|EMITIENDOSE|EMITIÉNDOSE|EMITIENDO|CAST|PRODUCCION|PRODUCCIÓN|ANUNCIADO|ANUNCIADA|CANCELADO|CANCELADA|SHORT|MOVIE|SERIES|SERIE|MINISERIE)\b/gi,'').trim();
+    nameCandidate = nameCandidate.replace(/\s{2,}/g,' ').trim();
+    if(nameCandidate.length > 1) info.name = nameCandidate;
+  }
+
+  // ─── SINOPSIS / DESCRIPCIÓN ───────────────────────────────────────────────
+  // Buscamos párrafo descriptivo: línea con más de 40 chars que no sea URL ni token
+  // Primero intentamos texto entre la URL de imagen y la URL de ver
+  var imgUrl = info.poster || '';
+  var watchUrlStr = info.trailerUrl || '';
+  var descCandidate = null;
+  if(imgUrl){
+    var afterImg = fullText.indexOf(imgUrl)+imgUrl.length;
+    var chunk = fullText.substring(afterImg).trim();
+    // Elimina la URL de ver al final si existe
+    if(watchUrlStr) chunk = chunk.replace(watchUrlStr,'').trim();
+    // Quitar cualquier URL restante al inicio/fin
+    chunk = chunk.replace(/^https?:\/\/\S+\s*/,'').replace(/\s*https?:\/\/\S+$/,'').trim();
+    if(chunk.length>30) descCandidate = chunk;
+  }
+  // Fallback: línea más larga que no es URL
+  if(!descCandidate){
+    var longest='';
+    for(var li=0;li<lines.length;li++){
+      var ll=lines[li];
+      if(!/^https?/.test(ll) && ll.length>longest.length && ll.length>40) longest=ll;
+    }
+    if(longest.length>40) descCandidate=longest;
+  }
+  if(descCandidate) info.synopsis = descCandidate.replace(/\s+/g,' ').trim();
+
+  // ─── RELLENAR FORMULARIO ──────────────────────────────────────────────────
   var filled = 0;
+  function setVal(id,val){ var el=document.getElementById(id); if(el&&val){ el.value=val; filled++; } }
+
   if(isSeries){
-    if(info.name){ document.getElementById('f_name').value=info.name; filled++; }
-    if(info.synopsis){ document.getElementById('f_synopsis').value=info.synopsis; filled++; }
-    if(info.year){ document.getElementById('f_year').value=info.year; filled++; }
-    if(info.network){ document.getElementById('f_net').value=info.network; filled++; }
+    setVal('f_name', info.name);
+    setVal('f_synopsis', info.synopsis);
+    setVal('f_year', info.year);
+    setVal('f_net', info.network);
+    setVal('f_poster', info.poster);
+    setVal('f_trailer', info.trailerUrl);
+    // Trigger poster preview
+    if(info.poster){ var pp=document.getElementById('seriesPosterPreview'); if(pp){pp.src=info.poster;pp.style.display='block';} }
     if(info.country){ initCountries('countriesList',info.country); filled++; }
     if(info.basedOnBook){
       var cb=document.getElementById('f_book');
       if(cb){ cb.checked=true; toggleBookFields(); }
-      if(info.bookSource){ var bs=document.getElementById('f_booksource'); if(bs) bs.value=info.bookSource; }
+      if(info.bookSource) setVal('f_booksource', info.bookSource);
       filled++;
     }
-    if(info.genres && info.genres.length){
-      document.querySelectorAll('#f_genres .genre-chip').forEach(function(chip){ chip.classList.toggle('selected',info.genres.indexOf(chip.textContent)>=0); });
-      filled++;
-    }
-    if(info.startDate || info.totalEpisodes || info.emissionDays.length){
+    if(info.totalEpisodes || info.emissionDays.length){
       var sl=document.getElementById('seasonsList');
-      if(sl){ sl.innerHTML=''; addSeasonBlock({label:'Temporada 1',startDate:info.startDate||'',totalEpisodes:info.totalEpisodes||12,emissionDays:info.emissionDays,skipDates:[],episodes:[]}); filled++; }
+      if(sl){ sl.innerHTML=''; addSeasonBlock({label:'Temporada 1',startDate:'',totalEpisodes:info.totalEpisodes||12,emissionDays:info.emissionDays.length?info.emissionDays:[0],skipDates:[],episodes:[]}); filled++; }
+    }
+    // Watch link
+    if(info.watchUrl || info.trailerUrl){
+      var wl=document.getElementById('platformsList');
+      if(wl && !wl.children.length){
+        var wurl = info.watchUrl || info.trailerUrl;
+        addPlatformRow({name:info.network||'Ver',url:wurl});
+        filled++;
+      }
     }
   } else {
-    if(info.name){ document.getElementById('mf_name').value=info.name; filled++; }
-    if(info.synopsis){ document.getElementById('mf_synopsis').value=info.synopsis; filled++; }
-    if(info.year){ document.getElementById('mf_year').value=info.year; filled++; }
-    if(info.network){ document.getElementById('mf_net').value=info.network; filled++; }
+    setVal('mf_name', info.name);
+    setVal('mf_synopsis', info.synopsis);
+    setVal('mf_year', info.year);
+    setVal('mf_net', info.network);
+    setVal('mf_poster', info.poster);
+    setVal('mf_trailer', info.trailerUrl);
+    // Trigger poster preview
+    if(info.poster){ var mpp=document.getElementById('moviePosterPreview'); if(mpp){mpp.src=info.poster;mpp.style.display='block';} }
     if(info.country){ initCountries('movieCountriesList',info.country); filled++; }
     if(info.basedOnBook){
       var cb2=document.getElementById('mf_book');
       if(cb2){ cb2.checked=true; toggleMovieBookFields(); }
-      if(info.bookSource){ var bs2=document.getElementById('mf_booksource'); if(bs2) bs2.value=info.bookSource; }
+      if(info.bookSource) setVal('mf_booksource', info.bookSource);
       filled++;
     }
-    if(info.genres && info.genres.length){
-      document.querySelectorAll('#mf_genres .genre-chip').forEach(function(chip){ chip.classList.toggle('selected',info.genres.indexOf(chip.textContent)>=0); });
-      filled++;
+    // Watch link
+    if(info.watchUrl || info.trailerUrl){
+      var mwl=document.getElementById('moviePlatformsList');
+      if(mwl && !mwl.children.length){
+        var mwurl = info.watchUrl || info.trailerUrl;
+        addMoviePlatformRow({name:info.network||'Ver',url:mwurl});
+        filled++;
+      }
     }
-    if(info.startDate){ document.getElementById('mf_date').value=info.startDate; filled++; }
   }
 
+  // Status message con detalles de lo detectado
   if(filled>0){
+    var details = [];
+    if(info.name) details.push('nombre');
+    if(info.year) details.push('año');
+    if(info.country) details.push('país');
+    if(info.network) details.push('plataforma');
+    if(info.poster) details.push('imagen');
+    if(info.synopsis) details.push('descripción');
+    if(info.trailerUrl) details.push('enlace');
+    if(info.basedOnBook) details.push('libro');
     status.className='paste-bar-status ok';
-    status.textContent='✓ Rellenados '+filled+' campo(s). Revisa y completa lo que falte.';
+    status.textContent='✓ Rellenados: '+details.join(', ')+'. Revisa y completa lo que falte.';
     ta.value='';
   } else {
     status.className='paste-bar-status err';
-    status.textContent='✕ No se encontraron datos. Asegúrate de copiar toda la página.';
+    status.textContent='✕ No se detectaron datos. Comprueba el formato de la ficha.';
   }
 }
 
