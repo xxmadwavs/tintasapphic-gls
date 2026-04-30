@@ -5129,6 +5129,86 @@
       "upcoming": true,
       "genres": [],
       "updatedAt": "2026-04-29T11:03:23.023Z"
+    },
+    {
+      "id": "1777581394711",
+      "name": "Drama Festa: Hello Dracula",
+      "poster": "https://i.mydramalist.com/43N36c.jpg?v=1",
+      "synopsis": "«Drama Festa - Hola, Drácula» es la historia del crecimiento de las personas que viven en el Bloque Z y que deben enfrentarse a los problemas de la vida que preferirían evitar. Se trata de una serie antológica sobre una hija llamada Anna que cede ante su madre, una madre llamada Ji Yeong que domina a su hija, una vocalista de una banda indie llamada Seo Yeon, Ji Hyeong, que nació en una familia rica, y Yoo Ra, que no creció en las mejores condiciones. Tres vecinos se enfrentan a problemas que quieren evitar, pero crecen al enfrentarse a sus dilemas. Historia 1: An Na vive con su madre, Mi Young. An Na vive su vida según los deseos de su madre, pero tiene un secreto que no puede contarle a nadie. Historia 2: Se lleva a cabo un proyecto de remodelación de la zona donde viven Yoo Ra y su familia. Yoo Ra y su familia tienen que abandonar el barrio. Historia 3: Seo Yeon es la vocalista de una banda indie. Está obsesionada con las supersticiones. Seo Yeon no puede superar la ruptura con su exnovio, que la dejó hace un año.",
+      "year": 2020,
+      "country": "Corea del Sur",
+      "network": "jTBC",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Drama",
+        "Melodrama"
+      ],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2020-02-16",
+          "totalEpisodes": 2,
+          "emissionDays": [
+            0,
+            1
+          ],
+          "skipDates": [],
+          "episodes": []
+        }
+      ],
+      "updatedAt": "2026-04-30T20:36:34.711Z"
+    },
+    {
+      "id": "1777581846393",
+      "name": "Sleep with Me",
+      "poster": "https://i.mydramalist.com/eBlgY_4c.jpg?v=1",
+      "synopsis": "Harry trabaja como locutora en la emisora de radio, donde ofrece consejos sobre relaciones «porque todos los corazones rotos merecen ser escuchados». Aunque se desplaza en silla de ruedas, ha aprendido a no dejar que las microagresiones le afecten y utiliza su actitud positiva para ayudar a otros a encontrar el amor.",
+      "year": 2022,
+      "country": "Filipinas",
+      "network": "iWant",
+      "networkUrl": "https://www.iwanttfc.com/details/cbd4a12e-5281-4363-9525-298d87fce7b1",
+      "watchLinks": [
+        {
+          "name": "iWant",
+          "url": "https://www.iwanttfc.com/details/cbd4a12e-5281-4363-9525-298d87fce7b1"
+        },
+        {
+          "name": "Netflix",
+          "url": "https://www.netflix.com/title/81697021"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/ostKUfc-THU?si=LnJqTlu9-Fmpn5Yq",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Romance",
+        "Drama"
+      ],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2022-07-19",
+          "totalEpisodes": 6,
+          "emissionDays": [
+            0
+          ],
+          "skipDates": [],
+          "episodes": []
+        }
+      ],
+      "updatedAt": "2026-04-30T20:44:06.393Z"
     }
   ],
   "movies": [
@@ -5262,5 +5342,5 @@
       "genres": []
     }
   ],
-  "exportedAt": "2026-04-29T11:03:29.505Z"
+  "exportedAt": "2026-04-30T20:44:21.329Z"
 }
