@@ -1391,8 +1391,8 @@ function importData(e){
 function pasteBarHtml(type){
   window._pasteType = type;
   return '<div class="paste-bar">'
-    +'<div class="paste-bar-label">✦ Autocompletar desde formato personalizado</div>'
-    +'<div class="paste-bar-hint">Pega la ficha en el formato: <strong>AÑO NOMBRE ESTADO PLATAFORMA TIPO EPS/DURACIÓN ACTRICES PAÍS CANAL BOOK/MANGA LINK-IMAGEN DESCRIPCIÓN LINK-VER</strong><br>Ejemplo: <em>2019 REALLY LILY? FINALIZADA YOUTUBE SHORT 6MIN EUNJEONG-YOOJEONG COREA DEL SUR SL-TV _ https://imagen.jpg Descripción https://youtu.be/xxx</em></div>'
+    +'<div class="paste-bar-label">✦ Autocompletar desde ficha</div>'
+    +'<div class="paste-bar-hint">Pega tu ficha completa (formato propio o bloque de MyDramaList). Las URLs entre <strong>__ __</strong> se detectan como imagen o enlace.</div>'
     +'<div class="paste-bar-row">'
     +'<textarea class="paste-bar-textarea" id="pasteInput" placeholder="Pega aquí la ficha..."></textarea>'
     +'<button class="paste-bar-btn" onclick="runPasteAutofill(window._pasteType)">Rellenar</button>'
@@ -1407,254 +1407,302 @@ function runPasteAutofill(type){
   var raw = ta ? ta.value.trim() : '';
   if(!raw){ status.className='paste-bar-status err'; status.textContent='\u26a0 Pega primero la ficha.'; return; }
   var isSeries = type === 'series';
-  var info = {emissionDays:[]};
 
-  // ─── Normalizar: unir líneas en un solo bloque de tokens ───────────────────
-  // Preservamos los saltos porque la descripción puede estar en línea aparte
-  var lines = raw.split(/\n/).map(function(l){ return l.trim(); }).filter(Boolean);
-  var fullText = raw;
-
-  // ─── YEAR: primer token de 4 dígitos ──────────────────────────────────────
-  var m = fullText.match(/\b(20\d{2}|19\d{2})\b/);
-  if(m) info.year = parseInt(m[1]);
-
-  // ─── ESTADO DE PRODUCCIÓN ─────────────────────────────────────────────────
-  var statusMap = {
-    'FINALIZADA':'finished','FINALIZADAS':'finished',
-    'EMITIENDOSE':'airing','EMITIÉNDOSE':'airing','EMITIENDO':'airing',
-    'CAST':'cast','PRODUCCION':'production','PRODUCCIÓN':'production',
-    'ANUNCIADO':'announced','ANUNCIADA':'announced',
-    'CANCELADO':'cancelled','CANCELADA':'cancelled'
-  };
-  var prodStatus = null;
-  for(var sk in statusMap){
-    if(fullText.toUpperCase().indexOf(sk)>=0){ prodStatus = statusMap[sk]; break; }
-  }
-  info.productionStatus = prodStatus;
-
-  // ─── TIPO (determina si es serie, movie, short, etc.) ─────────────────────
-  var typeUpper = fullText.toUpperCase();
-  var detectedType = null;
-  if(/\bSHORT\b/.test(typeUpper)) detectedType='short';
-  else if(/\bMINI[\s-]?SERIE\b|\bMINISERIE\b/.test(typeUpper)) detectedType='miniseries';
-  else if(/\bPEL[IÍ]CULA\b|\bMOVIE\b/.test(typeUpper)) detectedType='movie';
-  else if(/\bSERIE\b|\bSERIES\b/.test(typeUpper)) detectedType='series';
-  info.detectedType = detectedType;
-
-  // ─── DURACIÓN / EPISODIOS ─────────────────────────────────────────────────
-  // Formato: "6MIN", "6 MIN", "45MIN", "12EPS", "12 EPS", "12 EPISODIOS"
-  m = fullText.match(/(\d+)\s*(?:MIN|MINUTOS?)\b/i);
-  if(m) info.duration = parseInt(m[1]);
-
-  m = fullText.match(/(\d+)\s*(?:EPS?|EPISODIOS?|CAPÍTULOS?|CAPITULOS?)\b/i);
-  if(m) info.totalEpisodes = parseInt(m[1]);
-
-  // ─── ACTRICES (token con guiones entre nombres, todo mayúsculas) ──────────
-  // Detecta segmentos tipo "NOMBRE1-NOMBRE2" o "NOMBRE1 NOMBRE2" antes del país
-  // Buscamos el patrón: palabras en mayúsculas separadas por guión antes de un país conocido
-  var actressesRaw = null;
-  m = fullText.match(/([A-ZÁÉÍÓÚÑ][A-ZÁÉÍÓÚÑ\-]{3,}(?:\s*[-–]\s*[A-ZÁÉÍÓÚÑ][A-ZÁÉÍÓÚÑ\-]+)+)/);
-  if(m) actressesRaw = m[1].replace(/[-–]/g,' / ').trim();
-  info.actresses = actressesRaw;
-
-  // ─── PAÍS ─────────────────────────────────────────────────────────────────
-  var countryMap = {
-    'COREA DEL SUR':'Corea del Sur','SOUTH KOREA':'Corea del Sur','KOREA':'Corea del Sur',
-    'TAILANDIA':'Tailandia','THAILAND':'Tailandia',
-    'CHINA':'China',
-    'JAPÓN':'Japón','JAPON':'Japón','JAPAN':'Japón',
-    'TAIWÁN':'Taiwán','TAIWAN':'Taiwán',
-    'FILIPINAS':'Filipinas','PHILIPPINES':'Filipinas',
-    'VIETNAM':'Vietnam',
-    'INDONESIA':'Indonesia',
-    'ESPAÑA':'España','SPAIN':'España',
-    'ESTADOS UNIDOS':'Estados Unidos','UNITED STATES':'Estados Unidos','USA':'Estados Unidos',
-    'HONG KONG':'Hong Kong',
-    'MALASIA':'Malasia','MALAYSIA':'Malasia',
-    'INDIA':'India',
-    'MÉXICO':'México','MEXICO':'México',
-    'ARGENTINA':'Argentina',
-    'BRASIL':'Brasil','BRAZIL':'Brasil'
-  };
-  var upperFull = fullText.toUpperCase();
-  for(var ck in countryMap){
-    if(upperFull.indexOf(ck)>=0){ info.country=countryMap[ck]; break; }
-  }
-
-  // ─── PLATAFORMA / CANAL ───────────────────────────────────────────────────
-  var platformList = ['NETFLIX','YOUTUBE','IQIYI','IQIYI','WETV','VIKI','BILIBILI','LINE TV','GMM25','ONE31','GMMTV','PRIME VIDEO','AMAZON','HBO','DISNEY','WEVERSE','WATCHA','TVING','WAVVE','NAVER','KAKAO','SBS','KBS','MBC','TVN','JTBC','MBS','TBS','NTV','FUJI','TV ASAHI','CTITV','FTV','PTS','CANAL+','MOVISTAR','ATRESPLAYER','RTVE','BBC','ITV','CHANNEL 4','YOUKU','MANGO','VIUTV'];
-  var foundPlatforms = [];
-  for(var pi=0;pi<platformList.length;pi++){
-    if(upperFull.indexOf(platformList[pi])>=0){
-      // Extract original casing from raw text
-      var pidx = upperFull.indexOf(platformList[pi]);
-      foundPlatforms.push(fullText.substring(pidx,pidx+platformList[pi].length));
+  // ══════════════════════════════════════════════════════════════════════════
+  // PASO 1 — Separar los dos bloques
+  // Bloque A: desde el inicio hasta la primera etiqueta MDL en inglés (Title:, Type:, etc.)
+  // Bloque B: desde esa primera línea MDL en adelante
+  // ══════════════════════════════════════════════════════════════════════════
+  var rawLines = raw.split(/\n/);
+  var splitIdx = rawLines.length;
+  for(var i=0; i<rawLines.length; i++){
+    if(/^\s*(?:Title|Type|Format|Country|Episodes|Aired)\s*:/i.test(rawLines[i])){
+      splitIdx = i; break;
     }
   }
-  // También buscar "SL-TV", "SL TV" u otros canales custom (token corto antes del país)
-  if(foundPlatforms.length===0){
-    m = fullText.match(/\b([A-Z]{2,}(?:[-\s][A-Z]{2,})?TV)\b/);
-    if(m) foundPlatforms.push(m[1]);
-  }
-  if(foundPlatforms.length) info.network = foundPlatforms.join(', ');
+  var blockA = rawLines.slice(0, splitIdx).join('\n').trim();  // tu formato propio
+  var blockB = rawLines.slice(splitIdx).join('\n').trim();     // bloque MDL inglés
 
-  // ─── TIPO DE LIBRO / FUENTE ───────────────────────────────────────────────
-  // Detecta: BOOK, MANGA, MANHWA, COMIC, WEBTOON seguido de un título
-  m = fullText.match(/\b(BOOK|MANGA|MANHWA|COMIC|WEBTOON|NOVEL|NOVELA)\b[^_\n]*/i);
-  if(m && m[0].trim().length > 5){
-    info.basedOnBook = true;
-    // Intentar extraer título si hay algo después del tipo
-    var src = m[0].replace(/^(BOOK|MANGA|MANHWA|COMIC|WEBTOON|NOVEL|NOVELA)\s*/i,'').trim();
-    if(src && src.length>1 && !/^https?/i.test(src)) info.bookSource = src;
-  }
-
-  // ─── URL DE IMAGEN (portada) ──────────────────────────────────────────────
-  // Busca URL con extensiones de imagen
-  m = fullText.match(/https?:\/\/[^\s]+\.(?:jpg|jpeg|png|webp|gif)(?:\?[^\s]*)?/i);
-  if(m) info.poster = m[0];
-
-  // ─── URL PARA VER (trailer/watch) ────────────────────────────────────────
-  // Busca URL de YouTube u otras
-  var watchUrls = [];
-  var urlRe = /https?:\/\/(?:www\.)?(?:youtube\.com|youtu\.be|iq\.com|wetv\.vip|viki\.com|netflix\.com|bilibili\.com)[^\s]*/gi;
-  var um;
-  while((um=urlRe.exec(fullText))!==null){ watchUrls.push(um[0]); }
-  // Cualquier otra URL que no sea imagen
-  var anyUrlRe = /https?:\/\/[^\s]+/gi;
-  while((um=anyUrlRe.exec(fullText))!==null){
-    var u=um[0];
-    if(!watchUrls.includes(u) && !/\.(?:jpg|jpeg|png|webp|gif)/i.test(u)) watchUrls.push(u);
-  }
-  if(watchUrls.length) info.trailerUrl = watchUrls[0];
-  if(watchUrls.length>1) info.watchUrl = watchUrls[1];
-
-  // ─── NOMBRE: primera línea que no sea URL ni un token suelto ─────────────
-  // Estrategia: buscar la cadena que sigue al año y antes del estado de producción
-  var nameCandidate = null;
-  // Intenta extraer el nombre: texto en mayúsculas (o mixto) tras el año
-  m = fullText.match(/\b(?:20\d{2}|19\d{2})\b\s+([^\n\r]+?)(?:\s+(?:FINALIZADA|FINALIZADAS|EMITIENDOSE|EMITIÉNDOSE|EMITIENDO|CAST|PRODUCCION|PRODUCCIÓN|ANUNCIADO|ANUNCIADA|CANCELADO|CANCELADA)\b)/i);
-  if(m) nameCandidate = m[1].trim();
-  // Fallback: primera línea completa si es corta (<80 chars) y no es URL
-  if(!nameCandidate && lines.length){
-    var fl = lines[0];
-    if(fl.length<80 && !/^https?/.test(fl)){
-      // quitar el año si aparece al inicio
-      nameCandidate = fl.replace(/^\s*(?:20\d{2}|19\d{2})\s*/,'').trim();
+  // ══════════════════════════════════════════════════════════════════════════
+  // PASO 2 — URLs marcadas con __ __ (de todo el texto)
+  // Imagen: URL con extensión de imagen o "thumb" en la ruta → va al poster
+  // Enlace: el resto → va a watchLinks / trailerUrl
+  // ══════════════════════════════════════════════════════════════════════════
+  var posterUrl    = null;
+  var watchLinks   = [];
+  var markedUrls   = [];
+  raw.replace(/__\s*(https?:\/\/\S+?)\s*__/g, function(_, u){ markedUrls.push(u); });
+  for(var ui=0; ui<markedUrls.length; ui++){
+    var u = markedUrls[ui];
+    if(/\.(jpg|jpeg|png|webp|gif|bmp)/i.test(u) || /thumb|_thumb|poster|cover/i.test(u)){
+      if(!posterUrl) posterUrl = u;
+    } else {
+      watchLinks.push(u);
     }
   }
-  // Limpiar estado/tipo del nombre
-  if(nameCandidate){
-    nameCandidate = nameCandidate.replace(/\b(FINALIZADA|FINALIZADAS|EMITIENDOSE|EMITIÉNDOSE|EMITIENDO|CAST|PRODUCCION|PRODUCCIÓN|ANUNCIADO|ANUNCIADA|CANCELADO|CANCELADA|SHORT|MOVIE|SERIES|SERIE|MINISERIE)\b/gi,'').trim();
-    nameCandidate = nameCandidate.replace(/\s{2,}/g,' ').trim();
-    if(nameCandidate.length > 1) info.name = nameCandidate;
+  // Imagen suelta sin __ __ (fallback)
+  if(!posterUrl){
+    var imgM = raw.match(/https?:\/\/[^\s]+\.(?:jpg|jpeg|png|webp|gif)(?:\?[^\s]*)?/i);
+    if(imgM) posterUrl = imgM[0];
+  }
+  var trailerUrl = watchLinks.length ? watchLinks[0] : '';
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // PASO 3 — Helper: extraer etiqueta de un bloque de texto
+  // Inserta \n antes de cada etiqueta conocida para manejar el formato inline
+  // y luego extrae el valor parando en la siguiente etiqueta
+  // ══════════════════════════════════════════════════════════════════════════
+  var LABEL_ES = 'T[\\xed\\x69]tulo|Nombre|Tipo|Formato|Pa[\\xed\\x69]s|'
+               + 'Fecha de lanzamiento|Fecha|Duraci[o\\xf3]n|Clasificaci[o\\xf3]n[^:]{0,20}';
+  var LABEL_EN = 'Title|Name|Type|Format|Country|Episodes|Aired On|Aired|'
+               + 'Content Rating|Original Network|Network|Platform|Streaming';
+  var LABEL_ALL = LABEL_ES + '|' + LABEL_EN;
+
+  function normalizeBlock(block){
+    // Inserta \n antes de etiquetas que están inline
+    return block.replace(
+      new RegExp('(?<!\\n)(' + LABEL_ALL + ')\\s*:', 'gi'),
+      function(m){ return '\n' + m; }
+    );
   }
 
-  // ─── SINOPSIS / DESCRIPCIÓN ───────────────────────────────────────────────
-  // Buscamos párrafo descriptivo: línea con más de 40 chars que no sea URL ni token
-  // Primero intentamos texto entre la URL de imagen y la URL de ver
-  var imgUrl = info.poster || '';
-  var watchUrlStr = info.trailerUrl || '';
-  var descCandidate = null;
-  if(imgUrl){
-    var afterImg = fullText.indexOf(imgUrl)+imgUrl.length;
-    var chunk = fullText.substring(afterImg).trim();
-    // Elimina la URL de ver al final si existe
-    if(watchUrlStr) chunk = chunk.replace(watchUrlStr,'').trim();
-    // Quitar cualquier URL restante al inicio/fin
-    chunk = chunk.replace(/^https?:\/\/\S+\s*/,'').replace(/\s*https?:\/\/\S+$/,'').trim();
-    if(chunk.length>30) descCandidate = chunk;
-  }
-  // Fallback: línea más larga que no es URL
-  if(!descCandidate){
-    var longest='';
-    for(var li=0;li<lines.length;li++){
-      var ll=lines[li];
-      if(!/^https?/.test(ll) && ll.length>longest.length && ll.length>40) longest=ll;
+  function extractFromBlock(block, keys){
+    var normBlock = normalizeBlock(block);
+    var blines = normBlock.split(/\n/);
+    var pat = new RegExp('^\\s*(?:' + keys.join('|') + ')\\s*:\\s*(.+)$', 'i');
+    for(var bi=0; bi<blines.length; bi++){
+      var m2 = blines[bi].match(pat);
+      if(m2){
+        var val = m2[1];
+        // Cortar en __ (inicio de URL marcada)
+        val = val.replace(/__.*$/, '').trim();
+        // Cortar en la siguiente etiqueta conocida dentro del valor
+        val = val.split(new RegExp('\\s+(?:' + LABEL_ALL + ')\\s*:', 'i'))[0].trim();
+        return val || null;
+      }
     }
-    if(longest.length>40) descCandidate=longest;
+    return null;
   }
-  if(descCandidate) info.synopsis = descCandidate.replace(/\s+/g,' ').trim();
 
-  // ─── RELLENAR FORMULARIO ──────────────────────────────────────────────────
-  var filled = 0;
-  function setVal(id,val){ var el=document.getElementById(id); if(el&&val){ el.value=val; filled++; } }
+  // ══════════════════════════════════════════════════════════════════════════
+  // PASO 4 — Extraer datos
+  // Prioridad para cada campo:
+  //   Película (isSeries=false): bloque A en español > bloque B en inglés
+  //   Serie    (isSeries=true):  bloque B en inglés > bloque A en español
+  // ══════════════════════════════════════════════════════════════════════════
+  var info = { emissionDays: [] };
+
+  // — Nombre —
+  var nameA = extractFromBlock(blockA, ['T[\\xed\\x69]tulo','Nombre']);
+  var nameB = extractFromBlock(blockB, ['Title','Name']);
+  info.name = isSeries ? (nameB || nameA) : (nameA || nameB);
+
+  // — País —
+  var countryA = extractFromBlock(blockA, ['Pa[\\xed\\x69]s']);
+  var countryB = extractFromBlock(blockB, ['Country']);
+  var rawCountry = isSeries ? (countryB || countryA) : (countryA || countryB);
+  if(rawCountry) info.country = mapCountry(rawCountry);
+
+  // — Episodios (solo en bloque B) —
+  var epsRaw = extractFromBlock(blockB, ['Episodes?','Episodios?']);
+  if(epsRaw){ var em=epsRaw.match(/\d+/); if(em) info.totalEpisodes=parseInt(em[0]); }
+
+  // — Duración —
+  var durA = extractFromBlock(blockA, ['Duraci[o\\xf3]n','Duration']);
+  if(!durA){ var dm0=blockA.match(/(\d+)\s*(?:minutos?|MIN)\b/i); if(dm0) durA=dm0[0]; }
+  var durRaw = durA;
+  if(durRaw){ var dm=durRaw.match(/(\d+)/); if(dm) info.duration=parseInt(dm[1]); }
+
+  // — Plataforma / Canal —
+  // Primero: detectar plataformas conocidas en la línea compacta del bloque A
+  var networkFromCompact = null;
+  var compactLine = null;
+  var aLines = blockA.split(/\n/);
+  for(var li=0; li<aLines.length; li++){
+    if(/^\d{4}\b/.test(aLines[li].trim()) && !/:/.test(aLines[li])){ compactLine=aLines[li].trim(); break; }
+  }
+  if(compactLine){
+    var plist=['NETFLIX','YOUTUBE','IQIYI','WETV','VIKI','BILIBILI','LINE TV','GMM25','ONE31',
+               'GMMTV','PRIME VIDEO','AMAZON','HBO','DISNEY','WEVERSE','WATCHA','TVING','WAVVE',
+               'NAVER','KAKAO','SBS','KBS','MBC','TVN','JTBC','MBS','TBS','NTV','FUJI',
+               'TV ASAHI','CTITV','FTV','PTS','BBC','ITV','YOUKU','MANGO','VIUTV'];
+    var found=[]; var clUp=compactLine.toUpperCase();
+    for(var pi=0;pi<plist.length;pi++){ if(clUp.indexOf(plist[pi])>=0) found.push(plist[pi]); }
+    if(!found.length){ var tcm=compactLine.match(/\b([A-Z]{2,6}(?:[-][A-Z]{2,6})?TV)\b/); if(tcm) found.push(tcm[1]); }
+    if(found.length) networkFromCompact=found.join(', ');
+  }
+  var netB = extractFromBlock(blockB, ['Original Network','Network','Platform','Streaming']);
+  info.network = networkFromCompact || netB || null;
+
+  // — Fecha de estreno —
+  var airedA = extractFromBlock(blockA, ['Fecha de lanzamiento','Fecha','Estreno']);
+  var airedB = extractFromBlock(blockB, ['Aired']);
+  var airedRaw = isSeries ? (airedB||airedA) : (airedA||airedB);
+  if(airedRaw){
+    // Inglés: "Nov 5, 2024"
+    var dateM=airedRaw.match(/(\w+ \d{1,2},?\s*\d{4})/);
+    if(dateM){ var dd=new Date(dateM[1]); if(!isNaN(dd)) info.startDate=dd.toISOString().slice(0,10); }
+    // Español: "21 de junio de 2019"
+    var esM=airedRaw.match(/(\d{1,2})\s+de\s+(\w+)\s+de\s+(\d{4})/i);
+    if(esM){
+      var meses={'enero':0,'febrero':1,'marzo':2,'abril':3,'mayo':4,'junio':5,'julio':6,
+                 'agosto':7,'septiembre':8,'octubre':9,'noviembre':10,'diciembre':11};
+      var mes=meses[esM[2].toLowerCase()];
+      if(mes!==undefined){ var dd2=new Date(parseInt(esM[3]),mes,parseInt(esM[1])); info.startDate=dd2.toISOString().slice(0,10); }
+    }
+  }
+
+  // — Días de emisión (solo en bloque B) —
+  var airedOnRaw = extractFromBlock(blockB, ['Aired On']);
+  if(airedOnRaw){
+    var dmapD={Monday:1,Tuesday:2,Wednesday:3,Thursday:4,Friday:5,Saturday:6,Sunday:0,
+               Lunes:1,Martes:2,Jueves:4,Viernes:5,Domingo:0};
+    dmapD['Mi\u00e9rcoles']=3; dmapD['Miercoles']=3;
+    dmapD['S\u00e1bado']=6;    dmapD['Sabado']=6;
+    for(var dk in dmapD){ if(airedOnRaw.indexOf(dk)>=0) info.emissionDays.push(dmapD[dk]); }
+  }
+  if(!info.emissionDays.length) info.emissionDays=[1];
+
+  // — Año —
+  var ym = raw.match(/\b(20\d{2}|19\d{2})\b/);
+  if(ym) info.year = parseInt(ym[1]);
+
+  // — Estado de producción (solo en bloque A / línea compacta) —
+  if(compactLine){
+    var stMap={'FINALIZADA':'finished','FINALIZADAS':'finished','EMITIENDOSE':'airing',
+      'EMITI\u00c9NDOSE':'airing','EMITIENDO':'airing','CAST':'cast',
+      'PRODUCCION':'production','PRODUCCI\u00d3N':'production',
+      'ANUNCIADO':'announced','ANUNCIADA':'announced','CANCELADO':'cancelled','CANCELADA':'cancelled'};
+    for(var sk in stMap){ if(compactLine.toUpperCase().indexOf(sk)>=0){ info.productionStatus=stMap[sk]; break; } }
+
+    // País desde línea compacta (si no se extrajo por etiqueta)
+    if(!info.country){
+      var cpairs=[['COREA DEL SUR','Corea del Sur'],['SOUTH KOREA','Corea del Sur'],
+        ['TAILANDIA','Tailandia'],['THAILAND','Tailandia'],['CHINA','China'],
+        ['JAP\u00d3N','Jap\u00f3n'],['JAPON','Jap\u00f3n'],['JAPAN','Jap\u00f3n'],
+        ['TAIW\u00c1N','Taiw\u00e1n'],['TAIWAN','Taiw\u00e1n'],['FILIPINAS','Filipinas'],
+        ['PHILIPPINES','Filipinas'],['VIETNAM','Vietnam'],['INDONESIA','Indonesia'],
+        ['ESPA\u00d1A','Espa\u00f1a'],['SPAIN','Espa\u00f1a'],
+        ['ESTADOS UNIDOS','Estados Unidos'],['UNITED STATES','Estados Unidos'],['USA','Estados Unidos'],
+        ['HONG KONG','Hong Kong'],['MALASIA','Malasia'],['MALAYSIA','Malasia']];
+      var clUp2=compactLine.toUpperCase();
+      for(var ci=0;ci<cpairs.length;ci++){
+        if(clUp2.indexOf(cpairs[ci][0])>=0){ info.country=cpairs[ci][1]; break; }
+      }
+    }
+
+    // Actrices: NOMBRE-NOMBRE en mayúsculas
+    var actm=compactLine.match(/\b([A-Z\u00c0-\u00dc]{3,}(?:-[A-Z\u00c0-\u00dc]{3,})+)\b/);
+    if(actm) info.actresses=actm[1].replace(/-/g,' / ');
+
+    // Nombre desde línea compacta (si no se obtuvo por etiqueta)
+    if(!info.name){
+      var nameM=compactLine.match(/^\d{4}\s+(.+?)(?:\s+(?:FINALIZADA|FINALIZADAS|EMITIENDOSE|EMITI\u00c9NDOSE|EMITIENDO|CAST|PRODUCCION|PRODUCCI\u00d3N|ANUNCIADO|ANUNCIADA|CANCELADO|CANCELADA)\b)/i);
+      if(nameM) info.name=nameM[1].trim();
+    }
+  }
+
+  // — Libro / Manga / Manhwa / Webtoon —
+  if(/\b(MANGA|MANHWA|WEBTOON|COMIC|NOVEL)\b/i.test(raw)){
+    info.basedOnBook=true;
+    var bookM=raw.match(/\b(?:MANGA|MANHWA|WEBTOON|COMIC|NOVEL|NOVELA|BOOK)\b[:\s]+([^\n_]{2,60})/i);
+    if(bookM && !/^https?/.test(bookM[1].trim())) info.bookSource=bookM[1].trim();
+  }
+
+  // — Sinopsis: texto libre en el bloque A entre la imagen y las etiquetas —
+  var synParts = blockA.split(/__\s*https?:\/\/\S+?\s*__/);
+  if(synParts.length > 1){
+    var freeText = synParts[1];
+    // Cortar en la primera etiqueta
+    freeText = freeText.split(new RegExp('\\s*(?:' + LABEL_ES + ')\\s*:', 'i'))[0].trim();
+    if(freeText.length > 10) info.synopsis = freeText;
+  }
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // PASO 5 — Volcar al formulario
+  // ══════════════════════════════════════════════════════════════════════════
+  var filled=0;
+  function setVal(id,val){
+    var el=document.getElementById(id);
+    if(el && val!==null && val!==undefined && String(val)!==''){el.value=val; filled++;}
+  }
 
   if(isSeries){
-    setVal('f_name', info.name);
+    setVal('f_name',     info.name);
     setVal('f_synopsis', info.synopsis);
-    setVal('f_year', info.year);
-    setVal('f_net', info.network);
-    setVal('f_poster', info.poster);
-    setVal('f_trailer', info.trailerUrl);
-    // Trigger poster preview
-    if(info.poster){ var pp=document.getElementById('seriesPosterPreview'); if(pp){pp.src=info.poster;pp.style.display='block';} }
-    if(info.country){ initCountries('countriesList',info.country); filled++; }
+    setVal('f_year',     info.year);
+    setVal('f_net',      info.network);
+    setVal('f_poster',   posterUrl);
+    setVal('f_trailer',  trailerUrl);
+    if(posterUrl){var pp=document.getElementById('seriesPosterPreview');if(pp){pp.src=posterUrl;pp.style.display='block';}}
+    if(info.country){initCountries('countriesList',info.country);filled++;}
     if(info.basedOnBook){
       var cb=document.getElementById('f_book');
-      if(cb){ cb.checked=true; toggleBookFields(); }
-      if(info.bookSource) setVal('f_booksource', info.bookSource);
+      if(cb){cb.checked=true;toggleBookFields();}
+      if(info.bookSource) setVal('f_booksource',info.bookSource);
       filled++;
     }
-    if(info.totalEpisodes || info.emissionDays.length){
+    if(info.totalEpisodes||info.startDate){
       var sl=document.getElementById('seasonsList');
-      if(sl){ sl.innerHTML=''; addSeasonBlock({label:'Temporada 1',startDate:'',totalEpisodes:info.totalEpisodes||12,emissionDays:info.emissionDays.length?info.emissionDays:[0],skipDates:[],episodes:[]}); filled++; }
+      if(sl){sl.innerHTML='';addSeasonBlock({label:'Temporada 1',startDate:info.startDate||'',totalEpisodes:info.totalEpisodes||12,emissionDays:info.emissionDays,skipDates:[],episodes:[]});filled++;}
     }
-    // Watch link
-    if(info.watchUrl || info.trailerUrl){
+    if(watchLinks.length){
       var wl=document.getElementById('platformsList');
-      if(wl && !wl.children.length){
-        var wurl = info.watchUrl || info.trailerUrl;
-        addPlatformRow({name:info.network||'Ver',url:wurl});
-        filled++;
-      }
+      if(wl&&!wl.children.length){addPlatformRow({name:info.network||'Ver',url:watchLinks[0]});filled++;}
     }
   } else {
-    setVal('mf_name', info.name);
-    setVal('mf_synopsis', info.synopsis);
-    setVal('mf_year', info.year);
-    setVal('mf_net', info.network);
-    setVal('mf_poster', info.poster);
-    setVal('mf_trailer', info.trailerUrl);
-    // Trigger poster preview
-    if(info.poster){ var mpp=document.getElementById('moviePosterPreview'); if(mpp){mpp.src=info.poster;mpp.style.display='block';} }
-    if(info.country){ initCountries('movieCountriesList',info.country); filled++; }
+    setVal('mf_name',    info.name);
+    setVal('mf_synopsis',info.synopsis);
+    setVal('mf_year',    info.year);
+    setVal('mf_net',     info.network);
+    setVal('mf_poster',  posterUrl);
+    setVal('mf_trailer', trailerUrl);
+    if(posterUrl){var mpp=document.getElementById('moviePosterPreview');if(mpp){mpp.src=posterUrl;mpp.style.display='block';}}
+    if(info.country){initCountries('movieCountriesList',info.country);filled++;}
     if(info.basedOnBook){
       var cb2=document.getElementById('mf_book');
-      if(cb2){ cb2.checked=true; toggleMovieBookFields(); }
-      if(info.bookSource) setVal('mf_booksource', info.bookSource);
+      if(cb2){cb2.checked=true;toggleMovieBookFields();}
+      if(info.bookSource) setVal('mf_booksource',info.bookSource);
       filled++;
     }
-    // Watch link
-    if(info.watchUrl || info.trailerUrl){
+    if(info.startDate) setVal('mf_date',info.startDate);
+    if(watchLinks.length){
       var mwl=document.getElementById('moviePlatformsList');
-      if(mwl && !mwl.children.length){
-        var mwurl = info.watchUrl || info.trailerUrl;
-        addMoviePlatformRow({name:info.network||'Ver',url:mwurl});
-        filled++;
-      }
+      if(mwl&&!mwl.children.length){addMoviePlatformRow({name:info.network||'Ver',url:watchLinks[0]});filled++;}
     }
   }
 
-  // Status message con detalles de lo detectado
   if(filled>0){
-    var details = [];
-    if(info.name) details.push('nombre');
-    if(info.year) details.push('año');
-    if(info.country) details.push('país');
-    if(info.network) details.push('plataforma');
-    if(info.poster) details.push('imagen');
-    if(info.synopsis) details.push('descripción');
-    if(info.trailerUrl) details.push('enlace');
-    if(info.basedOnBook) details.push('libro');
+    var det=[];
+    if(info.name)          det.push('nombre');
+    if(info.year)          det.push('a\u00f1o');
+    if(info.country)       det.push('pa\u00eds');
+    if(info.network)       det.push('plataforma');
+    if(posterUrl)          det.push('imagen');
+    if(info.synopsis)      det.push('descripci\u00f3n');
+    if(trailerUrl)         det.push('enlace');
+    if(info.startDate)     det.push('fecha');
+    if(info.totalEpisodes) det.push('episodios');
+    if(info.duration)      det.push('duraci\u00f3n');
+    if(info.basedOnBook)   det.push('libro/manga');
     status.className='paste-bar-status ok';
-    status.textContent='✓ Rellenados: '+details.join(', ')+'. Revisa y completa lo que falte.';
+    status.textContent='\u2713 Rellenados: '+det.join(', ')+'. Revisa y completa lo que falte.';
     ta.value='';
   } else {
     status.className='paste-bar-status err';
-    status.textContent='✕ No se detectaron datos. Comprueba el formato de la ficha.';
+    status.textContent='\u2715 No se detectaron datos. Comprueba el formato de la ficha.';
   }
 }
-
+function mapCountry(c){
+  var cm={
+    'Thailand':'Tailandia','South Korea':'Corea del Sur','Korea':'Corea del Sur',
+    'China':'China','Japan':'Jap\u00f3n','Taiwan':'Taiw\u00e1n','Philippines':'Filipinas',
+    'Vietnam':'Vietnam','Indonesia':'Indonesia','Spain':'Espa\u00f1a',
+    'United States':'Estados Unidos','Hong Kong':'Hong Kong','Malaysia':'Malasia',
+    'Tailandia':'Tailandia','Corea del Sur':'Corea del Sur','Jap\u00f3n':'Jap\u00f3n'
+  };
+  return cm[c]||c;
+}
 initData();
 </script>
 </body>
