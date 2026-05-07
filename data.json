@@ -7609,7 +7609,7 @@
         },
         {
           "label": "Temporada 2",
-          "startDate": "2026-06-02",
+          "startDate": "2015-06-02",
           "totalEpisodes": 48,
           "emissionDays": [
             1
@@ -7630,7 +7630,7 @@
           "episodes": []
         }
       ],
-      "updatedAt": "2026-05-03T11:37:32.137Z"
+      "updatedAt": "2026-05-07T12:34:15.412Z"
     },
     {
       "id": "1700000000066",
@@ -11634,5 +11634,5 @@
       "genres": []
     }
   ],
-  "exportedAt": "2026-05-07T12:11:29.611Z"
+  "exportedAt": "2026-05-07T12:34:18.136Z"
 }
