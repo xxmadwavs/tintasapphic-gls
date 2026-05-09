@@ -233,7 +233,7 @@ body::before{content:'';position:fixed;inset:0;background:
 @media(max-width:600px){
   .container{padding:1.25rem 1rem 2rem;width:100%;}
   .hero-stats{flex-wrap:wrap}
-  #viewList,#viewMovies,#viewUpcoming,#viewBooks{width:100%;}
+  #viewList,#viewMovies,#viewUpcoming,#viewBooks,#viewAnime,#viewRealities{width:100%;}
 }
 
 /* Legacy page-header (hidden now) */
@@ -248,6 +248,7 @@ body::before{content:'';position:fixed;inset:0;background:
   width:fit-content;max-width:100%;
   border:1.5px solid var(--border2);
   box-shadow:var(--shadow-sm);
+  flex-wrap:wrap;
 }
 .tab{
   padding:8px 20px;border-radius:14px;cursor:pointer;
@@ -264,23 +265,42 @@ body::before{content:'';position:fixed;inset:0;background:
 .tab:hover:not(.active){color:var(--text);background:var(--surface2)}
 
 /* Móvil: tabs en grid, sin scroll horizontal */
-@media(max-width:600px){
+@media(max-width:900px) and (min-width:701px){
   .tabs{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:6px;width:100%;
+    grid-template-columns:repeat(4,1fr);
+    gap:5px;width:100%;
     background:transparent;border:none;box-shadow:none;padding:0;
     margin-bottom:1.25rem;
   }
   .tab{
     justify-content:center;flex-direction:column;
-    padding:9px 4px;border-radius:12px;font-size:11px;font-weight:700;
+    padding:8px 6px;border-radius:12px;font-size:11px;font-weight:700;
     background:var(--surface);border:1.5px solid var(--border2);
     box-shadow:var(--shadow-sm);gap:2px;text-align:center;
-    white-space:normal;
+    white-space:normal;min-width:0;
   }
-  .tab:nth-child(4){grid-column:1/2}
-  .tab:nth-child(5){grid-column:3/4}
+  .tab.active{
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    color:#fff;border-color:var(--accent);
+    box-shadow:0 3px 14px rgba(201,79,124,0.25);
+  }
+}
+@media(max-width:700px){
+  .tabs{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:5px;width:100%;
+    background:transparent;border:none;box-shadow:none;padding:0;
+    margin-bottom:1.25rem;
+  }
+  .tab{
+    justify-content:center;flex-direction:column;
+    padding:8px 4px;border-radius:12px;font-size:10px;font-weight:700;
+    background:var(--surface);border:1.5px solid var(--border2);
+    box-shadow:var(--shadow-sm);gap:2px;text-align:center;
+    white-space:normal;min-width:0;
+  }
   .tab.active{
     background:linear-gradient(135deg,var(--accent),var(--accent2));
     color:#fff;border-color:var(--accent);
@@ -985,8 +1005,13 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
     <button class="tab" id="tabList" onclick="switchTab('list')">🎬 Series</button>
     <button class="tab" id="tabMovies" onclick="switchTab('movies')">🎥 Películas</button>
     <button class="tab" id="tabUpcoming" onclick="switchTab('upcoming')">✨ Próximamente</button>
+    <button class="tab" id="tabAnime" onclick="switchTab('anime')">🌸 Anime</button>
+    <button class="tab" id="tabRealities" onclick="switchTab('realities')">🎤 Realities</button>
     <button class="tab" id="tabBooks" onclick="switchTab('books')">📚 Libros</button>
   </div>
+
+  <div id="viewAnime" style="display:none"></div>
+  <div id="viewRealities" style="display:none"></div>
 
   <div id="viewCal">
     <div class="cal-nav">
@@ -2447,9 +2472,447 @@ function renderBooksResults(){
   html+='</div>';
   resultsEl.innerHTML=html;
 }
+// ═══ ANIME ═══
+let animeFilters={q:'',countries:[],sort:'az',book:'all',year:'',genre:'',type:'all'};
+let animeSubtab='series'; // 'series' | 'movies'
+let paginationAnime={series:1,movies:1};
+const ANIME_GENRES=['Romance','Drama','Comedia','Acción','Fantasía','Ciencia Ficción','Sobrenatural','Aventura','Misterio','Slice of Life','Coming of Age','Escolar','Universitario'];
+
+// Datos de ejemplo de anime GL (hardcoded; admin.html deberá permitir añadirlos en data.json con type:'anime')
+function getAnimeSeriesData(){
+  // Filtramos desde state.series aquellas con type === 'anime', o usamos datos de demostración
+  const fromData = state.series.filter(s=>s.category==='anime');
+  if(fromData.length) return fromData;
+  return [
+    {id:'anime_demo_1',name:'Bloom Into You (Yagate Kimi ni Naru)',poster:'https://cdn.myanimelist.net/images/anime/1879/97533.jpg',synopsis:'Yuu siempre ha creído que un día sentirá esa emoción arrolladora del amor, pero cuando llega a la secundaria y conoce a la perfecta Touko Nanami, algo inesperado ocurre: Touko se enamora de ella. Una historia delicada sobre identidad y sentimientos.',year:2018,country:'Japón',network:'HIDIVE',networkUrl:'https://www.hidive.com/tv/bloom-into-you',watchLinks:[{name:'HIDIVE',url:'https://www.hidive.com/tv/bloom-into-you'}],trailerUrl:'https://youtu.be/7O2VxN2i6CE',genres:['Romance','Drama','Escolar'],basedOnBook:true,bookSource:'Manga Yagate Kimi ni Naru',upcoming:false,startDate:'2018-10-05',totalEpisodes:13,emissionDays:[4],skipDates:[],episodes:[],seasons:[{label:'Temporada 1',startDate:'2018-10-05',totalEpisodes:13,emissionDays:[4],skipDates:[],episodes:[]}]},
+    {id:'anime_demo_2',name:'Citrus',poster:'https://cdn.myanimelist.net/images/anime/1402/89768.jpg',synopsis:'Yuzu, una chica fashionista, llega a una estricta escuela de solo chicas. Su vida da un vuelco cuando conoce a Mei, la seria presidenta del consejo estudiantil que resulta ser su nueva hermanastral.',year:2018,country:'Japón',network:'Crunchyroll',networkUrl:'https://www.crunchyroll.com/citrus',watchLinks:[{name:'Crunchyroll',url:'https://www.crunchyroll.com/citrus'}],trailerUrl:'https://youtu.be/R0wvFBnmMkU',genres:['Romance','Drama','Escolar'],basedOnBook:true,bookSource:'Manga Citrus',upcoming:false,startDate:'2018-01-06',totalEpisodes:12,emissionDays:[5],skipDates:[],episodes:[],seasons:[{label:'Temporada 1',startDate:'2018-01-06',totalEpisodes:12,emissionDays:[5],skipDates:[],episodes:[]}]},
+    {id:'anime_demo_3',name:'Adachi and Shimamura (Adachi to Shimamura)',poster:'https://cdn.myanimelist.net/images/anime/1375/108854.jpg',synopsis:'Adachi y Shimamura se conocen en el gimnasio durante las horas de clase. Poco a poco desarrollan una profunda amistad que quizás sea algo más, a medida que Adachi descubre sus propios sentimientos.',year:2020,country:'Japón',network:'Funimation',networkUrl:'https://www.funimation.com',watchLinks:[{name:'Crunchyroll',url:'https://www.crunchyroll.com'}],trailerUrl:'https://youtu.be/jLEHqX6yDgE',genres:['Romance','Slice of Life','Escolar'],basedOnBook:true,bookSource:'Light Novel',upcoming:false,startDate:'2020-10-09',totalEpisodes:12,emissionDays:[4],skipDates:[],episodes:[],seasons:[{label:'Temporada 1',startDate:'2020-10-09',totalEpisodes:12,emissionDays:[4],skipDates:[],episodes:[]}]},
+    {id:'anime_demo_4',name:'Revolutionary Girl Utena (Shoujo Kakumei Utena)',poster:'https://cdn.myanimelist.net/images/anime/7/77990.jpg',synopsis:'Utena Tenjou aspira a ser un príncipe. Llega a una academia donde debe participar en duelos para proteger a la "Rosa Esposa", Anthy Himemiya. Una obra maestra del anime GL llena de simbolismo y feminismo.',year:1997,country:'Japón',network:'',networkUrl:'',watchLinks:[],trailerUrl:'https://youtu.be/S8-3TT8hmVE',genres:['Acción','Fantasía','Drama','Coming of Age'],basedOnBook:false,bookSource:'',upcoming:false,startDate:'1997-04-02',totalEpisodes:39,emissionDays:[3],skipDates:[],episodes:[],seasons:[{label:'Temporada 1',startDate:'1997-04-02',totalEpisodes:39,emissionDays:[3],skipDates:[],episodes:[]}]},
+    {id:'anime_demo_5',name:'Lycoris Recoil',poster:'https://cdn.myanimelist.net/images/anime/1993/120837.jpg',synopsis:'Takina, una Lycoris de élite, es asignada a la cafetería LycoReco tras un incidente. Allí conoce a Chisato, la Lycoris más talentosa pero libre. Su amistad y tensión se convierten en algo más profundo.',year:2022,country:'Japón',network:'Crunchyroll',networkUrl:'https://www.crunchyroll.com/lycoris-recoil',watchLinks:[{name:'Crunchyroll',url:'https://www.crunchyroll.com/lycoris-recoil'}],trailerUrl:'https://youtu.be/etSnBZsKyJk',genres:['Acción','Comedia','Slice of Life'],basedOnBook:false,bookSource:'',upcoming:false,startDate:'2022-07-02',totalEpisodes:13,emissionDays:[5],skipDates:[],episodes:[],seasons:[{label:'Temporada 1',startDate:'2022-07-02',totalEpisodes:13,emissionDays:[5],skipDates:[],episodes:[]}]},
+  ];
+}
+function getAnimeMoviesData(){
+  const fromData = state.movies.filter(m=>m.category==='anime');
+  if(fromData.length) return fromData;
+  return [
+    {id:'anime_movie_demo_1',name:'The Colors Within (Kimi no Iro)',poster:'https://cdn.myanimelist.net/images/anime/1870/143540.jpg',synopsis:'Totsuko, una chica que puede ver los colores de las emociones de los demás, conoce a dos personas únicas y juntos forman una banda. Una historia sobre amistad, música y los colores del amor.',year:2024,country:'Japón',network:'Gkids',networkUrl:'',watchLinks:[],trailerUrl:'https://youtu.be/V4nOLJiJBps',date:'2024-10-04',genres:['Romance','Drama','Musical'],basedOnBook:false,bookSource:''},
+    {id:'anime_movie_demo_2',name:'Haruka and Michiru: Sailor Stars',poster:'https://cdn.myanimelist.net/images/anime/1894/119441.jpg',synopsis:'La icónica pareja de Sailor Moon, Haruka Tenoh (Sailor Uranus) y Michiru Kaioh (Sailor Neptune), en su historia de amor más recordada del anime mainstream.',year:1995,country:'Japón',network:'',networkUrl:'',watchLinks:[],trailerUrl:'',date:'1995-01-01',genres:['Acción','Romance','Fantasía'],basedOnBook:false,bookSource:''},
+  ];
+}
+
+function applyAnimeFilters(arr){
+  let r=[...arr];
+  const q=animeFilters.q.toLowerCase().trim();
+  if(q) r=r.filter(s=>s.name.toLowerCase().includes(q)||(s.country||'').toLowerCase().includes(q)||(s.network||'').toLowerCase().includes(q));
+  if(animeFilters.countries&&animeFilters.countries.length) r=r.filter(s=>animeFilters.countries.includes(s.country));
+  if(animeFilters.book==='yes') r=r.filter(s=>s.basedOnBook);
+  if(animeFilters.book==='no') r=r.filter(s=>!s.basedOnBook);
+  if(animeFilters.year) r=r.filter(s=>{ const y=(s.startDate||s.date||'').substring(0,4); return y===animeFilters.year||(s.year&&String(s.year)===animeFilters.year); });
+  if(animeFilters.genre) r=r.filter(s=>s.genres&&s.genres.includes(animeFilters.genre));
+  if(animeFilters.sort==='az') r.sort((a,b)=>a.name.localeCompare(b.name,'es'));
+  else if(animeFilters.sort==='za') r.sort((a,b)=>b.name.localeCompare(a.name,'es'));
+  else if(animeFilters.sort==='date') r.sort((a,b)=>((b.startDate||b.date||'')).localeCompare((a.startDate||a.date||'')));
+  else if(animeFilters.sort==='dateold') r.sort((a,b)=>((a.startDate||a.date||'')).localeCompare((b.startDate||b.date||'')));
+  return r;
+}
+
+function renderAnime(){
+  const view=document.getElementById('viewAnime');
+  if(!view) return;
+
+  const allSeries=getAnimeSeriesData();
+  const allMovies=getAnimeMoviesData();
+  const allCountries=[...new Set([...allSeries,...allMovies].map(s=>s.country).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));
+  const allYears=[...new Set([...allSeries.map(s=>(s.startDate||'').substring(0,4)||String(s.year||'')),...allMovies.map(m=>(m.date||'').substring(0,4)||String(m.year||''))].filter(Boolean))].sort((a,b)=>b-a);
+  const genreOpts=ANIME_GENRES.map(g=>`<option value="${g}">${g}</option>`).join('');
+  const yearsOpts=allYears.map(y=>`<option value="${y}">${y}</option>`).join('');
+
+  const seriesCount=allSeries.length, moviesCount=allMovies.length;
+
+  view.innerHTML=`
+    <div style="margin-bottom:1.25rem">
+      <div class="section-heading">🌸 Anime GL</div>
+      <div class="section-desc">Series y películas de anime con historias de amor entre chicas (yuri, GL y subtexto sáfico)</div>
+    </div>
+    <div class="subtabs" id="animeSubtabs">
+      <button class="subtab${animeSubtab==='series'?' active':''}" onclick="animeSubtab='series';renderAnimeResults()">🎬 Series <span class="subtab-count">${seriesCount}</span></button>
+      <button class="subtab${animeSubtab==='movies'?' active':''}" onclick="animeSubtab='movies';renderAnimeResults()">🎥 Películas <span class="subtab-count">${moviesCount}</span></button>
+    </div>
+    <div class="books-toolbar" id="animeToolbar">
+      <div class="toolbar-search-row">
+        <div class="search-wrap" style="position:relative;margin-bottom:0;width:100%">
+          <span class="search-icon">🔍</span>
+          <input id="animeSearchInput" class="search-input" placeholder="Buscar anime, país, plataforma…" value="${animeFilters.q}" oninput="animeFilters.q=this.value;paginationAnime={series:1,movies:1};renderAnimeResults()" autocomplete="off">
+        </div>
+      </div>
+      <div class="toolbar-filters-row">
+        <div class="filter-group">
+          <span class="filter-label">País</span>
+          <select class="filter-select" onchange="animeFilters.countries=this.value?[this.value]:[];paginationAnime={series:1,movies:1};renderAnimeResults()">
+            <option value="">🌐 País</option>${allCountries.map(c=>`<option value="${c}">${countryFlag(c)} ${c}</option>`).join('')}
+          </select>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Género</span>
+          <select id="animeGenreSel" class="filter-select" onchange="animeFilters.genre=this.value;paginationAnime={series:1,movies:1};renderAnimeResults()">
+            <option value="">🎭 Género</option>${genreOpts}
+          </select>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Libro/Manga</span>
+          <select id="animeBookSel" class="filter-select" onchange="animeFilters.book=this.value;paginationAnime={series:1,movies:1};renderAnimeResults()">
+            <option value="all">📚 Origen</option>
+            <option value="yes">📖 Con manga/novela</option>
+            <option value="no">Original</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Año</span>
+          <select id="animeYearSel" class="filter-select" onchange="animeFilters.year=this.value;paginationAnime={series:1,movies:1};renderAnimeResults()">
+            <option value="">📅 Año</option>${yearsOpts}
+          </select>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Orden</span>
+          <select id="animeSortSel" class="filter-select" onchange="animeFilters.sort=this.value;paginationAnime={series:1,movies:1};renderAnimeResults()">
+            <option value="az">A → Z</option>
+            <option value="za">Z → A</option>
+            <option value="date">📅 Más reciente primero</option>
+            <option value="dateold">📅 Más antiguo primero</option>
+          </select>
+        </div>
+        <button class="filter-clear-btn" id="animeClearBtn" style="display:none"
+          onclick="animeFilters={q:'',countries:[],sort:'az',book:'all',year:'',genre:''};document.getElementById('animeSearchInput').value='';document.getElementById('animeGenreSel').value='';document.getElementById('animeBookSel').value='all';document.getElementById('animeYearSel').value='';document.getElementById('animeSortSel').value='az';paginationAnime={series:1,movies:1};renderAnimeResults()">✕ Limpiar</button>
+      </div>
+    </div>
+    <div id="animeResults"></div>
+    <div style="margin-top:2.5rem;padding:1.25rem;background:linear-gradient(135deg,rgba(139,114,190,0.07),rgba(201,79,124,0.05));border:1.5px dashed rgba(139,114,190,0.25);border-radius:var(--radius-lg);text-align:center">
+      <div style="font-size:13px;font-weight:700;color:var(--lavender);margin-bottom:4px">🌸 ¿Falta algún anime?</div>
+      <div style="font-size:12px;color:var(--muted)">Esta sección crece con el tiempo. Puedes sugerir animes GL a través de la cuenta de X <a href="https://x.com/xxmadwavs" target="_blank" style="color:var(--accent);font-weight:600">@xxmadwavs</a></div>
+    </div>`;
+
+  renderAnimeResults();
+}
+
+function renderAnimeResults(){
+  const resultsEl=document.getElementById('animeResults');
+  if(!resultsEl) return;
+
+  // Sync subtab buttons
+  document.querySelectorAll('#animeSubtabs .subtab').forEach((btn,i)=>{
+    const tabs=['series','movies'];
+    btn.className='subtab'+(animeSubtab===tabs[i]?' active':'');
+  });
+
+  const clearBtn=document.getElementById('animeClearBtn');
+  if(clearBtn) clearBtn.style.display=(animeFilters.countries.length||animeFilters.book!=='all'||animeFilters.year||animeFilters.genre)?'':'none';
+
+  if(animeSubtab==='series'){
+    const all=getAnimeSeriesData();
+    const filtered=applyAnimeFilters(all);
+    const page=paginationAnime.series;
+    const totalPages=Math.ceil(filtered.length/PAGE_SIZE)||1;
+    const paged=filtered.slice((page-1)*PAGE_SIZE,page*PAGE_SIZE);
+    window.setAnimePage=p=>{paginationAnime.series=p;renderAnimeResults();scrollToResults('animeResults');};
+    if(!filtered.length){resultsEl.innerHTML='<div class="search-empty">No se encontró ningún anime con esos filtros.</div>';return;}
+    let html=`<div class="books-count">Mostrando <strong>${paged.length}</strong> de <strong>${filtered.length}</strong> anime${filtered.length!==1?'s':''}</div><div class="series-grid">`;
+    paged.forEach((s,i)=>{
+      const si=i;
+      const posterEl=s.poster?`<div class="series-card-poster-wrap"><img class="series-card-poster" src="${s.poster}" alt="${s.name}" onerror="this.outerHTML='<div class=series-card-poster-ph>🌸</div>'"></div>`:`<div class="series-card-poster-wrap"><div class="series-card-poster-ph">🌸</div></div>`;
+      const links=s.watchLinks&&s.watchLinks.length?s.watchLinks:(s.networkUrl?[{name:s.network||'Ver',url:s.networkUrl}]:[]);
+      const watchRow=links.length?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px">${links.map(l=>`<a class="card-watch-pill" href="${l.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ ${l.name}</a>`).join('')}</div>`:'';
+      const genrePills=s.genres&&s.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:3px;margin-top:5px">${s.genres.slice(0,3).map(g=>`<span style="font-size:9.5px;padding:2px 7px;border-radius:20px;background:var(--lavender-soft);border:1px solid rgba(139,114,190,0.2);color:var(--lavender);font-weight:600">${g}</span>`).join('')}</div>`:'';
+      const year=s.year||(s.startDate||'').substring(0,4)||'';
+      html+=`<div class="series-card" onclick="openAnimeDetail('series',${si})">
+        ${posterEl}
+        <div class="series-card-body">
+          <div class="card-badges">${s.basedOnBook?`<span class="badge badge-book">📖 ${s.bookSource||'Manga'}</span>`:''}${s.country?`<span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">${countryFlag(s.country)} ${s.country}</span>`:''}</div>
+          <div class="series-card-name">${s.name}</div>
+          <div class="series-card-meta">${[s.network,year?'📅 '+year:null].filter(Boolean).join(' · ')}</div>
+          ${genrePills}
+          ${watchRow}
+          ${s.totalEpisodes?`<div style="font-size:10px;color:var(--muted);margin-top:5px">📺 ${s.totalEpisodes} episodios</div>`:''}
+        </div>
+      </div>`;
+    });
+    html+='</div>'+paginationHtml(page,totalPages,'setAnimePage');
+    resultsEl.innerHTML=html;
+  } else {
+    // Movies
+    const all=getAnimeMoviesData();
+    const filtered=applyAnimeFilters(all);
+    const page=paginationAnime.movies;
+    const totalPages=Math.ceil(filtered.length/PAGE_SIZE)||1;
+    const paged=filtered.slice((page-1)*PAGE_SIZE,page*PAGE_SIZE);
+    window.setAnimeMoviePage=p=>{paginationAnime.movies=p;renderAnimeResults();scrollToResults('animeResults');};
+    if(!filtered.length){resultsEl.innerHTML='<div class="search-empty">No se encontró ninguna película de anime con esos filtros.</div>';return;}
+    let html=`<div class="books-count">Mostrando <strong>${paged.length}</strong> de <strong>${filtered.length}</strong> película${filtered.length!==1?'s':''}</div><div class="movies-grid">`;
+    paged.forEach((mv,mi)=>{
+      const posterEl=mv.poster?`<img class="movie-card-poster" src="${mv.poster}" alt="${mv.name}" onerror="this.outerHTML='<div class=movie-card-poster-ph>🌸</div>'">`:`<div class="movie-card-poster-ph">🌸</div>`;
+      const dateStr=mv.date?fmtDate(mv.date):(mv.year?String(mv.year):'Fecha por confirmar');
+      const links=mv.watchLinks&&mv.watchLinks.length?mv.watchLinks:(mv.networkUrl?[{name:mv.network||'Ver',url:mv.networkUrl}]:[]);
+      const watchRow=links.length?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px">${links.map(l=>`<a class="card-watch-pill" href="${l.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ ${l.name}</a>`).join('')}</div>`:'';
+      const genrePills=mv.genres&&mv.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:3px;margin-top:5px">${mv.genres.slice(0,3).map(g=>`<span style="font-size:9.5px;padding:2px 7px;border-radius:20px;background:var(--lavender-soft);border:1px solid rgba(139,114,190,0.2);color:var(--lavender);font-weight:600">${g}</span>`).join('')}</div>`:'';
+      html+=`<div class="movie-card" onclick="openAnimeDetail('movie',${mi})">
+        ${posterEl}
+        <div class="movie-card-body">
+          <div class="card-badges">${mv.basedOnBook?`<span class="badge badge-book">📖 ${mv.bookSource||'Manga'}</span>`:''}${mv.country?`<span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">${countryFlag(mv.country)} ${mv.country}</span>`:''}</div>
+          <div class="movie-card-name">${mv.name}</div>
+          <div class="movie-card-meta">🎥 Película · ${dateStr}</div>
+          ${genrePills}
+          ${watchRow}
+        </div>
+      </div>`;
+    });
+    html+='</div>'+paginationHtml(page,totalPages,'setAnimeMoviePage');
+    resultsEl.innerHTML=html;
+  }
+}
+
+function openAnimeDetail(type,idx){
+  const item=(type==='series'?getAnimeSeriesData():getAnimeMoviesData())[idx];
+  if(!item) return;
+  const genrePills=item.genres&&item.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px">${item.genres.map(g=>`<span style="font-size:11px;padding:2px 10px;border-radius:20px;background:var(--lavender-soft);color:var(--lavender);font-weight:600;border:1px solid rgba(139,114,190,0.2)">${g}</span>`).join('')}</div>`:'';
+  const links=(item.watchLinks&&item.watchLinks.length?item.watchLinks:(item.networkUrl?[{name:item.network||'Ver',url:item.networkUrl}]:[]));
+  const watchPills=links.length?`<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">${links.map(l=>`<a class="card-watch-pill" href="${l.url}" target="_blank" rel="noopener">▶ ${l.name}</a>`).join('')}</div>`:'';
+  const trailerBtn=item.trailerUrl?`<a class="btn btn-outline" href="${item.trailerUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none">▶ Ver tráiler</a>`:'';
+  const poster=item.poster?`<img src="${item.poster}" alt="${item.name}" style="width:140px;height:auto;border-radius:12px;object-fit:cover;box-shadow:var(--shadow-md);flex-shrink:0" onerror="this.outerHTML=''">`:'';
+  const metaLine=[item.country?`${countryFlag(item.country)} ${item.country}`:null,item.year?String(item.year):null,item.network||null].filter(Boolean).join(' · ');
+  const eps=item.totalEpisodes?`<div style="font-size:12px;color:var(--muted);margin-bottom:8px">📺 ${item.totalEpisodes} episodios</div>`:'';
+  const synopsis=item.synopsis?`<div style="font-size:13px;line-height:1.7;color:var(--text);margin-bottom:14px">${item.synopsis}</div>`:'';
+  const bookBadge=item.basedOnBook?`<div style="background:var(--gold-soft);border:1px solid rgba(176,128,48,.2);border-radius:10px;padding:8px 12px;font-size:12px;color:var(--gold);font-weight:600;margin-bottom:12px">📖 Basado en: ${item.bookSource}</div>`:'';
+  document.getElementById('modalBox').innerHTML=`<button class="modal-close-btn" onclick="closeModal()">✕</button>
+    <div class="modal-body">
+      <div style="display:flex;gap:18px;margin-bottom:14px;align-items:flex-start">
+        ${poster}
+        <div style="flex:1;min-width:0">
+          <div style="font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:6px">${item.name}</div>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:10px">${metaLine}</div>
+          ${eps}
+          ${genrePills}
+          ${watchPills}
+          ${trailerBtn}
+        </div>
+      </div>
+      ${synopsis}
+      ${bookBadge}
+    </div>`;
+  document.getElementById('modalBg').classList.add('open');
+}
+
+// ═══ REALITIES ═══
+let realitiesFilters={q:'',countries:[],sort:'az',year:'',genre:'',type:'all'};
+let realitiesSubtab='series'; // 'series' | 'movies' | 'upcoming'
+let paginationRealities={series:1,movies:1,upcoming:1};
+
+function getRealitiesSeriesData(){
+  const fromData=state.series.filter(s=>s.category==='reality');
+  if(fromData.length) return fromData;
+  return [
+    {id:'reality_demo_1',name:'I Am Jazz',poster:'https://upload.wikimedia.org/wikipedia/en/thumb/a/a0/I_Am_Jazz_show.jpg/250px-I_Am_Jazz_show.jpg',synopsis:'Docuserie que sigue la vida de Jazz Jennings, una chica trans que navega los desafíos de la adolescencia. Explora identidad, relaciones y aceptación familiar con un enfoque honesto y emotivo.',year:2015,country:'Estados Unidos',network:'TLC',networkUrl:'https://www.tlc.com',watchLinks:[{name:'Max',url:'https://www.max.com'}],trailerUrl:'',genres:['Docuserie','Familia','Coming of Age'],basedOnBook:false,bookSource:'',upcoming:false,startDate:'2015-07-15',totalEpisodes:100,emissionDays:[2],skipDates:[],episodes:[],seasons:[{label:'Temporada 1',startDate:'2015-07-15',totalEpisodes:10,emissionDays:[2],skipDates:[],episodes:[]}]},
+    {id:'reality_demo_2',name:"I'm a Celebrity… Get Me Out of Here! (edición GL)",poster:'',synopsis:'Versiones internacionales del famoso reality donde parejas y celebridades LGBTQ+ han protagonizado algunos de los momentos más memorables de representación sáfica en la televisión.',year:2023,country:'Reino Unido',network:'ITV',networkUrl:'https://www.itv.com',watchLinks:[],trailerUrl:'',genres:['Reality Show','Entretenimiento'],basedOnBook:false,bookSource:'',upcoming:false,startDate:'2023-11-17',totalEpisodes:22,emissionDays:[0,1,2,3,4,5,6],skipDates:[],episodes:[],seasons:[{label:'Edición GL',startDate:'2023-11-17',totalEpisodes:22,emissionDays:[0,1,2,3,4,5,6],skipDates:[],episodes:[]}]},
+    {id:'reality_demo_3',name:'The L Word: Generation Q (Reality Special)',poster:'https://upload.wikimedia.org/wikipedia/en/thumb/5/56/The_L_Word-_Generation_Q.jpg/250px-The_L_Word-_Generation_Q.jpg',synopsis:'La icónica franquicia regresó con nuevas historias de mujeres lesbianas, bisexuales y queer en Los Ángeles, mezclando drama con momentos de reality sobre sus vidas cotidianas.',year:2019,country:'Estados Unidos',network:'Showtime',networkUrl:'https://www.sho.com',watchLinks:[{name:'Paramount+',url:'https://www.paramountplus.com'}],trailerUrl:'',genres:['Drama','Docuserie','LGBTQ+'],basedOnBook:false,bookSource:'',upcoming:false,startDate:'2019-12-08',totalEpisodes:30,emissionDays:[0],skipDates:[],episodes:[],seasons:[{label:'Temporada 1',startDate:'2019-12-08',totalEpisodes:8,emissionDays:[0],skipDates:[],episodes:[]},{label:'Temporada 2',startDate:'2021-08-08',totalEpisodes:10,emissionDays:[0],skipDates:[],episodes:[]},{label:'Temporada 3',startDate:'2023-01-20',totalEpisodes:12,emissionDays:[0],skipDates:[],episodes:[]}]},
+    {id:'reality_demo_4',name:'I Do, Now What?',poster:'',synopsis:'Reality que sigue a parejas recién casadas, incluyendo parejas del mismo sexo femeninas, en su primer año de matrimonio. Explora los retos del amor real más allá de la boda.',year:2016,country:'Estados Unidos',network:'Bravo',networkUrl:'',watchLinks:[],trailerUrl:'',genres:['Reality Show','Romance','Docuserie'],basedOnBook:false,bookSource:'',upcoming:false,startDate:'2016-01-01',totalEpisodes:8,emissionDays:[0],skipDates:[],episodes:[],seasons:[{label:'Temporada 1',startDate:'2016-01-01',totalEpisodes:8,emissionDays:[0],skipDates:[],episodes:[]}]},
+  ];
+}
+function getRealitiesMoviesData(){
+  const fromData=state.movies.filter(m=>m.category==='reality');
+  if(fromData.length) return fromData;
+  return [
+    {id:'reality_movie_demo_1',name:'Dykes, Camera, Action!',poster:'https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/Dykes_Camera_Action.jpg/220px-Dykes_Camera_Action.jpg',synopsis:'Documental que celebra la historia del cine lésbico y de mujeres queer, explorando cómo las cineastas lésbicas han dado forma a la cultura visual LGBTQ+ durante décadas.',year:2018,country:'Estados Unidos',network:'',networkUrl:'',watchLinks:[{name:'Topic',url:'https://www.topic.com'}],trailerUrl:'',date:'2018-01-01',genres:['Documental','LGBTQ+','Historia'],basedOnBook:false,bookSource:''},
+    {id:'reality_movie_demo_2',name:'Disclosure: Trans Lives on Screen',poster:'https://upload.wikimedia.org/wikipedia/en/thumb/e/e4/Disclosure_poster.jpg/250px-Disclosure_poster.jpg',synopsis:'Documental producido por Laverne Cox que analiza la representación de personas trans en Hollywood, incluyendo historias de mujeres trans lesbianas y bisexuales.',year:2020,country:'Estados Unidos',network:'Netflix',networkUrl:'https://www.netflix.com',watchLinks:[{name:'Netflix',url:'https://www.netflix.com'}],trailerUrl:'https://youtu.be/SSmkJtFQEls',date:'2020-06-19',genres:['Documental','LGBTQ+'],basedOnBook:false,bookSource:''},
+  ];
+}
+
+function applyRealitiesFilters(arr){
+  let r=[...arr];
+  const q=realitiesFilters.q.toLowerCase().trim();
+  if(q) r=r.filter(s=>s.name.toLowerCase().includes(q)||(s.country||'').toLowerCase().includes(q)||(s.network||'').toLowerCase().includes(q));
+  if(realitiesFilters.countries&&realitiesFilters.countries.length) r=r.filter(s=>realitiesFilters.countries.includes(s.country));
+  if(realitiesFilters.year) r=r.filter(s=>{ const y=(s.startDate||s.date||'').substring(0,4); return y===realitiesFilters.year||(s.year&&String(s.year)===realitiesFilters.year); });
+  if(realitiesFilters.genre) r=r.filter(s=>s.genres&&s.genres.includes(realitiesFilters.genre));
+  if(realitiesFilters.sort==='az') r.sort((a,b)=>a.name.localeCompare(b.name,'es'));
+  else if(realitiesFilters.sort==='za') r.sort((a,b)=>b.name.localeCompare(a.name,'es'));
+  else if(realitiesFilters.sort==='date') r.sort((a,b)=>((b.startDate||b.date||'')).localeCompare((a.startDate||a.date||'')));
+  else if(realitiesFilters.sort==='dateold') r.sort((a,b)=>((a.startDate||a.date||'')).localeCompare((b.startDate||b.date||'')));
+  return r;
+}
+
+const REALITIES_GENRES=['Reality Show','Docuserie','Documental','Entretenimiento','Romance','Familia','Coming of Age','LGBTQ+','Historia','Competencia'];
+
+function renderRealities(){
+  const view=document.getElementById('viewRealities');
+  if(!view) return;
+
+  const allSeries=getRealitiesSeriesData();
+  const allMovies=getRealitiesMoviesData();
+  const allCountries=[...new Set([...allSeries,...allMovies].map(s=>s.country).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));
+  const allYears=[...new Set([...allSeries.map(s=>(s.startDate||'').substring(0,4)||String(s.year||'')),...allMovies.map(m=>(m.date||'').substring(0,4)||String(m.year||''))].filter(Boolean))].sort((a,b)=>b-a);
+  const genreOpts=REALITIES_GENRES.map(g=>`<option value="${g}">${g}</option>`).join('');
+  const yearsOpts=allYears.map(y=>`<option value="${y}">${y}</option>`).join('');
+
+  view.innerHTML=`
+    <div style="margin-bottom:1.25rem">
+      <div class="section-heading">🎤 Realities & Documentales GL</div>
+      <div class="section-desc">Reality shows, docuseries y documentales con protagonismo lésbico, bisexual o queer</div>
+    </div>
+    <div class="subtabs" id="realitiesSubtabs">
+      <button class="subtab${realitiesSubtab==='series'?' active':''}" onclick="realitiesSubtab='series';renderRealitiesResults()">📺 Series & Realities <span class="subtab-count">${allSeries.length}</span></button>
+      <button class="subtab${realitiesSubtab==='movies'?' active':''}" onclick="realitiesSubtab='movies';renderRealitiesResults()">🎥 Documentales <span class="subtab-count">${allMovies.length}</span></button>
+    </div>
+    <div class="books-toolbar" id="realitiesToolbar">
+      <div class="toolbar-search-row">
+        <div class="search-wrap" style="position:relative;margin-bottom:0;width:100%">
+          <span class="search-icon">🔍</span>
+          <input id="realitiesSearchInput" class="search-input" placeholder="Buscar reality, docuserie, país, red…" value="${realitiesFilters.q}" oninput="realitiesFilters.q=this.value;paginationRealities={series:1,movies:1};renderRealitiesResults()" autocomplete="off">
+        </div>
+      </div>
+      <div class="toolbar-filters-row">
+        <div class="filter-group">
+          <span class="filter-label">País</span>
+          <select class="filter-select" onchange="realitiesFilters.countries=this.value?[this.value]:[];paginationRealities={series:1,movies:1};renderRealitiesResults()">
+            <option value="">🌐 País</option>${allCountries.map(c=>`<option value="${c}">${countryFlag(c)} ${c}</option>`).join('')}
+          </select>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Género</span>
+          <select id="realitiesGenreSel" class="filter-select" onchange="realitiesFilters.genre=this.value;paginationRealities={series:1,movies:1};renderRealitiesResults()">
+            <option value="">🎭 Tipo</option>${genreOpts}
+          </select>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Año</span>
+          <select id="realitiesYearSel" class="filter-select" onchange="realitiesFilters.year=this.value;paginationRealities={series:1,movies:1};renderRealitiesResults()">
+            <option value="">📅 Año</option>${yearsOpts}
+          </select>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Orden</span>
+          <select id="realitiesSortSel" class="filter-select" onchange="realitiesFilters.sort=this.value;paginationRealities={series:1,movies:1};renderRealitiesResults()">
+            <option value="az">A → Z</option>
+            <option value="za">Z → A</option>
+            <option value="date">📅 Más reciente primero</option>
+            <option value="dateold">📅 Más antiguo primero</option>
+          </select>
+        </div>
+        <button class="filter-clear-btn" id="realitiesClearBtn" style="display:none"
+          onclick="realitiesFilters={q:'',countries:[],sort:'az',year:'',genre:''};document.getElementById('realitiesSearchInput').value='';document.getElementById('realitiesGenreSel').value='';document.getElementById('realitiesYearSel').value='';document.getElementById('realitiesSortSel').value='az';paginationRealities={series:1,movies:1};renderRealitiesResults()">✕ Limpiar</button>
+      </div>
+    </div>
+    <div id="realitiesResults"></div>
+    <div style="margin-top:2.5rem;padding:1.25rem;background:linear-gradient(135deg,rgba(74,173,160,0.07),rgba(201,79,124,0.05));border:1.5px dashed rgba(74,173,160,0.25);border-radius:var(--radius-lg);text-align:center">
+      <div style="font-size:13px;font-weight:700;color:var(--teal);margin-bottom:4px">🎤 ¿Conoces más realities con representación GL?</div>
+      <div style="font-size:12px;color:var(--muted)">Escríbenos en X <a href="https://x.com/xxmadwavs" target="_blank" style="color:var(--accent);font-weight:600">@xxmadwavs</a> y lo añadimos</div>
+    </div>`;
+
+  renderRealitiesResults();
+}
+
+function renderRealitiesResults(){
+  const resultsEl=document.getElementById('realitiesResults');
+  if(!resultsEl) return;
+
+  document.querySelectorAll('#realitiesSubtabs .subtab').forEach((btn,i)=>{
+    const tabs=['series','movies'];
+    btn.className='subtab'+(realitiesSubtab===tabs[i]?' active':'');
+  });
+
+  const clearBtn=document.getElementById('realitiesClearBtn');
+  if(clearBtn) clearBtn.style.display=(realitiesFilters.countries.length||realitiesFilters.year||realitiesFilters.genre)?'':'none';
+
+  if(realitiesSubtab==='series'){
+    const all=getRealitiesSeriesData();
+    const filtered=applyRealitiesFilters(all);
+    const page=paginationRealities.series;
+    const totalPages=Math.ceil(filtered.length/PAGE_SIZE)||1;
+    const paged=filtered.slice((page-1)*PAGE_SIZE,page*PAGE_SIZE);
+    window.setRealitiesPage=p=>{paginationRealities.series=p;renderRealitiesResults();scrollToResults('realitiesResults');};
+    if(!filtered.length){resultsEl.innerHTML='<div class="search-empty">No se encontró ningún reality con esos filtros.</div>';return;}
+    let html=`<div class="books-count">Mostrando <strong>${paged.length}</strong> de <strong>${filtered.length}</strong> programa${filtered.length!==1?'s':''}</div><div class="series-grid">`;
+    paged.forEach((s,i)=>{
+      const posterEl=s.poster?`<div class="series-card-poster-wrap"><img class="series-card-poster" src="${s.poster}" alt="${s.name}" onerror="this.outerHTML='<div class=series-card-poster-ph>🎤</div>'"></div>`:`<div class="series-card-poster-wrap"><div class="series-card-poster-ph">🎤</div></div>`;
+      const links=s.watchLinks&&s.watchLinks.length?s.watchLinks:(s.networkUrl?[{name:s.network||'Ver',url:s.networkUrl}]:[]);
+      const watchRow=links.length?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px">${links.map(l=>`<a class="card-watch-pill" href="${l.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ ${l.name}</a>`).join('')}</div>`:'';
+      const genrePills=s.genres&&s.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:3px;margin-top:5px">${s.genres.slice(0,3).map(g=>`<span style="font-size:9.5px;padding:2px 7px;border-radius:20px;background:var(--teal-soft);border:1px solid rgba(74,173,160,0.2);color:var(--teal);font-weight:600">${g}</span>`).join('')}</div>`:'';
+      const year=s.year||(s.startDate||'').substring(0,4)||'';
+      const seasonsCount=s.seasons&&s.seasons.length>1?`<span class="badge" style="background:var(--teal-soft);color:var(--teal)">T${s.seasons.length}</span>`:'';
+      html+=`<div class="series-card" onclick="openRealityDetail('series',${i})">
+        ${posterEl}
+        <div class="series-card-body">
+          <div class="card-badges">${seasonsCount}${s.country?`<span class="badge" style="background:var(--teal-soft);color:var(--teal)">${countryFlag(s.country)} ${s.country}</span>`:''}</div>
+          <div class="series-card-name">${s.name}</div>
+          <div class="series-card-meta">${[s.network,year?'📅 '+year:null].filter(Boolean).join(' · ')}</div>
+          ${genrePills}
+          ${watchRow}
+        </div>
+      </div>`;
+    });
+    html+='</div>'+paginationHtml(page,totalPages,'setRealitiesPage');
+    resultsEl.innerHTML=html;
+  } else {
+    const all=getRealitiesMoviesData();
+    const filtered=applyRealitiesFilters(all);
+    const page=paginationRealities.movies;
+    const totalPages=Math.ceil(filtered.length/PAGE_SIZE)||1;
+    const paged=filtered.slice((page-1)*PAGE_SIZE,page*PAGE_SIZE);
+    window.setRealitiesMoviePage=p=>{paginationRealities.movies=p;renderRealitiesResults();scrollToResults('realitiesResults');};
+    if(!filtered.length){resultsEl.innerHTML='<div class="search-empty">No se encontró ningún documental con esos filtros.</div>';return;}
+    let html=`<div class="books-count">Mostrando <strong>${paged.length}</strong> de <strong>${filtered.length}</strong> documental${filtered.length!==1?'es':''}</div><div class="movies-grid">`;
+    paged.forEach((mv,mi)=>{
+      const posterEl=mv.poster?`<img class="movie-card-poster" src="${mv.poster}" alt="${mv.name}" onerror="this.outerHTML='<div class=movie-card-poster-ph>🎤</div>'">`:`<div class="movie-card-poster-ph">🎤</div>`;
+      const dateStr=mv.date?fmtDate(mv.date):(mv.year?String(mv.year):'Fecha por confirmar');
+      const links=mv.watchLinks&&mv.watchLinks.length?mv.watchLinks:(mv.networkUrl?[{name:mv.network||'Ver',url:mv.networkUrl}]:[]);
+      const watchRow=links.length?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px">${links.map(l=>`<a class="card-watch-pill" href="${l.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ ${l.name}</a>`).join('')}</div>`:'';
+      const genrePills=mv.genres&&mv.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:3px;margin-top:5px">${mv.genres.slice(0,3).map(g=>`<span style="font-size:9.5px;padding:2px 7px;border-radius:20px;background:var(--teal-soft);border:1px solid rgba(74,173,160,0.2);color:var(--teal);font-weight:600">${g}</span>`).join('')}</div>`:'';
+      html+=`<div class="movie-card" onclick="openRealityDetail('movie',${mi})">
+        ${posterEl}
+        <div class="movie-card-body">
+          <div class="card-badges">${mv.country?`<span class="badge" style="background:var(--teal-soft);color:var(--teal)">${countryFlag(mv.country)} ${mv.country}</span>`:''}</div>
+          <div class="movie-card-name">${mv.name}</div>
+          <div class="movie-card-meta">📹 Documental · ${dateStr}</div>
+          ${genrePills}
+          ${watchRow}
+        </div>
+      </div>`;
+    });
+    html+='</div>'+paginationHtml(page,totalPages,'setRealitiesMoviePage');
+    resultsEl.innerHTML=html;
+  }
+}
+
+function openRealityDetail(type,idx){
+  const item=(type==='series'?getRealitiesSeriesData():getRealitiesMoviesData())[idx];
+  if(!item) return;
+  const genrePills=item.genres&&item.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px">${item.genres.map(g=>`<span style="font-size:11px;padding:2px 10px;border-radius:20px;background:var(--teal-soft);color:var(--teal);font-weight:600;border:1px solid rgba(74,173,160,0.2)">${g}</span>`).join('')}</div>`:'';
+  const links=(item.watchLinks&&item.watchLinks.length?item.watchLinks:(item.networkUrl?[{name:item.network||'Ver',url:item.networkUrl}]:[]));
+  const watchPills=links.length?`<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">${links.map(l=>`<a class="card-watch-pill" href="${l.url}" target="_blank" rel="noopener">▶ ${l.name}</a>`).join('')}</div>`:'';
+  const trailerBtn=item.trailerUrl?`<a class="btn btn-outline" href="${item.trailerUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none">▶ Ver tráiler</a>`:'';
+  const poster=item.poster?`<img src="${item.poster}" alt="${item.name}" style="width:130px;height:auto;border-radius:12px;object-fit:cover;box-shadow:var(--shadow-md);flex-shrink:0" onerror="this.outerHTML=''">`:'';
+  const metaLine=[item.country?`${countryFlag(item.country)} ${item.country}`:null,item.year?String(item.year):null,item.network||null].filter(Boolean).join(' · ');
+  const seasonsStr=item.seasons&&item.seasons.length>1?`<div style="font-size:12px;color:var(--muted);margin-bottom:8px">📺 ${item.seasons.length} temporadas · ${item.totalEpisodes||'?'} episodios</div>`:(item.totalEpisodes?`<div style="font-size:12px;color:var(--muted);margin-bottom:8px">📺 ${item.totalEpisodes} episodios</div>`:'');
+  const synopsis=item.synopsis?`<div style="font-size:13px;line-height:1.7;color:var(--text);margin-bottom:14px">${item.synopsis}</div>`:'';
+  document.getElementById('modalBox').innerHTML=`<button class="modal-close-btn" onclick="closeModal()">✕</button>
+    <div class="modal-body">
+      <div style="display:flex;gap:18px;margin-bottom:14px;align-items:flex-start">
+        ${poster}
+        <div style="flex:1;min-width:0">
+          <div style="font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:6px">${item.name}</div>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:10px">${metaLine}</div>
+          ${seasonsStr}
+          ${genrePills}
+          ${watchPills}
+          ${trailerBtn}
+        </div>
+      </div>
+      ${synopsis}
+    </div>`;
+  document.getElementById('modalBg').classList.add('open');
+}
+
+
 function switchTab(tab){
   state.tab=tab;
-  ['cal','list','movies','upcoming','books'].forEach(t=>{
+  ['cal','list','movies','upcoming','books','anime','realities'].forEach(t=>{
     const btn=document.getElementById('tab'+t.charAt(0).toUpperCase()+t.slice(1));
     const view=document.getElementById('view'+t.charAt(0).toUpperCase()+t.slice(1));
     if(btn) btn.className='tab'+(tab===t?' active':'');
@@ -2462,6 +2925,8 @@ function switchTab(tab){
   if(tab==='movies') renderMovies();
   if(tab==='upcoming') renderUpcoming();
   if(tab==='books') renderBooks();
+  if(tab==='anime') renderAnime();
+  if(tab==='realities') renderRealities();
 }
 
 document.getElementById('prevBtn').onclick=()=>{state.month--;if(state.month<0){state.month=11;state.year--;}renderCal();};
@@ -2490,17 +2955,43 @@ function renderSearchResults(q){
     if(mv.name.toLowerCase().includes(term)||(mv.network||'').toLowerCase().includes(term)||(mv.country||'').toLowerCase().includes(term))
       results.push({type:'pelicula',s:mv,si:mi});
   });
+  getAnimeSeriesData().forEach((s,si)=>{
+    if(s.name.toLowerCase().includes(term)||(s.network||'').toLowerCase().includes(term)||(s.country||'').toLowerCase().includes(term))
+      results.push({type:'anime',s,si});
+  });
+  getAnimeMoviesData().forEach((mv,mi)=>{
+    if(mv.name.toLowerCase().includes(term)||(mv.network||'').toLowerCase().includes(term)||(mv.country||'').toLowerCase().includes(term))
+      results.push({type:'anime-movie',s:mv,si:mi});
+  });
+  getRealitiesSeriesData().forEach((s,si)=>{
+    if(s.name.toLowerCase().includes(term)||(s.network||'').toLowerCase().includes(term)||(s.country||'').toLowerCase().includes(term))
+      results.push({type:'reality',s,si});
+  });
+  getRealitiesMoviesData().forEach((mv,mi)=>{
+    if(mv.name.toLowerCase().includes(term)||(mv.network||'').toLowerCase().includes(term)||(mv.country||'').toLowerCase().includes(term))
+      results.push({type:'reality-movie',s:mv,si:mi});
+  });
   if(!results.length){box.innerHTML='<div style="text-align:center;color:var(--muted);font-size:13px;padding:1rem">Sin resultados para "'+q+'"</div>';return;}
   box.innerHTML=results.slice(0,12).map(r=>{
+    const icons={serie:'🎬',pelicula:'🎥',anime:'🌸','anime-movie':'🌸',reality:'🎤','reality-movie':'🎤'};
+    const labels={serie:'Serie GL',pelicula:'Película GL',anime:'Anime GL','anime-movie':'Película Anime',reality:'Reality/Docuserie','reality-movie':'Documental'};
+    const icon=icons[r.type]||'🎬';
+    const label=labels[r.type]||r.type;
     const thumb=r.s.poster
-      ?`<img class="search-result-thumb" src="${r.s.poster}" alt="" onerror="this.outerHTML='<div class=search-result-thumb-ph>${r.type==='serie'?'🎬':'🎥'}</div>'">`
-      :`<div class="search-result-thumb-ph">${r.type==='serie'?'🎬':'🎥'}</div>`;
-    const onclick=r.type==='serie'?`closeSearch();switchTab('list');setTimeout(()=>openSeries(${r.si}),50)`:`closeSearch();switchTab('movies');setTimeout(()=>openMovie(${r.si}),50)`;
+      ?`<img class="search-result-thumb" src="${r.s.poster}" alt="" onerror="this.outerHTML='<div class=search-result-thumb-ph>${icon}</div>'">`
+      :`<div class="search-result-thumb-ph">${icon}</div>`;
+    let onclick='';
+    if(r.type==='serie') onclick=`closeSearch();switchTab('list');setTimeout(()=>openSeries(${r.si}),50)`;
+    else if(r.type==='pelicula') onclick=`closeSearch();switchTab('movies');setTimeout(()=>openMovie(${r.si}),50)`;
+    else if(r.type==='anime') onclick=`closeSearch();switchTab('anime');setTimeout(()=>openAnimeDetail('series',${r.si}),50)`;
+    else if(r.type==='anime-movie') onclick=`closeSearch();switchTab('anime');setTimeout(()=>{animeSubtab='movies';renderAnime();openAnimeDetail('movie',${r.si})},50)`;
+    else if(r.type==='reality') onclick=`closeSearch();switchTab('realities');setTimeout(()=>openRealityDetail('series',${r.si}),50)`;
+    else if(r.type==='reality-movie') onclick=`closeSearch();switchTab('realities');setTimeout(()=>{realitiesSubtab='movies';renderRealities();openRealityDetail('movie',${r.si})},50)`;
     return `<div class="search-result-row" onclick="${onclick}">
       ${thumb}
       <div>
         <div class="search-result-name">${r.s.name}</div>
-        <div class="search-result-meta">${r.type==='serie'?'Serie':'Película'}${r.s.country?' · '+countryFlag(r.s.country)+' '+r.s.country:''}${r.s.network?' · '+r.s.network:''}</div>
+        <div class="search-result-meta">${label}${r.s.country?' · '+countryFlag(r.s.country)+' '+r.s.country:''}${r.s.network?' · '+r.s.network:''}</div>
       </div>
     </div>`;
   }).join('');

@@ -827,7 +827,38 @@
             5
           ],
           "skipDates": [],
-          "episodes": []
+          "episodes": [
+            {
+              "num": 4,
+              "date": "2026-05-09",
+              "skipped": false
+            },
+            {
+              "num": 3,
+              "date": "2026-05-02",
+              "skipped": false
+            },
+            {
+              "num": 1,
+              "date": "2026-04-25",
+              "skipped": false
+            },
+            {
+              "num": 2,
+              "date": "2026-04-25",
+              "skipped": false
+            },
+            {
+              "num": 5,
+              "date": "2026-05-16",
+              "skipped": false
+            },
+            {
+              "num": 6,
+              "date": "2026-05-23",
+              "skipped": false
+            }
+          ]
         }
       ]
     },
@@ -11501,6 +11532,417 @@
         }
       ],
       "updatedAt": "2026-05-07T07:55:35.962Z"
+    },
+    {
+      "id": "1778360721543",
+      "name": "Killing Eve",
+      "poster": "https://pics.filmaffinity.com/Killing_Eve_Serie_de_TV-164038953-large.jpg",
+      "synopsis": "Una operativa de seguridad da caza a una asesina. Basada en la serie de novelas cortas Villanelle, de Luke Jennings.",
+      "year": 2019,
+      "country": "Estados Unidos",
+      "network": "Netflix",
+      "networkUrl": "https://www.netflix.com/es/title/80177090",
+      "watchLinks": [
+        {
+          "name": "Netflix",
+          "url": "https://www.netflix.com/es/title/80177090"
+        }
+      ],
+      "trailerUrl": "",
+      "bookSource": "Killing Eve",
+      "basedOnBook": true,
+      "bookCoverUrl": "https://m.media-amazon.com/images/I/51GZ1TQBNTL._SL1000_.jpg",
+      "bookLinks": [
+        {
+          "lang": "es",
+          "store": "Amazon",
+          "url": "https://www.amazon.es/Killing-eve-Luke-Jennings/dp/8417302328?ref_=ast_author_dp_lf_Castilian_rw&th=1&psc=1&dib=eyJ2IjoiMSJ9.p93wK7eL7R7aP86_hVlzMQ.vlZmBpHs1LpR00DWR7BKGQwB1OvAyucfMPqTHhx54m0&dib_tag=AUTHOR"
+        }
+      ],
+      "bookUrl": "https://www.amazon.es/Killing-eve-Luke-Jennings/dp/8417302328?ref_=ast_author_dp_lf_Castilian_rw&th=1&psc=1&dib=eyJ2IjoiMSJ9.p93wK7eL7R7aP86_hVlzMQ.vlZmBpHs1LpR00DWR7BKGQwB1OvAyucfMPqTHhx54m0&dib_tag=AUTHOR",
+      "upcoming": false,
+      "genres": [
+        "Drama",
+        "Acción",
+        "Thriller",
+        "Aventura",
+        "Psicológico"
+      ],
+      "category": "series",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2018-04-09",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            6
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": [
+            {
+              "fromEp": 2,
+              "toEp": 2,
+              "date": "2018-04-15"
+            }
+          ]
+        },
+        {
+          "label": "Temporada 2",
+          "startDate": "2019-04-08",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            6
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": [
+            {
+              "fromEp": 2,
+              "toEp": 2,
+              "date": "2019-04-14"
+            }
+          ]
+        },
+        {
+          "label": "Temporada 3",
+          "startDate": "2020-04-12",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            6
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 4",
+          "startDate": "2022-02-27",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            6
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": [
+            {
+              "fromEp": 2,
+              "toEp": 2,
+              "date": "2022-02-27"
+            }
+          ]
+        }
+      ],
+      "updatedAt": "2026-05-09T21:14:21.952Z"
+    },
+    {
+      "id": "1778361220781",
+      "name": "Orphan Black",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/tjFYkWMafg71sihs1aa7IDx17aS.jpg",
+      "synopsis": "Nos encontramos con Sarah, una joven huérfana sin ningún sitio donde caerse muerta que es testigo del suicidio de una chica que es idéntica a ella. Sarah decidirá asumir su identidad, cuenta bancaría, hogar y demás solo para encontrarse en medio de una tremenda conspiración con clones de por medio.",
+      "year": 2013,
+      "country": "Cánada",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/OcnIQeWY6MA?si=7g9UgJJIDPVrGUgj",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Drama",
+        "Fantasía",
+        "Ciencia Ficción"
+      ],
+      "category": "series",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2013-03-30",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            5
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 2",
+          "startDate": "2014-04-19",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            5
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 3",
+          "startDate": "2015-04-18",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            5
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 4",
+          "startDate": "2016-04-14",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            3
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 5",
+          "startDate": "2017-06-10",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            5
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-09T21:13:40.781Z"
+    },
+    {
+      "id": "1778362124405",
+      "name": "Princess Charming",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/krSA1aIFsPn0qwwwyuC26aMuTfU.jpg",
+      "synopsis": "En esta serie de citas de realidad, una atractiva mujer lesbiana busca el amor de su vida y numerosas mujeres solteras y atractivas esperan ganar su corazón",
+      "year": 2021,
+      "country": "Alemania",
+      "network": "RTL+",
+      "networkUrl": "https://plus.rtl.de/video-tv/shows/princess-charming-883086",
+      "watchLinks": [
+        {
+          "name": "RTL+",
+          "url": "https://plus.rtl.de/video-tv/shows/princess-charming-883086"
+        }
+      ],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Romance"
+      ],
+      "category": "reality",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2021-05-25",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            1
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 2",
+          "startDate": "2022-06-14",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            1
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 3",
+          "startDate": "2023-02-19",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 4",
+          "startDate": "2024-07-03",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            2
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 5",
+          "startDate": "2025-07-24",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            3
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-09T21:28:44.405Z"
+    },
+    {
+      "id": "1778362313804",
+      "name": "Me(a)rry Queer",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/pjPSrWpyrmrxRkzEU4dLzUbU0tz.jpg",
+      "synopsis": "'Marry Queer' presenta las historias de parejas queer en sus viajes de \"salida del armario\", ya sea revelando sus relaciones \"no convencionales\" a sus familias, amigos o al mundo.",
+      "year": 2022,
+      "country": "Corea del Sur",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/SBBEJSZl69w?si=N6hOvSiV26t33G1S",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Romance",
+        "Drama"
+      ],
+      "category": "reality",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2022-07-08",
+          "totalEpisodes": 9,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": [
+            {
+              "fromEp": 1,
+              "toEp": 2,
+              "date": "2022-07-08"
+            }
+          ]
+        }
+      ],
+      "updatedAt": "2026-05-09T21:31:53.804Z"
+    },
+    {
+      "id": "1778362448719",
+      "name": "The Ultimatum: Queer Love",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/9D4z4qh5KQvaoLBA771vRmS1VQn.jpg",
+      "synopsis": "Siga a parejas de mujeres y personas no binarias durante ocho semanas, que se encuentran en un punto crítico de su relación, una lista para el matrimonio y la otra no.\n\n(Source: IMDb)",
+      "year": 2023,
+      "country": "Estados Unidos",
+      "network": "Netflix",
+      "networkUrl": "https://www.netflix.com/es/title/81598495",
+      "watchLinks": [
+        {
+          "name": "Netflix",
+          "url": "https://www.netflix.com/es/title/81598495"
+        }
+      ],
+      "trailerUrl": "https://www.youtube.com/watch?v=nEhbLonrKWk",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [],
+      "category": "reality",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2025-06-25",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            2
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-09T21:34:08.719Z"
+    },
+    {
+      "id": "1778362627525",
+      "name": "Bloom Into You",
+      "poster": "https://m.media-amazon.com/images/M/MV5BODNlZGZmZjktNWEwNy00MTJlLWFiY2YtMDA1ZjQ5NDVkZTQ4XkEyXkFqcGc@._V1_.jpg",
+      "synopsis": "A Yuu siempre le ha gustado el manga shoujo, y espera el día en que ella reciba una confesión que haga que su corazón enloquezca. Cuando un estudiante se confiesa realmente, ella no siente nada. Decepcionada y confusa, Yuu entra en el instituto insegura de cómo responder. Entonces, conoce a la presidenta del consejo, Nanami, rechazar con tal madurez a una confesión que le hace pedirle ayuda.",
+      "year": 2018,
+      "country": "Japón",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/bsYaR8zktWQ?si=QQ06wB8L6xDTnxDA",
+      "bookSource": "Bloom Into You",
+      "basedOnBook": true,
+      "bookCoverUrl": "https://m.media-amazon.com/images/I/81lubmTTY3L._SL1500_.jpg",
+      "bookLinks": [
+        {
+          "lang": "es",
+          "store": "Amazon",
+          "url": "https://www.amazon.es/Bloom-Into-You-Manga-Yuri/dp/8491736689"
+        }
+      ],
+      "bookUrl": "https://www.amazon.es/Bloom-Into-You-Manga-Yuri/dp/8491736689",
+      "upcoming": false,
+      "genres": [
+        "Romance",
+        "Drama"
+      ],
+      "category": "anime",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2018-10-05",
+          "totalEpisodes": 13,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-09T21:37:07.525Z"
     }
   ],
   "movies": [
@@ -11634,5 +12076,5 @@
       "genres": []
     }
   ],
-  "exportedAt": "2026-05-07T12:34:18.136Z"
+  "exportedAt": "2026-05-09T21:37:13.326Z"
 }
