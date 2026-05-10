@@ -11942,7 +11942,8 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-09T21:37:07.525Z"
+      "updatedAt": "2026-05-10T09:35:31.053Z",
+      "animeSeason": ""
     },
     {
       "id": "1778396322251",
@@ -12990,6 +12991,50 @@
         }
       ],
       "updatedAt": "2026-05-10T09:27:17.229Z"
+    },
+    {
+      "id": "1778405690996",
+      "name": "I'm in Love with the Villainess",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/tQNMsjH2YtRZfgb8zTXtA21vxud.jpg",
+      "synopsis": "El mundo de una trabajadora corporativa se pone patas arriba cuando un día despierta siendo Rae Taylor, la protagonista de su juego otome favorito, Revolution. Rae esta eufótica ante la oportunidad de cortejar a Claire François, la villana del juego y por quien siente un profundo amor. Armada con sus conocimientos del juego y de los eventos que están por suceder, Rae se propone hacer que Claire se enamore de ella. Pero ¿cómo se tomará la villana los embites románticos de Rae?",
+      "year": "",
+      "country": "Japón",
+      "network": "Crunchyroll",
+      "networkUrl": "https://www.crunchyroll.com",
+      "watchLinks": [
+        {
+          "name": "Crunchyroll",
+          "url": "https://www.crunchyroll.com"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/YbURvbPPPjY?si=X7CkkEaAKwmcvojY",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Comedia",
+        "Fantasía"
+      ],
+      "category": "anime",
+      "animeSeason": "Primavera 2021",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2023-10-03",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            1
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-10T09:34:50.996Z"
     }
   ],
   "movies": [
@@ -13123,5 +13168,5 @@
       "genres": []
     }
   ],
-  "exportedAt": "2026-05-10T09:31:49.052Z"
+  "exportedAt": "2026-05-10T09:36:11.377Z"
 }
