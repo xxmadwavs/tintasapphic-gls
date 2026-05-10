@@ -1380,104 +1380,6 @@ function seriesCardHtml(s, si){
   </div>`;
 }
 
-function animeSeriesCardHtml(s, si){
-  const now=new Date();
-  const todayStr=toStr(now.getFullYear(),now.getMonth(),now.getDate());
-  const eps=genEps(s);
-  const seasons=getSeasons(s);
-  const totalEps=seasons.reduce((a,t)=>a+t.totalEpisodes,0);
-  const aired=eps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
-  const pct=Math.round(aired/Math.max(totalEps,1)*100);
-  const col='var(--lavender)';
-  const next=eps.find(e=>new Date(e.date+'T12:00:00')>now&&!e.skipped);
-  const todayEps=eps.filter(e=>e.date===todayStr&&!e.skipped);
-  const activeSeason=seasons[seasons.length-1];
-  const activeDays=((activeSeason?.emissionDays&&activeSeason.emissionDays.length)?activeSeason.emissionDays:[activeSeason?.dayOfWeek||0]).map(d=>DAYS_L[d]).join(' y ');
-  const seasonsBadge=seasons.length>1?`<span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">T${seasons.length}</span>`:'';
-  const posterEl=s.poster
-    ?`<div class="series-card-poster-wrap"><img class="series-card-poster" src="${s.poster}" alt="${s.name}" onerror="this.outerHTML='<div class=series-card-poster-ph>🌸</div>'"></div>`
-    :`<div class="series-card-poster-wrap"><div class="series-card-poster-ph">🌸</div></div>`;
-  const links=s.watchLinks&&s.watchLinks.length?s.watchLinks:(s.networkUrl?[{name:s.network||'Ver',url:s.networkUrl}]:[]);
-  const watchRow=links.length?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px">${links.map(l=>`<a class="card-watch-pill" href="${l.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ ${l.name}</a>`).join('')}</div>`:'';
-  let nextLine='';
-  if(todayEps.length){
-    nextLine=`<div class="series-card-today">🌸 Hoy · Ep. ${todayEps.map(e=>e.num).join(' & ')}</div>`;
-  } else if(next){
-    const seasonLabel=seasons.length>1?` <span style="font-size:9px;opacity:.7">${next.seasonLabel}</span>`:'';
-    nextLine=`<div class="series-card-next">▶ Ep. ${next.seasonNum}${seasonLabel} — ${fmtDate(next.date)}</div>`;
-  } else {
-    nextLine=`<div class="series-card-done">✓ Finalizada</div>`;
-  }
-  const progressBar=`<div class="progress-wrap">
-    <div class="progress-fill" style="width:${pct}%;background:${col}"></div>
-    ${pct>0&&pct<100?`<div class="progress-today-marker" style="left:${pct}%"></div>`:''}
-  </div>`;
-  const genrePills=s.genres&&s.genres.length
-    ?`<div style="display:flex;flex-wrap:wrap;gap:3px;margin-top:5px">${s.genres.slice(0,3).map(g=>`<span style="font-size:9.5px;padding:2px 7px;border-radius:20px;background:var(--lavender-soft);border:1px solid rgba(139,114,190,0.2);color:var(--lavender);font-weight:600">${g}</span>`).join('')}${s.genres.length>3?`<span style="font-size:9.5px;padding:2px 6px;border-radius:20px;background:var(--lavender-soft);color:var(--lavender)">+${s.genres.length-3}</span>`:''}</div>`:'';
-  return `<div class="series-card" onclick="openAnimeDetail('series',${si})">
-    ${posterEl}
-    <div class="series-card-body">
-      <div class="card-badges">${s.basedOnBook?`<span class="badge badge-book">📖 ${s.bookSource||'Manga'}</span>`:''}${seasonsBadge}${s.country?`<span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">${countryFlag(s.country)} ${s.country}</span>`:''}</div>
-      <div class="series-card-name">${s.name}</div>
-      <div class="series-card-meta">${s.network?s.network+' · ':''}${activeDays}</div>
-      ${genrePills}
-      ${watchRow}
-      ${nextLine}
-      ${progressBar}
-      <div style="font-size:10px;color:var(--muted);margin-top:3px">${aired}/${totalEps} emitidos${seasons.length>1?` · ${seasons.length} temporadas`:''}</div>
-    </div>
-  </div>`;
-}
-
-function realitySeriesCardHtml(s, si){
-  const now=new Date();
-  const todayStr=toStr(now.getFullYear(),now.getMonth(),now.getDate());
-  const eps=genEps(s);
-  const seasons=getSeasons(s);
-  const totalEps=seasons.reduce((a,t)=>a+t.totalEpisodes,0);
-  const aired=eps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
-  const pct=Math.round(aired/Math.max(totalEps,1)*100);
-  const col='var(--teal)';
-  const next=eps.find(e=>new Date(e.date+'T12:00:00')>now&&!e.skipped);
-  const todayEps=eps.filter(e=>e.date===todayStr&&!e.skipped);
-  const activeSeason=seasons[seasons.length-1];
-  const activeDays=((activeSeason?.emissionDays&&activeSeason.emissionDays.length)?activeSeason.emissionDays:[activeSeason?.dayOfWeek||0]).map(d=>DAYS_L[d]).join(' y ');
-  const seasonsBadge=seasons.length>1?`<span class="badge" style="background:var(--teal-soft);color:var(--teal)">T${seasons.length}</span>`:'';
-  const posterEl=s.poster
-    ?`<div class="series-card-poster-wrap"><img class="series-card-poster" src="${s.poster}" alt="${s.name}" onerror="this.outerHTML='<div class=series-card-poster-ph>🎤</div>'"></div>`
-    :`<div class="series-card-poster-wrap"><div class="series-card-poster-ph">🎤</div></div>`;
-  const links=s.watchLinks&&s.watchLinks.length?s.watchLinks:(s.networkUrl?[{name:s.network||'Ver',url:s.networkUrl}]:[]);
-  const watchRow=links.length?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px">${links.map(l=>`<a class="card-watch-pill" href="${l.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ ${l.name}</a>`).join('')}</div>`:'';
-  let nextLine='';
-  if(todayEps.length){
-    nextLine=`<div class="series-card-today">🎤 Hoy · Ep. ${todayEps.map(e=>e.num).join(' & ')}</div>`;
-  } else if(next){
-    const seasonLabel=seasons.length>1?` <span style="font-size:9px;opacity:.7">${next.seasonLabel}</span>`:'';
-    nextLine=`<div class="series-card-next">▶ Ep. ${next.seasonNum}${seasonLabel} — ${fmtDate(next.date)}</div>`;
-  } else {
-    nextLine=`<div class="series-card-done">✓ Finalizada</div>`;
-  }
-  const progressBar=`<div class="progress-wrap">
-    <div class="progress-fill" style="width:${pct}%;background:${col}"></div>
-    ${pct>0&&pct<100?`<div class="progress-today-marker" style="left:${pct}%"></div>`:''}
-  </div>`;
-  const genrePills=s.genres&&s.genres.length
-    ?`<div style="display:flex;flex-wrap:wrap;gap:3px;margin-top:5px">${s.genres.slice(0,3).map(g=>`<span style="font-size:9.5px;padding:2px 7px;border-radius:20px;background:var(--teal-soft);border:1px solid rgba(74,173,160,0.2);color:var(--teal);font-weight:600">${g}</span>`).join('')}${s.genres.length>3?`<span style="font-size:9.5px;padding:2px 6px;border-radius:20px;background:var(--teal-soft);color:var(--teal)">+${s.genres.length-3}</span>`:''}</div>`:'';
-  return `<div class="series-card" onclick="openRealityDetail('series',${si})">
-    ${posterEl}
-    <div class="series-card-body">
-      <div class="card-badges">${seasonsBadge}${s.country?`<span class="badge" style="background:var(--teal-soft);color:var(--teal)">${countryFlag(s.country)} ${s.country}</span>`:''}</div>
-      <div class="series-card-name">${s.name}</div>
-      <div class="series-card-meta">${s.network?s.network+' · ':''}${activeDays}</div>
-      ${genrePills}
-      ${watchRow}
-      ${nextLine}
-      ${progressBar}
-      <div style="font-size:10px;color:var(--muted);margin-top:3px">${aired}/${totalEps} emitidos${seasons.length>1?` · ${seasons.length} temporadas`:''}</div>
-    </div>
-  </div>`;
-}
-
 /* ═══ COUNTRY FLAG + REGION HELPERS ═══ */
 const COUNTRY_FLAGS={
   'Corea del Sur':'🇰🇷','Corea':'🇰🇷','Japón':'🇯🇵','China':'🇨🇳','Taiwán':'🇹🇼','Tailandia':'🇹🇭',
@@ -1633,7 +1535,7 @@ function renderListResults(){
   if(genreSel) genreSel.value=seriesFilters.genre;
   if(clearBtn) clearBtn.style.display=(seriesFilters.countries&&seriesFilters.countries.length||seriesFilters.book!=='all'||seriesFilters.year||seriesFilters.genre)?'':'none';
 
-  const active=state.series.filter(s=>!s.upcoming&&s.category!=='anime'&&s.category!=='reality');
+  const active=state.series.filter(s=>!s.upcoming);
   const filtered=applySeriesFilters(active);
   const now=new Date();
 
@@ -1774,7 +1676,7 @@ function renderList(){
   const view=document.getElementById('viewList');
   // First render: build the static toolbar shell
   if(!view.querySelector('.list-toolbar-shell')){
-    const allYears=[...new Set([...state.series.filter(s=>s.category!=='anime'&&s.category!=='reality')].flatMap(s=>{ const seasons=getSeasons(s); return seasons.length?seasons.map(t=>t.startDate?t.startDate.substring(0,4):''):[s.startDate?s.startDate.substring(0,4):'']; }).filter(Boolean))].sort((a,b)=>b-a);
+    const allYears=[...new Set([...state.series].flatMap(s=>{ const seasons=getSeasons(s); return seasons.length?seasons.map(t=>t.startDate?t.startDate.substring(0,4):''):[s.startDate?s.startDate.substring(0,4):'']; }).filter(Boolean))].sort((a,b)=>b-a);
     const yearsOpts=allYears.map(y=>`<option value="${y}"${seriesFilters.year===y?' selected':''}>${y}</option>`).join('');
     const genreOpts=GENRES.map(g=>`<option value="${g}">${g}</option>`).join('');
     view.innerHTML=`<div class="list-toolbar-shell books-toolbar">
@@ -1825,7 +1727,7 @@ function renderList(){
     <div id="listResults"></div>`;
     // Inject country picker with countries from active series
     const slot=document.getElementById('seriesCountryPickerSlot');
-    const activeCountries=getCountries(state.series.filter(s=>!s.upcoming&&s.category!=='anime'&&s.category!=='reality'));
+    const activeCountries=getCountries(state.series.filter(s=>!s.upcoming));
     const picker=buildCountryPicker('series',countries=>{seriesFilters.countries=countries;resetSeriesPages();renderListResults();},activeCountries);
     slot.appendChild(picker);
   }
@@ -1859,7 +1761,7 @@ function applyUpcomingFilters(arr){
 }
 
 function renderUpcoming(){
-  const allUpcoming=state.series.filter(s=>s.upcoming&&s.category!=='anime'&&s.category!=='reality');
+  const allUpcoming=state.series.filter(s=>s.upcoming);
   const view=document.getElementById('viewUpcoming');
   if(!allUpcoming.length){view.innerHTML='<div class="empty">✨ No hay series próximamente de momento. ¡Pronto habrá novedades!</div>';return;}
 
@@ -1932,7 +1834,7 @@ function renderUpcomingResults(){
   if(genreSel) genreSel.value=upcomingFilters.genre;
   if(clearBtn) clearBtn.style.display=(upcomingFilters.countries&&upcomingFilters.countries.length||upcomingFilters.book!=='all'||upcomingFilters.year||upcomingFilters.genre)?'':'none';
 
-  const allUpcoming=state.series.filter(s=>s.upcoming&&s.category!=='anime'&&s.category!=='reality');
+  const allUpcoming=state.series.filter(s=>s.upcoming);
   const upcoming=applyUpcomingFilters(allUpcoming);
 
   if(!upcoming.length){
@@ -2731,7 +2633,22 @@ function renderAnimeResults(){
     let html=`<div class="books-count">Mostrando <strong>${paged.length}</strong> de <strong>${filtered.length}</strong> anime${filtered.length!==1?'s':''}</div><div class="series-grid">`;
     paged.forEach((s,i)=>{
       const si=filtered.indexOf(s);
-      html+=animeSeriesCardHtml(s, si);
+      const posterEl=s.poster?`<div class="series-card-poster-wrap"><img class="series-card-poster" src="${s.poster}" alt="${s.name}" onerror="this.outerHTML='<div class=series-card-poster-ph>🌸</div>'"></div>`:`<div class="series-card-poster-wrap"><div class="series-card-poster-ph">🌸</div></div>`;
+      const links=s.watchLinks&&s.watchLinks.length?s.watchLinks:(s.networkUrl?[{name:s.network||'Ver',url:s.networkUrl}]:[]);
+      const watchRow=links.length?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px">${links.map(l=>`<a class="card-watch-pill" href="${l.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ ${l.name}</a>`).join('')}</div>`:'';
+      const genrePills=s.genres&&s.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:3px;margin-top:5px">${s.genres.slice(0,3).map(g=>`<span style="font-size:9.5px;padding:2px 7px;border-radius:20px;background:var(--lavender-soft);border:1px solid rgba(139,114,190,0.2);color:var(--lavender);font-weight:600">${g}</span>`).join('')}</div>`:'';
+      const year=s.year||(s.startDate||'').substring(0,4)||'';
+      html+=`<div class="series-card" onclick="openAnimeDetail('series',${si})">
+        ${posterEl}
+        <div class="series-card-body">
+          <div class="card-badges">${s.basedOnBook?`<span class="badge badge-book">📖 ${s.bookSource||'Manga'}</span>`:''}${s.country?`<span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">${countryFlag(s.country)} ${s.country}</span>`:''}</div>
+          <div class="series-card-name">${s.name}</div>
+          <div class="series-card-meta">${[s.network,year?'📅 '+year:null].filter(Boolean).join(' · ')}</div>
+          ${genrePills}
+          ${watchRow}
+          ${s.totalEpisodes?`<div style="font-size:10px;color:var(--muted);margin-top:5px">📺 ${s.totalEpisodes} episodios</div>`:''}
+        </div>
+      </div>`;
     });
     html+='</div>'+paginationHtml(page,totalPages,'setAnimePage');
     resultsEl.innerHTML=html;
@@ -2771,31 +2688,144 @@ function renderAnimeResults(){
 function openAnimeDetail(type,idx){
   const item=(type==='series'?getAnimeSeriesData():getAnimeMoviesData())[idx];
   if(!item) return;
-  const genrePills=item.genres&&item.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px">${item.genres.map(g=>`<span style="font-size:11px;padding:2px 10px;border-radius:20px;background:var(--lavender-soft);color:var(--lavender);font-weight:600;border:1px solid rgba(139,114,190,0.2)">${g}</span>`).join('')}</div>`:'';
-  const links=(item.watchLinks&&item.watchLinks.length?item.watchLinks:(item.networkUrl?[{name:item.network||'Ver',url:item.networkUrl}]:[]));
-  const watchPills=links.length?`<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">${links.map(l=>`<a class="card-watch-pill" href="${l.url}" target="_blank" rel="noopener">▶ ${l.name}</a>`).join('')}</div>`:'';
-  const trailerBtn=item.trailerUrl?`<a class="btn btn-outline" href="${item.trailerUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none">▶ Ver tráiler</a>`:'';
-  const poster=item.poster?`<img src="${item.poster}" alt="${item.name}" style="width:140px;height:auto;border-radius:12px;object-fit:cover;box-shadow:var(--shadow-md);flex-shrink:0" onerror="this.outerHTML=''">`:'';
-  const metaLine=[item.country?`${countryFlag(item.country)} ${item.country}`:null,item.year?String(item.year):null,item.network||null].filter(Boolean).join(' · ');
-  const eps=item.totalEpisodes?`<div style="font-size:12px;color:var(--muted);margin-bottom:8px">📺 ${item.totalEpisodes} episodios</div>`:'';
-  const synopsis=item.synopsis?`<div style="font-size:13px;line-height:1.7;color:var(--text);margin-bottom:14px">${item.synopsis}</div>`:'';
-  const bookBadge=item.basedOnBook?`<div style="background:var(--gold-soft);border:1px solid rgba(176,128,48,.2);border-radius:10px;padding:8px 12px;font-size:12px;color:var(--gold);font-weight:600;margin-bottom:12px">📖 Basado en: ${item.bookSource}</div>`:'';
-  document.getElementById('modalBox').innerHTML=`<button class="modal-close-btn" onclick="closeModal()">✕</button>
-    <div class="modal-body">
-      <div style="display:flex;gap:18px;margin-bottom:14px;align-items:flex-start">
-        ${poster}
-        <div style="flex:1;min-width:0">
-          <div style="font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:6px">${item.name}</div>
-          <div style="font-size:12px;color:var(--muted);margin-bottom:10px">${metaLine}</div>
-          ${eps}
-          ${genrePills}
-          ${watchPills}
-          ${trailerBtn}
-        </div>
-      </div>
-      ${synopsis}
-      ${bookBadge}
-    </div>`;
+
+  if(type==='movie'){
+    // ── Película anime: modal lateral con poster ──
+    const genrePills=item.genres&&item.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px">${item.genres.map(g=>`<span style="font-size:11px;padding:2px 10px;border-radius:20px;background:var(--lavender-soft);color:var(--lavender);font-weight:600;border:1px solid rgba(139,114,190,0.2)">${g}</span>`).join('')}</div>`:'';
+    const links=item.watchLinks&&item.watchLinks.length?item.watchLinks:(item.networkUrl?[{name:item.network||'Ver',url:item.networkUrl}]:[]);
+    const watchLinksHtml=links.length?`<div class="watch-links-label">▶ Dónde ver</div><div class="watch-links">${links.map(l=>`<a class="watch-link" href="${l.url}" target="_blank" rel="noopener" style="background:var(--lavender-soft);color:var(--lavender);border-color:rgba(139,114,190,.35)"><span class="watch-link-icon">▶</span>${l.name}</a>`).join('')}</div>`:'';
+    const posterEl=item.poster?`<img class="modal-poster-full" src="${item.poster}" alt="${item.name}" onerror="this.outerHTML='<div class=modal-poster-full-ph>🌸</div>'">`:`<div class="modal-poster-full-ph">🌸</div>`;
+    let metaGrid='';
+    if(item.year) metaGrid+=`<div class="meta-item"><div class="meta-key">Año</div><div class="meta-val">${item.year}</div></div>`;
+    if(item.country) metaGrid+=`<div class="meta-item"><div class="meta-key">País</div><div class="meta-val">${countryFlag(item.country)} ${item.country}</div></div>`;
+    if(item.network) metaGrid+=`<div class="meta-item"><div class="meta-key">Plataforma</div><div class="meta-val">${item.network}</div></div>`;
+    if(item.date) metaGrid+=`<div class="meta-item"><div class="meta-key">Estreno</div><div class="meta-val">${fmtDate(item.date)}</div></div>`;
+    const chipsHtml=`<div class="modal-dates-row">${item.country?`<span class="modal-date-chip">${countryFlag(item.country)} ${item.country}</span>`:''}${item.year?`<span class="modal-date-chip">📆 ${item.year}</span>`:''}</div>`;
+    const bookBlock=(()=>{
+      if(!item.basedOnBook) return '';
+      const hasCover=item.bookCoverUrl&&item.bookCoverUrl.trim();
+      const hasTitle=item.bookSource&&item.bookSource.trim();
+      const editions=item.bookLinks&&item.bookLinks.length?item.bookLinks:(item.bookUrl?[{lang:'es',store:'Ver',url:item.bookUrl}]:[]);
+      if(!hasCover&&!hasTitle&&!editions.length) return '';
+      const coverEl=hasCover?`<img class="book-cover" src="${item.bookCoverUrl}" alt="Portada" onerror="this.outerHTML='<div class=book-cover-ph>📖</div>'">`:`<div class="book-cover-ph">📖</div>`;
+      const edPills=editions.map(e=>`<a class="book-edition-pill" href="${e.url}" target="_blank" rel="noopener"><span class="book-edition-flag">${langFlag(e.lang)}</span><span class="book-edition-store">${e.store}</span></a>`).join('');
+      return `<div class="book-block">${coverEl}<div class="book-info">${hasTitle?`<div class="book-title-text">📖 ${item.bookSource}</div>`:'<div class="book-title-text">📖 Basado en manga/novela</div>'}${editions.length?`<div class="book-editions-row">${edPills}</div>`:''}</div></div>`;
+    })();
+    let html=`${posterEl}<div class="modal-body">
+    <div class="modal-badges"><span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">🌸 Anime</span>${item.basedOnBook?'<span class="badge badge-book">📖 Manga/Novela</span>':''}</div>
+    <div class="modal-title">${item.name}</div>
+    ${chipsHtml}
+    ${watchLinksHtml}
+    ${item.trailerUrl?trailerHtml(item.trailerUrl):''}
+    ${metaGrid?`<div class="modal-meta-grid">${metaGrid}</div>`:''}
+    ${genrePills}
+    ${item.synopsis?`<div class="synopsis">${item.synopsis}</div>`:''}
+    ${bookBlock}
+    <div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div></div>`;
+    document.getElementById('modalBox').innerHTML=html;
+    document.getElementById('modalBg').classList.add('open');
+    return;
+  }
+
+  // ── Serie anime: igual que openSeries ──
+  const s=item;
+  const allEps=genEps(s), now=new Date();
+  const seasons=getSeasons(s);
+  const totalEps=seasons.reduce((a,t)=>a+t.totalEpisodes,0);
+  const col='var(--lavender)';
+  const aired=allEps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
+  const pct=Math.round(aired/Math.max(totalEps,1)*100);
+  const activeSeason=seasons[seasons.length-1];
+  const activeDays=((activeSeason?.emissionDays&&activeSeason.emissionDays.length)?activeSeason.emissionDays:[activeSeason?.dayOfWeek||0]).map(d=>DAYS_L[d]).join(' y ');
+  const next=allEps.find(e=>new Date(e.date+'T12:00:00')>now&&!e.skipped);
+  const todayStr=toStr(now.getFullYear(),now.getMonth(),now.getDate());
+  const todayEps=allEps.filter(e=>e.date===todayStr&&!e.skipped);
+  const isFinished=!next;
+  const datesWithEps=allEps.filter(e=>!e.skipped).map(e=>e.date).sort();
+  const firstEpDate=datesWithEps[0]||(seasons[0]&&seasons[0].startDate)||s.startDate;
+  const lastEpDate=datesWithEps[datesWithEps.length-1];
+  let nextBadgeHtml='';
+  if(todayEps.length){
+    nextBadgeHtml=`<div class="modal-next-badge today">🌸 Hoy · Ep. ${todayEps.map(e=>e.seasonNum).join(' & ')}${seasons.length>1?' ('+todayEps[0].seasonLabel+')':''}</div>`;
+  } else if(next){
+    const du=daysUntil(next.date);
+    const label=du===1?'mañana':du===0?'hoy':`en ${du} días`;
+    const seasonHint=seasons.length>1?` · ${next.seasonLabel}`:'';
+    nextBadgeHtml=`<div class="modal-next-badge soon">▶ Ep. ${next.seasonNum}${seasonHint} — ${fmtDate(next.date)} · ${label}</div>`;
+  } else {
+    nextBadgeHtml=`<div class="modal-next-badge done">✓ Finalizada</div>`;
+  }
+  let datesRowHtml='<div class="modal-dates-row">';
+  if(firstEpDate) datesRowHtml+=`<span class="modal-date-chip">🎬 Inicio: ${fmtDate(firstEpDate)}</span>`;
+  if(isFinished&&lastEpDate) datesRowHtml+=`<span class="modal-date-chip">🏁 Final: ${fmtDate(lastEpDate)}</span>`;
+  if(s.country) datesRowHtml+=`<span class="modal-date-chip">${countryFlag(s.country)} ${s.country}</span>`;
+  datesRowHtml+='</div>';
+  const posterEl=s.poster?`<img class="modal-poster-full" src="${s.poster}" alt="${s.name}" onerror="this.outerHTML='<div class=modal-poster-full-ph>🌸</div>'">`:`<div class="modal-poster-full-ph">🌸</div>`;
+  let metaGrid='';
+  if(s.year) metaGrid+=`<div class="meta-item"><div class="meta-key">Año</div><div class="meta-val">${s.year}</div></div>`;
+  if(s.country) metaGrid+=`<div class="meta-item"><div class="meta-key">País</div><div class="meta-val">${countryFlag(s.country)} ${s.country}</div></div>`;
+  if(s.network) metaGrid+=`<div class="meta-item"><div class="meta-key">Plataforma</div><div class="meta-val">${s.network}</div></div>`;
+  metaGrid+=`<div class="meta-item"><div class="meta-key">Episodios</div><div class="meta-val">${totalEps}${seasons.length>1?` (${seasons.length}T)`:''}</div></div>`;
+  const watchLinksHtml=(()=>{const links=s.watchLinks&&s.watchLinks.length?s.watchLinks:(s.networkUrl?[{name:s.network||'Ver',url:s.networkUrl}]:[]);if(!links.length)return '';return `<div class="watch-links-label">▶ Dónde ver</div><div class="watch-links">${links.map(l=>`<a class="watch-link" href="${l.url}" target="_blank" rel="noopener" style="background:var(--lavender-soft);color:var(--lavender);border-color:rgba(139,114,190,.35)"><span class="watch-link-icon">▶</span>${l.name}</a>`).join('')}</div>`;})();
+  const progressBlock=`<div class="modal-progress-block">
+    <div class="modal-progress-header">
+      <span class="modal-progress-label">${aired} / ${totalEps} emitidos · ${activeDays}</span>
+      <span class="modal-progress-pct" style="color:${col}">${pct}%</span>
+    </div>
+    <div style="height:6px;background:var(--border);border-radius:3px;overflow:hidden">
+      <div style="width:${pct}%;height:100%;background:${col};border-radius:3px;transition:width .4s"></div>
+    </div>
+  </div>`;
+  const genrePills=s.genres&&s.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px">${s.genres.map(g=>`<span style="font-size:11px;padding:2px 10px;border-radius:20px;background:var(--lavender-soft);color:var(--lavender);font-weight:600;border:1px solid rgba(139,114,190,0.2)">${g}</span>`).join('')}</div>`:'';
+  const bookBlock=(()=>{
+    if(!s.basedOnBook) return '';
+    const hasCover=s.bookCoverUrl&&s.bookCoverUrl.trim();
+    const hasTitle=s.bookSource&&s.bookSource.trim();
+    const editions=s.bookLinks&&s.bookLinks.length?s.bookLinks:(s.bookUrl?[{lang:'es',store:'Ver',url:s.bookUrl}]:[]);
+    if(!hasCover&&!hasTitle&&!editions.length) return '';
+    const coverEl=hasCover?`<img class="book-cover" src="${s.bookCoverUrl}" alt="Portada" onerror="this.outerHTML='<div class=book-cover-ph>📖</div>'">`:`<div class="book-cover-ph">📖</div>`;
+    const edPills=editions.map(e=>`<a class="book-edition-pill" href="${e.url}" target="_blank" rel="noopener"><span class="book-edition-flag">${langFlag(e.lang)}</span><span class="book-edition-store">${e.store}</span></a>`).join('');
+    return `<div class="book-block">${coverEl}<div class="book-info">${hasTitle?`<div class="book-title-text">📖 ${s.bookSource}</div>`:'<div class="book-title-text">📖 Basado en manga/novela</div>'}${editions.length?`<div class="book-editions-row">${edPills}</div>`:''}</div></div>`;
+  })();
+  let html=`${posterEl}<div class="modal-body">
+  <div class="modal-badges"><span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">🌸 Anime</span>${s.basedOnBook?'<span class="badge badge-book">📖 Manga/Novela</span>':''}${seasons.length>1?`<span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">${seasons.length} temporadas</span>`:''}</div>
+  <div class="modal-title">${s.name}</div>
+  ${datesRowHtml}
+  ${nextBadgeHtml}
+  ${progressBlock}
+  ${watchLinksHtml}
+  ${s.trailerUrl?trailerHtml(s.trailerUrl):''}
+  ${metaGrid?`<div class="modal-meta-grid">${metaGrid}</div>`:''}
+  ${genrePills}
+  ${s.synopsis?`<div class="synopsis">${s.synopsis}</div>`:''}
+  ${bookBlock}
+  <div class="divider"></div>`;
+  if(seasons.length===1){
+    html+=`<div class="ep-detail-list">`;
+    allEps.forEach(ep=>{
+      const isPast=new Date(ep.date+'T12:00:00')<=now;
+      const isEpToday=ep.date===todayStr;
+      const st=ep.skipped?'skipped':isPast?'aired':'pending',lb=ep.skipped?'No emitido':isEpToday?'¡Hoy!':isPast?'Emitido':'Pendiente';
+      html+=`<div class="ep-detail-row"><span class="ep-detail-num" style="color:${col}">E${ep.seasonNum}</span><span class="ep-detail-date">${fmtDate(ep.date)}</span><span class="chip ${isEpToday&&!ep.skipped?'pending':st}" style="${isEpToday&&!ep.skipped?'background:var(--accent);color:#fff':''}">${lb}</span></div>`;
+    });
+    html+=`</div>`;
+  } else {
+    seasons.forEach((season,idx)=>{
+      const seasonEps=allEps.filter(e=>e.season===idx+1);
+      const sAired=seasonEps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
+      const sPct=Math.round(sAired/Math.max(season.totalEpisodes,1)*100);
+      html+=`<div style="margin-bottom:1rem"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px"><span style="font-size:12px;font-weight:700;color:var(--text)">${season.label||`Temporada ${idx+1}`}</span><span style="font-size:11px;color:var(--muted)">${sAired}/${season.totalEpisodes} · ${sPct}%</span></div><div style="height:3px;background:var(--border);border-radius:2px;margin-bottom:8px;overflow:hidden"><div style="width:${sPct}%;height:100%;background:${col};border-radius:2px"></div></div><div class="ep-detail-list">`;
+      seasonEps.forEach(ep=>{
+        const isPast=new Date(ep.date+'T12:00:00')<=now;
+        const isEpToday=ep.date===todayStr;
+        const st=ep.skipped?'skipped':isPast?'aired':'pending',lb=ep.skipped?'No emitido':isEpToday?'¡Hoy!':isPast?'Emitido':'Pendiente';
+        html+=`<div class="ep-detail-row"><span class="ep-detail-num" style="color:${col}">E${ep.seasonNum}</span><span class="ep-detail-date">${fmtDate(ep.date)}</span><span class="chip ${isEpToday&&!ep.skipped?'pending':st}" style="${isEpToday&&!ep.skipped?'background:var(--accent);color:#fff':''}">${lb}</span></div>`;
+      });
+      html+=`</div></div>`;
+    });
+  }
+  html+=`<div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div></div>`;
+  document.getElementById('modalBox').innerHTML=html;
   document.getElementById('modalBg').classList.add('open');
 }
 
@@ -2917,7 +2947,22 @@ function renderRealitiesResults(){
     let html=`<div class="books-count">Mostrando <strong>${paged.length}</strong> de <strong>${filtered.length}</strong> programa${filtered.length!==1?'s':''}</div><div class="series-grid">`;
     paged.forEach((s,i)=>{
       const rIdx=filtered.indexOf(s);
-      html+=realitySeriesCardHtml(s, rIdx);
+      const posterEl=s.poster?`<div class="series-card-poster-wrap"><img class="series-card-poster" src="${s.poster}" alt="${s.name}" onerror="this.outerHTML='<div class=series-card-poster-ph>🎤</div>'"></div>`:`<div class="series-card-poster-wrap"><div class="series-card-poster-ph">🎤</div></div>`;
+      const links=s.watchLinks&&s.watchLinks.length?s.watchLinks:(s.networkUrl?[{name:s.network||'Ver',url:s.networkUrl}]:[]);
+      const watchRow=links.length?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px">${links.map(l=>`<a class="card-watch-pill" href="${l.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ ${l.name}</a>`).join('')}</div>`:'';
+      const genrePills=s.genres&&s.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:3px;margin-top:5px">${s.genres.slice(0,3).map(g=>`<span style="font-size:9.5px;padding:2px 7px;border-radius:20px;background:var(--teal-soft);border:1px solid rgba(74,173,160,0.2);color:var(--teal);font-weight:600">${g}</span>`).join('')}</div>`:'';
+      const year=s.year||(s.startDate||'').substring(0,4)||'';
+      const seasonsCount=s.seasons&&s.seasons.length>1?`<span class="badge" style="background:var(--teal-soft);color:var(--teal)">T${s.seasons.length}</span>`:'';
+      html+=`<div class="series-card" onclick="openRealityDetail('series',${rIdx})">
+        ${posterEl}
+        <div class="series-card-body">
+          <div class="card-badges">${seasonsCount}${s.country?`<span class="badge" style="background:var(--teal-soft);color:var(--teal)">${countryFlag(s.country)} ${s.country}</span>`:''}</div>
+          <div class="series-card-name">${s.name}</div>
+          <div class="series-card-meta">${[s.network,year?'📅 '+year:null].filter(Boolean).join(' · ')}</div>
+          ${genrePills}
+          ${watchRow}
+        </div>
+      </div>`;
     });
     html+='</div>'+paginationHtml(page,totalPages,'setRealitiesPage');
     resultsEl.innerHTML=html;
@@ -2956,29 +3001,122 @@ function renderRealitiesResults(){
 function openRealityDetail(type,idx){
   const item=(type==='series'?getRealitiesSeriesData():getRealitiesMoviesData())[idx];
   if(!item) return;
-  const genrePills=item.genres&&item.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px">${item.genres.map(g=>`<span style="font-size:11px;padding:2px 10px;border-radius:20px;background:var(--teal-soft);color:var(--teal);font-weight:600;border:1px solid rgba(74,173,160,0.2)">${g}</span>`).join('')}</div>`:'';
-  const links=(item.watchLinks&&item.watchLinks.length?item.watchLinks:(item.networkUrl?[{name:item.network||'Ver',url:item.networkUrl}]:[]));
-  const watchPills=links.length?`<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">${links.map(l=>`<a class="card-watch-pill" href="${l.url}" target="_blank" rel="noopener">▶ ${l.name}</a>`).join('')}</div>`:'';
-  const trailerBtn=item.trailerUrl?`<a class="btn btn-outline" href="${item.trailerUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none">▶ Ver tráiler</a>`:'';
-  const poster=item.poster?`<img src="${item.poster}" alt="${item.name}" style="width:130px;height:auto;border-radius:12px;object-fit:cover;box-shadow:var(--shadow-md);flex-shrink:0" onerror="this.outerHTML=''">`:'';
-  const metaLine=[item.country?`${countryFlag(item.country)} ${item.country}`:null,item.year?String(item.year):null,item.network||null].filter(Boolean).join(' · ');
-  const seasonsStr=item.seasons&&item.seasons.length>1?`<div style="font-size:12px;color:var(--muted);margin-bottom:8px">📺 ${item.seasons.length} temporadas · ${item.totalEpisodes||'?'} episodios</div>`:(item.totalEpisodes?`<div style="font-size:12px;color:var(--muted);margin-bottom:8px">📺 ${item.totalEpisodes} episodios</div>`:'');
-  const synopsis=item.synopsis?`<div style="font-size:13px;line-height:1.7;color:var(--text);margin-bottom:14px">${item.synopsis}</div>`:'';
-  document.getElementById('modalBox').innerHTML=`<button class="modal-close-btn" onclick="closeModal()">✕</button>
-    <div class="modal-body">
-      <div style="display:flex;gap:18px;margin-bottom:14px;align-items:flex-start">
-        ${poster}
-        <div style="flex:1;min-width:0">
-          <div style="font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:6px">${item.name}</div>
-          <div style="font-size:12px;color:var(--muted);margin-bottom:10px">${metaLine}</div>
-          ${seasonsStr}
-          ${genrePills}
-          ${watchPills}
-          ${trailerBtn}
-        </div>
-      </div>
-      ${synopsis}
-    </div>`;
+
+  if(type==='movie'){
+    // ── Documental/película: modal lateral con poster ──
+    const genrePills=item.genres&&item.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px">${item.genres.map(g=>`<span style="font-size:11px;padding:2px 10px;border-radius:20px;background:var(--teal-soft);color:var(--teal);font-weight:600;border:1px solid rgba(74,173,160,0.2)">${g}</span>`).join('')}</div>`:'';
+    const links=item.watchLinks&&item.watchLinks.length?item.watchLinks:(item.networkUrl?[{name:item.network||'Ver',url:item.networkUrl}]:[]);
+    const watchLinksHtml=links.length?`<div class="watch-links-label">▶ Dónde ver</div><div class="watch-links">${links.map(l=>`<a class="watch-link" href="${l.url}" target="_blank" rel="noopener" style="background:var(--teal-soft);color:var(--teal);border-color:rgba(74,173,160,.35)"><span class="watch-link-icon">▶</span>${l.name}</a>`).join('')}</div>`:'';
+    const posterEl=item.poster?`<img class="modal-poster-full" src="${item.poster}" alt="${item.name}" onerror="this.outerHTML='<div class=modal-poster-full-ph>🎞️</div>'">`:`<div class="modal-poster-full-ph">🎞️</div>`;
+    let metaGrid='';
+    if(item.year) metaGrid+=`<div class="meta-item"><div class="meta-key">Año</div><div class="meta-val">${item.year}</div></div>`;
+    if(item.country) metaGrid+=`<div class="meta-item"><div class="meta-key">País</div><div class="meta-val">${countryFlag(item.country)} ${item.country}</div></div>`;
+    if(item.network) metaGrid+=`<div class="meta-item"><div class="meta-key">Plataforma</div><div class="meta-val">${item.network}</div></div>`;
+    if(item.date) metaGrid+=`<div class="meta-item"><div class="meta-key">Estreno</div><div class="meta-val">${fmtDate(item.date)}</div></div>`;
+    const chipsHtml=`<div class="modal-dates-row">${item.country?`<span class="modal-date-chip">${countryFlag(item.country)} ${item.country}</span>`:''}${item.year?`<span class="modal-date-chip">📆 ${item.year}</span>`:''}</div>`;
+    let html=`${posterEl}<div class="modal-body">
+    <div class="modal-badges"><span class="badge" style="background:var(--teal-soft);color:var(--teal)">🎞️ Documental</span></div>
+    <div class="modal-title">${item.name}</div>
+    ${chipsHtml}
+    ${watchLinksHtml}
+    ${item.trailerUrl?trailerHtml(item.trailerUrl):''}
+    ${metaGrid?`<div class="modal-meta-grid">${metaGrid}</div>`:''}
+    ${genrePills}
+    ${item.synopsis?`<div class="synopsis">${item.synopsis}</div>`:''}
+    <div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div></div>`;
+    document.getElementById('modalBox').innerHTML=html;
+    document.getElementById('modalBg').classList.add('open');
+    return;
+  }
+
+  // ── Serie/reality: igual que openSeries ──
+  const s=item;
+  const allEps=genEps(s), now=new Date();
+  const seasons=getSeasons(s);
+  const totalEps=seasons.reduce((a,t)=>a+t.totalEpisodes,0);
+  const col='var(--teal)';
+  const aired=allEps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
+  const pct=Math.round(aired/Math.max(totalEps,1)*100);
+  const activeSeason=seasons[seasons.length-1];
+  const activeDays=((activeSeason?.emissionDays&&activeSeason.emissionDays.length)?activeSeason.emissionDays:[activeSeason?.dayOfWeek||0]).map(d=>DAYS_L[d]).join(' y ');
+  const next=allEps.find(e=>new Date(e.date+'T12:00:00')>now&&!e.skipped);
+  const todayStr=toStr(now.getFullYear(),now.getMonth(),now.getDate());
+  const todayEps=allEps.filter(e=>e.date===todayStr&&!e.skipped);
+  const isFinished=!next;
+  const datesWithEps=allEps.filter(e=>!e.skipped).map(e=>e.date).sort();
+  const firstEpDate=datesWithEps[0]||(seasons[0]&&seasons[0].startDate)||s.startDate;
+  const lastEpDate=datesWithEps[datesWithEps.length-1];
+  let nextBadgeHtml='';
+  if(todayEps.length){
+    nextBadgeHtml=`<div class="modal-next-badge today">🎤 Hoy · Ep. ${todayEps.map(e=>e.seasonNum).join(' & ')}${seasons.length>1?' ('+todayEps[0].seasonLabel+')':''}</div>`;
+  } else if(next){
+    const du=daysUntil(next.date);
+    const label=du===1?'mañana':du===0?'hoy':`en ${du} días`;
+    const seasonHint=seasons.length>1?` · ${next.seasonLabel}`:'';
+    nextBadgeHtml=`<div class="modal-next-badge soon">▶ Ep. ${next.seasonNum}${seasonHint} — ${fmtDate(next.date)} · ${label}</div>`;
+  } else {
+    nextBadgeHtml=`<div class="modal-next-badge done">✓ Finalizada</div>`;
+  }
+  let datesRowHtml='<div class="modal-dates-row">';
+  if(firstEpDate) datesRowHtml+=`<span class="modal-date-chip">🎬 Inicio: ${fmtDate(firstEpDate)}</span>`;
+  if(isFinished&&lastEpDate) datesRowHtml+=`<span class="modal-date-chip">🏁 Final: ${fmtDate(lastEpDate)}</span>`;
+  if(s.country) datesRowHtml+=`<span class="modal-date-chip">${countryFlag(s.country)} ${s.country}</span>`;
+  datesRowHtml+='</div>';
+  const posterEl=s.poster?`<img class="modal-poster-full" src="${s.poster}" alt="${s.name}" onerror="this.outerHTML='<div class=modal-poster-full-ph>🎤</div>'">`:`<div class="modal-poster-full-ph">🎤</div>`;
+  let metaGrid='';
+  if(s.year) metaGrid+=`<div class="meta-item"><div class="meta-key">Año</div><div class="meta-val">${s.year}</div></div>`;
+  if(s.country) metaGrid+=`<div class="meta-item"><div class="meta-key">País</div><div class="meta-val">${countryFlag(s.country)} ${s.country}</div></div>`;
+  if(s.network) metaGrid+=`<div class="meta-item"><div class="meta-key">Plataforma</div><div class="meta-val">${s.network}</div></div>`;
+  metaGrid+=`<div class="meta-item"><div class="meta-key">Episodios</div><div class="meta-val">${totalEps}${seasons.length>1?` (${seasons.length}T)`:''}</div></div>`;
+  const watchLinksHtml=(()=>{const links=s.watchLinks&&s.watchLinks.length?s.watchLinks:(s.networkUrl?[{name:s.network||'Ver',url:s.networkUrl}]:[]);if(!links.length)return '';return `<div class="watch-links-label">▶ Dónde ver</div><div class="watch-links">${links.map(l=>`<a class="watch-link" href="${l.url}" target="_blank" rel="noopener" style="background:var(--teal-soft);color:var(--teal);border-color:rgba(74,173,160,.35)"><span class="watch-link-icon">▶</span>${l.name}</a>`).join('')}</div>`;})();
+  const progressBlock=`<div class="modal-progress-block">
+    <div class="modal-progress-header">
+      <span class="modal-progress-label">${aired} / ${totalEps} emitidos · ${activeDays}</span>
+      <span class="modal-progress-pct" style="color:${col}">${pct}%</span>
+    </div>
+    <div style="height:6px;background:var(--border);border-radius:3px;overflow:hidden">
+      <div style="width:${pct}%;height:100%;background:${col};border-radius:3px;transition:width .4s"></div>
+    </div>
+  </div>`;
+  const genrePills=s.genres&&s.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px">${s.genres.map(g=>`<span style="font-size:11px;padding:2px 10px;border-radius:20px;background:var(--teal-soft);color:var(--teal);font-weight:600;border:1px solid rgba(74,173,160,0.2)">${g}</span>`).join('')}</div>`:'';
+  let html=`${posterEl}<div class="modal-body">
+  <div class="modal-badges"><span class="badge" style="background:var(--teal-soft);color:var(--teal)">🎤 Reality/Docuserie</span>${seasons.length>1?`<span class="badge" style="background:var(--teal-soft);color:var(--teal)">${seasons.length} temporadas</span>`:''}</div>
+  <div class="modal-title">${s.name}</div>
+  ${datesRowHtml}
+  ${nextBadgeHtml}
+  ${progressBlock}
+  ${watchLinksHtml}
+  ${s.trailerUrl?trailerHtml(s.trailerUrl):''}
+  ${metaGrid?`<div class="modal-meta-grid">${metaGrid}</div>`:''}
+  ${genrePills}
+  ${s.synopsis?`<div class="synopsis">${s.synopsis}</div>`:''}
+  <div class="divider"></div>`;
+  if(seasons.length===1){
+    html+=`<div class="ep-detail-list">`;
+    allEps.forEach(ep=>{
+      const isPast=new Date(ep.date+'T12:00:00')<=now;
+      const isEpToday=ep.date===todayStr;
+      const st=ep.skipped?'skipped':isPast?'aired':'pending',lb=ep.skipped?'No emitido':isEpToday?'¡Hoy!':isPast?'Emitido':'Pendiente';
+      html+=`<div class="ep-detail-row"><span class="ep-detail-num" style="color:${col}">E${ep.seasonNum}</span><span class="ep-detail-date">${fmtDate(ep.date)}</span><span class="chip ${isEpToday&&!ep.skipped?'pending':st}" style="${isEpToday&&!ep.skipped?'background:var(--accent);color:#fff':''}">${lb}</span></div>`;
+    });
+    html+=`</div>`;
+  } else {
+    seasons.forEach((season,idx)=>{
+      const seasonEps=allEps.filter(e=>e.season===idx+1);
+      const sAired=seasonEps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
+      const sPct=Math.round(sAired/Math.max(season.totalEpisodes,1)*100);
+      html+=`<div style="margin-bottom:1rem"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px"><span style="font-size:12px;font-weight:700;color:var(--text)">${season.label||`Temporada ${idx+1}`}</span><span style="font-size:11px;color:var(--muted)">${sAired}/${season.totalEpisodes} · ${sPct}%</span></div><div style="height:3px;background:var(--border);border-radius:2px;margin-bottom:8px;overflow:hidden"><div style="width:${sPct}%;height:100%;background:${col};border-radius:2px"></div></div><div class="ep-detail-list">`;
+      seasonEps.forEach(ep=>{
+        const isPast=new Date(ep.date+'T12:00:00')<=now;
+        const isEpToday=ep.date===todayStr;
+        const st=ep.skipped?'skipped':isPast?'aired':'pending',lb=ep.skipped?'No emitido':isEpToday?'¡Hoy!':isPast?'Emitido':'Pendiente';
+        html+=`<div class="ep-detail-row"><span class="ep-detail-num" style="color:${col}">E${ep.seasonNum}</span><span class="ep-detail-date">${fmtDate(ep.date)}</span><span class="chip ${isEpToday&&!ep.skipped?'pending':st}" style="${isEpToday&&!ep.skipped?'background:var(--accent);color:#fff':''}">${lb}</span></div>`;
+      });
+      html+=`</div></div>`;
+    });
+  }
+  html+=`<div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div></div>`;
+  document.getElementById('modalBox').innerHTML=html;
   document.getElementById('modalBg').classList.add('open');
 }
 
