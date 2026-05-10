@@ -1535,7 +1535,7 @@ function renderListResults(){
   if(genreSel) genreSel.value=seriesFilters.genre;
   if(clearBtn) clearBtn.style.display=(seriesFilters.countries&&seriesFilters.countries.length||seriesFilters.book!=='all'||seriesFilters.year||seriesFilters.genre)?'':'none';
 
-  const active=state.series.filter(s=>!s.upcoming);
+  const active=state.series.filter(s=>!s.upcoming&&s.category!=='anime'&&s.category!=='reality');
   const filtered=applySeriesFilters(active);
   const now=new Date();
 
@@ -1761,7 +1761,7 @@ function applyUpcomingFilters(arr){
 }
 
 function renderUpcoming(){
-  const allUpcoming=state.series.filter(s=>s.upcoming);
+  const allUpcoming=state.series.filter(s=>s.upcoming&&s.category!=='anime'&&s.category!=='reality');
   const view=document.getElementById('viewUpcoming');
   if(!allUpcoming.length){view.innerHTML='<div class="empty">✨ No hay series próximamente de momento. ¡Pronto habrá novedades!</div>';return;}
 
@@ -1834,7 +1834,7 @@ function renderUpcomingResults(){
   if(genreSel) genreSel.value=upcomingFilters.genre;
   if(clearBtn) clearBtn.style.display=(upcomingFilters.countries&&upcomingFilters.countries.length||upcomingFilters.book!=='all'||upcomingFilters.year||upcomingFilters.genre)?'':'none';
 
-  const allUpcoming=state.series.filter(s=>s.upcoming);
+  const allUpcoming=state.series.filter(s=>s.upcoming&&s.category!=='anime'&&s.category!=='reality');
   const upcoming=applyUpcomingFilters(allUpcoming);
 
   if(!upcoming.length){
@@ -2245,7 +2245,7 @@ function renderMovies(){
     <div id="moviesResults"></div>`;
     // Inject country picker with countries from movies
     const slot=document.getElementById('moviesCountryPickerSlot');
-    const moviesCountries=getCountries(state.movies);
+    const moviesCountries=getCountries(state.movies.filter(m=>m.category!=='anime'&&m.category!=='reality'));
     const picker=buildCountryPicker('movies',countries=>{moviesFilters.countries=countries;resetMoviesPage();renderMoviesResults();},moviesCountries);
     slot.appendChild(picker);
   }
@@ -2265,7 +2265,7 @@ function renderMoviesResults(){
   if(clearBtn) clearBtn.style.display=(moviesFilters.countries&&moviesFilters.countries.length||moviesFilters.book!=='all'||moviesFilters.year||moviesFilters.genre)?'':'none';
 
   const now=new Date();
-  const filtered=applyMoviesFilters(state.movies);
+  const filtered=applyMoviesFilters(state.movies.filter(m=>m.category!=='anime'&&m.category!=='reality'));
   const inTheaters=filtered.filter(mv=>mv.date&&new Date(mv.date+'T12:00:00')<=now);
   const comingSoon=filtered.filter(mv=>!mv.date||new Date(mv.date+'T12:00:00')>now);
   if(moviesSubtab==='theaters'&&!inTheaters.length) moviesSubtab='all';
@@ -2684,36 +2684,131 @@ function renderAnimeResults(){
   }
 }
 
+// ═══ SHARED RICH DETAIL MODAL (anime, realities) ═══
+function openRichDetail(item, opts){
+  // opts: {accentColor, accentSoft, accentBorder, isSeries, typeLabel, typeIcon}
+  const {accentColor,accentSoft,accentBorder,isSeries,typeLabel,typeIcon}=opts;
+  const now=new Date();
+
+  // Poster
+  const posterEl=item.poster
+    ?`<img class="modal-poster-full" src="${item.poster}" alt="${item.name}" onerror="this.outerHTML='<div class=modal-poster-full-ph>${typeIcon}</div>'">`
+    :`<div class="modal-poster-full-ph">${typeIcon}</div>`;
+
+  // Badges
+  let badgeHtml='';
+  if(item.basedOnBook) badgeHtml+=`<span class="badge badge-book">📖 ${item.bookSource||'Manga/Novela'}</span>`;
+  if(item.seasons&&item.seasons.length>1) badgeHtml+=`<span class="badge" style="background:${accentSoft};color:${accentColor}">${item.seasons.length} temporadas</span>`;
+  if(!isSeries) badgeHtml+=`<span class="badge" style="background:${accentSoft};color:${accentColor}">${typeIcon} ${typeLabel}</span>`;
+
+  // Dates row
+  let datesRowHtml='<div class="modal-dates-row">';
+  const startDate=item.startDate||item.date||'';
+  if(startDate) datesRowHtml+=`<span class="modal-date-chip">🎬 ${startDate.substring(0,4)}</span>`;
+  if(item.country) datesRowHtml+=`<span class="modal-date-chip">${countryFlag(item.country)} ${item.country}</span>`;
+  if(item.network) datesRowHtml+=`<span class="modal-date-chip">${item.network}</span>`;
+  datesRowHtml+='</div>';
+
+  // Next episode / status badge (only for series with episodes)
+  let nextBadgeHtml='';
+  if(isSeries&&item.startDate&&item.totalEpisodes){
+    const eps=genEps(item);
+    const next=eps.find(e=>new Date(e.date+'T12:00:00')>now&&!e.skipped);
+    const aired=eps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
+    const pct=Math.round(aired/Math.max(item.totalEpisodes,1)*100);
+    const todayStr=toStr(now.getFullYear(),now.getMonth(),now.getDate());
+    const todayEps=eps.filter(e=>e.date===todayStr&&!e.skipped);
+    if(todayEps.length){
+      nextBadgeHtml=`<div class="modal-next-badge today">🌸 Hoy · Ep. ${todayEps[0].seasonNum}</div>`;
+    } else if(next){
+      const du=daysUntil(next.date);
+      const label=du===1?'mañana':du===0?'hoy':`en ${du} días`;
+      nextBadgeHtml=`<div class="modal-next-badge soon">▶ Ep. ${next.seasonNum} — ${fmtDate(next.date)} · ${label}</div>`;
+    } else {
+      nextBadgeHtml=`<div class="modal-next-badge done">✓ Finalizada</div>`;
+    }
+    nextBadgeHtml+=`<div class="modal-progress-block">
+      <div class="modal-progress-header">
+        <span class="modal-progress-label">${aired} / ${item.totalEpisodes} emitidos</span>
+        <span class="modal-progress-pct" style="color:${accentColor}">${pct}%</span>
+      </div>
+      <div style="height:6px;background:var(--border);border-radius:3px;overflow:hidden">
+        <div style="width:${pct}%;height:100%;background:${accentColor};border-radius:3px;transition:width .4s"></div>
+      </div>
+    </div>`;
+  }
+
+  // Watch links
+  const links=item.watchLinks&&item.watchLinks.length?item.watchLinks:(item.networkUrl?[{name:item.network||'Ver',url:item.networkUrl}]:[]);
+  const watchLinksHtml=links.length
+    ?`<div class="watch-links-label">▶ Dónde ver</div><div class="watch-links">${links.map(l=>`<a class="watch-link" href="${l.url}" target="_blank" rel="noopener"><span class="watch-link-icon">▶</span>${l.name}</a>`).join('')}</div>`
+    :'';
+
+  // Trailer
+  const trailerSection=item.trailerUrl?trailerHtml(item.trailerUrl):'';
+
+  // Meta grid
+  let metaGrid='';
+  if(item.year) metaGrid+=`<div class="meta-item"><div class="meta-key">Año</div><div class="meta-val">${item.year}</div></div>`;
+  if(item.country) metaGrid+=`<div class="meta-item"><div class="meta-key">País</div><div class="meta-val">${countryFlag(item.country)} ${item.country}</div></div>`;
+  if(item.network) metaGrid+=`<div class="meta-item"><div class="meta-key">Plataforma</div><div class="meta-val">${item.network}</div></div>`;
+  if(item.totalEpisodes) metaGrid+=`<div class="meta-item"><div class="meta-key">Episodios</div><div class="meta-val">${item.totalEpisodes}${item.seasons&&item.seasons.length>1?` (${item.seasons.length}T)`:''}</div></div>`;
+
+  // Genre pills
+  const genrePills=item.genres&&item.genres.length
+    ?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem">${item.genres.map(g=>`<span style="font-size:11px;padding:2px 10px;border-radius:20px;background:${accentSoft};color:${accentColor};font-weight:600;border:1px solid ${accentBorder}">${g}</span>`).join('')}</div>`
+    :'';
+
+  // Synopsis
+  const synopsis=item.synopsis?`<div class="synopsis">${item.synopsis}</div>`:'';
+
+  // Book block
+  let bookBlock='';
+  if(item.basedOnBook){
+    const hasCover=item.bookCoverUrl&&item.bookCoverUrl.trim();
+    const hasTitle=item.bookSource&&item.bookSource.trim();
+    const editions=item.bookLinks&&item.bookLinks.length?item.bookLinks:(item.bookUrl?[{lang:'es',store:'Amazon',url:item.bookUrl}]:[]);
+    if(hasCover||hasTitle||editions.length){
+      const coverEl=hasCover?`<img class="book-cover" src="${item.bookCoverUrl}" alt="Portada" onerror="this.outerHTML='<div class=book-cover-ph>📖</div>'">`:`<div class="book-cover-ph">📖</div>`;
+      const edPills=editions.map(e=>`<a class="book-edition-pill" href="${e.url}" target="_blank" rel="noopener"><span class="book-edition-flag">${langFlag(e.lang)}</span><span class="book-edition-store">${e.store}</span></a>`).join('');
+      bookBlock=`<div class="book-block">${coverEl}<div class="book-info">
+        <div class="book-title-text">📖 ${hasTitle?item.bookSource:'Basado en manga/novela'}</div>
+        ${editions.length?`<div class="book-editions-row">${edPills}</div>`:''}
+      </div></div>`;
+    }
+  }
+
+  document.getElementById('modalBox').innerHTML=`
+    ${posterEl}
+    <div class="modal-body">
+      <div class="modal-badges">${badgeHtml}</div>
+      <div class="modal-title">${item.name}</div>
+      ${datesRowHtml}
+      ${nextBadgeHtml}
+      ${watchLinksHtml}
+      ${trailerSection}
+      ${metaGrid?`<div class="modal-meta-grid">${metaGrid}</div>`:''}
+      ${genrePills}
+      ${synopsis}
+      ${bookBlock}
+      <div class="divider"></div>
+      <div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div>
+    </div>`;
+  document.getElementById('modalBg').classList.add('open');
+}
+
 function openAnimeDetail(type,key){
   const arr=type==='series'?getAnimeSeriesData():getAnimeMoviesData();
   const item=arr.find(x=>x.id===key||x.name===key)||arr[key];
   if(!item) return;
-  const genrePills=item.genres&&item.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px">${item.genres.map(g=>`<span style="font-size:11px;padding:2px 10px;border-radius:20px;background:var(--lavender-soft);color:var(--lavender);font-weight:600;border:1px solid rgba(139,114,190,0.2)">${g}</span>`).join('')}</div>`:'';
-  const links=(item.watchLinks&&item.watchLinks.length?item.watchLinks:(item.networkUrl?[{name:item.network||'Ver',url:item.networkUrl}]:[]));
-  const watchPills=links.length?`<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">${links.map(l=>`<a class="card-watch-pill" href="${l.url}" target="_blank" rel="noopener">▶ ${l.name}</a>`).join('')}</div>`:'';
-  const trailerBtn=item.trailerUrl?`<a class="btn btn-outline" href="${item.trailerUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none">▶ Ver tráiler</a>`:'';
-  const poster=item.poster?`<img src="${item.poster}" alt="${item.name}" style="width:140px;height:auto;border-radius:12px;object-fit:cover;box-shadow:var(--shadow-md);flex-shrink:0" onerror="this.outerHTML=''">`:'';
-  const metaLine=[item.country?`${countryFlag(item.country)} ${item.country}`:null,item.year?String(item.year):null,item.network||null].filter(Boolean).join(' · ');
-  const eps=item.totalEpisodes?`<div style="font-size:12px;color:var(--muted);margin-bottom:8px">📺 ${item.totalEpisodes} episodios</div>`:'';
-  const synopsis=item.synopsis?`<div style="font-size:13px;line-height:1.7;color:var(--text);margin-bottom:14px">${item.synopsis}</div>`:'';
-  const bookBadge=item.basedOnBook?`<div style="background:var(--gold-soft);border:1px solid rgba(176,128,48,.2);border-radius:10px;padding:8px 12px;font-size:12px;color:var(--gold);font-weight:600;margin-bottom:12px">📖 Basado en: ${item.bookSource}</div>`:'';
-  document.getElementById('modalBox').innerHTML=`<button class="modal-close-btn" onclick="closeModal()">✕</button>
-    <div class="modal-body">
-      <div style="display:flex;gap:18px;margin-bottom:14px;align-items:flex-start">
-        ${poster}
-        <div style="flex:1;min-width:0">
-          <div style="font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:6px">${item.name}</div>
-          <div style="font-size:12px;color:var(--muted);margin-bottom:10px">${metaLine}</div>
-          ${eps}
-          ${genrePills}
-          ${watchPills}
-          ${trailerBtn}
-        </div>
-      </div>
-      ${synopsis}
-      ${bookBadge}
-    </div>`;
-  document.getElementById('modalBg').classList.add('open');
+  openRichDetail(item,{
+    accentColor:'var(--lavender)',
+    accentSoft:'var(--lavender-soft)',
+    accentBorder:'rgba(139,114,190,0.2)',
+    isSeries: type==='series',
+    typeLabel: type==='series'?'Anime Serie':'Anime Pelicula',
+    typeIcon:'🌸'
+  });
 }
 
 // ═══ REALITIES ═══
@@ -2887,30 +2982,14 @@ function openRealityDetail(type,key){
   const arr=type==='series'?getRealitiesSeriesData():getRealitiesMoviesData();
   const item=arr.find(x=>x.id===key||x.name===key)||arr[key];
   if(!item) return;
-  const genrePills=item.genres&&item.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px">${item.genres.map(g=>`<span style="font-size:11px;padding:2px 10px;border-radius:20px;background:var(--teal-soft);color:var(--teal);font-weight:600;border:1px solid rgba(74,173,160,0.2)">${g}</span>`).join('')}</div>`:'';
-  const links=(item.watchLinks&&item.watchLinks.length?item.watchLinks:(item.networkUrl?[{name:item.network||'Ver',url:item.networkUrl}]:[]));
-  const watchPills=links.length?`<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">${links.map(l=>`<a class="card-watch-pill" href="${l.url}" target="_blank" rel="noopener">▶ ${l.name}</a>`).join('')}</div>`:'';
-  const trailerBtn=item.trailerUrl?`<a class="btn btn-outline" href="${item.trailerUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none">▶ Ver tráiler</a>`:'';
-  const poster=item.poster?`<img src="${item.poster}" alt="${item.name}" style="width:130px;height:auto;border-radius:12px;object-fit:cover;box-shadow:var(--shadow-md);flex-shrink:0" onerror="this.outerHTML=''">`:'';
-  const metaLine=[item.country?`${countryFlag(item.country)} ${item.country}`:null,item.year?String(item.year):null,item.network||null].filter(Boolean).join(' · ');
-  const seasonsStr=item.seasons&&item.seasons.length>1?`<div style="font-size:12px;color:var(--muted);margin-bottom:8px">📺 ${item.seasons.length} temporadas · ${item.totalEpisodes||'?'} episodios</div>`:(item.totalEpisodes?`<div style="font-size:12px;color:var(--muted);margin-bottom:8px">📺 ${item.totalEpisodes} episodios</div>`:'');
-  const synopsis=item.synopsis?`<div style="font-size:13px;line-height:1.7;color:var(--text);margin-bottom:14px">${item.synopsis}</div>`:'';
-  document.getElementById('modalBox').innerHTML=`<button class="modal-close-btn" onclick="closeModal()">✕</button>
-    <div class="modal-body">
-      <div style="display:flex;gap:18px;margin-bottom:14px;align-items:flex-start">
-        ${poster}
-        <div style="flex:1;min-width:0">
-          <div style="font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:6px">${item.name}</div>
-          <div style="font-size:12px;color:var(--muted);margin-bottom:10px">${metaLine}</div>
-          ${seasonsStr}
-          ${genrePills}
-          ${watchPills}
-          ${trailerBtn}
-        </div>
-      </div>
-      ${synopsis}
-    </div>`;
-  document.getElementById('modalBg').classList.add('open');
+  openRichDetail(item,{
+    accentColor:'var(--teal)',
+    accentSoft:'var(--teal-soft)',
+    accentBorder:'rgba(74,173,160,0.2)',
+    isSeries: type==='series',
+    typeLabel: type==='series'?'Reality / Docuserie':'Documental',
+    typeIcon:'🎤'
+  });
 }
 
 
