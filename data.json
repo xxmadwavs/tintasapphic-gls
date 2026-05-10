@@ -20653,9 +20653,16 @@
       "watchLinks": [],
       "trailerUrl": "https://youtu.be/Qzag2eTJCno",
       "genres": [
-        "Drama",
-        "Music"
-      ]
+        "Drama"
+      ],
+      "poster": "https://m.media-amazon.com/images/M/MV5BNWYzZDg1ZmQtMjk0ZC00Nzc3LWIzMWUtOTQxOGJhMjhmNmI2XkEyXkFqcGc@._V1_.jpg",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "category": "movie",
+      "updatedAt": "2026-05-10T18:16:05.668Z"
     },
     {
       "id": "1700000000290",
@@ -20669,10 +20676,16 @@
       "watchLinks": [],
       "trailerUrl": "https://www.youtube.com/watch?v=Oy0RYiQRWUk",
       "genres": [
-        "Action",
-        "Comedy",
         "Thriller"
-      ]
+      ],
+      "poster": "https://pics.filmaffinity.com/Dos_chicas_a_la_fuga-263402376-large.jpg",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "category": "movie",
+      "updatedAt": "2026-05-10T18:16:16.807Z"
     },
     {
       "id": "1700000000291",
@@ -20683,16 +20696,19 @@
       "date": "2024-03-01",
       "network": "Youtube",
       "networkUrl": "",
-      "watchLinks": [
-        {
-          "name": "Youtube",
-          "url": ""
-        }
-      ],
+      "watchLinks": [],
       "trailerUrl": "",
       "genres": [
         "Romance"
-      ]
+      ],
+      "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRytCrLXJK7veADnNtSz70ve0u5Azt69NuYA&s",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "category": "movie",
+      "updatedAt": "2026-05-10T18:16:45.729Z"
     },
     {
       "id": "1700000000292",
@@ -20706,9 +20722,17 @@
       "watchLinks": [],
       "trailerUrl": "https://www.youtube.com/watch?v=01ACPCwY0sk",
       "genres": [
-        "Drama",
-        "Romance"
-      ]
+        "Romance",
+        "Drama"
+      ],
+      "poster": "https://pics.filmaffinity.com/Historias-491563160-large.jpg",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "category": "movie",
+      "updatedAt": "2026-05-10T18:16:58.730Z"
     },
     {
       "id": "1700000000293",
@@ -20723,7 +20747,15 @@
       "trailerUrl": "https://youtu.be/TA7eSgVa7yc",
       "genres": [
         "Drama"
-      ]
+      ],
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/1/8/5/9/3/6/1185936-io-non-sono-nessuno-0-230-0-345-crop.jpg?v=a77da18d2f",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "category": "movie",
+      "updatedAt": "2026-05-10T18:17:08.874Z"
     },
     {
       "id": "1700000000294",
@@ -21172,5 +21204,5 @@
       "updatedAt": "2026-05-10T11:06:18.914Z"
     }
   ],
-  "exportedAt": "2026-05-10T17:51:59.468Z"
+  "exportedAt": "2026-05-10T18:17:10.363Z"
 }
