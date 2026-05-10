@@ -1280,15 +1280,15 @@ function formHtml(s, forcedCategory=null){
         </div>
       </div>
 
-      <!-- Temporada anime: solo visible para cat=anime -->
-      <div class="form-row" id="animeSeason_wrap" style="margin-top:10px;${cat!=='anime'?'display:none':''}">
-        <label class="form-label">🌸 Temporada anime</label>
+      <!-- Temporada: visible para anime y reality/documental -->
+      <div class="form-row" id="animeSeason_wrap" style="margin-top:10px;${(cat!=='anime'&&cat!=='reality')?'display:none':''}">
+        <label class="form-label">${cat==='reality'?'📅 Temporada documental':'🌸 Temporada anime'}</label>
         <div class="anime-season-wrap">
           ${['Invierno','Primavera','Verano','Otoño'].map(st=>`<div class="anime-season-chip${(s&&s.animeSeason&&s.animeSeason.startsWith(st))?' selected':''}" data-season="${st}" onclick="selectAnimeSeason(this)">${st==='Invierno'?'❄️ ':st==='Primavera'?'🌸 ':st==='Verano'?'☀️ ':'🍂 '}${st}</div>`).join('')}
           <input type="number" id="f_anime_year" class="anime-season-year" placeholder="${new Date().getFullYear()}" min="2000" max="2040" value="${s&&s.animeSeason?s.animeSeason.split(' ').pop():''}">
           <input type="hidden" id="f_anime_season_name" value="${s&&s.animeSeason?s.animeSeason.split(' ').slice(0,-1).join(' '):''}">
         </div>
-        <div class="form-hint">Ej: Primavera 2025. Aparece en la ficha del anime.</div>
+        <div class="form-hint">Ej: Primavera 2025. Aparece en la ficha.</div>
       </div>
 
       <div class="form-row" style="margin-top:10px">
@@ -1582,7 +1582,7 @@ function selectCategory(cat){
   });
   // Show/hide anime season field
   const asWrap=document.getElementById('animeSeason_wrap');
-  if(asWrap) asWrap.style.display=cat==='anime'?'':'none';
+  if(asWrap) asWrap.style.display=(cat==='anime'||cat==='reality')?'':'none';
 }
 
 /* ═══ ANIME FUNCTIONS ═══ */
@@ -1698,7 +1698,7 @@ function renderRealitiesGrid(){
     const div=document.createElement('div'); div.className='series-item';
     div.innerHTML=`${cover}
       <div class="series-info">
-        <div class="series-name">${s.name} <span class="badge badge-reality">Reality</span>${s.basedOnBook?'<span class="badge badge-book">📖</span>':''}</div>
+        <div class="series-name">${s.name} <span class="badge badge-reality">Reality</span>${s.basedOnBook?'<span class="badge badge-book">📖</span>':''}${s.animeSeason?`<span class="anime-season-badge">📅 ${s.animeSeason}</span>`:''}</div>
         <div class="series-meta">${[s.country,s.network,s.year].filter(Boolean).join(' · ')} · ${total2} eps</div>
         <div class="progress-wrap"><div class="progress-fill" style="width:${pct}%;background:#3a9e94"></div></div>
       </div>
@@ -1739,7 +1739,7 @@ function saveSeries(si, forcedCategory=null){
   const bookUrl=bookLinks.length?bookLinks[0].url:'';
   const genres=getSelectedGenres('f_genres');
   const category=document.getElementById('f_category')?.value||'series';
-  const animeSeason=category==='anime'?getAnimeSeason():'';
+  const animeSeason=(category==='anime'||category==='reality')?getAnimeSeason():'';
   let payload={name,poster,synopsis,year:year?parseInt(year):'',country,network:net,networkUrl,watchLinks,trailerUrl,bookSource,basedOnBook,bookCoverUrl,bookLinks,bookUrl,upcoming,genres,category,animeSeason};
   if(!upcoming){
     const seasons=getSeasonsData();
