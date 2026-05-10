@@ -2778,12 +2778,67 @@ function openRichDetail(item, opts){
     }
   }
 
+  // animeSeason badge
+  const animeSeasonBadge=item.animeSeason
+    ?`<span class="modal-date-chip" style="background:${accentSoft};color:${accentColor};border-color:${accentBorder}">${typeIcon} ${item.animeSeason}</span>`
+    :'';
+
+  // Episode list (for series with seasons data)
+  let epListHtml='';
+  if(isSeries){
+    const seasons=item.seasons&&item.seasons.length?item.seasons:(item.startDate?[{label:'Temporada 1',startDate:item.startDate,totalEpisodes:item.totalEpisodes||0,emissionDays:item.emissionDays||[item.dayOfWeek||0],allInOneDay:false,skipDates:[],episodes:[]}]:[]);
+    if(seasons.length&&seasons[0].totalEpisodes){
+      const allEps=genEps(item);
+      const todayStr=toStr(now.getFullYear(),now.getMonth(),now.getDate());
+      epListHtml=`<div class="divider"></div>`;
+      if(seasons.length===1){
+        epListHtml+=`<div class="ep-detail-list">`;
+        allEps.forEach(ep=>{
+          const isPast=new Date(ep.date+'T12:00:00')<=now;
+          const isEpToday=ep.date===todayStr;
+          const st=ep.skipped?'skipped':isPast?'aired':'pending';
+          const lb=ep.skipped?'No emitido':isEpToday?'¡Hoy!':isPast?'Emitido':'Pendiente';
+          epListHtml+=`<div class="ep-detail-row"><span class="ep-detail-num" style="color:${accentColor}">E${ep.seasonNum}</span><span class="ep-detail-date">${fmtDate(ep.date)}</span><span class="chip ${isEpToday&&!ep.skipped?'pending':st}" style="${isEpToday&&!ep.skipped?'background:'+accentColor+';color:#fff':''}">${lb}</span></div>`;
+        });
+        epListHtml+=`</div>`;
+      } else {
+        seasons.forEach((season,idx)=>{
+          const seasonEps=allEps.filter(e=>e.season===idx+1);
+          const sAired=seasonEps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
+          const sPct=Math.round(sAired/Math.max(season.totalEpisodes,1)*100);
+          epListHtml+=`<div style="margin-bottom:1rem">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+              <span style="font-size:12px;font-weight:700;color:var(--text)">${season.label||`Temporada ${idx+1}`}</span>
+              <span style="font-size:11px;color:var(--muted)">${sAired}/${season.totalEpisodes} · ${sPct}%</span>
+            </div>
+            <div style="height:3px;background:var(--border);border-radius:2px;margin-bottom:8px;overflow:hidden">
+              <div style="width:${sPct}%;height:100%;background:${accentColor};border-radius:2px"></div>
+            </div>
+            <div class="ep-detail-list">`;
+          seasonEps.forEach(ep=>{
+            const isPast=new Date(ep.date+'T12:00:00')<=now;
+            const isEpToday=ep.date===todayStr;
+            const st=ep.skipped?'skipped':isPast?'aired':'pending';
+            const lb=ep.skipped?'No emitido':isEpToday?'¡Hoy!':isPast?'Emitido':'Pendiente';
+            epListHtml+=`<div class="ep-detail-row"><span class="ep-detail-num" style="color:${accentColor}">E${ep.seasonNum}</span><span class="ep-detail-date">${fmtDate(ep.date)}</span><span class="chip ${isEpToday&&!ep.skipped?'pending':st}" style="${isEpToday&&!ep.skipped?'background:'+accentColor+';color:#fff':''}">${lb}</span></div>`;
+          });
+          epListHtml+=`</div></div>`;
+        });
+      }
+    }
+  }
+
   document.getElementById('modalBox').innerHTML=`
     ${posterEl}
     <div class="modal-body">
       <div class="modal-badges">${badgeHtml}</div>
       <div class="modal-title">${item.name}</div>
-      ${datesRowHtml}
+      <div class="modal-dates-row">
+        ${(() => { const startDate=item.startDate||item.date||''; return startDate?`<span class="modal-date-chip">🎬 ${startDate.substring(0,4)}</span>`:''; })()}
+        ${item.country?`<span class="modal-date-chip">${countryFlag(item.country)} ${item.country}</span>`:''}
+        ${item.network?`<span class="modal-date-chip">${item.network}</span>`:''}
+        ${animeSeasonBadge}
+      </div>
       ${nextBadgeHtml}
       ${watchLinksHtml}
       ${trailerSection}
@@ -2791,7 +2846,8 @@ function openRichDetail(item, opts){
       ${genrePills}
       ${synopsis}
       ${bookBlock}
-      <div class="divider"></div>
+      ${epListHtml}
+      ${!epListHtml?'<div class="divider"></div>':''}
       <div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div>
     </div>`;
   document.getElementById('modalBg').classList.add('open');
