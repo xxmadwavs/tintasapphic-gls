@@ -1087,6 +1087,7 @@ function getSeasons(s){
 
 // Generate episodes for a single season object
 function genSeasonEps(season, globalEpOffset=0){
+  if(!season.startDate||isNaN(new Date(season.startDate+'T12:00:00').getTime())) return [];
   const days=(season.emissionDays&&season.emissionDays.length)?[...season.emissionDays].sort((a,b)=>a-b):[season.dayOfWeek||0];
   const skipDates=new Set(season.skipDates||[]);
   const epOverrides=season.episodes||[];
@@ -2643,10 +2644,9 @@ function renderAnimeResults(){
         <div class="series-card-body">
           <div class="card-badges">${s.basedOnBook?`<span class="badge badge-book">📖 ${s.bookSource||'Manga'}</span>`:''}${s.country?`<span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">${countryFlag(s.country)} ${s.country}</span>`:''}</div>
           <div class="series-card-name">${s.name}</div>
-          <div class="series-card-meta">${[s.network,year?'📅 '+year:null].filter(Boolean).join(' · ')}</div>
+          <div class="series-card-meta">${[s.network,year?'📅 '+year:null,s.totalEpisodes?'📺 '+s.totalEpisodes+' ep.':null].filter(Boolean).join(' · ')}</div>
           ${genrePills}
           ${watchRow}
-          ${s.totalEpisodes?`<div style="font-size:10px;color:var(--muted);margin-top:5px">📺 ${s.totalEpisodes} episodios</div>`:''}
         </div>
       </div>`;
     });
@@ -2939,7 +2939,7 @@ function renderRealitiesResults(){
         <div class="series-card-body">
           <div class="card-badges">${seasonsCount}${s.country?`<span class="badge" style="background:var(--teal-soft);color:var(--teal)">${countryFlag(s.country)} ${s.country}</span>`:''}</div>
           <div class="series-card-name">${s.name}</div>
-          <div class="series-card-meta">${[s.network,year?'📅 '+year:null].filter(Boolean).join(' · ')}</div>
+          <div class="series-card-meta">${[s.network,year?'📅 '+year:null,s.totalEpisodes?'📺 '+s.totalEpisodes+' ep.':null].filter(Boolean).join(' · ')}</div>
           ${genrePills}
           ${watchRow}
         </div>
@@ -2967,7 +2967,7 @@ function renderRealitiesResults(){
         <div class="movie-card-body">
           <div class="card-badges">${mv.country?`<span class="badge" style="background:var(--teal-soft);color:var(--teal)">${countryFlag(mv.country)} ${mv.country}</span>`:''}</div>
           <div class="movie-card-name">${mv.name}</div>
-          <div class="movie-card-meta">📹 Documental · ${dateStr}</div>
+          <div class="movie-card-meta">📹 Documental · ${dateStr}${mv.totalEpisodes?' · 📺 '+mv.totalEpisodes+' ep.':''}</div>
           ${genrePills}
           ${watchRow}
         </div>
@@ -3111,7 +3111,7 @@ function renderDocumentalesResults(){
       <div class="movie-card-body">
         <div class="card-badges">${mv.country?`<span class="badge" style="background:var(--teal-soft);color:var(--teal)">${countryFlag(mv.country)} ${mv.country}</span>`:''}</div>
         <div class="movie-card-name">${mv.name}</div>
-        <div class="movie-card-meta">🎞️ Documental · ${dateStr}</div>
+        <div class="movie-card-meta">🎞️ Documental · ${dateStr}${mv.totalEpisodes?' · 📺 '+mv.totalEpisodes+' ep.':''}</div>
         ${genrePills}
         ${watchRow}
       </div>
