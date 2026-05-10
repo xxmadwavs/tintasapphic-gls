@@ -1635,7 +1635,7 @@ function openEditAnime(si){
   initPlatforms(links);
   initBookEditions('bookEditionsList', s.bookLinks||[], s.bookUrl||'');
   initCountries('countriesList', s.country||'');
-  initSeasons(s);
+  initSeasons(getSeasons(s));
 }
 function openEpsAnime(si){ openEps(si); } // reuse same modal
 
@@ -1663,7 +1663,7 @@ function openEditReality(si){
   initPlatforms(links);
   initBookEditions('bookEditionsList', s.bookLinks||[], s.bookUrl||'');
   initCountries('countriesList', s.country||'');
-  initSeasons(s);
+  initSeasons(getSeasons(s));
 }
 
 /* ═══ RENDER ANIME GRID ═══ */
