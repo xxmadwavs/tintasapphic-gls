@@ -352,6 +352,29 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
 .pg-btn:disabled{opacity:.35;cursor:default}
 .pg-info{font-size:12px;color:var(--muted);font-weight:600;padding:0 6px;white-space:nowrap}
 
+/* ═══ ANIME SEASON SELECTOR ═══ */
+.anime-season-wrap{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:4px}
+.anime-season-chip{
+  padding:5px 13px;border-radius:20px;font-size:12px;font-weight:700;
+  border:1.5px solid var(--border2);background:var(--surface2);
+  color:var(--muted);cursor:pointer;transition:all .15s;
+  font-family:'Nunito',sans-serif;user-select:none;
+}
+.anime-season-chip:hover{border-color:#9b82c9;color:#7c5cbf;background:var(--lavender-soft)}
+.anime-season-chip.selected{background:var(--lavender-soft);border-color:#9b82c9;color:#7c5cbf}
+.anime-season-year{
+  padding:6px 10px;border-radius:10px;border:1.5px solid var(--border2);
+  background:var(--surface2);color:var(--text);font-size:13px;
+  font-family:'Nunito',sans-serif;outline:none;width:82px;
+  transition:border-color .15s;
+}
+.anime-season-year:focus{border-color:#9b82c9}
+.anime-season-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:10px;padding:2px 8px;border-radius:20px;font-weight:700;
+  background:var(--lavender-soft);color:#7c5cbf;border:1px solid rgba(155,130,201,0.4);
+}
+
 /* ═══ COLLAPSE SECTION ═══ */
 .collapsible-header{
   display:flex;align-items:center;justify-content:space-between;
@@ -1257,6 +1280,17 @@ function formHtml(s, forcedCategory=null){
         </div>
       </div>
 
+      <!-- Temporada anime: solo visible para cat=anime -->
+      <div class="form-row" id="animeSeason_wrap" style="margin-top:10px;${cat!=='anime'?'display:none':''}">
+        <label class="form-label">🌸 Temporada anime</label>
+        <div class="anime-season-wrap">
+          ${['Invierno','Primavera','Verano','Otoño'].map(st=>`<div class="anime-season-chip${(s&&s.animeSeason&&s.animeSeason.startsWith(st))?' selected':''}" data-season="${st}" onclick="selectAnimeSeason(this)">${st==='Invierno'?'❄️ ':st==='Primavera'?'🌸 ':st==='Verano'?'☀️ ':'🍂 '}${st}</div>`).join('')}
+          <input type="number" id="f_anime_year" class="anime-season-year" placeholder="${new Date().getFullYear()}" min="2000" max="2040" value="${s&&s.animeSeason?s.animeSeason.split(' ').pop():''}">
+          <input type="hidden" id="f_anime_season_name" value="${s&&s.animeSeason?s.animeSeason.split(' ').slice(0,-1).join(' '):''}">
+        </div>
+        <div class="form-hint">Ej: Primavera 2025. Aparece en la ficha del anime.</div>
+      </div>
+
       <div class="form-row" style="margin-top:10px">
         <label class="form-label">País</label>
         <div class="country-list" id="countriesList"></div>
@@ -1523,6 +1557,22 @@ function openEditByCat(si){
   else openEdit(si);
 }
 
+/* ═══ ANIME SEASON CHIP SELECTOR ═══ */
+function selectAnimeSeason(chip){
+  const wrap=chip.closest('.anime-season-wrap');
+  wrap.querySelectorAll('.anime-season-chip').forEach(c=>c.classList.remove('selected'));
+  chip.classList.add('selected');
+  document.getElementById('f_anime_season_name').value=chip.dataset.season;
+}
+
+function getAnimeSeason(){
+  const name=document.getElementById('f_anime_season_name')?.value.trim()||'';
+  const year=document.getElementById('f_anime_year')?.value.trim()||'';
+  if(!name&&!year) return '';
+  if(name&&year) return `${name} ${year}`;
+  return name||year;
+}
+
 /* ═══ CATEGORY SELECTOR ═══ */
 function selectCategory(cat){
   const input=document.getElementById('f_category');
@@ -1530,6 +1580,9 @@ function selectCategory(cat){
   document.querySelectorAll('#f_cat_chips .cat-chip').forEach(c=>{
     c.className='cat-chip'+(c.dataset.cat===cat?` selected-${cat}`:'');
   });
+  // Show/hide anime season field
+  const asWrap=document.getElementById('animeSeason_wrap');
+  if(asWrap) asWrap.style.display=cat==='anime'?'':'none';
 }
 
 /* ═══ ANIME FUNCTIONS ═══ */
@@ -1609,7 +1662,7 @@ function renderAnimeGrid(){
     const div=document.createElement('div'); div.className='series-item';
     div.innerHTML=`${cover}
       <div class="series-info">
-        <div class="series-name">${s.name} <span class="badge badge-anime">Anime</span>${s.basedOnBook?'<span class="badge badge-book">📖</span>':''}</div>
+        <div class="series-name">${s.name} <span class="badge badge-anime">Anime</span>${s.basedOnBook?'<span class="badge badge-book">📖</span>':''}${s.animeSeason?`<span class="anime-season-badge">🌸 ${s.animeSeason}</span>`:''}</div>
         <div class="series-meta">${[s.country,s.network,s.year].filter(Boolean).join(' · ')} · ${total2} eps</div>
         <div class="progress-wrap"><div class="progress-fill" style="width:${pct}%;background:#7c5cbf"></div></div>
       </div>
@@ -1686,7 +1739,8 @@ function saveSeries(si, forcedCategory=null){
   const bookUrl=bookLinks.length?bookLinks[0].url:'';
   const genres=getSelectedGenres('f_genres');
   const category=document.getElementById('f_category')?.value||'series';
-  let payload={name,poster,synopsis,year:year?parseInt(year):'',country,network:net,networkUrl,watchLinks,trailerUrl,bookSource,basedOnBook,bookCoverUrl,bookLinks,bookUrl,upcoming,genres,category};
+  const animeSeason=category==='anime'?getAnimeSeason():'';
+  let payload={name,poster,synopsis,year:year?parseInt(year):'',country,network:net,networkUrl,watchLinks,trailerUrl,bookSource,basedOnBook,bookCoverUrl,bookLinks,bookUrl,upcoming,genres,category,animeSeason};
   if(!upcoming){
     const seasons=getSeasonsData();
     if(!seasons) return;

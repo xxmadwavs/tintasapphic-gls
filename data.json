@@ -12817,6 +12817,179 @@
         }
       ],
       "updatedAt": "2026-05-10T08:56:15.094Z"
+    },
+    {
+      "id": "1778404949218",
+      "name": "Work in Progress",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/gnpF1pqAr2WXHr467U8Rlc205IL.jpg",
+      "synopsis": "Abby, una mujer obesa y homosexual de 45 años, vive una inestabilidad que le lleva a entrar en una relación transformadora.",
+      "year": 2019,
+      "country": "Estados Unidos",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/hX9xpixwdDk?si=lyKZov9w9VBcJuSJ",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Drama",
+        "Comedia"
+      ],
+      "category": "series",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2019-12-08",
+          "totalEpisodes": 11,
+          "emissionDays": [
+            6
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 2",
+          "startDate": "2021-08-22",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            6
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-10T09:22:29.218Z"
+    },
+    {
+      "id": "1778405111719",
+      "name": "Dead to Me",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/3TpJMdoCBFg2bMuEFOuvd0c1wPT.jpg",
+      "synopsis": "Jen, una viuda sin filtro, busca a la persona que atropelló a su marido y lo dejó tirado. Judy, optimista y rara, oculta algo. Amigas instantáneas. Pronóstico reservado.",
+      "year": 2019,
+      "country": "Estados Unidos",
+      "network": "Netflix",
+      "networkUrl": "https://www.netflix.com/es/title/80219707",
+      "watchLinks": [
+        {
+          "name": "Netflix",
+          "url": "https://www.netflix.com/es/title/80219707"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/4RrJgoXdwak?si=rtKD9eycegDrZUAR",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Drama",
+        "Comedia",
+        "Crimen"
+      ],
+      "category": "series",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2019-05-03",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 2",
+          "startDate": "2020-05-08",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 3",
+          "startDate": "2022-02-17",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            3
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-10T09:25:11.719Z"
+    },
+    {
+      "id": "1778405237229",
+      "name": "The Wilds",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/fJLfcjjZF6vhSFntfOnpirow6ub.jpg",
+      "synopsis": "Un grupo de adolescentes de diferentes orígenes debe luchar para sobrevivir después de que un accidente aéreo las deje abandonadas en una isla desierta. Las náufragas se enfrentan y se unen a medida que se van conociendo entre ellas, así como los secretos que guardan y los traumas que todas han sufrido. Solo hay un giro en este emocionante drama... esas chicas no acabaron en la isla por accidente.",
+      "year": 2020,
+      "country": "Estados Unidos",
+      "network": "Prime Video",
+      "networkUrl": "https://www.primevideo.com/detail?gti=amzn1.dv.gti.1cbadcb3-4660-2a3c-510a-5e057c64fc6d&linkCode=xm2&tag=justesrsjd-21",
+      "watchLinks": [
+        {
+          "name": "Prime Video",
+          "url": "https://www.primevideo.com/detail?gti=amzn1.dv.gti.1cbadcb3-4660-2a3c-510a-5e057c64fc6d&linkCode=xm2&tag=justesrsjd-21"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/b4ua00Yo0Jg?si=y9xeCXSsVQmKrz6b",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Drama",
+        "Misterio"
+      ],
+      "category": "series",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2020-12-11",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 2",
+          "startDate": "2022-05-05",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            3
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-10T09:27:17.229Z"
     }
   ],
   "movies": [
@@ -12950,5 +13123,5 @@
       "genres": []
     }
   ],
-  "exportedAt": "2026-05-10T09:12:43.997Z"
+  "exportedAt": "2026-05-10T09:31:49.052Z"
 }
