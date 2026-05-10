@@ -11932,7 +11932,7 @@
         {
           "label": "Temporada 1",
           "startDate": "2018-10-05",
-          "totalEpisodes": 13,
+          "totalEpisodes": 12,
           "emissionDays": [
             4
           ],
@@ -11942,8 +11942,8 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-10T09:35:31.053Z",
-      "animeSeason": ""
+      "updatedAt": "2026-05-10T09:52:28.018Z",
+      "animeSeason": "Otoño 2018"
     },
     {
       "id": "1778396322251",
@@ -12997,7 +12997,7 @@
       "name": "I'm in Love with the Villainess",
       "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/tQNMsjH2YtRZfgb8zTXtA21vxud.jpg",
       "synopsis": "El mundo de una trabajadora corporativa se pone patas arriba cuando un día despierta siendo Rae Taylor, la protagonista de su juego otome favorito, Revolution. Rae esta eufótica ante la oportunidad de cortejar a Claire François, la villana del juego y por quien siente un profundo amor. Armada con sus conocimientos del juego y de los eventos que están por suceder, Rae se propone hacer que Claire se enamore de ella. Pero ¿cómo se tomará la villana los embites románticos de Rae?",
-      "year": "",
+      "year": 2023,
       "country": "Japón",
       "network": "Crunchyroll",
       "networkUrl": "https://www.crunchyroll.com",
@@ -13019,7 +13019,7 @@
         "Fantasía"
       ],
       "category": "anime",
-      "animeSeason": "Primavera 2021",
+      "animeSeason": "Otoño 2023",
       "seasons": [
         {
           "label": "Temporada 1",
@@ -13034,7 +13034,133 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-10T09:34:50.996Z"
+      "updatedAt": "2026-05-10T09:52:00.343Z"
+    },
+    {
+      "id": "1778406327495",
+      "name": "Whisper Me a Love Song",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/xWStcaXFVsu7iyJovp6spxZplWG.jpg",
+      "synopsis": "En una ceremonia de ingreso a la escuela secundaria, una banda toca y el novato Himari se siente atraído por la vocalista Yori. Más tarde, Himari se acerca a Yori, profesando ser un fan. Pero Yori confunde su significado.",
+      "year": 2024,
+      "country": "Japón",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/X5k0wcGehpU?si=TxzYYSHdNP9VhQLc",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Drama",
+        "Comedia"
+      ],
+      "category": "anime",
+      "animeSeason": "Primavera 2024",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2024-04-14",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            6
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-10T09:51:21.465Z"
+    },
+    {
+      "id": "1778406423279",
+      "name": "Citrus",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/u404BsPqJv5lxgNGLnbJbPe6PEe.jpg",
+      "synopsis": "Yuzu, una gal transferida a una escuela femenina tras el nuevo matrimonio de su madre, busca adaptarse mientras lidia con Mei, la estricta presidenta del consejo estudiantil. Su relación se complica al descubrir que ahora son hermanastras, y entre choques y atracción, sus vidas cambian.",
+      "year": "",
+      "country": "Japón",
+      "network": "Crunchyroll",
+      "networkUrl": "https://www.crunchyroll.com",
+      "watchLinks": [
+        {
+          "name": "Crunchyroll",
+          "url": "https://www.crunchyroll.com"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/-IcWGPYU7W4?si=CzOJnZL6KsAf3BwO",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Drama",
+        "Comedia"
+      ],
+      "category": "anime",
+      "animeSeason": "Invierno 2018",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2018-01-06",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            5
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-10T09:50:54.693Z"
+    },
+    {
+      "id": "1778406629965",
+      "name": "Oshi ga Budoukan Ittekuretara Shinu",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/yrNUSeePD0YDba3A9wr2lvs1LU6.jpg",
+      "synopsis": "La historia se centra en una mujer llamada «Eripiyo», que es fanática extrema de las idols. Está locamente entusiasmada con Maina, la tímida y miembro de menor rango del grupo idol desconocido Cham Jam, que actúa en la Prefectura de Okayama. Está tan absorta en su amor por Maina durante una actuación en particular, que termina saliéndole sangre por la nariz. Eri continuará dándole su devoción completa a Maina hasta el día en que pueda actuar en el Budōkan.",
+      "year": 2020,
+      "country": "Japón",
+      "network": "Crunchyroll",
+      "networkUrl": "https://www.primevideo.com/detail?gti=amzn1.dv.gti.deb5e617-2450-4871-bfc6-4ac11be9ffa0&linkCode=xm2&tag=justesrsjd-21",
+      "watchLinks": [
+        {
+          "name": "Crunchyroll",
+          "url": "https://www.primevideo.com/detail?gti=amzn1.dv.gti.deb5e617-2450-4871-bfc6-4ac11be9ffa0&linkCode=xm2&tag=justesrsjd-21"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/fbKFGJ8TiHw?si=NjzHI8fhfnDuJRjC",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Comedia"
+      ],
+      "category": "anime",
+      "animeSeason": "Invierno 2020",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2020-01-09",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            3
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-10T09:50:29.965Z"
     }
   ],
   "movies": [
@@ -13168,5 +13294,5 @@
       "genres": []
     }
   ],
-  "exportedAt": "2026-05-10T09:36:11.377Z"
+  "exportedAt": "2026-05-10T09:52:38.195Z"
 }
