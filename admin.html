@@ -846,6 +846,7 @@ function getSeriesStatus(s){
 function switchStab(tab){
   const map={active:'all',upcoming:'upcoming'};
   adminSeriesStatus=map[tab]||'all';
+  pages.series = 1;
   document.querySelectorAll('.admin-pill').forEach(p=>{
     p.classList.toggle('active', p.dataset.status===adminSeriesStatus);
   });
@@ -896,6 +897,7 @@ function render(){
   }
 
   if(!filtered.length){
+    pages.series = 1;
     grid.innerHTML=`<div class="empty">${q?'🔍 No se encontró ninguna serie con esa búsqueda.':adminSeriesStatus==='upcoming'?'📅 No hay series próximamente.':'🌸 No hay series todavía.'}</div>`;
   } else {
     const {items, total, totalPages, page} = paginate(filtered, 'series');
@@ -943,7 +945,6 @@ function render(){
     });
     grid.insertAdjacentHTML('beforeend', paginationHtml('series', total, totalPages, page));
   }
-  renderMovies();
 }
 
 function renderMovies(){
@@ -2154,11 +2155,11 @@ function saveMovie(mi){
   const movieUpdatedAt=new Date().toISOString();
   if(mi===-1) movies.push({id:Date.now().toString(),...payload,updatedAt:movieUpdatedAt});
   else movies[mi]={...movies[mi],...payload,updatedAt:movieUpdatedAt};
-  save(); closeAll(); render(); renderBooks();
+  save(); closeAll(); render(); renderMovies(); renderBooks();
 }
 function delMovie(mi){
   if(!confirm(`¿Eliminar "${movies[mi].name}"?`)) return;
-  movies.splice(mi,1); save(); render(); renderBooks();
+  movies.splice(mi,1); save(); render(); renderMovies(); renderBooks();
 }
 
 function renderBooks(){
@@ -2208,7 +2209,7 @@ function importData(e){
       const d=JSON.parse(ev.target.result);
       if(d.series) series=d.series;
       if(d.movies) movies=d.movies;
-      save(); render(); renderBooks(); renderAnimeGrid(); renderRealitiesGrid();
+      save(); render(); renderMovies(); renderBooks(); renderAnimeGrid(); renderRealitiesGrid();
       alert('✓ Datos importados correctamente');
     }catch(err){ alert('Error al leer el archivo: '+err.message); }
   };
