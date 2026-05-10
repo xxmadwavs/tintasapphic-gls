@@ -11943,6 +11943,361 @@
         }
       ],
       "updatedAt": "2026-05-09T21:37:07.525Z"
+    },
+    {
+      "id": "1778396322251",
+      "name": "Sense8",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/kmyvlQ9QKzgdZY31rXaUlgCnzrB.jpg",
+      "synopsis": "Un grupo de personas en todo el mundo están repentinamente vinculados mentalmente, y deben encontrar una manera de sobrevivir siendo cazados por quienes los ven como una amenaza para el orden mundial.",
+      "year": 2015,
+      "country": "Estados Unidos",
+      "network": "Netflix",
+      "networkUrl": "https://www.netflix.com/es/title/80025744",
+      "watchLinks": [
+        {
+          "name": "Netflix",
+          "url": "https://www.netflix.com/es/title/80025744"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/LDPgpvq-z74?si=S_-LtJvu6ViRGve2",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Ciencia Ficción",
+        "Sobrenatural"
+      ],
+      "category": "series",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2015-06-05",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 2",
+          "startDate": "2017-05-05",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-10T06:58:42.251Z"
+    },
+    {
+      "id": "1778396529538",
+      "name": "Wynonna Earp",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/qnIaDelA81dmFaXrhpz6M6dpGSD.jpg",
+      "synopsis": "Basado en el cómic de IDW, Wynonna Earp bisnieta de Wyatt Earp sigue los pasos de su bisabuelo,  luchando contra demonios y otras criaturas. Con sus habilidades únicas, y una puñado de aliados disfuncionales, ella es la única que puede traer la justicia en lo paranormal.",
+      "year": 2016,
+      "country": "Estados Unidos",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/Ehg2LZw3FcU?si=eqgvL5RlYzDeiSe_",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Drama",
+        "Acción",
+        "Thriller"
+      ],
+      "category": "series",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2016-04-01",
+          "totalEpisodes": 13,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 2",
+          "startDate": "2017-09-01",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 3",
+          "startDate": "2018-07-27",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 4",
+          "startDate": "2021-11-05",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-10T07:02:09.538Z"
+    },
+    {
+      "id": "1778396856737",
+      "name": "Hacks",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/ca5XiEFgyGsI38QT3wEKa1QVGX.jpg",
+      "synopsis": "Explora la oscura tutoría que se forma entre Deborah Vance, una comediante legendaria de Las Vegas, y una marginada de 25 años con privilegios.",
+      "year": 2021,
+      "country": "Estados Unidos",
+      "network": "HBO Max",
+      "networkUrl": "https://www.max.com",
+      "watchLinks": [
+        {
+          "name": "HBO Max",
+          "url": "https://www.max.com"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/pJcfoJCCJ50?si=l1B5YM8SVGkNjOFj",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Drama",
+        "Comedia"
+      ],
+      "category": "series",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2021-05-13",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            3
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": [
+            {
+              "fromEp": 1,
+              "toEp": 2,
+              "date": "2021-05-13"
+            },
+            {
+              "fromEp": 3,
+              "toEp": 4,
+              "date": "2021-05-20"
+            },
+            {
+              "fromEp": 5,
+              "toEp": 6,
+              "date": "2021-05-27"
+            },
+            {
+              "fromEp": 7,
+              "toEp": 8,
+              "date": "2021-06-03"
+            },
+            {
+              "fromEp": 9,
+              "toEp": 10,
+              "date": "2021-06-10"
+            }
+          ]
+        },
+        {
+          "label": "Temporada 2",
+          "startDate": "2022-05-12",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            3
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": [
+            {
+              "fromEp": 1,
+              "toEp": 2,
+              "date": "2022-05-12"
+            },
+            {
+              "fromEp": 3,
+              "toEp": 4,
+              "date": "2022-05-19"
+            },
+            {
+              "fromEp": 5,
+              "toEp": 6,
+              "date": "2022-05-26"
+            },
+            {
+              "fromEp": 7,
+              "toEp": 8,
+              "date": "2022-06-02"
+            }
+          ]
+        },
+        {
+          "label": "Temporada 3",
+          "startDate": "2024-05-02",
+          "totalEpisodes": 9,
+          "emissionDays": [
+            3
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": [
+            {
+              "fromEp": 1,
+              "toEp": 2,
+              "date": "2024-05-02"
+            },
+            {
+              "fromEp": 3,
+              "toEp": 4,
+              "date": "2024-05-09"
+            },
+            {
+              "fromEp": 5,
+              "toEp": 6,
+              "date": "2024-05-16"
+            },
+            {
+              "fromEp": 7,
+              "toEp": 8,
+              "date": "2024-05-23"
+            },
+            {
+              "fromEp": 9,
+              "toEp": 9,
+              "date": "2024-05-30"
+            }
+          ]
+        },
+        {
+          "label": "Temporada 4",
+          "startDate": "2025-04-19",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            5
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": [
+            {
+              "fromEp": 1,
+              "toEp": 2,
+              "date": "2025-04-19"
+            }
+          ]
+        },
+        {
+          "label": "Temporada 5",
+          "startDate": "2026-04-09",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            3
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-10T07:07:36.737Z"
+    },
+    {
+      "id": "1778397225013",
+      "name": "Punto Nemo",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/pNFls7LsLpS7Dvyx4uFhoTWHWlF.jpg",
+      "synopsis": "Los miembros de una expedición oceanográfica formada por científicos y la Armada Española, se embarcan en un buque para investigar y concienciar al mundo de los problemas de la isla de plástico localizada en el Pacífico Sur. Una fuerte tormenta les arrastrará hasta una isla situada en los confines del planeta. Un lugar antes habitado por militares rusos, que pondrá a prueba sus habilidades y conocimientos para sobrevivir e intentar salir del Punto Nemo, un lugar lleno de misterios y peligros al acecho.",
+      "year": 2025,
+      "country": "España",
+      "network": "Prime Video",
+      "networkUrl": "https://www.primevideo.com/detail?gti=amzn1.dv.gti.ddcb7b3f-0e57-4b1b-89ec-e5216ccdcedf&linkCode=xm2&tag=justesrsjd-21",
+      "watchLinks": [
+        {
+          "name": "Prime Video",
+          "url": "https://www.primevideo.com/detail?gti=amzn1.dv.gti.ddcb7b3f-0e57-4b1b-89ec-e5216ccdcedf&linkCode=xm2&tag=justesrsjd-21"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/vOklQzlm52Q?si=GSrsQaekkhNojk1g",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Thriller",
+        "Ciencia Ficción"
+      ],
+      "category": "series",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2025-03-28",
+          "totalEpisodes": 6,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 2",
+          "startDate": "2026-04-17",
+          "totalEpisodes": 4,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-10T07:13:45.013Z"
     }
   ],
   "movies": [
@@ -12076,5 +12431,5 @@
       "genres": []
     }
   ],
-  "exportedAt": "2026-05-09T21:37:13.326Z"
+  "exportedAt": "2026-05-10T07:20:51.877Z"
 }
