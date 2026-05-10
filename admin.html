@@ -1005,7 +1005,7 @@ function addSeasonBlock(seasonData=null, idx=null){
   const label=seasonData?.label||(blockIdx===0?'Temporada 1':`Temporada ${blockIdx+1}`);
   const startDate=seasonData?.startDate||new Date().toISOString().slice(0,10);
   const totalEps=seasonData?.totalEpisodes||12;
-  const emDays=seasonData?.emissionDays||(seasonData?.dayOfWeek!==undefined?[seasonData.dayOfWeek]:[]);
+  const emDays=seasonData?.emissionDays||(seasonData?.dayOfWeek!==undefined?[seasonData.dayOfWeek]:[0]); // default lunes
   // Special premiere: premiereSchedule = [{fromEp, toEp, date}, ...]  OR legacy [{date, count}]
   const hasSpecial=seasonData?.premiereSchedule&&seasonData.premiereSchedule.length>0;
   // Normalise to new format for rendering
@@ -1159,20 +1159,22 @@ function getSeasonsData(){
   const list=document.getElementById('seasonsList');
   if(!list) return [];
   const seasons=[];
-  let valid=true;
-  [...list.children].forEach((block,idx)=>{
+  const blocks=[...list.children];
+  for(let idx=0;idx<blocks.length;idx++){
+    const block=blocks[idx];
     const label=block.querySelector('.season-block-title input').value.trim()||`Temporada ${idx+1}`;
     const startDate=block.querySelector('.s-start').value;
     const totalEps=parseInt(block.querySelector('.s-eps').value);
     const allInOneDay=block.querySelector('.s-allday')?.checked||false;
     const emissionDays=allInOneDay?[getDow(startDate)]:[...block.querySelectorAll('.s-dow .dow-chip.selected')].map(c=>parseInt(c.dataset.dow)).sort((a,b)=>a-b);
     if(!startDate||isNaN(totalEps)||totalEps<1){
-      alert(`Temporada "${label}": rellena fecha y número de episodios`);valid=false;return;
+      alert(`Temporada "${label}": rellena la fecha de inicio y el número de episodios.`);
+      return null;
     }
     if(!allInOneDay&&!emissionDays.length){
-      alert(`Temporada "${label}": selecciona al menos un día de emisión`);valid=false;return;
+      alert(`Temporada "${label}": selecciona al menos un día de emisión (Lunes, Martes…)`);
+      return null;
     }
-    // Premiere schedule — nuevo formato: [{fromEp, toEp, date}]
     const hasSpecial=block.querySelector('.s-special-toggle')?.checked||false;
     let premiereSchedule=[];
     if(hasSpecial&&!allInOneDay){
@@ -1182,12 +1184,11 @@ function getSeasonsData(){
         const date=row.querySelector('.pr-date')?.value;
         if(date&&fromEp>=1&&toEp>=fromEp) premiereSchedule.push({fromEp,toEp,date});
       });
-      // Ordenar por fromEp
       premiereSchedule.sort((a,b)=>a.fromEp-b.fromEp);
     }
     seasons.push({label,startDate,totalEpisodes:totalEps,emissionDays,allInOneDay,skipDates:[],episodes:[],premiereSchedule});
-  });
-  return valid?seasons:null;
+  }
+  return seasons;
 }
 
 function formHtml(s, forcedCategory=null){
@@ -1203,7 +1204,7 @@ function formHtml(s, forcedCategory=null){
 
       <div class="form-row">
         <label class="form-label">Nombre *</label>
-        <input id="f_name" placeholder="Ej: Bloom Into You" value="${s?s.name:''}" oninput="checkDupName(this,${s?`'${s.name.replace(/'/g,"\\'")}'`:'null'})"/>
+        <input id="f_name" placeholder="Ej: Bloom Into You" value="${s?s.name:''}" data-original="${s?s.name.replace(/"/g,'&quot;'):''}" oninput="checkDupName(this)"/>
         <div id="f_name_dup_warn" style="display:none;margin-top:6px;padding:8px 12px;border-radius:10px;background:#fff3cd;border:1.5px solid #f0c040;font-size:12px;color:#7a5a00;line-height:1.6"></div>
       </div>
 
@@ -1480,13 +1481,14 @@ function quickAddPlatform(name, url){
 }
 
 /* ═══ DUPLICATE TITLE CHECK ═══ */
-function checkDupName(inp, originalName){
+function checkDupName(inp){
   const warn=document.getElementById('f_name_dup_warn');
   if(!warn) return;
   const q=(inp.value||'').trim().toLowerCase();
+  const originalName=(inp.dataset.original||'').toLowerCase();
   if(!q||q.length<2){warn.style.display='none';return;}
   // Skip warning if user is just editing and name hasn't changed
-  if(originalName&&q===originalName.toLowerCase()){warn.style.display='none';return;}
+  if(originalName&&q===originalName){warn.style.display='none';return;}
 
   const catLabels={series:'🌷 Serie GL',anime:'🌸 Anime',reality:'🎤 Reality / Docuserie'};
   const matches=[];
@@ -1886,7 +1888,7 @@ function movieFormHtml(mv){
   const today=new Date().toISOString().slice(0,10);
   return `
   <div style="padding:1.25rem 1.75rem">
-  <div class="form-row"><label class="form-label">Nombre *</label><input id="mf_name" placeholder="Ej: The Hidden Moon" value="${mv?mv.name:''}" oninput="checkDupName(this,${mv?`'${mv.name.replace(/'/g,"\\'")}'`:'null'})"/>
+  <div class="form-row"><label class="form-label">Nombre *</label><input id="mf_name" placeholder="Ej: The Hidden Moon" value="${mv?mv.name:''}" data-original="${mv?mv.name.replace(/"/g,'&quot;'):''}" oninput="checkDupName(this)"/>
   <div id="f_name_dup_warn" style="display:none;margin-top:6px;padding:8px 12px;border-radius:10px;background:#fff3cd;border:1.5px solid #f0c040;font-size:12px;color:#7a5a00;line-height:1.6"></div>
   </div>
   <div class="form-row">
