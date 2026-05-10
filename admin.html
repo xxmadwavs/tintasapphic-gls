@@ -1280,17 +1280,6 @@ function formHtml(s, forcedCategory=null){
         </div>
       </div>
 
-      <!-- Temporada: visible para anime y reality/documental -->
-      <div class="form-row" id="animeSeason_wrap" style="margin-top:10px;${(cat!=='anime'&&cat!=='reality')?'display:none':''}">
-        <label class="form-label">${cat==='reality'?'📅 Temporada documental':'🌸 Temporada anime'}</label>
-        <div class="anime-season-wrap">
-          ${['Invierno','Primavera','Verano','Otoño'].map(st=>`<div class="anime-season-chip${(s&&s.animeSeason&&s.animeSeason.startsWith(st))?' selected':''}" data-season="${st}" onclick="selectAnimeSeason(this)">${st==='Invierno'?'❄️ ':st==='Primavera'?'🌸 ':st==='Verano'?'☀️ ':'🍂 '}${st}</div>`).join('')}
-          <input type="number" id="f_anime_year" class="anime-season-year" placeholder="${new Date().getFullYear()}" min="2000" max="2040" value="${s&&s.animeSeason?s.animeSeason.split(' ').pop():''}">
-          <input type="hidden" id="f_anime_season_name" value="${s&&s.animeSeason?s.animeSeason.split(' ').slice(0,-1).join(' '):''}">
-        </div>
-        <div class="form-hint">Ej: Primavera 2025. Aparece en la ficha.</div>
-      </div>
-
       <div class="form-row" style="margin-top:10px">
         <label class="form-label">País</label>
         <div class="country-list" id="countriesList"></div>
@@ -1361,10 +1350,32 @@ function formHtml(s, forcedCategory=null){
     <!-- ══ COLUMNA DERECHA: temporadas ══ -->
     <div class="form-col-right" id="schedFields" style="${isUpcoming?'display:none':''}">
       <div class="form-section-hd">📅 Temporadas y emisión</div>
+
+      <!-- Temporada anime / documental -->
+      <div class="form-row" id="animeSeason_wrap" style="margin-bottom:14px;${(cat!=='anime'&&cat!=='reality')?'display:none':''}">
+        <label class="form-label">${cat==='reality'?'📅 Temporada documental':'🌸 Temporada anime'}</label>
+        <div class="anime-season-wrap">
+          ${['Invierno','Primavera','Verano','Otoño'].map(st=>`<div class="anime-season-chip${(s&&s.animeSeason&&s.animeSeason.startsWith(st))?' selected':''}" data-season="${st}" onclick="selectAnimeSeason(this)">${st==='Invierno'?'❄️ ':st==='Primavera'?'🌸 ':st==='Verano'?'☀️ ':'🍂 '}${st}</div>`).join('')}
+          <input type="number" id="f_anime_year" class="anime-season-year" placeholder="${new Date().getFullYear()}" min="2000" max="2040" value="${s&&s.animeSeason?s.animeSeason.split(' ').pop():''}">
+          <input type="hidden" id="f_anime_season_name" value="${s&&s.animeSeason?s.animeSeason.split(' ').slice(0,-1).join(' '):''}">
+        </div>
+        <div class="form-hint">Ej: Primavera 2025. Aparece en la ficha.</div>
+      </div>
+
       <div class="seasons-list" id="seasonsList"></div>
       <button type="button" class="platform-add-btn" onclick="addSeasonBlock()" style="margin-top:8px">+ Añadir temporada</button>
     </div>
     <div class="form-col-right" id="schedFieldsHidden" style="${isUpcoming?'':'display:none'}">
+      ${(cat==='anime'||cat==='reality')?`
+      <div class="form-row" id="animeSeason_wrap_upcoming" style="margin-bottom:14px">
+        <label class="form-label">${cat==='reality'?'📅 Temporada documental':'🌸 Temporada anime'}</label>
+        <div class="anime-season-wrap">
+          ${['Invierno','Primavera','Verano','Otoño'].map(st=>`<div class="anime-season-chip${(s&&s.animeSeason&&s.animeSeason.startsWith(st))?' selected':''}" data-season="${st}" onclick="selectAnimeSeason(this)">${st==='Invierno'?'❄️ ':st==='Primavera'?'🌸 ':st==='Verano'?'☀️ ':'🍂 '}${st}</div>`).join('')}
+          <input type="number" id="f_anime_year_upcoming" class="anime-season-year" placeholder="${new Date().getFullYear()}" min="2000" max="2040" value="${s&&s.animeSeason?s.animeSeason.split(' ').pop():''}">
+          <input type="hidden" id="f_anime_season_name_upcoming" value="${s&&s.animeSeason?s.animeSeason.split(' ').slice(0,-1).join(' '):''}">
+        </div>
+        <div class="form-hint">Ej: Primavera 2025.</div>
+      </div>`:''}
       <div style="text-align:center;padding:3rem 1rem;color:var(--muted);font-size:13px">
         <div style="font-size:2rem;margin-bottom:8px">📅</div>
         Las temporadas se configuran<br>cuando la serie tenga fecha confirmada.
@@ -1559,18 +1570,33 @@ function openEditByCat(si){
 
 /* ═══ ANIME SEASON CHIP SELECTOR ═══ */
 function selectAnimeSeason(chip){
-  const wrap=chip.closest('.anime-season-wrap');
-  wrap.querySelectorAll('.anime-season-chip').forEach(c=>c.classList.remove('selected'));
-  chip.classList.add('selected');
-  document.getElementById('f_anime_season_name').value=chip.dataset.season;
+  const season=chip.dataset.season||'';
+  // Deselect all chips in both possible wrappers
+  document.querySelectorAll('.anime-season-chip').forEach(c=>c.classList.remove('selected'));
+  // Select all chips with same season (covers both wrappers)
+  document.querySelectorAll(`.anime-season-chip[data-season="${season}"]`).forEach(c=>c.classList.add('selected'));
+  // Update both hidden inputs
+  const n1=document.getElementById('f_anime_season_name');
+  const n2=document.getElementById('f_anime_season_name_upcoming');
+  if(n1) n1.value=season;
+  if(n2) n2.value=season;
 }
 
 function getAnimeSeason(){
-  const name=document.getElementById('f_anime_season_name')?.value.trim()||'';
-  const year=document.getElementById('f_anime_year')?.value.trim()||'';
-  if(!name&&!year) return '';
-  if(name&&year) return `${name} ${year}`;
-  return name||year;
+  // Try main fields first, fall back to upcoming fields
+  const name=(document.getElementById('f_anime_season_name')?.value.trim())||
+             (document.getElementById('f_anime_season_name_upcoming')?.value.trim())||'';
+  const year=(document.getElementById('f_anime_year')?.value.trim())||
+             (document.getElementById('f_anime_year_upcoming')?.value.trim())||'';
+  // Also check chips in both wrappers
+  let chipName=name;
+  if(!chipName){
+    const chip=document.querySelector('#animeSeason_wrap .anime-season-chip.selected, #animeSeason_wrap_upcoming .anime-season-chip.selected');
+    if(chip) chipName=chip.dataset.season||'';
+  }
+  if(!chipName&&!year) return '';
+  if(chipName&&year) return `${chipName} ${year}`;
+  return chipName||year;
 }
 
 /* ═══ CATEGORY SELECTOR ═══ */
