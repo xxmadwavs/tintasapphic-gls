@@ -534,7 +534,7 @@ const GENRES=[
   'Fantasía','Ciencia Ficción','Sobrenatural','Aventura','Crimen',
   // Géneros de ambientación
   'Histórico','Médico','Legal','Político','Negocios',
-  'Deportes','Musical','Documental',
+  'Deportes','Musical','Documental','Anime',
   // Tags/subgéneros muy usados en MDL
   'Slice of Life','Vida cotidiana','Melodrama','Psicológico',
   'Escolar','Universitario','Coming of Age','Familia','Amistad',
@@ -1878,6 +1878,16 @@ function movieFormHtml(mv){
     </div>
   </div>
   <div class="form-row">
+    <label class="form-label">Categoría</label>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px">
+      <div class="cat-chip${mv&&mv.category==='anime'?' selected-anime':(!mv||!mv.category||mv.category==='movie'?'':'')} movie-cat-chip${mv&&mv.category==='anime'?' selected-anime':''}" onclick="selectMovieCat('anime',this)" data-cat="anime" style="cursor:pointer;padding:5px 14px;border-radius:20px;border:1.5px solid rgba(124,92,191,0.4);font-size:12px;font-weight:700;background:${mv&&mv.category==='anime'?'#ede7f8':'transparent'};color:${mv&&mv.category==='anime'?'#7c5cbf':'#888'}">🌸 Anime</div>
+      <div class="cat-chip${mv&&mv.category==='reality'?' selected-reality':''} movie-cat-chip${mv&&mv.category==='reality'?' selected-reality':''}" onclick="selectMovieCat('reality',this)" data-cat="reality" style="cursor:pointer;padding:5px 14px;border-radius:20px;border:1.5px solid rgba(58,158,148,0.4);font-size:12px;font-weight:700;background:${mv&&mv.category==='reality'?'#d4f0ed':'transparent'};color:${mv&&mv.category==='reality'?'#3a9e94':'#888'}">🎞️ Documental/Reality</div>
+      <div class="movie-cat-chip${!mv||!mv.category||mv.category==='movie'?' movie-cat-active':''}" onclick="selectMovieCat('movie',this)" data-cat="movie" style="cursor:pointer;padding:5px 14px;border-radius:20px;border:1.5px solid rgba(139,114,190,0.4);font-size:12px;font-weight:700;background:${!mv||!mv.category||mv.category==='movie'?'var(--lavender-soft)':'transparent'};color:${!mv||!mv.category||mv.category==='movie'?'var(--lavender)':'#888'}">🎥 Película GL (por defecto)</div>
+    </div>
+    <input type="hidden" id="mf_category" value="${mv&&mv.category?mv.category:'movie'}">
+    <div class="form-hint">Elige "Anime" si es una película anime, "Documental/Reality" si es un documental o reality, o déjalo en Película GL por defecto.</div>
+  </div>
+  <div class="form-row">
     <label class="form-label">Géneros <span style="text-transform:none;letter-spacing:0;font-weight:400;font-size:11px">(selecciona todos los que apliquen)</span></label>
     <div class="genre-chips" id="mf_genres">${genreChipsHtml(mv&&mv.genres?mv.genres:[])}</div>
   </div>
@@ -1924,6 +1934,25 @@ function toggleMovieBookFields(){
   const checked=document.getElementById('mf_book')?.checked;
   const el=document.getElementById('movieBookFields');
   if(el) el.style.display=checked?'':'none';
+}
+
+function selectMovieCat(cat, el){
+  // Reset all movie-cat-chip styles
+  const chips=document.querySelectorAll('.movie-cat-chip');
+  chips.forEach(c=>{
+    const cc=c.getAttribute('data-cat');
+    c.style.background='transparent';
+    c.style.color='#888';
+    if(cc==='anime') c.style.borderColor='rgba(124,92,191,0.4)';
+    else if(cc==='reality') c.style.borderColor='rgba(58,158,148,0.4)';
+    else c.style.borderColor='rgba(139,114,190,0.4)';
+  });
+  // Activate selected
+  if(cat==='anime'){ el.style.background='#ede7f8'; el.style.color='#7c5cbf'; el.style.borderColor='#7c5cbf'; }
+  else if(cat==='reality'){ el.style.background='#d4f0ed'; el.style.color='#3a9e94'; el.style.borderColor='#3a9e94'; }
+  else { el.style.background='var(--lavender-soft)'; el.style.color='var(--lavender)'; el.style.borderColor='var(--lavender)'; }
+  const hidden=document.getElementById('mf_category');
+  if(hidden) hidden.value=cat;
 }
 
 function openAddMovie(){
@@ -1984,6 +2013,7 @@ function saveMovie(mi){
   const watchLinks=getMovieWatchLinks();
   const bookLinks=getBookEditions('movieBookEditionsList');
   const genres=getSelectedGenres('mf_genres');
+  const movieCategory=document.getElementById('mf_category')?.value||'movie';
   const payload={
     name,
     poster:document.getElementById('mf_poster').value.trim(),
@@ -2001,6 +2031,7 @@ function saveMovie(mi){
     bookLinks,
     bookUrl:bookLinks.length?bookLinks[0].url:'',
     genres,
+    category:movieCategory,
   };
   const movieUpdatedAt=new Date().toISOString();
   if(mi===-1) movies.push({id:Date.now().toString(),...payload,updatedAt:movieUpdatedAt});
@@ -2059,7 +2090,7 @@ function importData(e){
       const d=JSON.parse(ev.target.result);
       if(d.series) series=d.series;
       if(d.movies) movies=d.movies;
-      save(); render(); renderBooks();
+      save(); render(); renderBooks(); renderAnimeGrid(); renderRealitiesGrid();
       alert('✓ Datos importados correctamente');
     }catch(err){ alert('Error al leer el archivo: '+err.message); }
   };

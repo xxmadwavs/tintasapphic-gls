@@ -1057,7 +1057,7 @@ const PALETTE_SOFT=['rgba(212,96,138,0.13)','rgba(91,188,176,0.13)','rgba(155,13
 const GENRES=[
   'Romance','Drama','Comedia','Acción','Thriller','Misterio','Terror',
   'Fantasía','Ciencia Ficción','Sobrenatural','Aventura','Crimen',
-  'Histórico','Médico','Legal','Político','Negocios','Deportes','Musical','Documental',
+  'Histórico','Médico','Legal','Político','Negocios','Deportes','Musical','Documental','Anime',
   'Slice of Life','Vida cotidiana','Melodrama','Psicológico',
   'Escolar','Universitario','Coming of Age','Familia','Amistad',
   'Artes marciales','Militar','Misterio sobrenatural',
@@ -2118,6 +2118,26 @@ function openMovie(mi){
   document.getElementById('modalBg').classList.add('open');
 }
 
+function handleMoviesGenreChange(val){
+  if(val==='Anime'){
+    // Resetear el select visualmente
+    const sel=document.getElementById('moviesGenreSel');
+    if(sel) sel.value='';
+    // Navegar a peliículas dentro de Anime
+    switchTab('anime');
+    setTimeout(()=>{animeSubtab='movies';renderAnimeResults();},50);
+  } else if(val==='Documental'){
+    const sel=document.getElementById('moviesGenreSel');
+    if(sel) sel.value='';
+    // Navegar a Documentales
+    switchTab('documentales');
+  } else {
+    moviesFilters.genre=val;
+    resetMoviesPage();
+    renderMoviesResults();
+  }
+}
+
 function applyMoviesFilters(arr){
   let r=[...arr];
   const q=moviesFilters.q.toLowerCase().trim();
@@ -2171,7 +2191,12 @@ function renderMovies(){
   if(!view.querySelector('.movies-toolbar-shell')){
     const mvYears=[...new Set(state.movies.map(mv=>mv.date?mv.date.substring(0,4):'').filter(Boolean))].sort((a,b)=>b-a);
     const yearsOpts=mvYears.map(y=>`<option value="${y}">${y}</option>`).join('');
-    const genreOpts=GENRES.map(g=>`<option value="${g}">${g}</option>`).join('');
+    const REDIRECT_GENRES=['Anime','Documental'];
+    const normalGenres=GENRES.filter(g=>!REDIRECT_GENRES.includes(g));
+    const genreOpts=normalGenres.map(g=>`<option value="${g}">${g}</option>`).join('')
+      +`<optgroup label="── Ir a sección ──"></optgroup>`
+      +`<option value="Anime">🌸 Anime → ir a Anime</option>`
+      +`<option value="Documental">🎞️ Documental → ir a Documentales</option>`;
     view.innerHTML=`<div class="movies-toolbar-shell books-toolbar">
       <div class="toolbar-search-row">
         <div class="search-wrap" style="position:relative;margin-bottom:0;width:100%">
@@ -2185,7 +2210,7 @@ function renderMovies(){
         </div>
         <div class="filter-group">
           <span class="filter-label">Género</span>
-          <select id="moviesGenreSel" class="filter-select" onchange="moviesFilters.genre=this.value;resetMoviesPage();renderMoviesResults()">
+          <select id="moviesGenreSel" class="filter-select" onchange="handleMoviesGenreChange(this.value)">
             <option value="">🎭 Género</option>${genreOpts}
           </select>
         </div>
