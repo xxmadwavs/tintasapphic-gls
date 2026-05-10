@@ -450,6 +450,21 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
 
   <div class="card" id="section-movies">
     <div class="card-title">🎥 Películas</div>
+    <div class="admin-toolbar">
+      <div class="admin-search-wrap">
+        <span class="admin-search-icon">🔍</span>
+        <input class="admin-search-input" id="adminMoviesQ" placeholder="Buscar por nombre, país, plataforma…" oninput="pages.movies=1;renderMovies()">
+      </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="font-size:12px;color:var(--muted);font-weight:600;white-space:nowrap">Ordenar por</span>
+        <select id="adminMoviesSort" onchange="pages.movies=1;renderMovies()" style="padding:6px 12px;border-radius:20px;border:1.5px solid var(--border2);background:var(--surface2);color:var(--text);font-size:12px;font-family:'Nunito',sans-serif;font-weight:600;outline:none;cursor:pointer">
+          <option value="added">📋 Orden de añadido</option>
+          <option value="az">🔤 A → Z</option>
+          <option value="za">🔤 Z → A</option>
+          <option value="date">📅 Fecha estreno</option>
+        </select>
+      </div>
+    </div>
     <button class="btn primary" style="margin-bottom:1rem;width:100%" onclick="openAddMovie()">+ Añadir película</button>
     <div class="series-count-label" id="moviesCountLabel"></div>
     <div class="series-grid" id="moviesGrid"></div>
@@ -457,13 +472,43 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
 
   <div class="card section-anime" id="section-anime">
     <div class="card-title">🌸 Anime GL</div>
+    <div class="admin-toolbar">
+      <div class="admin-search-wrap">
+        <span class="admin-search-icon">🔍</span>
+        <input class="admin-search-input" id="adminAnimeQ" placeholder="Buscar por nombre, país, plataforma…" oninput="pages.anime=1;renderAnimeGrid()">
+      </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="font-size:12px;color:var(--muted);font-weight:600;white-space:nowrap">Ordenar por</span>
+        <select id="adminAnimeSort" onchange="pages.anime=1;renderAnimeGrid()" style="padding:6px 12px;border-radius:20px;border:1.5px solid var(--border2);background:var(--surface2);color:var(--text);font-size:12px;font-family:'Nunito',sans-serif;font-weight:600;outline:none;cursor:pointer">
+          <option value="added">📋 Orden de añadido</option>
+          <option value="az">🔤 A → Z</option>
+          <option value="za">🔤 Z → A</option>
+        </select>
+      </div>
+    </div>
     <button class="btn primary" style="margin-bottom:1rem;width:100%;background:#7c5cbf;border-color:#7c5cbf" onclick="openAddAnime()">+ Añadir anime</button>
+    <div class="series-count-label" id="animeCountLabel"></div>
     <div class="series-grid" id="animeGrid"></div>
   </div>
 
   <div class="card section-reality" id="section-realities">
     <div class="card-title">🎤 Realities & Documentales GL</div>
+    <div class="admin-toolbar">
+      <div class="admin-search-wrap">
+        <span class="admin-search-icon">🔍</span>
+        <input class="admin-search-input" id="adminRealitiesQ" placeholder="Buscar por nombre, país, plataforma…" oninput="pages.realities=1;renderRealitiesGrid()">
+      </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="font-size:12px;color:var(--muted);font-weight:600;white-space:nowrap">Ordenar por</span>
+        <select id="adminRealitiesSort" onchange="pages.realities=1;renderRealitiesGrid()" style="padding:6px 12px;border-radius:20px;border:1.5px solid var(--border2);background:var(--surface2);color:var(--text);font-size:12px;font-family:'Nunito',sans-serif;font-weight:600;outline:none;cursor:pointer">
+          <option value="added">📋 Orden de añadido</option>
+          <option value="az">🔤 A → Z</option>
+          <option value="za">🔤 Z → A</option>
+        </select>
+      </div>
+    </div>
     <button class="btn primary" style="margin-bottom:1rem;width:100%;background:#3a9e94;border-color:#3a9e94" onclick="openAddReality()">+ Añadir reality / docuserie</button>
+    <div class="series-count-label" id="realitiesCountLabel"></div>
     <div class="series-grid" id="realitiesGrid"></div>
   </div>
 
@@ -949,12 +994,37 @@ function render(){
 
 function renderMovies(){
   const grid=document.getElementById('moviesGrid');
-  if(!movies.length){grid.innerHTML='<div class="empty">🎥 No hay películas todavía.</div>';return;}
-  const {items, total, totalPages, page} = paginate(movies, 'movies');
+  const q=(document.getElementById('adminMoviesQ')?.value||'').toLowerCase().trim();
+  const sort=(document.getElementById('adminMoviesSort')?.value)||'added';
+
+  let filtered=movies.filter(mv=>{
+    if(!q) return true;
+    return mv.name.toLowerCase().includes(q)||(mv.country||'').toLowerCase().includes(q)||(mv.network||'').toLowerCase().includes(q)||
+      (mv.watchLinks||[]).some(l=>(l.name||'').toLowerCase().includes(q)||(l.url||'').toLowerCase().includes(q));
+  });
+
+  if(sort==='az') filtered.sort((a,b)=>a.name.localeCompare(b.name,'es'));
+  else if(sort==='za') filtered.sort((a,b)=>b.name.localeCompare(a.name,'es'));
+  else if(sort==='date') filtered.sort((a,b)=>{
+    if(!a.date&&!b.date) return 0; if(!a.date) return 1; if(!b.date) return -1;
+    return a.date<b.date?-1:a.date>b.date?1:0;
+  });
+
+  const total=movies.length;
   const lbl=document.getElementById('moviesCountLabel');
-  if(lbl) lbl.innerHTML=`<strong>${total}</strong> películas en total`;
+  if(lbl) lbl.innerHTML=filtered.length===total
+    ?`<strong>${total}</strong> películas en total`
+    :`Mostrando <strong>${filtered.length}</strong> de <strong>${total}</strong> películas`;
+
+  if(!filtered.length){
+    pages.movies=1;
+    grid.innerHTML=`<div class="empty">${q?'🔍 No se encontró ninguna película con esa búsqueda.':'🎥 No hay películas todavía.'}</div>`;
+    return;
+  }
+
+  const {items, totalPages, page} = paginate(filtered, 'movies');
   grid.innerHTML='';
-  items.forEach((mv,_)=>{
+  items.forEach((mv)=>{
     const mi=movies.indexOf(mv);
     const div=document.createElement('div'); div.className='series-item';
     const posterEl=mv.poster?`<img class="series-poster" src="${mv.poster}" alt="${mv.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`:'' ;
@@ -978,7 +1048,7 @@ function renderMovies(){
       </div>`;
     grid.appendChild(div);
   });
-  grid.insertAdjacentHTML('beforeend', paginationHtml('movies', total, totalPages, page));
+  grid.insertAdjacentHTML('beforeend', paginationHtml('movies', filtered.length, totalPages, page));
 }
 
 function closeAll(){ document.querySelectorAll('.modal-bg').forEach(m=>m.classList.remove('open')); 
@@ -1671,12 +1741,29 @@ function openEditReality(si){
 function renderAnimeGrid(){
   const grid=document.getElementById('animeGrid');
   if(!grid) return;
-  const animes=series.filter(s=>s.category==='anime');
-  if(!animes.length){
-    grid.innerHTML='<div class="empty">🌸 Ningún anime todavía. Pulsa "+ Añadir anime".</div>';
+  const q=(document.getElementById('adminAnimeQ')?.value||'').toLowerCase().trim();
+  const sort=(document.getElementById('adminAnimeSort')?.value)||'added';
+
+  let animes=series.filter(s=>s.category==='anime');
+  let filtered=animes.filter(s=>{
+    if(!q) return true;
+    return s.name.toLowerCase().includes(q)||(s.country||'').toLowerCase().includes(q)||(s.network||'').toLowerCase().includes(q);
+  });
+
+  if(sort==='az') filtered.sort((a,b)=>a.name.localeCompare(b.name,'es'));
+  else if(sort==='za') filtered.sort((a,b)=>b.name.localeCompare(a.name,'es'));
+
+  const lbl=document.getElementById('animeCountLabel');
+  if(lbl) lbl.innerHTML=filtered.length===animes.length
+    ?`<strong>${animes.length}</strong> animes en total`
+    :`Mostrando <strong>${filtered.length}</strong> de <strong>${animes.length}</strong> animes`;
+
+  if(!filtered.length){
+    pages.anime=1;
+    grid.innerHTML=`<div class="empty">${q?'🔍 No se encontró ningún anime con esa búsqueda.':'🌸 Ningún anime todavía. Pulsa "+ Añadir anime".'}</div>`;
     return;
   }
-  const {items, total, totalPages, page} = paginate(animes, 'anime');
+  const {items, totalPages, page} = paginate(filtered, 'anime');
   grid.innerHTML='';
   items.forEach(s=>{
     const si=series.indexOf(s);
@@ -1700,19 +1787,36 @@ function renderAnimeGrid(){
       </div>`;
     grid.appendChild(div);
   });
-  grid.insertAdjacentHTML('beforeend', paginationHtml('anime', total, totalPages, page));
+  grid.insertAdjacentHTML('beforeend', paginationHtml('anime', filtered.length, totalPages, page));
 }
 
 /* ═══ RENDER REALITIES GRID ═══ */
 function renderRealitiesGrid(){
   const grid=document.getElementById('realitiesGrid');
   if(!grid) return;
-  const realities=series.filter(s=>s.category==='reality');
-  if(!realities.length){
-    grid.innerHTML='<div class="empty">🎤 Ningún reality todavía. Pulsa "+ Añadir reality".</div>';
+  const q=(document.getElementById('adminRealitiesQ')?.value||'').toLowerCase().trim();
+  const sort=(document.getElementById('adminRealitiesSort')?.value)||'added';
+
+  let realities=series.filter(s=>s.category==='reality');
+  let filtered=realities.filter(s=>{
+    if(!q) return true;
+    return s.name.toLowerCase().includes(q)||(s.country||'').toLowerCase().includes(q)||(s.network||'').toLowerCase().includes(q);
+  });
+
+  if(sort==='az') filtered.sort((a,b)=>a.name.localeCompare(b.name,'es'));
+  else if(sort==='za') filtered.sort((a,b)=>b.name.localeCompare(a.name,'es'));
+
+  const lbl=document.getElementById('realitiesCountLabel');
+  if(lbl) lbl.innerHTML=filtered.length===realities.length
+    ?`<strong>${realities.length}</strong> realities en total`
+    :`Mostrando <strong>${filtered.length}</strong> de <strong>${realities.length}</strong> realities`;
+
+  if(!filtered.length){
+    pages.realities=1;
+    grid.innerHTML=`<div class="empty">${q?'🔍 No se encontró ningún reality con esa búsqueda.':'🎤 Ningún reality todavía. Pulsa "+ Añadir reality".'}</div>`;
     return;
   }
-  const {items, total, totalPages, page} = paginate(realities, 'realities');
+  const {items, totalPages, page} = paginate(filtered, 'realities');
   grid.innerHTML='';
   items.forEach(s=>{
     const si=series.indexOf(s);
@@ -1736,7 +1840,7 @@ function renderRealitiesGrid(){
       </div>`;
     grid.appendChild(div);
   });
-  grid.insertAdjacentHTML('beforeend', paginationHtml('realities', total, totalPages, page));
+  grid.insertAdjacentHTML('beforeend', paginationHtml('realities', filtered.length, totalPages, page));
 }
 
 function saveSeries(si, forcedCategory=null){
