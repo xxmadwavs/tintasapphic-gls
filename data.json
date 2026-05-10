@@ -13161,6 +13161,45 @@
         }
       ],
       "updatedAt": "2026-05-10T09:50:29.965Z"
+    },
+    {
+      "id": "1778408041578",
+      "name": "I Kissed a Girl",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/mMgCKbFGpKO766UmmDn5TJwowU3.jpg",
+      "synopsis": "Dannii Minogue presenta una contraparte exclusivamente femenina del programa de citas I Kissed a Boy, dando la bienvenida a 10 mujeres solteras a una masseria en Italia en busca del amor, comenzando con un beso.",
+      "year": 2024,
+      "country": "Reino Unido",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/q54A93GAGBM?si=xh3PQ2_AwirFbYdG",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Romance",
+        "Comedia"
+      ],
+      "category": "reality",
+      "animeSeason": "Primavera 2024",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2024-05-05",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            0
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-10T10:14:01.578Z"
     }
   ],
   "movies": [
@@ -13292,7 +13331,33 @@
       "bookLinks": [],
       "bookUrl": "",
       "genres": []
+    },
+    {
+      "id": "1778408173610",
+      "name": "A Secret Love",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/28LNd4KEpqt9i8sgXrVcrdr2kgI.jpg",
+      "synopsis": "En tiempos cambiantes, dos mujeres mantuvieron en secreto su amor de décadas. Pero salir más tarde en la vida viene con su propio conjunto de desafíos.",
+      "year": 2020,
+      "country": "Estados Unidos",
+      "network": "Netflix",
+      "networkUrl": "https://www.netflix.com/watch/80209024?source=35",
+      "watchLinks": [
+        {
+          "name": "Netflix",
+          "url": "https://www.netflix.com/watch/80209024?source=35"
+        }
+      ],
+      "trailerUrl": "https://www.youtube.com/watch?v=ghv3-lpFOcc",
+      "date": "2020-04-19",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [],
+      "category": "reality",
+      "updatedAt": "2026-05-10T10:16:13.610Z"
     }
   ],
-  "exportedAt": "2026-05-10T09:52:38.195Z"
+  "exportedAt": "2026-05-10T10:16:18.161Z"
 }
