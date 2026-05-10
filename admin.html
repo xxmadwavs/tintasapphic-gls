@@ -1026,9 +1026,9 @@ function addSeasonBlock(seasonData=null, idx=null){
   if(!list) return;
   const blockIdx=list.children.length;
   const label=seasonData?.label||(blockIdx===0?'Temporada 1':`Temporada ${blockIdx+1}`);
-  const startDate=seasonData?.startDate||new Date().toISOString().slice(0,10);
-  const totalEps=seasonData?.totalEpisodes||12;
-  const emDays=seasonData?.emissionDays||(seasonData?.dayOfWeek!==undefined?[seasonData.dayOfWeek]:[0]); // default lunes
+  const startDate=(seasonData?.startDate!=null&&seasonData.startDate!=='')?seasonData.startDate:new Date().toISOString().slice(0,10);
+  const totalEps=(seasonData?.totalEpisodes!=null&&seasonData.totalEpisodes>0)?seasonData.totalEpisodes:12;
+  const emDays=seasonData?.emissionDays??(seasonData?.dayOfWeek!=null?[seasonData.dayOfWeek]:[0]);
   // Special premiere: premiereSchedule = [{fromEp, toEp, date}, ...]  OR legacy [{date, count}]
   const hasSpecial=seasonData?.premiereSchedule&&seasonData.premiereSchedule.length>0;
   // Normalise to new format for rendering
