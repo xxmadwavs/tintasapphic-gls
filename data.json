@@ -12425,6 +12425,398 @@
         }
       ],
       "updatedAt": "2026-05-10T07:40:40.377Z"
+    },
+    {
+      "id": "1778402515248",
+      "name": "Vida",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/9Ml7oytvsNekgaZiUvopV7oQeZg.jpg",
+      "synopsis": "Vida se centra en dos hermanas mexicanas-americanas, Emma (Mishel Prada) y Lyn (Melissa Barrera), del este de Los Ángeles que están distanciadas. Cuando las circunstancias les obligan a regresar a su antiguo barrio, tendrán que afrontar el pasado y descubrirán alguna sorpresa sobre la identidad de su madre.",
+      "year": 2018,
+      "country": "Estados Unidos",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/k0Ha20Njsf0?si=JnqAfICCY0CDosAq",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Drama"
+      ],
+      "category": "series",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2018-05-06",
+          "totalEpisodes": 6,
+          "emissionDays": [
+            6
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 2",
+          "startDate": "2019-05-26",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            6
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 3",
+          "startDate": "2020-04-26",
+          "totalEpisodes": 6,
+          "emissionDays": [
+            6
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-10T08:41:55.248Z"
+    },
+    {
+      "id": "1778402648665",
+      "name": "Las Chicas del Cable",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/h7hSdNd1ZjsJ0TcwjZxtqj8MBu5.jpg",
+      "synopsis": "Madrid, año 1928. Las operadoras de la recién nacida Telefónica viven sus romances y envidias dentro de una empresa moderna, reflejo del cambio social de la época. Alba, Marga, Ángeles y Carlota comienzan a trabajar como telefonistas en el edificio más moderno de toda la ciudad. Para ellas empieza la lucha por una independencia que tanto su entorno como la sociedad de entonces les niega. Su amistad será clave para conseguir sus sueños y juntas irán descubriendo lo que significa la verdadera libertad.",
+      "year": 2017,
+      "country": "España",
+      "network": "Netflix",
+      "networkUrl": "https://www.netflix.com/es/title/80100929",
+      "watchLinks": [
+        {
+          "name": "Netflix",
+          "url": "https://www.netflix.com/es/title/80100929"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/NerI5Pfcv1g?si=TYBzXQ6NKjI6qgKH",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Romance",
+        "Drama"
+      ],
+      "category": "series",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2017-04-28",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 2",
+          "startDate": "2017-12-25",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            0
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 3",
+          "startDate": "2018-09-07",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 4",
+          "startDate": "2019-08-09",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 5",
+          "startDate": "2020-02-14",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-10T08:44:08.665Z"
+    },
+    {
+      "id": "1778402853203",
+      "name": "One Day at a Time",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/yiQcmPm6pTYyAAp3Q9Ge2xMkf8b.jpg",
+      "synopsis": "Una mamá soltera cubano-americana lleva adelante un hogar lleno de hormonas revueltas, a pesar de la \"ayuda\" de la abuela. El clásico de siempre a través de otra lente.",
+      "year": 2017,
+      "country": "Estados Unidos",
+      "network": "Netflix",
+      "networkUrl": "https://www.netflix.com/es/title/80095532",
+      "watchLinks": [
+        {
+          "name": "Netflix",
+          "url": "https://www.netflix.com/es/title/80095532"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/7tx_alf_vSs?si=ZsVH-JOBP8FYzQJp",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Comedia"
+      ],
+      "category": "series",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2017-01-06",
+          "totalEpisodes": 13,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 2",
+          "startDate": "2018-01-26",
+          "totalEpisodes": 13,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 3",
+          "startDate": "202019-02-08",
+          "totalEpisodes": 13,
+          "emissionDays": [
+            null
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 4",
+          "startDate": "2020-03-24",
+          "totalEpisodes": 7,
+          "emissionDays": [
+            1
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-10T08:47:33.203Z"
+    },
+    {
+      "id": "1778403375094",
+      "name": "Pretty Little Liars",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/kyuBJq4XFaxP2Y83ibnoNvC2ZIL.jpg",
+      "synopsis": "La trama sigue la vida de cuatro amigas (Spencer, Hanna, Aria y Emily) tras la desaparición de Alison, la quinta del grupo. Un año después comienzan a recibir mensajes anónimos de alguien que se hace llamar A. Los mensajes amenazan con rebelar sus secretos, incluso algunos que sólo Alison sabía.",
+      "year": 2010,
+      "country": "Estados Unidos",
+      "network": "Prime Video",
+      "networkUrl": "https://www.primevideo.com/detail?gti=amzn1.dv.gti.73f829e1-6d75-479d-98da-d21f57de55cd&linkCode=xm2&tag=justesrsjd-21",
+      "watchLinks": [
+        {
+          "name": "Prime Video",
+          "url": "https://www.primevideo.com/detail?gti=amzn1.dv.gti.73f829e1-6d75-479d-98da-d21f57de55cd&linkCode=xm2&tag=justesrsjd-21"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/nwHvFNQG5UE?si=xHUxWbwSpqFm1kMt",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Romance",
+        "Drama"
+      ],
+      "category": "series",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2010-06-08",
+          "totalEpisodes": 22,
+          "emissionDays": [
+            6
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": [
+            {
+              "fromEp": 11,
+              "toEp": 11,
+              "date": "2011-01-03"
+            }
+          ]
+        },
+        {
+          "label": "Temporada 2",
+          "startDate": "2011-06-14",
+          "totalEpisodes": 25,
+          "emissionDays": [
+            1
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": [
+            {
+              "fromEp": 14,
+              "toEp": 14,
+              "date": "2012-01-02"
+            }
+          ]
+        },
+        {
+          "label": "Temporada 3",
+          "startDate": "2012-06-05",
+          "totalEpisodes": 24,
+          "emissionDays": [
+            1
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": [
+            {
+              "fromEp": 14,
+              "toEp": 14,
+              "date": "2013-01-08"
+            }
+          ]
+        },
+        {
+          "label": "Temporada 4",
+          "startDate": "2013-06-11",
+          "totalEpisodes": 24,
+          "emissionDays": [
+            1
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": [
+            {
+              "fromEp": 14,
+              "toEp": 14,
+              "date": "2014-01-07"
+            }
+          ]
+        },
+        {
+          "label": "Temporada 5",
+          "startDate": "2014-06-10",
+          "totalEpisodes": 26,
+          "emissionDays": [
+            1
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": [
+            {
+              "fromEp": 13,
+              "toEp": 13,
+              "date": "2014-10-21"
+            },
+            {
+              "fromEp": 15,
+              "toEp": 15,
+              "date": "2015-01-06"
+            }
+          ]
+        },
+        {
+          "label": "Temporada 6",
+          "startDate": "2015-06-02",
+          "totalEpisodes": 20,
+          "emissionDays": [
+            1
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": [
+            {
+              "fromEp": 11,
+              "toEp": 11,
+              "date": "2016-01-12"
+            }
+          ]
+        },
+        {
+          "label": "Temporada 7",
+          "startDate": "2016-06-21",
+          "totalEpisodes": 20,
+          "emissionDays": [
+            1
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": [
+            {
+              "fromEp": 11,
+              "toEp": 11,
+              "date": "2017-04-18"
+            }
+          ]
+        }
+      ],
+      "updatedAt": "2026-05-10T08:56:15.094Z"
     }
   ],
   "movies": [
@@ -12558,5 +12950,5 @@
       "genres": []
     }
   ],
-  "exportedAt": "2026-05-10T07:51:28.565Z"
+  "exportedAt": "2026-05-10T08:56:26.175Z"
 }
