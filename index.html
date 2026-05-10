@@ -1066,6 +1066,44 @@ const GENRES=[
 
 let state={month:new Date().getMonth(),year:new Date().getFullYear(),tab:'cal',series:[],movies:[]};
 
+// ═══ SESSION PERSISTENCE ═══
+const SS_KEY='tintaSapphicState';
+function saveSession(){
+  try{
+    sessionStorage.setItem(SS_KEY,JSON.stringify({
+      tab:state.tab,
+      month:state.month,
+      year:state.year,
+      seriesSubtab,
+      moviesSubtab,
+      animeSubtab,
+      realitiesSubtab,
+      paginationState:JSON.parse(JSON.stringify(paginationState)),
+      paginationAnime:JSON.parse(JSON.stringify(paginationAnime)),
+      paginationRealities:JSON.parse(JSON.stringify(paginationRealities)),
+      paginationDocumentales:JSON.parse(JSON.stringify(paginationDocumentales)),
+    }));
+  }catch(e){}
+}
+function loadSession(){
+  try{
+    const raw=sessionStorage.getItem(SS_KEY);
+    if(!raw) return;
+    const s=JSON.parse(raw);
+    if(s.tab) state.tab=s.tab;
+    if(s.month!=null) state.month=s.month;
+    if(s.year!=null) state.year=s.year;
+    if(s.seriesSubtab) seriesSubtab=s.seriesSubtab;
+    if(s.moviesSubtab) moviesSubtab=s.moviesSubtab;
+    if(s.animeSubtab) animeSubtab=s.animeSubtab;
+    if(s.realitiesSubtab) realitiesSubtab=s.realitiesSubtab;
+    if(s.paginationState) Object.assign(paginationState,s.paginationState);
+    if(s.paginationAnime) Object.assign(paginationAnime,s.paginationAnime);
+    if(s.paginationRealities) Object.assign(paginationRealities,s.paginationRealities);
+    if(s.paginationDocumentales) Object.assign(paginationDocumentales,s.paginationDocumentales);
+  }catch(e){}
+}
+
 function getDow(d){return(new Date(d+'T12:00:00').getDay()+6)%7}
 function addDays(d,n){const x=new Date(d+'T12:00:00');x.setDate(x.getDate()+n);return x.toISOString().slice(0,10)}
 function fmtDate(d){const x=new Date(d+'T12:00:00');return`${x.getDate()} ${MONTHS[x.getMonth()].slice(0,3)} ${x.getFullYear()}`}
@@ -1620,9 +1658,9 @@ function renderListResults(){
   }
 
   // Expose page setters globally
-  window.setSeriesPage_airing=p=>{paginationState.series.airing=p;renderListResults();scrollToResults('listResults');};
-  window.setSeriesPage_notstarted=p=>{paginationState.series.notstarted=p;renderListResults();scrollToResults('listResults');};
-  window.setSeriesPage_finished=p=>{paginationState.series.finished=p;renderListResults();scrollToResults('listResults');};
+  window.setSeriesPage_airing=p=>{paginationState.series.airing=p;saveSession();renderListResults();scrollToResults('listResults');};
+  window.setSeriesPage_notstarted=p=>{paginationState.series.notstarted=p;saveSession();renderListResults();scrollToResults('listResults');};
+  window.setSeriesPage_finished=p=>{paginationState.series.finished=p;saveSession();renderListResults();scrollToResults('listResults');};
 
   if(seriesSubtab==='airing'){
     html+=renderSubtabGrid(airing,'No hay series en emisión con esos filtros.');
@@ -1735,7 +1773,7 @@ function renderList(){
   renderListResults();
 }
 
-function switchSeriesSubtab(sub){ seriesSubtab=sub; paginationState.series[sub]=1; renderListResults(); }
+function switchSeriesSubtab(sub){ seriesSubtab=sub; paginationState.series[sub]=1; saveSession(); renderListResults(); }
 
 let upcomingFilters={q:'',countries:[],sort:'az',book:'all',year:'',genre:''};
 
@@ -1842,7 +1880,7 @@ function renderUpcomingResults(){
     resultsEl.innerHTML='<div class="search-empty">No se encontró ninguna serie con esos filtros.</div>';
     return;
   }
-  window.setUpcomingPage=p=>{paginationState.upcoming=p;renderUpcomingResults();scrollToResults('upcomingResults');};
+  window.setUpcomingPage=p=>{paginationState.upcoming=p;saveSession();renderUpcomingResults();scrollToResults('upcomingResults');};
   const upPage=Math.min(paginationState.upcoming,Math.ceil(upcoming.length/PAGE_SIZE))||1;
   paginationState.upcoming=upPage;
   const upSlice=upcoming.slice((upPage-1)*PAGE_SIZE, upPage*PAGE_SIZE);
@@ -2253,7 +2291,7 @@ function renderMovies(){
   renderMoviesResults();
 }
 
-function switchMoviesSubtab(sub){ moviesSubtab=sub; resetMoviesPage(); renderMoviesResults(); }
+function switchMoviesSubtab(sub){ moviesSubtab=sub; resetMoviesPage(); saveSession(); renderMoviesResults(); }
 
 function renderMoviesResults(){
   const resultsEl=document.getElementById('moviesResults');
@@ -2296,7 +2334,7 @@ function renderMoviesResults(){
     resultsEl.innerHTML=html; return;
   }
   // Expose page setter
-  window.setMoviesPage=p=>{paginationState.movies=p;renderMoviesResults();scrollToResults('moviesResults');};
+  window.setMoviesPage=p=>{paginationState.movies=p;saveSession();renderMoviesResults();scrollToResults('moviesResults');};
   const mvPage=Math.min(paginationState.movies,Math.ceil(shown.length/PAGE_SIZE))||1;
   paginationState.movies=mvPage;
   const mvSlice=shown.slice((mvPage-1)*PAGE_SIZE, mvPage*PAGE_SIZE);
@@ -2551,8 +2589,8 @@ function renderAnime(){
       <div class="section-desc">Series y películas de anime con historias de amor entre chicas (yuri, GL y subtexto sáfico)</div>
     </div>
     <div class="subtabs" id="animeSubtabs">
-      <button class="subtab${animeSubtab==='series'?' active':''}" onclick="animeSubtab='series';renderAnimeResults()">🎬 Series <span class="subtab-count">${seriesCount}</span></button>
-      <button class="subtab${animeSubtab==='movies'?' active':''}" onclick="animeSubtab='movies';renderAnimeResults()">🎥 Películas <span class="subtab-count">${moviesCount}</span></button>
+      <button class="subtab${animeSubtab==='series'?' active':''}" onclick="animeSubtab='series';saveSession();renderAnimeResults()">🎬 Series <span class="subtab-count">${seriesCount}</span></button>
+      <button class="subtab${animeSubtab==='movies'?' active':''}" onclick="animeSubtab='movies';saveSession();renderAnimeResults()">🎥 Películas <span class="subtab-count">${moviesCount}</span></button>
     </div>
     <div class="books-toolbar" id="animeToolbar">
       <div class="toolbar-search-row">
@@ -2629,7 +2667,7 @@ function renderAnimeResults(){
     const page=paginationAnime.series;
     const totalPages=Math.ceil(filtered.length/PAGE_SIZE)||1;
     const paged=filtered.slice((page-1)*PAGE_SIZE,page*PAGE_SIZE);
-    window.setAnimePage=p=>{paginationAnime.series=p;renderAnimeResults();scrollToResults('animeResults');};
+    window.setAnimePage=p=>{paginationAnime.series=p;saveSession();renderAnimeResults();scrollToResults('animeResults');};
     if(!filtered.length){resultsEl.innerHTML='<div class="search-empty">No se encontró ningún anime con esos filtros.</div>';return;}
     let html=`<div class="books-count">Mostrando <strong>${paged.length}</strong> de <strong>${filtered.length}</strong> anime${filtered.length!==1?'s':''}</div><div class="series-grid">`;
     paged.forEach((s,i)=>{
@@ -2659,7 +2697,7 @@ function renderAnimeResults(){
     const page=paginationAnime.movies;
     const totalPages=Math.ceil(filtered.length/PAGE_SIZE)||1;
     const paged=filtered.slice((page-1)*PAGE_SIZE,page*PAGE_SIZE);
-    window.setAnimeMoviePage=p=>{paginationAnime.movies=p;renderAnimeResults();scrollToResults('animeResults');};
+    window.setAnimeMoviePage=p=>{paginationAnime.movies=p;saveSession();renderAnimeResults();scrollToResults('animeResults');};
     if(!filtered.length){resultsEl.innerHTML='<div class="search-empty">No se encontró ninguna película de anime con esos filtros.</div>';return;}
     let html=`<div class="books-count">Mostrando <strong>${paged.length}</strong> de <strong>${filtered.length}</strong> película${filtered.length!==1?'s':''}</div><div class="movies-grid">`;
     paged.forEach((mv,mi)=>{
@@ -2912,7 +2950,7 @@ function renderRealities(){
       <div class="section-desc">Reality shows y docuseries con protagonismo lésbico, bisexual o queer</div>
     </div>
     <div class="subtabs" id="realitiesSubtabs">
-      <button class="subtab${realitiesSubtab==='series'?' active':''}" onclick="realitiesSubtab='series';renderRealitiesResults()">📺 Series & Realities <span class="subtab-count">${allSeries.length}</span></button>
+      <button class="subtab${realitiesSubtab==='series'?' active':''}" onclick="realitiesSubtab='series';saveSession();renderRealitiesResults()">📺 Series & Realities <span class="subtab-count">${allSeries.length}</span></button>
     </div>
     <div class="books-toolbar" id="realitiesToolbar">
       <div class="toolbar-search-row">
@@ -2980,7 +3018,7 @@ function renderRealitiesResults(){
     const page=paginationRealities.series;
     const totalPages=Math.ceil(filtered.length/PAGE_SIZE)||1;
     const paged=filtered.slice((page-1)*PAGE_SIZE,page*PAGE_SIZE);
-    window.setRealitiesPage=p=>{paginationRealities.series=p;renderRealitiesResults();scrollToResults('realitiesResults');};
+    window.setRealitiesPage=p=>{paginationRealities.series=p;saveSession();renderRealitiesResults();scrollToResults('realitiesResults');};
     if(!filtered.length){resultsEl.innerHTML='<div class="search-empty">No se encontró ningún reality con esos filtros.</div>';return;}
     let html=`<div class="books-count">Mostrando <strong>${paged.length}</strong> de <strong>${filtered.length}</strong> programa${filtered.length!==1?'s':''}</div><div class="series-grid">`;
     paged.forEach((s,i)=>{
@@ -3009,7 +3047,7 @@ function renderRealitiesResults(){
     const page=paginationRealities.movies;
     const totalPages=Math.ceil(filtered.length/PAGE_SIZE)||1;
     const paged=filtered.slice((page-1)*PAGE_SIZE,page*PAGE_SIZE);
-    window.setRealitiesMoviePage=p=>{paginationRealities.movies=p;renderRealitiesResults();scrollToResults('realitiesResults');};
+    window.setRealitiesMoviePage=p=>{paginationRealities.movies=p;saveSession();renderRealitiesResults();scrollToResults('realitiesResults');};
     if(!filtered.length){resultsEl.innerHTML='<div class="search-empty">No se encontró ningún documental con esos filtros.</div>';return;}
     let html=`<div class="books-count">Mostrando <strong>${paged.length}</strong> de <strong>${filtered.length}</strong> documental${filtered.length!==1?'es':''}</div><div class="movies-grid">`;
     paged.forEach((mv,mi)=>{
@@ -3150,7 +3188,7 @@ function renderDocumentalesResults(){
   const page=paginationDocumentales.page||1;
   const totalPages=Math.ceil(filtered.length/PAGE_SIZE)||1;
   const paged=filtered.slice((page-1)*PAGE_SIZE,page*PAGE_SIZE);
-  window.setDocumentalesPage=p=>{paginationDocumentales.page=p;renderDocumentalesResults();scrollToResults('documentalesResults');};
+  window.setDocumentalesPage=p=>{paginationDocumentales.page=p;saveSession();renderDocumentalesResults();scrollToResults('documentalesResults');};
 
   if(!filtered.length){resultsEl.innerHTML='<div class="search-empty">No se encontró ningún documental con esos filtros.</div>';return;}
   let html=`<div class="books-count">Mostrando <strong>${paged.length}</strong> de <strong>${filtered.length}</strong> documental${filtered.length!==1?'es':''}</div><div class="movies-grid">`;
@@ -3179,6 +3217,7 @@ function renderDocumentalesResults(){
 
 function switchTab(tab){
   state.tab=tab;
+  saveSession();
   ['cal','list','movies','upcoming','books','anime','realities','documentales'].forEach(t=>{
     const btn=document.getElementById('tab'+t.charAt(0).toUpperCase()+t.slice(1));
     const view=document.getElementById('view'+t.charAt(0).toUpperCase()+t.slice(1));
@@ -3197,9 +3236,9 @@ function switchTab(tab){
   if(tab==='documentales') renderDocumentales();
 }
 
-document.getElementById('prevBtn').onclick=()=>{state.month--;if(state.month<0){state.month=11;state.year--;}renderCal();};
-document.getElementById('nextBtn').onclick=()=>{state.month++;if(state.month>11){state.month=0;state.year++;}renderCal();};
-document.getElementById('todayBtn').onclick=()=>{state.month=new Date().getMonth();state.year=new Date().getFullYear();renderCal();};
+document.getElementById('prevBtn').onclick=()=>{state.month--;if(state.month<0){state.month=11;state.year--;}saveSession();renderCal();};
+document.getElementById('nextBtn').onclick=()=>{state.month++;if(state.month>11){state.month=0;state.year++;}saveSession();renderCal();};
+document.getElementById('todayBtn').onclick=()=>{state.month=new Date().getMonth();state.year=new Date().getFullYear();saveSession();renderCal();};
 
 function openSearch(){
   document.getElementById('searchOverlay').classList.add('open');
@@ -3273,7 +3312,29 @@ document.addEventListener('keydown',e=>{
   }
 });
 
-(async()=>{ if(await loadData()){renderStats();renderCal();} })();
+(async()=>{
+  if(await loadData()){
+    renderStats();
+    loadSession();
+    const savedTab=state.tab||'cal';
+    // Show the saved tab's view, hide others
+    ['cal','list','movies','upcoming','books','anime','realities','documentales'].forEach(t=>{
+      const btn=document.getElementById('tab'+t.charAt(0).toUpperCase()+t.slice(1));
+      const view=document.getElementById('view'+t.charAt(0).toUpperCase()+t.slice(1));
+      if(btn) btn.className='tab'+(savedTab===t?' active':'');
+      if(view) view.style.display=savedTab===t?'':'none';
+    });
+    if(savedTab==='cal') renderCal();
+    else if(savedTab==='list') renderList();
+    else if(savedTab==='movies') renderMovies();
+    else if(savedTab==='upcoming') renderUpcoming();
+    else if(savedTab==='books') renderBooks();
+    else if(savedTab==='anime') renderAnime();
+    else if(savedTab==='realities') renderRealities();
+    else if(savedTab==='documentales') renderDocumentales();
+    else renderCal();
+  }
+})();
 
 </script>
 
