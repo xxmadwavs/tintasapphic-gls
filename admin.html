@@ -1203,7 +1203,8 @@ function formHtml(s, forcedCategory=null){
 
       <div class="form-row">
         <label class="form-label">Nombre *</label>
-        <input id="f_name" placeholder="Ej: Bloom Into You" value="${s?s.name:''}"/>
+        <input id="f_name" placeholder="Ej: Bloom Into You" value="${s?s.name:''}" oninput="checkDupName(this,${s?`'${s.name.replace(/'/g,"\\'")}'`:'null'})"/>
+        <div id="f_name_dup_warn" style="display:none;margin-top:6px;padding:8px 12px;border-radius:10px;background:#fff3cd;border:1.5px solid #f0c040;font-size:12px;color:#7a5a00;line-height:1.6"></div>
       </div>
 
       <div class="form-row">
@@ -1476,6 +1477,39 @@ function quickAddPlatform(name, url){
   const existing=[...list.querySelectorAll('input[placeholder*="nombre"]')].map(i=>i.value.toLowerCase());
   if(existing.includes(name.toLowerCase())) return;
   addPlatformRow(name, url);
+}
+
+/* ═══ DUPLICATE TITLE CHECK ═══ */
+function checkDupName(inp, originalName){
+  const warn=document.getElementById('f_name_dup_warn');
+  if(!warn) return;
+  const q=(inp.value||'').trim().toLowerCase();
+  if(!q||q.length<2){warn.style.display='none';return;}
+  // Skip warning if user is just editing and name hasn't changed
+  if(originalName&&q===originalName.toLowerCase()){warn.style.display='none';return;}
+
+  const catLabels={series:'🌷 Serie GL',anime:'🌸 Anime',reality:'🎤 Reality / Docuserie'};
+  const matches=[];
+
+  series.forEach(s=>{
+    if(s.name.trim().toLowerCase()===q){
+      const cat=catLabels[s.category||'series']||'Serie';
+      const section=s.category==='anime'?'Anime':s.category==='reality'?'Realities':'Series';
+      matches.push({section, cat, name:s.name, type:'serie'});
+    }
+  });
+  (movies||[]).forEach(mv=>{
+    if(mv.name.trim().toLowerCase()===q){
+      const cat=mv.category==='anime'?'🌸 Anime Película':mv.category==='reality'?'🎤 Documental':'🎥 Película';
+      matches.push({section:'Películas', cat, name:mv.name, type:'película'});
+    }
+  });
+
+  if(!matches.length){warn.style.display='none';return;}
+
+  const lines=matches.map(m=>`<strong>${m.name}</strong> — ${m.cat} (sección <em>${m.section}</em>)`).join('<br>');
+  warn.style.display='block';
+  warn.innerHTML=`⚠️ Este título ya existe en la base de datos:<br>${lines}<br><span style="font-size:11px;color:#b08a00">Comprueba que no sea un duplicado antes de guardar.</span>`;
 }
 
 
@@ -1852,7 +1886,9 @@ function movieFormHtml(mv){
   const today=new Date().toISOString().slice(0,10);
   return `
   <div style="padding:1.25rem 1.75rem">
-  <div class="form-row"><label class="form-label">Nombre *</label><input id="mf_name" placeholder="Ej: The Hidden Moon" value="${mv?mv.name:''}"/></div>
+  <div class="form-row"><label class="form-label">Nombre *</label><input id="mf_name" placeholder="Ej: The Hidden Moon" value="${mv?mv.name:''}" oninput="checkDupName(this,${mv?`'${mv.name.replace(/'/g,"\\'")}'`:'null'})"/>
+  <div id="f_name_dup_warn" style="display:none;margin-top:6px;padding:8px 12px;border-radius:10px;background:#fff3cd;border:1.5px solid #f0c040;font-size:12px;color:#7a5a00;line-height:1.6"></div>
+  </div>
   <div class="form-row">
     <label class="form-label">URL de la portada</label>
     <input id="mf_poster" placeholder="https://image.tmdb.org/..." value="${mv&&mv.poster?mv.poster:''}"/>
