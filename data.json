@@ -12298,6 +12298,133 @@
         }
       ],
       "updatedAt": "2026-05-10T07:13:45.013Z"
+    },
+    {
+      "id": "1778398696587",
+      "name": "Motherland: Fort Salem",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/hYweLS53S59NFVqXtUVdMPxJBkK.jpg",
+      "synopsis": "La historia sigue a tres jóvenes mujeres brujas que son entrenadas para luchar con magia contra amenazas terroristas utilizando tácticas y armas sobrenaturales.",
+      "year": 2020,
+      "country": "Estados Unidos",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/QASwXRDVBVY?si=ehF6KHwMy8FSw7xH",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Drama",
+        "Acción",
+        "Fantasía",
+        "Aventura"
+      ],
+      "category": "series",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2020-03-18",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            2
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 2",
+          "startDate": "2021-06-22",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            1
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 3",
+          "startDate": "2021-06-21",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            0
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-10T07:38:16.587Z"
+    },
+    {
+      "id": "1778398840377",
+      "name": "Batwoman",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/uMOZ7VZwGbHcoiMksZjvyO5AFRT.jpg",
+      "synopsis": "Kate Kane protege las calles de Gotham como Batwoman, una luchadora con una gran formación dedicada a acabar con el debilitado mundo criminal de la ciudad, pero… no la llames heroína. En una ciudad desesperada por encontrar su salvación Kate deberá enfrentarse a sus propios demonios antes de convertirse en la esperanza de Gotham.",
+      "year": 2019,
+      "country": "Estados Unidos",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/mPMjcNKsHTE?si=sDJ6SPfaDqzpaNg0",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Acción",
+        "Ciencia Ficción",
+        "Aventura"
+      ],
+      "category": "series",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2019-10-06",
+          "totalEpisodes": 20,
+          "emissionDays": [
+            6
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 2",
+          "startDate": "2021-12-17",
+          "totalEpisodes": 15,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 3",
+          "startDate": "2021-10-13",
+          "totalEpisodes": 13,
+          "emissionDays": [
+            2
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-10T07:40:40.377Z"
     }
   ],
   "movies": [
@@ -12431,5 +12558,5 @@
       "genres": []
     }
   ],
-  "exportedAt": "2026-05-10T07:20:51.877Z"
+  "exportedAt": "2026-05-10T07:51:28.565Z"
 }
