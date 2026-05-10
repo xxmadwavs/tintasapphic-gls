@@ -12631,10 +12631,10 @@
         },
         {
           "label": "Temporada 3",
-          "startDate": "202019-02-08",
+          "startDate": "2019-02-08",
           "totalEpisodes": 13,
           "emissionDays": [
-            null
+            4
           ],
           "allInOneDay": true,
           "skipDates": [],
@@ -12654,7 +12654,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-10T08:47:33.203Z"
+      "updatedAt": "2026-05-10T09:12:42.450Z"
     },
     {
       "id": "1778403375094",
@@ -12950,5 +12950,5 @@
       "genres": []
     }
   ],
-  "exportedAt": "2026-05-10T08:56:26.175Z"
+  "exportedAt": "2026-05-10T09:12:43.997Z"
 }
