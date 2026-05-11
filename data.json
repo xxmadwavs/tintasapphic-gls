@@ -13292,6 +13292,131 @@
         }
       ],
       "updatedAt": "2026-05-11T11:39:26.113Z"
+    },
+    {
+      "id": "1778501007371",
+      "name": "Sakura Trick",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/2Sm1bZSJ8UX1m8mWy8iaSOmexY0.jpg",
+      "synopsis": "Haruka y Yuu, mejores amigas desde la secundaria, se inscriben en la misma escuela, pero por un giro del destino terminan separadas. A pesar de los obstáculos, Haruka está decidida a pasar tiempo con Yuu, pero sus celos surgen cuando otras chicas se interesan por ella. Un beso en un aula vacía cambia su relación, revelando una nueva dinámica y conflictos.",
+      "year": 2014,
+      "country": "Japón",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/5R8hkdq9q8Q?si=CjtIUT1x3MVPeF9k",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Romance"
+      ],
+      "category": "anime",
+      "animeSeason": "Invierno 2014",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2014-01-10",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-11T12:03:27.371Z"
+    },
+    {
+      "id": "1778501119595",
+      "name": "This Monster wants to eat me",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/ffAWNFURAmupnR3kh7C52uE4EX.jpg",
+      "synopsis": "Hinako vive sola junto al mar, vagando tranquilamente por la vida tras perder a su familia hace años. Un día, una sirena llamada Shiori la salva de un monstruo y le dice que ha venido a comérsela, pero aún no. Hasta entonces, Shiori permanecerá a su lado y la mantendrá a salvo. En ese momento, una profunda esperanza se apodera de Hinako: tal vez esta chica pueda finalmente concederle el final que ha estado esperando.",
+      "year": 2025,
+      "country": "",
+      "network": "Crunchyroll",
+      "networkUrl": "https://www.crunchyroll.com",
+      "watchLinks": [
+        {
+          "name": "Crunchyroll",
+          "url": "https://www.crunchyroll.com"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/2igU4HnpbJs?si=ke0Vrp2QnGGC4bqX",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Drama"
+      ],
+      "category": "anime",
+      "animeSeason": "Otoño 2025",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2025-10-02",
+          "totalEpisodes": 13,
+          "emissionDays": [
+            3
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-11T12:05:19.595Z"
+    },
+    {
+      "id": "1778501225180",
+      "name": "Adachi and Shimamura",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/tirBanHz2pb9F4Ff5a4y7t3ipmP.jpg",
+      "synopsis": "Adachi y Shimamura, son dos chicas jóvenes que asisten a la misma escuela secundaria, siendo amigas inseparables. Ya sea jugando al tenis de mesa, charlando de su serie de televisión o comida favorita, o bien pasando el rato juntas tranquilamente, ambas piensan en la otra en cada momento.",
+      "year": 2020,
+      "country": "Japón",
+      "network": "Crunchyroll",
+      "networkUrl": "crunchyroll.com/es-es/watch/G4VUQX39Z?irclickid=QxPzhewYZxyZTimXVfXGR0REUkuUCjx5Syi5Vk0&utm_source=impact&utm_medium=affiliate&utm_campaign=1206980&irgwc=1&afsrc=1",
+      "watchLinks": [
+        {
+          "name": "Crunchyroll",
+          "url": "crunchyroll.com/es-es/watch/G4VUQX39Z?irclickid=QxPzhewYZxyZTimXVfXGR0REUkuUCjx5Syi5Vk0&utm_source=impact&utm_medium=affiliate&utm_campaign=1206980&irgwc=1&afsrc=1"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/L_3o1BOB5dA?si=c2a-rM3thLBC68x7",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Drama",
+        "Comedia"
+      ],
+      "category": "anime",
+      "animeSeason": "Otoño 2020",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2020-10-09",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-11T12:07:05.180Z"
     }
   ],
   "movies": [
@@ -21294,7 +21419,174 @@
       "bookUrl": "",
       "category": "movie",
       "updatedAt": "2026-05-10T11:06:18.914Z"
+    },
+    {
+      "id": "1778500269759",
+      "name": "rookie",
+      "poster": "https://artworks.thetvdb.com/banners/v4/movie/350679/posters/65328751b27cf.jpg",
+      "synopsis": "Todo cambia cuando un adolescente torpe se une al equipo de voleibol y se enamora de la capitana del equipo.",
+      "year": 2023,
+      "country": "Filipinas",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/lTURY1zxigU?si=NvqfyXRtoyUib7cm",
+      "date": "2023-08-04",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Romance",
+        "Comedia"
+      ],
+      "category": "movie",
+      "updatedAt": "2026-05-11T11:52:30.313Z"
+    },
+    {
+      "id": "1778500339493",
+      "name": "She Brought Colour into My World",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/dvMk0OinACf2tfxUsQouEOZxXPx.jpg",
+      "synopsis": "Cuando dos mujeres se conocen, surge un romance apasionado y un fuerte deseo de aventura. Pero llegado el momento, ¿tendrán el valor de aventurarse juntas por el mundo?",
+      "year": 2024,
+      "country": "China",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "date": "2024-01-06",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Romance"
+      ],
+      "category": "movie",
+      "updatedAt": "2026-05-11T11:52:19.493Z"
+    },
+    {
+      "id": "1778500428113",
+      "name": "My Ex's Wedding",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/jc4qH8xsAfy1orZpS329OUgiF6a.jpg",
+      "synopsis": "Cuando Grace recibe una invitación inesperada a la boda de Jay, su ex al que todavía ama, la tensión aumenta y las emociones se desbordan. ¿Se convertirá la boda en un caos total? ¿A quién elegirá Jay para casarse?",
+      "year": 2024,
+      "country": "Tailandia",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/5Tt9brsEoaA?si=QWEjsTVCKTXdkiTl",
+      "date": "2024-11-14",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [],
+      "category": "movie",
+      "updatedAt": "2026-05-11T11:53:48.113Z"
+    },
+    {
+      "id": "1778500575662",
+      "name": "Accused",
+      "poster": "https://pics.filmaffinity.com/accused-190011872-large.jpg",
+      "synopsis": "La vida de una reconocida ginecóloga se desboca cuando una serie de acusaciones graves amenazan su carrera y su matrimonio.",
+      "year": 2026,
+      "country": "India",
+      "network": "Netflix",
+      "networkUrl": "https://www.netflix.com/es/title/81661375",
+      "watchLinks": [
+        {
+          "name": "Netflix",
+          "url": "https://www.netflix.com/es/title/81661375"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/DtkMt7lRzVA?si=ZU6LkkWwGBc5AdM1",
+      "date": "2026-02-27",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Drama",
+        "Thriller"
+      ],
+      "category": "movie",
+      "updatedAt": "2026-05-11T11:56:15.662Z"
+    },
+    {
+      "id": "1778500640877",
+      "name": "Cat in the Eastern Palace",
+      "poster": "https://i.mydramalist.com/W4njl_4c.jpg?v=1",
+      "synopsis": "La historia de un travieso espíritu felino y su amante humana, una mujer disfrazada de príncipe heredero.",
+      "year": 2020,
+      "country": "China",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "date": "2020-09-23",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Romance",
+        "Sobrenatural",
+        "Histórico"
+      ],
+      "category": "movie",
+      "updatedAt": "2026-05-11T11:57:20.877Z"
+    },
+    {
+      "id": "1778500729613",
+      "name": "Fire",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZjFjNGM5ZTAtYjlkNC00NjVhLTgwZjItNDZlNTdlNGY0YTQzXkEyXkFqcGc@._V1_.jpg",
+      "synopsis": "Ashok lleva casado 15 años con Rahda, que es la que lleva el peso del negocio familiar y se ha convertido en el alma de la casa. Con ellos conviven la madre y el hermano del marido en aparente armonía. Pero la entrada en el clan de Sita, la joven esposa de su cuñado, revolucionará el entorno de Rahda. Primera obra de la conocida trilogía de Mehta, le siguirían \"Tierra\" (1998) y \"Agua\" (2005).",
+      "year": 1996,
+      "country": "India",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/SnshN0wqiCo?si=i3zgU4cscMyu-iGZ",
+      "date": "1996-09-06",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Romance",
+        "Drama"
+      ],
+      "category": "movie",
+      "updatedAt": "2026-05-11T11:58:49.613Z"
+    },
+    {
+      "id": "1778500875179",
+      "name": "Asagao to Kase-san",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/69Fy0t0QWGk1xPh0f3qcboT2VUs.jpg",
+      "synopsis": "Yui Yamada, una chica tímida que disfruta cuidando el jardín de su escuela, se enamora de la juvenil y atlética Tomoka Kase. Las dos eventualmente comienzan a salir, y la historia sigue a la pareja mientras enfrentan varios desafíos en su relación.",
+      "year": 2018,
+      "country": "Japón",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/SRJJtaZekbI?si=tss26VOE7cpDwB6h",
+      "date": "2018-06-09",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [],
+      "category": "anime",
+      "updatedAt": "2026-05-11T12:01:15.179Z"
     }
   ],
-  "exportedAt": "2026-05-11T11:40:53.646Z"
+  "exportedAt": "2026-05-11T12:07:32.008Z"
 }
