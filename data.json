@@ -13200,6 +13200,98 @@
         }
       ],
       "updatedAt": "2026-05-10T10:14:01.578Z"
+    },
+    {
+      "id": "1778499401369",
+      "name": "10 Rules Before I Fell for You",
+      "poster": "https://i.mydramalist.com/yW1dJ3_4f.jpg",
+      "synopsis": "Time, la autora superventas de \"10 reglas antes de enamorarme de ti\", cree que el amor se puede explicar mediante la teoría. Cuando viaja a una tranquila casa rural para escribir su nuevo libro, descubre que la dueña, Lean, es alguien que una vez criticó su trabajo en internet. El choque entre alguien que cree en la lógica del amor y alguien que cree en los sentimientos puros lleva a Time a poner a prueba sus diez reglas para enamorarse",
+      "year": 2026,
+      "country": "Tailandia",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [],
+      "category": "series",
+      "animeSeason": "",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-05-21",
+          "totalEpisodes": 6,
+          "emissionDays": [
+            3
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-11T11:36:41.369Z"
+    },
+    {
+      "id": "1778499566113",
+      "name": "Ghostfriend Forever",
+      "poster": "https://i.mydramalist.com/2wXxxE_4c.jpg?v=1",
+      "synopsis": "Day se muda a una casa nueva y conoce a Luv, un hermoso fantasma que no sabe que está muerta. Luv se enamora de ella el primer día que la conoce. A partir de entonces, las dos intentan estar juntas. \"¿Pero cómo pueden amarse los humanos y los fantasmas?\", piensan Day y Luv, \"¿Qué deberíamos hacer?\".",
+      "year": 2024,
+      "country": "Tailandia",
+      "network": "YouTube",
+      "networkUrl": "https://youtu.be/FWtPOv--AoA?si=yNNoiFvHlYwyCHAh",
+      "watchLinks": [
+        {
+          "name": "YouTube",
+          "url": "https://youtu.be/FWtPOv--AoA?si=yNNoiFvHlYwyCHAh"
+        }
+      ],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Romance"
+      ],
+      "category": "series",
+      "animeSeason": "",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2024-06-29",
+          "totalEpisodes": 6,
+          "emissionDays": [
+            5
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 2",
+          "startDate": "2026-04-27",
+          "totalEpisodes": 6,
+          "emissionDays": [
+            0,
+            1
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-11T11:39:26.113Z"
     }
   ],
   "movies": [
@@ -21204,5 +21296,5 @@
       "updatedAt": "2026-05-10T11:06:18.914Z"
     }
   ],
-  "exportedAt": "2026-05-10T18:17:10.363Z"
+  "exportedAt": "2026-05-11T11:40:53.646Z"
 }
