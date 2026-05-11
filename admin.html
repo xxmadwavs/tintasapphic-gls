@@ -695,6 +695,8 @@ let currentStab = 'active';
 const PAGE_SIZE = 20;
 const pages = { series: 1, movies: 1, anime: 1, realities: 1 };
 
+function escapeHtml(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+
 function paginate(items, section){
   const total = items.length;
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
@@ -740,15 +742,42 @@ function save(){
 }
 
 async function initData(){
-  try{
-    const r = await fetch('data.json?t='+Date.now());
-    if(r.ok){
-      const d = await r.json();
-      if(d.series) series = d.series;
-      if(d.movies) movies = d.movies;
-    }
-  } catch(e){ /* sin data.json disponible, empezamos vacíos */ }
+  // Si se abre como file://, fetch no funciona → mostrar aviso de importación
+  const isFileProtocol = location.protocol === 'file:';
+  if(!isFileProtocol){
+    try{
+      const r = await fetch('data.json?t='+Date.now());
+      if(r.ok){
+        const d = await r.json();
+        if(d.series) series = d.series;
+        if(d.movies) movies = d.movies;
+        render(); renderBooks(); renderAnimeGrid(); renderRealitiesGrid();
+        return;
+      }
+    } catch(e){ /* sin data.json accesible */ }
+  }
+  // Mostrar banner de importación y esperar a que el usuario cargue el archivo
   render(); renderBooks(); renderAnimeGrid(); renderRealitiesGrid();
+  if(isFileProtocol || series.length===0){
+    showImportBanner();
+  }
+}
+
+function showImportBanner(){
+  // Solo mostrar si no hay datos ya cargados
+  if(series.length > 0) return;
+  const banner = document.createElement('div');
+  banner.id = 'importBanner';
+  banner.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:999;background:var(--surface);border:2px solid var(--accent2);border-radius:16px;padding:14px 22px;box-shadow:0 8px 32px rgba(212,96,138,0.18);display:flex;align-items:center;gap:14px;max-width:520px;width:90%';
+  banner.innerHTML = `
+    <span style="font-size:22px">📂</span>
+    <div style="flex:1">
+      <div style="font-weight:700;color:var(--text);font-size:14px">Carga tu <code>data.json</code> para ver las series</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:2px">Al abrir admin localmente el navegador no puede leer el archivo automáticamente.</div>
+    </div>
+    <button class="btn primary" onclick="document.getElementById('importFile').click();document.getElementById('importBanner').remove()">Importar</button>
+  `;
+  document.body.appendChild(banner);
 }
 
 function getDow(d){ return (new Date(d+'T12:00:00').getDay()+6)%7; }
@@ -952,15 +981,22 @@ function render(){
       const col=PALETTE[si%PALETTE.length];
       const status=getSeriesStatus(s);
       const div=document.createElement('div'); div.className='series-item';
-      const posterEl=s.poster?`<img class="series-poster" src="${s.poster}" alt="${s.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`:'' ;
-      const phEl=`<div class="series-poster-ph" style="${s.poster?'display:none':''}">🎬</div>`;
+      if(s.poster){
+        const img=document.createElement('img');
+        img.className='series-poster'; img.src=s.poster; img.alt=s.name;
+        img.onerror=function(){this.style.display='none';this.nextElementSibling.style.display='flex';};
+        div.appendChild(img);
+      }
+      const ph=document.createElement('div'); ph.className='series-poster-ph'; ph.textContent='🎬';
+      if(s.poster) ph.style.display='none';
+      div.appendChild(ph);
       let metaStr='';
       const statusBadge=s.upcoming
         ?'<span class="badge badge-upcoming">📅 Próximamente</span>'
         :status==='airing'?'<span class="badge badge-airing">🌸 En emisión</span>'
         :'<span class="badge badge-finished">✓ Finalizada</span>';
       if(s.upcoming){
-        metaStr=`${s.year?s.year+' · ':''}${s.country||''}`;
+        metaStr=`${s.year?escapeHtml(String(s.year))+' · ':''}${escapeHtml(s.country||'')}`;
       } else {
         const eps=genEpisodes(s), now=new Date();
         const seasons=getSeasons(s);
@@ -969,24 +1005,22 @@ function render(){
         const pct=Math.round(aired/Math.max(totalEps,1)*100);
         const lastSeason=seasons[seasons.length-1];
         const daysLabel=((lastSeason?.emissionDays&&lastSeason.emissionDays.length)?lastSeason.emissionDays:[lastSeason?.dayOfWeek||0]).map(d=>DAYS_ES[d]).join(' y ');
-        metaStr=`${s.network?s.network+' · ':''}${totalEps} ep${seasons.length>1?' · '+seasons.length+'T':''} · ${daysLabel}`;
+        metaStr=`${s.network?escapeHtml(s.network)+' · ':''}${totalEps} ep${seasons.length>1?' · '+seasons.length+'T':''} · ${daysLabel}`;
       }
       const bookBadge=s.basedOnBook?'<span class="badge badge-book">📖 Libro</span>':'';
       const genrePills=s.genres&&s.genres.length
-        ?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:5px">${s.genres.map(g=>`<span style="font-size:10px;padding:2px 8px;border-radius:20px;background:var(--surface2);border:1px solid var(--border2);color:var(--muted);font-weight:600">${g}</span>`).join('')}</div>`:'';
-      div.innerHTML=`${posterEl}${phEl}
-        <div class="series-info">
-          <div class="series-name">${s.name} ${statusBadge}${bookBadge}${s.category==="anime"?'<span class="badge badge-anime">🌸 Anime</span>':s.category==="reality"?'<span class="badge badge-reality">🎤 Reality</span>':''}</div>
-          <div class="series-meta">${metaStr}</div>
-          ${genrePills}
-          ${!s.upcoming?`<div class="progress-wrap" style="margin-top:6px;height:4px;background:var(--border);border-radius:2px;overflow:hidden"><div class="progress-fill" style="width:${(()=>{const eps2=genEpisodes(s),now2=new Date(),seasons2=getSeasons(s),tot=seasons2.reduce((a,t)=>a+t.totalEpisodes,0),a=eps2.filter(e=>new Date(e.date+'T12:00:00')<=now2&&!e.skipped).length;return Math.round(a/Math.max(tot,1)*100)})()}%;background:${col}"></div></div>`:''}
-        </div>
-        <div class="series-actions">
-          ${!s.upcoming?`<button class="btn small" onclick="openEps(${si})">Episodios</button>`:''}
-          <button class="btn small" onclick="openEdit(${si})">Editar</button>
-          <button class="btn small danger" onclick="delSeries(${si})">✕</button>
-        </div>`;
-      grid.appendChild(div);
+        ?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:5px">${s.genres.map(g=>`<span style="font-size:10px;padding:2px 8px;border-radius:20px;background:var(--surface2);border:1px solid var(--border2);color:var(--muted);font-weight:600">${escapeHtml(g)}</span>`).join('')}</div>`:'';
+      const info=document.createElement('div'); info.className='series-info';
+      info.innerHTML=`<div class="series-name">${escapeHtml(s.name)} ${statusBadge}${bookBadge}${s.category==="anime"?'<span class="badge badge-anime">🌸 Anime</span>':s.category==="reality"?'<span class="badge badge-reality">🎤 Reality</span>':''}</div>
+        <div class="series-meta">${metaStr}</div>
+        ${genrePills}
+        ${!s.upcoming?`<div class="progress-wrap" style="margin-top:6px;height:4px;background:var(--border);border-radius:2px;overflow:hidden"><div class="progress-fill" style="width:${(()=>{const eps2=genEpisodes(s),now2=new Date(),seasons2=getSeasons(s),tot=seasons2.reduce((a,t)=>a+t.totalEpisodes,0),a=eps2.filter(e=>new Date(e.date+'T12:00:00')<=now2&&!e.skipped).length;return Math.round(a/Math.max(tot,1)*100)})()}%;background:${col}"></div></div>`:''}`;
+      div.appendChild(info);
+      const actions=document.createElement('div'); actions.className='series-actions';
+      actions.innerHTML=`${!s.upcoming?`<button class="btn small" onclick="openEps(${si})">Episodios</button>`:''}
+        <button class="btn small" onclick="openEdit(${si})">Editar</button>
+        <button class="btn small danger" onclick="delSeries(${si})">✕</button>`;
+      div.appendChild(actions);
     });
     grid.insertAdjacentHTML('beforeend', paginationHtml('series', total, totalPages, page));
   }
@@ -1027,25 +1061,34 @@ function renderMovies(){
   items.forEach((mv)=>{
     const mi=movies.indexOf(mv);
     const div=document.createElement('div'); div.className='series-item';
-    const posterEl=mv.poster?`<img class="series-poster" src="${mv.poster}" alt="${mv.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`:'' ;
-    const phEl=`<div class="series-poster-ph" style="${mv.poster?'display:none':''}">🎥</div>`;
+    const safeName=escapeHtml(mv.name);
+    const safePoster=escapeHtml(mv.poster||'');
+    if(mv.poster){
+      const img=document.createElement('img');
+      img.className='series-poster'; img.src=mv.poster; img.alt=mv.name;
+      img.onerror=function(){this.style.display='none';this.nextElementSibling.style.display='flex';};
+      div.appendChild(img);
+    }
+    const ph=document.createElement('div');
+    ph.className='series-poster-ph'; ph.textContent='🎥';
+    if(mv.poster) ph.style.display='none';
+    div.appendChild(ph);
     const bookBadge=mv.basedOnBook?'<span class="badge badge-book">📖 Libro</span>':'';
     const now=new Date();
     const isPast=mv.date&&new Date(mv.date+'T12:00:00')<=now;
     const statusBadge=mv.date?(isPast?'<span class="badge" style="background:var(--teal-soft);color:var(--teal)">✓ Estrenada</span>':'<span class="badge badge-upcoming">📅 Pendiente</span>'):'<span class="badge" style="background:var(--surface2);color:var(--muted)">Sin fecha</span>';
-    const metaStr=`${mv.network?mv.network+' · ':''}${mv.date?fmtDate(mv.date):'Fecha por confirmar'}`;
+    const metaStr=`${mv.network?escapeHtml(mv.network)+' · ':''}${mv.date?fmtDate(mv.date):'Fecha por confirmar'}`;
     const mvGenrePills=mv.genres&&mv.genres.length
-      ?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:5px">${mv.genres.map(g=>`<span style="font-size:10px;padding:2px 8px;border-radius:20px;background:var(--surface2);border:1px solid var(--border2);color:var(--muted);font-weight:600">${g}</span>`).join('')}</div>`:'';
-    div.innerHTML=`${posterEl}${phEl}
-      <div class="series-info">
-        <div class="series-name">${mv.name} ${bookBadge}${statusBadge}</div>
-        <div class="series-meta">${metaStr}</div>
-        ${mvGenrePills}
-      </div>
-      <div class="series-actions">
-        <button class="btn small" onclick="openEditMovie(${mi})">Editar</button>
-        <button class="btn small danger" onclick="delMovie(${mi})">✕</button>
-      </div>`;
+      ?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:5px">${mv.genres.map(g=>`<span style="font-size:10px;padding:2px 8px;border-radius:20px;background:var(--surface2);border:1px solid var(--border2);color:var(--muted);font-weight:600">${escapeHtml(g)}</span>`).join('')}</div>`:'';
+    const info=document.createElement('div'); info.className='series-info';
+    info.innerHTML=`<div class="series-name">${safeName} ${bookBadge}${statusBadge}</div><div class="series-meta">${metaStr}</div>${mvGenrePills}`;
+    const actions=document.createElement('div'); actions.className='series-actions';
+    const editBtn=document.createElement('button'); editBtn.className='btn small'; editBtn.textContent='Editar';
+    editBtn.onclick=()=>openEditMovie(mi);
+    const delBtn=document.createElement('button'); delBtn.className='btn small danger'; delBtn.textContent='✕';
+    delBtn.onclick=()=>delMovie(mi);
+    actions.appendChild(editBtn); actions.appendChild(delBtn);
+    div.appendChild(info); div.appendChild(actions);
     grid.appendChild(div);
   });
   grid.insertAdjacentHTML('beforeend', paginationHtml('movies', filtered.length, totalPages, page));
@@ -1772,12 +1815,12 @@ function renderAnimeGrid(){
     const aired=eps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
     const total2=s.seasons?s.seasons.reduce((a,t)=>a+t.totalEpisodes,0):(s.totalEpisodes||0);
     const pct=Math.round(aired/Math.max(total2,1)*100);
-    const cover=s.poster?`<img class="series-poster" src="${s.poster}" alt="" onerror="this.outerHTML='<div class=series-poster-ph>🌸</div>'">`:`<div class="series-poster-ph">🌸</div>`;
+    const cover=s.poster?`<img class="series-poster" src="${escapeHtml(s.poster)}" alt="" onerror="this.outerHTML='<div class=series-poster-ph>🌸</div>'">`:`<div class="series-poster-ph">🌸</div>`;
     const div=document.createElement('div'); div.className='series-item';
     div.innerHTML=`${cover}
       <div class="series-info">
-        <div class="series-name">${s.name} <span class="badge badge-anime">Anime</span>${s.basedOnBook?'<span class="badge badge-book">📖</span>':''}${s.animeSeason?`<span class="anime-season-badge">🌸 ${s.animeSeason}</span>`:''}</div>
-        <div class="series-meta">${[s.country,s.network,s.year].filter(Boolean).join(' · ')} · ${total2} eps</div>
+        <div class="series-name">${escapeHtml(s.name)} <span class="badge badge-anime">Anime</span>${s.basedOnBook?'<span class="badge badge-book">📖</span>':''}${s.animeSeason?`<span class="anime-season-badge">🌸 ${escapeHtml(s.animeSeason)}</span>`:''}</div>
+        <div class="series-meta">${[s.country,s.network,s.year].filter(Boolean).map(escapeHtml).join(' · ')} · ${total2} eps</div>
         <div class="progress-wrap"><div class="progress-fill" style="width:${pct}%;background:#7c5cbf"></div></div>
       </div>
       <div class="series-actions">
@@ -1825,12 +1868,12 @@ function renderRealitiesGrid(){
     const aired=eps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
     const total2=s.seasons?s.seasons.reduce((a,t)=>a+t.totalEpisodes,0):(s.totalEpisodes||0);
     const pct=Math.round(aired/Math.max(total2,1)*100);
-    const cover=s.poster?`<img class="series-poster" src="${s.poster}" alt="" onerror="this.outerHTML='<div class=series-poster-ph>🎤</div>'">`:`<div class="series-poster-ph">🎤</div>`;
+    const cover=s.poster?`<img class="series-poster" src="${escapeHtml(s.poster)}" alt="" onerror="this.outerHTML='<div class=series-poster-ph>🎤</div>'">`:`<div class="series-poster-ph">🎤</div>`;
     const div=document.createElement('div'); div.className='series-item';
     div.innerHTML=`${cover}
       <div class="series-info">
-        <div class="series-name">${s.name} <span class="badge badge-reality">Reality</span>${s.basedOnBook?'<span class="badge badge-book">📖</span>':''}${s.animeSeason?`<span class="anime-season-badge">📅 ${s.animeSeason}</span>`:''}</div>
-        <div class="series-meta">${[s.country,s.network,s.year].filter(Boolean).join(' · ')} · ${total2} eps</div>
+        <div class="series-name">${escapeHtml(s.name)} <span class="badge badge-reality">Reality</span>${s.basedOnBook?'<span class="badge badge-book">📖</span>':''}${s.animeSeason?`<span class="anime-season-badge">📅 ${escapeHtml(s.animeSeason)}</span>`:''}</div>
+        <div class="series-meta">${[s.country,s.network,s.year].filter(Boolean).map(escapeHtml).join(' · ')} · ${total2} eps</div>
         <div class="progress-wrap"><div class="progress-fill" style="width:${pct}%;background:#3a9e94"></div></div>
       </div>
       <div class="series-actions">
@@ -2287,12 +2330,12 @@ function renderBooks(){
     return;
   }
   grid.innerHTML=books.map(b=>{
-    const coverEl=b.cover?`<img class="book-item-cover" src="${b.cover}" alt="${b.title}" onerror="this.outerHTML='<div class=book-item-cover-ph>📖</div>'">`:`<div class="book-item-cover-ph">📖</div>`;
-    const editionLinks=b.editions.map(e=>`<a href="${e.url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:700;color:#b08a00;text-decoration:none;background:rgba(176,138,0,0.1);border-radius:20px;padding:2px 9px;border:1px solid rgba(176,138,0,0.25);white-space:nowrap">${langFlag(e.lang)} ${e.store} →</a>`).join('');
+    const coverEl=b.cover?`<img class="book-item-cover" src="${escapeHtml(b.cover)}" alt="${escapeHtml(b.title)}" onerror="this.outerHTML='<div class=book-item-cover-ph>📖</div>'">`:`<div class="book-item-cover-ph">📖</div>`;
+    const editionLinks=b.editions.map(e=>`<a href="${escapeHtml(e.url)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:700;color:#b08a00;text-decoration:none;background:rgba(176,138,0,0.1);border-radius:20px;padding:2px 9px;border:1px solid rgba(176,138,0,0.25);white-space:nowrap">${langFlag(e.lang)} ${escapeHtml(e.store)} →</a>`).join('');
     return `<div class="book-item">${coverEl}
       <div class="book-item-info">
-        <div class="book-item-title">📖 ${b.title}</div>
-        <div class="book-item-meta" style="margin-bottom:5px">Adaptada en <strong>${b.from}</strong> · ${b.fromType}</div>
+        <div class="book-item-title">📖 ${escapeHtml(b.title)}</div>
+        <div class="book-item-meta" style="margin-bottom:5px">Adaptada en <strong>${escapeHtml(b.from)}</strong> · ${escapeHtml(b.fromType)}</div>
         ${b.editions.length?`<div style="display:flex;flex-wrap:wrap;gap:4px">${editionLinks}</div>`:''}
       </div>
     </div>`;
@@ -2313,6 +2356,7 @@ function importData(e){
       const d=JSON.parse(ev.target.result);
       if(d.series) series=d.series;
       if(d.movies) movies=d.movies;
+      const ib=document.getElementById('importBanner'); if(ib) ib.remove();
       save(); render(); renderMovies(); renderBooks(); renderAnimeGrid(); renderRealitiesGrid();
       alert('✓ Datos importados correctamente');
     }catch(err){ alert('Error al leer el archivo: '+err.message); }
