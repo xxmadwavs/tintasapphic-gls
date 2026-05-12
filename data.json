@@ -8744,7 +8744,8 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [],
+          "premiereSchedule": []
         },
         {
           "label": "Temporada 2",
@@ -8755,7 +8756,8 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [],
+          "premiereSchedule": []
         },
         {
           "label": "Temporada 3",
@@ -8766,10 +8768,14 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [],
+          "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-03T15:30:00.823Z"
+      "updatedAt": "2026-05-12T19:21:05.416Z",
+      "category": "series",
+      "animeSeason": "",
+      "renewedNextSeason": true
     },
     {
       "id": "1700000000142",
@@ -21978,5 +21984,5 @@
       "updatedAt": "2026-05-12T18:53:47.313Z"
     }
   ],
-  "exportedAt": "2026-05-12T19:19:15.908Z"
+  "exportedAt": "2026-05-12T19:22:31.453Z"
 }
