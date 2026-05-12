@@ -169,9 +169,9 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
 .platform-net-wrap input{flex:1}
 .platform-net-select{
   background:var(--surface2);border:1.5px solid var(--border2);
-  border-radius:10px;padding:0 10px;height:40px;font-size:12px;
+  border-radius:10px;padding:0 10px;height:40px;font-size:13px;
   font-family:'Nunito',sans-serif;color:var(--text);cursor:pointer;
-  flex-shrink:0;transition:all .15s;max-width:150px;
+  flex-shrink:0;transition:all .15s;min-width:120px;max-width:180px;width:auto;
 }
 .platform-net-select:focus{border-color:var(--accent);outline:none}
 .platform-row-sel{display:flex;gap:6px;align-items:center;margin-bottom:6px}
@@ -1011,7 +1011,7 @@ function render(){
       const genrePills=s.genres&&s.genres.length
         ?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:5px">${s.genres.map(g=>`<span style="font-size:10px;padding:2px 8px;border-radius:20px;background:var(--surface2);border:1px solid var(--border2);color:var(--muted);font-weight:600">${escapeHtml(g)}</span>`).join('')}</div>`:'';
       const info=document.createElement('div'); info.className='series-info';
-      info.innerHTML=`<div class="series-name">${escapeHtml(s.name)} ${statusBadge}${bookBadge}${s.category==="anime"?'<span class="badge badge-anime">🌸 Anime</span>':s.category==="reality"?'<span class="badge badge-reality">🎤 Reality</span>':''}</div>
+      info.innerHTML=`<div class="series-name">${escapeHtml(s.name)} ${statusBadge}${bookBadge}${s.renewedNextSeason?'<span class="badge" style="background:var(--teal-soft);color:var(--teal);border:1px solid rgba(74,173,160,.3)">🔄 Renovada</span>':''}${s.category==="anime"?'<span class="badge badge-anime">🌸 Anime</span>':s.category==="reality"?'<span class="badge badge-reality">🎤 Reality</span>':''}</div>
         <div class="series-meta">${metaStr}</div>
         ${genrePills}
         ${!s.upcoming?`<div class="progress-wrap" style="margin-top:6px;height:4px;background:var(--border);border-radius:2px;overflow:hidden"><div class="progress-fill" style="width:${(()=>{const eps2=genEpisodes(s),now2=new Date(),seasons2=getSeasons(s),tot=seasons2.reduce((a,t)=>a+t.totalEpisodes,0),a=eps2.filter(e=>new Date(e.date+'T12:00:00')<=now2&&!e.skipped).length;return Math.round(a/Math.max(tot,1)*100)})()}%;background:${col}"></div></div>`:''}`;
@@ -1128,8 +1128,10 @@ function toggleUpcomingFields(){
   const up=document.getElementById('f_upcoming')?.checked;
   const schedFields=document.getElementById('schedFields');
   const schedHidden=document.getElementById('schedFieldsHidden');
+  const renewedRow=document.getElementById('f_renewed')?.closest('.toggle-row');
   if(schedFields) schedFields.style.display=up?'none':'';
   if(schedHidden) schedHidden.style.display=up?'':'none';
+  if(renewedRow) renewedRow.style.display=up?'none':'';
 }
 
 function dowChipsHtml(selectedDays=[]){
@@ -1379,7 +1381,7 @@ function formHtml(s, forcedCategory=null){
         <input type="hidden" id="f_category" value="${cat}">
       </div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="display:grid;grid-template-columns:120px 1fr;gap:10px">
         <div class="form-row" style="margin-bottom:0">
           <label class="form-label">Año</label>
           <input id="f_year" type="number" placeholder="${new Date().getFullYear()}" min="1990" max="2035" value="${s&&s.year?s.year:''}"/>
@@ -1459,6 +1461,10 @@ function formHtml(s, forcedCategory=null){
       <label class="toggle-row" style="margin-top:8px">
         <input type="checkbox" id="f_upcoming" ${isUpcoming?'checked':''} style="width:auto;accent-color:var(--lavender)" onchange="toggleUpcomingFields()">
         <div><div class="toggle-label">📅 Próximamente (sin fecha de emisión)</div><div class="toggle-desc">Aparece en la sección "Próximamente"</div></div>
+      </label>
+      <label class="toggle-row" style="margin-top:6px;${isUpcoming?'display:none':''}">
+        <input type="checkbox" id="f_renewed" ${s&&s.renewedNextSeason?'checked':''} style="width:auto;accent-color:var(--teal)">
+        <div><div class="toggle-label" style="color:var(--teal)">🔄 Renovada para nueva temporada</div><div class="toggle-desc">Muestra el badge "Renovada" en index cuando la serie finaliza</div></div>
       </label>
     </div>
 
@@ -1915,7 +1921,8 @@ function saveSeries(si, forcedCategory=null){
   const genres=getSelectedGenres('f_genres');
   const category=document.getElementById('f_category')?.value||'series';
   const animeSeason=(category==='anime'||category==='reality')?getAnimeSeason():'';
-  let payload={name,poster,synopsis,year:year?parseInt(year):'',country,network:net,networkUrl,watchLinks,trailerUrl,bookSource,basedOnBook,bookCoverUrl,bookLinks,bookUrl,upcoming,genres,category,animeSeason};
+  const renewedNextSeason=document.getElementById('f_renewed')?.checked||false;
+  let payload={name,poster,synopsis,year:year?parseInt(year):'',country,network:net,networkUrl,watchLinks,trailerUrl,bookSource,basedOnBook,bookCoverUrl,bookLinks,bookUrl,upcoming,genres,category,animeSeason,renewedNextSeason};
   if(!upcoming){
     const seasons=getSeasonsData();
     if(!seasons) return;

@@ -1054,6 +1054,13 @@ const DAYS=['L','M','X','J','V','S','D'];
 const DAYS_L=['lunes','martes','miércoles','jueves','viernes','sábado','domingo'];
 const PALETTE=['#d4608a','#5bbcb0','#9b82c9','#e8a84a','#e06fa0','#4eadb5','#b07ad4','#d47a4e'];
 const PALETTE_SOFT=['rgba(212,96,138,0.13)','rgba(91,188,176,0.13)','rgba(155,130,201,0.13)','rgba(232,168,74,0.13)','rgba(224,111,160,0.13)','rgba(78,173,181,0.13)','rgba(176,122,212,0.13)','rgba(212,122,78,0.13)'];
+
+// Format "T2 · Ep 6" label for an episode
+function epLabel(ep, seasons){
+  if(!ep) return '';
+  if(!seasons||seasons.length<=1) return `Ep. ${ep.seasonNum}`;
+  return `T${ep.season} · Ep ${ep.seasonNum}`;
+}
 const GENRES=[
   'Romance','Drama','Comedia','Acción','Thriller','Misterio','Terror',
   'Fantasía','Ciencia Ficción','Sobrenatural','Aventura','Crimen',
@@ -1126,23 +1133,92 @@ function getSeasons(s){
 // Generate episodes for a single season object
 function genSeasonEps(season, globalEpOffset=0){
   if(!season.startDate||isNaN(new Date(season.startDate+'T12:00:00').getTime())) return [];
-  const days=(season.emissionDays&&season.emissionDays.length)?[...season.emissionDays].sort((a,b)=>a-b):[season.dayOfWeek||0];
-  const skipDates=new Set(season.skipDates||[]);
   const epOverrides=season.episodes||[];
-  let firstDate=null;
-  for(let o=0;o<14;o++){const c=addDays(season.startDate,o);if(days.includes(getDow(c))){firstDate=c;break;}}
-  if(!firstDate) firstDate=season.startDate;
-  const weekStart=addDays(firstDate,-getDow(firstDate));
-  const slots=[], wn=Math.ceil((season.totalEpisodes+(skipDates.size||0))/days.length)+4;
-  for(let w=0;w<wn&&slots.length<season.totalEpisodes+skipDates.size+10;w++){
-    for(const d of days){const date=addDays(weekStart,d+w*7);if(date>=firstDate)slots.push(date);}
+  const skipDates=new Set(season.skipDates||[]);
+
+  // ── allInOneDay: todos los eps se emiten el mismo día (Netflix drop)
+  if(season.allInOneDay){
+    const eps=[];
+    for(let i=0;i<season.totalEpisodes;i++){
+      const epNum=i+1, globalNum=globalEpOffset+epNum;
+      const ov=epOverrides.find(e=>e.num===epNum);
+      eps.push(ov?{...ov,num:globalNum,seasonNum:epNum}:{num:globalNum,seasonNum:epNum,date:season.startDate,skipped:false});
+    }
+    return eps;
   }
-  const valid=slots.filter(d=>!skipDates.has(d));
+
+  const days=(season.emissionDays&&season.emissionDays.length)?[...season.emissionDays].sort((a,b)=>a-b):[season.dayOfWeek||0];
+
+  // ── premiereSchedule: emisión irregular por grupos/rangos de eps
+  // Formato nuevo: [{fromEp, toEp, date}, ...]
+  // Formato viejo: [{date, count}, ...]
+  const premiereSchedule=season.premiereSchedule||[];
+  const specialDateMap={};
+  const usedSpecialDates=new Set();
+  if(premiereSchedule.length){
+    const isNewFormat=premiereSchedule[0]&&premiereSchedule[0].fromEp!==undefined;
+    if(isNewFormat){
+      for(const gr of premiereSchedule){
+        const from=parseInt(gr.fromEp)||1, to=parseInt(gr.toEp)||from;
+        for(let n=from;n<=to&&n<=season.totalEpisodes;n++){
+          specialDateMap[n]=gr.date;
+          usedSpecialDates.add(gr.date);
+        }
+      }
+    } else {
+      let epCursor=0;
+      for(const pr of premiereSchedule){
+        const count=pr.count||1;
+        for(let c=0;c<count;c++){
+          epCursor++;
+          specialDateMap[epCursor]=pr.date;
+          usedSpecialDates.add(pr.date);
+        }
+      }
+    }
+  }
+
+  // ── Calcular fecha de inicio del patrón semanal regular
+  let weekRefDate=season.startDate;
+  if(premiereSchedule.length){
+    const allSpecialDates=[...usedSpecialDates].sort();
+    weekRefDate=allSpecialDates[allSpecialDates.length-1]||season.startDate;
+  }
+  let firstRegularDate=null;
+  for(let o=1;o<60;o++){
+    const c=addDays(weekRefDate,o);
+    if(days.includes(getDow(c))&&!usedSpecialDates.has(c)){firstRegularDate=c;break;}
+  }
+  if(!firstRegularDate){
+    for(let o=0;o<60;o++){const c=addDays(season.startDate,o);if(days.includes(getDow(c))&&!usedSpecialDates.has(c)){firstRegularDate=c;break;}}
+  }
+  if(!firstRegularDate) firstRegularDate=weekRefDate;
+
+  // ── Generar slots regulares semanales
+  const weekStart=addDays(firstRegularDate,-getDow(firstRegularDate));
+  const totalRegular=season.totalEpisodes-Object.keys(specialDateMap).length;
+  const slots=[];
+  const wn=Math.ceil((Math.max(totalRegular,1)+(skipDates.size||0))/days.length)+8;
+  for(let w=0;w<wn&&slots.length<totalRegular+skipDates.size+12;w++){
+    for(const d of days){const date=addDays(weekStart,d+w*7);if(date>=firstRegularDate)slots.push(date);}
+  }
+  const regularSlots=slots.filter(d=>!skipDates.has(d)&&!usedSpecialDates.has(d));
+
+  // ── Asignar fechas a cada episodio
   const eps=[];
-  for(let i=0;i<season.totalEpisodes;i++){
-    const epNum=i+1, globalNum=globalEpOffset+epNum, base=valid[i]||addDays(firstDate,i*7);
+  let regularIdx=0;
+  for(let epNum=1;epNum<=season.totalEpisodes;epNum++){
+    const globalNum=globalEpOffset+epNum;
     const ov=epOverrides.find(e=>e.num===epNum);
-    eps.push(ov?{...ov,num:globalNum,seasonNum:epNum}:{num:globalNum,seasonNum:epNum,date:base,skipped:false});
+    if(ov){
+      eps.push({...ov,num:globalNum,seasonNum:epNum});
+    } else if(specialDateMap[epNum]!==undefined){
+      eps.push({num:globalNum,seasonNum:epNum,date:specialDateMap[epNum],skipped:false});
+    } else {
+      const base=regularSlots[regularIdx]||addDays(firstRegularDate,regularIdx*7);
+      regularIdx++;
+      eps.push({num:globalNum,seasonNum:epNum,date:base,skipped:false});
+    }
   }
   return eps;
 }
@@ -1255,9 +1331,11 @@ function renderWeekPanel(){
       </div>`;
     } else {
       const col=PALETTE[si%PALETTE.length];
+      const seasons=getSeasons(s);
+      const lbl=epLabel(ep,seasons);
       html+=`<div class="week-ep-row" onclick="openSeries(${si})">
         <div class="week-ep-dot" style="background:${col}"></div>
-        <div class="week-ep-name">${s.name} <span style="font-weight:400;color:var(--muted)">Ep.${ep.num}</span></div>
+        <div class="week-ep-name">${s.name} <span style="font-weight:400;color:var(--muted)">${lbl}</span></div>
         <span class="week-ep-today">HOY</span>
       </div>`;
     }
@@ -1328,11 +1406,13 @@ function renderCal(){
         const col=PALETTE[si%PALETTE.length], bg=PALETTE_SOFT[si%PALETTE_SOFT.length];
         const thumb=s.poster?`<img class="ep-thumb" src="${s.poster}" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`:'' ;
         const ph=`<div class="ep-thumb-ph" style="${s.poster?'display:none':''}background:${bg}">🎬</div>`;
+        const calSeasons=getSeasons(s);
+        const calLbl=epLabel(ep,calSeasons);
         html+=`<div class="ep-pill${ep.skipped?' skipped':''}" style="background:${bg}">
           ${thumb}${ph}
           <div class="ep-pill-text" style="color:${col}">
             <div class="ep-pill-name">${s.name}</div>
-            <div class="ep-pill-ep">Ep. ${ep.num}${ep.skipped?' · ✗':''}</div>
+            <div class="ep-pill-ep">${calLbl}${ep.skipped?' · ✗':''}</div>
           </div></div>`;
       }
     });
@@ -1390,12 +1470,15 @@ function seriesCardHtml(s, si){
   const watchRow=links.length?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px">${links.map(l=>`<a class="card-watch-pill" href="${l.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ ${l.name}</a>`).join('')}</div>`:'';
   let nextLine='';
   if(todayEps.length){
-    nextLine=`<div class="series-card-today">🌸 Hoy · Ep. ${todayEps.map(e=>e.num).join(' & ')}</div>`;
+    const lbl=epLabel(todayEps[0],seasons);
+    nextLine=`<div class="series-card-today">🌸 Hoy · ${lbl}</div>`;
   } else if(next){
+    const lbl=epLabel(next,seasons);
     const seasonLabel=seasons.length>1?` <span style="font-size:9px;opacity:.7">${next.seasonLabel}</span>`:'';
-    nextLine=`<div class="series-card-next">▶ Ep. ${next.seasonNum}${seasonLabel} — ${fmtDate(next.date)}</div>`;
+    nextLine=`<div class="series-card-next">▶ ${lbl} — ${fmtDate(next.date)}</div>`;
   } else {
-    nextLine=`<div class="series-card-done">✓ Finalizada</div>`;
+    const renewedBadge=s.renewedNextSeason?` <span style="font-size:9px;background:var(--teal-soft);color:var(--teal);border:1px solid rgba(74,173,160,.3);border-radius:20px;padding:1px 7px;font-weight:700;vertical-align:middle">🔄 Renovada</span>`:'';
+    nextLine=`<div class="series-card-done">✓ Finalizada${renewedBadge}</div>`;
   }
   const progressBar=`<div class="progress-wrap">
     <div class="progress-fill" style="width:${pct}%;background:${col}"></div>
@@ -1406,7 +1489,7 @@ function seriesCardHtml(s, si){
   return `<div class="series-card" onclick="openSeries(${si})">
     ${posterEl}
     <div class="series-card-body">
-      <div class="card-badges">${s.basedOnBook?'<span class="badge badge-book">📖 Libro</span>':''}${seasonsBadge}${s.country?`<span class="badge" style="background:var(--surface2);color:var(--muted)">${countryFlag(s.country)} ${s.country}</span>`:''}</div>
+      <div class="card-badges">${s.basedOnBook?'<span class="badge badge-book">📖 Libro</span>':''}${seasonsBadge}${s.renewedNextSeason?'<span class="badge" style="background:var(--teal-soft);color:var(--teal);border:1px solid rgba(74,173,160,.3)">🔄 Renovada</span>':''}${s.country?`<span class="badge" style="background:var(--surface2);color:var(--muted)">${countryFlag(s.country)} ${s.country}</span>`:''}</div>
       <div class="series-card-name">${s.name}</div>
       <div class="series-card-meta">${s.network?s.network+' · ':''}${activeDays}</div>
       ${genrePills}
@@ -1928,9 +2011,11 @@ function openDay(dateStr){
       const col=PALETTE[si%PALETTE.length], isPast=new Date(ep.date+'T12:00:00')<=now;
       const st=ep.skipped?'skipped':isPast?'aired':'pending', lb=ep.skipped?'No emitido':isPast?'Emitido':'Pendiente';
       const thumb=s.poster?`<img class="day-ep-thumb" src="${s.poster}" alt="" onerror="this.outerHTML='<div class=day-ep-thumb-ph>🎬</div>'">`:`<div class="day-ep-thumb-ph">🎬</div>`;
+      const daySeasons=getSeasons(s);
+      const dayLbl=epLabel(ep,daySeasons);
       html+=`<div class="day-ep-row" onclick="openSeries(${si})">${thumb}
         <div class="day-ep-info"><div class="day-ep-name" style="color:${col}">${s.name}</div>
-        <div class="day-ep-meta">Episodio ${ep.num}${s.network?' · '+s.network:''}</div></div>
+        <div class="day-ep-meta">${dayLbl}${s.network?' · '+s.network:''}</div></div>
         <span class="chip ${st}">${lb}</span></div>`;
     }
   });
@@ -1963,14 +2048,16 @@ function openSeries(si){
   const lastEpDate=datesWithEps[datesWithEps.length-1];
   let nextBadgeHtml='';
   if(todayEps.length){
-    nextBadgeHtml=`<div class="modal-next-badge today">🌸 Hoy · Ep. ${todayEps.map(e=>e.seasonNum).join(' & ')}${seasons.length>1?' ('+todayEps[0].seasonLabel+')':''}</div>`;
+    const lbl=epLabel(todayEps[0],seasons);
+    nextBadgeHtml=`<div class="modal-next-badge today">🌸 Hoy · ${lbl}</div>`;
   } else if(next){
     const du=daysUntil(next.date);
     const label=du===1?'mañana':du===0?'hoy':`en ${du} días`;
-    const seasonHint=seasons.length>1?` · ${next.seasonLabel}`:'';
-    nextBadgeHtml=`<div class="modal-next-badge soon">▶ Ep. ${next.seasonNum}${seasonHint} — ${fmtDate(next.date)} · ${label}</div>`;
+    const lbl=epLabel(next,seasons);
+    nextBadgeHtml=`<div class="modal-next-badge soon">▶ ${lbl} — ${fmtDate(next.date)} · ${label}</div>`;
   } else {
-    nextBadgeHtml=`<div class="modal-next-badge done">✓ Serie finalizada</div>`;
+    const renewedBadge=s.renewedNextSeason?` <span style="font-size:11px;background:var(--teal-soft);color:var(--teal);border:1px solid rgba(74,173,160,.3);border-radius:20px;padding:2px 10px;font-weight:700;margin-left:6px">🔄 Renovada</span>`:'';
+    nextBadgeHtml=`<div class="modal-next-badge done">✓ Serie finalizada${renewedBadge}</div>`;
   }
   let datesRowHtml='<div class="modal-dates-row">';
   if(firstEpDate) datesRowHtml+=`<span class="modal-date-chip">🎬 Inicio: ${fmtDate(firstEpDate)}</span>`;
@@ -1994,7 +2081,7 @@ function openSeries(si){
     </div>
   </div>`;
   let html=`${posterEl}<div class="modal-body">
-  <div class="modal-badges">${s.basedOnBook?'<span class="badge badge-book">📖 Basada en libro</span>':''}${seasons.length>1?`<span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">${seasons.length} temporadas</span>`:''}</div>
+  <div class="modal-badges">${s.basedOnBook?'<span class="badge badge-book">📖 Basada en libro</span>':''}${seasons.length>1?`<span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">${seasons.length} temporadas</span>`:''  }${s.renewedNextSeason?'<span class="badge" style="background:var(--teal-soft);color:var(--teal);border:1px solid rgba(74,173,160,.3)">🔄 Renovada</span>':''}</div>
   <div class="modal-title">${s.name}</div>
   ${datesRowHtml}
   ${nextBadgeHtml}
