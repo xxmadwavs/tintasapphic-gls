@@ -3339,22 +3339,148 @@ document.addEventListener('keydown',e=>{
 </script>
 
 <footer style="
-  margin-top:3rem;padding:1.5rem 2rem;
+  margin-top:3rem;padding:1.5rem 2rem 2rem;
   border-top:1px solid var(--border);
   background:rgba(255,255,255,0.6);
   backdrop-filter:blur(8px);
   text-align:center;
   position:relative;z-index:1;
 ">
-  <div style="max-width:1020px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
-    <span style="font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--muted)">
-      <span style="color:var(--text);font-weight:700;letter-spacing:.06em">TINTA</span> <em style="color:var(--accent)">Sapphic</em>
-    </span>
-    <span style="font-size:11.5px;color:var(--muted)">Series & películas GL de todo el mundo 🌸</span>
-    <a href="https://x.com/xxmadwavs" target="_blank" rel="noopener" style="font-size:11.5px;color:var(--muted);text-decoration:none;font-weight:600;transition:color .15s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">@xxmadwavs en X</a>
+  <div style="max-width:1020px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:16px">
+    <!-- Logo + tagline row -->
+    <div style="display:flex;align-items:center;justify-content:space-between;width:100%;flex-wrap:wrap;gap:8px">
+      <span style="font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--muted)">
+        <span style="color:var(--text);font-weight:700;letter-spacing:.06em">TINTA</span> <em style="color:var(--accent)">Sapphic</em>
+      </span>
+      <span style="font-size:11.5px;color:var(--muted)">Series & películas GL de todo el mundo 🌸</span>
+      <a href="https://x.com/xxmadwavs" target="_blank" rel="noopener" style="font-size:11.5px;color:var(--muted);text-decoration:none;font-weight:600;transition:color .15s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">@xxmadwavs en X</a>
+    </div>
+    <!-- Nav links row -->
+    <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px">
+      <button onclick="openInfoModal('sobre')" style="font-size:12px;color:var(--muted);cursor:pointer;font-weight:500;padding:6px 14px;border:1.5px solid var(--border2);border-radius:20px;transition:all .18s;background:var(--surface);font-family:var(--font-body)" onmouseover="this.style.background='var(--surface2)';this.style.color='var(--accent)';this.style.borderColor='var(--accent2)'" onmouseout="this.style.background='var(--surface)';this.style.color='var(--muted)';this.style.borderColor='var(--border2)'">Sobre nosotras</button>
+      <a href="https://x.com/xxmadwavs" target="_blank" rel="noopener" style="font-size:12px;color:var(--muted);text-decoration:none;font-weight:500;padding:6px 14px;border:1.5px solid var(--border2);border-radius:20px;transition:all .18s;background:var(--surface);display:flex;align-items:center;gap:5px" onmouseover="this.style.background='#000';this.style.color='#fff';this.style.borderColor='#000'" onmouseout="this.style.background='var(--surface)';this.style.color='var(--muted)';this.style.borderColor='var(--border2)'"><svg width="12" height="12" viewBox="0 0 1200 1227" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>Contáctanos</a>
+      <button onclick="openInfoModal('privacidad')" style="font-size:12px;color:var(--muted);cursor:pointer;font-weight:500;padding:6px 14px;border:1.5px solid var(--border2);border-radius:20px;transition:all .18s;background:var(--surface);font-family:var(--font-body)" onmouseover="this.style.background='var(--surface2)';this.style.color='var(--accent)';this.style.borderColor='var(--accent2)'" onmouseout="this.style.background='var(--surface)';this.style.color='var(--muted)';this.style.borderColor='var(--border2)'">Política de privacidad</button>
+      <button onclick="openInfoModal('terminos')" style="font-size:12px;color:var(--muted);cursor:pointer;font-weight:500;padding:6px 14px;border:1.5px solid var(--border2);border-radius:20px;transition:all .18s;background:var(--surface);font-family:var(--font-body)" onmouseover="this.style.background='var(--surface2)';this.style.color='var(--accent)';this.style.borderColor='var(--accent2)'" onmouseout="this.style.background='var(--surface)';this.style.color='var(--muted)';this.style.borderColor='var(--border2)'">Términos de uso</button>
+    </div>
   </div>
 </footer>
 
+
+
+<!-- ═══ INFO MODALS (Sobre nosotras / Privacidad / Términos) ═══ -->
+<div id="infoModalBg" onclick="if(event.target===this)closeInfoModal()" style="display:none;position:fixed;inset:0;background:rgba(30,10,25,0.55);z-index:200;align-items:center;justify-content:center;padding:1.5rem;backdrop-filter:blur(6px)">
+  <div id="infoModalBox" style="background:var(--surface);border-radius:var(--radius-lg);max-width:560px;width:100%;max-height:80vh;overflow-y:auto;position:relative;box-shadow:var(--shadow-lg);border:1px solid var(--border2)">
+    <button onclick="closeInfoModal()" style="position:sticky;top:1rem;float:right;margin:1rem 1rem 0 0;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--border2);background:var(--surface);color:var(--muted);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:all .15s" onmouseover="this.style.background='var(--accent)';this.style.color='#fff';this.style.borderColor='var(--accent)'" onmouseout="this.style.background='var(--surface)';this.style.color='var(--muted)';this.style.borderColor='var(--border2)'">✕</button>
+    <div id="infoModalContent" style="padding:1.75rem 1.75rem 2rem;clear:both"></div>
+  </div>
+</div>
+
+<script>
+const INFO_CONTENT = {
+  sobre: {
+    title: 'Sobre nosotras',
+    emoji: '🌸',
+    html: `
+      <p style="font-size:13.5px;color:var(--muted);line-height:1.75;margin-bottom:1rem">
+        <strong style="color:var(--text)">TINTA Sapphic</strong> nació de un amor compartido por las historias que nos representan. Somos un espacio dedicado al contenido GL (girls' love) de todo el mundo: series, películas, anime, libros y más.
+      </p>
+      <p style="font-size:13.5px;color:var(--muted);line-height:1.75;margin-bottom:1rem">
+        Nuestro objetivo es que ninguna historia quede sin ser descubierta. Por eso recopilamos, organizamos y compartimos todo lo que encontramos — desde producciones asiáticas hasta series occidentales, pasando por cortos, documentales y animación.
+      </p>
+      <p style="font-size:13.5px;color:var(--muted);line-height:1.75;margin-bottom:1.25rem">
+        Este proyecto lo mantenemos con mucho cariño desde nuestro tiempo libre. Si encuentras algo desactualizado o quieres sugerir un título, puedes escribirnos por X — siempre estamos dispuestas a escuchar.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:1.25rem">
+        <span style="font-size:11.5px;padding:4px 12px;border-radius:20px;background:var(--accent-soft);color:var(--accent);border:1px solid rgba(201,79,124,.2);font-weight:600">✨ Hecho con amor</span>
+        <span style="font-size:11.5px;padding:4px 12px;border-radius:20px;background:var(--lavender-soft);color:var(--lavender);border:1px solid rgba(139,114,190,.2);font-weight:600">🌍 Contenido global GL</span>
+        <span style="font-size:11.5px;padding:4px 12px;border-radius:20px;background:var(--teal-soft);color:var(--teal);border:1px solid rgba(74,173,160,.2);font-weight:600">📅 Actualización continua</span>
+      </div>
+    `
+  },
+  privacidad: {
+    title: 'Política de privacidad',
+    emoji: '🔒',
+    html: `
+      <p style="font-size:13px;color:var(--muted);line-height:1.75;margin-bottom:1rem">
+        Tu privacidad nos importa. Esta página no recopila ningún dato personal identificable. No hay registro de usuarios, no hay formularios de datos y no compartimos ninguna información con terceros.
+      </p>
+      <div style="margin-bottom:1rem">
+        <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.05em">Datos que NO recopilamos</div>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px">
+          ${['Nombre, email o información personal','Contraseñas o datos de acceso','Información de pago','Historial de navegación personal'].map(i=>`<li style="font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px"><span style="color:var(--accent);font-size:11px">✕</span>${i}</li>`).join('')}
+        </ul>
+      </div>
+      <div style="margin-bottom:1rem">
+        <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.05em">Almacenamiento local</div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.7">
+          Esta web guarda en tu propio navegador (localStorage) las preferencias de la sesión — como la pestaña activa o los filtros aplicados — únicamente para mejorar tu experiencia. Estos datos nunca salen de tu dispositivo.
+        </p>
+      </div>
+      <div style="margin-bottom:1rem">
+        <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.05em">Contenido externo</div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.7">
+          Algunas imágenes de portadas y enlaces de streaming son externos. Al acceder a plataformas de terceros (Netflix, Crunchyroll, etc.) quedarás sujeta a sus propias políticas de privacidad.
+        </p>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">Última actualización: mayo 2025. ¿Dudas? Escríbenos por <a href="https://x.com/xxmadwavs" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:600">X (@xxmadwavs)</a>.</p>
+    `
+  },
+  terminos: {
+    title: 'Términos de uso',
+    emoji: '📋',
+    html: `
+      <p style="font-size:13.5px;color:var(--muted);line-height:1.75;margin-bottom:1.25rem">
+        Al usar TINTA Sapphic aceptas las siguientes condiciones. Son sencillas — básicamente: úsalo bien y con respeto.
+      </p>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        ${[
+          ['🎬','Contenido informativo','La información de series, películas, fechas y plataformas se ofrece solo con fines informativos. Hacemos todo lo posible por mantenerla actualizada, pero no garantizamos su exactitud en todo momento.'],
+          ['🚫','Sin uso comercial','Queda prohibido reproducir, vender o utilizar el contenido de esta web con fines comerciales sin autorización expresa.'],
+          ['🔗','Enlaces de terceros','Los enlaces a plataformas de streaming son externos. No nos hacemos responsables del contenido, disponibilidad o políticas de dichas plataformas.'],
+          ['🌸','Comunidad respetuosa','Este es un espacio seguro para la comunidad GL. No se tolera ningún tipo de discriminación, odio o contenido inapropiado en ninguna de nuestras redes.'],
+          ['✏️','Modificaciones','Nos reservamos el derecho de actualizar estos términos en cualquier momento. Los cambios se publicarán en esta misma página.'],
+        ].map(([icon,title,text])=>`
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px;background:var(--surface2);border-radius:var(--radius);border:1px solid var(--border)">
+            <span style="font-size:18px;flex-shrink:0;margin-top:1px">${icon}</span>
+            <div>
+              <div style="font-size:12.5px;font-weight:700;color:var(--text);margin-bottom:3px">${title}</div>
+              <div style="font-size:12.5px;color:var(--muted);line-height:1.65">${text}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--border)">¿Tienes alguna pregunta? Contáctanos en <a href="https://x.com/xxmadwavs" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:600">X (@xxmadwavs)</a>.</p>
+    `
+  }
+};
+
+function openInfoModal(key) {
+  const data = INFO_CONTENT[key];
+  if (!data) return;
+  const content = document.getElementById('infoModalContent');
+  content.innerHTML = `
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.25rem">
+      <span style="font-size:24px">${data.emoji}</span>
+      <h2 style="font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--text);letter-spacing:-.01em;line-height:1">${data.title}</h2>
+    </div>
+    <div style="height:2px;background:linear-gradient(90deg,var(--accent),var(--lavender),transparent);border-radius:2px;margin-bottom:1.25rem;opacity:.5"></div>
+    ${data.html}
+  `;
+  const bg = document.getElementById('infoModalBg');
+  bg.style.display = 'flex';
+  setTimeout(() => bg.style.opacity = '1', 10);
+}
+
+function closeInfoModal() {
+  document.getElementById('infoModalBg').style.display = 'none';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && document.getElementById('infoModalBg').style.display !== 'none') {
+    closeInfoModal();
+  }
+});
+</script>
 
 </body>
 </html>
