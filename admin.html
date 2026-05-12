@@ -849,15 +849,17 @@ function genEpisodes(s){
     }
 
     // Calcular la fecha de inicio del patrón semanal
-    // = primera fecha de emisión regular DESPUÉS del último grupo especial
+    // = primera fecha de emisión regular DESPUÉS del último grupo especial (o desde startDate si no hay grupos)
     let weekRefDate=season.startDate;
+    let regularSearchStart=0; // sin premiereSchedule: startDate puede ser día de emisión
     if(premiereSchedule.length){
       // La última fecha especial usada
       const allSpecialDates=[...usedSpecialDates].sort();
       weekRefDate=allSpecialDates[allSpecialDates.length-1]||season.startDate;
+      regularSearchStart=1; // buscar DESPUÉS del último grupo especial
     }
     let firstRegularDate=null;
-    for(let o=1;o<60;o++){
+    for(let o=regularSearchStart;o<60;o++){
       const c=addDays(weekRefDate,o);
       if(days.includes(getDow(c))&&!usedSpecialDates.has(c)){firstRegularDate=c;break;}
     }

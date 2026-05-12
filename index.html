@@ -1180,12 +1180,14 @@ function genSeasonEps(season, globalEpOffset=0){
 
   // ── Calcular fecha de inicio del patrón semanal regular
   let weekRefDate=season.startDate;
+  let regularSearchStart=0; // cuando no hay premiereSchedule, el startDate mismo puede ser día de emisión
   if(premiereSchedule.length){
     const allSpecialDates=[...usedSpecialDates].sort();
     weekRefDate=allSpecialDates[allSpecialDates.length-1]||season.startDate;
+    regularSearchStart=1; // buscar DESPUÉS del último grupo especial
   }
   let firstRegularDate=null;
-  for(let o=1;o<60;o++){
+  for(let o=regularSearchStart;o<60;o++){
     const c=addDays(weekRefDate,o);
     if(days.includes(getDow(c))&&!usedSpecialDates.has(c)){firstRegularDate=c;break;}
   }
