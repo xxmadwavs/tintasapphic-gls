@@ -588,13 +588,18 @@
       "synopsis": "La princesa Azul, heredera al trono de Madelin, visita Tailandia, donde conoce a Wayo Wathinwanit, una oficial de policía encargada de su seguridad. Sin embargo, su viaje se convierte en una pesadilla cuando un intento de asesinato obliga a la princesa a huir, y Lom es la única que puede protegerla. Mientras se esconden del enemigo, ambas se enfrentan a peligros y situaciones desafiantes, lo que las lleva a una intimidad y sentimientos prohibidos que tal vez no puedan detener. Aunque sabe que esta vez el amor puede ser imposible, el corazón de Lom le exige que proteja a la princesa a toda costa. Cuando el enemigo descubre su escondite, está a punto de librarse una batalla final.",
       "year": 2026,
       "country": "Tailandia",
-      "networkUrl": "",
+      "networkUrl": "https://www.iq.com/album/el-aire-los-cuatro-elementos-2026-z2cvnrjpt9?lang=es_mx",
       "bookSource": "The Air - Desires in the wind (4 Elements GL Series)",
       "basedOnBook": true,
       "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/377605/Thumbnail/book_detail_large.gif?8",
       "bookUrl": "https://en.mebmarket.com/?action=book_details&book_id=377605",
       "upcoming": false,
-      "watchLinks": [],
+      "watchLinks": [
+        {
+          "name": "iQIYI",
+          "url": "https://www.iq.com/album/el-aire-los-cuatro-elementos-2026-z2cvnrjpt9?lang=es_mx"
+        }
+      ],
       "trailerUrl": "https://youtu.be/a6aH88Zzb_w",
       "bookLinks": [
         {
@@ -690,7 +695,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T08:28:05.343Z",
+      "updatedAt": "2026-05-16T18:17:04.508Z",
       "nameEn": "เสน่หาวาโย",
       "episodeDuration": "",
       "myPick": false,
@@ -31047,5 +31052,5 @@
       "notes": "Actriz"
     }
   ],
-  "exportedAt": "2026-05-16T16:57:06.365Z"
+  "exportedAt": "2026-05-16T18:17:06.349Z"
 }
