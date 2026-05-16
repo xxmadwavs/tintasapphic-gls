@@ -242,7 +242,10 @@ footer{
   .nav-picks-drop,.tab-more-drop{
     position:static;box-shadow:none;border:none;
     padding:0 0 0 12px;border-radius:0;background:transparent;
-    display:flex;flex-direction:column;
+    display:none;flex-direction:column;
+  }
+  .nav-picks-drop.open,.tab-more-drop.open{
+    display:flex;
   }
   .nav-picks-item,.tab-more-item{padding:8px 12px;font-size:13px;border-radius:8px}
 }
@@ -1625,10 +1628,10 @@ footer {
         <input class="navbar-search-inp" id="navSearchInpMobile" placeholder="Buscar series, películas…" oninput="navSearchHandler(this.value)" onfocus="navSearchFocus(event)" onblur="navSearchBlur()" autocomplete="off">
         <div class="navbar-search-results" id="navSearchResultsMobile" style="display:none"></div>
       </div>
-      <button class="nav-link active" id="tabCal" onclick="switchTab('cal')">Calendario</button>
-      <button class="nav-link" id="tabList" onclick="switchTab('list')">Series</button>
-      <button class="nav-link" id="tabMovies" onclick="switchTab('movies')">Películas</button>
-      <button class="nav-link" id="tabUpcoming" onclick="switchTab('upcoming')">Próximamente</button>
+      <button class="nav-link active" id="tabCal" onclick="switchTab('cal');closeMobileMenu()">Calendario</button>
+      <button class="nav-link" id="tabList" onclick="switchTab('list');closeMobileMenu()">Series</button>
+      <button class="nav-link" id="tabMovies" onclick="switchTab('movies');closeMobileMenu()">Películas</button>
+      <button class="nav-link" id="tabUpcoming" onclick="switchTab('upcoming');closeMobileMenu()">Próximamente</button>
 
       <!-- Mis Picks con subtabs -->
       <div class="nav-picks-wrap" id="navPicksWrap">
@@ -1636,8 +1639,8 @@ footer {
           Mis picks <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" style="margin-left:2px;opacity:.6"><path d="M1 3l4 4 4-4"/></svg>
         </button>
         <div class="nav-picks-drop" id="navPicksDrop" role="menu">
-          <button class="nav-picks-item" id="tabTop10" role="menuitem" onclick="closePicksDrop();switchTab('top10')">Picks generales</button>
-          <button class="nav-picks-item" id="tabPicks2026" role="menuitem" onclick="closePicksDrop();switchTab('picks2026')">Picks 2026</button>
+          <button class="nav-picks-item" id="tabTop10" role="menuitem" onclick="closePicksDrop();switchTab('top10');closeMobileMenu()">Picks generales</button>
+          <button class="nav-picks-item" id="tabPicks2026" role="menuitem" onclick="closePicksDrop();switchTab('picks2026');closeMobileMenu()">Picks 2026</button>
         </div>
       </div>
 
@@ -1647,11 +1650,11 @@ footer {
           Más <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" style="margin-left:2px;opacity:.6"><path d="M1 3l4 4 4-4"/></svg>
         </button>
         <div class="tab-more-drop" id="tabMoreDrop" role="menu">
-          <button class="tab-more-item" id="tabAnime" role="menuitem" onclick="closeMoreDrop();switchTab('anime')">Anime</button>
-          <button class="tab-more-item" id="tabRealities" role="menuitem" onclick="closeMoreDrop();switchTab('realities')">Realities</button>
-          <button class="tab-more-item" id="tabDocumentales" role="menuitem" onclick="closeMoreDrop();switchTab('documentales')">Documentales</button>
-          <button class="tab-more-item" id="tabBooks" role="menuitem" onclick="closeMoreDrop();switchTab('books')">Libros</button>
-          <button class="tab-more-item" id="tabActresses" role="menuitem" onclick="closeMoreDrop();switchTab('actresses')">Actrices</button>
+          <button class="tab-more-item" id="tabAnime" role="menuitem" onclick="closeMoreDrop();switchTab('anime');closeMobileMenu()">Anime</button>
+          <button class="tab-more-item" id="tabRealities" role="menuitem" onclick="closeMoreDrop();switchTab('realities');closeMobileMenu()">Realities</button>
+          <button class="tab-more-item" id="tabDocumentales" role="menuitem" onclick="closeMoreDrop();switchTab('documentales');closeMobileMenu()">Documentales</button>
+          <button class="tab-more-item" id="tabBooks" role="menuitem" onclick="closeMoreDrop();switchTab('books');closeMobileMenu()">Libros</button>
+          <button class="tab-more-item" id="tabActresses" role="menuitem" onclick="closeMoreDrop();switchTab('actresses');closeMobileMenu()">Actrices</button>
         </div>
       </div>
     </div>
@@ -4745,7 +4748,7 @@ function renderPicks2026(){
   );
 }
 
-function switchTab(tab){
+function switchTab(tab, fromPopstate=false){
   state.tab=tab;
   saveSession();
   const moreTabs=['books','actresses','anime','realities','documentales'];
@@ -4775,6 +4778,11 @@ function switchTab(tab){
   const picksBtn=document.getElementById('tabPicksGroup');
   if(picksBtn) picksBtn.className='nav-link nav-picks-btn'+(picksTabs.includes(tab)?' active':'');
 
+  // Push history state so Android back button navigates tabs instead of leaving
+  if(!fromPopstate){
+    history.pushState({tab:tab},'',location.pathname+'?tab='+tab);
+  }
+
   if(window.innerWidth<=600) window.scrollTo({top:0,behavior:'smooth'});
   if(tab==='cal'){renderWeekView();}
   if(tab==='list') renderList();
@@ -4788,6 +4796,13 @@ function switchTab(tab){
   if(tab==='top10') renderTop10();
   if(tab==='picks2026') renderPicks2026();
 }
+
+// Handle Android/iOS back button — navigate tabs instead of leaving the page
+window.addEventListener('popstate', function(e){
+  const tab=(e.state&&e.state.tab)||(new URLSearchParams(location.search).get('tab'))||'cal';
+  switchTab(tab, true);
+  closeMobileMenu();
+});
 
 function toggleMoreDrop(e){
   e.stopPropagation();
@@ -4817,6 +4832,13 @@ function closePicksDrop(){
   document.getElementById('navPicksDrop')?.classList.remove('open');
   document.getElementById('tabPicksGroup')?.setAttribute('aria-expanded','false');
 }
+function closeMobileMenu(){
+  const links=document.getElementById('navbarLinks');
+  const mobileSearch=document.getElementById('navSearchWrapMobile');
+  if(links) links.classList.remove('open');
+  if(mobileSearch) mobileSearch.style.display='none';
+}
+
 function toggleNavMobile(){
   const links=document.getElementById('navbarLinks');
   const mobileSearch=document.getElementById('navSearchWrapMobile');
@@ -4992,6 +5014,8 @@ document.addEventListener('keydown',e=>{
     else if(savedTab==='top10') renderTop10();
     else if(savedTab==='picks2026') renderPicks2026();
     else renderWeekView();
+    // Seed history so the very first back press doesn't exit the page
+    history.replaceState({tab:savedTab},'',location.pathname+'?tab='+savedTab);
   }
 })();
 
