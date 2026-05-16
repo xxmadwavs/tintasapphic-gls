@@ -3,6 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+// Ejecutar ANTES del CSS para evitar el flash del menú abierto en móvil
+if(window.innerWidth<=700){
+  document.documentElement.classList.add('is-mobile');
+}
+</script>
+<style>
+html.is-mobile #navbarLinks{display:none!important}
+html.is-mobile #navbarLinks.open{display:flex!important}
+</style>
 <title>TINTA SAPPHIC ~ GL Series & Películas</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700;1,800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -2327,6 +2337,7 @@ function openMonthPicker(){
   monthPickerYear=state.year;
   renderMonthPicker();
   document.getElementById('monthPickerBg').classList.add('open');
+  _pushModal('monthPicker');
 }
 function closeMonthPicker(){ document.getElementById('monthPickerBg').classList.remove('open'); }
 function renderMonthPicker(){
@@ -3020,6 +3031,7 @@ function openDay(dateStr){
   html+=`<div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div></div>`;
   document.getElementById('modalBox').innerHTML=html;
   document.getElementById('modalBg').classList.add('open');
+  _pushModal('modal');
 }
 
 function daysUntil(dateStr){
@@ -3174,6 +3186,7 @@ function openActressProfile(actressId){
 
   document.getElementById('actressModalBox').innerHTML=html;
   document.getElementById('actressModalBg').classList.add('open');
+  _pushModal('actressModal');
 }
 
 function closeActressModal(){
@@ -3318,6 +3331,7 @@ function openSeries(si){
   </div>`;
   document.getElementById('modalBox').innerHTML=html;
   document.getElementById('modalBg').classList.add('open');
+  _pushModal('modal');
 }
 
 
@@ -3390,6 +3404,7 @@ function openUpcoming(si){
   <div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div></div>`;
   document.getElementById('modalBox').innerHTML=html;
   document.getElementById('modalBg').classList.add('open');
+  _pushModal('modal');
 }
 
 function switchUpcomingModalTab(tab){
@@ -3470,6 +3485,7 @@ function openMovie(mi){
   <div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div></div>`;
   document.getElementById('modalBox').innerHTML=html;
   document.getElementById('modalBg').classList.add('open');
+  _pushModal('modal');
 }
 
 function handleMoviesGenreChange(val){
@@ -4228,6 +4244,7 @@ function openRichDetail(item, opts){
       <div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div>
     </div>`;
   document.getElementById('modalBg').classList.add('open');
+  _pushModal('modal');
 }
 
 function openAnimeDetail(type,key){
@@ -4797,8 +4814,30 @@ function switchTab(tab, fromPopstate=false){
   if(tab==='picks2026') renderPicks2026();
 }
 
-// Handle Android/iOS back button — navigate tabs instead of leaving the page
+// ── Back-button manager ──────────────────────────────────────────────────────
+// Every overlay/modal pushes {modal:'X'} onto the history stack when it opens.
+// popstate intercepts the back button and closes whatever is open instead of
+// leaving the page or jumping to the previous tab.
+
+function _pushModal(name){
+  history.pushState({modal:name, tab:state.tab},'', location.href);
+}
+
+function _closeTopModal(){
+  if(document.getElementById('searchOverlay')?.classList.contains('open')){ closeSearch(); return true; }
+  if(document.getElementById('monthPickerBg')?.classList.contains('open')){ closeMonthPicker(); return true; }
+  if(document.querySelector('.actress-modal-bg.open')){ closeActressModal(); return true; }
+  if(document.getElementById('modalBg')?.classList.contains('open')){ closeModal(); return true; }
+  if(document.getElementById('infoModalBg')?.classList.contains('open')){ closeInfoModal(); return true; }
+  if(document.getElementById('navbarLinks')?.classList.contains('open')){ closeMobileMenu(); return true; }
+  return false;
+}
+
 window.addEventListener('popstate', function(e){
+  if(e.state && e.state.modal){
+    _closeTopModal();
+    return;
+  }
   const tab=(e.state&&e.state.tab)||(new URLSearchParams(location.search).get('tab'))||'cal';
   switchTab(tab, true);
   closeMobileMenu();
@@ -4912,6 +4951,7 @@ document.getElementById('nextWeekBtn').onclick=()=>{weekOffset++;renderWeekView(
 
 function openSearch(){
   document.getElementById('searchOverlay').classList.add('open');
+  _pushModal('search');
   setTimeout(()=>document.getElementById('searchOverlayInput').focus(),100);
   renderSearchResults('');
 }
@@ -5141,6 +5181,7 @@ function openInfoModal(key) {
   `;
   const bg = document.getElementById('infoModalBg');
   bg.classList.add('open');
+  _pushModal('infoModal');
   document.body.style.overflow = 'hidden';
 }
 
