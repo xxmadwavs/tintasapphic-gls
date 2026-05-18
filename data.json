@@ -446,13 +446,21 @@
           "character": "\"Si\" Sujinthra",
           "coupleType": "main",
           "coupleNum": 1
+        },
+        {
+          "actressId": "1778760773120",
+          "character": "",
+          "coupleType": "other",
+          "coupleNum": 2
         }
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-15T07:33:12.466Z",
+      "updatedAt": "2026-05-18T09:51:08.849Z",
       "nameEn": "คุณแฟนบ้านนอก",
-      "episodeDuration": 51
+      "episodeDuration": 51,
+      "myPick": false,
+      "myPick2026": false
     },
     {
       "id": "1776889365998",
@@ -711,19 +719,28 @@
         6
       ],
       "totalEpisodes": 10,
-      "network": "Youtube",
+      "network": "Youtube, oneD",
       "skipDates": [],
       "episodes": [],
       "synopsis": "Lal, jefa de ventas, está decidida a vencer a Wine, jefa de contabilidad. Wine es su polo opuesto y conocida por su crueldad. Cuando una noche desenfrenada las lleva a una relación de amigas con beneficios, harán lo que sea para mantenerlo en secreto, fingiendo ser enemigas para que absolutamente nadie en el trabajo se entere. Sin darse cuenta, sin embargo, su recién descubierta cercanía comienza a transformarse en amor.",
       "year": 2026,
       "country": "Tailandia",
-      "networkUrl": "",
+      "networkUrl": "https://youtu.be/0EPN_IlU2gU?si=Vn-LNz5yrnC_Txx5",
       "bookSource": "Enemies With Benefits (Spanish Version)",
       "basedOnBook": true,
       "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/342572/Thumbnail/book_detail_large.gif?2",
       "bookUrl": "https://en.mebmarket.com/?action=book_details&book_id=342572",
       "upcoming": false,
-      "watchLinks": [],
+      "watchLinks": [
+        {
+          "name": "YouTube",
+          "url": "https://youtu.be/0EPN_IlU2gU?si=Vn-LNz5yrnC_Txx5"
+        },
+        {
+          "name": "oneD",
+          "url": "https://www.oned.net/video/6393218669112"
+        }
+      ],
       "trailerUrl": "https://youtu.be/4K__c9385LE",
       "bookLinks": [
         {
@@ -790,7 +807,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T22:04:20.991Z",
+      "updatedAt": "2026-05-18T09:53:05.559Z",
       "nameEn": "ลัลล์ไม่ชอบไวน์",
       "episodeDuration": 50,
       "myPick": false,
@@ -31161,5 +31178,5 @@
       "notes": "Actriz"
     }
   ],
-  "exportedAt": "2026-05-16T18:28:15.880Z"
+  "exportedAt": "2026-05-18T10:05:06.071Z"
 }
