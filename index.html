@@ -914,11 +914,9 @@ footer{
 .productora-body{
   max-height:0;
   overflow:hidden;
-  transition:max-height .3s cubic-bezier(.4,0,.2,1);
+  transition:max-height .35s cubic-bezier(.4,0,.2,1);
 }
-.productora-card.expanded .productora-body{
-  max-height:600px;
-}
+/* max-height se asigna dinámicamente via JS según scrollHeight */
 .productora-body-inner{
   padding:0 14px 16px;
   border-top:1px solid var(--border);
@@ -5663,6 +5661,24 @@ function renderSinNovedades(){
 // ══════════════════════════════════════════════════════════════════════════════
 const productorasState={expanded:null,q:''};
 
+function toggleProductora(id){
+  const wasExpanded = productorasState.expanded === id;
+  productorasState.expanded = wasExpanded ? null : id;
+  renderProductorasResults();
+  // After render, set exact scrollHeight so content never gets clipped
+  requestAnimationFrame(()=>{
+    document.querySelectorAll('.productora-card').forEach(card=>{
+      const body = card.querySelector('.productora-body');
+      if(!body) return;
+      if(card.classList.contains('expanded')){
+        body.style.maxHeight = body.scrollHeight + 'px';
+      } else {
+        body.style.maxHeight = '0';
+      }
+    });
+  });
+}
+
 function renderProductoras(){
   const view=document.getElementById('viewProductoras');
   if(!view) return;
@@ -5770,7 +5786,7 @@ function renderProductorasResults(){
       :'';
 
     html+=`<div class="productora-card${isExpanded?' expanded':''}" id="prod_${p.id}">
-      <div class="productora-header" onclick="productorasState.expanded=(productorasState.expanded==='${p.id}'?null:'${p.id}');renderProductorasResults()">
+      <div class="productora-header" onclick="toggleProductora('${p.id}')">
         ${logoEl}
         <div class="productora-info">
           <div class="productora-name">${p.name}</div>
@@ -5792,6 +5808,13 @@ function renderProductorasResults(){
   });
   html+='</div>';
   el.innerHTML=html;
+  // Ajustar max-height de las productoras expandidas según su contenido real
+  requestAnimationFrame(()=>{
+    document.querySelectorAll('.productora-card.expanded').forEach(card=>{
+      const body = card.querySelector('.productora-body');
+      if(body) body.style.maxHeight = body.scrollHeight + 'px';
+    });
+  });
 }
 
 // ── Back-button manager ──────────────────────────────────────────────────────
