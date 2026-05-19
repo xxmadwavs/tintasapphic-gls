@@ -128,7 +128,7 @@
       "seriesType": "serie",
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-15T22:03:42.743Z",
+      "updatedAt": "2026-05-18T19:54:33.659Z",
       "cast": [
         {
           "actressId": "1778667608624",
@@ -196,7 +196,13 @@
       "myTop10": false,
       "top10Rank": 0,
       "myPick": false,
-      "myPick2026": true
+      "myPick2026": true,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779134050424"
     },
     {
       "id": "1776889141176",
@@ -295,9 +301,17 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T07:32:36.876Z",
+      "updatedAt": "2026-05-18T20:49:11.369Z",
       "nameEn": "รักเติมเต็ม",
-      "episodeDuration": 47
+      "episodeDuration": 47,
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135450707"
     },
     {
       "id": "1776889264943",
@@ -456,11 +470,17 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-18T09:51:08.849Z",
+      "updatedAt": "2026-05-18T20:38:42.840Z",
       "nameEn": "คุณแฟนบ้านนอก",
       "episodeDuration": 51,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135954653"
     },
     {
       "id": "1776889365998",
@@ -572,13 +592,19 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T08:26:05.336Z",
+      "updatedAt": "2026-05-18T20:48:17.311Z",
       "nameEn": "นทีร้อยเล่ห์",
       "episodeDuration": 64,
       "myTop10": true,
       "top10Rank": 0,
       "myPick": false,
-      "myPick2026": true
+      "myPick2026": true,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135760151"
     },
     {
       "id": "1776889415383",
@@ -703,11 +729,17 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T18:17:04.508Z",
+      "updatedAt": "2026-05-18T20:48:21.869Z",
       "nameEn": "เสน่หาวาโย",
       "episodeDuration": "",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135760151"
     },
     {
       "id": "1776889447326",
@@ -807,11 +839,17 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-18T09:53:05.559Z",
+      "updatedAt": "2026-05-18T20:10:49.057Z",
       "nameEn": "ลัลล์ไม่ชอบไวน์",
       "episodeDuration": 50,
       "myPick": false,
-      "myPick2026": true
+      "myPick2026": true,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779134050424"
     },
     {
       "id": "1776889488147",
@@ -881,8 +919,16 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T07:34:53.207Z",
-      "episodeDuration": 66
+      "updatedAt": "2026-05-19T08:12:10.415Z",
+      "episodeDuration": 66,
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779177933075"
     },
     {
       "id": "1776889550180",
@@ -1029,11 +1075,17 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-16T08:27:27.286Z",
+      "updatedAt": "2026-05-18T20:48:27.103Z",
       "nameEn": "โซ่รักอัคนี",
       "episodeDuration": "",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135760151"
     },
     {
       "id": "1776931938317",
@@ -1092,11 +1144,17 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-16T08:26:15.638Z",
+      "updatedAt": "2026-05-18T20:49:23.024Z",
       "nameEn": "วาดฝันวันวิวาห์",
       "episodeDuration": "",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135450707"
     },
     {
       "id": "1776932166717",
@@ -1144,9 +1202,17 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-15T07:36:27.918Z",
+      "updatedAt": "2026-05-18T20:49:27.162Z",
       "nameEn": "รักได้ไหม",
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135450707"
     },
     {
       "id": "1776932289648",
@@ -1200,8 +1266,16 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-15T07:36:43.060Z",
-      "episodeDuration": ""
+      "updatedAt": "2026-05-18T20:49:31.749Z",
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "limbo",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136303417"
     },
     {
       "id": "1776932412578",
@@ -1394,13 +1468,19 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T22:04:12.853Z",
+      "updatedAt": "2026-05-19T07:53:14.454Z",
       "nameEn": "เพื่อเธออีกครั้ง",
       "episodeDuration": 55,
       "myTop10": false,
       "top10Rank": 0,
       "myPick": false,
-      "myPick2026": true
+      "myPick2026": true,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779177125091"
     },
     {
       "id": "1776965794937",
@@ -1465,8 +1545,16 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T07:38:09.571Z",
-      "episodeDuration": ""
+      "updatedAt": "2026-05-19T07:53:20.986Z",
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779177125091"
     },
     {
       "id": "1776966024996",
@@ -1647,9 +1735,17 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-15T07:35:32.313Z",
+      "updatedAt": "2026-05-18T20:52:13.006Z",
       "nameEn": "เด็ก เรียบ ร้าย",
-      "episodeDuration": 48
+      "episodeDuration": 48,
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779137481839"
     },
     {
       "id": "1776966800863",
@@ -1749,11 +1845,17 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T08:27:29.564Z",
+      "updatedAt": "2026-05-18T20:48:34.408Z",
       "nameEn": "วิวาห์ปฐพี",
       "episodeDuration": 55,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135760151"
     },
     {
       "id": "1776966975487",
@@ -1985,8 +2087,17 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-14T18:27:40.273Z",
-      "nameEn": ""
+      "updatedAt": "2026-05-18T20:38:59.524Z",
+      "nameEn": "",
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135954653"
     },
     {
       "id": "1776971297117",
@@ -2049,7 +2160,16 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-14T18:45:39.914Z"
+      "updatedAt": "2026-05-19T07:53:35.462Z",
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779134050424"
     },
     {
       "id": "1776971352334",
@@ -2126,8 +2246,8 @@
       "skipDates": [],
       "episodes": [],
       "genres": [
-        "Romance",
-        "Drama"
+        "Drama",
+        "Romance"
       ],
       "category": "series",
       "seriesType": "serie",
@@ -2153,8 +2273,17 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-13T12:00:06.248Z",
-      "nameEn": ""
+      "updatedAt": "2026-05-19T07:53:40.763Z",
+      "nameEn": "",
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779134050424"
     },
     {
       "id": "1776971628835",
@@ -2237,7 +2366,16 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-14T19:27:57.013Z"
+      "updatedAt": "2026-05-19T07:53:56.308Z",
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135573515"
     },
     {
       "id": "1776972053631",
@@ -2293,7 +2431,16 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-14T19:29:30.081Z"
+      "updatedAt": "2026-05-18T20:52:23.639Z",
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779137481839"
     },
     {
       "id": "1776972122133",
@@ -2341,8 +2488,17 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-14T12:44:28.398Z",
-      "nameEn": ""
+      "updatedAt": "2026-05-19T07:54:07.117Z",
+      "nameEn": "",
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136191693"
     },
     {
       "id": "1776972237357",
@@ -2375,8 +2531,8 @@
       "skipDates": [],
       "episodes": [],
       "genres": [
-        "Romance",
-        "Drama"
+        "Drama",
+        "Romance"
       ],
       "category": "series",
       "seriesType": "serie",
@@ -2414,8 +2570,17 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-13T12:02:57.918Z",
-      "nameEn": ""
+      "updatedAt": "2026-05-19T07:54:14.766Z",
+      "nameEn": "",
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779134050424"
     },
     {
       "id": "1776972424986",
@@ -2437,9 +2602,9 @@
       "skipDates": [],
       "episodes": [],
       "genres": [
-        "Romance",
         "Drama",
         "Escolar",
+        "Romance",
         "Viaje en el tiempo"
       ],
       "category": "series",
@@ -2460,8 +2625,17 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-13T12:03:32.383Z",
-      "nameEn": ""
+      "updatedAt": "2026-05-19T07:54:24.723Z",
+      "nameEn": "",
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779134050424"
     },
     {
       "id": "1776972733396",
@@ -2488,11 +2662,25 @@
       "skipDates": [],
       "episodes": [],
       "genres": [
-        "Romance",
         "Drama",
-        "Histórico"
+        "Histórico",
+        "Romance"
       ],
-      "nameEn": ""
+      "nameEn": "",
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "updatedAt": "2026-05-18T12:10:53.571Z"
     },
     {
       "id": "1776972993462",
@@ -2514,8 +2702,8 @@
       "skipDates": [],
       "episodes": [],
       "genres": [
-        "Romance",
-        "Drama"
+        "Drama",
+        "Romance"
       ],
       "category": "series",
       "seriesType": "serie",
@@ -2535,8 +2723,17 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-13T12:04:06.810Z",
-      "nameEn": ""
+      "updatedAt": "2026-05-19T07:54:29.031Z",
+      "nameEn": "",
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779134050424"
     },
     {
       "id": "1776973104361",
@@ -2574,9 +2771,9 @@
       "skipDates": [],
       "episodes": [],
       "genres": [
-        "Romance",
+        "Comedia",
         "Drama",
-        "Comedia"
+        "Romance"
       ],
       "category": "series",
       "seriesType": "serie",
@@ -2608,8 +2805,17 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-13T12:04:56.824Z",
-      "nameEn": ""
+      "updatedAt": "2026-05-19T07:54:33.953Z",
+      "nameEn": "",
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779134050424"
     },
     {
       "id": "1776973507673",
@@ -2662,8 +2868,8 @@
       "skipDates": [],
       "episodes": [],
       "genres": [
-        "Romance",
-        "Drama"
+        "Drama",
+        "Romance"
       ],
       "category": "series",
       "seriesType": "serie",
@@ -2721,8 +2927,17 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-13T12:06:29.019Z",
-      "nameEn": ""
+      "updatedAt": "2026-05-19T07:54:42.471Z",
+      "nameEn": "",
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779134050424"
     },
     {
       "id": "1776974136082",
@@ -2795,7 +3010,16 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-14T19:31:50.549Z"
+      "updatedAt": "2026-05-19T07:54:48.860Z",
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135573515"
     },
     {
       "id": "1776974252950",
@@ -2844,7 +3068,16 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-14T19:32:40.775Z"
+      "updatedAt": "2026-05-19T07:54:54.118Z",
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135573515"
     },
     {
       "id": "1776974479970",
@@ -2953,7 +3186,16 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-14T19:36:00.394Z"
+      "updatedAt": "2026-05-19T07:55:02.641Z",
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135573515"
     },
     {
       "id": "1776976144217",
@@ -3044,13 +3286,19 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T22:03:10.265Z",
+      "updatedAt": "2026-05-19T07:55:08.253Z",
       "nameEn": "",
       "episodeDuration": "",
       "myTop10": true,
       "top10Rank": 0,
       "myPick": true,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779134050424"
     },
     {
       "id": "1776976209757",
@@ -3156,7 +3404,7 @@
     {
       "id": "1776976364805",
       "name": "Love on Hire",
-      "poster": "",
+      "poster": "https://i.mydramalist.com/JB5kAo_4f.jpg",
       "synopsis": "Thitinan acepta cualquier trabajo: fingir ser la novia de alguien y romper una relación o, especialmente para la señorita Chat, convertirse en su entrenadora sexual.",
       "year": "",
       "country": "Tailandia",
@@ -3209,10 +3457,16 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-16T08:28:02.042Z",
+      "updatedAt": "2026-05-18T20:43:43.499Z",
       "episodeDuration": "",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135987498"
     },
     {
       "id": "1776976452500",
@@ -3270,10 +3524,16 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-16T08:27:58.895Z",
+      "updatedAt": "2026-05-19T07:55:20.463Z",
       "episodeDuration": "",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135760151"
     },
     {
       "id": "1776976491416",
@@ -3320,10 +3580,16 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-16T08:27:37.520Z",
+      "updatedAt": "2026-05-19T07:55:27.973Z",
       "episodeDuration": "",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136087730"
     },
     {
       "id": "1776976636268",
@@ -3385,11 +3651,17 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T08:25:24.992Z",
+      "updatedAt": "2026-05-19T07:55:33.177Z",
       "myTop10": true,
       "top10Rank": 0,
       "myPick": false,
-      "myPick2026": true
+      "myPick2026": true,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136087730"
     },
     {
       "id": "1777017936367",
@@ -3592,7 +3864,7 @@
       "genres": [
         "Romance"
       ],
-      "updatedAt": "2026-05-14T19:38:24.080Z",
+      "updatedAt": "2026-05-18T20:48:43.395Z",
       "nameEn": "",
       "category": "series",
       "seriesType": "serie",
@@ -3611,7 +3883,16 @@
         }
       ],
       "animeSeason": "",
-      "renewedNextSeason": false
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135760151"
     },
     {
       "id": "1777033081952",
@@ -3645,7 +3926,7 @@
         "Drama",
         "Romance"
       ],
-      "updatedAt": "2026-05-16T08:27:45.156Z",
+      "updatedAt": "2026-05-19T07:55:42.946Z",
       "nameEn": "ถ้อยรักคำลวง",
       "category": "series",
       "seriesType": "serie",
@@ -3673,7 +3954,13 @@
       "renewedNextSeason": false,
       "episodeDuration": "",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135760151"
     },
     {
       "id": "1777048197930",
@@ -3773,10 +4060,16 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T08:27:52.252Z",
+      "updatedAt": "2026-05-18T20:37:40.898Z",
       "episodeDuration": 45,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135376050"
     },
     {
       "id": "1777048586253",
@@ -3898,7 +4191,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T08:27:49.145Z",
+      "updatedAt": "2026-05-19T07:55:55.362Z",
       "nameEn": "รักได้ไหม? ยัยตัวร้าย",
       "cast": [
         {
@@ -3916,7 +4209,13 @@
       ],
       "episodeDuration": 40,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779176988365"
     },
     {
       "id": "1777068097582",
@@ -4059,7 +4358,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T08:28:16.473Z",
+      "updatedAt": "2026-05-19T07:56:01.313Z",
       "nameEn": "รักนี้มากับดวง",
       "cast": [
         {
@@ -4077,7 +4376,13 @@
       ],
       "episodeDuration": 19,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779176988365"
     },
     {
       "id": "1777105535961",
@@ -4153,10 +4458,16 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T08:28:19.178Z",
+      "updatedAt": "2026-05-18T20:46:43.353Z",
       "episodeDuration": 51,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135450707"
     },
     {
       "id": "1777105656547",
@@ -4236,7 +4547,16 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-14T19:42:47.862Z"
+      "updatedAt": "2026-05-19T07:56:27.911Z",
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135450707"
     },
     {
       "id": "1777105780897",
@@ -4311,10 +4631,16 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T08:28:21.879Z",
+      "updatedAt": "2026-05-19T07:56:31.586Z",
       "episodeDuration": 47,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135450707"
     },
     {
       "id": "1777106011444",
@@ -4420,12 +4746,18 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T08:26:37.089Z",
+      "updatedAt": "2026-05-18T20:48:49.698Z",
       "episodeDuration": 50,
       "myTop10": true,
       "top10Rank": 0,
       "myPick": true,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135450707"
     },
     {
       "id": "1777106235834",
@@ -4512,8 +4844,16 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T09:29:02.089Z",
-      "episodeDuration": 50
+      "updatedAt": "2026-05-18T20:45:41.396Z",
+      "episodeDuration": 50,
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136303417"
     },
     {
       "id": "1777106609486",
@@ -4589,8 +4929,16 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T09:29:05.236Z",
-      "episodeDuration": 11
+      "updatedAt": "2026-05-18T20:45:45.449Z",
+      "episodeDuration": 11,
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136303417"
     },
     {
       "id": "1777107997520",
@@ -5051,10 +5399,16 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-16T08:28:31.235Z",
+      "updatedAt": "2026-05-19T07:56:49.364Z",
       "episodeDuration": 55,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135376050"
     },
     {
       "id": "1777149248949",
@@ -5108,9 +5462,15 @@
       "animeSeason": "",
       "renewedNextSeason": false,
       "episodeDuration": 40,
-      "updatedAt": "2026-05-16T08:28:33.698Z",
+      "updatedAt": "2026-05-19T07:56:55.559Z",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135954653"
     },
     {
       "id": "1777149412505",
@@ -5260,12 +5620,18 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-16T08:26:13.473Z",
+      "updatedAt": "2026-05-18T20:44:03.506Z",
       "episodeDuration": 40,
       "myTop10": true,
       "top10Rank": 0,
       "myPick": true,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136246720"
     },
     {
       "id": "1777150051367",
@@ -5347,10 +5713,16 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-16T08:28:38.533Z",
+      "updatedAt": "2026-05-19T07:57:05.742Z",
       "episodeDuration": 47,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136355146"
     },
     {
       "id": "1777222930712",
@@ -5418,10 +5790,16 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-16T08:28:41.637Z",
+      "updatedAt": "2026-05-19T07:57:16.022Z",
       "episodeDuration": "",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "limbo",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1777223129027",
@@ -5514,12 +5892,18 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-16T08:25:37.747Z",
+      "updatedAt": "2026-05-19T07:57:23.961Z",
       "episodeDuration": 57,
       "myTop10": true,
       "top10Rank": 0,
       "myPick": true,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779134050424"
     },
     {
       "id": "1777223788983",
@@ -5598,10 +5982,16 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-16T08:28:43.746Z",
+      "updatedAt": "2026-05-19T07:57:32.268Z",
       "episodeDuration": 44,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779176820442"
     },
     {
       "id": "1777224670901",
@@ -5676,10 +6066,16 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-16T08:28:45.799Z",
+      "updatedAt": "2026-05-19T07:57:37.979Z",
       "episodeDuration": 70,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136542367"
     },
     {
       "id": "1777224996688",
@@ -5853,10 +6249,16 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-16T08:26:19.217Z",
+      "updatedAt": "2026-05-18T20:44:08.496Z",
       "episodeDuration": 49,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136264729"
     },
     {
       "id": "1777225577567",
@@ -5982,9 +6384,15 @@
       "animeSeason": "",
       "renewedNextSeason": false,
       "episodeDuration": 46,
-      "updatedAt": "2026-05-16T08:28:56.758Z",
+      "updatedAt": "2026-05-19T07:57:48.368Z",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135954653"
     },
     {
       "id": "1777226456284",
@@ -6063,10 +6471,16 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-16T08:26:29.573Z",
+      "updatedAt": "2026-05-18T20:38:25.242Z",
       "episodeDuration": 60,
       "myPick": true,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135954653"
     },
     {
       "id": "1777226679219",
@@ -6265,10 +6679,16 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-16T08:29:06.830Z",
+      "updatedAt": "2026-05-19T07:57:58.500Z",
       "episodeDuration": 53,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135760151"
     },
     {
       "id": "1777228963657",
@@ -6359,10 +6779,16 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-16T08:29:09.026Z",
+      "updatedAt": "2026-05-18T20:37:18.825Z",
       "episodeDuration": 70,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135376050"
     },
     {
       "id": "1777235903416",
@@ -6464,11 +6890,17 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-16T08:29:11.463Z",
+      "updatedAt": "2026-05-18T20:36:01.289Z",
       "nameEn": "23.5 องศาที่โลกเอียง",
       "episodeDuration": 52,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779134050424"
     },
     {
       "id": "1777236063170",
@@ -6668,13 +7100,19 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-15T22:13:02.777Z",
+      "updatedAt": "2026-05-18T20:34:53.140Z",
       "nameEn": "ClaireBell คลั่ง/รัก/นักโทษ",
       "episodeDuration": 65,
       "myTop10": true,
       "top10Rank": 0,
       "myPick": true,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136445852"
     },
     {
       "id": "1777236702067",
@@ -6760,12 +7198,18 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-16T08:26:48.108Z",
+      "updatedAt": "2026-05-18T20:38:02.470Z",
       "episodeDuration": 64,
       "myTop10": true,
       "top10Rank": 0,
       "myPick": true,
-      "myPick2026": false
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136135118"
     },
     {
       "id": "1777236873444",
@@ -6856,7 +7300,15 @@
       "animeSeason": "",
       "renewedNextSeason": false,
       "episodeDuration": 51,
-      "updatedAt": "2026-05-15T09:24:04.892Z"
+      "updatedAt": "2026-05-18T20:45:27.604Z",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135626732"
     },
     {
       "id": "1777237026617",
@@ -6928,7 +7380,15 @@
       "animeSeason": "",
       "renewedNextSeason": false,
       "episodeDuration": 53,
-      "updatedAt": "2026-05-15T09:23:04.136Z"
+      "updatedAt": "2026-05-18T20:43:28.473Z",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135987498"
     },
     {
       "id": "1777237182173",
@@ -7101,7 +7561,15 @@
       "animeSeason": "",
       "renewedNextSeason": false,
       "episodeDuration": 58,
-      "updatedAt": "2026-05-15T09:26:14.714Z"
+      "updatedAt": "2026-05-18T20:38:12.324Z",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135954653"
     },
     {
       "id": "1777278660998",
@@ -7241,7 +7709,15 @@
       "animeSeason": "",
       "renewedNextSeason": false,
       "episodeDuration": 46,
-      "updatedAt": "2026-05-15T10:27:16.317Z"
+      "updatedAt": "2026-05-19T07:58:41.835Z",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779176934811"
     },
     {
       "id": "1777279117292",
@@ -7309,7 +7785,15 @@
       "animeSeason": "",
       "renewedNextSeason": false,
       "episodeDuration": 51,
-      "updatedAt": "2026-05-15T10:28:13.994Z"
+      "updatedAt": "2026-05-18T20:36:43.750Z",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135450707"
     },
     {
       "id": "1777449004515",
@@ -7352,7 +7836,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T10:28:55.352Z",
+      "updatedAt": "2026-05-18T20:39:25.058Z",
       "nameEn": "บริษัทนี้ไม่มีจำกัด",
       "category": "series",
       "seriesType": "serie",
@@ -7372,7 +7856,15 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 47
+      "episodeDuration": 47,
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136191693"
     },
     {
       "id": "1777449810549",
@@ -7425,7 +7917,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T10:30:47.048Z",
+      "updatedAt": "2026-05-19T07:58:52.517Z",
       "nameEn": "",
       "category": "series",
       "seriesType": "serie",
@@ -7451,7 +7943,15 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 27
+      "episodeDuration": 27,
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779176988365"
     },
     {
       "id": "1777449955163",
@@ -8298,7 +8798,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T10:51:32.886Z",
+      "updatedAt": "2026-05-18T20:43:33.973Z",
       "nameEn": "รินไม่มีวันรัก ตอน พิเศษ",
       "category": "series",
       "seriesType": "serie",
@@ -8318,7 +8818,15 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 55
+      "episodeDuration": 55,
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135987498"
     },
     {
       "id": "1777455928497",
@@ -8360,7 +8868,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T10:52:19.280Z",
+      "updatedAt": "2026-05-18T20:38:35.542Z",
       "nameEn": "",
       "category": "series",
       "seriesType": "serie",
@@ -8392,7 +8900,15 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135954653"
     },
     {
       "id": "1777458910642",
@@ -8483,7 +8999,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T10:54:06.308Z",
+      "updatedAt": "2026-05-18T20:48:07.606Z",
       "nameEn": "ฉันหลงรักเทวดาของฉัน",
       "category": "series",
       "seriesType": "serie",
@@ -8503,7 +9019,15 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 56
+      "episodeDuration": 56,
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136330823"
     },
     {
       "id": "1777459217758",
@@ -8536,7 +9060,7 @@
       "genres": [
         "Romance"
       ],
-      "updatedAt": "2026-05-15T10:54:44.939Z",
+      "updatedAt": "2026-05-18T20:46:03.140Z",
       "nameEn": "CRUSH คนอะไรน่ารักเท่าโลก",
       "category": "series",
       "seriesType": "serie",
@@ -8556,7 +9080,15 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "limbo",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136303417"
     },
     {
       "id": "1777459342439",
@@ -8609,7 +9141,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T10:55:54.943Z",
+      "updatedAt": "2026-05-18T20:43:53.365Z",
       "nameEn": "ปิ๊งรักคุณพี่เย็นชา",
       "category": "series",
       "seriesType": "serie",
@@ -8629,7 +9161,15 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 49
+      "episodeDuration": 49,
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135987498"
     },
     {
       "id": "1777459392058",
@@ -8657,7 +9197,7 @@
       "genres": [
         "Romance"
       ],
-      "updatedAt": "2026-05-15T10:56:23.815Z",
+      "updatedAt": "2026-05-19T07:59:21.293Z",
       "nameEn": "น้อง Sideline",
       "category": "series",
       "seriesType": "serie",
@@ -8677,7 +9217,15 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136384575"
     },
     {
       "id": "1777459455348",
@@ -8713,14 +9261,22 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T10:56:40.080Z",
+      "updatedAt": "2026-05-18T20:48:59.334Z",
       "nameEn": "คลับฟรายเดย์เดอะซีรีส์ Theory of Love ไม่มีทฤษฎีไหนใช้ได้กับทุกความรัก ตอน ความดีชนะใจ",
       "category": "series",
       "seriesType": "serie",
       "cast": [],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135954653"
     },
     {
       "id": "1777460464400",
@@ -8740,14 +9296,22 @@
       "bookUrl": "",
       "upcoming": true,
       "genres": [],
-      "updatedAt": "2026-05-15T10:56:55.135Z",
+      "updatedAt": "2026-05-19T07:59:32.346Z",
       "nameEn": "เสี่ยงรัก",
       "category": "series",
       "seriesType": "serie",
       "cast": [],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "closed",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136355146"
     },
     {
       "id": "1777460506708",
@@ -8767,14 +9331,22 @@
       "bookUrl": "",
       "upcoming": true,
       "genres": [],
-      "updatedAt": "2026-05-15T10:57:07.866Z",
+      "updatedAt": "2026-05-19T07:59:37.122Z",
       "nameEn": "ก็ว่าจะไม่รัก",
       "category": "series",
       "seriesType": "serie",
       "cast": [],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "closed",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136355146"
     },
     {
       "id": "1777460572035",
@@ -8844,7 +9416,7 @@
       "bookUrl": "",
       "upcoming": true,
       "genres": [],
-      "updatedAt": "2026-05-15T11:09:44.399Z",
+      "updatedAt": "2026-05-19T07:59:47.077Z",
       "nameEn": "รักอันตราย",
       "category": "series",
       "seriesType": "serie",
@@ -8858,7 +9430,15 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "closed",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136355146"
     },
     {
       "id": "1777581394711",
@@ -13639,7 +14219,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T18:53:30.960Z",
+      "updatedAt": "2026-05-19T08:00:19.533Z",
       "nameEn": "",
       "category": "series",
       "seriesType": "serie",
@@ -13659,7 +14239,15 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 47
+      "episodeDuration": 47,
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779134050424"
     },
     {
       "id": "1700000000165",
@@ -14207,7 +14795,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T18:55:07.781Z",
+      "updatedAt": "2026-05-18T20:36:12.543Z",
       "nameEn": "พี่ว้ากคะรักหนูได้มั้ย",
       "category": "series",
       "seriesType": "serie",
@@ -14245,7 +14833,15 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 51
+      "episodeDuration": 51,
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135573515"
     },
     {
       "id": "1700000000192",
@@ -14720,7 +15316,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T18:55:48.149Z",
+      "updatedAt": "2026-05-19T08:00:39.501Z",
       "category": "series",
       "seriesType": "webserie",
       "animeSeason": "",
@@ -14740,7 +15336,15 @@
           "coupleNum": 1
         }
       ],
-      "episodeDuration": 12
+      "episodeDuration": 12,
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136191693"
     },
     {
       "id": "1700000000213",
@@ -14884,7 +15488,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T20:30:15.323Z",
+      "updatedAt": "2026-05-18T20:37:49.529Z",
       "nameEn": "",
       "category": "series",
       "seriesType": "serie",
@@ -14904,7 +15508,15 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 50
+      "episodeDuration": 50,
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135376050"
     },
     {
       "id": "1700000000218",
@@ -16039,8 +16651,22 @@
           "episodes": []
         }
       ],
-      "updatedAt": "2026-05-07T12:09:45.157Z",
-      "nameEn": ""
+      "updatedAt": "2026-05-19T08:01:00.217Z",
+      "nameEn": "",
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "limbo",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000289",
@@ -16075,8 +16701,22 @@
           "episodes": []
         }
       ],
-      "updatedAt": "2026-05-07T12:09:57.171Z",
-      "nameEn": ""
+      "updatedAt": "2026-05-19T08:01:04.291Z",
+      "nameEn": "",
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "limbo",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000296",
@@ -16090,8 +16730,8 @@
       "watchLinks": [],
       "trailerUrl": "",
       "genres": [
-        "Romance",
-        "Musical"
+        "Musical",
+        "Romance"
       ],
       "basedOnBook": false,
       "bookSource": "",
@@ -16112,8 +16752,22 @@
           "episodes": []
         }
       ],
-      "updatedAt": "2026-05-07T12:10:15.874Z",
-      "nameEn": ""
+      "updatedAt": "2026-05-19T08:01:07.837Z",
+      "nameEn": "",
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "limbo",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000298",
@@ -16202,8 +16856,8 @@
       "watchLinks": [],
       "trailerUrl": "",
       "genres": [
-        "Romance",
-        "Musical"
+        "Musical",
+        "Romance"
       ],
       "basedOnBook": false,
       "bookSource": "",
@@ -16224,8 +16878,22 @@
           "episodes": []
         }
       ],
-      "updatedAt": "2026-05-07T12:10:50.995Z",
-      "nameEn": ""
+      "updatedAt": "2026-05-19T08:01:13.019Z",
+      "nameEn": "",
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "limbo",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000305",
@@ -16260,8 +16928,22 @@
           "episodes": []
         }
       ],
-      "updatedAt": "2026-05-07T12:11:14.393Z",
-      "nameEn": ""
+      "updatedAt": "2026-05-19T08:01:17.671Z",
+      "nameEn": "",
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "limbo",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000307",
@@ -18840,7 +19522,15 @@
       "animeSeason": "",
       "renewedNextSeason": false,
       "episodeDuration": "",
-      "updatedAt": "2026-05-15T20:48:01.641Z"
+      "updatedAt": "2026-05-18T20:46:26.334Z",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136303417"
     },
     {
       "id": "1778878515414",
@@ -19408,7 +20098,13 @@
       "episodeDuration": "",
       "myPick": false,
       "myPick2026": false,
-      "updatedAt": "2026-05-16T16:30:41.436Z"
+      "updatedAt": "2026-05-19T08:02:06.339Z",
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779176988365"
     },
     {
       "id": "1778949161696",
@@ -19667,13 +20363,19 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T18:25:19.196Z"
+      "updatedAt": "2026-05-18T20:54:32.302Z",
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136406910"
     },
     {
       "id": "1778956087775",
       "name": "Dangerous Queen Special",
       "nameEn": "คนโปรดของควีน ตอนพิเศษ",
-      "poster": "data:image/jpeg;base64,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",
+      "poster": "data:image/jpeg;base64,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",
       "synopsis": "",
       "year": "",
       "country": "Tailandia",
@@ -19712,7 +20414,13 @@
       "episodeDuration": "",
       "myPick": false,
       "myPick2026": false,
-      "updatedAt": "2026-05-16T18:28:07.775Z"
+      "updatedAt": "2026-05-18T20:54:35.698Z",
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136406910"
     }
   ],
   "movies": [
@@ -31178,5 +31886,576 @@
       "notes": "Actriz"
     }
   ],
-  "exportedAt": "2026-05-18T10:05:06.071Z"
+  "ships": [
+    {
+      "id": "1779105685948",
+      "name": "LingOrm",
+      "desc": "",
+      "actressIds": [
+        "1778668951822",
+        "1778669037769"
+      ],
+      "couplePhoto": "https://images.lingorm.pics/260507_MegaWeCare/HHuVS14bgAApMJe.jpeg",
+      "couplePhotoPosition": "47% 26%",
+      "couplePhotoZoom": 1.02
+    },
+    {
+      "id": "1779105703264",
+      "name": "FreenBecky",
+      "desc": "",
+      "actressIds": [
+        "1778668798059",
+        "1778668868889"
+      ],
+      "couplePhoto": "https://pbs.twimg.com/media/FwtYxHOXgAEi4gq.jpg",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1
+    },
+    {
+      "id": "1779105716784",
+      "name": "MilkLove",
+      "desc": "",
+      "actressIds": [
+        "1778668043254",
+        "1778667975177"
+      ],
+      "couplePhoto": "https://preview.redd.it/milklove-facecards-v0-96m0rxzziw1h1.jpeg?width=640&crop=smart&auto=webp&s=c4ad202826e1c3f20986dac4dda753d93970c6da",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1
+    },
+    {
+      "id": "1779105738832",
+      "name": "EmiBonnie",
+      "desc": "",
+      "actressIds": [
+        "1778667533099",
+        "1778667585326"
+      ],
+      "couplePhoto": "https://preview.redd.it/emibonnie-from-us-the-series-v0-eak9gkaio8ee1.jpg?width=640&crop=smart&auto=webp&s=82915efbf219e668dac4bbfe24230f80d20a01d1",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1
+    },
+    {
+      "id": "1779105755683",
+      "name": "NamtanFilm",
+      "desc": "",
+      "actressIds": [
+        "1778667631376",
+        "1778667608624"
+      ],
+      "couplePhoto": "https://preview.redd.it/namtanfilm-for-wink-magazine-v0-4b9nwxzo0ice1.jpg?width=640&crop=smart&auto=webp&s=f9e1f4cd4433dc1a6fe3b0feb949373a5a975475",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1
+    },
+    {
+      "id": "1779105772062",
+      "name": "LenaMiu",
+      "desc": "",
+      "actressIds": [
+        "1778672828977",
+        "1778672885792"
+      ],
+      "couplePhoto": "https://preview.redd.it/appreciation-post-for-my-safe-zone-lenamiu-v0-ycuncjk9at2g1.jpg?width=1440&format=pjpg&auto=webp&s=7572d19c879c783fb33742003bf8f4b8be1fd741",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1
+    },
+    {
+      "id": "1779105799282",
+      "name": "ViewMim",
+      "desc": "",
+      "actressIds": [
+        "1778668089762",
+        "1778668061135"
+      ],
+      "couplePhoto": "https://preview.redd.it/viewmim-todays-update-v0-zyv8dr0v6yce1.jpg?width=1080&crop=smart&auto=webp&s=d5639e0c1c8777261052572b34dfa092f40822bf",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1
+    },
+    {
+      "id": "1779105816244",
+      "name": "Englot",
+      "desc": "",
+      "actressIds": [
+        "1778669334143",
+        "1778669290609"
+      ],
+      "couplePhoto": "https://i.pinimg.com/736x/dd/3c/0c/dd3c0cd060a513b7a7d2beb4a25ed23d.jpg",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1
+    },
+    {
+      "id": "1779105845082",
+      "name": "JanJingJing",
+      "desc": "",
+      "actressIds": [
+        "1778667427357",
+        "1778667475076"
+      ],
+      "couplePhoto": "https://preview.redd.it/janjingjing-winter-holidays-photoshoot-v0-yrr0lo1lb69g1.jpg?width=640&crop=smart&auto=webp&s=0ae9ffcc96e16e12c2236bdaaf26ff76e2dddf5b",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1
+    },
+    {
+      "id": "1779105879657",
+      "name": "LMSY",
+      "desc": "",
+      "actressIds": [
+        "1778669672693",
+        "1778669706067"
+      ],
+      "couplePhoto": "https://preview.redd.it/story-time-how-lmsy-got-the-role-in-affair-v0-0f0h2qro1age1.jpg?width=688&format=pjpg&auto=webp&s=c425e6083587a58b797b35f649fc4a6e69ce536b",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1
+    },
+    {
+      "id": "1779105932288",
+      "name": "AndaLookkaew",
+      "desc": "",
+      "actressIds": [
+        "1778785354635",
+        "1778785439675"
+      ],
+      "couplePhoto": "https://i.pinimg.com/736x/1f/03/96/1f03966f292e311671b6e45bf7ae4b74.jpg",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1
+    },
+    {
+      "id": "1779105970899",
+      "name": "FayMay",
+      "desc": "",
+      "actressIds": [
+        "1778669536770",
+        "1778669564288"
+      ],
+      "couplePhoto": "https://64.media.tumblr.com/386fa3139fb7039ec8082cc9151264a9/67d7bce13ea45f1d-e5/s640x960/cbe28f5af0f062fa50cdc744c72aafea33ac9fcd.jpg",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1
+    },
+    {
+      "id": "1779105986281",
+      "name": "GinJay",
+      "desc": "",
+      "actressIds": [
+        "1778748946306",
+        "1778748865971"
+      ],
+      "couplePhoto": "https://preview.redd.it/ginjay-for-mode-v0-l6osauut1kjg1.jpg?width=1080&crop=smart&auto=webp&s=9ba9bee4aa7ce42e6c9724c5a8687bac7d16e867",
+      "couplePhotoPosition": "47% 20%",
+      "couplePhotoZoom": 1
+    },
+    {
+      "id": "1779106005760",
+      "name": "OomBam",
+      "desc": "",
+      "actressIds": [
+        "1778672754370",
+        "1778672794035"
+      ],
+      "couplePhoto": "https://i.redd.it/fulfill-airs-today-wishing-oombam-all-the-very-best-v0-x956d1q5q4xg1.jpg?width=591&format=pjpg&auto=webp&s=08d692ebab7e45f6ffce4600c576171746cc18be",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1
+    },
+    {
+      "id": "1779106019680",
+      "name": "TKNur",
+      "desc": "",
+      "actressIds": [
+        "1778761294678",
+        "1778761265957"
+      ],
+      "couplePhoto": "https://pbs.twimg.com/media/HGRiu9nXoAEBVl2.jpg",
+      "couplePhotoPosition": "25% 40%",
+      "couplePhotoZoom": 1.17
+    },
+    {
+      "id": "1779106055702",
+      "name": "AppleMiu",
+      "desc": "",
+      "actressIds": [
+        "1778669226549",
+        "1778669263021"
+      ]
+    },
+    {
+      "id": "1779106072222",
+      "name": "BleJie",
+      "desc": "",
+      "actressIds": [
+        "1778705363188",
+        "1778705395423"
+      ],
+      "couplePhoto": "https://preview.redd.it/nvjx2j65le1g1.jpg?width=640&crop=smart&auto=webp&s=061206392f0eafd57a05636e9ab8882a70c72069",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1
+    },
+    {
+      "id": "1779106091030",
+      "name": "EnjoyJune",
+      "desc": "",
+      "actressIds": [
+        "1778761227248",
+        "1778761175235"
+      ],
+      "couplePhoto": "https://preview.redd.it/enjoyjune-in-denim-v0-cvi4rzabj7ef1.jpg?width=640&crop=smart&auto=webp&s=642cdf0d9a4ae118b3207c9463d7da817e2173e3",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1
+    },
+    {
+      "id": "1779137267689",
+      "name": "TanYa",
+      "desc": "",
+      "couplePhoto": "https://aphrodite.gmanetwork.com/entertainment/photos/photo/thai_gl_love_teams_that_are_serving_major_kilig_tanyada_1772106141.jpg",
+      "couplePhotoPosition": "50% 22%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1778669135059",
+        "1778669089219"
+      ]
+    },
+    {
+      "id": "1779178121952",
+      "name": "FayeAtom",
+      "desc": "",
+      "couplePhoto": "https://preview.redd.it/a-bunch-of-pics-of-faye-and-atom-v0-qqp5qn9wj0xg1.jpg?width=1080&crop=smart&auto=webp&s=f4adf22dd573ed516aaedba4744f66a46938918b",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1778760957217",
+        "1778760904100"
+      ]
+    }
+  ],
+  "productoras": [
+    {
+      "id": "1779135450707",
+      "name": "BEC World / Channel 3",
+      "country": "Tailandia",
+      "founded": "1970",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Ch3HDLogo.svg/1280px-Ch3HDLogo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+      "website": "https://ch3plus.com/",
+      "desc": "Conglomerado mediático tailandés, conocido principalmente como operador del Canal 3. Es la primera gran cadena televisiva tradicional en apostar por el GL con series como The Secret of Us, Only You, My Safe Zone, Play Park y Fulfill.",
+      "actressIds": [
+        "1778672754370",
+        "1778761227248",
+        "1778672828977",
+        "1778668951822",
+        "1778672885792",
+        "1778672794035",
+        "1778669037769",
+        "1778669135059",
+        "1778669089219"
+      ]
+    },
+    {
+      "id": "1779135954653",
+      "name": "CHANGE2561",
+      "country": "Tailandia",
+      "founded": "2018",
+      "logo": "https://static.wikia.nocookie.net/gmmtv/images/e/e6/Change2561_Logo.png/revision/latest?cb=20231211040501",
+      "website": "",
+      "desc": "Productora independiente enfocada en contenido LGBTQ+. Ha producido varias series GL de bajo presupuesto pero con gran acogida en comunidades de fans, como Affair, Harmony Secret",
+      "actressIds": [
+        "1778783243230",
+        "1778760773120",
+        "1778760802641",
+        "1778760850305",
+        "1778783211856",
+        "1778760735020",
+        "1778669672693",
+        "1778783160921",
+        "1778782214788",
+        "1778669706067"
+      ]
+    },
+    {
+      "id": "1779135987498",
+      "name": "Copy a Bangkok",
+      "country": "Tailandia",
+      "founded": "2020",
+      "logo": "https://yt3.googleusercontent.com/f7_dIOEQFOPvOgN9SnisgcRVsgP_BLvPhf_KB3-BaGjOn6PMSs6gFZad6luATuj3esU5ykxzEw=s900-c-k-c0x00ffffff-no-rj",
+      "website": "",
+      "desc": "Productora emergente especializada en adaptar novelas web GL populares. Trabaja en coproducción con WeTV en proyectos como Denied Love y Love On Hire, protagonizados por la pareja Enjoy-June."
+    },
+    {
+      "id": "1779177933075",
+      "name": "Fabel Entertainment",
+      "country": "Tailandia",
+      "founded": "2025",
+      "logo": "https://yt3.googleusercontent.com/SRzRQEM7HHqFuDXBoeiKxctP4CVbEysDp0cfiPhguLX7qLx6HCXg9g1NaFX1tBNLvlzy3nSNLzs=s900-c-k-c0x00ffffff-no-rj",
+      "website": "",
+      "desc": "Fundada por \"Faye\" Peraya Malisorn",
+      "actressIds": [
+        "1778760957217",
+        "1778760904100"
+      ]
+    },
+    {
+      "id": "1779137481839",
+      "name": "FRT Entertainment",
+      "country": "Tailandia",
+      "founded": "",
+      "logo": "https://yt3.googleusercontent.com/qmx9UQjy35dJAXyP9PV3vACA73U1ricGweUcdZ-6Iq_NfBddXSD66fE0piplVBUmWXik9hDUnw=s900-c-k-c0x00ffffff-no-rj",
+      "website": "",
+      "desc": "Productora y agencia de representación tailandesa que ha ganado gran popularidad internacional por producir series y contenido del género GL (Girls' Love)."
+    },
+    {
+      "id": "1779134050424",
+      "name": "GMMTV",
+      "country": "Tailandia",
+      "founded": "1995",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/GMMTV_Logo.svg/1280px-GMMTV_Logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+      "website": "https://www.gmm-tv.com/home/?time=1779134024",
+      "desc": "Subsidiaria de producción televisiva y agencia de talentos perteneciente al conglomerado GMM Grammy, actualmente bajo The One Enterprise. Produce programas de televisión, canciones y videoclips musicales. Es la productora más grande del GL tailandés, con 8 nuevas series GL anunciadas para 2026.",
+      "actressIds": [
+        "1778667533099",
+        "1778668259606",
+        "1778667585326",
+        "1778667631376",
+        "1778668241744",
+        "1778667427357",
+        "1778668109244",
+        "1778668312492",
+        "1778668043254",
+        "1778668288034",
+        "1778667975177",
+        "1778668089762",
+        "1778667608624",
+        "1778667559702",
+        "1778668360946",
+        "1778668061135",
+        "1778667475076"
+      ]
+    },
+    {
+      "id": "1779176934811",
+      "name": "HeartPop Studio",
+      "country": "Tailandia",
+      "founded": "2024",
+      "logo": "https://yt3.googleusercontent.com/IG1dKZ9F57AHTm5IdZAaVaeGzcw-Ers85FGKblQ8MEzKOT2ofMSwuX1ivvWYBy-vMvBNdlUn5g=s900-c-k-c0x00ffffff-no-rj",
+      "website": "",
+      "desc": "Fundada por la actriz Ize Papichaya. Produce contenido sáfico que refleja diversidad.",
+      "actressIds": [
+        "1778761762611",
+        "1778761562883",
+        "1778761514836",
+        "1778761797385"
+      ]
+    },
+    {
+      "id": "1779135376050",
+      "name": "Idol Factory",
+      "country": "Tailandia",
+      "founded": "2020",
+      "logo": "https://static.wikia.nocookie.net/drama/images/d/d0/Idol_Factory-1.jpg/revision/latest/scale-to-width-down/300?cb=20220409152652&path-prefix=es",
+      "website": "",
+      "desc": "Cerrada por problemas económicos. Empresa líder del entretenimiento tailandés, responsable de GAP: The Series, el primer éxito Girls' Love del país con más de 1.000 millones de vistas en YouTube. Fue fundada por Saint Suppapong Udomkaeokanchana, y es el hogar de la popular pareja GL Freen Sarocha y Becky Armstrong."
+    },
+    {
+      "id": "1779136542367",
+      "name": "iQiyi",
+      "country": "China",
+      "founded": "2009",
+      "logo": "https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxtKW9JBQRXmiF9WwKoKZOyNe3nkautpKObZo5lhuegdJ1p1lrhXCegEUjDYMc3sCuY6Y1bKqYb2Bo7kxtjK0cU8-&format=source",
+      "website": "https://www.iq.com/?lang=es_mx",
+      "desc": ""
+    },
+    {
+      "id": "1779136246720",
+      "name": "Kantana Motion Pictures",
+      "country": "Tailandia",
+      "founded": "",
+      "logo": "https://yt3.googleusercontent.com/-Zpx2nSGUhwocFVOUSct57TLIWyW4di9U6uteBeVMofeZZDVDYWkOxOaG0rcDXV8Py0r89Cg=s900-c-k-c0x00ffffff-no-rj",
+      "website": "http://www.kantanamotionpictures.com/",
+      "desc": "Especializada en contenido premium de cine, televisión y animación, ofrece servicios de producción integrales. Su primera serie GL fue Reverse 4 You, que entró en el Top 10 de Netflix Tailandia en su semana de estreno."
+    },
+    {
+      "id": "1779176988365",
+      "name": "KONEONEDEE",
+      "country": "Tailandia",
+      "founded": "2023",
+      "logo": "https://yt3.googleusercontent.com/w69UItJGdKk-u3S-YWA4PupWgTPY01AaSj0XXeM7ttSyE7eoa9aGC9APbNmSQVxp_NZdm-W1iQ=s900-c-k-c0x00ffffff-no-rj",
+      "website": "",
+      "desc": "Productora independiente con varias series GL cortas en YouTube.",
+      "actressIds": []
+    },
+    {
+      "id": "1779136303417",
+      "name": "Kongthup Production",
+      "country": "Tailandia",
+      "founded": "",
+      "logo": "https://yt3.googleusercontent.com/zLiVUZK7Da6K0iHtJ8YAEuSAl8vhWeJycLpEAfjvWHnlBAH-ImEYIKs9lZSjqpQk5uW5byzX=s900-c-k-c0x00ffffff-no-rj",
+      "website": "",
+      "desc": "Productora conocida por Apple My Love y Your Apple, series GL de bajo presupuesto pero con buena acogida entre los fans. Se caracteriza por tratar temáticas diversas dentro del género, incluyendo representación trans. Distribuye en YouTube, WeTV y GagaOOLala",
+      "actressIds": [
+        "1778781856216",
+        "1778781830314"
+      ]
+    },
+    {
+      "id": "1779177125091",
+      "name": "Me Mind Y",
+      "country": "Tailandia",
+      "founded": "2019",
+      "logo": "https://static.wikia.nocookie.net/drama/images/b/bf/Me_Mind_Y-1.jpg/revision/latest?cb=20220210125353&path-prefix=es",
+      "website": "",
+      "desc": "",
+      "actressIds": [
+        "1778669744880",
+        "1778781926481",
+        "1778669789813",
+        "1778781896148"
+      ]
+    },
+    {
+      "id": "1779136191693",
+      "name": "MGI Beyond",
+      "country": "Tailandia",
+      "founded": "",
+      "logo": "https://yt3.googleusercontent.com/G1gZlx_wyQ_0W1KGEOORXJ0D-LpPogKoOEsLsO1Cwk0sRH0qIAoG61yZbFYLb4qYP6nx-XQrVg=s900-c-k-c0x00ffffff-no-rj",
+      "website": "https://missgrand.com/our-business/mgi-beyond/",
+      "desc": "Conglomerado tailandés fundado por Nawat Itsaragrisil que abarca publicidad, cosméticos, entretenimiento, eventos y gestión de talentos. Su rama GL produce series protagonizadas por ex-Miss Grand como Engfa Waraha y Charlotte Austin (Show Me Love, Love Bully, Petrichor)"
+    },
+    {
+      "id": "1779136445852",
+      "name": "Mine Media Production",
+      "country": "Tailandia",
+      "founded": "2023",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAC29pOptxh5bnQh5Vct4RHvqqTZ2aEjo47w&s",
+      "website": "",
+      "desc": "Fundada por la actriz Mai Davika y el actor Ter Chantavit. Productora y agencia de gestión de artistas jóvenes. Su primera serie GL fue Clairebell (2025), protagonizada por Mable Siriwalee y Pangjie Paphavarin.",
+      "actressIds": [
+        "1778705363188",
+        "1778705395423"
+      ]
+    },
+    {
+      "id": "1779136087730",
+      "name": "Monomax",
+      "country": "Tailandia",
+      "founded": "2020",
+      "logo": "https://play-lh.googleusercontent.com/YUNOy-jcb0dhR-r9c1P40BO4zizZwBpK8IoSvTP8Zh4aBTWxtYgaUsZILF8v-6sMehi2=w600-h300-pc0xffffff-pd",
+      "website": "https://www.monomax.me/",
+      "desc": "Plataforma de streaming y productora de contenido original tailandés bajo la marca Mono Original. Sus negocios principales incluyen el canal de TV Mono29 y el servicio de suscripción Monomax, que ofrece películas y series nacionales e internacionales."
+    },
+    {
+      "id": "1779136384575",
+      "name": "Motion Minds Entertainment",
+      "country": "Tailandia",
+      "founded": "2023",
+      "logo": "https://yt3.googleusercontent.com/Pk3wQkeuX1FAVrLU15amcAZsyz6X3JtM4aoIbNZOYiEtApL5TqlqBAOKDvhh28euErbSJtANx1I=s900-c-k-c0x00ffffff-no-rj",
+      "website": "",
+      "desc": "Productora independiente tailandesa de nicho GL, enfocada en historias originales con presupuesto moderado. Distribuye principalmente en YouTube.",
+      "actressIds": [
+        "1778760564161",
+        "1778760606088",
+        "1778760689825"
+      ]
+    },
+    {
+      "id": "1779136355146",
+      "name": "Nine Star Studios",
+      "country": "Tailandia",
+      "founded": "2022",
+      "logo": "https://yt3.googleusercontent.com/lJgzWYrhV_Wz1WGLDywLgAh2QIrRdcXpb2B2vW-ruiWUEx1UHuXhifALvpYAEPkjx7sEsLUL=s900-c-k-c0x00ffffff-no-rj",
+      "website": "",
+      "desc": "Empresa de producción y gestión de artistas especializada en series GL. Fue fundada por Siripun Wongsawan. Conocida por Blank The Series. Atravesó una grave crisis en 2025 por mal manejo de artistas, y anunció el cierre de operaciones efectivo el 31 de mayo de 2026.\nEstado actual: ⚠️ Cerrando operaciones (mayo 2026)"
+    },
+    {
+      "id": "1779135760151",
+      "name": "North Star Entertainment",
+      "country": "Tailandia",
+      "founded": "2022",
+      "logo": "https://pbs.twimg.com/profile_images/1981923394086957056/_bvy5WBk_400x400.jpg",
+      "website": "",
+      "desc": "Fundada por la veterana actriz Tik Kanyarat, con más de 20 años de experiencia. Actualmente produce series GL como Poisonous Love, protagonizada por Jayna Angelina y Ginny Natnicha, en colaboración con Idol Factory para el mega proyecto GL \"4 Elements\".",
+      "actressIds": [
+        "1778669226549",
+        "1778748946306",
+        "1778748865971",
+        "1778669368232",
+        "1778669263021",
+        "1778669414651"
+      ]
+    },
+    {
+      "id": "1779136330823",
+      "name": "PENNYY Studio",
+      "country": "Tailandia",
+      "founded": "2023",
+      "logo": "https://yt3.googleusercontent.com/acfZQ6I_KfA0MA4SEoybUb-zDODPAEECt-tKlzbCY4EAj8xl8VNUs6L03eljH1UlSNyp-QTOlw=s900-c-k-c0x00ffffff-no-rj",
+      "website": "",
+      "desc": "Productora independiente especializada en series GL para iQIYI. Orientada a historias escolares y de romance juvenil. Produce series de menor presupuesto pero con fans activos en las comunidades GL internacionales"
+    },
+    {
+      "id": "1779136406910",
+      "name": "S.NUR Entertainment",
+      "country": "Tailandia",
+      "founded": "2025",
+      "logo": "https://yt3.googleusercontent.com/nEgHMr19aqqsN1F7qJRzA5gZWX2JoA2-3P-u2TFYJTLld9JJfCNtKN6EOLEIlKOvzAiqjtqEkw=s900-c-k-c0x00ffffff-no-rj",
+      "website": "",
+      "desc": "Una de las productoras más nuevas del ecosistema GL tailandés. Ha producido la serie Denied (con Nur Desoraya y Tankgkwa Phinyanech), disponible en YouTube. Fundada presumiblemente por o en torno a la actriz Nur Desoraya.",
+      "actressIds": [
+        "1778761294678",
+        "1778761265957"
+      ]
+    },
+    {
+      "id": "1779136264729",
+      "name": "SiamSi Studio",
+      "country": "Tailandia",
+      "founded": "2023",
+      "logo": "https://yt3.googleusercontent.com/JiKSQCnhO-4pPnXCLCU9r384uIX1-c6c-JbPx_wFtFiHkW83wBd8QpTEQmhOcLY96kzANFrX=s160-c-k-c0x00ffffff-no-rj",
+      "website": "",
+      "desc": "Productora emergente independiente especializada en GL. Ha producido series como Roller Coaster (iQIYI), adaptando novelas de la autora Zezeho. Opera principalmente a través de YouTube e iQIYI."
+    },
+    {
+      "id": "1779135573515",
+      "name": "Star Hunter Entertainment",
+      "country": "Tailandia",
+      "founded": "2018",
+      "logo": "https://static.wikia.nocookie.net/thai_entertainment/images/9/96/Star_Hunter_Entertainment_company_logo.png/revision/latest?cb=20231008134026",
+      "website": "",
+      "desc": "Prominente empresa de entretenimiento tailandesa ampliamente reconocida como pionera en la industria de series Boys' Love, que ha expandido su catálogo con series GL como Blank The Series y Love Senior The Series.",
+      "actressIds": [
+        "1778785354635",
+        "1778787268516",
+        "1778787076502",
+        "1778785439675",
+        "1778787240675",
+        "1778761852669",
+        "1778786772554",
+        "1778786871935",
+        "1778787108089"
+      ]
+    },
+    {
+      "id": "1779136135118",
+      "name": "Velcurve Studio",
+      "country": "Tailandia",
+      "founded": "2017",
+      "logo": "https://static.wixstatic.com/media/b4a9af_a0c918232e234494a4d64e8398152a17~mv2.png/v1/fill/w_1600,h_900,al_c/b4a9af_a0c918232e234494a4d64e8398152a17~mv2.png",
+      "website": "https://www.velcurve.com/",
+      "desc": "Empresa de producción multimedia enfocada en calidad sobre cantidad, especializada en largometrajes, series, comerciales, contenido OTT y servicios de estudio. Destaca por su experiencia en postproducción, especialmente en diseño de sonido y corrección de color. Series GL conocidas: Love Design, Uranus2324"
+    },
+    {
+      "id": "1779135626732",
+      "name": "WeTV",
+      "country": "Tailandia",
+      "founded": "",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Logo_WeTV_fullscreen.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+      "website": "https://wetv.vip/en",
+      "desc": "En 2025 se convirtió en una de las plataformas de streaming más relevantes dentro del fandom de series BL y GL asiáticas, no solo distribuyendo títulos sino también produciendo los suyos propios. Coproduces con estudios locales como Copy a Bangkok."
+    },
+    {
+      "id": "1779176820442",
+      "name": "Zense Entertainment",
+      "country": "Tailandia",
+      "founded": "2011",
+      "logo": "https://media.licdn.com/dms/image/v2/C560BAQHnwomDKsaDMQ/company-logo_200_200/company-logo_200_200/0/1631304411435?e=2147483647&v=beta&t=CBagOLQqFWlmuAUKYCAFqqX-87fy5c8TqjyFxZjmKbs",
+      "website": "https://www.zense.co.th/",
+      "desc": "Fundada por Varavuth Jentanakul. Productora independiente líder en Tailandia con más de 150 empleados.",
+      "actressIds": []
+    }
+  ],
+  "exportedAt": "2026-05-19T08:27:30.372Z"
 }

@@ -683,6 +683,292 @@ footer{
 .badge{font-size:9.5px;padding:2px 8px;border-radius:20px;font-weight:700;letter-spacing:.02em}
 .badge-book{background:var(--gold-soft);color:var(--gold)}
 .badge-upcoming{background:var(--lavender-soft);color:var(--lavender)}
+
+/* ══════════════ SHIPS THAIS ══════════════ */
+.ships-shell{padding:0}
+.ships-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:12px;margin-top:1rem;
+}
+/* Card */
+.ship-card{
+  background:var(--surface);
+  border:1px solid rgba(210,140,175,0.18);
+  border-radius:14px;overflow:hidden;cursor:pointer;
+  transition:box-shadow .2s,transform .2s,border-color .18s;
+  box-shadow:0 1px 8px rgba(180,80,120,0.07);
+  display:flex;flex-direction:column;position:relative;
+}
+.ship-card:hover{
+  box-shadow:0 10px 30px rgba(180,80,120,0.14);
+  transform:translateY(-3px);
+  border-color:rgba(201,79,124,.35);
+}
+/* Foto cuadrada — sin divisor visible ni emojis */
+.ship-couple-banner{
+  position:relative;width:100%;
+  overflow:hidden;flex-shrink:0;
+  background:linear-gradient(160deg,var(--surface2) 0%,var(--lavender-soft) 100%);
+}
+/* Crea el cuadrado 1:1 de forma fiable sin aspect-ratio */
+.ship-couple-banner::before{content:'';display:block;padding-top:100%}
+/* Las mitades se posicionan en absoluto dentro del banner */
+.ship-couple-half{
+  position:absolute;top:0;bottom:0;overflow:hidden;
+}
+.ship-couple-half:first-child{left:0;width:50%}
+.ship-couple-half:nth-child(2){left:50%;width:50%}
+.ship-couple-half img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center 15%;
+  display:block;transition:transform .45s cubic-bezier(.25,0,.1,1);
+}
+.ship-card:hover .ship-couple-half img{transform:scale(1.05)}
+.ship-couple-half-ph{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  background:var(--surface2);
+}
+/* Divisor central muy sutil */
+.ship-couple-divider{
+  position:absolute;left:50%;top:12%;bottom:12%;
+  transform:translateX(-50%);z-index:3;
+  width:1px;background:rgba(255,255,255,.3);
+  pointer-events:none;
+}
+.ship-couple-divider-line,.ship-couple-divider-heart{display:none}
+/* Overlay de nombres */
+.ship-couple-names{display:none}
+
+/* Info inferior */
+.ship-card-inner{
+  padding:11px 13px 12px;
+  display:flex;flex-direction:column;gap:4px;flex:1;
+}
+.ship-card-title{
+  font-family:var(--font-display);
+  font-size:14.5px;font-weight:700;
+  color:var(--text);letter-spacing:-.02em;line-height:1.2;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.ship-card-meta{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-top:2px}
+.ship-series-chips{display:flex;flex-wrap:wrap;gap:3px;margin-top:3px}
+.ship-series-chip-sm{
+  font-size:10px;font-weight:500;padding:2px 7px;
+  border-radius:3px;background:transparent;
+  border:1px solid var(--border2);color:var(--muted);
+  cursor:pointer;white-space:nowrap;transition:all .12s;
+}
+.ship-series-chip-sm:hover{background:var(--accent-soft);color:var(--accent);border-color:rgba(201,79,124,.25)}
+/* Badges sin emojis */
+.ship-status-badge{
+  font-size:9.5px;font-weight:700;padding:2px 7px;
+  border-radius:3px;white-space:nowrap;
+  letter-spacing:.04em;text-transform:uppercase;
+}
+.ship-ongoing{background:rgba(74,173,160,.1);color:var(--teal);border:1px solid rgba(74,173,160,.2)}
+.ship-upcoming{background:rgba(139,114,190,.1);color:var(--lavender);border:1px solid rgba(139,114,190,.2)}
+.ship-finished{background:rgba(180,80,120,.06);color:var(--muted);border:1px solid var(--border)}
+.ship-type-badge{
+  font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:3px;
+  letter-spacing:.04em;text-transform:uppercase;
+}
+.ship-type-main{background:rgba(201,79,124,.09);color:var(--accent);border:1px solid rgba(201,79,124,.18)}
+.ship-type-secondary{background:rgba(74,173,160,.08);color:var(--teal);border:1px solid rgba(74,173,160,.18)}
+/* ── Actrices en productoras ── */
+.prod-actresses-section{
+  padding:10px 0 2px;
+  border-top:1px solid var(--border);
+  margin-top:10px;
+}
+.prod-actresses-title{
+  font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--muted);margin-bottom:8px;
+}
+.prod-actresses-grid{
+  display:flex;flex-wrap:wrap;gap:8px;
+}
+.prod-actress-chip{
+  display:flex;align-items:center;gap:6px;
+  padding:4px 10px 4px 4px;
+  border-radius:20px;
+  background:var(--surface2);border:1px solid var(--border2);
+  cursor:pointer;transition:all .15s;
+}
+.prod-actress-chip:hover{background:var(--accent-soft);border-color:rgba(201,79,124,.3)}
+.prod-actress-chip img{
+  width:24px;height:24px;border-radius:50%;
+  object-fit:cover;object-position:top;flex-shrink:0;
+}
+.prod-actress-chip-ph{
+  width:24px;height:24px;border-radius:50%;
+  background:var(--accent-soft);display:flex;align-items:center;
+  justify-content:center;font-size:12px;flex-shrink:0;
+}
+.prod-actress-chip-name{
+  font-size:11px;font-weight:600;color:var(--text);white-space:nowrap;
+}
+.ships-count{font-size:12px;color:var(--muted);margin-bottom:.75rem;letter-spacing:.01em}
+.ships-subtabs{display:flex;gap:4px;margin-bottom:1rem;flex-wrap:wrap}
+.ships-subtab{
+  padding:5px 13px;border-radius:5px;border:1px solid var(--border2);
+  font-size:12px;font-weight:600;cursor:pointer;
+  background:var(--surface);color:var(--muted);
+  transition:all .14s;font-family:var(--font-body);letter-spacing:.01em;
+}
+.ships-subtab:hover{background:var(--surface2);color:var(--text)}
+.ships-subtab.active{background:var(--text);color:var(--surface);border-color:var(--text)}
+@media(max-width:500px){.ships-grid{grid-template-columns:repeat(2,1fr);gap:8px}}
+@media(max-width:400px){.ship-card-title{font-size:13px}}
+/* ══════════════ CANCELADAS ══════════════ */
+.canceladas-shell{padding:0}
+.canceladas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:1rem}
+.cancelled-card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:all .2s;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
+.cancelled-card:hover{border-color:rgba(180,80,120,0.3);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.cancelled-poster-wrap{position:relative}
+.cancelled-poster{width:100%;aspect-ratio:2/3;object-fit:cover;display:block;background:var(--surface2);filter:grayscale(25%)}
+.cancelled-poster-ph{width:100%;aspect-ratio:2/3;background:linear-gradient(135deg,#e8e8e8,#d5d5d5);display:flex;align-items:center;justify-content:center;font-size:36px}
+.cancelled-body{padding:11px 12px;flex:1;display:flex;flex-direction:column;gap:3px}
+.cancelled-name{font-size:13px;font-weight:700;color:var(--text);line-height:1.3}
+.cancelled-meta{font-size:11px;color:var(--muted);line-height:1.5}
+.cancelled-reason{font-size:11.5px;color:var(--text);background:var(--surface2);border-left:3px solid var(--accent2);padding:6px 10px;border-radius:0 8px 8px 0;margin-top:5px;line-height:1.5}
+.badge-cancelled{background:#fde8e8;color:#c94040}
+.badge-limbo{background:var(--gold-soft);color:var(--gold)}
+.badge-closed{background:var(--lavender-soft);color:var(--lavender)}
+.canceladas-intro{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:1.25rem;padding:12px 15px;background:var(--surface2);border-radius:12px;border:1px solid var(--border)}
+/* ══════════════ SIN NOVEDADES ══════════════ */
+.sinnovedades-shell{padding:0}
+.sinnovedades-intro{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:1.25rem;padding:12px 15px;background:var(--gold-soft);border-radius:12px;border:1px solid rgba(176,128,48,.25)}
+.sinnovedades-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px;margin-top:.75rem}
+.sn-card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:all .2s;box-shadow:var(--shadow-sm);opacity:.92}
+.sn-card:hover{opacity:1;border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(176,128,48,.15)}
+.sn-poster{width:100%;aspect-ratio:2/3;object-fit:cover;display:block;filter:grayscale(15%)}
+.sn-poster-ph{width:100%;aspect-ratio:2/3;background:linear-gradient(135deg,var(--gold-soft),var(--lavender-soft));display:flex;align-items:center;justify-content:center;font-size:32px}
+.sn-body{padding:10px 11px;flex:1;display:flex;flex-direction:column;gap:3px}
+.sn-name{font-size:12.5px;font-weight:700;color:var(--text);line-height:1.3}
+.sn-meta{font-size:10.5px;color:var(--muted);line-height:1.5}
+.sn-stale-high{background:#fde8e8;color:#c94040;font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px}
+.sn-stale-mid{background:var(--gold-soft);color:var(--gold);font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px}
+.sn-stale-low{background:var(--lavender-soft);color:var(--lavender);font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px}
+/* ══════════════ PRODUCTORAS ══════════════ */
+/* ══════════════ PRODUCTORAS ══════════════ */
+.productoras-shell{padding:0}
+.productoras-grid{display:flex;flex-direction:column;gap:10px;margin-top:1rem}
+
+.productora-card{
+  background:var(--surface);
+  border:1.5px solid var(--border);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:var(--shadow-sm);
+  transition:border-color .2s, box-shadow .2s;
+}
+.productora-card:hover{border-color:var(--teal);box-shadow:0 4px 20px rgba(74,173,160,.1)}
+.productora-card.expanded{border-color:var(--teal);box-shadow:0 6px 28px rgba(74,173,160,.14)}
+
+/* Header siempre visible */
+.productora-header{
+  padding:14px 16px;
+  display:flex;align-items:center;gap:12px;
+  cursor:pointer;
+  user-select:none;
+}
+.productora-logo{
+  width:48px;height:48px;border-radius:12px;
+  object-fit:contain;background:#fff;
+  border:1.5px solid var(--border2);padding:4px;
+  flex-shrink:0;
+}
+.productora-logo-ph{
+  width:48px;height:48px;border-radius:12px;
+  background:var(--teal-soft);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;flex-shrink:0;
+}
+.productora-info{flex:1;min-width:0}
+.productora-name{font-size:15px;font-weight:700;color:var(--text);line-height:1.2}
+.productora-stats{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.4}
+.productora-header-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.productora-web-btn{
+  font-size:11.5px;font-weight:600;color:var(--teal);
+  text-decoration:none;padding:3px 10px;border-radius:20px;
+  border:1.5px solid rgba(74,173,160,.3);
+  background:var(--teal-soft);
+  transition:all .15s;white-space:nowrap;
+}
+.productora-web-btn:hover{background:var(--teal);color:#fff}
+.productora-toggle{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--surface2);border:1.5px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;color:var(--muted);
+  transition:all .2s;flex-shrink:0;
+}
+.productora-card.expanded .productora-toggle{
+  background:var(--teal-soft);border-color:var(--teal);
+  color:var(--teal);transform:rotate(180deg);
+}
+
+/* Panel expandible con animación */
+.productora-body{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .3s cubic-bezier(.4,0,.2,1);
+}
+.productora-card.expanded .productora-body{
+  max-height:600px;
+}
+.productora-body-inner{
+  padding:0 14px 16px;
+  border-top:1px solid var(--border);
+}
+.productora-desc{
+  font-size:12.5px;color:var(--muted);
+  line-height:1.65;padding:10px 0 12px;
+}
+
+/* Grid de posters */
+.prod-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(88px,1fr));
+  gap:10px;
+  padding-top:12px;
+}
+.prod-item{
+  display:flex;flex-direction:column;
+  align-items:center;gap:5px;
+  cursor:pointer;
+  border-radius:10px;
+  padding:4px;
+  transition:background .15s;
+}
+.prod-item:hover{background:var(--surface2)}
+.prod-item-poster{
+  width:100%;aspect-ratio:2/3;
+  object-fit:cover;border-radius:8px;
+  border:1px solid var(--border);
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+.prod-item-ph{
+  width:100%;aspect-ratio:2/3;
+  border-radius:8px;background:var(--teal-soft);
+  display:flex;align-items:center;justify-content:center;font-size:22px;
+}
+.prod-item-name{
+  font-size:10.5px;font-weight:600;color:var(--text);
+  text-align:center;line-height:1.3;
+  word-break:break-word;width:100%;
+}
+.prod-empty{
+  font-size:12.5px;color:var(--muted);
+  font-style:italic;padding:12px 0;
+}
+@media(max-width:600px){
+  .ships-grid,.productoras-grid{grid-template-columns:1fr}
+  .canceladas-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+  .sinnovedades-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
+}
 .card-watch-pill{
   display:inline-flex;align-items:center;gap:3px;
   font-size:10px;font-weight:600;color:var(--teal);
@@ -1642,6 +1928,7 @@ footer {
       <button class="nav-link" id="tabList" onclick="switchTab('list');closeMobileMenu()">Series</button>
       <button class="nav-link" id="tabMovies" onclick="switchTab('movies');closeMobileMenu()">Películas</button>
       <button class="nav-link" id="tabUpcoming" onclick="switchTab('upcoming');closeMobileMenu()">Próximamente</button>
+      <button class="nav-link" id="tabShips" onclick="switchTab('ships');closeMobileMenu()">Ships Thais</button>
 
       <!-- Mis Picks con subtabs -->
       <div class="nav-picks-wrap" id="navPicksWrap">
@@ -1665,6 +1952,7 @@ footer {
           <button class="tab-more-item" id="tabDocumentales" role="menuitem" onclick="closeMoreDrop();switchTab('documentales');closeMobileMenu()">Documentales</button>
           <button class="tab-more-item" id="tabBooks" role="menuitem" onclick="closeMoreDrop();switchTab('books');closeMobileMenu()">Libros</button>
           <button class="tab-more-item" id="tabActresses" role="menuitem" onclick="closeMoreDrop();switchTab('actresses');closeMobileMenu()">Actrices</button>
+          <button class="tab-more-item" id="tabProductoras" role="menuitem" onclick="closeMoreDrop();switchTab('productoras');closeMobileMenu()">Productoras</button>
         </div>
       </div>
     </div>
@@ -1706,6 +1994,10 @@ footer {
   <div id="viewActresses" style="display:none"></div>
   <div id="viewTop10" style="display:none"></div>
   <div id="viewPicks2026" style="display:none"></div>
+  <div id="viewShips" style="display:none"></div>
+  <div id="viewCanceladas" style="display:none"></div>
+  <div id="viewSinNovedades" style="display:none"></div>
+  <div id="viewProductoras" style="display:none"></div>
 
   <div id="viewCal">
     <!-- Week view (primary) -->
@@ -2019,6 +2311,8 @@ async function loadData(){
     state.series=d.series||[];
     state.movies=d.movies||[];
     state.actresses=d.actresses||[];
+    state.ships=d.ships||[];
+    state.productoras=d.productoras||[];
     if(d.exportedAt){
       const dt=new Date(d.exportedAt);
       const badge=document.getElementById('updateBadge'); if(badge){badge.textContent='✓ Act. '+dt.toLocaleDateString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});badge.style.display='';}
@@ -2731,6 +3025,21 @@ function renderListResults(){
     const finishedKey=seriesFinishedSubtab==='serie'?'finished_serie':seriesFinishedSubtab==='webserie'?'finished_webserie':'finished';
     html+=renderSubtabGrid(shownFinished,'No hay series finalizadas con esos filtros.',finishedKey);
   }
+
+  // Banner canceladas/limbo
+  const cancelledSeries=(state.series||[]).filter(s=>s.cancelStatus);
+  if(cancelledSeries.length){
+    const labels={cancelled:'❌ Cancelada',limbo:'⏸️ En limbo',closed:'🏢 Prod. cerrada'};
+    const items=cancelledSeries.slice(0,4).map(s=>`<span style="font-weight:600">${s.name}</span>`).join(', ');
+    const extra=cancelledSeries.length>4?` y ${cancelledSeries.length-4} más`:'';
+    html=`<div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:#fde8e8;border:1.5px solid rgba(201,64,64,.2);border-radius:12px;margin-bottom:1rem;font-size:12.5px;flex-wrap:wrap">
+      <span style="font-size:16px;flex-shrink:0">❌</span>
+      <span style="color:#c94040;font-weight:600">${cancelledSeries.length} serie${cancelledSeries.length!==1?'s':''} cancelada${cancelledSeries.length!==1?'s':''}:</span>
+      <span style="color:#8a3030">${items}${extra}</span>
+      <button onclick="switchTab('canceladas')" style="margin-left:auto;padding:4px 11px;border-radius:20px;border:1.5px solid rgba(201,64,64,.3);background:white;color:#c94040;font-size:11.5px;font-weight:600;cursor:pointer;font-family:var(--font-body)">Ver sección ›</button>
+    </div>`+html;
+  }
+
   resultsEl.innerHTML=html;
 }
 
@@ -2867,7 +3176,7 @@ function renderList(){
 
 function switchSeriesSubtab(sub){ seriesSubtab=sub; paginationState.series[sub]=1; saveSession(); renderListResults(); }
 
-let upcomingFilters={q:'',countries:[],sort:'az',book:'all',year:'',genre:''};
+let upcomingFilters={q:'',countries:[],sort:'az',book:'all',year:'',genre:'',subview:'normal'};
 
 function applyUpcomingFilters(arr){
   let r=[...arr];
@@ -2900,8 +3209,16 @@ function renderUpcoming(){
     const upYears=[...new Set(allUpcoming.map(s=>s.startDate?s.startDate.substring(0,4):'').filter(Boolean))].sort((a,b)=>b-a);
     const yearsOpts=upYears.map(y=>`<option value="${y}">${y}</option>`).join('');
     const genreOpts=GENRES.map(g=>`<option value="${g}">${g}</option>`).join('');
+    const staleManual=allUpcoming.filter(s=>s.sinNovedades||s.cancelStatus).length;
+    const now_count=new Date();
+    const staleAuto=allUpcoming.filter(s=>!s.sinNovedades&&!s.cancelStatus&&s.updatedAt&&Math.floor((now_count-new Date(s.updatedAt))/(1000*60*60*24))>=14).length;
+    const staleTotal=staleManual+staleAuto;
     view.innerHTML=`<div class="section-heading" style="margin-bottom:.25rem">✨ Próximamente</div>
-    <p class="section-desc" style="margin-bottom:.85rem">Series anunciadas que aún no tienen fecha de emisión confirmada.</p>
+    <p class="section-desc" style="margin-bottom:.6rem">Series anunciadas que aún no tienen fecha de emisión confirmada.</p>
+    <div style="display:flex;gap:4px;margin-bottom:1rem;flex-wrap:wrap">
+      <button class="ships-subtab active" id="upSubNormal" onclick="upcomingFilters.subview='normal';document.getElementById('upSubNormal').className='ships-subtab active';document.getElementById('upSubStale').className='ships-subtab';renderUpcomingResults()">Con novedades</button>
+      <button class="ships-subtab" id="upSubStale" onclick="upcomingFilters.subview='stale';document.getElementById('upSubStale').className='ships-subtab active';document.getElementById('upSubNormal').className='ships-subtab';renderUpcomingResults()">Sin novedades${staleTotal?` <span style="background:#c94040;color:#fff;border-radius:20px;font-size:10px;padding:1px 6px;margin-left:3px;font-weight:700">${staleTotal}</span>`:''}</button>
+    </div>
     <div class="upcoming-toolbar-shell books-toolbar">
       <div class="toolbar-search-row">
         <div class="search-wrap" style="position:relative;margin-bottom:0;width:100%">
@@ -2965,8 +3282,84 @@ function renderUpcomingResults(){
   if(genreSel) genreSel.value=upcomingFilters.genre;
   if(clearBtn) clearBtn.style.display=(upcomingFilters.countries&&upcomingFilters.countries.length||upcomingFilters.book!=='all'||upcomingFilters.year||upcomingFilters.genre)?'':'none';
 
-  const allUpcoming=state.series.filter(s=>s.upcoming&&s.category!=='anime'&&s.category!=='reality');
-  const upcoming=applyUpcomingFilters(allUpcoming);
+  let allUpcoming=state.series.filter(s=>s.upcoming&&s.category!=='anime'&&s.category!=='reality');
+
+  // Sin novedades subview
+  const now_sn=new Date();
+  if(upcomingFilters.subview==='stale'){
+    // Series marcadas manualmente como "sin novedades" o con estado de cancelación
+    const manualStale=allUpcoming.filter(s=>s.sinNovedades||s.cancelStatus);
+    // Resto: automático por fecha de actualización (≥14 días sin tocar)
+    const autoStale=allUpcoming.filter(s=>!s.sinNovedades&&!s.cancelStatus).map(s=>{
+      const upd=s.updatedAt?new Date(s.updatedAt):null;
+      const days=upd?Math.floor((now_sn-upd)/(1000*60*60*24)):999;
+      return {s,si:state.series.indexOf(s),days};
+    }).filter(x=>x.days>=14).sort((a,b)=>b.days-a.days);
+
+    function snStaleLabel(d){
+      if(d>=365) return 'Sin info hace +1 año';
+      if(d>=30) return 'Sin info hace '+Math.floor(d/30)+'m';
+      return 'Sin info hace '+d+'d';
+    }
+
+    const totalCount=manualStale.length+autoStale.length;
+    if(!totalCount){
+      resultsEl.innerHTML='<div class="search-empty">No hay series marcadas sin novedades. ¡Buenas noticias!</div>';
+      return;
+    }
+
+    let snHtml=`<div class="sinnovedades-intro">
+      🕰️ Series anunciadas de las que no hay noticias recientes. Pueden estar retrasadas o esperando confirmación.
+      &ensp;<strong style="color:#c94040">${totalCount} serie${totalCount!==1?'s':''}</strong>
+    </div><div class="sinnovedades-grid">`;
+
+    // Primero las marcadas manualmente
+    manualStale.forEach(s=>{
+      const si=state.series.indexOf(s);
+      const poster=s.poster
+        ?`<img class="sn-poster" src="${s.poster}" alt="${s.name}" onerror="this.outerHTML='<div class=sn-poster-ph>🎬</div>'">`
+        :`<div class="sn-poster-ph">🎬</div>`;
+      const cancelLabels={cancelled:'❌ Cancelada',limbo:'⏸️ En limbo',closed:'🏢 Prod. cerrada'};
+      const lastInfo=s.cancelStatus
+        ?`<span class="sn-stale-high" style="color:#c94040">${cancelLabels[s.cancelStatus]||'❌ Cancelada'}</span>`
+        :s.snLastUpdate
+          ?`<span class="sn-stale-high" title="${s.snLastUpdate}">📭 ${s.snLastUpdate.length>30?s.snLastUpdate.slice(0,28)+'…':s.snLastUpdate}</span>`
+          :`<span class="sn-stale-high">📭 Sin novedades</span>`;
+      const noteHtml=(s.cancelNote||s.snNote)
+        ?`<div class="sn-meta" style="font-style:italic;margin-top:2px" title="${s.cancelNote||s.snNote}">${(s.cancelNote||s.snNote).length>50?(s.cancelNote||s.snNote).slice(0,48)+'…':(s.cancelNote||s.snNote)}</div>`
+        :'';
+      snHtml+=`<div class="sn-card" onclick="openUpcoming(${si})">
+        ${poster}
+        <div class="sn-body">
+          ${lastInfo}
+          <div class="sn-name">${s.name}</div>
+          <div class="sn-meta">${[s.country?countryFlag(s.country)+' '+s.country:null,s.network].filter(Boolean).join(' · ')||'Sin detalles'}</div>
+          ${noteHtml}
+        </div>
+      </div>`;
+    });
+
+    // Luego las detectadas automáticamente por antigüedad
+    autoStale.forEach(({s,si,days})=>{
+      const poster=s.poster
+        ?`<img class="sn-poster" src="${s.poster}" alt="${s.name}" onerror="this.outerHTML='<div class=sn-poster-ph>🎬</div>'">`
+        :`<div class="sn-poster-ph">🎬</div>`;
+      snHtml+=`<div class="sn-card" onclick="openUpcoming(${si})">
+        ${poster}
+        <div class="sn-body">
+          <span class="sn-stale-mid">🕰️ ${snStaleLabel(days)}</span>
+          <div class="sn-name">${s.name}</div>
+          <div class="sn-meta">${[s.country?countryFlag(s.country)+' '+s.country:null,s.network].filter(Boolean).join(' · ')||'Sin detalles'}</div>
+        </div>
+      </div>`;
+    });
+
+    snHtml+='</div>';
+    resultsEl.innerHTML=snHtml;
+    return;
+  }
+
+  const upcoming=applyUpcomingFilters(allUpcoming.filter(s=>!s.sinNovedades&&!s.cancelStatus));
 
   if(!upcoming.length){
     resultsEl.innerHTML='<div class="search-empty">No se encontró ninguna serie con esos filtros.</div>';
@@ -4768,9 +5161,9 @@ function renderPicks2026(){
 function switchTab(tab, fromPopstate=false){
   state.tab=tab;
   saveSession();
-  const moreTabs=['books','actresses','anime','realities','documentales'];
+  const moreTabs=['books','actresses','anime','realities','documentales','productoras'];
   const picksTabs=['top10','picks2026'];
-  const allTabs=['cal','list','movies','upcoming','books','anime','realities','documentales','actresses','top10','picks2026'];
+  const allTabs=['cal','list','movies','upcoming','books','anime','realities','documentales','actresses','top10','picks2026','ships','productoras','canceladas'];
 
   allTabs.forEach(t=>{
     const view=document.getElementById('view'+t.charAt(0).toUpperCase()+t.slice(1));
@@ -4812,6 +5205,593 @@ function switchTab(tab, fromPopstate=false){
   if(tab==='actresses') renderActressesTab();
   if(tab==='top10') renderTop10();
   if(tab==='picks2026') renderPicks2026();
+  if(tab==='ships') renderShips();
+  if(tab==='canceladas') renderCanceladas();
+  if(tab==='productoras') renderProductoras();
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// SHIPS THAIS
+// ══════════════════════════════════════════════════════════════════════════════
+const shipsState = {filter:'all', q:''};
+
+function renderShips(){
+  const view=document.getElementById('viewShips');
+  if(!view) return;
+  const seriesList=state.series||[];
+  const actresses=state.actresses||[];
+  const actMap={};
+  actresses.forEach(a=>actMap[a.id]=a);
+  const manualShips=state.ships||[];
+
+  // Status helper
+  function seriesStatus(s){
+    if(s.upcoming) return 'upcoming';
+    const now=new Date();
+    const eps=genEps(s);
+    const future=eps.filter(e=>new Date(e.date+'T12:00:00')>now&&!e.skipped);
+    return future.length>0?'ongoing':'finished';
+  }
+
+  // Build ships list — usar ships manuales si existen, si no fallback automático
+  let ships=[];
+
+  if(manualShips.length>0){
+    // Modo manual: ships definidos en el admin
+    manualShips.forEach(sh=>{
+      const actressIds=sh.actressIds||[];
+      const members=actressIds.map(id=>actMap[id]).filter(Boolean);
+      if(members.length<2) return;
+      // Detectar series donde aparecen TODAS las actrices del ship
+      const shared=seriesList.filter(s=>{
+        if(!s.cast||!s.cast.length) return false;
+        const castIds=s.cast.map(m=>m.actressId);
+        return actressIds.every(id=>castIds.includes(id));
+      });
+      ships.push({sh, members, shared, mode:'manual'});
+    });
+  } else {
+    // Fallback automático: extraer parejas de series tailandesas
+    seriesList.forEach((s,si)=>{
+      const isThai=s.country&&s.country.includes('Tailandia');
+      if(!isThai||!s.cast||!s.cast.length) return;
+      const grouped={};
+      s.cast.forEach(m=>{
+        if(m.coupleType==='other') return;
+        const key=m.coupleType+'_'+(m.coupleNum||1);
+        if(!grouped[key]) grouped[key]=[];
+        grouped[key].push(m);
+      });
+      Object.entries(grouped).forEach(([key,castMembers])=>{
+        const valid=castMembers.filter(m=>actMap[m.actressId]);
+        if(valid.length<2) return;
+        const [type]=key.split('_');
+        ships.push({s,si,type,members:valid,mode:'auto'});
+      });
+    });
+  }
+
+  view.innerHTML=`<div class="ships-shell">
+    <div class="section-heading" style="margin-bottom:.25rem">💕 Ships Oficiales Thais</div>
+    <p class="section-desc" style="margin-bottom:.85rem">Parejas oficiales de series tailandesas: protagonistas y secundarias.</p>
+    <div class="ships-subtabs">
+      <button class="ships-subtab active" id="shipsSubAll" onclick="shipsState.filter='all';renderShipsResults()">Todas</button>
+      <button class="ships-subtab" id="shipsSubOngoing" onclick="shipsState.filter='ongoing';renderShipsResults()">En emisión</button>
+      <button class="ships-subtab" id="shipsSubUpcoming" onclick="shipsState.filter='upcoming';renderShipsResults()">Próximamente</button>
+      <button class="ships-subtab" id="shipsSubFinished" onclick="shipsState.filter='finished';renderShipsResults()">Finalizadas</button>
+    </div>
+    <div style="position:relative;margin-bottom:.85rem">
+      <span class="search-icon">🔍</span>
+      <input class="search-input" id="shipsSearchInput" placeholder="Buscar ship o actriz…"
+        value="${shipsState.q}" oninput="shipsState.q=this.value;renderShipsResults()" autocomplete="off">
+    </div>
+    <div id="shipsResults"></div>
+  </div>`;
+  view._ships=ships;
+  view._actMap=actMap;
+  view._seriesList=seriesList;
+  view._seriesStatus=seriesStatus;
+  renderShipsResults();
+}
+
+function renderShipsResults(){
+  const view=document.getElementById('viewShips');
+  const resultsEl=document.getElementById('shipsResults');
+  if(!resultsEl||!view) return;
+  const ships=view._ships||[];
+  const actMap=view._actMap||{};
+  const seriesStatus=view._seriesStatus||function(){return 'finished';};
+  const isManual=(ships[0]?.mode==='manual');
+
+  // Subtab active highlight
+  ['All','Ongoing','Upcoming','Finished'].forEach(t=>{
+    const btn=document.getElementById('shipsSub'+t);
+    if(btn) btn.className='ships-subtab'+(shipsState.filter===(t==='All'?'all':t.toLowerCase())?' active':'');
+  });
+
+  const q=(shipsState.q||'').toLowerCase().trim();
+
+  // Filter
+  let filtered=ships.filter(sh=>{
+    const members=sh.members||[];
+    // Determinar status: para manual usamos la serie más relevante (primera en común o la más reciente)
+    let status='finished';
+    if(isManual){
+      const shared=sh.shared||[];
+      if(shared.length){
+        // Si alguna en emisión → ongoing; si alguna upcoming → upcoming
+        if(shared.some(s=>seriesStatus(s)==='ongoing')) status='ongoing';
+        else if(shared.some(s=>seriesStatus(s)==='upcoming')) status='upcoming';
+        else status='finished';
+      }
+    } else {
+      status=seriesStatus(sh.s);
+    }
+    if(shipsState.filter==='ongoing'&&status!=='ongoing') return false;
+    if(shipsState.filter==='upcoming'&&status!=='upcoming') return false;
+    if(shipsState.filter==='finished'&&status!=='finished') return false;
+    if(q){
+      const names=members.map(a=>(a.name||'').toLowerCase());
+      const shipName=(sh.sh?.name||sh.s?.name||'').toLowerCase();
+      return names.some(n=>n.includes(q))||shipName.includes(q);
+    }
+    return true;
+  });
+
+  if(!filtered.length){
+    resultsEl.innerHTML='<div class="search-empty">No se encontraron ships con esos filtros.</div>';
+    return;
+  }
+
+  // Sort by ship name
+  filtered.sort((a,b)=>{
+    const na=a.sh?.name||a.s?.name||'';
+    const nb=b.sh?.name||b.s?.name||'';
+    return na.localeCompare(nb,'es');
+  });
+
+  const statusLabel={ongoing:'En emisión',upcoming:'Próximamente',finished:'Finalizada'};
+  const statusClass={ongoing:'ship-ongoing',upcoming:'ship-upcoming',finished:'ship-finished'};
+
+  let html=`<div class="ships-count">Mostrando <strong>${filtered.length}</strong> ship${filtered.length!==1?'s':''}</div><div class="ships-grid">`;
+
+  if(isManual){
+    filtered.forEach((sh,idx)=>{
+      const shared=sh.shared||[];
+      const members=sh.members||[];
+      let status='finished';
+      if(shared.length){
+        if(shared.some(s=>seriesStatus(s)==='ongoing')) status='ongoing';
+        else if(shared.some(s=>seriesStatus(s)==='upcoming')) status='upcoming';
+        else status='finished';
+      }
+      const statusBadge=shared.length?`<span class="ship-status-badge ${statusClass[status]}">${statusLabel[status]}</span>`:'';
+      const [a1,a2]=members;
+      let coupleBanner;
+      if(sh.sh.couplePhoto){
+        const cpPos=sh.sh.couplePhotoPosition||'50% 20%';
+        const cpZoom=sh.sh.couplePhotoZoom||1;
+        coupleBanner=`<div class="ship-couple-banner">
+          <img src="${sh.sh.couplePhoto}" alt="${sh.sh.name}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:${cpPos};transform:scale(${cpZoom});transform-origin:center center" onerror="this.style.display='none'">
+        </div>`;
+      } else {
+        const half1=a1?.photo
+          ?`<div class="ship-couple-half" onclick="event.stopPropagation();openActressProfile('${a1.id}')"><img src="${a1.photo}" alt="${a1.name}" style="object-position:${a1.photoPosition||'center 15%'}" onerror="this.style.opacity=0"></div>`
+          :`<div class="ship-couple-half"><div class="ship-couple-half-ph">🎭</div></div>`;
+        const half2=a2?.photo
+          ?`<div class="ship-couple-half" onclick="event.stopPropagation();openActressProfile('${a2.id}')"><img src="${a2.photo}" alt="${a2.name}" style="object-position:${a2.photoPosition||'center 15%'}" onerror="this.style.opacity=0"></div>`
+          :`<div class="ship-couple-half"><div class="ship-couple-half-ph">🎭</div></div>`;
+        coupleBanner=`<div class="ship-couple-banner">
+          ${half1}${half2}
+          <div class="ship-couple-divider"></div>
+        </div>`;
+      }
+      const chipsHtml=shared.slice(0,3).map(s=>{
+        const sIdx=(state.series||[]).indexOf(s);
+        return `<span class="ship-series-chip-sm" onclick="event.stopPropagation();openSeries(${sIdx})">${s.name}</span>`;
+      }).join('')+(shared.length>3?`<span class="ship-series-chip-sm">+${shared.length-3}</span>`:'');
+      html+=`<div class="ship-card" onclick="openShipDetail(${idx})">
+        ${coupleBanner}
+        <div class="ship-card-inner">
+          <div class="ship-card-title">${sh.sh.name||'Ship'}</div>
+          <div class="ship-card-meta">${statusBadge}</div>
+          ${shared.length?`<div class="ship-series-chips">${chipsHtml}</div>`:''}
+        </div>
+      </div>`;
+    });
+  } else {
+    filtered.forEach(sh=>{
+      const status=seriesStatus(sh.s);
+      const typeBadge=sh.type==='main'
+        ?`<span class="ship-type-badge ship-type-main">Principal</span>`
+        :`<span class="ship-type-badge ship-type-secondary">Secundaria</span>`;
+      const statusBadge=`<span class="ship-status-badge ${statusClass[status]}">${statusLabel[status]}</span>`;
+      const pair=sh.members.slice(0,2);
+      const a1auto=actMap[pair[0]?.actressId];
+      const a2auto=actMap[pair[1]?.actressId];
+      const half1auto=a1auto?.photo
+        ?`<div class="ship-couple-half" onclick="event.stopPropagation();openActressProfile('${a1auto.id}')"><img src="${a1auto.photo}" alt="${a1auto.name}" style="object-position:${a1auto.photoPosition||'center 15%'}" onerror="this.style.opacity=0"></div>`
+        :`<div class="ship-couple-half"><div class="ship-couple-half-ph">🎭</div></div>`;
+      const half2auto=a2auto?.photo
+        ?`<div class="ship-couple-half" onclick="event.stopPropagation();openActressProfile('${a2auto.id}')"><img src="${a2auto.photo}" alt="${a2auto.name}" style="object-position:${a2auto.photoPosition||'center 15%'}" onerror="this.style.opacity=0"></div>`
+        :`<div class="ship-couple-half"><div class="ship-couple-half-ph">🎭</div></div>`;
+      html+=`<div class="ship-card" onclick="openSeries(${sh.si})">
+        <div class="ship-couple-banner">
+          ${half1auto}${half2auto}
+          <div class="ship-couple-divider"></div>
+        </div>
+        <div class="ship-card-inner">
+          <div class="ship-card-title">${sh.s.name}</div>
+          <div class="ship-card-meta">${statusBadge}${typeBadge}</div>
+        </div>
+      </div>`;
+    });
+  }
+
+  html+='</div>';
+  // Guardar filtered para el modal de detalle
+  view._filtered=filtered;
+  resultsEl.innerHTML=html;
+}
+
+// Modal de detalle de ship manual
+function openShipDetail(idx){
+  const view=document.getElementById('viewShips');
+  const filtered=view?._filtered||[];
+  const sh=filtered[idx];
+  if(!sh) return;
+  const members=sh.members||[];
+  const shared=sh.shared||[];
+  const seriesStatus=view._seriesStatus||function(){return 'finished';};
+  const statusLabel={ongoing:'En emisión',upcoming:'Próximamente',finished:'Finalizada'};
+  const statusClass={ongoing:'ship-ongoing',upcoming:'ship-upcoming',finished:'ship-finished'};
+
+  // Header visual: foto de pareja con position/zoom, o banner dividido
+  let headerHtml;
+  if(sh.sh?.couplePhoto){
+    const cpPos=sh.sh.couplePhotoPosition||'50% 20%';
+    const cpZoom=sh.sh.couplePhotoZoom||1;
+    headerHtml=`<div style="width:100%;height:240px;overflow:hidden;position:relative;flex-shrink:0">
+      <img src="${sh.sh.couplePhoto}" style="width:100%;height:100%;object-fit:cover;object-position:${cpPos};transform:scale(${cpZoom});transform-origin:center center;display:block" onerror="this.style.display='none'">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,4,8,.8) 0%,transparent 55%)"></div>
+      <div style="position:absolute;bottom:16px;left:20px;right:20px">
+        <div style="font-family:var(--font-display);font-size:22px;font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1.2;text-shadow:0 1px 6px rgba(0,0,0,.5)">${sh.sh.name||'Ship'}</div>
+      </div>
+    </div>`;
+  } else {
+    const [a1,a2]=members;
+    const half1=a1?.photo
+      ?`<div style="flex:1;overflow:hidden;cursor:pointer" onclick="closeShipDetail();setTimeout(()=>openActressProfile('${a1.id}'),80)"><img src="${a1.photo}" style="width:100%;height:100%;object-fit:cover;object-position:${a1.photoPosition||'center 15%'};display:block;transition:transform .3s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''"></div>`
+      :`<div style="flex:1;background:var(--surface2);display:flex;align-items:center;justify-content:center"></div>`;
+    const half2=a2?.photo
+      ?`<div style="flex:1;overflow:hidden;cursor:pointer" onclick="closeShipDetail();setTimeout(()=>openActressProfile('${a2.id}'),80)"><img src="${a2.photo}" style="width:100%;height:100%;object-fit:cover;object-position:${a2.photoPosition||'center 15%'};display:block;transition:transform .3s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''"></div>`
+      :`<div style="flex:1;background:var(--surface3);display:flex;align-items:center;justify-content:center"></div>`;
+    headerHtml=`<div style="width:100%;height:240px;overflow:hidden;position:relative;flex-shrink:0;display:flex">
+      ${half1}
+      <div style="position:absolute;left:50%;top:0;bottom:0;transform:translateX(-50%);z-index:3;width:1px;background:linear-gradient(to bottom,transparent 5%,rgba(255,255,255,.35) 30%,rgba(255,255,255,.35) 70%,transparent 95%);pointer-events:none"></div>
+      ${half2}
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,4,8,.78) 0%,transparent 50%);pointer-events:none"></div>
+      <div style="position:absolute;bottom:16px;left:20px;right:20px;pointer-events:none">
+        <div style="font-family:var(--font-display);font-size:22px;font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1.2;text-shadow:0 1px 6px rgba(0,0,0,.5)">${sh.sh?.name||'Ship'}</div>
+      </div>
+    </div>`;
+  }
+
+  // Fila de actrices
+  const actressRowHtml=members.map(a=>`
+    <div style="display:flex;flex-direction:column;align-items:center;gap:5px;flex:1;cursor:pointer;min-width:0" onclick="closeShipDetail();setTimeout(()=>openActressProfile('${a.id}'),80)">
+      ${a.photo
+        ?`<img src="${a.photo}" style="width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:${a.photoPosition||'center 15%'};border:2.5px solid var(--accent2);flex-shrink:0">`
+        :`<div style="width:52px;height:52px;border-radius:50%;background:var(--surface2);border:2px solid var(--border)"></div>`}
+      <div style="font-size:11.5px;font-weight:700;color:var(--text);text-align:center;line-height:1.3;word-break:break-word">${a.name}</div>
+    </div>`).join(`<div style="width:20px;height:1px;background:var(--border2);align-self:center;margin:0 4px;flex-shrink:0"></div>`);
+
+  const descHtml=sh.sh?.desc?`<p style="font-size:13px;color:var(--muted);text-align:center;line-height:1.65;margin:0">${sh.sh.desc}</p>`:'';
+
+  const seriesHtml=shared.length
+    ?shared.map(s=>{
+        const si=(state.series||[]).indexOf(s);
+        const sst=seriesStatus(s);
+        return `<div onclick="closeShipDetail();openSeries(${si})" style="display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:12px;background:var(--surface2);border:1px solid var(--border);cursor:pointer;transition:all .18s" onmouseover="this.style.borderColor='var(--accent2)';this.style.background='var(--accent-soft)'" onmouseout="this.style.borderColor='var(--border)';this.style.background='var(--surface2)'">
+          ${s.poster
+            ?`<img src="${s.poster}" style="width:32px;height:48px;border-radius:7px;object-fit:cover;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.1)">`
+            :`<div style="width:32px;height:48px;border-radius:7px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">🎬</div>`}
+          <div style="flex:1;min-width:0">
+            <div style="font-size:13px;font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${s.name}</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:2px">${[s.network,s.year].filter(Boolean).join(' · ')}</div>
+          </div>
+          <span class="ship-status-badge ${statusClass[sst]}">${statusLabel[sst]}</span>
+        </div>`;
+      }).join('')
+    :`<div style="color:var(--muted);font-size:13px;text-align:center;padding:20px 0">Sin series en común registradas.</div>`;
+
+  const overlay=document.createElement('div');
+  overlay.id='shipDetailOverlay';
+  overlay.style.cssText='position:fixed;inset:0;background:rgba(30,10,24,.6);z-index:500;display:flex;align-items:center;justify-content:center;padding:1.25rem;backdrop-filter:blur(4px)';
+  overlay.onclick=e=>{if(e.target===overlay) closeShipDetail();};
+  overlay.innerHTML=`<div style="background:var(--surface);border-radius:18px;width:100%;max-width:460px;max-height:90vh;overflow:hidden;box-shadow:0 20px 60px rgba(20,8,18,0.25),0 0 0 1px rgba(210,140,175,0.15);display:flex;flex-direction:column;position:relative">
+    ${headerHtml}
+    <button onclick="closeShipDetail()" style="position:absolute;top:11px;right:11px;background:rgba(255,255,255,.92);border:none;border-radius:50%;width:30px;height:30px;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 6px rgba(0,0,0,.12);z-index:10;color:var(--muted);font-weight:700">✕</button>
+    <div style="padding:18px 20px 24px;display:flex;flex-direction:column;gap:16px;overflow-y:auto">
+      <div style="display:flex;align-items:flex-start;justify-content:center;gap:10px">${actressRowHtml}</div>
+      ${descHtml}
+      <div>
+        <div style="font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border)">Series en común · ${shared.length}</div>
+        <div style="display:flex;flex-direction:column;gap:6px">${seriesHtml}</div>
+      </div>
+    </div>
+  </div>`;
+  document.body.appendChild(overlay);
+  _pushModal('shipDetail');
+}
+
+function closeShipDetail(){
+  const el=document.getElementById('shipDetailOverlay');
+  if(el) el.remove();
+}
+
+
+// ══════════════════════════════════════════════════════════════════════════════
+// CANCELADAS
+// ══════════════════════════════════════════════════════════════════════════════
+function renderCanceladas(){
+  const view=document.getElementById('viewCanceladas');
+  if(!view) return;
+  const series=state.series||[];
+
+  // Detectar series canceladas por campo o por nota en synopsis
+  // Buscar en synopsis/nombre palabras clave de cancelación
+  const cancelKeywords=['cancelad','cancelled','cancel·lat','ended early','discontinu','productora cerrada','cerrada','cancelled before','dropped'];
+  function isCancelled(s){
+    if(s.cancelled) return true;
+    const syn=(s.synopsis||'').toLowerCase();
+    const note=(s.cancelNote||'').toLowerCase();
+    return cancelKeywords.some(k=>syn.includes(k)||note.includes(k));
+  }
+
+  const canceladas=series.filter(s=>s.cancelled||s.cancelNote||s.cancelStatus);
+  
+  // Build manual curated list from series data - series with cancellation indicators
+  // Since no cancelled field exists yet, show the section with empty state + instructions
+  const hasCancelled=canceladas.length>0;
+
+  view.innerHTML=`<div class="canceladas-shell">
+    <div class="section-heading" style="margin-bottom:.25rem">❌ Canceladas & Limbo</div>
+    <p class="section-desc" style="margin-bottom:.85rem">Series canceladas, pausadas indefinidamente o productoras cerradas.</p>
+    ${hasCancelled?renderCanceladasGrid(canceladas):'<div class="search-empty" style="margin-top:1.5rem">📭 No hay series marcadas como canceladas todavía.</div>'}
+  </div>`;
+}
+
+function renderCanceladasGrid(list){
+  const statusLabel={cancelled:'❌ Cancelada',limbo:'⏸️ En limbo',closed:'🏢 Prod. cerrada'};
+  const statusBadge={cancelled:'badge-cancelled',limbo:'badge-limbo',closed:'badge-closed'};
+  let html=`<div class="canceladas-grid">`;
+  list.forEach((s,i)=>{
+    const si=state.series.indexOf(s);
+    const st=s.cancelStatus||'cancelled';
+    const poster=s.poster
+      ?`<div class="cancelled-poster-wrap"><img class="cancelled-poster" src="${s.poster}" alt="${s.name}" onerror="this.outerHTML='<div class=cancelled-poster-ph>🚫</div>'"></div>`
+      :`<div class="cancelled-poster-wrap"><div class="cancelled-poster-ph">🚫</div></div>`;
+    const reason=s.cancelNote?`<div class="cancelled-reason">💬 ${s.cancelNote}</div>`:'';
+    html+=`<div class="cancelled-card" onclick="openSeries(${si})">
+      ${poster}
+      <div class="cancelled-body">
+        <div class="card-badges"><span class="badge ${statusBadge[st]}">${statusLabel[st]||'❌'}</span>${s.country?`<span class="badge">${countryFlag(s.country)}</span>`:''}</div>
+        <div class="cancelled-name">${s.name}</div>
+        <div class="cancelled-meta">${[s.year,s.network].filter(Boolean).join(' · ')||''}</div>
+        ${reason}
+      </div>
+    </div>`;
+  });
+  html+='</div>';
+  return html;
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// SIN NOVEDADES
+// ══════════════════════════════════════════════════════════════════════════════
+const sinNovedadesState={sort:'stale'};
+
+function renderSinNovedades(){
+  const view=document.getElementById('viewSinNovedades');
+  if(!view) return;
+  const now=new Date();
+  const series=state.series||[];
+
+  const upcoming=series.filter(s=>s.upcoming&&s.category!=='anime'&&s.category!=='reality');
+  const withAge=upcoming.map(s=>{
+    const upd=s.updatedAt?new Date(s.updatedAt):null;
+    const days=upd?Math.floor((now-upd)/(1000*60*60*24)):999;
+    return {s,si:series.indexOf(s),days};
+  });
+  // Sort by most stale by default
+  withAge.sort((a,b)=>b.days-a.days);
+
+  function staleClass(days){
+    if(days>=14) return 'sn-stale-high';
+    if(days>=7) return 'sn-stale-mid';
+    return 'sn-stale-low';
+  }
+  function staleLabel(days){
+    if(days>=365) return 'Sin info hace +1 año';
+    if(days>=30) return `Sin info hace ${Math.floor(days/30)}m`;
+    if(days>=7) return `Sin info hace ${days}d`;
+    return `Actualizada hace ${days}d`;
+  }
+
+  let html=`<div class="sinnovedades-shell">
+    <div class="section-heading" style="margin-bottom:.25rem">📭 Próximamente — Sin Novedades</div>
+    <p class="section-desc" style="margin-bottom:.85rem">Series anunciadas cuya información no se ha actualizado recientemente.</p>
+    <div class="sinnovedades-intro">
+      🕰️ Estas series están marcadas como <em>Próximamente</em> pero llevan días sin actualizaciones. 
+      Puede que estén retrasadas, sin fecha confirmada, o simplemente esperando noticias.
+    </div>
+    <div style="display:flex;gap:6px;margin-bottom:1rem;flex-wrap:wrap">
+      <button class="ships-subtab${sinNovedadesState.sort==='stale'?' active':''}" onclick="sinNovedadesState.sort='stale';renderSinNovedades()">🕰️ Más antiguas primero</button>
+      <button class="ships-subtab${sinNovedadesState.sort==='recent'?' active':''}" onclick="sinNovedadesState.sort='recent';renderSinNovedades()">🕐 Recientes primero</button>
+      <button class="ships-subtab${sinNovedadesState.sort==='az'?' active':''}" onclick="sinNovedadesState.sort='az';renderSinNovedades()">A → Z</button>
+    </div>
+    <div class="ships-count">
+      <strong>${withAge.length}</strong> series sin fecha confirmada
+      · <span style="color:#c94040;font-weight:600">${withAge.filter(x=>x.days>=14).length} sin actualizar 2+ semanas</span>
+    </div>
+    <div class="sinnovedades-grid">`;
+
+  const sorted=[...withAge];
+  if(sinNovedadesState.sort==='recent') sorted.sort((a,b)=>a.days-b.days);
+  else if(sinNovedadesState.sort==='az') sorted.sort((a,b)=>(a.s.name||'').localeCompare(b.s.name||'','es'));
+
+  sorted.forEach(({s,si,days})=>{
+    const poster=s.poster
+      ?`<img class="sn-poster" src="${s.poster}" alt="${s.name}" onerror="this.outerHTML='<div class=sn-poster-ph>🎬</div>'">`
+      :`<div class="sn-poster-ph">🎬</div>`;
+    html+=`<div class="sn-card" onclick="openUpcoming(${si})">
+      ${poster}
+      <div class="sn-body">
+        <span class="${staleClass(days)}">${staleLabel(days)}</span>
+        <div class="sn-name">${s.name}</div>
+        <div class="sn-meta">${[s.country?countryFlag(s.country)+' '+s.country:null,s.network].filter(Boolean).join(' · ')||'Sin detalles'}</div>
+      </div>
+    </div>`;
+  });
+  html+=`</div></div>`;
+  view.innerHTML=html;
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// PRODUCTORAS
+// ══════════════════════════════════════════════════════════════════════════════
+const productorasState={expanded:null,q:''};
+
+function renderProductoras(){
+  const view=document.getElementById('viewProductoras');
+  if(!view) return;
+  const seriesList=state.series||[];
+  const moviesList=state.movies||[];
+  const productorasList=state.productoras||[];
+
+  if(!productorasList.length){
+    view.innerHTML=`<div class="productoras-shell">
+      <div class="section-heading" style="margin-bottom:.25rem">🏢 Productoras</div>
+      <p class="section-desc">Aún no se han añadido productoras. Puedes gestionarlas desde el panel de administración.</p>
+    </div>`;
+    return;
+  }
+
+  const sorted=productorasList.map(p=>{
+    const ps=seriesList.filter(s=>s.productoraId===p.id);
+    const pm=moviesList.filter(m=>m.productoraId===p.id);
+    return {p, series:ps, movies:pm, total:ps.length+pm.length};
+  }).sort((a,b)=>b.total-a.total || a.p.name.localeCompare(b.p.name,'es'));
+
+  view.innerHTML=`<div class="productoras-shell">
+    <div class="section-heading" style="margin-bottom:.25rem">🏢 Productoras</div>
+    <p class="section-desc" style="margin-bottom:.85rem">Series y películas agrupadas por productora. Haz clic para expandir.</p>
+    <div style="position:relative;margin-bottom:1rem">
+      <span class="search-icon">🔍</span>
+      <input class="search-input" id="productorasSearch" placeholder="Buscar productora o serie…"
+        value="${productorasState.q}" oninput="productorasState.q=this.value;renderProductorasResults()" autocomplete="off">
+    </div>
+    <div id="productorasResults"></div>
+  </div>`;
+  view._sorted=sorted;
+  renderProductorasResults();
+}
+
+function renderProductorasResults(){
+  const view=document.getElementById('viewProductoras');
+  const el=document.getElementById('productorasResults');
+  if(!el||!view) return;
+  const sorted=view._sorted||[];
+  const q=(productorasState.q||'').toLowerCase().trim();
+
+  let list=sorted;
+  if(q){
+    list=sorted.filter(x=>
+      x.p.name.toLowerCase().includes(q)||
+      x.p.country?.toLowerCase().includes(q)||
+      x.series.some(s=>(s.name||'').toLowerCase().includes(q))||
+      x.movies.some(m=>(m.name||'').toLowerCase().includes(q))
+    );
+  }
+
+  if(!list.length){el.innerHTML='<div class="search-empty">Sin resultados.</div>';return;}
+
+  let html=`<div class="productoras-grid">`;
+  list.forEach(({p, series:ps, movies:pm})=>{
+    const isExpanded=productorasState.expanded===p.id;
+
+    const statsStr=[
+      ps.length?`${ps.length} serie${ps.length!==1?'s':''}`:null,
+      pm.length?`${pm.length} película${pm.length!==1?'s':''}`:null,
+      p.country||null,
+      p.founded?`Fundada en ${p.founded}`:null,
+    ].filter(Boolean).join(' · ');
+
+    const logoEl=p.logo
+      ?`<img class="productora-logo" src="${p.logo}" alt="${p.name}" onerror="this.outerHTML='<div class=productora-logo-ph>🏢</div>'">`
+      :`<div class="productora-logo-ph">🏢</div>`;
+
+    const webBtn=p.website
+      ?`<a href="${p.website}" target="_blank" rel="noopener" class="productora-web-btn" onclick="event.stopPropagation()">🌐 Web</a>`
+      :'';
+
+    const allItems=[...ps,...pm];
+    const postersHtml=allItems.map(item=>{
+      const si=(state.series||[]).indexOf(item);
+      const mi=(state.movies||[]).indexOf(item);
+      const onclick=si>=0?`openSeries(${si})`:mi>=0?`openMovie(${mi})`:'';
+      return `<div class="prod-item" onclick="${onclick}">
+        ${item.poster
+          ?`<img class="prod-item-poster" src="${item.poster}" alt="${item.name}" onerror="this.outerHTML='<div class=prod-item-ph>🎬</div>'">`
+          :`<div class="prod-item-ph">🎬</div>`}
+        <div class="prod-item-name">${item.name}</div>
+      </div>`;
+    }).join('');
+
+    const descHtml=p.desc?`<div class="productora-desc">${p.desc}</div>`:'';
+    const emptyHtml=!allItems.length?`<div class="prod-empty">Sin contenidos asignados aún.</div>`:'';
+
+    // Actrices de la productora
+    const prodActressIds=p.actressIds||[];
+    const prodActresses=prodActressIds.map(id=>(state.actresses||[]).find(a=>a.id===id)).filter(Boolean);
+    const actressesHtml=prodActresses.length
+      ?`<div class="prod-actresses-section">
+        <div class="prod-actresses-title">🎭 Actrices</div>
+        <div class="prod-actresses-grid">${prodActresses.map(a=>`
+          <div class="prod-actress-chip" onclick="event.stopPropagation();openActressProfile('${a.id}')">
+            ${a.photo
+              ?`<img src="${a.photo}" alt="${a.name}" onerror="this.outerHTML='<div class=prod-actress-chip-ph>🎭</div>'">`
+              :`<div class="prod-actress-chip-ph">🎭</div>`}
+            <span class="prod-actress-chip-name">${a.name.split('"').filter(Boolean)[0]?.trim()||a.name}</span>
+          </div>`).join('')}
+        </div>
+      </div>`
+      :'';
+
+    html+=`<div class="productora-card${isExpanded?' expanded':''}" id="prod_${p.id}">
+      <div class="productora-header" onclick="productorasState.expanded=(productorasState.expanded==='${p.id}'?null:'${p.id}');renderProductorasResults()">
+        ${logoEl}
+        <div class="productora-info">
+          <div class="productora-name">${p.name}</div>
+          <div class="productora-stats">${statsStr||'Sin contenidos aún'}</div>
+        </div>
+        <div class="productora-header-right">
+          ${webBtn}
+          <div class="productora-toggle">▼</div>
+        </div>
+      </div>
+      <div class="productora-body">
+        <div class="productora-body-inner">
+          ${descHtml}
+          <div class="prod-grid">${postersHtml}${emptyHtml}</div>
+          ${actressesHtml}
+        </div>
+      </div>
+    </div>`;
+  });
+  html+='</div>';
+  el.innerHTML=html;
 }
 
 // ── Back-button manager ──────────────────────────────────────────────────────
@@ -5036,7 +6016,7 @@ document.addEventListener('keydown',e=>{
     loadSession();
     const savedTab=state.tab||'cal';
     // Show the saved tab's view, hide others
-    ['cal','list','movies','upcoming','books','anime','realities','documentales','actresses','top10','picks2026'].forEach(t=>{
+    ['cal','list','movies','upcoming','books','anime','realities','documentales','actresses','top10','picks2026','ships','canceladas','productoras'].forEach(t=>{
       const btn=document.getElementById('tab'+t.charAt(0).toUpperCase()+t.slice(1));
       const view=document.getElementById('view'+t.charAt(0).toUpperCase()+t.slice(1));
       if(btn) btn.className='tab'+(savedTab===t?' active':'');
@@ -5053,6 +6033,9 @@ document.addEventListener('keydown',e=>{
     else if(savedTab==='actresses') renderActressesTab();
     else if(savedTab==='top10') renderTop10();
     else if(savedTab==='picks2026') renderPicks2026();
+    else if(savedTab==='ships') renderShips();
+    else if(savedTab==='canceladas') renderCanceladas();
+    else if(savedTab==='productoras') renderProductoras();
     else renderWeekView();
     // Seed history so the very first back press doesn't exit the page
     history.replaceState({tab:savedTab},'',location.pathname+'?tab='+savedTab);
