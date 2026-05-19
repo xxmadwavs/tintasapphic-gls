@@ -32179,6 +32179,114 @@
         "1778760773120",
         "1778760735020"
       ]
+    },
+    {
+      "id": "1779223612386",
+      "name": "PuyfaiPloy",
+      "desc": "",
+      "couplePhoto": "https://pbs.twimg.com/media/HImW7kNbAAAWL-n?format=jpg&name=large",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1778762184220",
+        "1778762225918"
+      ]
+    },
+    {
+      "id": "1779223676105",
+      "name": "OpalMint",
+      "desc": "",
+      "couplePhoto": "https://pbs.twimg.com/media/HIfuhWPboAAwbV_?format=jpg&name=large",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1778762295071",
+        "1778762257833"
+      ]
+    },
+    {
+      "id": "1779223740223",
+      "name": "NikyEngland",
+      "desc": "",
+      "couplePhoto": "https://pbs.twimg.com/media/HIfuhWOacAAvRk3?format=jpg&name=large",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1778762396463",
+        "1778762358088"
+      ]
+    },
+    {
+      "id": "1779223887426",
+      "name": "MeenBabe",
+      "desc": "",
+      "couplePhoto": "https://preview.redd.it/meenbabe-series-v0-48wwobb5g7yd1.jpeg?width=1045&format=pjpg&auto=webp&s=98a017ce00ee85205a673cec9bd434062765af7e",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1.11,
+      "actressIds": [
+        "1778762052809",
+        "1778761992984"
+      ]
+    },
+    {
+      "id": "1779224009357",
+      "name": "AtomMer",
+      "desc": "",
+      "couplePhoto": "https://glthai.com/wp-content/uploads/20260426-AtomMer-Fan-Sign-Taipei.jpg",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1778787268516",
+        "1778787240675"
+      ]
+    },
+    {
+      "id": "1779224085481",
+      "name": "BintPui",
+      "desc": "",
+      "couplePhoto": "",
+      "couplePhotoPosition": "",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1778787076502",
+        "1778787108089"
+      ]
+    },
+    {
+      "id": "1779224179732",
+      "name": "NoonPraewa",
+      "desc": "",
+      "couplePhoto": "https://i.pinimg.com/736x/68/7b/02/687b02270f2081d0a58a8af623099a86.jpg",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1.05,
+      "actressIds": [
+        "1778786772554",
+        "1778786841954"
+      ]
+    },
+    {
+      "id": "1779224371782",
+      "name": "IceMemi",
+      "desc": "",
+      "couplePhoto": "https://pbs.twimg.com/media/GsCKpvhWAAA0Plt?format=jpg&name=large",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1.15,
+      "actressIds": [
+        "1778761562883",
+        "1778761514836"
+      ]
+    },
+    {
+      "id": "1779224414541",
+      "name": "NamneungNoey",
+      "desc": "",
+      "couplePhoto": "https://i.redd.it/namneungnoey-4e-fire-x-lineman-pics-v0-804vdw2ze9kf1.jpg?width=1044&format=pjpg&auto=webp&s=b8c6d2d73ba6fe600a3a27f910010c140cdac3c5",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1778669459675",
+        "1778669499657"
+      ]
     }
   ],
   "productoras": [
@@ -32513,5 +32621,5 @@
       "actressIds": []
     }
   ],
-  "exportedAt": "2026-05-19T19:30:24.279Z"
+  "exportedAt": "2026-05-19T21:00:16.168Z"
 }
