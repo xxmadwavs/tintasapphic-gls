@@ -7467,7 +7467,15 @@
       "animeSeason": "",
       "renewedNextSeason": false,
       "episodeDuration": 46,
-      "updatedAt": "2026-05-15T09:25:02.122Z"
+      "updatedAt": "2026-05-19T08:34:30.848Z",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136384575"
     },
     {
       "id": "1777278523920",
@@ -31919,7 +31927,7 @@
         "1778668043254",
         "1778667975177"
       ],
-      "couplePhoto": "https://preview.redd.it/milklove-facecards-v0-96m0rxzziw1h1.jpeg?width=640&crop=smart&auto=webp&s=c4ad202826e1c3f20986dac4dda753d93970c6da",
+      "couplePhoto": "https://pbs.twimg.com/media/HIqnG7DaEAATQ7D?format=jpg&name=large",
       "couplePhotoPosition": "50% 20%",
       "couplePhotoZoom": 1
     },
@@ -32457,5 +32465,5 @@
       "actressIds": []
     }
   ],
-  "exportedAt": "2026-05-19T08:27:30.372Z"
+  "exportedAt": "2026-05-19T08:34:44.442Z"
 }
