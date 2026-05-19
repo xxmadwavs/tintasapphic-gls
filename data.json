@@ -1266,11 +1266,11 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-18T20:49:31.749Z",
+      "updatedAt": "2026-05-19T19:02:06.997Z",
       "episodeDuration": "",
       "myPick": false,
       "myPick2026": false,
-      "cancelStatus": "limbo",
+      "cancelStatus": "",
       "cancelNote": "",
       "sinNovedades": false,
       "snLastUpdate": "",
@@ -32131,6 +32131,54 @@
         "1778760957217",
         "1778760904100"
       ]
+    },
+    {
+      "id": "1779217388310",
+      "name": "MieAya",
+      "desc": "",
+      "couplePhoto": "https://pbs.twimg.com/media/HIq8ltDakAAkPnU?format=jpg&name=large",
+      "couplePhotoPosition": "50% 19%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1778669744880",
+        "1778669789813"
+      ]
+    },
+    {
+      "id": "1779217447710",
+      "name": "PahnFond",
+      "desc": "",
+      "couplePhoto": "https://pbs.twimg.com/media/HISVBmWaYAAEmAz?format=jpg&name=large",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1778668241744",
+        "1778667559702"
+      ]
+    },
+    {
+      "id": "1779217657461",
+      "name": "ShellyPundao",
+      "desc": "",
+      "couplePhoto": "https://pbs.twimg.com/media/G0KnZiobIAApQPe.jpg",
+      "couplePhotoPosition": "50% 19%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1778760564161",
+        "1778760689825"
+      ]
+    },
+    {
+      "id": "1779217916473",
+      "name": "LillyBelle",
+      "desc": "",
+      "couplePhoto": "https://pbs.twimg.com/media/G4mrefyWMAA0IVE.jpg",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1778760773120",
+        "1778760735020"
+      ]
     }
   ],
   "productoras": [
@@ -32465,5 +32513,5 @@
       "actressIds": []
     }
   ],
-  "exportedAt": "2026-05-19T11:58:29.716Z"
+  "exportedAt": "2026-05-19T19:30:24.279Z"
 }
