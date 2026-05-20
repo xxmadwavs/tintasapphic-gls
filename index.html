@@ -2567,13 +2567,13 @@ let weekOffset=0; // 0=this week, 1=next, -1=prev
 
 function getWeekDates(offset=0){
   const now=new Date();
-  const dow=(now.getDay()+6)%7; // Mon=0
-  const monday=new Date(now);
-  monday.setDate(now.getDate()-dow+offset*7);
+  // Start from today (not Monday) — offset shifts 7 days at a time
+  const start=new Date(now);
+  start.setDate(now.getDate()+offset*7);
   const dates=[];
   for(let i=0;i<7;i++){
-    const d=new Date(monday);
-    d.setDate(monday.getDate()+i);
+    const d=new Date(start);
+    d.setDate(start.getDate()+i);
     dates.push(toStr(d.getFullYear(),d.getMonth(),d.getDate()));
   }
   return dates;
@@ -2652,9 +2652,10 @@ function renderWeekView(){
       });
     }
 
+    const dowIdx=(d.getDay()+6)%7; // Mon=0 … Dom=6
     html+=`<div class="week-day-col${isToday?' is-today':''}${isPast?' is-past':''}${!items.length?' is-empty':''}">
       <div class="week-day-header">
-        <div class="week-day-name">${DAYS_SHORT[i]}</div>
+        <div class="week-day-name">${DAYS_SHORT[dowIdx]}</div>
         <div class="week-day-num">${d.getDate()}</div>
         <div class="week-day-month">${MONTHS_SHORT[d.getMonth()]}</div>
       </div>
