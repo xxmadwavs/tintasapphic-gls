@@ -1212,6 +1212,70 @@ footer{
 .changelog-entry-tag.fix{background:var(--teal-soft);color:var(--teal)}
 .changelog-entry-tag.design{background:var(--gold-soft);color:var(--gold)}
 
+/* ═══ RECENTLY ADDED STRIP ═══ */
+.recently-added-section{
+  margin-bottom:1.5rem;
+}
+.ra-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:10px;flex-wrap:wrap;gap:8px;
+}
+.ra-header-left{display:flex;align-items:center;gap:10px}
+.ra-icon{font-size:20px;line-height:1}
+.ra-title{font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--text);letter-spacing:-.01em;line-height:1.2}
+.ra-subtitle{font-size:11px;color:var(--muted);font-weight:500;margin-top:1px}
+.ra-controls{display:flex;align-items:center;gap:6px}
+.ra-counter{font-size:11px;color:var(--muted);font-weight:600;margin-right:4px}
+.ra-nav-btn{
+  width:30px;height:30px;border-radius:50%;
+  border:1.5px solid var(--border2);background:var(--surface);
+  color:var(--text);cursor:pointer;font-size:14px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .15s;font-family:inherit;
+}
+.ra-nav-btn:hover:not(:disabled){border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.ra-nav-btn:disabled{opacity:.3;cursor:default}
+.ra-strip{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:10px;
+}
+@media(max-width:860px){.ra-strip{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:600px){.ra-strip{grid-template-columns:repeat(3,1fr);gap:7px}}
+@media(max-width:400px){.ra-strip{grid-template-columns:repeat(2,1fr)}}
+.ra-card{
+  cursor:pointer;
+  animation:ra-fadein .35s ease both;
+  transition:transform .18s,box-shadow .18s;
+}
+.ra-card:hover{transform:translateY(-4px)}
+@keyframes ra-fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.ra-poster-wrap{
+  position:relative;border-radius:10px;overflow:hidden;
+  aspect-ratio:2/3;background:var(--surface2);
+  border:1.5px solid var(--border);
+  box-shadow:0 3px 12px rgba(180,80,120,0.1);
+}
+.ra-poster-wrap:hover{box-shadow:0 8px 24px rgba(180,80,120,0.22)}
+.ra-poster{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}
+.ra-card:hover .ra-poster{transform:scale(1.04)}
+.ra-poster-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:28px;background:var(--surface2)}
+.ra-new-badge{
+  position:absolute;top:6px;left:6px;
+  font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff;padding:2px 7px;border-radius:20px;
+  box-shadow:0 2px 8px rgba(201,79,124,0.4);
+}
+.ra-flag{
+  position:absolute;bottom:5px;right:6px;
+  font-size:14px;line-height:1;
+  filter:drop-shadow(0 1px 3px rgba(0,0,0,.4));
+}
+.ra-info{padding:5px 2px 0}
+.ra-name{font-size:11px;font-weight:700;color:var(--text);line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ra-type{font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:20px;display:inline-flex;margin-top:3px;letter-spacing:.02em}
+
 /* Search */
 .search-wrap{margin-bottom:1.25rem;position:relative}
 .search-input{
@@ -2060,7 +2124,7 @@ footer {
     <div class="changelog-header" onclick="toggleChangelog()">
       <div class="changelog-header-left">
         <span>✨</span>
-        <span class="changelog-title">Últimas novedades</span>
+        <span class="changelog-title">Novedades de la web</span>
         <span class="changelog-badge-new" id="changelogNewBadge">NUEVO</span>
         <span class="changelog-subtitle" id="changelogSubtitle"></span>
       </div>
@@ -2069,6 +2133,25 @@ footer {
     <div class="changelog-body" id="changelogBody">
       <div class="changelog-inner" id="changelogInner"></div>
     </div>
+  </div>
+
+  <!-- ── Recently Added strip ── -->
+  <div id="recentlyAddedSection" style="display:none" class="recently-added-section">
+    <div class="ra-header">
+      <div class="ra-header-left">
+        <span class="ra-icon">🌸</span>
+        <div>
+          <div class="ra-title">Últimas series añadidas</div>
+          <div class="ra-subtitle">Contenido nuevo en la base de datos</div>
+        </div>
+      </div>
+      <div class="ra-controls">
+        <span class="ra-counter" id="recentlyAddedCounter"></span>
+        <button class="ra-nav-btn" id="recentlyAddedPrev" onclick="recentlyPrev()" title="Anteriores">←</button>
+        <button class="ra-nav-btn" id="recentlyAddedNext" onclick="recentlyNext()" title="Siguientes">→</button>
+      </div>
+    </div>
+    <div class="ra-strip" id="recentlyAddedStrip"></div>
   </div>
   <div class="tabs" style="display:none"></div><!-- kept for JS compat -->
 
@@ -5903,68 +5986,61 @@ function renderProductorasResults(){
   });
 }
 
-// ── Changelog / Novedades ──────────────────────────────────────────────────
-// Lista de cambios — editar aquí para actualizar el banner
+// ── Changelog / Novedades web ─────────────────────────────────────────────────
+// Edita este array para añadir o quitar novedades de la web.
+// Solo se muestran entradas del último mes automáticamente.
+// tag: 'new' | 'feature' | 'fix' | 'design'
+// date: 'YYYY-MM-DD' (ISO) para el filtro de 30 días. También se muestra como texto.
 const CHANGELOG=[
-  {
-    tag:'new',
-    title:'Sección Próximamente reordenada',
-    desc:'Las series de Próximamente ahora se ordenan por última modificación por defecto, mostrando primero las más actualizadas.',
-    date:'Mayo 2026'
-  },
-  {
-    tag:'new',
-    title:'Banner de novedades',
-    desc:'Nuevo panel de últimas novedades visible en la parte superior, con historial de cambios de la web.',
-    date:'Mayo 2026'
-  },
-  {
-    tag:'feature',
-    title:'Calendario semanal mejorado',
-    desc:'Vista semanal rediseñada con navegación por semanas y miniaturas de póster para cada serie.',
-    date:'Mayo 2026'
-  },
-  {
-    tag:'design',
-    title:'Nuevo diseño de navbar',
-    desc:'Barra de navegación renovada con buscador integrado, menú de Mis picks y acceso directo a Ships Thais.',
-    date:'Abril 2026'
-  },
-  {
-    tag:'feature',
-    title:'Productoras GL',
-    desc:'Nueva sección de productoras con todas las series y películas agrupadas por estudio.',
-    date:'Abril 2026'
-  },
-  {
-    tag:'feature',
-    title:'Perfiles de actrices',
-    desc:'Fichas detalladas de actrices con filmografía, edad, país y fotos. Accesibles desde el reparto de cada serie.',
-    date:'Marzo 2026'
-  },
+  {tag:'new',    title:'Novedades web y series recientes',     desc:'Nuevo panel de últimas novedades de la web y carrusel de series añadidas recientemente.',                                    date:'2026-05-20'},
+  {tag:'new',    title:'Próximamente ordenado por última modificación', desc:'Las series en Próximamente ahora aparecen por orden de última actualización por defecto.',                          date:'2026-05-20'},
+  {tag:'feature',title:'Carrusel de series añadidas',          desc:'Sección "Últimas series añadidas" con pósters y animación, visible en el inicio.',                                           date:'2026-05-20'},
+  {tag:'design', title:'Barra de navegación renovada',         desc:'Navbar con buscador integrado, menú Mis picks y acceso directo a Ships Thais.',                                              date:'2026-04-15'},
+  {tag:'feature',title:'Productoras GL',                       desc:'Nueva sección con todas las series y películas agrupadas por estudio productor.',                                            date:'2026-04-10'},
+  {tag:'feature',title:'Perfiles de actrices',                 desc:'Fichas detalladas con filmografía, edad, país y fotos. Accesibles desde el reparto de cada serie.',                         date:'2026-04-05'},
+  {tag:'feature',title:'Vista semanal del calendario',         desc:'Calendario rediseñado con vista semanal, miniaturas de póster y navegación por semanas.',                                    date:'2026-04-01'},
 ];
 
-const TAG_DOTS={new:'new',feature:'feature',fix:'fix',design:'design'};
-const TAG_LABELS={new:'Nuevo',feature:'Función',fix:'Corrección',design:'Diseño'};
+const TAG_LABELS_CL={new:'Nuevo',feature:'Función',fix:'Corrección',design:'Diseño'};
+const MONTH_NAMES_CL=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+
+function fmtChangelogDate(iso){
+  const d=new Date(iso+'T12:00:00');
+  return `${d.getDate()} de ${MONTH_NAMES_CL[d.getMonth()]} de ${d.getFullYear()}`;
+}
 
 function renderChangelog(){
   const inner=document.getElementById('changelogInner');
   if(!inner) return;
-  inner.innerHTML=CHANGELOG.map(e=>`
+  const now=new Date();
+  // Only show entries from the last 30 days
+  const cutoff=new Date(now);
+  cutoff.setDate(cutoff.getDate()-30);
+  const recent=CHANGELOG.filter(e=>{
+    if(!e.date) return false;
+    return new Date(e.date+'T12:00:00')>=cutoff;
+  });
+  if(!recent.length){
+    inner.innerHTML='<div style="padding:12px 0;font-size:13px;color:var(--muted);text-align:center">Sin novedades en los últimos 30 días.</div>';
+    const sub=document.getElementById('changelogSubtitle');
+    if(sub) sub.textContent='';
+    return;
+  }
+  inner.innerHTML=recent.map(e=>`
     <div class="changelog-entry">
-      <div class="changelog-entry-dot ${TAG_DOTS[e.tag]||'new'}"></div>
+      <div class="changelog-entry-dot ${e.tag||'new'}"></div>
       <div class="changelog-entry-content">
         <div class="changelog-entry-title">
-          <span class="changelog-entry-tag ${e.tag||'new'}">${TAG_LABELS[e.tag]||'Nuevo'}</span>${e.title}
+          <span class="changelog-entry-tag ${e.tag||'new'}">${TAG_LABELS_CL[e.tag]||'Nuevo'}</span>${e.title}
         </div>
         ${e.desc?`<div class="changelog-entry-desc">${e.desc}</div>`:''}
-        ${e.date?`<div class="changelog-entry-date">${e.date}</div>`:''}
+        ${e.date?`<div class="changelog-entry-date">${fmtChangelogDate(e.date)}</div>`:''}
       </div>
     </div>
   `).join('');
-  // Set subtitle to first entry date
+  // Subtitle: date of most recent entry
   const sub=document.getElementById('changelogSubtitle');
-  if(sub&&CHANGELOG.length) sub.textContent='· '+CHANGELOG[0].date;
+  if(sub&&recent.length) sub.textContent='· '+fmtChangelogDate(recent[0].date);
 }
 
 function toggleChangelog(){
@@ -5975,20 +6051,93 @@ function toggleChangelog(){
   body.classList.toggle('open',!isOpen);
   icon.classList.toggle('open',!isOpen);
   if(!isOpen){
-    // Mark as seen
     badge.classList.add('seen');
-    try{localStorage.setItem('cl_seen',CHANGELOG[0]?.title||'1');}catch(e){}
+    try{localStorage.setItem('cl_seen_v2',CHANGELOG[0]?.date||'1');}catch(e){}
   }
 }
 
-// Init changelog on load
-(function initChangelog(){
+// ── Recently Added strip ──────────────────────────────────────────────────────
+// Items whose numeric ID (timestamp ms) is within the last 45 days are "new".
+// Uses the same countryFlag() helper already defined above.
+let _recentlyAddedOffset=0; // scroll position in items
+const RECENTLY_PER_PAGE=6;
+
+function getRecentlyAdded(){
+  const cutoff=Date.now()-(45*24*60*60*1000);
+  const items=[];
+  (state.series||[]).forEach((s,si)=>{
+    const ts=parseInt(s.id||0,10);
+    if(ts>=cutoff) items.push({ts,name:s.name,poster:s.poster,country:s.country,type:s.upcoming?'upcoming':'serie',si,isMovie:false});
+  });
+  (state.movies||[]).forEach((mv,mi)=>{
+    const ts=parseInt(mv.id||0,10);
+    if(ts>=cutoff) items.push({ts,name:mv.name,poster:mv.poster,country:mv.country,type:'movie',si:mi,isMovie:true});
+  });
+  items.sort((a,b)=>b.ts-a.ts);
+  return items;
+}
+
+function renderRecentlyAdded(){
+  const strip=document.getElementById('recentlyAddedStrip');
+  const counter=document.getElementById('recentlyAddedCounter');
+  const prevBtn=document.getElementById('recentlyAddedPrev');
+  const nextBtn=document.getElementById('recentlyAddedNext');
+  if(!strip) return;
+  const items=getRecentlyAdded();
+  if(!items.length){
+    document.getElementById('recentlyAddedSection').style.display='none';
+    return;
+  }
+  document.getElementById('recentlyAddedSection').style.display='';
+  const total=items.length;
+  const maxOffset=Math.max(0,total-RECENTLY_PER_PAGE);
+  _recentlyAddedOffset=Math.min(_recentlyAddedOffset,maxOffset);
+  const shown=items.slice(_recentlyAddedOffset,_recentlyAddedOffset+RECENTLY_PER_PAGE);
+  if(counter) counter.textContent=`${_recentlyAddedOffset+1}–${Math.min(_recentlyAddedOffset+RECENTLY_PER_PAGE,total)} de ${total}`;
+  if(prevBtn) prevBtn.disabled=_recentlyAddedOffset===0;
+  if(nextBtn) nextBtn.disabled=_recentlyAddedOffset>=maxOffset;
+  strip.innerHTML=shown.map((item,i)=>{
+    const isNew=item.ts>=(Date.now()-(14*24*60*60*1000));
+    const typeLabel=item.type==='movie'?'Película':item.type==='upcoming'?'Próximamente':'Serie';
+    const typeStyle=item.type==='movie'?'background:var(--lavender-soft);color:var(--lavender)':item.type==='upcoming'?'background:var(--accent-soft);color:var(--accent)':'background:var(--teal-soft);color:var(--teal)';
+    const flag=item.country?countryFlag(item.country):'';
+    const clickFn=item.isMovie?`openMovie(${item.si})`:(item.type==='upcoming'?`switchTab('upcoming');setTimeout(()=>openUpcoming(${item.si}),60)`:`switchTab('list');setTimeout(()=>openSeries(${item.si}),60)`);
+    const posterEl=item.poster
+      ?`<img class="ra-poster" src="${item.poster}" alt="${item.name}" onerror="this.parentElement.style.background='var(--surface2)';this.style.display='none'" loading="lazy">`
+      :`<div class="ra-poster-ph">🎬</div>`;
+    return `<div class="ra-card" onclick="${clickFn}" style="animation-delay:${i*0.06}s">
+      <div class="ra-poster-wrap">
+        ${posterEl}
+        ${isNew?'<div class="ra-new-badge">New</div>':''}
+        <div class="ra-flag">${flag}</div>
+      </div>
+      <div class="ra-info">
+        <div class="ra-name">${item.name}</div>
+        <div class="ra-type" style="${typeStyle}">${typeLabel}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function recentlyPrev(){
+  _recentlyAddedOffset=Math.max(0,_recentlyAddedOffset-RECENTLY_PER_PAGE);
+  renderRecentlyAdded();
+}
+function recentlyNext(){
+  const items=getRecentlyAdded();
+  _recentlyAddedOffset=Math.min(_recentlyAddedOffset+RECENTLY_PER_PAGE,Math.max(0,items.length-RECENTLY_PER_PAGE));
+  renderRecentlyAdded();
+}
+
+// Init both on load
+(function initChangelogAndRecently(){
   renderChangelog();
   try{
-    const seen=localStorage.getItem('cl_seen');
+    const seen=localStorage.getItem('cl_seen_v2');
     const badge=document.getElementById('changelogNewBadge');
-    if(seen===CHANGELOG[0]?.title&&badge) badge.classList.add('seen');
+    if(seen===CHANGELOG[0]?.date&&badge) badge.classList.add('seen');
   }catch(e){}
+  // Recently added renders after data loads — called from main init
 })();
 
 // ── Back-button manager ──────────────────────────────────────────────────────
@@ -6210,6 +6359,7 @@ document.addEventListener('keydown',e=>{
     document.getElementById('loadingSpinner').style.display='none';
     document.getElementById('mainContainer').style.display='';
     renderStats();
+    renderRecentlyAdded();
     loadSession();
     const savedTab=state.tab||'cal';
     // Show the saved tab's view, hide others
