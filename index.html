@@ -1142,6 +1142,76 @@ footer{
   .hero-stat-label{font-size:9px}
 }
 
+/* ═══ CHANGELOG / NOVEDADES BANNER ═══ */
+.changelog-banner{
+  position:relative;
+  margin-bottom:1.25rem;
+  background:var(--surface);
+  border:1.5px solid var(--border2);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-sm);
+  overflow:hidden;
+}
+.changelog-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 16px;cursor:pointer;
+  background:linear-gradient(90deg,rgba(201,79,124,0.04) 0%,transparent 100%);
+  user-select:none;
+  transition:background .15s;
+}
+.changelog-header:hover{background:linear-gradient(90deg,rgba(201,79,124,0.08) 0%,transparent 100%)}
+.changelog-header-left{display:flex;align-items:center;gap:8px}
+.changelog-badge-new{
+  font-size:10px;font-weight:800;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff;padding:2px 7px;border-radius:20px;
+  letter-spacing:.04em;text-transform:uppercase;
+  animation:cl-pulse 2s ease-in-out infinite;
+}
+@keyframes cl-pulse{0%,100%{opacity:1}50%{opacity:.7}}
+.changelog-badge-new.seen{display:none}
+.changelog-title{font-size:13px;font-weight:700;color:var(--text)}
+.changelog-subtitle{font-size:11.5px;color:var(--muted)}
+.changelog-toggle-icon{
+  font-size:11px;color:var(--muted);
+  transition:transform .25s;display:flex;align-items:center;gap:4px;
+}
+.changelog-toggle-icon.open{transform:rotate(180deg)}
+.changelog-body{
+  max-height:0;overflow:hidden;
+  transition:max-height .3s cubic-bezier(.4,0,.2,1);
+}
+.changelog-body.open{max-height:600px}
+.changelog-inner{padding:0 16px 14px}
+.changelog-entry{
+  display:flex;gap:10px;
+  padding:10px 0;
+  border-bottom:1px solid var(--border);
+}
+.changelog-entry:last-child{border-bottom:none}
+.changelog-entry-dot{
+  width:8px;height:8px;border-radius:50%;
+  flex-shrink:0;margin-top:5px;
+}
+.changelog-entry-dot.new{background:var(--accent)}
+.changelog-entry-dot.feature{background:var(--lavender)}
+.changelog-entry-dot.fix{background:var(--teal)}
+.changelog-entry-dot.design{background:var(--gold)}
+.changelog-entry-content{flex:1;min-width:0}
+.changelog-entry-title{font-size:13px;font-weight:700;color:var(--text);line-height:1.35}
+.changelog-entry-desc{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.5}
+.changelog-entry-date{font-size:10.5px;color:var(--muted);margin-top:3px;font-weight:600}
+.changelog-entry-tag{
+  display:inline-flex;align-items:center;
+  font-size:10px;font-weight:700;padding:1px 7px;border-radius:20px;
+  margin-right:5px;
+  text-transform:uppercase;letter-spacing:.04em;
+}
+.changelog-entry-tag.new{background:var(--accent-soft);color:var(--accent)}
+.changelog-entry-tag.feature{background:var(--lavender-soft);color:var(--lavender)}
+.changelog-entry-tag.fix{background:var(--teal-soft);color:var(--teal)}
+.changelog-entry-tag.design{background:var(--gold-soft);color:var(--gold)}
+
 /* Search */
 .search-wrap{margin-bottom:1.25rem;position:relative}
 .search-input{
@@ -1984,6 +2054,22 @@ footer {
 <div class="container" id="mainContainer" style="display:none">
   <!-- ── Stats banner ── -->
   <div id="statsBarInner" class="stats-banner"></div>
+
+  <!-- ── Changelog / Novedades banner ── -->
+  <div class="changelog-banner" id="changelogBanner">
+    <div class="changelog-header" onclick="toggleChangelog()">
+      <div class="changelog-header-left">
+        <span>✨</span>
+        <span class="changelog-title">Últimas novedades</span>
+        <span class="changelog-badge-new" id="changelogNewBadge">NUEVO</span>
+        <span class="changelog-subtitle" id="changelogSubtitle"></span>
+      </div>
+      <div class="changelog-toggle-icon" id="changelogToggleIcon">▼</div>
+    </div>
+    <div class="changelog-body" id="changelogBody">
+      <div class="changelog-inner" id="changelogInner"></div>
+    </div>
+  </div>
   <div class="tabs" style="display:none"></div><!-- kept for JS compat -->
 
   <div id="viewAnime" style="display:none"></div>
@@ -3174,7 +3260,7 @@ function renderList(){
 
 function switchSeriesSubtab(sub){ seriesSubtab=sub; paginationState.series[sub]=1; saveSession(); renderListResults(); }
 
-let upcomingFilters={q:'',countries:[],sort:'az',book:'all',year:'',genre:'',subview:'normal'};
+let upcomingFilters={q:'',countries:[],sort:'recent',book:'all',year:'',genre:'',subview:'normal'};
 
 function applyUpcomingFilters(arr){
   let r=[...arr];
@@ -3188,10 +3274,10 @@ function applyUpcomingFilters(arr){
   if(upcomingFilters.sort==='az') r.sort((a,b)=>a.name.localeCompare(b.name,'es'));
   else if(upcomingFilters.sort==='za') r.sort((a,b)=>b.name.localeCompare(a.name,'es'));
   else if(upcomingFilters.sort==='recent') r.sort((a,b)=>{
-    // Score by completeness (poster+synopsis+trailer = more recently updated)
-    const score=s=>((s.poster?2:0)+(s.synopsis?2:0)+(s.trailerUrl?1:0)+(s.bookCoverUrl?1:0));
-    const sd=score(b)-score(a);
-    if(sd!==0) return sd;
+    // Primary: sort by updatedAt descending (most recently modified first)
+    const ua=a.updatedAt||'';
+    const ub=b.updatedAt||'';
+    if(ub!==ua) return ub.localeCompare(ua);
     // Fallback: higher ID = added later
     return Number(b.id||0)-Number(a.id||0);
   });
@@ -3237,9 +3323,9 @@ function renderUpcoming(){
         <div class="filter-group">
           <span class="filter-label">Orden</span>
           <select id="upcomingSortSel" class="filter-select" onchange="upcomingFilters.sort=this.value;resetUpcomingPage();renderUpcomingResults()">
+            <option value="recent">🕐 Última modificación</option>
             <option value="az">A → Z</option>
             <option value="za">Z → A</option>
-            <option value="recent">🕐 Actualizado recientemente</option>
           </select>
         </div>
         <div class="filter-group">
@@ -5816,6 +5902,94 @@ function renderProductorasResults(){
     });
   });
 }
+
+// ── Changelog / Novedades ──────────────────────────────────────────────────
+// Lista de cambios — editar aquí para actualizar el banner
+const CHANGELOG=[
+  {
+    tag:'new',
+    title:'Sección Próximamente reordenada',
+    desc:'Las series de Próximamente ahora se ordenan por última modificación por defecto, mostrando primero las más actualizadas.',
+    date:'Mayo 2026'
+  },
+  {
+    tag:'new',
+    title:'Banner de novedades',
+    desc:'Nuevo panel de últimas novedades visible en la parte superior, con historial de cambios de la web.',
+    date:'Mayo 2026'
+  },
+  {
+    tag:'feature',
+    title:'Calendario semanal mejorado',
+    desc:'Vista semanal rediseñada con navegación por semanas y miniaturas de póster para cada serie.',
+    date:'Mayo 2026'
+  },
+  {
+    tag:'design',
+    title:'Nuevo diseño de navbar',
+    desc:'Barra de navegación renovada con buscador integrado, menú de Mis picks y acceso directo a Ships Thais.',
+    date:'Abril 2026'
+  },
+  {
+    tag:'feature',
+    title:'Productoras GL',
+    desc:'Nueva sección de productoras con todas las series y películas agrupadas por estudio.',
+    date:'Abril 2026'
+  },
+  {
+    tag:'feature',
+    title:'Perfiles de actrices',
+    desc:'Fichas detalladas de actrices con filmografía, edad, país y fotos. Accesibles desde el reparto de cada serie.',
+    date:'Marzo 2026'
+  },
+];
+
+const TAG_DOTS={new:'new',feature:'feature',fix:'fix',design:'design'};
+const TAG_LABELS={new:'Nuevo',feature:'Función',fix:'Corrección',design:'Diseño'};
+
+function renderChangelog(){
+  const inner=document.getElementById('changelogInner');
+  if(!inner) return;
+  inner.innerHTML=CHANGELOG.map(e=>`
+    <div class="changelog-entry">
+      <div class="changelog-entry-dot ${TAG_DOTS[e.tag]||'new'}"></div>
+      <div class="changelog-entry-content">
+        <div class="changelog-entry-title">
+          <span class="changelog-entry-tag ${e.tag||'new'}">${TAG_LABELS[e.tag]||'Nuevo'}</span>${e.title}
+        </div>
+        ${e.desc?`<div class="changelog-entry-desc">${e.desc}</div>`:''}
+        ${e.date?`<div class="changelog-entry-date">${e.date}</div>`:''}
+      </div>
+    </div>
+  `).join('');
+  // Set subtitle to first entry date
+  const sub=document.getElementById('changelogSubtitle');
+  if(sub&&CHANGELOG.length) sub.textContent='· '+CHANGELOG[0].date;
+}
+
+function toggleChangelog(){
+  const body=document.getElementById('changelogBody');
+  const icon=document.getElementById('changelogToggleIcon');
+  const badge=document.getElementById('changelogNewBadge');
+  const isOpen=body.classList.contains('open');
+  body.classList.toggle('open',!isOpen);
+  icon.classList.toggle('open',!isOpen);
+  if(!isOpen){
+    // Mark as seen
+    badge.classList.add('seen');
+    try{localStorage.setItem('cl_seen',CHANGELOG[0]?.title||'1');}catch(e){}
+  }
+}
+
+// Init changelog on load
+(function initChangelog(){
+  renderChangelog();
+  try{
+    const seen=localStorage.getItem('cl_seen');
+    const badge=document.getElementById('changelogNewBadge');
+    if(seen===CHANGELOG[0]?.title&&badge) badge.classList.add('seen');
+  }catch(e){}
+})();
 
 // ── Back-button manager ──────────────────────────────────────────────────────
 // Every overlay/modal pushes {modal:'X'} onto the history stack when it opens.
