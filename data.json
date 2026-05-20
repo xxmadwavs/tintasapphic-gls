@@ -19457,90 +19457,6 @@
       "episodeDuration": ""
     },
     {
-      "id": "1778877990809",
-      "name": "Never Fade",
-      "nameEn": "",
-      "poster": "https://girlsloveinfo.com/wp-content/uploads/2026/05/Never-Fade-Movie-PosterNeverFadeProjectNeverFadeProjectPresentedbyAuraBangkokClinic-818x1024.jpg",
-      "synopsis": "",
-      "year": "",
-      "country": "Tailandia",
-      "network": "",
-      "networkUrl": "",
-      "watchLinks": [],
-      "trailerUrl": "https://youtu.be/WBa2OP5AIwg?si=r6g7mX0KdQkMTgLG",
-      "bookSource": "",
-      "basedOnBook": false,
-      "bookCoverUrl": "",
-      "bookLinks": [],
-      "bookUrl": "",
-      "upcoming": true,
-      "genres": [],
-      "category": "series",
-      "seriesType": "serie",
-      "cast": [
-        {
-          "actressId": "1778760989113",
-          "character": "",
-          "coupleType": "main",
-          "coupleNum": 1
-        }
-      ],
-      "animeSeason": "",
-      "renewedNextSeason": false,
-      "episodeDuration": "",
-      "updatedAt": "2026-05-16T12:57:09.688Z",
-      "myPick": false,
-      "myPick2026": false
-    },
-    {
-      "id": "1778878081641",
-      "name": "My Lady's Bodyguard",
-      "nameEn": "",
-      "poster": "https://pbs.twimg.com/media/HIXRqNvXYAAE7Ix?format=jpg&name=small",
-      "synopsis": "El disfraz puede ocultar la verdad, pero nunca podrá esconder los sentimientos que nacen en el corazón. Cuando una guardaespaldas debe proteger a una joven que es la luz de su vida... ¿cómo lidiará con eso?",
-      "year": 2026,
-      "country": "Tailandia",
-      "network": "",
-      "networkUrl": "",
-      "watchLinks": [],
-      "trailerUrl": "",
-      "bookSource": "",
-      "basedOnBook": false,
-      "bookCoverUrl": "",
-      "bookLinks": [],
-      "bookUrl": "",
-      "upcoming": true,
-      "genres": [],
-      "category": "series",
-      "seriesType": "serie",
-      "cast": [
-        {
-          "actressId": "1778781830314",
-          "character": "",
-          "coupleType": "main",
-          "coupleNum": 1
-        },
-        {
-          "actressId": "1778781856216",
-          "character": "",
-          "coupleType": "main",
-          "coupleNum": 1
-        }
-      ],
-      "animeSeason": "",
-      "renewedNextSeason": false,
-      "episodeDuration": "",
-      "updatedAt": "2026-05-18T20:46:26.334Z",
-      "myPick": false,
-      "myPick2026": false,
-      "cancelStatus": "",
-      "cancelNote": "",
-      "sinNovedades": false,
-      "snLastUpdate": "",
-      "snNote": "",
-      "productoraId": "1779136303417"
-    },
-    {
       "id": "1778878515414",
       "name": "To Get Her",
       "nameEn": "너의 연애",
@@ -20429,6 +20345,95 @@
       "snLastUpdate": "",
       "snNote": "",
       "productoraId": "1779136406910"
+    },
+    {
+      "id": "1779277904836",
+      "name": "My Lady's Bodyguard",
+      "nameEn": "องครักษ์พิทักษ์แม่หญิงจอมซน",
+      "poster": "https://pbs.twimg.com/media/HIXRqNvXYAAE7Ix?format=jpg&name=small",
+      "synopsis": "El disfraz puede ocultar la verdad, pero nunca podrá esconder los sentimientos que nacen en el corazón. Cuando una guardaespaldas debe proteger a una joven que es la luz de su vida... ¿cómo lidiará con eso?",
+      "year": 2026,
+      "country": "Tailandia",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": true,
+      "genres": [
+        "Histórico",
+        "Romance"
+      ],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [
+        {
+          "actressId": "1778781830314",
+          "character": "Kaewked",
+          "coupleType": "main",
+          "coupleNum": 1
+        },
+        {
+          "actressId": "1778781856216",
+          "character": "Rinkham",
+          "coupleType": "main",
+          "coupleNum": 1
+        }
+      ],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136303417",
+      "updatedAt": "2026-05-20T11:51:44.836Z"
+    },
+    {
+      "id": "1779277983623",
+      "name": "Never Fade",
+      "nameEn": "",
+      "poster": "https://girlsloveinfo.com/wp-content/uploads/2026/05/Never-Fade-Movie-PosterNeverFadeProjectNeverFadeProjectPresentedbyAuraBangkokClinic-818x1024.jpg",
+      "synopsis": "",
+      "year": "",
+      "country": "Tailandia",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/WBa2OP5AIwg?si=r6g7mX0KdQkMTgLG",
+      "bookSource": "",
+      "basedOnBook": false,
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": true,
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "updatedAt": "2026-05-20T11:53:03.623Z"
     }
   ],
   "movies": [
@@ -32621,5 +32626,5 @@
       "actressIds": []
     }
   ],
-  "exportedAt": "2026-05-19T21:01:51.930Z"
+  "exportedAt": "2026-05-20T11:53:05.717Z"
 }
