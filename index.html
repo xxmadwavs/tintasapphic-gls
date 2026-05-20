@@ -1214,35 +1214,50 @@ footer{
 
 /* ═══ RECENTLY ADDED STRIP ═══ */
 .recently-added-section{
-  margin-bottom:1.5rem;
+  margin-top:1.5rem;
+  margin-bottom:.5rem;
 }
 .ra-header{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:10px;flex-wrap:wrap;gap:8px;
+  display:flex;align-items:center;
+  margin-bottom:10px;
 }
 .ra-header-left{display:flex;align-items:center;gap:10px}
 .ra-icon{font-size:20px;line-height:1}
 .ra-title{font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--text);letter-spacing:-.01em;line-height:1.2}
 .ra-subtitle{font-size:11px;color:var(--muted);font-weight:500;margin-top:1px}
-.ra-controls{display:flex;align-items:center;gap:6px}
-.ra-counter{font-size:11px;color:var(--muted);font-weight:600;margin-right:4px}
-.ra-nav-btn{
-  width:30px;height:30px;border-radius:50%;
-  border:1.5px solid var(--border2);background:var(--surface);
-  color:var(--text);cursor:pointer;font-size:14px;
-  display:flex;align-items:center;justify-content:center;
-  transition:all .15s;font-family:inherit;
-}
-.ra-nav-btn:hover:not(:disabled){border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
-.ra-nav-btn:disabled{opacity:.3;cursor:default}
+
+/* Desktop: 6-column grid */
 .ra-strip{
   display:grid;
   grid-template-columns:repeat(6,1fr);
   gap:10px;
 }
-@media(max-width:860px){.ra-strip{grid-template-columns:repeat(4,1fr)}}
-@media(max-width:600px){.ra-strip{grid-template-columns:repeat(3,1fr);gap:7px}}
-@media(max-width:400px){.ra-strip{grid-template-columns:repeat(2,1fr)}}
+
+/* Tablet: 4 columns */
+@media(max-width:860px){
+  .ra-strip{grid-template-columns:repeat(4,1fr)}
+}
+
+/* Mobile: horizontal scroll with fixed-width cards */
+@media(max-width:600px){
+  .ra-strip{
+    display:flex;
+    flex-direction:row;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scroll-snap-type:x mandatory;
+    gap:8px;
+    padding-bottom:8px;
+    /* hide scrollbar but keep functionality */
+    scrollbar-width:none;
+  }
+  .ra-strip::-webkit-scrollbar{display:none}
+  .ra-card{
+    flex:0 0 90px;
+    scroll-snap-align:start;
+  }
+}
+
 .ra-card{
   cursor:pointer;
   animation:ra-fadein .35s ease both;
@@ -1261,20 +1276,24 @@ footer{
 .ra-card:hover .ra-poster{transform:scale(1.04)}
 .ra-poster-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:28px;background:var(--surface2)}
 .ra-new-badge{
-  position:absolute;top:6px;left:6px;
-  font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
+  position:absolute;top:5px;left:5px;
+  font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
   background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#fff;padding:2px 7px;border-radius:20px;
+  color:#fff;padding:2px 6px;border-radius:20px;
   box-shadow:0 2px 8px rgba(201,79,124,0.4);
 }
 .ra-flag{
-  position:absolute;bottom:5px;right:6px;
-  font-size:14px;line-height:1;
+  position:absolute;bottom:4px;right:5px;
+  font-size:13px;line-height:1;
   filter:drop-shadow(0 1px 3px rgba(0,0,0,.4));
 }
 .ra-info{padding:5px 2px 0}
 .ra-name{font-size:11px;font-weight:700;color:var(--text);line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.ra-type{font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:20px;display:inline-flex;margin-top:3px;letter-spacing:.02em}
+.ra-type{font-size:9px;font-weight:700;padding:2px 6px;border-radius:20px;display:inline-flex;margin-top:3px;letter-spacing:.02em}
+@media(max-width:600px){
+  .ra-name{font-size:10px}
+  .ra-new-badge{font-size:7px;padding:1px 5px}
+}
 
 /* Search */
 .search-wrap{margin-bottom:1.25rem;position:relative}
@@ -2135,24 +2154,6 @@ footer {
     </div>
   </div>
 
-  <!-- ── Recently Added strip ── -->
-  <div id="recentlyAddedSection" style="display:none" class="recently-added-section">
-    <div class="ra-header">
-      <div class="ra-header-left">
-        <span class="ra-icon">🌸</span>
-        <div>
-          <div class="ra-title">Últimas series añadidas</div>
-          <div class="ra-subtitle">Contenido nuevo en la base de datos</div>
-        </div>
-      </div>
-      <div class="ra-controls">
-        <span class="ra-counter" id="recentlyAddedCounter"></span>
-        <button class="ra-nav-btn" id="recentlyAddedPrev" onclick="recentlyPrev()" title="Anteriores">←</button>
-        <button class="ra-nav-btn" id="recentlyAddedNext" onclick="recentlyNext()" title="Siguientes">→</button>
-      </div>
-    </div>
-    <div class="ra-strip" id="recentlyAddedStrip"></div>
-  </div>
   <div class="tabs" style="display:none"></div><!-- kept for JS compat -->
 
   <div id="viewAnime" style="display:none"></div>
@@ -2198,8 +2199,20 @@ footer {
         <div id="calLegend"></div>
       </div>
     </div>
+    <!-- ── Últimas series añadidas (solo calendario) ── -->
+    <div id="recentlyAddedSection" style="display:none" class="recently-added-section">
+      <div class="ra-header">
+        <div class="ra-header-left">
+          <span class="ra-icon">🌸</span>
+          <div>
+            <div class="ra-title">Últimas series añadidas</div>
+            <div class="ra-subtitle">Contenido nuevo en la base de datos</div>
+          </div>
+        </div>
+      </div>
+      <div class="ra-strip" id="recentlyAddedStrip"></div>
+    </div>
   </div>
-  <div id="viewList" style="display:none"></div>
   <div id="viewMovies" style="display:none"></div>
   <div id="viewUpcoming" style="display:none"></div>
   <div id="viewBooks" style="display:none"></div>
@@ -6059,29 +6072,23 @@ function toggleChangelog(){
 // ── Recently Added strip ──────────────────────────────────────────────────────
 // Items whose numeric ID (timestamp ms) is within the last 45 days are "new".
 // Uses the same countryFlag() helper already defined above.
-let _recentlyAddedOffset=0; // scroll position in items
-const RECENTLY_PER_PAGE=6;
-
 function getRecentlyAdded(){
-  const cutoff=Date.now()-(45*24*60*60*1000);
+  // Get ALL items sorted by ID (creation timestamp), return the 6 newest
   const items=[];
   (state.series||[]).forEach((s,si)=>{
     const ts=parseInt(s.id||0,10);
-    if(ts>=cutoff) items.push({ts,name:s.name,poster:s.poster,country:s.country,type:s.upcoming?'upcoming':'serie',si,isMovie:false});
+    if(ts>0) items.push({ts,name:s.name,poster:s.poster,country:s.country,type:s.upcoming?'upcoming':'serie',si,isMovie:false});
   });
   (state.movies||[]).forEach((mv,mi)=>{
     const ts=parseInt(mv.id||0,10);
-    if(ts>=cutoff) items.push({ts,name:mv.name,poster:mv.poster,country:mv.country,type:'movie',si:mi,isMovie:true});
+    if(ts>0) items.push({ts,name:mv.name,poster:mv.poster,country:mv.country,type:'movie',si:mi,isMovie:true});
   });
   items.sort((a,b)=>b.ts-a.ts);
-  return items;
+  return items.slice(0,6);
 }
 
 function renderRecentlyAdded(){
   const strip=document.getElementById('recentlyAddedStrip');
-  const counter=document.getElementById('recentlyAddedCounter');
-  const prevBtn=document.getElementById('recentlyAddedPrev');
-  const nextBtn=document.getElementById('recentlyAddedNext');
   if(!strip) return;
   const items=getRecentlyAdded();
   if(!items.length){
@@ -6089,15 +6096,10 @@ function renderRecentlyAdded(){
     return;
   }
   document.getElementById('recentlyAddedSection').style.display='';
-  const total=items.length;
-  const maxOffset=Math.max(0,total-RECENTLY_PER_PAGE);
-  _recentlyAddedOffset=Math.min(_recentlyAddedOffset,maxOffset);
-  const shown=items.slice(_recentlyAddedOffset,_recentlyAddedOffset+RECENTLY_PER_PAGE);
-  if(counter) counter.textContent=`${_recentlyAddedOffset+1}–${Math.min(_recentlyAddedOffset+RECENTLY_PER_PAGE,total)} de ${total}`;
-  if(prevBtn) prevBtn.disabled=_recentlyAddedOffset===0;
-  if(nextBtn) nextBtn.disabled=_recentlyAddedOffset>=maxOffset;
-  strip.innerHTML=shown.map((item,i)=>{
-    const isNew=item.ts>=(Date.now()-(14*24*60*60*1000));
+  // Mark items added in the last 14 days as "New"
+  const newCutoff=Date.now()-(14*24*60*60*1000);
+  strip.innerHTML=items.map((item,i)=>{
+    const isNew=item.ts>=newCutoff;
     const typeLabel=item.type==='movie'?'Película':item.type==='upcoming'?'Próximamente':'Serie';
     const typeStyle=item.type==='movie'?'background:var(--lavender-soft);color:var(--lavender)':item.type==='upcoming'?'background:var(--accent-soft);color:var(--accent)':'background:var(--teal-soft);color:var(--teal)';
     const flag=item.country?countryFlag(item.country):'';
@@ -6117,16 +6119,6 @@ function renderRecentlyAdded(){
       </div>
     </div>`;
   }).join('');
-}
-
-function recentlyPrev(){
-  _recentlyAddedOffset=Math.max(0,_recentlyAddedOffset-RECENTLY_PER_PAGE);
-  renderRecentlyAdded();
-}
-function recentlyNext(){
-  const items=getRecentlyAdded();
-  _recentlyAddedOffset=Math.min(_recentlyAddedOffset+RECENTLY_PER_PAGE,Math.max(0,items.length-RECENTLY_PER_PAGE));
-  renderRecentlyAdded();
 }
 
 // Init both on load
