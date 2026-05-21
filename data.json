@@ -19512,9 +19512,14 @@
       "synopsis": "El primer programa de citas para mujeres queer de China. Ocho mujeres chinas. Una villa en Chiang Mai. Sin guion. Sin reglas. Solo sentimientos auténticos.\nUn programa de citas con un enfoque documental, en el que las emociones reales se muestran tal y como son. Se trata de una exploración íntima del deseo, el valor y el crecimiento personal.",
       "year": 2026,
       "country": "China",
-      "network": "",
-      "networkUrl": "",
-      "watchLinks": [],
+      "network": "YouTube",
+      "networkUrl": "https://youtu.be/1Mhkel-dHuM?si=ltmybA0sCM-ILXU2",
+      "watchLinks": [
+        {
+          "name": "YouTube",
+          "url": "https://youtu.be/1Mhkel-dHuM?si=ltmybA0sCM-ILXU2"
+        }
+      ],
       "trailerUrl": "https://youtu.be/5g8uyCTGb0U?si=b1rlUZ9694pUgZps",
       "bookSource": "",
       "basedOnBook": false,
@@ -19546,7 +19551,15 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T20:56:47.815Z"
+      "updatedAt": "2026-05-21T11:26:27.104Z",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1778878773209",
@@ -32659,5 +32672,5 @@
       "actressIds": []
     }
   ],
-  "exportedAt": "2026-05-20T20:54:39.753Z"
+  "exportedAt": "2026-05-21T11:26:27.953Z"
 }
