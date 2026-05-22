@@ -6312,6 +6312,8 @@ function renderProductorasResults(){
 // tag: 'new' | 'feature' | 'fix' | 'design'
 // date: 'YYYY-MM-DD' (ISO) para el filtro de 30 días. También se muestra como texto.
 const CHANGELOG=[
+  {tag:'new',    title:'Listas',                                                                            desc:'Nueva sección "Listas": colecciones de series y películas seleccionadas por la admin, organizadas por temática, mood o género.', date:'2026-05-22'},
+  {tag:'feature',title:'Modo oscuro',                          desc:'Botón para cambiar entre modo claro y oscuro en la barra de navegación. Tu preferencia se guarda automáticamente.',         date:'2026-05-22'},
   {tag:'new',    title:'Novedades web y series recientes',     desc:'Nuevo panel de últimas novedades de la web y carrusel de series añadidas recientemente.',                                    date:'2026-05-20'},
   {tag:'new',    title:'Próximamente ordenado por última modificación', desc:'Las series en Próximamente ahora aparecen por orden de última actualización por defecto.',                          date:'2026-05-20'},
   {tag:'feature',title:'Carrusel de series añadidas',          desc:'Sección "Últimas series añadidas" con pósters y animación, visible en el inicio.',                                           date:'2026-05-20'},
@@ -7010,8 +7012,22 @@ function getSimilarItems(item, type, limit=6){
   allSeries.forEach(s=>{ const sc=score(s,'serie'); if(sc>0) candidates.push({item:s,type:'serie',sc}); });
   allMovies.forEach(m=>{ const sc=score(m,'pelicula'); if(sc>0) candidates.push({item:m,type:'pelicula',sc}); });
 
-  // Sort by score desc, then by name
-  candidates.sort((a,b)=>b.sc-a.sc||a.item.name.localeCompare(b.item.name,'es'));
+  // Aleatoriedad: jitter pequeño dentro del mismo nivel de puntuación
+  candidates.forEach(c=>{ c.jitter = Math.random() * 1.5; });
+  candidates.sort((a,b)=>(b.sc + b.jitter) - (a.sc + a.jitter));
+
+  // Si hay más candidatos que el límite, mezclar el top-tier para dar variedad real
+  if(candidates.length > limit){
+    const maxSc = candidates[0].sc;
+    const topTier  = candidates.filter(c=>c.sc >= maxSc - 2);
+    const lowerTier = candidates.filter(c=>c.sc < maxSc - 2);
+    for(let i=topTier.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [topTier[i],topTier[j]]=[topTier[j],topTier[i]];
+    }
+    candidates = [...topTier, ...lowerTier];
+  }
+
   return candidates.slice(0,limit);
 }
 
