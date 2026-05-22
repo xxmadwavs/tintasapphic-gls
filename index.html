@@ -5,9 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
 // Ejecutar ANTES del CSS para evitar el flash del menú abierto en móvil
-if(window.innerWidth<=700){
+if(window.innerWidth<=860){
   document.documentElement.classList.add('is-mobile');
 }
+// Dark mode: aplicar ANTES de render para evitar flash
+(function(){
+  var saved = localStorage.getItem('tsSapphicTheme');
+  if(saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)){
+    document.documentElement.setAttribute('data-theme','dark');
+  }
+})();
 </script>
 <style>
 html.is-mobile #navbarLinks{display:none!important}
@@ -41,6 +48,37 @@ html.is-mobile #navbarLinks.open{display:flex!important}
   --shadow-lg: 0 16px 52px rgba(180,80,120,0.18);
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body: 'DM Sans', system-ui, sans-serif;
+  /* Movie card accent */
+  --movie-accent: #7c5cbf;
+  --movie-border: rgba(124,92,191,0.35);
+  --movie-bar: rgba(124,92,191,0.12);
+}
+
+/* ═══ DARK MODE ═══ */
+html[data-theme="dark"] {
+  --bg: #18101a;
+  --surface: #231629;
+  --surface2: #2c1d35;
+  --surface3: #34243f;
+  --border: rgba(210,140,175,0.10);
+  --border2: rgba(210,140,175,0.22);
+  --text: #f0e6f0;
+  --muted: #b08aa0;
+  --accent: #e0729a;
+  --accent2: #f09dbc;
+  --accent-soft: rgba(224,114,154,0.15);
+  --teal: #5dc4b8;
+  --teal-soft: rgba(93,196,184,0.15);
+  --lavender: #a98de0;
+  --lavender-soft: rgba(169,141,224,0.15);
+  --gold: #d4a844;
+  --gold-soft: rgba(212,168,68,0.15);
+  --shadow-sm: 0 2px 12px rgba(0,0,0,0.35);
+  --shadow-md: 0 6px 28px rgba(0,0,0,0.45);
+  --shadow-lg: 0 16px 52px rgba(0,0,0,0.55);
+  --movie-accent: #9b7dd4;
+  --movie-border: rgba(155,125,212,0.30);
+  --movie-bar: rgba(155,125,212,0.12);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -55,6 +93,54 @@ body::before{content:'';position:fixed;inset:0;background:
 
 /* Sin orbes ni pétalos flotantes */
 .petal{display:none}
+
+/* ═══ DARK MODE OVERRIDES ═══ */
+html[data-theme="dark"] body::before{
+  background:
+    radial-gradient(ellipse at 8% 10%,rgba(224,114,154,0.07) 0%,transparent 50%),
+    radial-gradient(ellipse at 92% 90%,rgba(169,141,224,0.08) 0%,transparent 50%),
+    radial-gradient(ellipse at 50% 50%,rgba(93,196,184,0.03) 0%,transparent 60%);
+}
+html[data-theme="dark"] .navbar{background:rgba(27,16,32,0.97)}
+html[data-theme="dark"] .navbar-links{background:rgba(27,16,32,0.98)}
+html[data-theme="dark"] .modal{background:var(--surface)}
+html[data-theme="dark"] .modal-close-btn{background:var(--surface2);color:var(--muted)}
+html[data-theme="dark"] .modal-footer-btns{background:var(--surface)}
+html[data-theme="dark"] .day-cell.has-eps{background:var(--surface)}
+html[data-theme="dark"] .week-day-col{background:var(--surface)}
+html[data-theme="dark"] .week-item{background:var(--surface)}
+html[data-theme="dark"] .search-input{background:var(--surface2);color:var(--text)}
+html[data-theme="dark"] .navbar-search-wrap{background:var(--surface2)}
+html[data-theme="dark"] .navbar-search-inp{color:var(--text)}
+html[data-theme="dark"] .navbar-search-results{background:var(--surface)}
+html[data-theme="dark"] .nsearch-item:hover{background:var(--surface2)}
+html[data-theme="dark"] .btn{background:transparent;color:var(--text)}
+html[data-theme="dark"] .book-block{background:rgba(212,168,68,0.1);border-color:rgba(212,168,68,0.2)}
+html[data-theme="dark"] .award-row{background:rgba(255,255,255,0.04)}
+html[data-theme="dark"] .progress-today-marker{background:rgba(255,255,255,0.4)}
+html[data-theme="dark"] .sc-synopsis-overlay{background:linear-gradient(to top,rgba(10,4,16,0.97) 0%,rgba(10,4,16,0.82) 55%,rgba(10,4,16,0.2) 100%)}
+html[data-theme="dark"] .changelog-banner{background:var(--surface)}
+html[data-theme="dark"] .changelog-header{background:linear-gradient(90deg,rgba(224,114,154,0.06) 0%,transparent 100%)}
+html[data-theme="dark"] .month-picker-btn{background:var(--surface2);color:var(--text)}
+html[data-theme="dark"] .actressModalBg .modal,
+html[data-theme="dark"] #actressModalBox{background:var(--surface)}
+html[data-theme="dark"] .ship-card{background:var(--surface)}
+html[data-theme="dark"] .ship-modal-bg .modal{background:var(--surface)}
+html[data-theme="dark"] .productora-card{background:var(--surface)}
+html[data-theme="dark"] .productora-body-inner{background:var(--surface)}
+html[data-theme="dark"] .info-modal-box{background:var(--surface)}
+html[data-theme="dark"] .movie-card-stripe::after{opacity:.85}
+
+/* Dark mode toggle button */
+.dark-toggle{
+  width:34px;height:34px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);border:1.5px solid var(--border2);
+  background:var(--surface);cursor:pointer;
+  transition:all .2s;flex-shrink:0;font-size:15px;
+}
+.dark-toggle:hover{background:var(--surface2);color:var(--accent);border-color:var(--accent2)}
+html[data-theme="dark"] .dark-toggle{background:var(--surface2);color:var(--gold);border-color:var(--border2)}
 
 
 /* ═══ NAVBAR ═══ */
@@ -214,11 +300,25 @@ footer{
 }
 
 /* Mobile nav */
-@media(max-width:860px){
+
+/* 1100px → reducir padding nav-links y buscador */
+@media(max-width:1100px){
+  .navbar-inner{padding:0 1.25rem}
+  .navbar-search-inp{width:150px}
+  .nav-link{padding:6px 10px;font-size:12.5px}
+}
+
+/* 960px → ocultar logo-sub, reducir buscador más */
+@media(max-width:960px){
   .logo-divider,.logo-sub{display:none}
   .navbar-search-inp{width:120px}
+  .nav-link{padding:6px 8px;font-size:12px}
 }
-@media(max-width:700px){
+
+/* 860px → ocultar buscador de escritorio, activar hamburger
+   El menú sigue visible en línea hasta aquí pero más compacto */
+@media(max-width:860px){
+  #navSearchWrap{display:none!important}
   .navbar-hamburger{display:flex}
   .navbar-inner{flex-wrap:nowrap;position:relative;gap:0}
   .navbar-links{
@@ -229,11 +329,10 @@ footer{
     backdrop-filter:blur(16px);
     max-height:calc(100vh - 58px);overflow-y:auto;
   }
+  html[data-theme="dark"] .navbar-links{background:rgba(27,16,32,0.98)}
   .navbar-links.open{display:flex}
   .nav-link{justify-content:flex-start;padding:10px 12px;border-radius:10px;font-size:14px}
   .navbar-right{margin-left:auto;gap:6px}
-  /* Ocultar buscador de escritorio en móvil */
-  #navSearchWrap{display:none!important}
   /* Buscador dentro del menú móvil */
   .navbar-search-wrap.mobile-menu-search{
     border-radius:12px;background:var(--surface2);border-color:var(--border2);
@@ -258,6 +357,13 @@ footer{
     display:flex;
   }
   .nav-picks-item,.tab-more-item{padding:8px 12px;font-size:13px;border-radius:8px}
+}
+
+/* 700px → móvil puro (ya heredan lo de arriba) */
+@media(max-width:700px){
+  .navbar-right{gap:5px}
+  .dark-toggle{width:30px;height:30px;font-size:13px}
+  .navbar-x-btn{width:30px;height:30px}
 }
 
 /* ═══ HERO ═══ */
@@ -667,7 +773,11 @@ footer{
   animation:todayPulse 2.2s ease-in-out infinite;
 }
 @keyframes todayPulse{0%,100%{box-shadow:0 0 0 0 rgba(201,79,124,0.35)}60%{box-shadow:0 0 0 6px rgba(201,79,124,0)}}
-.progress-wrap{height:5px;background:var(--border);border-radius:3px;margin-top:8px;overflow:hidden;position:relative}
+.progress-wrap{margin-top:auto;padding-top:6px}
+.progress-bar-row{display:flex;align-items:center;gap:6px;margin-bottom:3px}
+.progress-ep-label{font-size:9.5px;font-weight:700;color:var(--muted);white-space:nowrap;flex:1;min-width:0}
+.progress-pct-label{font-size:9.5px;font-weight:700;color:var(--muted);flex-shrink:0}
+.progress-track{height:5px;background:var(--border);border-radius:3px;overflow:hidden;position:relative}
 .progress-fill{height:100%;border-radius:3px;transition:width .4s}
 .progress-today-marker{
   position:absolute;top:-1px;bottom:-1px;width:2px;
@@ -682,6 +792,106 @@ footer{
 .card-badges{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:4px;min-height:20px;align-items:center}
 .badge{font-size:9.5px;padding:2px 8px;border-radius:20px;font-weight:700;letter-spacing:.02em}
 .badge-book{background:var(--gold-soft);color:var(--gold)}
+.badge-mood{background:var(--lavender-soft);color:var(--lavender);border:1px solid rgba(139,114,190,0.25)}
+.sc-moods{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
+.sc-mood-pill{font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;background:var(--lavender-soft);color:var(--lavender);border:1px solid rgba(139,114,190,0.2);line-height:1.4}
+/* ═══ LISTAS TEMÁTICAS ═══ */
+.listas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin-top:1rem}
+.lista-card{
+  background:var(--surface);border:1.5px solid var(--border2);
+  border-radius:var(--radius-lg);overflow:hidden;
+  cursor:pointer;transition:all .22s;
+  box-shadow:var(--shadow-sm);display:flex;flex-direction:column;
+}
+.lista-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--lavender)}
+.lista-card-header{
+  padding:1.1rem 1.25rem .75rem;
+  border-bottom:1.5px solid var(--border);
+  display:flex;align-items:flex-start;gap:12px;
+}
+.lista-card-emoji{font-size:2rem;line-height:1;flex-shrink:0;margin-top:2px}
+.lista-card-meta{flex:1;min-width:0}
+.lista-card-title{font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:3px}
+.lista-card-desc{font-size:12px;color:var(--muted);line-height:1.55}
+.lista-card-count{font-size:11px;font-weight:700;color:var(--lavender);margin-top:4px}
+.lista-posters-strip{
+  display:flex;gap:0;overflow:hidden;height:80px;flex-shrink:0;
+}
+.lista-poster-thumb{
+  flex:1;min-width:0;overflow:hidden;position:relative;
+}
+.lista-poster-thumb img{width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;transition:transform .3s}
+.lista-card:hover .lista-poster-thumb img{transform:scale(1.05)}
+.lista-poster-ph{width:100%;height:100%;background:var(--lavender-soft);display:flex;align-items:center;justify-content:center;font-size:1.6rem}
+
+/* Panel lista abierta */
+.lista-panel-header{
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:1.25rem;
+  padding-bottom:1rem;
+  border-bottom:1.5px solid var(--border2);
+}
+.lista-panel-emoji{font-size:2.5rem;line-height:1}
+.lista-panel-title{font-family:var(--font-display);font-size:26px;font-weight:700;color:var(--text);letter-spacing:-.01em}
+.lista-panel-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-top:3px}
+.lista-back-btn{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:12px;font-weight:700;color:var(--muted);
+  background:var(--surface);border:1.5px solid var(--border2);
+  border-radius:20px;padding:5px 13px;cursor:pointer;
+  transition:all .15s;margin-bottom:1rem;font-family:var(--font-body);
+}
+.lista-back-btn:hover{color:var(--lavender);border-color:var(--lavender);background:var(--lavender-soft)}
+.listas-items-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:16px}
+
+/* ═══ SIMILAR / Si te gustó ═══ */
+.similar-section{margin-top:1.5rem;padding-top:1rem;border-top:1.5px solid var(--border)}
+.similar-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem}
+.similar-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);display:flex;align-items:center;gap:6px}
+.similar-nav{display:flex;gap:4px}
+.similar-nav-btn{
+  width:28px;height:28px;border-radius:50%;
+  border:1.5px solid var(--border2);background:var(--surface);
+  color:var(--muted);cursor:pointer;font-size:13px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .15s;flex-shrink:0;font-family:var(--font-body);
+}
+.similar-nav-btn:hover{background:var(--lavender-soft);border-color:var(--lavender);color:var(--lavender)}
+.similar-nav-btn:disabled{opacity:.3;cursor:default;pointer-events:none}
+.similar-scroll-wrap{position:relative;overflow:hidden}
+.similar-strip{display:flex;gap:10px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px;scroll-behavior:smooth}
+.similar-strip::-webkit-scrollbar{display:none}
+.similar-card{
+  flex:0 0 110px;display:flex;flex-direction:column;
+  border-radius:10px;overflow:hidden;cursor:pointer;
+  border:1.5px solid var(--border);background:var(--surface);
+  transition:all .18s;
+}
+.similar-card:hover{border-color:var(--lavender);transform:translateY(-2px);box-shadow:0 6px 18px rgba(139,114,190,0.18)}
+.similar-poster{width:100%;aspect-ratio:2/3;object-fit:cover;object-position:center 15%;display:block}
+.similar-poster-ph{width:100%;aspect-ratio:2/3;background:var(--lavender-soft);display:flex;align-items:center;justify-content:center;font-size:1.8rem}
+.similar-info{padding:5px 6px 6px}
+.similar-name{font-size:10px;font-weight:700;color:var(--text);line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.similar-score{font-size:9px;font-weight:700;color:var(--lavender);margin-top:2px}
+
+/* ═══ PREMIOS Y FESTIVALES ═══ */
+.badge-award{background:var(--gold-soft);color:var(--gold);border:1px solid rgba(176,136,48,0.3)}
+.awards-block{margin-top:14px;padding:12px 14px;background:var(--gold-soft);border:1px solid rgba(176,136,48,0.25);border-radius:var(--radius)}
+.awards-block-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:8px;display:flex;align-items:center;gap:5px}
+.awards-list{display:flex;flex-direction:column;gap:5px}
+.award-row{display:flex;align-items:flex-start;gap:8px;padding:6px 8px;background:rgba(255,255,255,0.55);border-radius:8px;border:1px solid rgba(176,136,48,0.15)}
+.award-icon{font-size:14px;flex-shrink:0;margin-top:1px}
+.award-info{flex:1;min-width:0}
+.award-name{font-size:12.5px;font-weight:700;color:var(--text);line-height:1.3}
+.award-meta{font-size:11px;color:var(--muted);margin-top:1px}
+.award-result{font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+.award-result.won{background:var(--gold);color:#fff}
+.award-result.nominated{background:var(--surface2);color:var(--muted);border:1px solid var(--border2)}
+@media(max-width:480px){
+  .listas-grid{grid-template-columns:1fr}
+  .listas-items-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+}
+
 .badge-upcoming{background:var(--lavender-soft);color:var(--lavender)}
 
 /* ══════════════ SHIPS THAIS ══════════════ */
@@ -1052,24 +1262,45 @@ footer{
 /* Movies */
 .movies-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:16px}
 .movie-card{
-  background:var(--surface);border:1.5px solid var(--border);
+  background:var(--surface);
+  border:1.5px solid var(--movie-border);
   border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;
   transition:all .22s;position:relative;display:flex;flex-direction:column;
   box-shadow:var(--shadow-sm);
 }
-.movie-card:hover{border-color:var(--lavender);box-shadow:0 12px 36px rgba(139,114,190,0.2);transform:translateY(-4px)}
+.movie-card:hover{border-color:var(--movie-accent);box-shadow:0 12px 36px rgba(124,92,191,0.22);transform:translateY(-4px)}
+/* Franja superior de color "cine" */
+.movie-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--movie-accent),var(--lavender),var(--accent));
+  z-index:1;
+}
 .movie-card-poster-wrap{position:relative;overflow:hidden}
 .movie-card-poster{width:100%;aspect-ratio:2/3;object-fit:cover;display:block;background:var(--lavender-soft)}
-.movie-card-poster-ph{width:100%;aspect-ratio:2/3;background:linear-gradient(135deg,var(--lavender-soft) 0%,var(--accent-soft) 100%);display:flex;align-items:center;justify-content:center;font-size:40px;color:var(--lavender)}
+.movie-card-poster-ph{width:100%;aspect-ratio:2/3;background:linear-gradient(135deg,var(--lavender-soft) 0%,var(--surface3) 100%);display:flex;align-items:center;justify-content:center;font-size:40px;color:var(--movie-accent)}
+/* Overlay gradiente más profundo en películas */
 .movie-card-poster-wrap::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:55%;
-  background:linear-gradient(to top,rgba(25,15,35,0.65) 0%,transparent 100%);
+  content:'';position:absolute;bottom:0;left:0;right:0;height:60%;
+  background:linear-gradient(to top,rgba(20,10,35,0.80) 0%,transparent 100%);
   pointer-events:none;
 }
-.movie-card-body{padding:12px 13px;flex:1;display:flex;flex-direction:column}
+/* Badge 🎬 flotante sobre el poster */
+.movie-card-poster-wrap::before{
+  content:'🎬';
+  position:absolute;top:7px;right:7px;
+  font-size:13px;line-height:1;z-index:2;
+  background:rgba(20,10,35,0.65);
+  border-radius:20px;padding:3px 7px;
+  backdrop-filter:blur(4px);
+  pointer-events:none;
+}
+.movie-card-body{
+  padding:12px 13px;flex:1;display:flex;flex-direction:column;
+  background:linear-gradient(180deg,var(--surface) 0%,var(--movie-bar) 100%);
+}
 .movie-card-name{font-size:13.5px;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:3px}
 .movie-card-meta{font-size:11px;color:var(--muted);line-height:1.5}
-.movie-card-date{font-size:11px;color:var(--lavender);font-weight:600;margin-top:4px}
+.movie-card-date{font-size:11px;color:var(--movie-accent);font-weight:700;margin-top:4px}
 .movie-card-watch{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}
 @media(max-width:480px){
   .movies-grid{grid-template-columns:repeat(2,1fr);gap:10px}
@@ -2098,6 +2329,7 @@ footer {
           Más <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" style="margin-left:2px;opacity:.6"><path d="M1 3l4 4 4-4"/></svg>
         </button>
         <div class="tab-more-drop" id="tabMoreDrop" role="menu">
+          <button class="tab-more-item" id="tabListas" role="menuitem" onclick="closeMoreDrop();switchTab('listas');closeMobileMenu()">📋 Listas GL</button>
           <button class="tab-more-item" id="tabAnime" role="menuitem" onclick="closeMoreDrop();switchTab('anime');closeMobileMenu()">Anime</button>
           <button class="tab-more-item" id="tabRealities" role="menuitem" onclick="closeMoreDrop();switchTab('realities');closeMobileMenu()">Realities</button>
           <button class="tab-more-item" id="tabDocumentales" role="menuitem" onclick="closeMoreDrop();switchTab('documentales');closeMobileMenu()">Documentales</button>
@@ -2115,6 +2347,7 @@ footer {
         <input class="navbar-search-inp" id="navSearchInp" placeholder="Buscar series, películas…" oninput="navSearchHandler(this.value)" onfocus="navSearchFocus(event)" onblur="navSearchBlur()" autocomplete="off">
         <div class="navbar-search-results" id="navSearchResults" style="display:none"></div>
       </div>
+      <button class="dark-toggle" id="darkToggleBtn" onclick="toggleDark()" title="Cambiar modo oscuro/claro" aria-label="Modo oscuro">🌙</button>
       <a class="navbar-x-btn" href="https://x.com/xxmadwavs" target="_blank" rel="noopener" title="@xxmadwavs en X" aria-label="X / Twitter">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
       </a>
@@ -2163,6 +2396,7 @@ footer {
   <div id="viewTop10" style="display:none"></div>
   <div id="viewPicks2026" style="display:none"></div>
   <div id="viewShips" style="display:none"></div>
+  <div id="viewListas" style="display:none"></div>
   <div id="viewCanceladas" style="display:none"></div>
   <div id="viewSinNovedades" style="display:none"></div>
   <div id="viewProductoras" style="display:none"></div>
@@ -2260,7 +2494,7 @@ const GENRES=[
   'Reencarnación','Viaje en el tiempo','Idols / Entretenimiento','Oficina / Trabajo','Food / Cocina',
 ];
 
-let state={month:new Date().getMonth(),year:new Date().getFullYear(),tab:'cal',series:[],movies:[],actresses:[]};
+let state={month:new Date().getMonth(),year:new Date().getFullYear(),tab:'cal',series:[],movies:[],actresses:[],ships:[],productoras:[],listas:[]};
 
 // ═══ SESSION PERSISTENCE ═══
 const SS_KEY='tintaSapphicState';
@@ -2494,6 +2728,7 @@ async function loadData(){
     state.actresses=d.actresses||[];
     state.ships=d.ships||[];
     state.productoras=d.productoras||[];
+    state.listas=d.listas||[];
     if(d.exportedAt){
       const dt=new Date(d.exportedAt);
       const badge=document.getElementById('updateBadge'); if(badge){badge.textContent='✓ Act. '+dt.toLocaleDateString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});badge.style.display='';}
@@ -2852,13 +3087,20 @@ function seriesCardHtml(s, si){
   // ── Badges
   const badges=[];
   if(s.seriesType==='webserie') badges.push(`<span class="badge" style="background:#e8f4fd;color:#2a7dbf;border:1px solid rgba(42,125,191,.3)">🌐 Web</span>`);
-  if(s.basedOnBook) badges.push(`<span class="badge badge-book">📖</span>`);
+  if(s.basedOnBook) badges.push(sourceTypeBadge(s));
   if(seasons.length>1) badges.push(`<span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">T${seasons.length}</span>`);
+  if(s.awards&&s.awards.length){
+    const wins=s.awards.filter(a=>a.result==='won').length;
+    badges.push(wins>0
+      ?`<span class="badge badge-award">🏆 ${wins} premio${wins!==1?'s':''}</span>`
+      :`<span class="badge badge-award">🎖 Nominada</span>`);
+  }
   const badgesHtml=`<div class="card-badges">${badges.join('')}</div>`;
 
   // ── Géneros (hasta 2)
   const genrePills=(s.genres&&s.genres.length)
     ?`<div class="sc-genres">${s.genres.slice(0,2).map(g=>`<span class="sc-genre-pill">${g}</span>`).join('')}</div>`:'';
+  const moodsPills=moodPillsHtml(s.moods,3);
 
   // ── Estado y próximo episodio
   let statusPill='';
@@ -2874,9 +3116,19 @@ function seriesCardHtml(s, si){
     statusPill=`<div class="sc-status-pill finished">✓ Finalizada${renewedTxt}</div>`;
   }
 
-  // ── Barra de progreso
-  const progressBar=`<div class="progress-wrap" style="margin-top:auto;padding-top:6px">
-    <div class="progress-fill" style="width:${pct}%;background:${col}"></div>
+  // ── Barra de progreso con indicador ep
+  const isFinishedCard=!next&&!todayEps.length;
+  const epLabelText=totalEps===0?''
+    :isFinishedCard?`${totalEps}/${totalEps} eps`
+    :`${aired}/${totalEps} eps`;
+  const progressBar=`<div class="progress-wrap">
+    <div class="progress-bar-row">
+      <span class="progress-ep-label">${epLabelText}</span>
+      <span class="progress-pct-label">${pct}%</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" style="width:${pct}%;background:${col}"></div>
+    </div>
   </div>`;
 
   // ── Año
@@ -2894,6 +3146,7 @@ function seriesCardHtml(s, si){
       ${s.nameEn?`<div style="font-size:10px;color:var(--muted);font-style:italic;line-height:1.3;margin-top:1px;margin-bottom:1px">${s.nameEn}</div>`:''}
       <div class="series-card-meta" style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">${s.network||''}${yearHtml&&s.network?' · ':''} ${yearHtml}</div>
       ${genrePills}
+      ${moodsPills}
       ${statusPill}
       ${durChip}
       ${progressBar}
@@ -2936,6 +3189,43 @@ function parseCountryParts(country){
  * countryFlag(country) — acepta valores simples ('Tailandia') o compuestos ('Tailandia / Japón').
  * Devuelve las banderas de todos los países concatenadas, o 🌐 si ninguno se reconoce.
  */
+function buildAwardsHtml(item){
+  if(!item.awards||!item.awards.length) return '';
+  const rows = item.awards.map(a=>{
+    const icon = a.result==='won'?'🏆':'🎖';
+    const resultHtml = a.result==='won'
+      ?'<span class="award-result won">Ganadora</span>'
+      :'<span class="award-result nominated">Nominada</span>';
+    const meta=[a.festival,a.year,a.category].filter(Boolean).join(' · ');
+    return `<div class="award-row">
+      <div class="award-icon">${icon}</div>
+      <div class="award-info">
+        <div class="award-name">${a.name||a.festival||'Premio'}</div>
+        ${meta?`<div class="award-meta">${meta}</div>`:''}
+      </div>
+      ${resultHtml}
+    </div>`;
+  }).join('');
+  return `<div class="awards-block">
+    <div class="awards-block-title">🏆 Premios y festivales</div>
+    <div class="awards-list">${rows}</div>
+  </div>`;
+}
+
+function sourceTypeBadge(s){
+  if(!s.basedOnBook) return '';
+  const types={
+    'novela':'📚 Novela','webnovel':'🌐 Webnovel','manhwa':'📖 Manhwa',
+    'manga':'🎌 Manga','manhua':'🐉 Manhua','novela-grafica':'🖼️ Nov. gráfica',
+    'webtoon':'📱 Webtoon','libro':'📕 Libro',
+  };
+  const icon=s.sourceType&&types[s.sourceType]?types[s.sourceType]:'📖 Libro';
+  return `<span class="badge badge-book">${icon}</span>`;
+}
+function moodPillsHtml(moods,max=3){
+  if(!moods||!moods.length) return '';
+  return `<div class="sc-moods">${moods.slice(0,max).map(m=>`<span class="sc-mood-pill">${m}</span>`).join('')}</div>`;
+}
 function countryFlag(country){
   const parts=parseCountryParts(country);
   if(!parts.length) return '🌐';
@@ -3564,7 +3854,7 @@ function renderUpcomingResults(){
     html+=`<div class="upcoming-card" onclick="openUpcoming(${si})">
       ${posterEl}
       <div class="upcoming-body">
-        <div class="card-badges"><span class="badge badge-upcoming">📅 Próximamente</span>${s.basedOnBook?'<span class="badge badge-book">📖 Libro</span>':''}</div>
+        <div class="card-badges"><span class="badge badge-upcoming">📅 Próximamente</span>${sourceTypeBadge(s)}</div>
         <div class="upcoming-name">${s.name}</div>
         <div class="upcoming-meta">${[s.year,s.country?(countryFlag(s.country)+' '+s.country):null,s.network].filter(Boolean).join(' · ')||'Sin detalles aún'}</div>
         ${watchRow}
@@ -3874,10 +4164,11 @@ function openSeries(si){
   const castCount=hasCast?s.cast.filter(m=>(state.actresses||[]).find(a=>a.id===m.actressId)).length:0;
 
   let html=`${posterEl}<div class="modal-body">
-  <div class="modal-badges">${s.basedOnBook?'<span class="badge badge-book">📖 Basada en libro</span>':''}${seasons.length>1?`<span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">${seasons.length} temporadas</span>`:''}${s.renewedNextSeason?'<span class="badge" style="background:var(--teal-soft);color:var(--teal);border:1px solid rgba(74,173,160,.3)">🔄 Renovada</span>':''}${s.seriesType==='webserie'?'<span class="badge" style="background:#e8f4fd;color:#2a7dbf;border:1px solid rgba(42,125,191,.3)">Web serie</span>':''}</div>
+  <div class="modal-badges">${sourceTypeBadge(s)}${seasons.length>1?`<span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">${seasons.length} temporadas</span>`:''}${s.renewedNextSeason?'<span class="badge" style="background:var(--teal-soft);color:var(--teal);border:1px solid rgba(74,173,160,.3)">🔄 Renovada</span>':''}${s.seriesType==='webserie'?'<span class="badge" style="background:#e8f4fd;color:#2a7dbf;border:1px solid rgba(42,125,191,.3)">Web serie</span>':''}</div>
   <div class="modal-title">${s.name}</div>
   ${s.nameEn?`<div style="font-size:13px;color:var(--muted);font-style:italic;margin-bottom:2px;margin-top:-2px">${s.nameEn}</div>`:''}
-  ${s.genres&&s.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 4px">${s.genres.map(g=>`<span style="font-size:11.5px;font-weight:700;padding:3px 11px;border-radius:20px;background:var(--accent-soft);color:var(--accent);border:1px solid rgba(201,79,124,.2)">${g}</span>`).join('')}</div>`:''}
+  ${s.genres&&s.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 2px">${s.genres.map(g=>`<span style="font-size:11.5px;font-weight:700;padding:3px 11px;border-radius:20px;background:var(--accent-soft);color:var(--accent);border:1px solid rgba(201,79,124,.2)">${g}</span>`).join('')}</div>`:''}
+  ${s.moods&&s.moods.length?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin:4px 0 4px">${s.moods.map(m=>`<span style="font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;background:var(--lavender-soft);color:var(--lavender);border:1px solid rgba(139,114,190,0.25)">${m}</span>`).join('')}</div>`:''}
   ${datesRowHtml}
   ${nextBadgeHtml}
   ${progressBlock}
@@ -3885,6 +4176,7 @@ function openSeries(si){
   ${s.trailerUrl?trailerHtml(s.trailerUrl):''}
   ${metaGrid?`<div class="modal-meta-grid">${metaGrid}</div>`:''}
   ${s.synopsis?`<div class="synopsis">${s.synopsis}</div>`:''}
+  ${buildAwardsHtml(s)}
   ${s.basedOnBook?(()=>{
     const hasCover=s.bookCoverUrl&&s.bookCoverUrl.trim();
     const hasTitle=s.bookSource&&s.bookSource.trim();
@@ -3892,7 +4184,9 @@ function openSeries(si){
     if(!hasCover&&!hasTitle&&!editions.length) return '';
     const coverEl=hasCover?`<img class="book-cover" src="${s.bookCoverUrl}" alt="Portada del libro" onerror="this.outerHTML='<div class=book-cover-ph>📖</div>'">`:`<div class="book-cover-ph">📖</div>`;
     const edPills=editions.map(e=>`<a class="book-edition-pill" href="${e.url}" target="_blank" rel="noopener"><span class="book-edition-flag">${langFlag(e.lang)}</span><span class="book-edition-store">${e.store}</span></a>`).join('');
-    return `<div class="book-block">${coverEl}<div class="book-info">${hasTitle?`<div class="book-title-text">📖 ${s.bookSource}</div>`:'<div class="book-title-text">📖 Basada en libro</div>'}${editions.length?`<div class="book-editions-row">${edPills}</div>`:''}</div></div>`;
+    const stypes={'novela':'📚 Novela','webnovel':'🌐 Webnovel','manhwa':'📖 Manhwa','manga':'🎌 Manga','manhua':'🐉 Manhua','novela-grafica':'🖼️ Nov. gráfica','webtoon':'📱 Webtoon','libro':'📕 Libro'};
+    const stLabel=s.sourceType&&stypes[s.sourceType]?stypes[s.sourceType]:'📖 Libro';
+    return `<div class="book-block">${coverEl}<div class="book-info"><div class="book-source-type" style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:2px">${stLabel}</div>${hasTitle?`<div class="book-title-text">${s.bookSource}</div>`:''}${editions.length?`<div class="book-editions-row">${edPills}</div>`:''}</div></div>`;
   })():''}
   <div class="divider"></div>
   <div class="modal-tabs">
@@ -3902,6 +4196,7 @@ function openSeries(si){
   </div>
   <div id="spanel_eps">${epsHtml}</div>
   <div id="spanel_cast" style="display:none">${castHtml}</div>
+  ${buildSimilarHtml(s,'serie')}
   <div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div>
   </div>`;
   document.getElementById('modalBox').innerHTML=html;
@@ -3946,7 +4241,7 @@ function openUpcoming(si){
   const castCount=s.cast&&s.cast.length?s.cast.filter(m=>(state.actresses||[]).find(a=>a.id===m.actressId)).length:0;
 
   let html=`${posterEl}<div class="modal-body">
-  <div class="modal-badges"><span class="badge badge-upcoming">📅 Próximamente</span>${s.basedOnBook?'<span class="badge badge-book">📖 Libro</span>':''}</div>
+  <div class="modal-badges"><span class="badge badge-upcoming">📅 Próximamente</span>${sourceTypeBadge(s)}</div>
   <div class="modal-title">${s.name}</div>
   ${s.nameEn?`<div style="font-size:13px;color:var(--muted);font-style:italic;margin-bottom:2px;margin-top:-2px">${s.nameEn}</div>`:''}
   <div class="modal-completeness">
@@ -3967,7 +4262,8 @@ function openUpcoming(si){
     const coverEl=hasCover?`<img class="book-cover" src="${s.bookCoverUrl}" alt="Portada del libro" onerror="this.outerHTML='<div class=book-cover-ph>📖</div>'">`:`<div class="book-cover-ph">📖</div>`;
     const edPills=editions.map(e=>`<a class="book-edition-pill" href="${e.url}" target="_blank" rel="noopener"><span class="book-edition-flag">${langFlag(e.lang)}</span><span class="book-edition-store">${e.store}</span></a>`).join('');
     return `<div class="book-block">${coverEl}<div class="book-info">
-      ${hasTitle?`<div class="book-title-text">📖 ${s.bookSource}</div>`:'<div class="book-title-text">📖 Basada en libro</div>'}
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:2px">${(()=>{const _t={'novela':'📚 Novela','webnovel':'🌐 Webnovel','manhwa':'📖 Manhwa','manga':'🎌 Manga','manhua':'🐉 Manhua','novela-grafica':'🖼️ Nov. Gráfica','webtoon':'📱 Webtoon','libro':'📕 Libro'};return s.sourceType&&_t[s.sourceType]?_t[s.sourceType]:'📖 Libro'})()}</div>
+      ${hasTitle?`<div class="book-title-text">${s.bookSource}</div>`:''}
       ${editions.length?`<div class="book-editions-row">${edPills}</div>`:''}
     </div></div>`;
   })():''}
@@ -3976,7 +4272,8 @@ function openUpcoming(si){
     <button class="modal-tab active" id="uptab_cast" onclick="switchUpcomingModalTab('cast')">🎭 Cast<span style="font-size:10px;background:var(--accent-soft);color:var(--accent);border-radius:20px;padding:1px 7px;margin-left:3px;font-weight:700">${castCount}</span></button>
   </div>
   <div id="uppanel_cast">${castHtml}</div>`:''}
-  <div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div></div>`;
+  
+  ${buildSimilarHtml(s,'serie')}<div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div></div>`;
   document.getElementById('modalBox').innerHTML=html;
   document.getElementById('modalBg').classList.add('open');
   _pushModal('modal');
@@ -3994,7 +4291,7 @@ function switchUpcomingModalTab(tab){
 function openMovie(mi){
   const mv=state.movies[mi], now=new Date();
   const isPast=mv.date&&new Date(mv.date+'T12:00:00')<=now;
-  const posterEl=mv.poster?`<img class="modal-poster-full" src="${mv.poster}" alt="${mv.name}" onerror="this.outerHTML='<div class=modal-poster-full-ph>🎥</div>'">`:`<div class="modal-poster-full-ph">🎥</div>`;
+  const posterEl=mv.poster?`<img class="modal-poster-full" src="${mv.poster}" alt="${mv.name}" style="border-top:3px solid var(--movie-accent)" onerror="this.outerHTML='<div class=modal-poster-full-ph>🎥</div>'">`:`<div class="modal-poster-full-ph">🎥</div>`;
   // Release badge
   let releaseBadgeHtml='';
   if(mv.date){
@@ -4032,23 +4329,27 @@ function openMovie(mi){
     const coverEl=hasCover?`<img class="book-cover" src="${mv.bookCoverUrl}" alt="Portada del libro" onerror="this.outerHTML='<div class=book-cover-ph>📖</div>'">`:`<div class="book-cover-ph">📖</div>`;
     const edPills=editions.map(e=>`<a class="book-edition-pill" href="${e.url}" target="_blank" rel="noopener"><span class="book-edition-flag">${langFlag(e.lang)}</span><span class="book-edition-store">${e.store}</span></a>`).join('');
     return `<div class="book-block">${coverEl}<div class="book-info">
-      ${hasTitle?`<div class="book-title-text">📖 ${mv.bookSource}</div>`:'<div class="book-title-text">📖 Basada en libro</div>'}
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:2px">${(()=>{const _t={'novela':'📚 Novela','webnovel':'🌐 Webnovel','manhwa':'📖 Manhwa','manga':'🎌 Manga','manhua':'🐉 Manhua','novela-grafica':'🖼️ Nov. Gráfica','webtoon':'📱 Webtoon','libro':'📕 Libro'};return mv.sourceType&&_t[mv.sourceType]?_t[mv.sourceType]:'📖 Libro'})()}</div>
+      ${hasTitle?`<div class="book-title-text">${mv.bookSource}</div>`:''}
       ${editions.length?`<div class="book-editions-row">${edPills}</div>`:''}
     </div></div>`;
   })();
-  const watchLinksHtml=(()=>{const links=mv.watchLinks&&mv.watchLinks.length?mv.watchLinks:(mv.networkUrl?[{name:mv.network||'Ver película',url:mv.networkUrl}]:[]);if(!links.length)return '';return `<div class="watch-links-label">▶ Dónde ver</div><div class="watch-links">${links.map(l=>`<a class="watch-link" href="${l.url}" target="_blank" rel="noopener" style="background:var(--lavender-soft);color:var(--lavender);border-color:rgba(155,130,201,.35)"><span class="watch-link-icon">▶</span>${l.name}</a>`).join('')}</div>`;})();
+  const watchLinksHtml=(()=>{const links=mv.watchLinks&&mv.watchLinks.length?mv.watchLinks:(mv.networkUrl?[{name:mv.network||'Ver película',url:mv.networkUrl}]:[]);if(!links.length)return '';return `<div class="watch-links-label">▶ Dónde ver</div><div class="watch-links">${links.map(l=>`<a class="watch-link" href="${l.url}" target="_blank" rel="noopener" style="background:var(--movie-bar);color:var(--movie-accent);border-color:var(--movie-border)"><span class="watch-link-icon">▶</span>${l.name}</a>`).join('')}</div>`;})();
   const castHtml=buildCastHtml(mv.cast||[]);
   const castCount=mv.cast&&mv.cast.length?mv.cast.filter(m=>(state.actresses||[]).find(a=>a.id===m.actressId)).length:0;
   let html=`${posterEl}<div class="modal-body">
-  <div class="modal-badges">${mvModalTypeBadge}${mv.basedOnBook?'<span class="badge badge-book">📖 Libro</span>':''}${isPast?'<span class="badge" style="background:var(--teal-soft);color:var(--teal)">✓ Estrenada</span>':'<span class="badge" style="background:var(--accent-soft);color:var(--accent)">⏳ Próximamente</span>'}</div>
+  <div class="modal-badges">${mvModalTypeBadge}${sourceTypeBadge(mv)}${isPast?'<span class="badge" style="background:var(--teal-soft);color:var(--teal)">✓ Estrenada</span>':'<span class="badge" style="background:var(--accent-soft);color:var(--accent)">⏳ Próximamente</span>'}</div>
   <div class="modal-title">${mv.name}</div>
   ${mv.nameEn?`<div style="font-size:13px;color:var(--muted);font-style:italic;margin-bottom:2px;margin-top:-2px">${mv.nameEn}</div>`:''}
   ${chipsHtml}
+  ${mv.genres&&mv.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 2px">${mv.genres.map(g=>`<span style="font-size:11.5px;font-weight:700;padding:3px 11px;border-radius:20px;background:var(--lavender-soft);color:var(--lavender);border:1px solid rgba(139,114,190,0.2)">${g}</span>`).join('')}</div>`:''}
+  ${mv.moods&&mv.moods.length?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin:4px 0">${mv.moods.map(m=>`<span style="font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;background:var(--lavender-soft);color:var(--lavender);border:1px solid rgba(139,114,190,0.25)">${m}</span>`).join('')}</div>`:''}
   ${releaseBadgeHtml}
   ${watchLinksHtml}
   ${mv.trailerUrl?trailerHtml(mv.trailerUrl):''}
   ${metaGrid?`<div class="modal-meta-grid">${metaGrid}</div>`:''}
   ${mv.synopsis?`<div class="synopsis">${mv.synopsis}</div>`:''}
+  ${buildAwardsHtml(mv)}
   ${bookBlock}
   ${castCount?`<div class="divider"></div>
   <div class="modal-tabs">
@@ -4057,7 +4358,8 @@ function openMovie(mi){
   </div>
   <div id="mvpanel_info" style="display:none"></div>
   <div id="mvpanel_cast">${castHtml}</div>`:''}
-  <div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div></div>`;
+  
+  ${buildSimilarHtml(mv,'pelicula')}<div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div></div>`;
   document.getElementById('modalBox').innerHTML=html;
   document.getElementById('modalBg').classList.add('open');
   _pushModal('modal');
@@ -4108,24 +4410,26 @@ function movieCardHtml(mv){
     ?`<div class="movie-card-poster-wrap"><img class="movie-card-poster" src="${mv.poster}" alt="${mv.name}" onerror="this.outerHTML='<div class=movie-card-poster-ph>🎥</div>'"></div>`
     :`<div class="movie-card-poster-wrap"><div class="movie-card-poster-ph">🎥</div></div>`;
   const links=mv.watchLinks&&mv.watchLinks.length?mv.watchLinks:(mv.networkUrl?[{name:mv.network||'Ver',url:mv.networkUrl}]:[]);
-  const watchRow=links.length?`<div class="movie-card-watch">${links.map(l=>`<a class="card-watch-pill" style="background:var(--lavender-soft);color:var(--lavender);border-color:rgba(155,130,201,.3)" href="${l.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ ${l.name}</a>`).join('')}</div>`:'';
+  const watchRow=links.length?`<div class="movie-card-watch">${links.map(l=>`<a class="card-watch-pill" style="background:var(--movie-bar);color:var(--movie-accent);border-color:var(--movie-border)" href="${l.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ ${l.name}</a>`).join('')}</div>`:'';
   const dateEl=mv.date
     ?(isPast?`<div class="movie-card-date" style="color:var(--teal)">✓ ${fmtDate(mv.date)}</div>`
-            :`<div class="movie-card-date">📅 ${fmtDate(mv.date)}</div>`)
+            :`<div class="movie-card-date" style="color:var(--movie-accent)">🎬 ${fmtDate(mv.date)}</div>`)
     :'<div class="movie-card-date" style="color:var(--muted)">Fecha por confirmar</div>';
   const mvGenrePills=mv.genres&&mv.genres.length
     ?`<div style="display:flex;flex-wrap:wrap;gap:3px;margin-top:5px">${mv.genres.slice(0,3).map(g=>`<span style="font-size:9.5px;padding:2px 7px;border-radius:20px;background:var(--surface2);border:1px solid var(--border);color:var(--muted);font-weight:600;cursor:pointer" onclick="event.stopPropagation();moviesFilters.genre='${g}';renderMoviesResults()">${g}</span>`).join('')}${mv.genres.length>3?`<span style="font-size:9.5px;padding:2px 6px;border-radius:20px;background:var(--surface2);color:var(--muted)">+${mv.genres.length-3}</span>`:''}</div>`:'';
+  const mvMoodPills=moodPillsHtml(mv.moods,2);
   const typeBadge=mv.movieType==='short'
     ?`<span class="badge" style="background:#fdf3e7;color:#c47b1a;border:1px solid rgba(196,123,26,.3)">🎞️ Corto</span>`
     :`<span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">Película</span>`;
   const durationEl=mv.duration?`<span style="font-size:10.5px;color:var(--muted);font-weight:600">⏱ ${fmtDuration(mv.duration)}</span>`:'';
   return `<div class="movie-card" onclick="openMovie(${mi})">${posterEl}
     <div class="movie-card-body">
-      <div class="card-badges">${typeBadge}${mv.basedOnBook?'<span class="badge badge-book">📖 Libro</span>':''}${mv.country?`<span class="badge" style="background:var(--surface2);color:var(--muted)">${countryFlag(mv.country)} ${mv.country}</span>`:''}</div>
+      <div class="card-badges">${typeBadge}${sourceTypeBadge(mv)}${mv.country?`<span class="badge" style="background:var(--surface2);color:var(--muted)">${countryFlag(mv.country)} ${mv.country}</span>`:''}${mv.awards&&mv.awards.length?(mv.awards.filter(a=>a.result==='won').length>0?`<span class="badge badge-award">🏆 ${mv.awards.filter(a=>a.result==='won').length} premio${mv.awards.filter(a=>a.result==='won').length!==1?'s':''}</span>`:`<span class="badge badge-award">🎖 Nominada</span>`):''}</div>
       <div class="movie-card-name">${mv.name}</div>
       ${mv.nameEn?`<div style="font-size:10px;color:var(--muted);font-style:italic;line-height:1.3;margin-top:1px;margin-bottom:1px">${mv.nameEn}</div>`:''}
       <div class="movie-card-meta" style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">${mv.network?`<span>${mv.network}</span>`:''}${durationEl}</div>
       ${mvGenrePills}
+      ${mvMoodPills}
       ${dateEl}
       ${watchRow}
     </div></div>`;
@@ -4609,7 +4913,7 @@ function renderAnimeResults(){
       html+=`<div class="series-card" onclick="openAnimeDetail('series','${s.id||s.name}')">
         ${posterEl}
         <div class="series-card-body">
-          <div class="card-badges">${s.basedOnBook?`<span class="badge badge-book">📖 ${s.bookSource||'Manga'}</span>`:''}${s.country?`<span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">${countryFlag(s.country)} ${s.country}</span>`:''}</div>
+          <div class="card-badges">${sourceTypeBadge(s)}${s.country?`<span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">${countryFlag(s.country)} ${s.country}</span>`:''}</div>
           <div class="series-card-name">${s.name}</div>
           <div class="series-card-meta">${[s.network,year?'📅 '+year:null,s.totalEpisodes?'📺 '+s.totalEpisodes+' ep.':null].filter(Boolean).join(' · ')}</div>
           ${genrePills}
@@ -4638,7 +4942,7 @@ function renderAnimeResults(){
       html+=`<div class="movie-card" onclick="openAnimeDetail('movie','${mv.id||mv.name}')">
         ${posterEl}
         <div class="movie-card-body">
-          <div class="card-badges">${mv.basedOnBook?`<span class="badge badge-book">📖 ${mv.bookSource||'Manga'}</span>`:''}${mv.country?`<span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">${countryFlag(mv.country)} ${mv.country}</span>`:''}</div>
+          <div class="card-badges">${sourceTypeBadge(mv)}${mv.country?`<span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">${countryFlag(mv.country)} ${mv.country}</span>`:''}</div>
           <div class="movie-card-name">${mv.name}</div>
           <div class="movie-card-meta">🎥 Película · ${dateStr}</div>
           ${genrePills}
@@ -4664,7 +4968,7 @@ function openRichDetail(item, opts){
 
   // Badges
   let badgeHtml='';
-  if(item.basedOnBook) badgeHtml+=`<span class="badge badge-book">📖 ${item.bookSource||'Manga/Novela'}</span>`;
+  if(item.basedOnBook) badgeHtml+=sourceTypeBadge(item);
   if(item.seasons&&item.seasons.length>1) badgeHtml+=`<span class="badge" style="background:${accentSoft};color:${accentColor}">${item.seasons.length} temporadas</span>`;
   if(!isSeries) badgeHtml+=`<span class="badge" style="background:${accentSoft};color:${accentColor}">${typeIcon} ${typeLabel}</span>`;
 
@@ -5343,9 +5647,9 @@ function renderPicks2026(){
 function switchTab(tab, fromPopstate=false){
   state.tab=tab;
   saveSession();
-  const moreTabs=['books','actresses','anime','realities','documentales','productoras'];
+  const moreTabs=['books','actresses','anime','realities','documentales','productoras','listas'];
   const picksTabs=['top10','picks2026'];
-  const allTabs=['cal','list','movies','upcoming','books','anime','realities','documentales','actresses','top10','picks2026','ships','productoras','canceladas'];
+  const allTabs=['cal','list','movies','upcoming','books','anime','realities','documentales','actresses','top10','picks2026','ships','productoras','canceladas','listas'];
 
   allTabs.forEach(t=>{
     const view=document.getElementById('view'+t.charAt(0).toUpperCase()+t.slice(1));
@@ -5390,6 +5694,7 @@ function switchTab(tab, fromPopstate=false){
   if(tab==='ships') renderShips();
   if(tab==='canceladas') renderCanceladas();
   if(tab==='productoras') renderProductoras();
+  if(tab==='listas') renderListas();
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
@@ -6523,3 +6828,289 @@ document.addEventListener('keydown', e => {
 
 </body>
 </html>
+<script>
+// ══════════════════════════════════════════════════════════════════════════════
+// LISTAS TEMÁTICAS CURADAS
+// ══════════════════════════════════════════════════════════════════════════════
+
+let listasViewMode = 'grid'; // 'grid' | 'open'
+let listasOpenIdx = -1;
+
+function renderListas(){
+  const view = document.getElementById('viewListas');
+  if(!view) return;
+  const listas = state.listas || [];
+
+  if(listasViewMode === 'open' && listasOpenIdx >= 0 && listas[listasOpenIdx]){
+    _renderListaOpen(view, listas[listasOpenIdx]);
+    return;
+  }
+  listasViewMode = 'grid';
+  _renderListasGrid(view, listas);
+}
+
+function _renderListasGrid(view, listas){
+  if(!listas.length){
+    view.innerHTML = `<div style="text-align:center;padding:3rem 1rem">
+      <div style="font-size:3rem;margin-bottom:1rem;opacity:.4">📋</div>
+      <div style="font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--text);margin-bottom:.5rem">Sin listas todavía</div>
+      <div style="font-size:13px;color:var(--muted)">Las listas temáticas curadas aparecerán aquí cuando las crees desde el panel de administración.</div>
+    </div>`;
+    return;
+  }
+
+  const cards = listas.map((l, li)=>{
+    const allSeries = state.series || [];
+    const allMovies = state.movies || [];
+    const seriesIds = l.seriesIds || [];
+    const movieIds  = l.movieIds  || [];
+    const total = seriesIds.length + movieIds.length;
+
+    // Poster strip — up to 5 items
+    const stripItems = [
+      ...seriesIds.map(id => allSeries.find(s=>s.id===id)).filter(Boolean),
+      ...movieIds.map(id => allMovies.find(m=>m.id===id)).filter(Boolean),
+    ].slice(0, 5);
+
+    const strip = stripItems.map(it=>
+      it.poster
+        ? `<div class="lista-poster-thumb"><img src="${it.poster}" alt="${it.name}" loading="lazy" onerror="this.outerHTML='<div class=lista-poster-ph>🎬</div>'"></div>`
+        : `<div class="lista-poster-thumb"><div class="lista-poster-ph">🎬</div></div>`
+    ).join('');
+
+    return `<div class="lista-card" onclick="openLista(${li})">
+      ${strip ? `<div class="lista-posters-strip">${strip}</div>` : ''}
+      <div class="lista-card-header">
+        <div class="lista-card-emoji">${l.emoji||'📋'}</div>
+        <div class="lista-card-meta">
+          <div class="lista-card-title">${l.title}</div>
+          ${l.desc ? `<div class="lista-card-desc">${l.desc}</div>` : ''}
+          <div class="lista-card-count">${total} título${total!==1?'s':''}</div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  view.innerHTML = `
+    <div style="margin-bottom:1rem">
+      <div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--text);letter-spacing:-.01em;margin-bottom:.25rem">
+        Listas <em style="color:var(--lavender);font-style:italic">GL</em>
+      </div>
+      <div style="font-size:13px;color:var(--muted)">Selecciones curadas por temáticas, mood y estilo.</div>
+    </div>
+    <div class="listas-grid">${cards}</div>`;
+}
+
+function openLista(li){
+  listasViewMode = 'open';
+  listasOpenIdx = li;
+  renderListas();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function _renderListaOpen(view, l){
+  const allSeries = state.series || [];
+  const allMovies = state.movies || [];
+  const seriesIds = l.seriesIds || [];
+  const movieIds  = l.movieIds  || [];
+
+  const seriesItems = seriesIds.map(id=>{
+    const s = allSeries.find(x=>x.id===id);
+    if(!s) return '';
+    const si = allSeries.indexOf(s);
+    const seasons = getSeasons(s);
+    const totalEps = seasons.reduce((a,t)=>a+t.totalEpisodes,0);
+    const poster = s.poster
+      ? `<div class="series-card-poster-wrap"><img class="series-card-poster" src="${s.poster}" alt="${s.name}" onerror="this.outerHTML='<div class=series-card-poster-ph>🎬</div>'">${s.country?`<span class="sc-country-flag">${countryFlag(s.country)}</span>`:''}</div>`
+      : `<div class="series-card-poster-wrap"><div class="series-card-poster-ph">🎬</div></div>`;
+    const moodsPills = moodPillsHtml(s.moods, 2);
+    return `<div class="series-card" onclick="openSeries(${si})">
+      ${poster}
+      <div class="series-card-body">
+        <div class="card-badges">${sourceTypeBadge(s)}</div>
+        <div class="series-card-name">${s.name}</div>
+        ${s.genres&&s.genres.length?`<div class="sc-genres">${s.genres.slice(0,2).map(g=>`<span class="sc-genre-pill">${g}</span>`).join('')}</div>`:''}
+        ${moodsPills}
+        <div style="font-size:10px;color:var(--muted);font-weight:600;margin-top:4px">${[s.country?countryFlag(s.country)+' '+s.country:'',s.year].filter(Boolean).join(' · ')}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  const movieItems = movieIds.map(id=>{
+    const mv = allMovies.find(x=>x.id===id);
+    if(!mv) return '';
+    const mi = allMovies.indexOf(mv);
+    const poster = mv.poster
+      ? `<div class="movie-card-poster-wrap"><img class="movie-card-poster" src="${mv.poster}" alt="${mv.name}" onerror="this.outerHTML='<div class=movie-card-poster-ph>🎬</div>'"></div>`
+      : `<div class="movie-card-poster-wrap"><div class="movie-card-poster-ph">🎥</div></div>`;
+    return `<div class="movie-card" onclick="openMovie(${mi})">
+      ${poster}
+      <div class="movie-card-body">
+        <div class="card-badges">${sourceTypeBadge(mv)}${mv.country?`<span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">${countryFlag(mv.country)} ${mv.country}</span>`:''}</div>
+        <div class="movie-card-name">${mv.name}</div>
+        ${mv.genres&&mv.genres.length?`<div class="sc-genres">${mv.genres.slice(0,2).map(g=>`<span class="sc-genre-pill">${g}</span>`).join('')}</div>`:''}
+        ${moodPillsHtml(mv.moods,2)}
+        <div class="movie-card-date">${mv.year||''}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  const allItems = seriesItems + movieItems;
+  const total = seriesIds.length + movieIds.length;
+
+  view.innerHTML = `
+    <button class="lista-back-btn" onclick="listasViewMode='grid';renderListas()">← Volver a listas</button>
+    <div class="lista-panel-header">
+      <div class="lista-panel-emoji">${l.emoji||'📋'}</div>
+      <div>
+        <div class="lista-panel-title">${l.title}</div>
+        ${l.desc?`<div class="lista-panel-desc">${l.desc}</div>`:''}
+        <div style="font-size:12px;color:var(--lavender);font-weight:700;margin-top:4px">${total} título${total!==1?'s':''}</div>
+      </div>
+    </div>
+    <div class="listas-items-grid">${allItems||'<div style="color:var(--muted);font-size:13px;font-style:italic">Esta lista no tiene títulos asignados todavía.</div>'}</div>`;
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// MOTOR "SI TE GUSTÓ X → PRUEBA Y"
+// ══════════════════════════════════════════════════════════════════════════════
+
+function getSimilarItems(item, type, limit=6){
+  // Recoge todo el catálogo combinado (series + películas)
+  const allSeries = (state.series||[]).filter(s=>s.category==='series'||!s.category);
+  const allMovies = state.movies||[];
+
+  const iGenres    = item.genres||[];
+  const iMoods     = item.moods||[];
+  const iCountry   = item.country||'';
+  const iSource    = item.sourceType||'';
+  const iProductora= item.productoraId||'';
+
+  function score(candidate, candType){
+    if(candidate===item) return -1; // skip self
+    if(!candidate.poster) return -1; // sin poster no tiene sentido mostrarlo
+    let s = 0;
+    // Productora coincide → +4
+    if(iProductora && (candidate.productoraId||'')===iProductora) s += 4;
+    // País coincide → +3
+    if(iCountry && (candidate.country||'')=== iCountry) s += 3;
+    // Moods compartidos → +3 cada uno (máx 2)
+    const sharedMoods = (candidate.moods||[]).filter(m=>iMoods.includes(m));
+    s += Math.min(sharedMoods.length,2)*3;
+    // Géneros compartidos → +2 cada uno (máx 3 géneros)
+    const sharedGenres = (candidate.genres||[]).filter(g=>iGenres.includes(g));
+    s += Math.min(sharedGenres.length,3)*2;
+    // Tipo de fuente coincide → +1
+    if(iSource && (candidate.sourceType||'')===iSource) s += 1;
+    // Al menos 2 puntos para que aparezca
+    return s >= 2 ? s : -1;
+  }
+
+  let candidates = [];
+  allSeries.forEach(s=>{ const sc=score(s,'serie'); if(sc>0) candidates.push({item:s,type:'serie',sc}); });
+  allMovies.forEach(m=>{ const sc=score(m,'pelicula'); if(sc>0) candidates.push({item:m,type:'pelicula',sc}); });
+
+  // Sort by score desc, then by name
+  candidates.sort((a,b)=>b.sc-a.sc||a.item.name.localeCompare(b.item.name,'es'));
+  return candidates.slice(0,limit);
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// MODO OSCURO
+// ══════════════════════════════════════════════════════════════════════════════
+
+function toggleDark(){
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const next = isDark ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('tsSapphicTheme', next);
+  _syncDarkBtn();
+}
+
+function _syncDarkBtn(){
+  const btn = document.getElementById('darkToggleBtn');
+  if(!btn) return;
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  btn.textContent = isDark ? '☀️' : '🌙';
+  btn.title = isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro';
+}
+
+// Sync on load + listen for OS change
+window.addEventListener('DOMContentLoaded', _syncDarkBtn);
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e=>{
+  if(!localStorage.getItem('tsSapphicTheme')){
+    document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+    _syncDarkBtn();
+  }
+});
+
+function scrollSimilar(stripId, dir){
+  const strip = document.getElementById(stripId);
+  if(!strip) return;
+  // Scroll by ~3 card widths (110px + 10px gap = 120px each)
+  strip.scrollBy({left: dir * 120 * 3, behavior: 'smooth'});
+}
+
+function updateSimilarArrows(stripId){
+  const strip = document.getElementById(stripId);
+  const prev  = document.getElementById(stripId + '_prev');
+  const next  = document.getElementById(stripId + '_next');
+  if(!strip || !prev || !next) return;
+  const atStart = strip.scrollLeft <= 4;
+  const atEnd   = strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 4;
+  prev.disabled = atStart;
+  next.disabled = atEnd;
+}
+
+function buildSimilarHtml(item, type){
+  const similar = getSimilarItems(item, type, 6);
+  if(!similar.length) return '';
+
+  const allSeries = state.series||[];
+  const allMovies = state.movies||[];
+
+  const cards = similar.map(({item:it,type:t,sc})=>{
+    const idx = t==='serie' ? allSeries.indexOf(it) : allMovies.indexOf(it);
+    const onClick = t==='serie' ? `closeModal();openSeries(${idx})` : `closeModal();openMovie(${idx})`;
+    const sharedGenres = (it.genres||[]).filter(g=>(item.genres||[]).includes(g));
+    const sharedMoods  = (it.moods||[]).filter(m=>(item.moods||[]).includes(m));
+    const reasonParts = [];
+    if(it.country && it.country===item.country) reasonParts.push(countryFlag(it.country)+' '+it.country);
+    if(sharedGenres.length) reasonParts.push(sharedGenres.slice(0,2).join(', '));
+    if(sharedMoods.length)  reasonParts.push(sharedMoods[0]);
+    const reason = reasonParts.slice(0,2).join(' · ');
+
+    const poster = it.poster
+      ? `<img class="similar-poster" src="${it.poster}" alt="${it.name}" loading="lazy" onerror="this.outerHTML='<div class=similar-poster-ph>🎬</div>'">`
+      : `<div class="similar-poster-ph">🎬</div>`;
+
+    return `<div class="similar-card" onclick="${onClick}">
+      ${poster}
+      <div class="similar-info">
+        <div class="similar-name">${it.name}</div>
+        ${reason?`<div class="similar-score">${reason}</div>`:''}
+      </div>
+    </div>`;
+  }).join('');
+
+  const stripId = 'simStrip_' + Date.now();
+  // Show arrows only if more than 3 cards (they won't all fit)
+  const showArrows = similar.length > 3;
+  const arrowsHtml = showArrows
+    ? `<div class="similar-nav">
+        <button class="similar-nav-btn" id="${stripId}_prev" onclick="scrollSimilar('${stripId}',-1)" title="Anterior">&#8592;</button>
+        <button class="similar-nav-btn" id="${stripId}_next" onclick="scrollSimilar('${stripId}',1)" title="Siguiente">&#8594;</button>
+      </div>` : '';
+  // After render, update arrow states
+  if(showArrows) setTimeout(()=>updateSimilarArrows(stripId), 50);
+  return `<div class="similar-section">
+    <div class="similar-header">
+      <div class="similar-title">✦ Si te gustó esta, prueba…</div>
+      ${arrowsHtml}
+    </div>
+    <div class="similar-scroll-wrap">
+      <div class="similar-strip" id="${stripId}" onscroll="updateSimilarArrows('${stripId}')">${cards}</div>
+    </div>
+  </div>`;
+}
+</script>
