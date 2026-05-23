@@ -937,60 +937,6 @@
       "productoraId": "1779177933075"
     },
     {
-      "id": "1776889550180",
-      "name": "Shades Cut Version",
-      "poster": "https://i.mydramalist.com/oQpb4x_4f.jpg",
-      "startDate": "2026-04-18",
-      "dayOfWeek": 5,
-      "emissionDays": [
-        5
-      ],
-      "totalEpisodes": 12,
-      "network": "",
-      "skipDates": [],
-      "episodes": [],
-      "synopsis": "En el internado femenino más elitista de Tailandia, las reglas están para romperse. Seis alumnas y una profesora desatan una tormenta de escándalos, deseo y revolución digital. A medida que amores ocultos y secretos explosivos chocan, destrozarán el mito de la chica buena y redefinirán lo que significa crecer en la era de los vídeos virales y la cultura de la cancelación",
-      "year": 2026,
-      "country": "Tailandia",
-      "networkUrl": "",
-      "watchLinks": [],
-      "trailerUrl": "https://youtu.be/wtBVUpEJBmA",
-      "bookSource": "",
-      "basedOnBook": false,
-      "bookCoverUrl": "",
-      "bookUrl": "",
-      "upcoming": false,
-      "bookLinks": [],
-      "genres": [
-        "Comedia",
-        "Drama",
-        "Escolar",
-        "Romance"
-      ],
-      "seasons": [
-        {
-          "label": "Temporada 1",
-          "startDate": "2026-04-18",
-          "totalEpisodes": 6,
-          "emissionDays": [
-            5
-          ],
-          "allInOneDay": false,
-          "skipDates": [],
-          "episodes": [],
-          "premiereSchedule": []
-        }
-      ],
-      "nameEn": "เด็ก เรียบ ร้าย",
-      "category": "series",
-      "seriesType": "serie",
-      "cast": [],
-      "animeSeason": "",
-      "renewedNextSeason": false,
-      "episodeDuration": 48,
-      "updatedAt": "2026-05-15T07:35:19.359Z"
-    },
-    {
       "id": "1776930878872",
       "name": "The Fire",
       "poster": "https://i.mydramalist.com/VXlwOm_4c.jpg?v=1",
@@ -1754,8 +1700,8 @@
         }
       ],
       "animeSeason": "",
-      "renewedNextSeason": false,
-      "updatedAt": "2026-05-18T20:52:13.006Z",
+      "renewedNextSeason": true,
+      "updatedAt": "2026-05-23T17:33:14.673Z",
       "nameEn": "เด็ก เรียบ ร้าย",
       "episodeDuration": 48,
       "myPick": false,
@@ -1765,7 +1711,10 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779137481839"
+      "productoraId": "1779137481839",
+      "sourceType": "",
+      "moods": [],
+      "awards": []
     },
     {
       "id": "1776966800863",
@@ -33034,7 +32983,13 @@
         "1777584355784",
         "1700000000236"
       ],
-      "movieIds": [],
+      "movieIds": [
+        "1700000000233",
+        "1700000000236",
+        "1700000000266",
+        "1700000000123",
+        "1700000000234"
+      ],
       "id": "1779436788054"
     },
     {
@@ -33051,7 +33006,13 @@
         "1700000000180",
         "1700000000179"
       ],
-      "movieIds": [],
+      "movieIds": [
+        "1700000000244",
+        "1700000000243",
+        "1700000000267",
+        "1700000000180",
+        "1700000000179"
+      ],
       "id": "1779436891444"
     },
     {
@@ -33065,9 +33026,13 @@
         "1777751254463",
         "1700000000268"
       ],
-      "movieIds": [],
+      "movieIds": [
+        "1700000000158",
+        "1700000000268",
+        "1700000000159"
+      ],
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-05-22T08:12:50.746Z"
+  "exportedAt": "2026-05-23T17:33:48.643Z"
 }
