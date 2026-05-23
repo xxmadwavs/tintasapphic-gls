@@ -710,7 +710,7 @@ footer{
   border:1.5px solid var(--border);padding:6px;
   background:var(--surface);transition:all .18s;
 }
-.day-cell.has-eps{cursor:pointer;background:rgba(255,255,255,1)}
+.day-cell.has-eps{cursor:pointer;background:var(--surface)}
 .day-cell.has-eps:hover{
   border-color:var(--accent2);
   box-shadow:0 6px 20px rgba(201,79,124,0.14);
@@ -785,11 +785,13 @@ footer{
   background:rgba(255,255,255,0.85);border-radius:2px;
   box-shadow:0 0 4px rgba(0,0,0,.2);pointer-events:none;
 }
-.day-cell.is-past{background:rgba(245,240,243,0.7)}
-.day-cell.is-past .day-num{color:rgba(138,104,120,0.5)}
+.day-cell.is-past{background:var(--surface2)}
+.day-cell.is-past .day-num{color:var(--muted);opacity:.45}
 .day-cell.is-past .ep-pill{opacity:.55}
-.day-cell.is-future{background:#fff}
+.day-cell.is-future{background:var(--surface2)}
 .day-cell.today{border-color:var(--accent)!important;border-width:2px!important;background:rgba(252,232,241,0.5)!important}
+html[data-theme="dark"] .day-cell.today{background:rgba(224,114,154,0.12)!important}
+html[data-theme="dark"] .day-cell.has-eps{background:var(--surface3)}
 .card-badges{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:4px;min-height:20px;align-items:center}
 .badge{font-size:9.5px;padding:2px 8px;border-radius:20px;font-weight:700;letter-spacing:.02em}
 .badge-book{background:var(--gold-soft);color:var(--gold)}
