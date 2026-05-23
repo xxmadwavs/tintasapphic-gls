@@ -29781,7 +29781,7 @@
       "bookLinks": [],
       "bookUrl": "",
       "category": "movie",
-      "updatedAt": "2026-05-14T21:16:06.141Z",
+      "updatedAt": "2026-05-23T19:09:43.391Z",
       "movieType": "film",
       "duration": 130,
       "cast": [
@@ -29804,7 +29804,13 @@
           "coupleNum": 1
         }
       ],
-      "nameEn": "ยูเรนัส"
+      "nameEn": "ยูเรนัส",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "awards": [],
+      "productoraId": "1779136135118"
     },
     {
       "id": "1700000000295",
@@ -30713,6 +30719,82 @@
       "duration": 12,
       "cast": [],
       "updatedAt": "2026-05-16T16:56:42.440Z"
+    },
+    {
+      "id": "1779563162320",
+      "name": "Montreal, My Beautiful",
+      "nameEn": "Montréal, ma belle",
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/0/6/5/1/8/5/1065185-montreal-my-beautiful-0-1000-0-1500-crop.jpg?v=ef6229f4c6",
+      "synopsis": "Una madre inmigrante china en Montreal rompe con el deber y la tradición cuando se enamora de una joven quebequense, lo que la lleva a enfrentarse a cuestiones de identidad y libertad.",
+      "year": 2025,
+      "country": "Canadá",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/0A9_uxkwWng?si=OTNS7Yc73Zh2uOZF",
+      "date": "2025-10-12",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "awards": [],
+      "category": "movie",
+      "movieType": "film",
+      "duration": 117,
+      "cast": [],
+      "productoraId": "",
+      "updatedAt": "2026-05-23T19:06:02.320Z"
+    },
+    {
+      "id": "1779563363601",
+      "name": "The Children’s Hour",
+      "nameEn": "",
+      "poster": "https://a.ltrbxd.com/resized/film-poster/3/9/2/0/7/39207-the-children-s-hour-0-1000-0-1500-crop.jpg?v=a54d339e21",
+      "synopsis": "Karen y Martha son dos buenas amigas y socias que dirigen una exclusiva escuela privada para niñas, la Escuela Dobie-Wright. Karen está prometida con el doctor Joe Cardin, con el que pretende casarse pronto, aunque Martha le insiste en retrasar la boda, para no acabar sola al frente de la escuela. Una alumna maliciosa y vengativa, despechada por un castigo que ha recibido, oye por casualidad un comentario y lo utiliza, distorsionándolo ante su abuela, para acusar a las profesoras de ser amantes.",
+      "year": 1961,
+      "country": "Estados Unidos",
+      "network": "Filmin, Prime Video",
+      "networkUrl": "https://www.primevideo.com/detail?gti=amzn1.dv.gti.88b9ce76-3056-5e04-8595-422a01265cf6&linkCode=xm2&tag=justesqxg9-21",
+      "watchLinks": [
+        {
+          "name": "Prime Video",
+          "url": "https://www.primevideo.com/detail?gti=amzn1.dv.gti.88b9ce76-3056-5e04-8595-422a01265cf6&linkCode=xm2&tag=justesqxg9-21"
+        },
+        {
+          "name": "Filmin",
+          "url": "https://www.filmin.es/pelicula/la-calumnia?awinaffid=400165&awinmid=82863"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/64T9YaMb_wU?si=EwMmxT8ksNySGMa7",
+      "date": "1961-12-19",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Drama"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "awards": [],
+      "category": "movie",
+      "movieType": "film",
+      "duration": "",
+      "cast": [],
+      "productoraId": "",
+      "updatedAt": "2026-05-23T19:09:23.601Z"
     }
   ],
   "actresses": [
@@ -33385,5 +33467,5 @@
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-05-23T18:59:26.100Z"
+  "exportedAt": "2026-05-23T19:09:56.190Z"
 }
