@@ -619,6 +619,7 @@ footer{
   border-radius:var(--radius);padding:12px 16px;margin-bottom:14px;
   box-shadow:var(--shadow-sm);
 }
+#weekPanel:empty{display:none}
 .week-panel-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:10px}
 .week-panel-list{display:flex;flex-direction:column;gap:5px}
 .week-panel-empty{font-size:12px;color:var(--muted);font-style:italic}
@@ -716,7 +717,7 @@ footer{
   transform:translateY(-2px);
   background:var(--surface);
 }
-.day-cell.other-month{opacity:.22;background:transparent;border-color:transparent}
+.day-cell.other-month{opacity:.18;background:transparent;border-color:var(--border)}
 .day-cell.today{border-color:var(--accent);border-width:2px;background:rgba(252,232,241,0.4)}
 .day-cell.today .day-num{color:var(--accent);font-weight:700}
 .day-num{font-size:11.5px;color:var(--muted);margin-bottom:4px;font-weight:600}
@@ -3046,7 +3047,9 @@ function renderCal(){
   html+='</div></div>';
   document.getElementById('calInner').innerHTML=html;
   renderCalLegend();
-  renderWeekPanel();
+  // weekPanel ya no se usa en el calendario mensual (el semanal lo cubre)
+  const panel=document.getElementById('weekPanel');
+  if(panel) panel.innerHTML='';
 }
 
 let monthPickerYear=new Date().getFullYear();
