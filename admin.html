@@ -274,6 +274,24 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
 }
 .mood-chip:hover{border-color:var(--lavender);background:rgba(139,114,190,0.2);color:#6e58a8}
 .mood-chip.selected{background:var(--lavender);border-color:var(--lavender);color:#fff}
+.tropo-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px}
+.tropo-chip{
+  padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700;
+  border:1.5px solid rgba(201,79,124,0.3);background:rgba(201,79,124,0.08);
+  color:#c94f7c;cursor:pointer;transition:all .15s;
+  font-family:'Nunito',sans-serif;user-select:none;
+}
+.tropo-chip:hover{border-color:#c94f7c;background:rgba(201,79,124,0.15);color:#a0305a}
+.tropo-chip.selected{background:#c94f7c;border-color:#c94f7c;color:#fff}
+.dinamica-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px}
+.dinamica-chip{
+  padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700;
+  border:1.5px solid rgba(74,173,160,0.35);background:rgba(74,173,160,0.08);
+  color:#3a9088;cursor:pointer;transition:all .15s;
+  font-family:'Nunito',sans-serif;user-select:none;
+}
+.dinamica-chip:hover{border-color:#4aada0;background:rgba(74,173,160,0.18);color:#2d7068}
+.dinamica-chip.selected{background:#4aada0;border-color:#4aada0;color:#fff}
 .source-type-grid{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px}
 .source-type-chip{
   padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700;
@@ -824,6 +842,101 @@ const MOODS=[
   'Tensión sexual','Segunda oportunidad','Amor no correspondido','Found family','Épico',
 ];
 
+const TROPOS=[
+  'Age Gap','Amnesia','Amigas a amantes','Amigas con beneficios','Amigas de la infancia',
+  'Amor no correspondido','Amor prohibido','Amantes predestinados',
+  'Boda de conveniencia','Bodyguard / VIP',
+  'Cambio de cuerpo','Código de honor roto','Coming Out tardío','Conexión mental / Vínculo',
+  'Desconocidas a amantes','Despertar bisexual','Despertar lésbico',
+  'Enemigos a amantes','Familia elegida','Fin de semana / Escapada',
+  'Fingir ser pareja','Forced Proximity','Hurt/Comfort',
+  'Identidad oculta','Jefa y empleada','Los opuestos se atraen','Love triangle',
+  'Maestro × Alumna','Matrimonio de conveniencia',
+  'Only One Bed','Pining','Poliamorosa','Protectora y protegida',
+  'Proximidad forzada','Reencarnación','Regresión en el tiempo','Relación secreta',
+  'Romance epistolar','Revenge Romance','Rivales a amantes','Romance en el trabajo',
+  'Romance rico / pobre','Romance vacacional','Segunda oportunidad',
+  'Slow Burn','Soulmates / Marcas del destino','Trauma compartido',
+  'Triángulo amoroso','Tropo de los celos',
+  'Vecinas / Compañeras de piso','Viaje por carretera','WhyChoose','Woke Up Married',
+];
+
+const DINAMICAS=[
+  'Alfa × Omega','Andrógina × Andrógina','Andrógina × Butch','Andrógina × Femme',
+  'Bruja × Mortal','Butch × Butch','Butch × Femme',
+  'Caos × Control','Cazadora × Monstruo','Cazadora × Presa',
+  'Chapera × Butch','Chapera × Femme','Cielo × Infierno',
+  'Detective × Sospechosa','Diosa × Devota','Dominante × Sumisa',
+  'Famosa × Anónima','Femme × Femme','Feroz × Tierna',
+  'Fría × Cálida','Gruñona × Sunshine','Guerrera × Civil',
+  'Hada × Humana','Introvertida × Extrovertida','Jefa × Subordinada',
+  'Luz × Oscuridad','Masc × Femme','Masc × Masc','Masc × Soft Butch',
+  'Mentora × Aprendiz','Nerd × Popular','Nerd × Deportista',
+  'Protectora × Delicada','Realeza × Plebeya','Rica × Pobre',
+  'Seria × Divertida','Sirena × Marinera','Soft Butch × Femme',
+  'Stud × Femme','Switch × Switch','Top × Bottom',
+  'Tímida × Extrovertida','Vampira × Humana','Veterana × Novata',
+];
+
+// ═══ TRADUCCIONES AL INGLÉS ═══
+const TROPOS_EN={
+  'Age Gap':'Age Gap','Amnesia':'Amnesia',
+  'Amigas a amantes':'Friends to Lovers',
+  'Amigas con beneficios':'Friends with Benefits',
+  'Amigas de la infancia':'Childhood Friends to Lovers',
+  'Amor no correspondido':'Unrequited Love','Amor prohibido':'Forbidden Love',
+  'Amantes predestinados':'Fated Lovers','Boda de conveniencia':'Convenience Wedding',
+  'Bodyguard / VIP':'Bodyguard / VIP','Cambio de cuerpo':'Body Swap',
+  'Código de honor roto':'Broken Honor Code',
+  'Coming Out tardío':'Late Coming Out','Conexión mental / Vínculo':'Mental Bond / Connection',
+  'Desconocidas a amantes':'Strangers to Lovers','Despertar bisexual':'Bisexual Awakening',
+  'Despertar lésbico':'Lesbian Awakening','Enemigos a amantes':'Enemies to Lovers',
+  'Familia elegida':'Found Family','Fin de semana / Escapada':'Weekend Getaway',
+  'Fingir ser pareja':'Fake Dating','Forced Proximity':'Forced Proximity',
+  'Hurt/Comfort':'Hurt/Comfort','Identidad oculta':'Hidden Identity',
+  'Jefa y empleada':'Boss & Employee',
+  'Los opuestos se atraen':'Opposites Attract','Love triangle':'Love Triangle',
+  'Maestro × Alumna':'Teacher × Student','Matrimonio de conveniencia':'Marriage of Convenience',
+  'Only One Bed':'Only One Bed','Pining':'Pining','Poliamorosa':'Polyamory',
+  'Protectora y protegida':'Protector & Protected','Proximidad forzada':'Forced Proximity',
+  'Reencarnación':'Reincarnation','Regresión en el tiempo':'Time Loop / Time Regression',
+  'Relación secreta':'Secret Relationship','Romance epistolar':'Epistolary Romance',
+  'Revenge Romance':'Revenge Romance','Rivales a amantes':'Rivals to Lovers',
+  'Romance en el trabajo':'Office Romance','Romance rico / pobre':'Rich / Poor Romance',
+  'Romance vacacional':'Holiday Romance','Segunda oportunidad':'Second Chance',
+  'Slow Burn':'Slow Burn','Soulmates / Marcas del destino':'Soulmates / Soul Marks',
+  'Trauma compartido':'Shared Trauma','Triángulo amoroso':'Love Triangle',
+  'Tropo de los celos':'Jealousy Trope',
+  'Vecinas / Compañeras de piso':'Neighbors / Roommates',
+  'Viaje por carretera':'Road Trip','WhyChoose':'Why Choose','Woke Up Married':'Woke Up Married',
+};
+const DINAMICAS_EN={
+  'Alfa × Omega':'Alpha × Omega','Andrógina × Andrógina':'Androgynous × Androgynous',
+  'Andrógina × Butch':'Androgynous × Butch','Andrógina × Femme':'Androgynous × Femme',
+  'Bruja × Mortal':'Witch × Mortal','Butch × Butch':'Butch × Butch','Butch × Femme':'Butch × Femme',
+  'Caos × Control':'Chaos × Control','Cazadora × Monstruo':'Hunter × Monster',
+  'Cazadora × Presa':'Hunter × Prey','Chapera × Butch':'Stud × Butch',
+  'Chapera × Femme':'Stud × Femme','Cielo × Infierno':'Heaven × Hell',
+  'Detective × Sospechosa':'Detective × Suspect','Diosa × Devota':'Goddess × Devotee',
+  'Dominante × Sumisa':'Dominant × Submissive','Famosa × Anónima':'Famous × Unknown',
+  'Femme × Femme':'Femme × Femme','Feroz × Tierna':'Fierce × Gentle',
+  'Fría × Cálida':'Cold × Warm','Gruñona × Sunshine':'Grumpy × Sunshine',
+  'Guerrera × Civil':'Warrior × Civilian','Hada × Humana':'Fairy × Human',
+  'Introvertida × Extrovertida':'Introvert × Extrovert','Jefa × Subordinada':'Boss × Subordinate',
+  'Luz × Oscuridad':'Light × Darkness','Masc × Femme':'Masc × Femme',
+  'Masc × Masc':'Masc × Masc','Masc × Soft Butch':'Masc × Soft Butch',
+  'Mentora × Aprendiz':'Mentor × Apprentice','Nerd × Popular':'Nerd × Popular',
+  'Nerd × Deportista':'Nerd × Athlete','Protectora × Delicada':'Protector × Delicate',
+  'Realeza × Plebeya':'Royalty × Commoner','Rica × Pobre':'Rich × Poor',
+  'Seria × Divertida':'Serious × Playful','Sirena × Marinera':'Mermaid × Sailor',
+  'Soft Butch × Femme':'Soft Butch × Femme','Stud × Femme':'Stud × Femme',
+  'Switch × Switch':'Switch × Switch','Top × Bottom':'Top × Bottom',
+  'Tímida × Extrovertida':'Shy × Outgoing','Vampira × Humana':'Vampire × Human',
+  'Veterana × Novata':'Veteran × Rookie',
+};
+function tropoLabel(t){const en=TROPOS_EN[t];return en&&en!==t?`${t} (${en})`:t;}
+function dinamicaLabel(d){const en=DINAMICAS_EN[d];return en&&en!==d?`${d} (${en})`:d;}
+
 const SOURCE_TYPES=[
   {value:'novela',label:'📚 Novela'},
   {value:'webnovel',label:'🌐 Webnovel'},
@@ -862,6 +975,20 @@ function moodChipsHtml(selected=[]){
 function getSelectedMoods(containerId){
   const _el=_findInModal(containerId)||document.getElementById(containerId);
   return [...(_el?_el.querySelectorAll('.mood-chip.selected'):document.querySelectorAll(`#${containerId} .mood-chip.selected`))].map(c=>c.textContent);
+}
+function troposChipsHtml(selected=[]){
+  return TROPOS.map(t=>`<span class="tropo-chip${selected.includes(t)?' selected':''}" data-value="${t}" onclick="this.classList.toggle('selected')">${tropoLabel(t)}</span>`).join('');
+}
+function getSelectedTropos(containerId){
+  const _el=_findInModal(containerId)||document.getElementById(containerId);
+  return [...(_el?_el.querySelectorAll('.tropo-chip.selected'):document.querySelectorAll(`#${containerId} .tropo-chip.selected`))].map(c=>c.dataset.value||c.textContent);
+}
+function dinamicaChipsHtml(selected=[]){
+  return DINAMICAS.map(d=>`<span class="dinamica-chip${selected.includes(d)?' selected':''}" data-value="${d}" onclick="this.classList.toggle('selected')">${dinamicaLabel(d)}</span>`).join('');
+}
+function getSelectedDinamica(containerId){
+  const _el=_findInModal(containerId)||document.getElementById(containerId);
+  return [...(_el?_el.querySelectorAll('.dinamica-chip.selected'):document.querySelectorAll(`#${containerId} .dinamica-chip.selected`))].map(c=>c.dataset.value||c.textContent);
 }
 function sourceTypeChipsHtml(selected=''){
   return SOURCE_TYPES.map(st=>`<span class="source-type-chip${selected===st.value?' selected':''}" data-value="${st.value}" onclick="selectSourceType(this)">${st.label}</span>`).join('');
@@ -2058,6 +2185,21 @@ function formHtml(s, forcedCategory=null){
       </div>
 
       <div class="form-row">
+        <label class="form-label">💘 Tropos narrativos <span style="text-transform:none;letter-spacing:0;font-weight:400;font-size:11px">(selecciona los que apliquen)</span></label>
+        <div class="tropo-chips" id="f_tropos">${troposChipsHtml(s&&s.tropos?s.tropos:[])}</div>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">💞 Dinámica de pareja <span style="text-transform:none;letter-spacing:0;font-weight:400;font-size:11px">(selecciona las que apliquen)</span></label>
+        <div class="dinamica-chips" id="f_dinamica">${dinamicaChipsHtml(s&&s.dinamica?s.dinamica:[])}</div>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">Tono / Mood <span style="text-transform:none;letter-spacing:0;font-weight:400;font-size:11px">(atmósfera emocional)</span></label>
+        <div class="mood-chips" id="f_moods">${moodChipsHtml(s&&s.moods?s.moods:[])}</div>
+      </div>
+
+      <div class="form-row">
         <label class="form-label">🏆 Premios y festivales <span style="text-transform:none;letter-spacing:0;font-weight:400;font-size:11px">(opcional)</span></label>
         <div id="awardsAdminList" style="display:flex;flex-direction:column;gap:0"></div>
         <button type="button" class="platform-add-btn" onclick="addAwardRow('awardsAdminList')" style="margin-top:4px;background:var(--yellow-soft);color:#7a5800;border-color:var(--yellow)">+ Añadir premio / nominación</button>
@@ -2652,6 +2794,8 @@ async function saveSeries(si, forcedCategory=null){
   const bookUrl=bookLinks.length?bookLinks[0].url:'';
   const genres=getSelectedGenres('f_genres');
   const moods=getSelectedMoods('f_moods');
+  const tropos=getSelectedTropos('f_tropos');
+  const dinamica=getSelectedDinamica('f_dinamica');
   const sourceType=getSelectedSourceType('f_sourceType');
   const awards=getAwards('awardsAdminList');
   const category=forcedCategory||(document.getElementById('f_category')?.value||'series');
@@ -2669,7 +2813,7 @@ async function saveSeries(si, forcedCategory=null){
   const snLastUpdate=document.getElementById('f_snLastUpdate')?.value.trim()||'';
   const snNote=document.getElementById('f_snNote')?.value.trim()||'';
   const productoraId=document.getElementById('f_productora')?.value||'';
-  let payload={name,nameEn,poster,synopsis,year:year?parseInt(year):'',country,network:net,networkUrl,watchLinks,trailerUrl,bookSource,basedOnBook,sourceType,bookCoverUrl,bookLinks,bookUrl,upcoming,genres,moods,awards,category,seriesType,cast,animeSeason,renewedNextSeason,episodeDuration,myPick,myPick2026,cancelStatus,cancelNote,sinNovedades,snLastUpdate,snNote,productoraId};
+  let payload={name,nameEn,poster,synopsis,year:year?parseInt(year):'',country,network:net,networkUrl,watchLinks,trailerUrl,bookSource,basedOnBook,sourceType,bookCoverUrl,bookLinks,bookUrl,upcoming,genres,moods,tropos,dinamica,awards,category,seriesType,cast,animeSeason,renewedNextSeason,episodeDuration,myPick,myPick2026,cancelStatus,cancelNote,sinNovedades,snLastUpdate,snNote,productoraId};
   if(!upcoming){
     const seasons=getSeasonsData();
     if(!seasons) return;
@@ -2996,6 +3140,14 @@ function movieFormHtml(mv){
     <div class="genre-chips" id="mf_genres">${genreChipsHtml(mv&&mv.genres?mv.genres:[])}</div>
   </div>
   <div class="form-row">
+    <label class="form-label">💘 Tropos narrativos <span style="text-transform:none;letter-spacing:0;font-weight:400;font-size:11px">(selecciona los que apliquen)</span></label>
+    <div class="tropo-chips" id="mf_tropos">${troposChipsHtml(mv&&mv.tropos?mv.tropos:[])}</div>
+  </div>
+  <div class="form-row">
+    <label class="form-label">💞 Dinámica de pareja <span style="text-transform:none;letter-spacing:0;font-weight:400;font-size:11px">(selecciona las que apliquen)</span></label>
+    <div class="dinamica-chips" id="mf_dinamica">${dinamicaChipsHtml(mv&&mv.dinamica?mv.dinamica:[])}</div>
+  </div>
+  <div class="form-row">
     <label class="form-label">Tono / Mood <span style="text-transform:none;letter-spacing:0;font-weight:400;font-size:11px">(atmósfera emocional)</span></label>
     <div class="mood-chips" id="mf_moods">${moodChipsHtml(mv&&mv.moods?mv.moods:[])}</div>
   </div>
@@ -3217,6 +3369,8 @@ async function saveMovie(mi){
   const bookLinks=getBookEditions('movieBookEditionsList');
   const genres=getSelectedGenres('mf_genres');
   const moods=getSelectedMoods('mf_moods');
+  const tropos=getSelectedTropos('mf_tropos');
+  const dinamica=getSelectedDinamica('mf_dinamica');
   const sourceType=getSelectedSourceType('mf_sourceType');
   const awards=getAwards('movieAwardsAdminList');
   const movieCategory=document.getElementById('mf_category')?.value||'movie';
@@ -3239,6 +3393,8 @@ async function saveMovie(mi){
     bookUrl:bookLinks.length?bookLinks[0].url:'',
     genres,
     moods,
+    tropos,
+    dinamica,
     sourceType,
     awards,
     category:movieCategory,

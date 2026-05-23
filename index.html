@@ -798,6 +798,10 @@ html[data-theme="dark"] .day-cell.has-eps{background:var(--surface3)}
 .badge-mood{background:var(--lavender-soft);color:var(--lavender);border:1px solid rgba(139,114,190,0.25)}
 .sc-moods{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
 .sc-mood-pill{font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;background:var(--lavender-soft);color:var(--lavender);border:1px solid rgba(139,114,190,0.2);line-height:1.4}
+.sc-tropos{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
+.sc-tropo-pill{font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;background:var(--accent-soft);color:var(--accent);border:1px solid rgba(201,79,124,0.2);line-height:1.4}
+.sc-dinamicas{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
+.sc-dinamica-pill{font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;background:var(--teal-soft);color:var(--teal);border:1px solid rgba(74,173,160,0.2);line-height:1.4}
 /* ═══ LISTAS TEMÁTICAS ═══ */
 .listas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin-top:1rem}
 .lista-card{
@@ -2503,6 +2507,147 @@ const GENRES=[
   'Reencarnación','Viaje en el tiempo','Idols / Entretenimiento','Oficina / Trabajo','Food / Cocina',
 ];
 
+const TROPOS=[
+  'Age Gap','Amnesia','Amigas a amantes','Amigas con beneficios','Amigas de la infancia',
+  'Amor no correspondido','Amor prohibido','Amantes predestinados',
+  'Boda de conveniencia','Bodyguard / VIP',
+  'Cambio de cuerpo','Código de honor roto','Coming Out tardío','Conexión mental / Vínculo',
+  'Desconocidas a amantes','Despertar bisexual','Despertar lésbico',
+  'Enemigos a amantes','Familia elegida','Fin de semana / Escapada',
+  'Fingir ser pareja','Forced Proximity','Hurt/Comfort',
+  'Identidad oculta','Jefa y empleada','Los opuestos se atraen','Love triangle',
+  'Maestro × Alumna','Matrimonio de conveniencia',
+  'Only One Bed','Pining','Poliamorosa','Protectora y protegida',
+  'Proximidad forzada','Reencarnación','Regresión en el tiempo','Relación secreta',
+  'Romance epistolar','Revenge Romance','Rivales a amantes','Romance en el trabajo',
+  'Romance rico / pobre','Romance vacacional','Segunda oportunidad',
+  'Slow Burn','Soulmates / Marcas del destino','Trauma compartido',
+  'Triángulo amoroso','Tropo de los celos',
+  'Vecinas / Compañeras de piso','Viaje por carretera','WhyChoose','Woke Up Married',
+];
+
+const DINAMICAS=[
+  'Alfa × Omega','Andrógina × Andrógina','Andrógina × Butch','Andrógina × Femme',
+  'Bruja × Mortal','Butch × Butch','Butch × Femme',
+  'Caos × Control','Cazadora × Monstruo','Cazadora × Presa',
+  'Chapera × Butch','Chapera × Femme','Cielo × Infierno',
+  'Detective × Sospechosa','Diosa × Devota','Dominante × Sumisa',
+  'Famosa × Anónima','Femme × Femme','Feroz × Tierna',
+  'Fría × Cálida','Gruñona × Sunshine','Guerrera × Civil',
+  'Hada × Humana','Introvertida × Extrovertida','Jefa × Subordinada',
+  'Luz × Oscuridad','Masc × Femme','Masc × Masc','Masc × Soft Butch',
+  'Mentora × Aprendiz','Nerd × Popular','Nerd × Deportista',
+  'Protectora × Delicada','Realeza × Plebeya','Rica × Pobre',
+  'Seria × Divertida','Sirena × Marinera','Soft Butch × Femme',
+  'Stud × Femme','Switch × Switch','Top × Bottom',
+  'Tímida × Extrovertida','Vampira × Humana','Veterana × Novata',
+];
+
+// ═══ TRADUCCIONES AL INGLÉS (para mostrar entre paréntesis) ═══
+const TROPOS_EN={
+  'Age Gap':'Age Gap',
+  'Amnesia':'Amnesia',
+  'Amigas a amantes':'Friends to Lovers',
+  'Amigas con beneficios':'Friends with Benefits',
+  'Amigas de la infancia':'Childhood Friends to Lovers',
+  'Amor no correspondido':'Unrequited Love',
+  'Amor prohibido':'Forbidden Love',
+  'Amantes predestinados':'Fated Lovers',
+  'Boda de conveniencia':'Convenience Wedding',
+  'Bodyguard / VIP':'Bodyguard / VIP',
+  'Cambio de cuerpo':'Body Swap',
+  'Código de honor roto':'Broken Honor Code',
+  'Coming Out tardío':'Late Coming Out',
+  'Conexión mental / Vínculo':'Mental Bond / Connection',
+  'Desconocidas a amantes':'Strangers to Lovers',
+  'Despertar bisexual':'Bisexual Awakening',
+  'Despertar lésbico':'Lesbian Awakening',
+  'Enemigos a amantes':'Enemies to Lovers',
+  'Familia elegida':'Found Family',
+  'Fin de semana / Escapada':'Weekend Getaway',
+  'Fingir ser pareja':'Fake Dating',
+  'Forced Proximity':'Forced Proximity',
+  'Hurt/Comfort':'Hurt/Comfort',
+  'Identidad oculta':'Hidden Identity',
+  'Jefa y empleada':'Boss & Employee',
+  'Los opuestos se atraen':'Opposites Attract',
+  'Love triangle':'Love Triangle',
+  'Maestro × Alumna':'Teacher × Student',
+  'Matrimonio de conveniencia':'Marriage of Convenience',
+  'Only One Bed':'Only One Bed',
+  'Pining':'Pining',
+  'Poliamorosa':'Polyamory',
+  'Protectora y protegida':'Protector & Protected',
+  'Proximidad forzada':'Forced Proximity',
+  'Reencarnación':'Reincarnation',
+  'Regresión en el tiempo':'Time Loop / Time Regression',
+  'Relación secreta':'Secret Relationship',
+  'Romance epistolar':'Epistolary Romance',
+  'Revenge Romance':'Revenge Romance',
+  'Rivales a amantes':'Rivals to Lovers',
+  'Romance en el trabajo':'Office Romance',
+  'Romance rico / pobre':'Rich / Poor Romance',
+  'Romance vacacional':'Holiday Romance',
+  'Segunda oportunidad':'Second Chance',
+  'Slow Burn':'Slow Burn',
+  'Soulmates / Marcas del destino':'Soulmates / Soul Marks',
+  'Trauma compartido':'Shared Trauma',
+  'Triángulo amoroso':'Love Triangle',
+  'Tropo de los celos':'Jealousy Trope',
+  'Vecinas / Compañeras de piso':'Neighbors / Roommates',
+  'Viaje por carretera':'Road Trip',
+  'WhyChoose':'Why Choose',
+  'Woke Up Married':'Woke Up Married',
+};
+const DINAMICAS_EN={
+  'Alfa × Omega':'Alpha × Omega',
+  'Andrógina × Andrógina':'Androgynous × Androgynous',
+  'Andrógina × Butch':'Androgynous × Butch',
+  'Andrógina × Femme':'Androgynous × Femme',
+  'Bruja × Mortal':'Witch × Mortal',
+  'Butch × Butch':'Butch × Butch',
+  'Butch × Femme':'Butch × Femme',
+  'Caos × Control':'Chaos × Control',
+  'Cazadora × Monstruo':'Hunter × Monster',
+  'Cazadora × Presa':'Hunter × Prey',
+  'Chapera × Butch':'Stud × Butch',
+  'Chapera × Femme':'Stud × Femme',
+  'Cielo × Infierno':'Heaven × Hell',
+  'Detective × Sospechosa':'Detective × Suspect',
+  'Diosa × Devota':'Goddess × Devotee',
+  'Dominante × Sumisa':'Dominant × Submissive',
+  'Famosa × Anónima':'Famous × Unknown',
+  'Femme × Femme':'Femme × Femme',
+  'Feroz × Tierna':'Fierce × Gentle',
+  'Fría × Cálida':'Cold × Warm',
+  'Gruñona × Sunshine':'Grumpy × Sunshine',
+  'Guerrera × Civil':'Warrior × Civilian',
+  'Hada × Humana':'Fairy × Human',
+  'Introvertida × Extrovertida':'Introvert × Extrovert',
+  'Jefa × Subordinada':'Boss × Subordinate',
+  'Luz × Oscuridad':'Light × Darkness',
+  'Masc × Femme':'Masc × Femme',
+  'Masc × Masc':'Masc × Masc',
+  'Masc × Soft Butch':'Masc × Soft Butch',
+  'Mentora × Aprendiz':'Mentor × Apprentice',
+  'Nerd × Popular':'Nerd × Popular',
+  'Nerd × Deportista':'Nerd × Athlete',
+  'Protectora × Delicada':'Protector × Delicate',
+  'Realeza × Plebeya':'Royalty × Commoner',
+  'Rica × Pobre':'Rich × Poor',
+  'Seria × Divertida':'Serious × Playful',
+  'Sirena × Marinera':'Mermaid × Sailor',
+  'Soft Butch × Femme':'Soft Butch × Femme',
+  'Stud × Femme':'Stud × Femme',
+  'Switch × Switch':'Switch × Switch',
+  'Top × Bottom':'Top × Bottom',
+  'Tímida × Extrovertida':'Shy × Outgoing',
+  'Vampira × Humana':'Vampire × Human',
+  'Veterana × Novata':'Veteran × Rookie',
+};
+function tropoLabel(t){const en=TROPOS_EN[t];return en&&en!==t?`${t} (${en})`:t;}
+function dinamicaLabel(d){const en=DINAMICAS_EN[d];return en&&en!==d?`${d} (${en})`:d;}
+
 let state={month:new Date().getMonth(),year:new Date().getFullYear(),tab:'cal',series:[],movies:[],actresses:[],ships:[],productoras:[],listas:[]};
 
 // ═══ SESSION PERSISTENCE ═══
@@ -3112,6 +3257,8 @@ function seriesCardHtml(s, si){
   const genrePills=(s.genres&&s.genres.length)
     ?`<div class="sc-genres">${s.genres.slice(0,2).map(g=>`<span class="sc-genre-pill">${g}</span>`).join('')}</div>`:'';
   const moodsPills=moodPillsHtml(s.moods,3);
+  const troposPills=tropoPillsHtml(s.tropos,2);
+  const dinamicaPills=dinamicaPillsHtml(s.dinamica,2);
 
   // ── Estado y próximo episodio
   let statusPill='';
@@ -3158,6 +3305,8 @@ function seriesCardHtml(s, si){
       <div class="series-card-meta" style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">${s.network||''}${yearHtml&&s.network?' · ':''} ${yearHtml}</div>
       ${genrePills}
       ${moodsPills}
+      ${troposPills}
+      ${dinamicaPills}
       ${statusPill}
       ${durChip}
       ${progressBar}
@@ -3236,6 +3385,14 @@ function sourceTypeBadge(s){
 function moodPillsHtml(moods,max=3){
   if(!moods||!moods.length) return '';
   return `<div class="sc-moods">${moods.slice(0,max).map(m=>`<span class="sc-mood-pill">${m}</span>`).join('')}</div>`;
+}
+function tropoPillsHtml(tropos,max=3){
+  if(!tropos||!tropos.length) return '';
+  return `<div class="sc-tropos">${tropos.slice(0,max).map(t=>`<span class="sc-tropo-pill" onclick="seriesFilters.tropo='${t.replace(/'/g,"\\'")}';switchTab('list');renderList();renderListResults()" style="cursor:pointer" title="Filtrar por este tropo">${tropoLabel(t)}</span>`).join('')}</div>`;
+}
+function dinamicaPillsHtml(dinamica,max=3){
+  if(!dinamica||!dinamica.length) return '';
+  return `<div class="sc-dinamicas">${dinamica.slice(0,max).map(d=>`<span class="sc-dinamica-pill" onclick="seriesFilters.dinamica='${d.replace(/'/g,"\\'")}';switchTab('list');renderList();renderListResults()" style="cursor:pointer" title="Filtrar por esta dinámica">${dinamicaLabel(d)}</span>`).join('')}</div>`;
 }
 function countryFlag(country){
   const parts=parseCountryParts(country);
@@ -3343,7 +3500,7 @@ function buildCountryPicker(id, onChange, availableCountries){
 
 let seriesSubtab='airing';
 let seriesFinishedSubtab='all';
-let seriesFilters={q:'',countries:[],sort:'recent',book:'all',year:'',genre:'',type:'',region:''};
+let seriesFilters={q:'',countries:[],sort:'recent',book:'all',year:'',genre:'',type:'',region:'',tropo:'',dinamica:''};
 // Pagination state
 const PAGE_SIZE=20;
 const paginationState={series:{airing:1,notstarted:1,finished:1,finished_serie:1,finished_webserie:1},movies:1,upcoming:1};
@@ -3377,11 +3534,15 @@ function renderListResults(){
   const genreSel=document.getElementById('seriesGenreSel');
   const clearBtn=document.getElementById('seriesClearBtn');
   const typeSel=document.getElementById('seriesTypeSel');
+  const tropoSel=document.getElementById('seriesTropoSel');
+  const dinamicaSel=document.getElementById('seriesDinamicaSel');
   if(sortSel) sortSel.value=seriesFilters.sort;
   if(bookSel) bookSel.value=seriesFilters.book;
   if(genreSel) genreSel.value=seriesFilters.genre;
   if(typeSel) typeSel.value=seriesFilters.type||'';
-  if(clearBtn) clearBtn.style.display=(seriesFilters.countries&&seriesFilters.countries.length||seriesFilters.book!=='all'||seriesFilters.year||seriesFilters.genre||seriesFilters.type||seriesFilters.region)?'':'none';
+  if(tropoSel) tropoSel.value=seriesFilters.tropo||'';
+  if(dinamicaSel) dinamicaSel.value=seriesFilters.dinamica||'';
+  if(clearBtn) clearBtn.style.display=(seriesFilters.countries&&seriesFilters.countries.length||seriesFilters.book!=='all'||seriesFilters.year||seriesFilters.genre||seriesFilters.type||seriesFilters.region||seriesFilters.tropo||seriesFilters.dinamica)?'':'none';
   // Refresh region pills active state
   const regionPillsEl=document.getElementById('seriesRegionPills');
   if(regionPillsEl){
@@ -3570,6 +3731,8 @@ function applySeriesFilters(arr){
   if(seriesFilters.book==='no') r=r.filter(s=>!s.basedOnBook);
   if(seriesFilters.year) r=r.filter(s=>{ const seasons=getSeasons(s); return seasons.some(t=>t.startDate&&t.startDate.startsWith(seriesFilters.year))||(s.startDate&&s.startDate.startsWith(seriesFilters.year)); });
   if(seriesFilters.genre) r=r.filter(s=>s.genres&&s.genres.includes(seriesFilters.genre));
+  if(seriesFilters.tropo) r=r.filter(s=>s.tropos&&s.tropos.includes(seriesFilters.tropo));
+  if(seriesFilters.dinamica) r=r.filter(s=>s.dinamica&&s.dinamica.includes(seriesFilters.dinamica));
   if(seriesFilters.type) r=r.filter(s=>(s.seriesType||'serie')===seriesFilters.type);
   if(seriesFilters.region){
     const regionCountries=COUNTRY_REGIONS[seriesFilters.region]||[];
@@ -3644,7 +3807,19 @@ function renderList(){
             <option value="">📅 Año</option>${allYears.map(y=>`<option value="${y}">${y}</option>`).join('')}
           </select>
         </div>
-        <button id="seriesClearBtn" class="filter-clear-btn" onclick="seriesFilters.countries=[];seriesFilters.book='all';seriesFilters.year='';seriesFilters.genre='';seriesFilters.type='';seriesFilters.region='';document.getElementById('seriesBookSel').value='all';document.getElementById('seriesYearSel').value='';document.getElementById('seriesGenreSel').value='';document.getElementById('seriesTypeSel').value='';const scp=document.getElementById('cpWrap_series');if(scp&&scp._reset)scp._reset();resetSeriesPages();renderListResults()" style="display:none">✕ Limpiar</button>
+        <div class="filter-group">
+          <span class="filter-label">Tropo</span>
+          <select id="seriesTropoSel" class="filter-select" onchange="seriesFilters.tropo=this.value;resetSeriesPages();renderListResults()">
+            <option value="">💘 Tropo</option>${TROPOS.map(t=>`<option value="${t}"${seriesFilters.tropo===t?' selected':''}>${t}</option>`).join('')}
+          </select>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Dinámica</span>
+          <select id="seriesDinamicaSel" class="filter-select" onchange="seriesFilters.dinamica=this.value;resetSeriesPages();renderListResults()">
+            <option value="">💞 Dinámica</option>${DINAMICAS.map(d=>`<option value="${d}"${seriesFilters.dinamica===d?' selected':''}>${d}</option>`).join('')}
+          </select>
+        </div>
+        <button id="seriesClearBtn" class="filter-clear-btn" onclick="seriesFilters.countries=[];seriesFilters.book='all';seriesFilters.year='';seriesFilters.genre='';seriesFilters.type='';seriesFilters.region='';seriesFilters.tropo='';seriesFilters.dinamica='';document.getElementById('seriesBookSel').value='all';document.getElementById('seriesYearSel').value='';document.getElementById('seriesGenreSel').value='';document.getElementById('seriesTypeSel').value='';document.getElementById('seriesTropoSel').value='';document.getElementById('seriesDinamicaSel').value='';const scp=document.getElementById('cpWrap_series');if(scp&&scp._reset)scp._reset();resetSeriesPages();renderListResults()" style="display:none">✕ Limpiar</button>
       </div>
     </div>
     <div id="listResults"></div>`;
@@ -4180,7 +4355,8 @@ function openSeries(si){
   ${s.nameEn?`<div style="font-size:13px;color:var(--muted);font-style:italic;margin-bottom:2px;margin-top:-2px">${s.nameEn}</div>`:''}
   ${s.genres&&s.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 2px">${s.genres.map(g=>`<span style="font-size:11.5px;font-weight:700;padding:3px 11px;border-radius:20px;background:var(--accent-soft);color:var(--accent);border:1px solid rgba(201,79,124,.2)">${g}</span>`).join('')}</div>`:''}
   ${s.moods&&s.moods.length?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin:4px 0 4px">${s.moods.map(m=>`<span style="font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;background:var(--lavender-soft);color:var(--lavender);border:1px solid rgba(139,114,190,0.25)">${m}</span>`).join('')}</div>`:''}
-  ${datesRowHtml}
+  ${s.tropos&&s.tropos.length?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin:4px 0 2px"><span style="font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.06em;align-self:center;margin-right:2px">💘 TROPOS</span>${s.tropos.map(t=>`<span onclick="closeModal();seriesFilters.tropo='${t.replace(/'/g,"\\'")}';switchTab('list');renderList();renderListResults()" style="font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;background:var(--accent-soft);color:var(--accent);border:1px solid rgba(201,79,124,0.25);cursor:pointer" title="Filtrar por este tropo">${tropoLabel(t)}</span>`).join('')}</div>`:''}
+  ${s.dinamica&&s.dinamica.length?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin:4px 0 4px"><span style="font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.06em;align-self:center;margin-right:2px">💞 DINÁMICA</span>${s.dinamica.map(d=>`<span onclick="closeModal();seriesFilters.dinamica='${d.replace(/'/g,"\\'")}';switchTab('list');renderList();renderListResults()" style="font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;background:var(--teal-soft);color:var(--teal);border:1px solid rgba(74,173,160,0.25);cursor:pointer" title="Filtrar por esta dinámica">${dinamicaLabel(d)}</span>`).join('')}</div>`:''}
   ${nextBadgeHtml}
   ${progressBlock}
   ${watchLinksHtml}

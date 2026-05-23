@@ -128,7 +128,7 @@
       "seriesType": "serie",
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-22T06:44:13.732Z",
+      "updatedAt": "2026-05-23T18:35:48.386Z",
       "cast": [
         {
           "actressId": "1778667608624",
@@ -204,7 +204,22 @@
       "snNote": "",
       "productoraId": "1779134050424",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": [
+        "Amigas con beneficios",
+        "Amor no correspondido",
+        "Amor prohibido",
+        "Coming Out tardío",
+        "Despertar lésbico",
+        "Segunda oportunidad",
+        "Triángulo amoroso"
+      ],
+      "dinamica": [
+        "Famosa × Anónima",
+        "Femme × Femme",
+        "Rica × Pobre"
+      ],
+      "awards": []
     },
     {
       "id": "1776889141176",
@@ -303,7 +318,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-18T20:49:11.369Z",
+      "updatedAt": "2026-05-23T18:21:18.709Z",
       "nameEn": "รักเติมเต็ม",
       "episodeDuration": 47,
       "myPick": false,
@@ -313,7 +328,14 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779135450707"
+      "productoraId": "1779135450707",
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [
+        "Femme × Femme"
+      ],
+      "awards": []
     },
     {
       "id": "1776889264943",
@@ -470,7 +492,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-22T06:44:29.973Z",
+      "updatedAt": "2026-05-23T18:21:54.816Z",
       "nameEn": "คุณแฟนบ้านนอก",
       "episodeDuration": 51,
       "myPick": false,
@@ -482,7 +504,15 @@
       "snNote": "",
       "productoraId": "1779135954653",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": [
+        "Tropo de los celos",
+        "Matrimonio de conveniencia"
+      ],
+      "dinamica": [
+        "Masc × Femme"
+      ],
+      "awards": []
     },
     {
       "id": "1776889365998",
@@ -592,7 +622,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-22T07:24:53.209Z",
+      "updatedAt": "2026-05-23T18:26:35.674Z",
       "nameEn": "นทีร้อยเล่ห์",
       "episodeDuration": 64,
       "myTop10": true,
@@ -607,7 +637,15 @@
       "productoraId": "1779135760151",
       "sourceType": "novela",
       "moods": [],
-      "awards": []
+      "awards": [],
+      "tropos": [
+        "Romance en el trabajo"
+      ],
+      "dinamica": [
+        "Jefa × Subordinada",
+        "Gruñona × Sunshine",
+        "Masc × Femme"
+      ]
     },
     {
       "id": "1776889415383",
@@ -730,7 +768,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-22T07:24:56.901Z",
+      "updatedAt": "2026-05-23T18:22:56.113Z",
       "nameEn": "เสน่หาวาโย",
       "episodeDuration": "",
       "myPick": false,
@@ -743,7 +781,14 @@
       "productoraId": "1779135760151",
       "sourceType": "novela",
       "moods": [],
-      "awards": []
+      "awards": [],
+      "tropos": [
+        "Bodyguard / VIP",
+        "Romance en el trabajo"
+      ],
+      "dinamica": [
+        "Masc × Femme"
+      ]
     },
     {
       "id": "1776889447326",
@@ -843,7 +888,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-22T06:44:41.604Z",
+      "updatedAt": "2026-05-23T18:23:00.299Z",
       "nameEn": "ลัลล์ไม่ชอบไวน์",
       "episodeDuration": 50,
       "myPick": false,
@@ -855,7 +900,17 @@
       "snNote": "",
       "productoraId": "1779134050424",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": [
+        "Enemigos a amantes",
+        "Proximidad forzada",
+        "Amigas con beneficios",
+        "Los opuestos se atraen"
+      ],
+      "dinamica": [
+        "Femme × Femme"
+      ],
+      "awards": []
     },
     {
       "id": "1776889488147",
@@ -925,7 +980,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-19T08:12:10.415Z",
+      "updatedAt": "2026-05-23T18:22:50.286Z",
       "episodeDuration": 66,
       "myPick": false,
       "myPick2026": false,
@@ -934,7 +989,14 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779177933075"
+      "productoraId": "1779177933075",
+      "sourceType": "",
+      "moods": [],
+      "tropos": [
+        "Age Gap"
+      ],
+      "dinamica": [],
+      "awards": []
     },
     {
       "id": "1776930878872",
@@ -1025,7 +1087,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-22T07:25:03.876Z",
+      "updatedAt": "2026-05-23T18:23:09.170Z",
       "nameEn": "โซ่รักอัคนี",
       "episodeDuration": "",
       "myPick": false,
@@ -1038,7 +1100,15 @@
       "productoraId": "1779135760151",
       "sourceType": "novela",
       "moods": [],
-      "awards": []
+      "awards": [],
+      "tropos": [
+        "Enemigos a amantes",
+        "Proximidad forzada",
+        "Los opuestos se atraen"
+      ],
+      "dinamica": [
+        "Masc × Femme"
+      ]
     },
     {
       "id": "1776931938317",
@@ -1097,7 +1167,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-22T06:44:49.226Z",
+      "updatedAt": "2026-05-23T18:23:16.128Z",
       "nameEn": "วาดฝันวันวิวาห์",
       "episodeDuration": "",
       "myPick": false,
@@ -1109,7 +1179,14 @@
       "snNote": "",
       "productoraId": "1779135450707",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": [
+        "Segunda oportunidad"
+      ],
+      "dinamica": [
+        "Femme × Femme"
+      ],
+      "awards": []
     },
     {
       "id": "1776932166717",
@@ -1157,7 +1234,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-22T06:44:51.857Z",
+      "updatedAt": "2026-05-23T18:26:47.291Z",
       "nameEn": "รักได้ไหม",
       "episodeDuration": "",
       "myPick": false,
@@ -1169,7 +1246,16 @@
       "snNote": "",
       "productoraId": "1779135450707",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": [
+        "Amor prohibido",
+        "Romance rico / pobre"
+      ],
+      "dinamica": [
+        "Femme × Femme",
+        "Rica × Pobre"
+      ],
+      "awards": []
     },
     {
       "id": "1776932289648",
@@ -1339,7 +1425,7 @@
       "seriesType": "webserie",
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-15T07:37:04.066Z",
+      "updatedAt": "2026-05-23T18:36:06.758Z",
       "nameEn": "온앤오프 ON&OFF 3",
       "cast": [
         {
@@ -1355,7 +1441,25 @@
           "coupleNum": 1
         }
       ],
-      "episodeDuration": 10
+      "episodeDuration": 10,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [
+        "Romance en el trabajo"
+      ],
+      "dinamica": [
+        "Femme × Femme",
+        "Jefa × Subordinada"
+      ],
+      "awards": [],
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1776965675311",
@@ -1427,7 +1531,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-19T07:53:14.454Z",
+      "updatedAt": "2026-05-23T18:45:47.760Z",
       "nameEn": "เพื่อเธออีกครั้ง",
       "episodeDuration": 55,
       "myTop10": false,
@@ -1439,7 +1543,20 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779177125091"
+      "productoraId": "1779177125091",
+      "sourceType": "",
+      "moods": [],
+      "tropos": [
+        "Amantes predestinados",
+        "Jefa y empleada",
+        "Segunda oportunidad"
+      ],
+      "dinamica": [
+        "Femme × Femme",
+        "Protectora × Delicada",
+        "Rica × Pobre"
+      ],
+      "awards": []
     },
     {
       "id": "1776965794937",
@@ -1701,7 +1818,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": true,
-      "updatedAt": "2026-05-23T17:33:14.673Z",
+      "updatedAt": "2026-05-23T18:25:15.387Z",
       "nameEn": "เด็ก เรียบ ร้าย",
       "episodeDuration": 48,
       "myPick": false,
@@ -1714,7 +1831,18 @@
       "productoraId": "1779137481839",
       "sourceType": "",
       "moods": [],
-      "awards": []
+      "awards": [],
+      "tropos": [
+        "Amor no correspondido",
+        "Enemigos a amantes",
+        "Proximidad forzada",
+        "Triángulo amoroso",
+        "Relación secreta",
+        "Amor no correspondido"
+      ],
+      "dinamica": [
+        "Femme × Femme"
+      ]
     },
     {
       "id": "1776966800863",
@@ -1876,7 +2004,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-22T07:51:16.579Z",
+      "updatedAt": "2026-05-23T18:36:19.108Z",
       "nameEn": "เลือดห้ามรัก",
       "episodeDuration": "",
       "sourceType": "novela",
@@ -1889,7 +2017,11 @@
       "snLastUpdate": "",
       "snNote": "",
       "productoraId": "",
-      "awards": []
+      "awards": [],
+      "tropos": [],
+      "dinamica": [
+        "Vampira × Humana"
+      ]
     },
     {
       "id": "1776967103985",
@@ -1971,7 +2103,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-22T06:45:07.895Z",
+      "updatedAt": "2026-05-23T18:37:05.360Z",
       "sourceType": "novela",
       "moods": [],
       "episodeDuration": "",
@@ -1982,7 +2114,12 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": [
+        "Romance en el trabajo"
+      ],
+      "dinamica": [],
+      "awards": []
     },
     {
       "id": "1776971232987",
@@ -2079,7 +2216,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-22T06:45:10.767Z",
+      "updatedAt": "2026-05-23T18:39:22.586Z",
       "nameEn": "",
       "episodeDuration": "",
       "myPick": false,
@@ -2091,7 +2228,18 @@
       "snNote": "",
       "productoraId": "1779135954653",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": [
+        "Los opuestos se atraen",
+        "Romance en el trabajo",
+        "Tropo de los celos"
+      ],
+      "dinamica": [
+        "Femme × Femme",
+        "Fría × Cálida",
+        "Gruñona × Sunshine"
+      ],
+      "awards": []
     },
     {
       "id": "1776971297117",
@@ -2207,7 +2355,23 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-14T18:58:23.898Z"
+      "updatedAt": "2026-05-23T18:40:20.207Z",
+      "sourceType": "",
+      "moods": [],
+      "tropos": [
+        "Amor prohibido"
+      ],
+      "dinamica": [],
+      "awards": [],
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1776971502360",
@@ -2267,7 +2431,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-22T06:45:14.759Z",
+      "updatedAt": "2026-05-23T18:40:39.486Z",
       "nameEn": "",
       "episodeDuration": "",
       "myPick": false,
@@ -2279,7 +2443,15 @@
       "snNote": "",
       "productoraId": "1779134050424",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": [
+        "Age Gap",
+        "Amigas con beneficios"
+      ],
+      "dinamica": [
+        "Femme × Femme"
+      ],
+      "awards": []
     },
     {
       "id": "1776971628835",
@@ -2429,7 +2601,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-22T06:45:20.631Z",
+      "updatedAt": "2026-05-23T18:41:10.719Z",
       "episodeDuration": "",
       "myPick": false,
       "myPick2026": false,
@@ -2440,7 +2612,15 @@
       "snNote": "",
       "productoraId": "1779137481839",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": [
+        "Jefa y empleada"
+      ],
+      "dinamica": [
+        "Jefa × Subordinada",
+        "Rica × Pobre"
+      ],
+      "awards": []
     },
     {
       "id": "1776972122133",
@@ -2807,7 +2987,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-22T06:45:27.337Z",
+      "updatedAt": "2026-05-23T18:41:32.153Z",
       "nameEn": "",
       "episodeDuration": "",
       "myPick": false,
@@ -2819,7 +2999,13 @@
       "snNote": "",
       "productoraId": "1779134050424",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": [
+        "Los opuestos se atraen",
+        "Proximidad forzada"
+      ],
+      "dinamica": [],
+      "awards": []
     },
     {
       "id": "1776973507673",
@@ -3294,7 +3480,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-22T06:45:37.325Z",
+      "updatedAt": "2026-05-23T18:42:23.807Z",
       "nameEn": "",
       "episodeDuration": "",
       "myTop10": true,
@@ -3308,7 +3494,15 @@
       "snNote": "",
       "productoraId": "1779134050424",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": [
+        "Age Gap",
+        "Relación secreta"
+      ],
+      "dinamica": [
+        "Femme × Femme"
+      ],
+      "awards": []
     },
     {
       "id": "1776976209757",
@@ -3428,7 +3622,7 @@
     {
       "id": "1776976364805",
       "name": "Love on Hire",
-      "poster": "https://i.mydramalist.com/81bVe2_4f.jpg",
+      "poster": "",
       "synopsis": "Thitinan acepta cualquier trabajo: fingir ser la novia de alguien y romper una relación o, especialmente para la señorita Chat, convertirse en su entrenadora sexual.",
       "year": "",
       "country": "Tailandia",
@@ -3479,7 +3673,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-22T06:45:43.581Z",
+      "updatedAt": "2026-05-23T18:42:00.026Z",
       "episodeDuration": "",
       "myPick": false,
       "myPick2026": false,
@@ -3490,7 +3684,10 @@
       "snNote": "",
       "productoraId": "1779135987498",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": []
     },
     {
       "id": "1776976452500",
@@ -3546,7 +3743,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-22T06:45:45.969Z",
+      "updatedAt": "2026-05-23T18:42:54.878Z",
       "episodeDuration": "",
       "myPick": false,
       "myPick2026": false,
@@ -3557,7 +3754,16 @@
       "snNote": "",
       "productoraId": "1779135760151",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": [
+        "Amor prohibido",
+        "Enemigos a amantes",
+        "Proximidad forzada"
+      ],
+      "dinamica": [
+        "Femme × Femme"
+      ],
+      "awards": []
     },
     {
       "id": "1776976491416",
@@ -3671,7 +3877,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-19T07:55:33.177Z",
+      "updatedAt": "2026-05-23T18:43:07.781Z",
       "myTop10": true,
       "top10Rank": 0,
       "myPick": false,
@@ -3681,7 +3887,16 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779136087730"
+      "productoraId": "1779136087730",
+      "sourceType": "",
+      "moods": [],
+      "tropos": [
+        "Romance rico / pobre"
+      ],
+      "dinamica": [
+        "Rica × Pobre"
+      ],
+      "awards": []
     },
     {
       "id": "1777017936367",
@@ -4116,7 +4331,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-22T06:46:22.879Z",
+      "updatedAt": "2026-05-23T18:45:23.285Z",
       "episodeDuration": 45,
       "myPick": false,
       "myPick2026": false,
@@ -4127,7 +4342,12 @@
       "snNote": "",
       "productoraId": "1779135376050",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": [],
+      "dinamica": [
+        "Realeza × Plebeya"
+      ],
+      "awards": []
     },
     {
       "id": "1777048586253",
@@ -33034,5 +33254,5 @@
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-05-23T17:33:48.643Z"
+  "exportedAt": "2026-05-23T18:48:22.398Z"
 }
