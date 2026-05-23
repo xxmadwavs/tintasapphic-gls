@@ -2508,22 +2508,19 @@ const GENRES=[
 ];
 
 const TROPOS=[
-  'Age Gap','Amnesia','Amigas a amantes','Amigas con beneficios','Amigas de la infancia',
-  'Amor no correspondido','Amor prohibido','Amantes predestinados',
-  'Boda de conveniencia','Bodyguard / VIP',
-  'Cambio de cuerpo','Código de honor roto','Coming Out tardío','Conexión mental / Vínculo',
+  'Age Gap','Amigas con beneficios','Amor no correspondido','Amor prohibido',
+  'Amantes predestinados','Boda de conveniencia','Bodyguard / VIP',
+  'Código de honor roto','Coming Out tardío','Conexión mental / Vínculo',
   'Desconocidas a amantes','Despertar bisexual','Despertar lésbico',
   'Enemigos a amantes','Familia elegida','Fin de semana / Escapada',
   'Fingir ser pareja','Forced Proximity','Hurt/Comfort',
-  'Identidad oculta','Jefa y empleada','Los opuestos se atraen','Love triangle',
-  'Maestro × Alumna','Matrimonio de conveniencia',
-  'Only One Bed','Pining','Poliamorosa','Protectora y protegida',
-  'Proximidad forzada','Reencarnación','Regresión en el tiempo','Relación secreta',
-  'Romance epistolar','Revenge Romance','Rivales a amantes','Romance en el trabajo',
+  'Jefa y empleada','Los opuestos se atraen','Love triangle',
+  'Matrimonio de conveniencia','Only One Bed','Protectora y protegida',
+  'Proximidad forzada','Reencarnación','Relación secreta',
+  'Revenge Romance','Rivales a amantes','Romance en el trabajo',
   'Romance rico / pobre','Romance vacacional','Segunda oportunidad',
-  'Slow Burn','Soulmates / Marcas del destino','Trauma compartido',
-  'Triángulo amoroso','Tropo de los celos',
-  'Vecinas / Compañeras de piso','Viaje por carretera','WhyChoose','Woke Up Married',
+  'Slow Burn','Triángulo amoroso','Tropo de los celos',
+  'Vecinas / Compañeras de piso','Viaje por carretera','WhyChoose',
 ];
 
 const DINAMICAS=[
@@ -2546,16 +2543,12 @@ const DINAMICAS=[
 // ═══ TRADUCCIONES AL INGLÉS (para mostrar entre paréntesis) ═══
 const TROPOS_EN={
   'Age Gap':'Age Gap',
-  'Amnesia':'Amnesia',
-  'Amigas a amantes':'Friends to Lovers',
   'Amigas con beneficios':'Friends with Benefits',
-  'Amigas de la infancia':'Childhood Friends to Lovers',
   'Amor no correspondido':'Unrequited Love',
   'Amor prohibido':'Forbidden Love',
   'Amantes predestinados':'Fated Lovers',
   'Boda de conveniencia':'Convenience Wedding',
   'Bodyguard / VIP':'Bodyguard / VIP',
-  'Cambio de cuerpo':'Body Swap',
   'Código de honor roto':'Broken Honor Code',
   'Coming Out tardío':'Late Coming Out',
   'Conexión mental / Vínculo':'Mental Bond / Connection',
@@ -2568,21 +2561,15 @@ const TROPOS_EN={
   'Fingir ser pareja':'Fake Dating',
   'Forced Proximity':'Forced Proximity',
   'Hurt/Comfort':'Hurt/Comfort',
-  'Identidad oculta':'Hidden Identity',
   'Jefa y empleada':'Boss & Employee',
   'Los opuestos se atraen':'Opposites Attract',
   'Love triangle':'Love Triangle',
-  'Maestro × Alumna':'Teacher × Student',
   'Matrimonio de conveniencia':'Marriage of Convenience',
   'Only One Bed':'Only One Bed',
-  'Pining':'Pining',
-  'Poliamorosa':'Polyamory',
   'Protectora y protegida':'Protector & Protected',
   'Proximidad forzada':'Forced Proximity',
   'Reencarnación':'Reincarnation',
-  'Regresión en el tiempo':'Time Loop / Time Regression',
   'Relación secreta':'Secret Relationship',
-  'Romance epistolar':'Epistolary Romance',
   'Revenge Romance':'Revenge Romance',
   'Rivales a amantes':'Rivals to Lovers',
   'Romance en el trabajo':'Office Romance',
@@ -2590,14 +2577,11 @@ const TROPOS_EN={
   'Romance vacacional':'Holiday Romance',
   'Segunda oportunidad':'Second Chance',
   'Slow Burn':'Slow Burn',
-  'Soulmates / Marcas del destino':'Soulmates / Soul Marks',
-  'Trauma compartido':'Shared Trauma',
   'Triángulo amoroso':'Love Triangle',
   'Tropo de los celos':'Jealousy Trope',
   'Vecinas / Compañeras de piso':'Neighbors / Roommates',
   'Viaje por carretera':'Road Trip',
   'WhyChoose':'Why Choose',
-  'Woke Up Married':'Woke Up Married',
 };
 const DINAMICAS_EN={
   'Alfa × Omega':'Alpha × Omega',
@@ -3257,8 +3241,6 @@ function seriesCardHtml(s, si){
   const genrePills=(s.genres&&s.genres.length)
     ?`<div class="sc-genres">${s.genres.slice(0,2).map(g=>`<span class="sc-genre-pill">${g}</span>`).join('')}</div>`:'';
   const moodsPills=moodPillsHtml(s.moods,3);
-  const troposPills=tropoPillsHtml(s.tropos,2);
-  const dinamicaPills=dinamicaPillsHtml(s.dinamica,2);
 
   // ── Estado y próximo episodio
   let statusPill='';
@@ -3305,8 +3287,6 @@ function seriesCardHtml(s, si){
       <div class="series-card-meta" style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">${s.network||''}${yearHtml&&s.network?' · ':''} ${yearHtml}</div>
       ${genrePills}
       ${moodsPills}
-      ${troposPills}
-      ${dinamicaPills}
       ${statusPill}
       ${durChip}
       ${progressBar}
