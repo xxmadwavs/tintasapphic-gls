@@ -980,7 +980,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-23T18:22:50.286Z",
+      "updatedAt": "2026-05-23T18:59:23.287Z",
       "episodeDuration": 66,
       "myPick": false,
       "myPick2026": false,
@@ -993,7 +993,8 @@
       "sourceType": "",
       "moods": [],
       "tropos": [
-        "Age Gap"
+        "Age Gap",
+        "Revenge Romance"
       ],
       "dinamica": [],
       "awards": []
@@ -1531,7 +1532,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-23T18:45:47.760Z",
+      "updatedAt": "2026-05-23T18:54:27.041Z",
       "nameEn": "เพื่อเธออีกครั้ง",
       "episodeDuration": 55,
       "myTop10": false,
@@ -1547,6 +1548,7 @@
       "sourceType": "",
       "moods": [],
       "tropos": [
+        "Amigas con beneficios",
         "Amantes predestinados",
         "Jefa y empleada",
         "Segunda oportunidad"
@@ -1818,7 +1820,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": true,
-      "updatedAt": "2026-05-23T18:25:15.387Z",
+      "updatedAt": "2026-05-23T18:54:54.489Z",
       "nameEn": "เด็ก เรียบ ร้าย",
       "episodeDuration": 48,
       "myPick": false,
@@ -1834,11 +1836,12 @@
       "awards": [],
       "tropos": [
         "Amor no correspondido",
+        "Despertar lésbico",
         "Enemigos a amantes",
         "Proximidad forzada",
-        "Triángulo amoroso",
         "Relación secreta",
-        "Amor no correspondido"
+        "Slow Burn",
+        "Triángulo amoroso"
       ],
       "dinamica": [
         "Femme × Femme"
@@ -4730,7 +4733,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-18T20:46:43.353Z",
+      "updatedAt": "2026-05-23T18:56:17.948Z",
       "episodeDuration": 51,
       "myPick": false,
       "myPick2026": false,
@@ -4739,7 +4742,16 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779135450707"
+      "productoraId": "1779135450707",
+      "sourceType": "",
+      "moods": [],
+      "tropos": [
+        "Romance en el trabajo"
+      ],
+      "dinamica": [
+        "Femme × Femme"
+      ],
+      "awards": []
     },
     {
       "id": "1777105656547",
@@ -4819,7 +4831,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-19T07:56:27.911Z",
+      "updatedAt": "2026-05-23T18:53:12.009Z",
       "episodeDuration": "",
       "myPick": false,
       "myPick2026": false,
@@ -4828,7 +4840,16 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779135450707"
+      "productoraId": "1779135450707",
+      "sourceType": "",
+      "moods": [],
+      "tropos": [
+        "Amigas de la infancia"
+      ],
+      "dinamica": [
+        "Femme × Femme"
+      ],
+      "awards": []
     },
     {
       "id": "1777105780897",
@@ -4901,7 +4922,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-19T07:56:31.586Z",
+      "updatedAt": "2026-05-23T18:53:49.415Z",
       "episodeDuration": 47,
       "myPick": false,
       "myPick2026": false,
@@ -4910,7 +4931,21 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779135450707"
+      "productoraId": "1779135450707",
+      "sourceType": "",
+      "moods": [],
+      "tropos": [
+        "Amigas de la infancia",
+        "Bodyguard / VIP"
+      ],
+      "dinamica": [
+        "Femme × Femme",
+        "Feroz × Tierna",
+        "Gruñona × Sunshine",
+        "Protectora × Delicada",
+        "Seria × Divertida"
+      ],
+      "awards": []
     },
     {
       "id": "1777106011444",
@@ -5014,7 +5049,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-22T06:46:27.642Z",
+      "updatedAt": "2026-05-23T18:54:04.363Z",
       "episodeDuration": 50,
       "myTop10": true,
       "top10Rank": 0,
@@ -5027,7 +5062,14 @@
       "snNote": "",
       "productoraId": "1779135450707",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": [
+        "Segunda oportunidad"
+      ],
+      "dinamica": [
+        "Femme × Femme"
+      ],
+      "awards": []
     },
     {
       "id": "1777106235834",
@@ -5497,7 +5539,7 @@
       "seriesType": "webserie",
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-16T08:28:26.197Z",
+      "updatedAt": "2026-05-23T18:56:57.638Z",
       "nameEn": "온앤오프",
       "cast": [
         {
@@ -5515,7 +5557,24 @@
       ],
       "episodeDuration": 10,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [
+        "Relación secreta",
+        "Romance en el trabajo"
+      ],
+      "dinamica": [
+        "Femme × Femme",
+        "Jefa × Subordinada"
+      ],
+      "awards": [],
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1777116358969",
@@ -5564,7 +5623,7 @@
       "seriesType": "webserie",
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-16T08:28:28.671Z",
+      "updatedAt": "2026-05-23T18:57:12.192Z",
       "nameEn": "온앤오프 시즌2",
       "cast": [
         {
@@ -5582,7 +5641,24 @@
       ],
       "episodeDuration": 10,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [
+        "Relación secreta",
+        "Romance en el trabajo"
+      ],
+      "dinamica": [
+        "Femme × Femme",
+        "Jefa × Subordinada"
+      ],
+      "awards": [],
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1777123893340",
@@ -5665,7 +5741,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-22T06:46:34.394Z",
+      "updatedAt": "2026-05-23T18:58:07.097Z",
       "episodeDuration": 55,
       "myPick": false,
       "myPick2026": false,
@@ -5676,7 +5752,26 @@
       "snNote": "",
       "productoraId": "1779135376050",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": [
+        "Amor prohibido",
+        "Forced Proximity",
+        "Jefa y empleada",
+        "Love triangle",
+        "Relación secreta",
+        "Romance en el trabajo"
+      ],
+      "dinamica": [
+        "Dominante × Sumisa",
+        "Femme × Femme",
+        "Feroz × Tierna",
+        "Fría × Cálida",
+        "Jefa × Subordinada",
+        "Luz × Oscuridad",
+        "Rica × Pobre",
+        "Top × Bottom"
+      ],
+      "awards": []
     },
     {
       "id": "1777149248949",
@@ -5975,7 +6070,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-22T06:46:43.645Z",
+      "updatedAt": "2026-05-23T18:58:17.616Z",
       "episodeDuration": 47,
       "myPick": false,
       "myPick2026": false,
@@ -5986,7 +6081,12 @@
       "snNote": "",
       "productoraId": "1779136355146",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": [
+        "Age Gap"
+      ],
+      "dinamica": [],
+      "awards": []
     },
     {
       "id": "1777222930712",
@@ -6427,7 +6527,7 @@
       "animeSeason": "",
       "renewedNextSeason": false,
       "episodeDuration": 43,
-      "updatedAt": "2026-05-22T06:46:58.725Z",
+      "updatedAt": "2026-05-23T18:58:25.934Z",
       "myPick": false,
       "myPick2026": false,
       "sourceType": "novela",
@@ -6437,7 +6537,13 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": [
+        "Amantes predestinados",
+        "Reencarnación"
+      ],
+      "dinamica": [],
+      "awards": []
     },
     {
       "id": "1777225431592",
@@ -6517,7 +6623,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-22T06:47:01.709Z",
+      "updatedAt": "2026-05-23T18:58:52.291Z",
       "episodeDuration": 49,
       "myPick": false,
       "myPick2026": false,
@@ -6528,7 +6634,15 @@
       "snNote": "",
       "productoraId": "1779136264729",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": [
+        "Amor prohibido",
+        "Amantes predestinados"
+      ],
+      "dinamica": [
+        "Femme × Femme"
+      ],
+      "awards": []
     },
     {
       "id": "1777225577567",
@@ -6735,7 +6849,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-22T06:47:06.189Z",
+      "updatedAt": "2026-05-23T18:59:14.285Z",
       "episodeDuration": 60,
       "myPick": true,
       "myPick2026": false,
@@ -6746,7 +6860,12 @@
       "snNote": "",
       "productoraId": "1779135954653",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": [
+        "Amigas de la infancia"
+      ],
+      "dinamica": [],
+      "awards": []
     },
     {
       "id": "1777226679219",
@@ -20730,7 +20849,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-22T07:33:24.417Z",
+      "updatedAt": "2026-05-23T18:55:38.836Z",
       "cancelStatus": "",
       "cancelNote": "",
       "sinNovedades": false,
@@ -20739,7 +20858,19 @@
       "productoraId": "1779136406910",
       "sourceType": "novela",
       "moods": [],
-      "awards": []
+      "awards": [],
+      "tropos": [
+        "Romance rico / pobre"
+      ],
+      "dinamica": [
+        "Femme × Femme",
+        "Feroz × Tierna",
+        "Fría × Cálida",
+        "Gruñona × Sunshine",
+        "Jefa × Subordinada",
+        "Luz × Oscuridad",
+        "Rica × Pobre"
+      ]
     },
     {
       "id": "1778956087775",
@@ -33254,5 +33385,5 @@
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-05-23T18:48:22.398Z"
+  "exportedAt": "2026-05-23T18:59:26.100Z"
 }
