@@ -21063,6 +21063,128 @@
         }
       ],
       "updatedAt": "2026-05-24T09:57:51.400Z"
+    },
+    {
+      "id": "1779639066759",
+      "name": "A Ninja and an Assassin Under one roof",
+      "nameEn": "忍者と殺し屋のふたりぐらし",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/dk23TT4JXGwPVZAZ1AT7iNYmcOE.jpg",
+      "synopsis": "De camino a casa un día tras las clases, Konoha Koga rescata a Satoko Kusagakure, una ninja que ha huido de su aldea. Poco después, sus perseguidores aparecen para capturarla, pero Konoha los derrota con sorprendente facilidad. Y es que, en realidad, esta aparentemente inofensiva estudiante de secundaria es en realidad una asesina. Así comienza la peligrosa y peculiar convivencia entre una ninja fugitiva y una asesina profesional.",
+      "year": 2025,
+      "country": "Japón",
+      "network": "Crunchyroll",
+      "networkUrl": "https://www.crunchyroll.com/es/series/GNVHKN9EW/a-ninja-and-an-assassin-under-one-roof?srsltid=AfmBOooqsfE4LuYCSSjepgyyZiDZCoqsXOYRMJ9YynMmLoyWIxmDFY-P",
+      "watchLinks": [
+        {
+          "name": "Crunchyroll",
+          "url": "https://www.crunchyroll.com/es/series/GNVHKN9EW/a-ninja-and-an-assassin-under-one-roof?srsltid=AfmBOooqsfE4LuYCSSjepgyyZiDZCoqsXOYRMJ9YynMmLoyWIxmDFY-P"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/fcUnjQyNOLo?si=2ZLlcNI4OblV-Mqk",
+      "bookSource": "A Ninja and an Assassin Under one roof",
+      "basedOnBook": true,
+      "sourceType": "manga",
+      "bookCoverUrl": "https://m.media-amazon.com/images/I/71N5cRlakqL._AC_UF1000,1000_QL80_.jpg",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Comedia"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "anime",
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "Primavera 2025",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2025-04-10",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            3
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-24T16:11:06.759Z"
+    },
+    {
+      "id": "1779639218592",
+      "name": "A Mangaka’s Weirdly Wonderful Workplace",
+      "nameEn": "笑顔のたえない職場です。",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYWMyZTY0YmUtOGEzZi00ZWNhLWEyOTctYTNlNWRkZWI3YTM3XkEyXkFqcGc@._V1_.jpg",
+      "synopsis": "Futami, una dibujante novata de shojo, por fin va a publicar su querido manga de shogi, \"Dear Subaru\". Pero… el estrés le provoca dolor de estómago, se ve obligada a retrasar la entrega de su primer capítulo y no avanza con los storyboards. Para colmo, engorda por sus picoteos nocturnos y empieza a tener delirios disparatados. ¿Conseguirá Futami disfrutar de la vida como mangaka?",
+      "year": 2025,
+      "country": "Japón",
+      "network": "",
+      "networkUrl": "https://www.crunchyroll.com/es/series/GT00361926/a-mangakas-weirdly-wonderful-workplace",
+      "watchLinks": [
+        {
+          "name": "Crunchyroll",
+          "url": "https://www.crunchyroll.com/es/series/GT00361926/a-mangakas-weirdly-wonderful-workplace"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/UfW04nno1CE?si=S4O88L-ruCW-xF_0",
+      "bookSource": "A Mangaka’s Weirdly Wonderful Workplace",
+      "basedOnBook": true,
+      "sourceType": "manga",
+      "bookCoverUrl": "https://m.media-amazon.com/images/I/91syfZDVz0L._UF1000,1000_QL80_.jpg",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Comedia"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "anime",
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "Otoño 2025",
+      "renewedNextSeason": false,
+      "episodeDuration": 23,
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2025-10-06",
+          "totalEpisodes": 13,
+          "emissionDays": [
+            0
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-24T16:13:38.592Z"
     }
   ],
   "movies": [
@@ -30766,6 +30888,92 @@
       "cast": [],
       "productoraId": "",
       "updatedAt": "2026-05-24T10:10:06.260Z"
+    },
+    {
+      "id": "1779638690965",
+      "name": "Reina Cristina",
+      "nameEn": "The Girl King",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/zmNPPf1Zn6Y11OeK4jXrkcjyXvT.jpg",
+      "synopsis": "El retrato de la brillante y extravagante Kristina de Suecia, reina desde los seis años, que lucha contra las fuerzas conservadoras que están en contra de sus ideas para modernizar Suecia y que no toleran su sexualidad.",
+      "year": 2015,
+      "country": "Canadá / Alemania / Francia / Suecia / Finlandia",
+      "network": "Filmin, Prime Video",
+      "networkUrl": "https://www.filmin.es/pelicula/reina-cristina",
+      "watchLinks": [
+        {
+          "name": "Filmin",
+          "url": "https://www.filmin.es/pelicula/reina-cristina"
+        },
+        {
+          "name": "Prime Video",
+          "url": "https://www.primevideo.com/detail?gti=amzn1.dv.gti.40b9d31d-5645-4156-9366-e56654eea0fe&linkCode=xm2&tag=justesqxg9-21"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/zxL0S78DZfc?si=s3StPpRj4KFiws4C",
+      "date": "2015-09-04",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Drama",
+        "Histórico",
+        "Romance"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "awards": [
+        {
+          "name": "",
+          "festival": "Jussi Gaala",
+          "category": "Mejor diseño de vestuario",
+          "year": 2016,
+          "result": "won"
+        }
+      ],
+      "category": "movie",
+      "movieType": "film",
+      "duration": 106,
+      "cast": [],
+      "productoraId": "",
+      "updatedAt": "2026-05-24T16:04:50.965Z"
+    },
+    {
+      "id": "1779639506085",
+      "name": "Kase-san and Morning Glories",
+      "nameEn": "あさがおと加瀬さん。",
+      "poster": "https://cdn.myanimelist.net/images/anime/1578/94205.jpg",
+      "synopsis": "Yui Yamada, una estudiante de secundaria aficionada a las plantas y la jardinería, comienza a salir con Tomoka Kase, la mejor atleta del equipo de atletismo de su escuela. Yui es tímida, femenina y nunca ha tenido una relación. Por otro lado, Tomoka es vivaz, un poco marimacho y popular entre sus amigas. A pesar de ser tan diferentes, intentan comprenderse y apoyarse mutuamente mientras experimentan la euforia del primer amor.\n\nAsagao to Kase-san es una conmovedora historia sobre dos chicas que lidian con sus crecientes sentimientos mutuos y otras preocupaciones propias de las enamoradas.",
+      "year": 2018,
+      "country": "Japón",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/SRJJtaZekbI?si=Ij48_VTA6jpYJoQ1",
+      "date": "2018-06-09",
+      "basedOnBook": true,
+      "bookSource": "Asagao to Kase-san",
+      "bookCoverUrl": "https://www.planetadelibros.com/usuaris/libros/thumbs/0b18a040-f953-4d91-b8cf-de5f3234b43e/m_175_310/portada_kase-y-las-campanillas-azules-n-0105_hiromi-takashima_202406281215.webp",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Escolar",
+        "Romance"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "manga",
+      "awards": [],
+      "category": "anime",
+      "movieType": "film",
+      "duration": 58,
+      "cast": [],
+      "productoraId": "",
+      "updatedAt": "2026-05-24T16:18:26.085Z"
     }
   ],
   "actresses": [
@@ -33719,5 +33927,5 @@
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-05-24T15:57:29.232Z"
+  "exportedAt": "2026-05-24T16:18:40.890Z"
 }
