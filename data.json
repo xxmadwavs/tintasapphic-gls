@@ -1011,7 +1011,7 @@
       "basedOnBook": true,
       "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/391629/Thumbnail/book_detail_large.gif?9",
       "bookUrl": "https://en.mebmarket.com/?action=book_details&book_id=391629",
-      "upcoming": true,
+      "upcoming": false,
       "skipDates": [],
       "episodes": [],
       "watchLinks": [],
@@ -1087,7 +1087,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-23T18:23:09.170Z",
+      "updatedAt": "2026-05-24T15:57:26.480Z",
       "nameEn": "โซ่รักอัคนี",
       "episodeDuration": "",
       "myPick": false,
@@ -1103,11 +1103,25 @@
       "awards": [],
       "tropos": [
         "Enemigos a amantes",
-        "Proximidad forzada",
-        "Los opuestos se atraen"
+        "Los opuestos se atraen",
+        "Proximidad forzada"
       ],
       "dinamica": [
         "Masc × Femme"
+      ],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-07-11",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            5
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
       ]
     },
     {
@@ -33705,5 +33719,5 @@
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-05-24T15:52:00.730Z"
+  "exportedAt": "2026-05-24T15:57:29.232Z"
 }
