@@ -32984,7 +32984,8 @@
       "actressIds": [
         "1778669459675",
         "1778669499657"
-      ]
+      ],
+      "retired": false
     },
     {
       "id": "1779616751489",
@@ -33009,6 +33010,45 @@
       "actressIds": [
         "1778760904100",
         "1778760989113"
+      ]
+    },
+    {
+      "id": "1779618469383",
+      "name": "OrmFolk",
+      "desc": "",
+      "retired": false,
+      "couplePhoto": "https://preview.redd.it/h5542fdm9nbf1.jpg?width=640&crop=smart&auto=webp&s=ddc20ffbeb344285771c8c7aec8ca9d5dc9c0508",
+      "couplePhotoPosition": "50% 27%",
+      "couplePhotoZoom": 1.06,
+      "actressIds": [
+        "1778781856216",
+        "1778781830314"
+      ]
+    },
+    {
+      "id": "1779618607306",
+      "name": "NattPitcha",
+      "desc": "",
+      "retired": true,
+      "couplePhoto": "https://i.redd.it/nattpitcha-v0-8r8ax5np11df1.jpg?width=1170&format=pjpg&auto=webp&s=e11b061bdb5a19a36e5ae39d46306655ffe8522c",
+      "couplePhotoPosition": "43% 21%",
+      "couplePhotoZoom": 1.1,
+      "actressIds": [
+        "1778704997832",
+        "1778704935711"
+      ]
+    },
+    {
+      "id": "1779618721081",
+      "name": "NamBenz",
+      "desc": "",
+      "retired": true,
+      "couplePhoto": "https://pbs.twimg.com/media/G9jbMpWWcAAfO_l?format=jpg&name=4096x4096",
+      "couplePhotoPosition": "50% 32%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1778784264617",
+        "1778841125599"
       ]
     }
   ],
@@ -33449,5 +33489,5 @@
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-05-24T10:20:29.872Z"
+  "exportedAt": "2026-05-24T10:32:05.243Z"
 }
