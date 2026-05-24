@@ -980,7 +980,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-23T18:59:23.287Z",
+      "updatedAt": "2026-05-23T18:22:50.286Z",
       "episodeDuration": 66,
       "myPick": false,
       "myPick2026": false,
@@ -993,8 +993,7 @@
       "sourceType": "",
       "moods": [],
       "tropos": [
-        "Age Gap",
-        "Revenge Romance"
+        "Age Gap"
       ],
       "dinamica": [],
       "awards": []
@@ -1532,7 +1531,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-23T18:54:27.041Z",
+      "updatedAt": "2026-05-23T18:45:47.760Z",
       "nameEn": "เพื่อเธออีกครั้ง",
       "episodeDuration": 55,
       "myTop10": false,
@@ -1548,7 +1547,6 @@
       "sourceType": "",
       "moods": [],
       "tropos": [
-        "Amigas con beneficios",
         "Amantes predestinados",
         "Jefa y empleada",
         "Segunda oportunidad"
@@ -1820,7 +1818,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": true,
-      "updatedAt": "2026-05-23T18:54:54.489Z",
+      "updatedAt": "2026-05-23T18:25:15.387Z",
       "nameEn": "เด็ก เรียบ ร้าย",
       "episodeDuration": 48,
       "myPick": false,
@@ -1836,12 +1834,11 @@
       "awards": [],
       "tropos": [
         "Amor no correspondido",
-        "Despertar lésbico",
         "Enemigos a amantes",
         "Proximidad forzada",
+        "Triángulo amoroso",
         "Relación secreta",
-        "Slow Burn",
-        "Triángulo amoroso"
+        "Amor no correspondido"
       ],
       "dinamica": [
         "Femme × Femme"
@@ -4733,7 +4730,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-23T18:56:17.948Z",
+      "updatedAt": "2026-05-18T20:46:43.353Z",
       "episodeDuration": 51,
       "myPick": false,
       "myPick2026": false,
@@ -4742,16 +4739,7 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779135450707",
-      "sourceType": "",
-      "moods": [],
-      "tropos": [
-        "Romance en el trabajo"
-      ],
-      "dinamica": [
-        "Femme × Femme"
-      ],
-      "awards": []
+      "productoraId": "1779135450707"
     },
     {
       "id": "1777105656547",
@@ -4831,7 +4819,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-23T18:53:12.009Z",
+      "updatedAt": "2026-05-19T07:56:27.911Z",
       "episodeDuration": "",
       "myPick": false,
       "myPick2026": false,
@@ -4840,16 +4828,7 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779135450707",
-      "sourceType": "",
-      "moods": [],
-      "tropos": [
-        "Amigas de la infancia"
-      ],
-      "dinamica": [
-        "Femme × Femme"
-      ],
-      "awards": []
+      "productoraId": "1779135450707"
     },
     {
       "id": "1777105780897",
@@ -4922,7 +4901,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-23T18:53:49.415Z",
+      "updatedAt": "2026-05-19T07:56:31.586Z",
       "episodeDuration": 47,
       "myPick": false,
       "myPick2026": false,
@@ -4931,21 +4910,7 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779135450707",
-      "sourceType": "",
-      "moods": [],
-      "tropos": [
-        "Amigas de la infancia",
-        "Bodyguard / VIP"
-      ],
-      "dinamica": [
-        "Femme × Femme",
-        "Feroz × Tierna",
-        "Gruñona × Sunshine",
-        "Protectora × Delicada",
-        "Seria × Divertida"
-      ],
-      "awards": []
+      "productoraId": "1779135450707"
     },
     {
       "id": "1777106011444",
@@ -5049,7 +5014,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-23T18:54:04.363Z",
+      "updatedAt": "2026-05-22T06:46:27.642Z",
       "episodeDuration": 50,
       "myTop10": true,
       "top10Rank": 0,
@@ -5062,14 +5027,7 @@
       "snNote": "",
       "productoraId": "1779135450707",
       "sourceType": "novela",
-      "moods": [],
-      "tropos": [
-        "Segunda oportunidad"
-      ],
-      "dinamica": [
-        "Femme × Femme"
-      ],
-      "awards": []
+      "moods": []
     },
     {
       "id": "1777106235834",
@@ -5539,7 +5497,7 @@
       "seriesType": "webserie",
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-23T18:56:57.638Z",
+      "updatedAt": "2026-05-16T08:28:26.197Z",
       "nameEn": "온앤오프",
       "cast": [
         {
@@ -5557,24 +5515,7 @@
       ],
       "episodeDuration": 10,
       "myPick": false,
-      "myPick2026": false,
-      "sourceType": "",
-      "moods": [],
-      "tropos": [
-        "Relación secreta",
-        "Romance en el trabajo"
-      ],
-      "dinamica": [
-        "Femme × Femme",
-        "Jefa × Subordinada"
-      ],
-      "awards": [],
-      "cancelStatus": "",
-      "cancelNote": "",
-      "sinNovedades": false,
-      "snLastUpdate": "",
-      "snNote": "",
-      "productoraId": ""
+      "myPick2026": false
     },
     {
       "id": "1777116358969",
@@ -5623,7 +5564,7 @@
       "seriesType": "webserie",
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-23T18:57:12.192Z",
+      "updatedAt": "2026-05-16T08:28:28.671Z",
       "nameEn": "온앤오프 시즌2",
       "cast": [
         {
@@ -5641,24 +5582,7 @@
       ],
       "episodeDuration": 10,
       "myPick": false,
-      "myPick2026": false,
-      "sourceType": "",
-      "moods": [],
-      "tropos": [
-        "Relación secreta",
-        "Romance en el trabajo"
-      ],
-      "dinamica": [
-        "Femme × Femme",
-        "Jefa × Subordinada"
-      ],
-      "awards": [],
-      "cancelStatus": "",
-      "cancelNote": "",
-      "sinNovedades": false,
-      "snLastUpdate": "",
-      "snNote": "",
-      "productoraId": ""
+      "myPick2026": false
     },
     {
       "id": "1777123893340",
@@ -5741,7 +5665,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-23T18:58:07.097Z",
+      "updatedAt": "2026-05-22T06:46:34.394Z",
       "episodeDuration": 55,
       "myPick": false,
       "myPick2026": false,
@@ -5752,26 +5676,7 @@
       "snNote": "",
       "productoraId": "1779135376050",
       "sourceType": "novela",
-      "moods": [],
-      "tropos": [
-        "Amor prohibido",
-        "Forced Proximity",
-        "Jefa y empleada",
-        "Love triangle",
-        "Relación secreta",
-        "Romance en el trabajo"
-      ],
-      "dinamica": [
-        "Dominante × Sumisa",
-        "Femme × Femme",
-        "Feroz × Tierna",
-        "Fría × Cálida",
-        "Jefa × Subordinada",
-        "Luz × Oscuridad",
-        "Rica × Pobre",
-        "Top × Bottom"
-      ],
-      "awards": []
+      "moods": []
     },
     {
       "id": "1777149248949",
@@ -6066,11 +5971,23 @@
           "character": "Anueng",
           "coupleType": "main",
           "coupleNum": 1
+        },
+        {
+          "actressId": "1778761040196",
+          "character": "Sam",
+          "coupleType": "secondary",
+          "coupleNum": 1
+        },
+        {
+          "actressId": "1778761114502",
+          "character": "Mon",
+          "coupleType": "secondary",
+          "coupleNum": 1
         }
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-23T18:58:17.616Z",
+      "updatedAt": "2026-05-24T10:00:05.912Z",
       "episodeDuration": 47,
       "myPick": false,
       "myPick2026": false,
@@ -6082,9 +5999,7 @@
       "productoraId": "1779136355146",
       "sourceType": "novela",
       "moods": [],
-      "tropos": [
-        "Age Gap"
-      ],
+      "tropos": [],
       "dinamica": [],
       "awards": []
     },
@@ -6527,7 +6442,7 @@
       "animeSeason": "",
       "renewedNextSeason": false,
       "episodeDuration": 43,
-      "updatedAt": "2026-05-23T18:58:25.934Z",
+      "updatedAt": "2026-05-22T06:46:58.725Z",
       "myPick": false,
       "myPick2026": false,
       "sourceType": "novela",
@@ -6537,13 +6452,7 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "",
-      "tropos": [
-        "Amantes predestinados",
-        "Reencarnación"
-      ],
-      "dinamica": [],
-      "awards": []
+      "productoraId": ""
     },
     {
       "id": "1777225431592",
@@ -6623,7 +6532,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-23T18:58:52.291Z",
+      "updatedAt": "2026-05-22T06:47:01.709Z",
       "episodeDuration": 49,
       "myPick": false,
       "myPick2026": false,
@@ -6634,15 +6543,7 @@
       "snNote": "",
       "productoraId": "1779136264729",
       "sourceType": "novela",
-      "moods": [],
-      "tropos": [
-        "Amor prohibido",
-        "Amantes predestinados"
-      ],
-      "dinamica": [
-        "Femme × Femme"
-      ],
-      "awards": []
+      "moods": []
     },
     {
       "id": "1777225577567",
@@ -6849,7 +6750,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-23T18:59:14.285Z",
+      "updatedAt": "2026-05-22T06:47:06.189Z",
       "episodeDuration": 60,
       "myPick": true,
       "myPick2026": false,
@@ -6860,12 +6761,7 @@
       "snNote": "",
       "productoraId": "1779135954653",
       "sourceType": "novela",
-      "moods": [],
-      "tropos": [
-        "Amigas de la infancia"
-      ],
-      "dinamica": [],
-      "awards": []
+      "moods": []
     },
     {
       "id": "1777226679219",
@@ -20849,7 +20745,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-23T18:55:38.836Z",
+      "updatedAt": "2026-05-22T07:33:24.417Z",
       "cancelStatus": "",
       "cancelNote": "",
       "sinNovedades": false,
@@ -20858,19 +20754,7 @@
       "productoraId": "1779136406910",
       "sourceType": "novela",
       "moods": [],
-      "awards": [],
-      "tropos": [
-        "Romance rico / pobre"
-      ],
-      "dinamica": [
-        "Femme × Femme",
-        "Feroz × Tierna",
-        "Fría × Cálida",
-        "Gruñona × Sunshine",
-        "Jefa × Subordinada",
-        "Luz × Oscuridad",
-        "Rica × Pobre"
-      ]
+      "awards": []
     },
     {
       "id": "1778956087775",
@@ -21088,6 +20972,83 @@
         }
       ],
       "updatedAt": "2026-05-22T07:40:53.021Z"
+    },
+    {
+      "id": "1779616671400",
+      "name": "Falling for My Hater",
+      "nameEn": "พักหัวใจที่ยัยแอนตี้แฟน",
+      "poster": "https://i.mydramalist.com/5vYymV_4c.jpg?v=1",
+      "synopsis": "",
+      "year": 2026,
+      "country": "Tailandia",
+      "network": "iQIYI",
+      "networkUrl": "https://www.iqiyi.com",
+      "watchLinks": [
+        {
+          "name": "iQIYI",
+          "url": "https://www.iqiyi.com"
+        }
+      ],
+      "trailerUrl": "https://x.com/Falling4hater/status/2036464945458717015?s=20",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Comedia",
+        "Drama",
+        "Misterio",
+        "Romance"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "series",
+      "seriesType": "webserie",
+      "cast": [
+        {
+          "actressId": "1778761040196",
+          "character": "Nam",
+          "coupleType": "main",
+          "coupleNum": 1
+        },
+        {
+          "actressId": "1778761114502",
+          "character": "Gina",
+          "coupleType": "main",
+          "coupleNum": 1
+        }
+      ],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779176934811",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-05-25",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            0
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-24T09:57:51.400Z"
     }
   ],
   "movies": [
@@ -29781,7 +29742,7 @@
       "bookLinks": [],
       "bookUrl": "",
       "category": "movie",
-      "updatedAt": "2026-05-23T19:09:43.391Z",
+      "updatedAt": "2026-05-14T21:16:06.141Z",
       "movieType": "film",
       "duration": 130,
       "cast": [
@@ -29804,13 +29765,7 @@
           "coupleNum": 1
         }
       ],
-      "nameEn": "ยูเรนัส",
-      "moods": [],
-      "tropos": [],
-      "dinamica": [],
-      "sourceType": "",
-      "awards": [],
-      "productoraId": "1779136135118"
+      "nameEn": "ยูเรนัส"
     },
     {
       "id": "1700000000295",
@@ -30719,82 +30674,6 @@
       "duration": 12,
       "cast": [],
       "updatedAt": "2026-05-16T16:56:42.440Z"
-    },
-    {
-      "id": "1779563162320",
-      "name": "Montreal, My Beautiful",
-      "nameEn": "Montréal, ma belle",
-      "poster": "https://a.ltrbxd.com/resized/film-poster/1/0/6/5/1/8/5/1065185-montreal-my-beautiful-0-1000-0-1500-crop.jpg?v=ef6229f4c6",
-      "synopsis": "Una madre inmigrante china en Montreal rompe con el deber y la tradición cuando se enamora de una joven quebequense, lo que la lleva a enfrentarse a cuestiones de identidad y libertad.",
-      "year": 2025,
-      "country": "Canadá",
-      "network": "",
-      "networkUrl": "",
-      "watchLinks": [],
-      "trailerUrl": "https://youtu.be/0A9_uxkwWng?si=OTNS7Yc73Zh2uOZF",
-      "date": "2025-10-12",
-      "basedOnBook": false,
-      "bookSource": "",
-      "bookCoverUrl": "",
-      "bookLinks": [],
-      "bookUrl": "",
-      "genres": [
-        "Drama",
-        "Romance"
-      ],
-      "moods": [],
-      "tropos": [],
-      "dinamica": [],
-      "sourceType": "",
-      "awards": [],
-      "category": "movie",
-      "movieType": "film",
-      "duration": 117,
-      "cast": [],
-      "productoraId": "",
-      "updatedAt": "2026-05-23T19:06:02.320Z"
-    },
-    {
-      "id": "1779563363601",
-      "name": "The Children’s Hour",
-      "nameEn": "",
-      "poster": "https://a.ltrbxd.com/resized/film-poster/3/9/2/0/7/39207-the-children-s-hour-0-1000-0-1500-crop.jpg?v=a54d339e21",
-      "synopsis": "Karen y Martha son dos buenas amigas y socias que dirigen una exclusiva escuela privada para niñas, la Escuela Dobie-Wright. Karen está prometida con el doctor Joe Cardin, con el que pretende casarse pronto, aunque Martha le insiste en retrasar la boda, para no acabar sola al frente de la escuela. Una alumna maliciosa y vengativa, despechada por un castigo que ha recibido, oye por casualidad un comentario y lo utiliza, distorsionándolo ante su abuela, para acusar a las profesoras de ser amantes.",
-      "year": 1961,
-      "country": "Estados Unidos",
-      "network": "Filmin, Prime Video",
-      "networkUrl": "https://www.primevideo.com/detail?gti=amzn1.dv.gti.88b9ce76-3056-5e04-8595-422a01265cf6&linkCode=xm2&tag=justesqxg9-21",
-      "watchLinks": [
-        {
-          "name": "Prime Video",
-          "url": "https://www.primevideo.com/detail?gti=amzn1.dv.gti.88b9ce76-3056-5e04-8595-422a01265cf6&linkCode=xm2&tag=justesqxg9-21"
-        },
-        {
-          "name": "Filmin",
-          "url": "https://www.filmin.es/pelicula/la-calumnia?awinaffid=400165&awinmid=82863"
-        }
-      ],
-      "trailerUrl": "https://youtu.be/64T9YaMb_wU?si=EwMmxT8ksNySGMa7",
-      "date": "1961-12-19",
-      "basedOnBook": false,
-      "bookSource": "",
-      "bookCoverUrl": "",
-      "bookLinks": [],
-      "bookUrl": "",
-      "genres": [
-        "Drama"
-      ],
-      "moods": [],
-      "tropos": [],
-      "dinamica": [],
-      "sourceType": "",
-      "awards": [],
-      "category": "movie",
-      "movieType": "film",
-      "duration": "",
-      "cast": [],
-      "productoraId": "",
-      "updatedAt": "2026-05-23T19:09:23.601Z"
     }
   ],
   "actresses": [
@@ -33028,6 +32907,18 @@
         "1778669459675",
         "1778669499657"
       ]
+    },
+    {
+      "id": "1779616751489",
+      "name": "IzeZa",
+      "desc": "",
+      "couplePhoto": "https://pbs.twimg.com/media/HBvETcmW8AAqV4z?format=jpg&name=large",
+      "couplePhotoPosition": "50% 17%",
+      "couplePhotoZoom": 1.21,
+      "actressIds": [
+        "1778761040196",
+        "1778761114502"
+      ]
     }
   ],
   "productoras": [
@@ -33467,5 +33358,5 @@
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-05-23T19:09:56.190Z"
+  "exportedAt": "2026-05-24T10:01:01.045Z"
 }
