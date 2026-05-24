@@ -30559,34 +30559,6 @@
       "cast": []
     },
     {
-      "id": "1778500875179",
-      "name": "Asagao to Kase-san",
-      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/69Fy0t0QWGk1xPh0f3qcboT2VUs.jpg",
-      "synopsis": "Yui Yamada, una chica tímida que disfruta cuidando el jardín de su escuela, se enamora de la juvenil y atlética Tomoka Kase. Las dos eventualmente comienzan a salir, y la historia sigue a la pareja mientras enfrentan varios desafíos en su relación.",
-      "year": 2018,
-      "country": "Japón",
-      "network": "",
-      "networkUrl": "",
-      "watchLinks": [],
-      "trailerUrl": "https://youtu.be/SRJJtaZekbI",
-      "date": "2018-06-09",
-      "basedOnBook": false,
-      "bookSource": "",
-      "bookCoverUrl": "",
-      "bookLinks": [],
-      "bookUrl": "",
-      "genres": [
-        "Animación",
-        "Anime"
-      ],
-      "category": "anime",
-      "updatedAt": "2026-05-14T21:22:44.376Z",
-      "movieType": "film",
-      "duration": 58,
-      "cast": [],
-      "nameEn": "あさがおと加瀬さん。"
-    },
-    {
       "id": "1778611963184",
       "name": "Chaser Game W: Suigyo no Majiwari",
       "poster": "https://i.mydramalist.com/816rQb_4c.jpg?v=1",
@@ -33927,5 +33899,5 @@
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-05-24T16:18:40.890Z"
+  "exportedAt": "2026-05-24T16:22:51.618Z"
 }
