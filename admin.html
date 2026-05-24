@@ -283,6 +283,7 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
 }
 .tropo-chip:hover{border-color:#c94f7c;background:rgba(201,79,124,0.15);color:#a0305a}
 .tropo-chip.selected{background:#c94f7c;border-color:#c94f7c;color:#fff}
+.tropo-chip.covered{opacity:.3;cursor:not-allowed;pointer-events:none;text-decoration:line-through}
 .dinamica-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px}
 .dinamica-chip{
   padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700;
@@ -937,6 +938,27 @@ const DINAMICAS_EN={
 function tropoLabel(t){const en=TROPOS_EN[t];return en&&en!==t?`${t} (${en})`:t;}
 function dinamicaLabel(d){const en=DINAMICAS_EN[d];return en&&en!==d?`${d} (${en})`:d;}
 
+const TROPO_CUBIERTO_POR_DINAMICA={'Rica × Pobre':'Romance rico / pobre','Jefa × Subordinada':'Jefa y empleada'};
+
+function syncTroposDinamica(troposId,dinamicaId){
+  const tContainer=document.getElementById(troposId);
+  const dContainer=document.getElementById(dinamicaId);
+  if(!tContainer||!dContainer) return;
+  for(const [din,tro] of Object.entries(TROPO_CUBIERTO_POR_DINAMICA)){
+    const dChip=[...dContainer.querySelectorAll('.dinamica-chip')].find(c=>c.dataset.value===din);
+    const tChip=[...tContainer.querySelectorAll('.tropo-chip')].find(c=>c.dataset.value===tro);
+    if(!dChip||!tChip) continue;
+    if(dChip.classList.contains('selected')){
+      tChip.classList.remove('selected');
+      tChip.classList.add('covered');
+      tChip.title='Ya cubierto por la dinámica "'+din+'"';
+    } else {
+      tChip.classList.remove('covered');
+      tChip.title='';
+    }
+  }
+}
+
 const SOURCE_TYPES=[
   {value:'novela',label:'📚 Novela'},
   {value:'webnovel',label:'🌐 Webnovel'},
@@ -977,14 +999,14 @@ function getSelectedMoods(containerId){
   return [...(_el?_el.querySelectorAll('.mood-chip.selected'):document.querySelectorAll(`#${containerId} .mood-chip.selected`))].map(c=>c.textContent);
 }
 function troposChipsHtml(selected=[]){
-  return TROPOS.map(t=>`<span class="tropo-chip${selected.includes(t)?' selected':''}" data-value="${t}" onclick="this.classList.toggle('selected')">${tropoLabel(t)}</span>`).join('');
+  return TROPOS.map(t=>`<span class="tropo-chip${selected.includes(t)?' selected':''}" data-value="${t}" onclick="this.classList.toggle('selected');var pid=this.parentElement.id;syncTroposDinamica(pid,pid.replace('tropos','dinamica'))">${tropoLabel(t)}</span>`).join('');
 }
 function getSelectedTropos(containerId){
   const _el=_findInModal(containerId)||document.getElementById(containerId);
   return [...(_el?_el.querySelectorAll('.tropo-chip.selected'):document.querySelectorAll(`#${containerId} .tropo-chip.selected`))].map(c=>c.dataset.value||c.textContent);
 }
 function dinamicaChipsHtml(selected=[]){
-  return DINAMICAS.map(d=>`<span class="dinamica-chip${selected.includes(d)?' selected':''}" data-value="${d}" onclick="this.classList.toggle('selected')">${dinamicaLabel(d)}</span>`).join('');
+  return DINAMICAS.map(d=>`<span class="dinamica-chip${selected.includes(d)?' selected':''}" data-value="${d}" onclick="this.classList.toggle('selected');var pid=this.parentElement.id;syncTroposDinamica(pid.replace('dinamica','tropos'),pid)">${dinamicaLabel(d)}</span>`).join('');
 }
 function getSelectedDinamica(containerId){
   const _el=_findInModal(containerId)||document.getElementById(containerId);
@@ -2353,6 +2375,7 @@ function openAddSeries(){
   initCountries('countriesList','');
   initSeasons(null);
   initCast([]);
+  syncTroposDinamica('f_tropos','f_dinamica');
 }
 function openEdit(si){
   document.getElementById('seriesModalTitle').textContent='✏️ Editar serie';
@@ -2368,6 +2391,7 @@ function openEdit(si){
   initSeasons(getSeasons(series[si]));
   initCast(series[si].cast||[]);
   populateAwards('awardsAdminList', series[si].awards||[]);
+  syncTroposDinamica('f_tropos','f_dinamica');
 }
 
 // ── Scope helpers: find elements inside the ACTIVE open modal ──────────────────
@@ -3317,6 +3341,7 @@ function openAddMovie(){
   populateAwards('movieAwardsAdminList',[]);
   initCountries('movieCountriesList','');
   initMovieCast([]);
+  syncTroposDinamica('mf_tropos','mf_dinamica');
 }
 function openEditMovie(mi){
   document.getElementById('movieModalTitle').textContent='✏️ Editar película';
@@ -3331,6 +3356,7 @@ function openEditMovie(mi){
   populateAwards('movieAwardsAdminList', mv.awards||[]);
   initCountries('movieCountriesList', mv.country||'');
   initMovieCast(mv.cast||[]);
+  syncTroposDinamica('mf_tropos','mf_dinamica');
 }
 function initMoviePlatforms(links){
   const list=document.getElementById('moviePlatformsList'); if(!list) return;
