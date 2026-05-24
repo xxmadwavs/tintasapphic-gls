@@ -30674,6 +30674,84 @@
       "duration": 12,
       "cast": [],
       "updatedAt": "2026-05-16T16:56:42.440Z"
+    },
+    {
+      "id": "1779617164070",
+      "name": "Montreal, My Beautiful",
+      "nameEn": "Montréal, ma belle",
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/0/6/5/1/8/5/1065185-montreal-my-beautiful-0-1000-0-1500-crop.jpg?v=ef6229f4c6",
+      "synopsis": "Una madre inmigrante china en Montreal rompe con el deber y la tradición cuando se enamora de una joven quebequense, lo que la lleva a enfrentarse a cuestiones de identidad y libertad.",
+      "year": 2025,
+      "country": "Canadá",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/0A9_uxkwWng?si=zKkP3kqHY99eY48q",
+      "date": "2025-10-12",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "moods": [],
+      "tropos": [
+        "Age Gap"
+      ],
+      "dinamica": [],
+      "sourceType": "",
+      "awards": [],
+      "category": "movie",
+      "movieType": "film",
+      "duration": 118,
+      "cast": [],
+      "productoraId": "",
+      "updatedAt": "2026-05-24T10:06:04.070Z"
+    },
+    {
+      "id": "1779617406260",
+      "name": "La calumnia",
+      "nameEn": "The Children’s Hour",
+      "poster": "https://a.ltrbxd.com/resized/film-poster/3/9/2/0/7/39207-the-children-s-hour-0-1000-0-1500-crop.jpg?v=a54d339e21",
+      "synopsis": "Una estudiante rebelde en una escuela de niñas acusa a dos maestras de lesbianismo.",
+      "year": 1961,
+      "country": "Estados Unidos",
+      "network": "Filmin, Prime Video",
+      "networkUrl": "https://www.primevideo.com/detail?gti=amzn1.dv.gti.88b9ce76-3056-5e04-8595-422a01265cf6&linkCode=xm2&tag=justesqxg9-21",
+      "watchLinks": [
+        {
+          "name": "Prime Video",
+          "url": "https://www.primevideo.com/detail?gti=amzn1.dv.gti.88b9ce76-3056-5e04-8595-422a01265cf6&linkCode=xm2&tag=justesqxg9-21"
+        },
+        {
+          "name": "Filmin",
+          "url": "https://www.filmin.es/pelicula/la-calumnia?awinaffid=400165&awinmid=82863"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/64T9YaMb_wU?si=i-tGkhwbysDK_5n4",
+      "date": "1961-12-19",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Drama"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "awards": [],
+      "category": "movie",
+      "movieType": "film",
+      "duration": 108,
+      "cast": [],
+      "productoraId": "",
+      "updatedAt": "2026-05-24T10:10:06.260Z"
     }
   ],
   "actresses": [
@@ -33358,5 +33436,5 @@
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-05-24T10:01:01.045Z"
+  "exportedAt": "2026-05-24T10:10:07.974Z"
 }
