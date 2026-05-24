@@ -412,7 +412,8 @@
       ],
       "episodeDuration": 12,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1776889333282",
@@ -1248,8 +1249,7 @@
       "sourceType": "novela",
       "moods": [],
       "tropos": [
-        "Amor prohibido",
-        "Romance rico / pobre"
+        "Amor prohibido"
       ],
       "dinamica": [
         "Femme × Femme",
@@ -1320,7 +1320,8 @@
       "snNote": "",
       "productoraId": "1779136303417",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1776932412578",
@@ -1630,7 +1631,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779177125091"
+      "productoraId": "1779177125091",
+      "tropos": []
     },
     {
       "id": "1776966024996",
@@ -1698,7 +1700,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1776966161759",
@@ -1953,7 +1956,8 @@
       "productoraId": "1779135760151",
       "sourceType": "novela",
       "moods": [],
-      "awards": []
+      "awards": [],
+      "tropos": []
     },
     {
       "id": "1776966975487",
@@ -2311,7 +2315,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779134050424"
+      "productoraId": "1779134050424",
+      "tropos": []
     },
     {
       "id": "1776971352334",
@@ -2545,7 +2550,8 @@
       "snNote": "",
       "productoraId": "1779135573515",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1776972053631",
@@ -2613,9 +2619,7 @@
       "productoraId": "1779137481839",
       "sourceType": "novela",
       "moods": [],
-      "tropos": [
-        "Jefa y empleada"
-      ],
+      "tropos": [],
       "dinamica": [
         "Jefa × Subordinada",
         "Rica × Pobre"
@@ -2678,7 +2682,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779136191693"
+      "productoraId": "1779136191693",
+      "tropos": []
     },
     {
       "id": "1776972237357",
@@ -2762,7 +2767,8 @@
       "snNote": "",
       "productoraId": "1779134050424",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1776972424986",
@@ -2817,7 +2823,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779134050424"
+      "productoraId": "1779134050424",
+      "tropos": []
     },
     {
       "id": "1776972733396",
@@ -2862,7 +2869,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "updatedAt": "2026-05-18T12:10:53.571Z"
+      "updatedAt": "2026-05-18T12:10:53.571Z",
+      "tropos": []
     },
     {
       "id": "1776972993462",
@@ -2915,7 +2923,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779134050424"
+      "productoraId": "1779134050424",
+      "tropos": []
     },
     {
       "id": "1776973104361",
@@ -3129,7 +3138,8 @@
       "snNote": "",
       "productoraId": "1779134050424",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1776974136082",
@@ -3211,7 +3221,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779135573515"
+      "productoraId": "1779135573515",
+      "tropos": []
     },
     {
       "id": "1776974252950",
@@ -3269,7 +3280,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779135573515"
+      "productoraId": "1779135573515",
+      "tropos": []
     },
     {
       "id": "1776974479970",
@@ -3389,7 +3401,8 @@
       "snNote": "",
       "productoraId": "1779135573515",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1776976144217",
@@ -3559,7 +3572,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1776976249517",
@@ -3617,7 +3631,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1776976364805",
@@ -3817,7 +3832,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779136087730"
+      "productoraId": "1779136087730",
+      "tropos": []
     },
     {
       "id": "1776976636268",
@@ -3890,9 +3906,7 @@
       "productoraId": "1779136087730",
       "sourceType": "",
       "moods": [],
-      "tropos": [
-        "Romance rico / pobre"
-      ],
+      "tropos": [],
       "dinamica": [
         "Rica × Pobre"
       ],
@@ -3946,7 +3960,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1777017989605",
@@ -3995,7 +4010,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1777018102689",
@@ -4055,7 +4071,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1777018271372",
@@ -4105,7 +4122,8 @@
       "snLastUpdate": "",
       "snNote": "",
       "productoraId": "",
-      "updatedAt": "2026-05-22T06:46:13.759Z"
+      "updatedAt": "2026-05-22T06:46:13.759Z",
+      "tropos": []
     },
     {
       "id": "1777032925125",
@@ -4165,7 +4183,8 @@
       "snNote": "",
       "productoraId": "1779135760151",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777033081952",
@@ -4233,7 +4252,8 @@
       "snNote": "",
       "productoraId": "1779135760151",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777048197930",
@@ -4412,7 +4432,8 @@
       "cast": [],
       "episodeDuration": 40,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1777065549680",
@@ -4491,7 +4512,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779176988365"
+      "productoraId": "1779176988365",
+      "tropos": []
     },
     {
       "id": "1777068097582",
@@ -4577,7 +4599,8 @@
       ],
       "updatedAt": "2026-05-16T08:28:11.628Z",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1777102056290",
@@ -4656,7 +4679,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779176988365"
+      "productoraId": "1779176988365",
+      "tropos": []
     },
     {
       "id": "1777105535961",
@@ -4739,7 +4763,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779135450707"
+      "productoraId": "1779135450707",
+      "tropos": []
     },
     {
       "id": "1777105656547",
@@ -4828,7 +4853,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779135450707"
+      "productoraId": "1779135450707",
+      "tropos": []
     },
     {
       "id": "1777105780897",
@@ -4910,7 +4936,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779135450707"
+      "productoraId": "1779135450707",
+      "tropos": []
     },
     {
       "id": "1777106011444",
@@ -5027,7 +5054,8 @@
       "snNote": "",
       "productoraId": "1779135450707",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777106235834",
@@ -5123,7 +5151,8 @@
       "snNote": "",
       "productoraId": "1779136303417",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777106609486",
@@ -5206,7 +5235,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779136303417"
+      "productoraId": "1779136303417",
+      "tropos": []
     },
     {
       "id": "1777107997520",
@@ -5370,7 +5400,8 @@
       "episodeDuration": 41,
       "updatedAt": "2026-05-16T08:28:24.166Z",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1777115712295",
@@ -5448,7 +5479,8 @@
           ]
         }
       ],
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1777116291060",
@@ -5515,7 +5547,8 @@
       ],
       "episodeDuration": 10,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1777116358969",
@@ -5582,7 +5615,8 @@
       ],
       "episodeDuration": 10,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1777123893340",
@@ -5676,7 +5710,8 @@
       "snNote": "",
       "productoraId": "1779135376050",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777149248949",
@@ -5736,7 +5771,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779135954653"
+      "productoraId": "1779135954653",
+      "tropos": []
     },
     {
       "id": "1777149412505",
@@ -5802,7 +5838,8 @@
       "updatedAt": "2026-05-16T08:28:36.171Z",
       "episodeDuration": 43,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1777149797784",
@@ -5895,7 +5932,8 @@
       "snNote": "",
       "productoraId": "1779136246720",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777150051367",
@@ -6078,7 +6116,8 @@
       "snNote": "",
       "productoraId": "",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777223129027",
@@ -6182,7 +6221,8 @@
       "snNote": "",
       "productoraId": "1779134050424",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777223788983",
@@ -6270,7 +6310,8 @@
       "snNote": "",
       "productoraId": "1779176820442",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777224670901",
@@ -6354,7 +6395,8 @@
       "snNote": "",
       "productoraId": "1779136542367",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777224996688",
@@ -6452,7 +6494,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1777225431592",
@@ -6543,7 +6586,8 @@
       "snNote": "",
       "productoraId": "1779136264729",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777225577567",
@@ -6607,7 +6651,8 @@
       "episodeDuration": 16,
       "updatedAt": "2026-05-16T08:28:53.562Z",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1777225946260",
@@ -6673,7 +6718,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779135954653"
+      "productoraId": "1779135954653",
+      "tropos": []
     },
     {
       "id": "1777226456284",
@@ -6761,7 +6807,8 @@
       "snNote": "",
       "productoraId": "1779135954653",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777226679219",
@@ -6824,7 +6871,8 @@
       "episodeDuration": 55,
       "updatedAt": "2026-05-16T08:28:59.715Z",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1777226881602",
@@ -6877,7 +6925,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1777227405202",
@@ -6973,7 +7022,8 @@
       "snNote": "",
       "productoraId": "1779135760151",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777228963657",
@@ -7073,7 +7123,8 @@
       "snNote": "",
       "productoraId": "1779135376050",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777235903416",
@@ -7185,7 +7236,8 @@
       "snNote": "",
       "productoraId": "1779134050424",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777236063170",
@@ -7243,7 +7295,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1777236404711",
@@ -7335,7 +7388,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1777236582381",
@@ -7411,7 +7465,8 @@
       "snNote": "",
       "productoraId": "1779136445852",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777236702067",
@@ -7510,7 +7565,8 @@
       "snNote": "",
       "productoraId": "1779136135118",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777236873444",
@@ -7611,7 +7667,8 @@
       "snNote": "",
       "productoraId": "1779135626732",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777237026617",
@@ -7693,7 +7750,8 @@
       "snNote": "",
       "productoraId": "1779135987498",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777237182173",
@@ -7782,7 +7840,8 @@
       "snNote": "",
       "productoraId": "1779136384575",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777278523920",
@@ -7886,7 +7945,8 @@
       "snNote": "",
       "productoraId": "1779135954653",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777278660998",
@@ -7950,7 +8010,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1777278827017",
@@ -8046,7 +8107,8 @@
       "snNote": "",
       "productoraId": "1779176934811",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777279117292",
@@ -8124,7 +8186,8 @@
       "snNote": "",
       "productoraId": "1779135450707",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": []
     },
     {
       "id": "1777449004515",
@@ -8195,7 +8258,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779136191693"
+      "productoraId": "1779136191693",
+      "tropos": []
     },
     {
       "id": "1777449810549",
@@ -8282,7 +8346,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779176988365"
+      "productoraId": "1779176988365",
+      "tropos": []
     },
     {
       "id": "1777449955163",
@@ -8349,7 +8414,8 @@
           "coupleNum": 1
         }
       ],
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "tropos": []
     },
     {
       "id": "1777451543042",
@@ -8423,7 +8489,8 @@
           "coupleNum": 1
         }
       ],
-      "episodeDuration": 30
+      "episodeDuration": 30,
+      "tropos": []
     },
     {
       "id": "1777452069135",
@@ -8498,7 +8565,8 @@
           "coupleNum": 2
         }
       ],
-      "episodeDuration": 40
+      "episodeDuration": 40,
+      "tropos": []
     },
     {
       "id": "1777452134155",
@@ -8559,7 +8627,8 @@
           "coupleNum": 1
         }
       ],
-      "episodeDuration": 20
+      "episodeDuration": 20,
+      "tropos": []
     },
     {
       "id": "1777452192081",
@@ -8627,7 +8696,8 @@
           "coupleNum": 1
         }
       ],
-      "episodeDuration": 8
+      "episodeDuration": 8,
+      "tropos": []
     },
     {
       "id": "1777452242978",
@@ -8675,7 +8745,8 @@
       "renewedNextSeason": false,
       "nameEn": "",
       "cast": [],
-      "episodeDuration": 10
+      "episodeDuration": 10,
+      "tropos": []
     },
     {
       "id": "1777452345325",
@@ -8737,7 +8808,8 @@
           "coupleNum": 1
         }
       ],
-      "episodeDuration": 10
+      "episodeDuration": 10,
+      "tropos": []
     },
     {
       "id": "1777452411955",
@@ -8786,7 +8858,8 @@
       "renewedNextSeason": false,
       "nameEn": "ถึงตาฉันรักเธอบ้าง",
       "cast": [],
-      "episodeDuration": 10
+      "episodeDuration": 10,
+      "tropos": []
     },
     {
       "id": "1777452700876",
@@ -8848,7 +8921,8 @@
           "coupleNum": 1
         }
       ],
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "tropos": []
     },
     {
       "id": "1777452828468",
@@ -8904,7 +8978,8 @@
           "coupleNum": 1
         }
       ],
-      "episodeDuration": 23
+      "episodeDuration": 23,
+      "tropos": []
     },
     {
       "id": "1777453272580",
@@ -8966,7 +9041,8 @@
           "coupleNum": 1
         }
       ],
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "tropos": []
     },
     {
       "id": "1777455153369",
@@ -9013,7 +9089,8 @@
       "seriesType": "webserie",
       "animeSeason": "",
       "renewedNextSeason": false,
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1777455453113",
@@ -9076,7 +9153,8 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "tropos": []
     },
     {
       "id": "1777455862847",
@@ -9160,7 +9238,8 @@
       "productoraId": "1779135987498",
       "sourceType": "novela",
       "moods": [],
-      "awards": []
+      "awards": [],
+      "tropos": []
     },
     {
       "id": "1777455928497",
@@ -9242,7 +9321,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779135954653"
+      "productoraId": "1779135954653",
+      "tropos": []
     },
     {
       "id": "1777458910642",
@@ -9288,7 +9368,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1777459145338",
@@ -9375,7 +9456,8 @@
       "productoraId": "1779136330823",
       "sourceType": "novela",
       "moods": [],
-      "awards": []
+      "awards": [],
+      "tropos": []
     },
     {
       "id": "1777459217758",
@@ -9439,7 +9521,8 @@
       "productoraId": "1779136303417",
       "sourceType": "novela",
       "moods": [],
-      "awards": []
+      "awards": [],
+      "tropos": []
     },
     {
       "id": "1777459342439",
@@ -9523,7 +9606,8 @@
       "productoraId": "1779135987498",
       "sourceType": "novela",
       "moods": [],
-      "awards": []
+      "awards": [],
+      "tropos": []
     },
     {
       "id": "1777459392058",
@@ -9582,7 +9666,8 @@
       "productoraId": "1779136384575",
       "sourceType": "novela",
       "moods": [],
-      "awards": []
+      "awards": [],
+      "tropos": []
     },
     {
       "id": "1777459455348",
@@ -9633,7 +9718,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779135954653"
+      "productoraId": "1779135954653",
+      "tropos": []
     },
     {
       "id": "1777460464400",
@@ -9668,7 +9754,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779136355146"
+      "productoraId": "1779136355146",
+      "tropos": []
     },
     {
       "id": "1777460506708",
@@ -9703,7 +9790,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779136355146"
+      "productoraId": "1779136355146",
+      "tropos": []
     },
     {
       "id": "1777460572035",
@@ -9753,7 +9841,8 @@
       "renewedNextSeason": false,
       "nameEn": "รักช็อตใจ ยัยช็อตฟีล",
       "cast": [],
-      "episodeDuration": 8
+      "episodeDuration": 8,
+      "tropos": []
     },
     {
       "id": "1777460603023",
@@ -9795,7 +9884,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779136355146"
+      "productoraId": "1779136355146",
+      "tropos": []
     },
     {
       "id": "1777581394711",
@@ -9853,7 +9943,8 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 70
+      "episodeDuration": 70,
+      "tropos": []
     },
     {
       "id": "1777581846393",
@@ -9919,7 +10010,8 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 23
+      "episodeDuration": 23,
+      "tropos": []
     },
     {
       "id": "1777583639678",
@@ -9968,7 +10060,8 @@
       "renewedNextSeason": false,
       "nameEn": "",
       "cast": [],
-      "episodeDuration": 7
+      "episodeDuration": 7,
+      "tropos": []
     },
     {
       "id": "1777583796655",
@@ -10020,7 +10113,8 @@
       "myTop10": true,
       "top10Rank": 0,
       "myPick": true,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1777583871451",
@@ -10061,7 +10155,8 @@
       "renewedNextSeason": false,
       "nameEn": "익명의 여고생",
       "cast": [],
-      "episodeDuration": 8
+      "episodeDuration": 8,
+      "tropos": []
     },
     {
       "id": "1777584066900",
@@ -10124,7 +10219,8 @@
       "renewedNextSeason": false,
       "episodeDuration": "",
       "myPick": true,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1777584138652",
@@ -10185,7 +10281,8 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "tropos": []
     },
     {
       "id": "1777584355784",
@@ -10232,7 +10329,8 @@
       "renewedNextSeason": false,
       "nameEn": "여자에게 설레는 편",
       "cast": [],
-      "episodeDuration": 13
+      "episodeDuration": 13,
+      "tropos": []
     },
     {
       "id": "1777584451615",
@@ -10292,7 +10390,8 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 46
+      "episodeDuration": 46,
+      "tropos": []
     },
     {
       "id": "1777584568429",
@@ -10341,7 +10440,8 @@
       "renewedNextSeason": false,
       "nameEn": "오후 두 시의 캠퍼스",
       "cast": [],
-      "episodeDuration": 20
+      "episodeDuration": 20,
+      "tropos": []
     },
     {
       "id": "1777584720366",
@@ -10392,7 +10492,8 @@
       "cast": [],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 70
+      "episodeDuration": 70,
+      "tropos": []
     },
     {
       "id": "1777584791238",
@@ -10438,7 +10539,8 @@
       "renewedNextSeason": false,
       "nameEn": "어디에나 있고 어디에도 없는",
       "cast": [],
-      "episodeDuration": 15
+      "episodeDuration": 15,
+      "tropos": []
     },
     {
       "id": "1777584943726",
@@ -10487,7 +10589,8 @@
       "renewedNextSeason": false,
       "nameEn": "우리의 연애는 시작도 전에 끝났다",
       "cast": [],
-      "episodeDuration": 8
+      "episodeDuration": 8,
+      "tropos": []
     },
     {
       "id": "1777585010770",
@@ -10537,7 +10640,8 @@
       "renewedNextSeason": false,
       "nameEn": "대세는 백합",
       "cast": [],
-      "episodeDuration": 5
+      "episodeDuration": 5,
+      "tropos": []
     },
     {
       "id": "1777622150204",
@@ -10583,7 +10687,8 @@
       "seriesType": "webserie",
       "animeSeason": "",
       "renewedNextSeason": false,
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1777669299119",
@@ -10705,7 +10810,8 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 45
+      "episodeDuration": 45,
+      "tropos": []
     },
     {
       "id": "1777669724978",
@@ -10851,7 +10957,8 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 45
+      "episodeDuration": 45,
+      "tropos": []
     },
     {
       "id": "1777670118261",
@@ -10931,7 +11038,8 @@
       "cast": [],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 50
+      "episodeDuration": 50,
+      "tropos": []
     },
     {
       "id": "1777726039958",
@@ -11045,7 +11153,8 @@
       "cast": [],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 26
+      "episodeDuration": 26,
+      "tropos": []
     },
     {
       "id": "1777726945205",
@@ -11146,7 +11255,8 @@
       "cast": [],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 24
+      "episodeDuration": 24,
+      "tropos": []
     },
     {
       "id": "1777727593627",
@@ -11196,7 +11306,8 @@
       "cast": [],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 45
+      "episodeDuration": 45,
+      "tropos": []
     },
     {
       "id": "1777727758315",
@@ -11340,7 +11451,8 @@
       "seriesType": "webserie",
       "animeSeason": "",
       "renewedNextSeason": false,
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1777728203386",
@@ -11450,7 +11562,8 @@
         }
       ],
       "updatedAt": "2026-05-02T13:32:19.312Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1777728316920",
@@ -11493,7 +11606,8 @@
         }
       ],
       "updatedAt": "2026-05-02T13:25:16.920Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1777728556747",
@@ -11572,7 +11686,8 @@
         }
       ],
       "updatedAt": "2026-05-02T13:29:16.747Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1777750223833",
@@ -11776,7 +11891,8 @@
         }
       ],
       "updatedAt": "2026-05-02T19:34:38.266Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1777750880982",
@@ -11912,7 +12028,8 @@
         }
       ],
       "updatedAt": "2026-05-02T19:41:20.982Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1777751254463",
@@ -11973,7 +12090,8 @@
       "renewedNextSeason": false,
       "nameEn": "熱拉物語",
       "cast": [],
-      "episodeDuration": 6
+      "episodeDuration": 6,
+      "tropos": []
     },
     {
       "id": "1777751376726",
@@ -12033,7 +12151,8 @@
       "renewedNextSeason": false,
       "nameEn": "나만 설레는 건가요?",
       "cast": [],
-      "episodeDuration": 9
+      "episodeDuration": 9,
+      "tropos": []
     },
     {
       "id": "1777751530698",
@@ -12078,7 +12197,8 @@
       "cast": [],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 26
+      "episodeDuration": 26,
+      "tropos": []
     },
     {
       "id": "1777751604849",
@@ -12127,7 +12247,8 @@
       "renewedNextSeason": false,
       "nameEn": "나의 여자친구에게",
       "cast": [],
-      "episodeDuration": 10
+      "episodeDuration": 10,
+      "tropos": []
     },
     {
       "id": "1700000000017",
@@ -12208,7 +12329,8 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "tropos": []
     },
     {
       "id": "1700000000018",
@@ -12246,7 +12368,8 @@
         }
       ],
       "updatedAt": "2026-05-03T11:10:31.524Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000021",
@@ -12298,7 +12421,8 @@
         }
       ],
       "updatedAt": "2026-05-03T11:12:52.748Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000033",
@@ -12380,7 +12504,8 @@
         }
       ],
       "updatedAt": "2026-05-03T11:15:26.423Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000045",
@@ -12446,7 +12571,8 @@
         }
       ],
       "updatedAt": "2026-05-03T11:17:34.032Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000047",
@@ -12561,7 +12687,8 @@
         }
       ],
       "updatedAt": "2026-05-03T11:32:07.527Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000052",
@@ -12670,7 +12797,8 @@
         }
       ],
       "updatedAt": "2026-05-03T11:35:50.236Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000055",
@@ -12757,7 +12885,8 @@
           "coupleNum": 1
         }
       ],
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "tropos": []
     },
     {
       "id": "1700000000066",
@@ -12832,7 +12961,8 @@
         }
       ],
       "updatedAt": "2026-05-03T11:39:40.774Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000068",
@@ -12874,7 +13004,8 @@
         }
       ],
       "updatedAt": "2026-05-03T11:42:05.383Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000072",
@@ -12983,7 +13114,8 @@
         }
       ],
       "updatedAt": "2026-05-03T11:45:09.385Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000073",
@@ -13026,7 +13158,8 @@
       "renewedNextSeason": false,
       "nameEn": "",
       "cast": [],
-      "episodeDuration": 9
+      "episodeDuration": 9,
+      "tropos": []
     },
     {
       "id": "1700000000091",
@@ -13067,7 +13200,8 @@
         }
       ],
       "updatedAt": "2026-05-03T11:47:16.844Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000103",
@@ -13115,7 +13249,8 @@
         }
       ],
       "updatedAt": "2026-05-03T11:48:32.178Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000104",
@@ -13152,7 +13287,8 @@
         }
       ],
       "updatedAt": "2026-05-03T12:16:53.708Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000106",
@@ -13232,7 +13368,8 @@
       "renewedNextSeason": false,
       "nameEn": "Kontrola",
       "cast": [],
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "tropos": []
     },
     {
       "id": "1700000000107",
@@ -13280,7 +13417,8 @@
         }
       ],
       "updatedAt": "2026-05-03T13:24:51.637Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000111",
@@ -13317,7 +13455,8 @@
         }
       ],
       "updatedAt": "2026-05-03T13:26:15.267Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000115",
@@ -13380,7 +13519,8 @@
         }
       ],
       "updatedAt": "2026-05-03T13:29:10.481Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000117",
@@ -13468,7 +13608,8 @@
         }
       ],
       "updatedAt": "2026-05-03T13:32:58.680Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000119",
@@ -13520,7 +13661,8 @@
         }
       ],
       "updatedAt": "2026-05-03T13:34:05.283Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000121",
@@ -13564,7 +13706,8 @@
       "renewedNextSeason": false,
       "nameEn": "언니 나랑 진실게임 할래요",
       "cast": [],
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "tropos": []
     },
     {
       "id": "1700000000122",
@@ -13608,7 +13751,8 @@
       "renewedNextSeason": false,
       "nameEn": "순정 마녀의 별빛 소나타",
       "cast": [],
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "tropos": []
     },
     {
       "id": "1700000000123",
@@ -13657,7 +13801,8 @@
       "renewedNextSeason": false,
       "nameEn": "숨이 벅차",
       "cast": [],
-      "episodeDuration": 14
+      "episodeDuration": 14,
+      "tropos": []
     },
     {
       "id": "1700000000125",
@@ -13705,7 +13850,8 @@
       "renewedNextSeason": false,
       "nameEn": "어프레이드 오브",
       "cast": [],
-      "episodeDuration": 7
+      "episodeDuration": 7,
+      "tropos": []
     },
     {
       "id": "1700000000132",
@@ -13747,7 +13893,8 @@
         }
       ],
       "updatedAt": "2026-05-03T15:26:49.983Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000136",
@@ -13796,7 +13943,8 @@
       "renewedNextSeason": false,
       "nameEn": "내가 몰랐던 너",
       "cast": [],
-      "episodeDuration": 8
+      "episodeDuration": 8,
+      "tropos": []
     },
     {
       "id": "1700000000137",
@@ -13852,7 +14000,8 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 54
+      "episodeDuration": 54,
+      "tropos": []
     },
     {
       "id": "1700000000139",
@@ -13902,7 +14051,8 @@
       "cast": [],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 25
+      "episodeDuration": 25,
+      "tropos": []
     },
     {
       "id": "1700000000141",
@@ -13972,7 +14122,8 @@
       "category": "series",
       "animeSeason": "",
       "renewedNextSeason": true,
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000142",
@@ -14036,7 +14187,8 @@
         }
       ],
       "updatedAt": "2026-05-07T07:47:05.142Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000143",
@@ -14090,7 +14242,8 @@
         }
       ],
       "updatedAt": "2026-05-07T07:48:32.166Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000144",
@@ -14159,7 +14312,8 @@
         }
       ],
       "updatedAt": "2026-05-07T07:50:20.150Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000147",
@@ -14207,7 +14361,8 @@
       "renewedNextSeason": false,
       "nameEn": "42 Kg หนักแค่ไหนก็รัก",
       "cast": [],
-      "episodeDuration": 11
+      "episodeDuration": 11,
+      "tropos": []
     },
     {
       "id": "1700000000148",
@@ -14265,7 +14420,8 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 45
+      "episodeDuration": 45,
+      "tropos": []
     },
     {
       "id": "1700000000149",
@@ -14339,7 +14495,8 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 21
+      "episodeDuration": 21,
+      "tropos": []
     },
     {
       "id": "1700000000155",
@@ -14387,7 +14544,8 @@
       "cast": [],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 35
+      "episodeDuration": 35,
+      "tropos": []
     },
     {
       "id": "1700000000156",
@@ -14430,7 +14588,8 @@
       "cast": [],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 32
+      "episodeDuration": 32,
+      "tropos": []
     },
     {
       "id": "1700000000158",
@@ -14489,7 +14648,8 @@
       "renewedNextSeason": false,
       "nameEn": "云泽传",
       "cast": [],
-      "episodeDuration": 3
+      "episodeDuration": 3,
+      "tropos": []
     },
     {
       "id": "1700000000159",
@@ -14535,7 +14695,8 @@
       "renewedNextSeason": false,
       "nameEn": "云泽传 番外",
       "cast": [],
-      "episodeDuration": 3
+      "episodeDuration": 3,
+      "tropos": []
     },
     {
       "id": "1700000000164",
@@ -14604,7 +14765,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779134050424"
+      "productoraId": "1779134050424",
+      "tropos": []
     },
     {
       "id": "1700000000165",
@@ -14655,7 +14817,8 @@
       "cast": [],
       "episodeDuration": 10,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1700000000168",
@@ -14710,7 +14873,8 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 45
+      "episodeDuration": 45,
+      "tropos": []
     },
     {
       "id": "1700000000169",
@@ -14760,7 +14924,8 @@
       "cast": [],
       "episodeDuration": "",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1700000000174",
@@ -14809,7 +14974,8 @@
       "renewedNextSeason": false,
       "nameEn": "어떤 연애의 하루",
       "cast": [],
-      "episodeDuration": 13
+      "episodeDuration": 13,
+      "tropos": []
     },
     {
       "id": "1700000000178",
@@ -14869,7 +15035,8 @@
       "cast": [],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 11
+      "episodeDuration": 11,
+      "tropos": []
     },
     {
       "id": "1700000000179",
@@ -14941,7 +15108,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1700000000180",
@@ -14993,7 +15161,8 @@
       "cast": [],
       "episodeDuration": 8,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1700000000185",
@@ -15046,7 +15215,8 @@
         }
       ],
       "updatedAt": "2026-05-07T08:17:34.947Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000186",
@@ -15105,7 +15275,8 @@
       "category": "series",
       "animeSeason": "",
       "renewedNextSeason": true,
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000188",
@@ -15212,7 +15383,8 @@
       "productoraId": "1779135573515",
       "sourceType": "novela",
       "moods": [],
-      "awards": []
+      "awards": [],
+      "tropos": []
     },
     {
       "id": "1700000000192",
@@ -15254,7 +15426,8 @@
         }
       ],
       "updatedAt": "2026-05-07T08:22:22.101Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000193",
@@ -15301,7 +15474,8 @@
       "seriesType": "webserie",
       "animeSeason": "",
       "renewedNextSeason": false,
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000195",
@@ -15350,7 +15524,8 @@
       "renewedNextSeason": false,
       "nameEn": "三生花",
       "cast": [],
-      "episodeDuration": 2
+      "episodeDuration": 2,
+      "tropos": []
     },
     {
       "id": "1700000000196",
@@ -15391,7 +15566,8 @@
         }
       ],
       "updatedAt": "2026-05-07T08:24:50.860Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000198",
@@ -15435,7 +15611,8 @@
         }
       ],
       "updatedAt": "2026-05-07T08:27:08.094Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000199",
@@ -15477,7 +15654,8 @@
         }
       ],
       "updatedAt": "2026-05-07T08:27:44.087Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000203",
@@ -15527,7 +15705,8 @@
       "cast": [],
       "episodeDuration": 16,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1700000000204",
@@ -15582,7 +15761,8 @@
           "coupleNum": 1
         }
       ],
-      "episodeDuration": 11
+      "episodeDuration": 11,
+      "tropos": []
     },
     {
       "id": "1700000000208",
@@ -15644,7 +15824,8 @@
           "coupleNum": 1
         }
       ],
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "tropos": []
     },
     {
       "id": "1700000000209",
@@ -15715,7 +15896,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779136191693"
+      "productoraId": "1779136191693",
+      "tropos": []
     },
     {
       "id": "1700000000213",
@@ -15762,7 +15944,8 @@
       "seriesType": "webserie",
       "animeSeason": "",
       "renewedNextSeason": false,
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000215",
@@ -15812,7 +15995,8 @@
       "cast": [],
       "episodeDuration": "",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1700000000217",
@@ -15890,7 +16074,8 @@
       "productoraId": "1779135376050",
       "sourceType": "novela",
       "moods": [],
-      "awards": []
+      "awards": [],
+      "tropos": []
     },
     {
       "id": "1700000000218",
@@ -15937,7 +16122,8 @@
       "seriesType": "webserie",
       "animeSeason": "",
       "renewedNextSeason": false,
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000219",
@@ -15978,7 +16164,8 @@
       "seriesType": "webserie",
       "animeSeason": "",
       "renewedNextSeason": false,
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000230",
@@ -16021,7 +16208,8 @@
         }
       ],
       "updatedAt": "2026-05-07T11:33:32.098Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000231",
@@ -16072,7 +16260,8 @@
       "cast": [],
       "episodeDuration": 9,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1700000000232",
@@ -16123,7 +16312,8 @@
       "cast": [],
       "episodeDuration": 11,
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1700000000233",
@@ -16171,7 +16361,8 @@
       "renewedNextSeason": false,
       "nameEn": "가짜 친구",
       "cast": [],
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "tropos": []
     },
     {
       "id": "1700000000234",
@@ -16217,7 +16408,8 @@
       "seriesType": "webserie",
       "animeSeason": "",
       "renewedNextSeason": false,
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000235",
@@ -16266,7 +16458,8 @@
       "renewedNextSeason": false,
       "nameEn": "@나를 싫어했던 X에게",
       "cast": [],
-      "episodeDuration": 8
+      "episodeDuration": 8,
+      "tropos": []
     },
     {
       "id": "1700000000236",
@@ -16315,7 +16508,8 @@
       "renewedNextSeason": false,
       "nameEn": "[나를 싫어했던 X에게] 윤오X재인",
       "cast": [],
-      "episodeDuration": 9
+      "episodeDuration": 9,
+      "tropos": []
     },
     {
       "id": "1700000000237",
@@ -16375,7 +16569,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1700000000239",
@@ -16422,7 +16617,8 @@
       "seriesType": "webserie",
       "animeSeason": "",
       "renewedNextSeason": false,
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000240",
@@ -16470,7 +16666,8 @@
       "seriesType": "webserie",
       "animeSeason": "",
       "renewedNextSeason": false,
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000243",
@@ -16532,7 +16729,8 @@
       "cast": [],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 24
+      "episodeDuration": 24,
+      "tropos": []
     },
     {
       "id": "1700000000244",
@@ -16577,7 +16775,8 @@
       "renewedNextSeason": false,
       "episodeDuration": "",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1700000000245",
@@ -16621,7 +16820,8 @@
       "seriesType": "webserie",
       "animeSeason": "",
       "renewedNextSeason": false,
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000247",
@@ -16692,7 +16892,8 @@
       "seriesType": "webserie",
       "animeSeason": "",
       "renewedNextSeason": false,
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000263",
@@ -16743,7 +16944,8 @@
       "cast": [],
       "episodeDuration": "",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1700000000265",
@@ -16793,7 +16995,8 @@
       "cast": [],
       "episodeDuration": "",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1700000000266",
@@ -16844,7 +17047,8 @@
       "cast": [],
       "episodeDuration": "",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1700000000267",
@@ -16898,7 +17102,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1700000000268",
@@ -16939,7 +17144,8 @@
         }
       ],
       "updatedAt": "2026-05-07T12:08:13.604Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000273",
@@ -16981,7 +17187,8 @@
       "seriesType": "serie",
       "animeSeason": "",
       "renewedNextSeason": false,
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000280",
@@ -17019,7 +17226,8 @@
         }
       ],
       "updatedAt": "2026-05-07T12:09:28.326Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000288",
@@ -17069,7 +17277,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1700000000289",
@@ -17119,7 +17328,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1700000000296",
@@ -17170,7 +17380,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1700000000298",
@@ -17207,7 +17418,8 @@
         }
       ],
       "updatedAt": "2026-05-07T12:10:26.489Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000300",
@@ -17245,7 +17457,8 @@
         }
       ],
       "updatedAt": "2026-05-07T12:10:39.383Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1700000000304",
@@ -17296,7 +17509,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1700000000305",
@@ -17355,7 +17569,8 @@
       "productoraId": "",
       "sourceType": "novela",
       "moods": [],
-      "awards": []
+      "awards": [],
+      "tropos": []
     },
     {
       "id": "1700000000307",
@@ -17399,7 +17614,8 @@
       "seriesType": "webserie",
       "animeSeason": "",
       "renewedNextSeason": false,
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778360721543",
@@ -17522,7 +17738,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1778361220781",
@@ -17610,7 +17827,8 @@
         }
       ],
       "updatedAt": "2026-05-09T21:13:40.781Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778362124405",
@@ -17701,7 +17919,8 @@
         }
       ],
       "updatedAt": "2026-05-09T21:28:44.405Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778362313804",
@@ -17746,7 +17965,8 @@
         }
       ],
       "updatedAt": "2026-05-09T21:31:53.804Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778362448719",
@@ -17787,7 +18007,8 @@
         }
       ],
       "updatedAt": "2026-05-09T21:34:08.719Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778396322251",
@@ -17843,7 +18064,8 @@
         }
       ],
       "updatedAt": "2026-05-10T06:58:42.251Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778396529538",
@@ -17919,7 +18141,8 @@
         }
       ],
       "updatedAt": "2026-05-10T07:02:09.538Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778396856737",
@@ -18090,7 +18313,8 @@
         }
       ],
       "updatedAt": "2026-05-10T07:07:36.737Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778397225013",
@@ -18146,7 +18370,8 @@
         }
       ],
       "updatedAt": "2026-05-10T07:13:45.013Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778398696587",
@@ -18211,7 +18436,8 @@
         }
       ],
       "updatedAt": "2026-05-10T07:38:16.587Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778398840377",
@@ -18275,7 +18501,8 @@
         }
       ],
       "updatedAt": "2026-05-10T07:40:40.377Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778402515248",
@@ -18337,7 +18564,8 @@
         }
       ],
       "updatedAt": "2026-05-10T08:41:55.248Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778402648665",
@@ -18429,7 +18657,8 @@
         }
       ],
       "updatedAt": "2026-05-10T08:44:08.665Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778402853203",
@@ -18508,7 +18737,8 @@
         }
       ],
       "updatedAt": "2026-05-10T09:12:42.450Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778403375094",
@@ -18671,7 +18901,8 @@
         }
       ],
       "updatedAt": "2026-05-10T08:56:15.094Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778404949218",
@@ -18722,7 +18953,8 @@
         }
       ],
       "updatedAt": "2026-05-10T09:22:29.218Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778405111719",
@@ -18791,7 +19023,8 @@
         }
       ],
       "updatedAt": "2026-05-10T09:25:11.719Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778405237229",
@@ -18847,7 +19080,8 @@
         }
       ],
       "updatedAt": "2026-05-10T09:27:17.229Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778405690996",
@@ -18909,7 +19143,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1778406327495",
@@ -18955,7 +19190,8 @@
       "cast": [],
       "renewedNextSeason": false,
       "nameEn": "ささやくように恋を唄う",
-      "episodeDuration": 24
+      "episodeDuration": 24,
+      "tropos": []
     },
     {
       "id": "1778406423279",
@@ -19006,7 +19242,8 @@
       "cast": [],
       "renewedNextSeason": false,
       "nameEn": "",
-      "episodeDuration": 24
+      "episodeDuration": 24,
+      "tropos": []
     },
     {
       "id": "1778406629965",
@@ -19056,7 +19293,8 @@
       "cast": [],
       "renewedNextSeason": false,
       "nameEn": "推しが武道館いってくれたら死ぬ",
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "tropos": []
     },
     {
       "id": "1778408041578",
@@ -19096,7 +19334,8 @@
         }
       ],
       "updatedAt": "2026-05-10T10:14:01.578Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778499401369",
@@ -19150,7 +19389,8 @@
           "coupleNum": 1
         }
       ],
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "tropos": []
     },
     {
       "id": "1778499566113",
@@ -19209,7 +19449,8 @@
       "updatedAt": "2026-05-13T09:04:12.579Z",
       "seriesType": "webserie",
       "renewedNextSeason": false,
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778501007371",
@@ -19254,7 +19495,8 @@
       "cast": [],
       "renewedNextSeason": false,
       "nameEn": "桜Trick",
-      "episodeDuration": 24
+      "episodeDuration": 24,
+      "tropos": []
     },
     {
       "id": "1778501119595",
@@ -19304,7 +19546,8 @@
       "cast": [],
       "renewedNextSeason": false,
       "nameEn": "私を喰べたい、ひとでなし",
-      "episodeDuration": 24
+      "episodeDuration": 24,
+      "tropos": []
     },
     {
       "id": "1778501225180",
@@ -19355,7 +19598,8 @@
       "cast": [],
       "renewedNextSeason": false,
       "nameEn": "安達としまむら",
-      "episodeDuration": 24
+      "episodeDuration": 24,
+      "tropos": []
     },
     {
       "id": "1778610979789",
@@ -19403,7 +19647,8 @@
         }
       ],
       "updatedAt": "2026-05-12T18:36:19.789Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778611225963",
@@ -19447,7 +19692,8 @@
         }
       ],
       "updatedAt": "2026-05-12T18:40:25.963Z",
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778611323065",
@@ -19493,7 +19739,8 @@
       "updatedAt": "2026-05-13T09:04:18.691Z",
       "seriesType": "webserie",
       "renewedNextSeason": false,
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778611572508",
@@ -19545,7 +19792,8 @@
       "cast": [],
       "episodeDuration": "",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1778611750440",
@@ -19579,7 +19827,8 @@
       "cast": [],
       "episodeDuration": "",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1778611826641",
@@ -19629,7 +19878,8 @@
       "cast": [],
       "episodeDuration": "",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "tropos": []
     },
     {
       "id": "1778611905507",
@@ -19676,7 +19926,8 @@
       "updatedAt": "2026-05-13T09:04:36.542Z",
       "seriesType": "webserie",
       "renewedNextSeason": false,
-      "nameEn": ""
+      "nameEn": "",
+      "tropos": []
     },
     {
       "id": "1778612143601",
@@ -19735,7 +19986,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1778790703263",
@@ -19795,7 +20047,8 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-14T20:31:43.263Z"
+      "updatedAt": "2026-05-14T20:31:43.263Z",
+      "tropos": []
     },
     {
       "id": "1778794257224",
@@ -19846,7 +20099,8 @@
         }
       ],
       "updatedAt": "2026-05-15T07:58:38.153Z",
-      "episodeDuration": ""
+      "episodeDuration": "",
+      "tropos": []
     },
     {
       "id": "1778878515414",
@@ -19894,7 +20148,8 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T20:55:15.414Z"
+      "updatedAt": "2026-05-15T20:55:15.414Z",
+      "tropos": []
     },
     {
       "id": "1778878607815",
@@ -19951,7 +20206,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1778878773209",
@@ -20000,7 +20256,8 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T20:59:33.209Z"
+      "updatedAt": "2026-05-15T20:59:33.209Z",
+      "tropos": []
     },
     {
       "id": "1778878979742",
@@ -20070,7 +20327,8 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "tropos": []
     },
     {
       "id": "1778933359445",
@@ -20123,7 +20381,8 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T12:12:10.043Z"
+      "updatedAt": "2026-05-16T12:12:10.043Z",
+      "tropos": []
     },
     {
       "id": "1778933524418",
@@ -20176,7 +20435,8 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T12:12:04.417Z"
+      "updatedAt": "2026-05-16T12:12:04.417Z",
+      "tropos": []
     },
     {
       "id": "1778935478163",
@@ -20230,7 +20490,8 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T12:44:38.163Z"
+      "updatedAt": "2026-05-16T12:44:38.163Z",
+      "tropos": []
     },
     {
       "id": "1778935908927",
@@ -20304,7 +20565,8 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T12:58:46.900Z"
+      "updatedAt": "2026-05-16T12:58:46.900Z",
+      "tropos": []
     },
     {
       "id": "1778937948266",
@@ -20355,7 +20617,8 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T16:33:04.064Z"
+      "updatedAt": "2026-05-16T16:33:04.064Z",
+      "tropos": []
     },
     {
       "id": "1778948913237",
@@ -20405,7 +20668,8 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T16:33:00.990Z"
+      "updatedAt": "2026-05-16T16:33:00.990Z",
+      "tropos": []
     },
     {
       "id": "1778949041436",
@@ -20475,7 +20739,8 @@
           "episodes": [],
           "premiereSchedule": []
         }
-      ]
+      ],
+      "tropos": []
     },
     {
       "id": "1778949161696",
@@ -20525,7 +20790,8 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T16:32:41.696Z"
+      "updatedAt": "2026-05-16T16:32:41.696Z",
+      "tropos": []
     },
     {
       "id": "1778949287156",
@@ -20570,7 +20836,8 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T16:34:47.156Z"
+      "updatedAt": "2026-05-16T16:34:47.156Z",
+      "tropos": []
     },
     {
       "id": "1778949368237",
@@ -20620,7 +20887,8 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T16:36:08.237Z"
+      "updatedAt": "2026-05-16T16:36:08.237Z",
+      "tropos": []
     },
     {
       "id": "1778949557239",
@@ -20670,7 +20938,8 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T16:39:17.239Z"
+      "updatedAt": "2026-05-16T16:39:17.239Z",
+      "tropos": []
     },
     {
       "id": "1778955919196",
@@ -20754,7 +21023,8 @@
       "productoraId": "1779136406910",
       "sourceType": "novela",
       "moods": [],
-      "awards": []
+      "awards": [],
+      "tropos": []
     },
     {
       "id": "1778956087775",
@@ -20819,7 +21089,8 @@
       "productoraId": "1779136406910",
       "sourceType": "novela",
       "moods": [],
-      "awards": []
+      "awards": [],
+      "tropos": []
     },
     {
       "id": "1779277904836",
@@ -20870,7 +21141,8 @@
       "snLastUpdate": "",
       "snNote": "",
       "productoraId": "1779136303417",
-      "updatedAt": "2026-05-20T11:51:44.836Z"
+      "updatedAt": "2026-05-20T11:51:44.836Z",
+      "tropos": []
     },
     {
       "id": "1779277983623",
@@ -20908,7 +21180,8 @@
       "snLastUpdate": "",
       "snNote": "",
       "productoraId": "",
-      "updatedAt": "2026-05-20T11:53:03.623Z"
+      "updatedAt": "2026-05-20T11:53:03.623Z",
+      "tropos": []
     },
     {
       "id": "1779435653021",
@@ -20971,7 +21244,8 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-22T07:40:53.021Z"
+      "updatedAt": "2026-05-22T07:40:53.021Z",
+      "tropos": []
     },
     {
       "id": "1779616671400",
