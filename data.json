@@ -33104,6 +33104,58 @@
         "1778784264617",
         "1778841125599"
       ]
+    },
+    {
+      "id": "1779629333590",
+      "name": "MookPinky",
+      "desc": "",
+      "retired": true,
+      "couplePhoto": "https://pbs.twimg.com/media/HCV9X05bcAAUV96?format=jpg&name=large",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1778841187670",
+        "1778841205354"
+      ]
+    },
+    {
+      "id": "1779629410911",
+      "name": "GraceOaey",
+      "desc": "",
+      "retired": true,
+      "couplePhoto": "https://pbs.twimg.com/media/Gl7g0JZWgAAXRTD?format=jpg&name=small",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1778788649653",
+        "1778788627772"
+      ]
+    },
+    {
+      "id": "1779629551099",
+      "name": "FahsaiSeya",
+      "desc": "",
+      "retired": false,
+      "couplePhoto": "https://pbs.twimg.com/media/GxCOJ67WQAAb4EQ?format=jpg&name=medium",
+      "couplePhotoPosition": "50% 22%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1778762094028",
+        "1778762128045"
+      ]
+    },
+    {
+      "id": "1779629657952",
+      "name": "ChristineMae",
+      "desc": "",
+      "retired": true,
+      "couplePhoto": "https://pbs.twimg.com/media/GioYJ52WMAAiVjU?format=jpg&name=medium",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1778705238403",
+        "1778705285700"
+      ]
     }
   ],
   "productoras": [
@@ -33549,5 +33601,5 @@
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-05-24T10:44:22.023Z"
+  "exportedAt": "2026-05-24T13:34:34.620Z"
 }
