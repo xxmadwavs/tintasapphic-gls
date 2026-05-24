@@ -993,6 +993,26 @@ html[data-theme="dark"] .day-cell.has-eps{background:var(--surface3)}
 .ship-ongoing{background:rgba(74,173,160,.1);color:var(--teal);border:1px solid rgba(74,173,160,.2)}
 .ship-upcoming{background:rgba(139,114,190,.1);color:var(--lavender);border:1px solid rgba(139,114,190,.2)}
 .ship-finished{background:rgba(180,80,120,.06);color:var(--muted);border:1px solid var(--border)}
+.ship-retired{background:rgba(100,80,90,.08);color:#7a6070;border:1px solid rgba(100,80,90,.18)}
+html[data-theme="dark"] .ship-retired{background:rgba(180,140,160,.08);color:#a08090;border:1px solid rgba(180,140,160,.18)}
+/* Retired card: desaturated + broken-heart overlay */
+.ship-card.is-retired .ship-couple-banner::after{
+  content:'💔';
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;
+  background:rgba(20,10,16,.32);
+  z-index:4;pointer-events:none;
+  opacity:0;transition:opacity .2s;
+}
+.ship-card.is-retired:hover .ship-couple-banner::after{opacity:1}
+.ship-card.is-retired .ship-couple-half img,
+.ship-card.is-retired .ship-couple-banner>img{
+  filter:saturate(0.35) brightness(.9);
+  transition:filter .25s,transform .45s cubic-bezier(.25,0,.1,1);
+}
+.ship-card.is-retired:hover .ship-couple-half img,
+.ship-card.is-retired:hover .ship-couple-banner>img{filter:saturate(0.55) brightness(.95)}
 .ship-type-badge{
   font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:3px;
   letter-spacing:.04em;text-transform:uppercase;
@@ -5988,6 +6008,7 @@ function renderShips(){
       <button class="ships-subtab" id="shipsSubOngoing" onclick="shipsState.filter='ongoing';renderShipsResults()">En emisión</button>
       <button class="ships-subtab" id="shipsSubUpcoming" onclick="shipsState.filter='upcoming';renderShipsResults()">Próximamente</button>
       <button class="ships-subtab" id="shipsSubFinished" onclick="shipsState.filter='finished';renderShipsResults()">Finalizadas</button>
+      <button class="ships-subtab" id="shipsSubRetired" onclick="shipsState.filter='retired';renderShipsResults()">💔 Retiradas</button>
     </div>
     <div style="position:relative;margin-bottom:.85rem">
       <span class="search-icon">🔍</span>
@@ -6013,7 +6034,7 @@ function renderShipsResults(){
   const isManual=(ships[0]?.mode==='manual');
 
   // Subtab active highlight
-  ['All','Ongoing','Upcoming','Finished'].forEach(t=>{
+  ['All','Ongoing','Upcoming','Finished','Retired'].forEach(t=>{
     const btn=document.getElementById('shipsSub'+t);
     if(btn) btn.className='ships-subtab'+(shipsState.filter===(t==='All'?'all':t.toLowerCase())?' active':'');
   });
@@ -6023,15 +6044,21 @@ function renderShipsResults(){
   // Filter
   let filtered=ships.filter(sh=>{
     const members=sh.members||[];
+    // Ships marcadas como retiradas manualmente
+    const isRetired=!!(sh.sh?.retired);
     // Determinar status: para manual usamos la serie más relevante (primera en común o la más reciente)
     let status='finished';
     if(isManual){
-      const shared=sh.shared||[];
-      if(shared.length){
-        // Si alguna en emisión → ongoing; si alguna upcoming → upcoming
-        if(shared.some(s=>seriesStatus(s)==='ongoing')) status='ongoing';
-        else if(shared.some(s=>seriesStatus(s)==='upcoming')) status='upcoming';
-        else status='finished';
+      if(isRetired){
+        status='retired';
+      } else {
+        const shared=sh.shared||[];
+        if(shared.length){
+          // Si alguna en emisión → ongoing; si alguna upcoming → upcoming
+          if(shared.some(s=>seriesStatus(s)==='ongoing')) status='ongoing';
+          else if(shared.some(s=>seriesStatus(s)==='upcoming')) status='upcoming';
+          else status='finished';
+        }
       }
     } else {
       status=seriesStatus(sh.s);
@@ -6039,6 +6066,9 @@ function renderShipsResults(){
     if(shipsState.filter==='ongoing'&&status!=='ongoing') return false;
     if(shipsState.filter==='upcoming'&&status!=='upcoming') return false;
     if(shipsState.filter==='finished'&&status!=='finished') return false;
+    if(shipsState.filter==='retired'&&status!=='retired') return false;
+    // "Todas" excluye retiradas — se ven solo en su propio tab
+    if(shipsState.filter==='all'&&status==='retired') return false;
     if(q){
       const names=members.map(a=>(a.name||'').toLowerCase());
       const shipName=(sh.sh?.name||sh.s?.name||'').toLowerCase();
@@ -6059,8 +6089,8 @@ function renderShipsResults(){
     return na.localeCompare(nb,'es');
   });
 
-  const statusLabel={ongoing:'En emisión',upcoming:'Próximamente',finished:'Finalizada'};
-  const statusClass={ongoing:'ship-ongoing',upcoming:'ship-upcoming',finished:'ship-finished'};
+  const statusLabel={ongoing:'En emisión',upcoming:'Próximamente',finished:'Finalizada',retired:'Retirada 💔'};
+  const statusClass={ongoing:'ship-ongoing',upcoming:'ship-upcoming',finished:'ship-finished',retired:'ship-retired'};
 
   let html=`<div class="ships-count">Mostrando <strong>${filtered.length}</strong> ship${filtered.length!==1?'s':''}</div><div class="ships-grid">`;
 
@@ -6068,13 +6098,16 @@ function renderShipsResults(){
     filtered.forEach((sh,idx)=>{
       const shared=sh.shared||[];
       const members=sh.members||[];
+      const isRetired=!!(sh.sh?.retired);
       let status='finished';
-      if(shared.length){
+      if(isRetired){
+        status='retired';
+      } else if(shared.length){
         if(shared.some(s=>seriesStatus(s)==='ongoing')) status='ongoing';
         else if(shared.some(s=>seriesStatus(s)==='upcoming')) status='upcoming';
         else status='finished';
       }
-      const statusBadge=shared.length?`<span class="ship-status-badge ${statusClass[status]}">${statusLabel[status]}</span>`:'';
+      const statusBadge=`<span class="ship-status-badge ${statusClass[status]}">${statusLabel[status]}</span>`;
       const [a1,a2]=members;
       let coupleBanner;
       if(sh.sh.couplePhoto){
@@ -6099,7 +6132,7 @@ function renderShipsResults(){
         const sIdx=(state.series||[]).indexOf(s);
         return `<span class="ship-series-chip-sm" onclick="event.stopPropagation();openSeries(${sIdx})">${s.name}</span>`;
       }).join('')+(shared.length>3?`<span class="ship-series-chip-sm">+${shared.length-3}</span>`:'');
-      html+=`<div class="ship-card" onclick="openShipDetail(${idx})">
+      html+=`<div class="ship-card${isRetired?' is-retired':''}" onclick="openShipDetail(${idx})">
         ${coupleBanner}
         <div class="ship-card-inner">
           <div class="ship-card-title">${sh.sh.name||'Ship'}</div>
@@ -6152,8 +6185,8 @@ function openShipDetail(idx){
   const members=sh.members||[];
   const shared=sh.shared||[];
   const seriesStatus=view._seriesStatus||function(){return 'finished';};
-  const statusLabel={ongoing:'En emisión',upcoming:'Próximamente',finished:'Finalizada'};
-  const statusClass={ongoing:'ship-ongoing',upcoming:'ship-upcoming',finished:'ship-finished'};
+  const statusLabel={ongoing:'En emisión',upcoming:'Próximamente',finished:'Finalizada',retired:'Retirada 💔'};
+  const statusClass={ongoing:'ship-ongoing',upcoming:'ship-upcoming',finished:'ship-finished',retired:'ship-retired'};
 
   // Header visual: foto de pareja con position/zoom, o banner dividido
   let headerHtml;
@@ -6196,7 +6229,13 @@ function openShipDetail(idx){
     </div>`).join(`<div style="width:20px;height:1px;background:var(--border2);align-self:center;margin:0 4px;flex-shrink:0"></div>`);
 
   const descHtml=sh.sh?.desc?`<p style="font-size:13px;color:var(--muted);text-align:center;line-height:1.65;margin:0">${sh.sh.desc}</p>`:'';
-
+  const isRetiredModal=!!(sh.sh?.retired);
+  const retiredBannerHtml=isRetiredModal
+    ?`<div style="display:flex;align-items:center;justify-content:center;gap:8px;padding:9px 16px;background:rgba(100,80,90,.08);border-radius:10px;border:1px solid rgba(100,80,90,.18)">
+        <span style="font-size:16px">💔</span>
+        <span style="font-size:12px;color:#7a6070;font-weight:600">Este ship ya no está activo como dúo oficial</span>
+       </div>`
+    :'';
   const seriesHtml=shared.length
     ?shared.map(s=>{
         const si=(state.series||[]).indexOf(s);
@@ -6223,6 +6262,7 @@ function openShipDetail(idx){
     <button onclick="closeShipDetail()" style="position:absolute;top:11px;right:11px;background:rgba(255,255,255,.92);border:none;border-radius:50%;width:30px;height:30px;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 6px rgba(0,0,0,.12);z-index:10;color:var(--muted);font-weight:700">✕</button>
     <div style="padding:18px 20px 24px;display:flex;flex-direction:column;gap:16px;overflow-y:auto">
       <div style="display:flex;align-items:flex-start;justify-content:center;gap:10px">${actressRowHtml}</div>
+      ${retiredBannerHtml}
       ${descHtml}
       <div>
         <div style="font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border)">Series en común · ${shared.length}</div>
@@ -6534,9 +6574,10 @@ function renderProductorasResults(){
 // tag: 'new' | 'feature' | 'fix' | 'design'
 // date: 'YYYY-MM-DD' (ISO) para el filtro de 30 días. También se muestra como texto.
 const CHANGELOG=[
+  {tag:'new',    title:'Ships retiradas 💔',                   desc:'Nueva pestaña "Retiradas" en Ships Thais para dúos que ya no trabajan juntos. Las cards aparecen en escala de grises y con efecto al pasar el cursor.',  date:'2026-05-24'},
+  {tag:'feature',title:'Carrusel separado por categorías',     desc:'Las "Últimas añadidas" del inicio ahora se dividen en tres filas independientes: Series, Películas y Anime.',              date:'2026-05-24'},
   {tag:'new',    title:'Novedades web y series recientes',     desc:'Nuevo panel de últimas novedades de la web y carrusel de series añadidas recientemente.',                                    date:'2026-05-20'},
   {tag:'new',    title:'Próximamente ordenado por última modificación', desc:'Las series en Próximamente ahora aparecen por orden de última actualización por defecto.',                          date:'2026-05-20'},
-  {tag:'feature',title:'Carrusel de series añadidas',          desc:'Sección "Últimas series añadidas" con pósters y animación, visible en el inicio.',                                           date:'2026-05-20'},
   {tag:'design', title:'Barra de navegación renovada',         desc:'Navbar con buscador integrado, menú Mis picks y acceso directo a Ships Thais.',                                              date:'2026-04-15'},
   {tag:'feature',title:'Productoras GL',                       desc:'Nueva sección con todas las series y películas agrupadas por estudio productor.',                                            date:'2026-04-10'},
   {tag:'feature',title:'Perfiles de actrices',                 desc:'Fichas detalladas con filmografía, edad, país y fotos. Accesibles desde el reparto de cada serie.',                         date:'2026-04-05'},

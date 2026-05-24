@@ -32997,6 +32997,19 @@
         "1778761040196",
         "1778761114502"
       ]
+    },
+    {
+      "id": "1779617942284",
+      "name": "FayeYoko",
+      "desc": "",
+      "retired": true,
+      "couplePhoto": "https://preview.redd.it/some-random-magazine-shots-of-fayeyoko-last-pic-is-mine-and-v0-d74ss2tokr7e1.jpg?width=640&crop=smart&auto=webp&s=a5b3d54cdbb23a403d328e3911b4db376db527a3",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1778760904100",
+        "1778760989113"
+      ]
     }
   ],
   "productoras": [
@@ -33436,5 +33449,5 @@
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-05-24T10:10:07.974Z"
+  "exportedAt": "2026-05-24T10:20:29.872Z"
 }
