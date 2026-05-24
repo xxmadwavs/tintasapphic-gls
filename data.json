@@ -32590,6 +32590,60 @@
       "country": "Corea del Sur",
       "birthdate": "1998-08-17",
       "notes": "Actriz"
+    },
+    {
+      "id": "1779619197784",
+      "name": "\"Tingting\" Anchisa Nirahanee",
+      "photo": "https://pbs.twimg.com/media/HIp_XAUbwAAx7O4?format=jpg&name=4096x4096",
+      "photoPosition": "center 5%",
+      "country": "Tailandia",
+      "birthdate": "",
+      "notes": "Actriz"
+    },
+    {
+      "id": "1779619234473",
+      "name": "\"Nina\" Jinnita Djadda",
+      "photo": "https://pbs.twimg.com/media/HIqLH_AagAAdL5-?format=jpg&name=large",
+      "photoPosition": "center 15%",
+      "country": "Tailandia",
+      "birthdate": "",
+      "notes": "Actriz"
+    },
+    {
+      "id": "1779619343830",
+      "name": "\"Nene\" Pawarun Hathaisantitham",
+      "photo": "https://pbs.twimg.com/media/HIvhNcVaIAAsHa6?format=jpg&name=large",
+      "photoPosition": "center 15%",
+      "country": "Tailandia",
+      "birthdate": "",
+      "notes": "Actriz"
+    },
+    {
+      "id": "1779619364565",
+      "name": "\"Nonie\" Jarupiya Boribalburibhand",
+      "photo": "https://pbs.twimg.com/media/HIvwI0EaYAAqTSc?format=jpg&name=4096x4096",
+      "photoPosition": "center 15%",
+      "country": "Tailandia",
+      "birthdate": "",
+      "notes": "Actriz"
+    },
+    {
+      "id": "1779619408319",
+      "name": "\"Noodee\" Kanoklada Sihsen",
+      "photo": "https://pbs.twimg.com/media/HI0JyKCboAA1OLY?format=jpg&name=4096x4096",
+      "photoPosition": "center 5%",
+      "country": "Tailandia",
+      "birthdate": "",
+      "notes": "Actriz"
+    },
+    {
+      "id": "1779619425790",
+      "name": "\"Pair\" Penpitcha Thaweekijkasem",
+      "photo": "https://pbs.twimg.com/media/HI0X5SEasAEULJp?format=jpg&name=4096x4096",
+      "photoPosition": "center 15%",
+      "country": "Tailandia",
+      "birthdate": "",
+      "notes": "Actriz"
     }
   ],
   "ships": [
@@ -33252,6 +33306,8 @@
       "desc": "Fundada por la actriz Mai Davika y el actor Ter Chantavit. Productora y agencia de gestión de artistas jóvenes. Su primera serie GL fue Clairebell (2025), protagonizada por Mable Siriwalee y Pangjie Paphavarin.",
       "actressIds": [
         "1778705363188",
+        "1779619343830",
+        "1779619364565",
         "1778705395423"
       ]
     },
@@ -33275,7 +33331,11 @@
       "actressIds": [
         "1778760564161",
         "1778760606088",
-        "1778760689825"
+        "1779619234473",
+        "1779619408319",
+        "1779619425790",
+        "1778760689825",
+        "1779619197784"
       ]
     },
     {
@@ -33489,5 +33549,5 @@
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-05-24T10:32:05.243Z"
+  "exportedAt": "2026-05-24T10:44:22.023Z"
 }
