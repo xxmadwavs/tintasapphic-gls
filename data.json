@@ -9549,7 +9549,7 @@
       "network": "",
       "networkUrl": "",
       "watchLinks": [],
-      "trailerUrl": "",
+      "trailerUrl": "https://www.youtube.com/watch?v=0UzWBBSS3js",
       "bookSource": "By Your Side",
       "basedOnBook": true,
       "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/422079/Thumbnail/book_detail_large.gif?3",
@@ -9565,7 +9565,7 @@
       "genres": [
         "Romance"
       ],
-      "updatedAt": "2026-05-25T07:57:08.885Z",
+      "updatedAt": "2026-05-25T19:45:58.652Z",
       "nameEn": "น้อง Sideline",
       "category": "series",
       "seriesType": "serie",
@@ -33901,5 +33901,5 @@
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-05-25T07:57:10.818Z"
+  "exportedAt": "2026-05-25T19:46:00.081Z"
 }
