@@ -9542,7 +9542,7 @@
     {
       "id": "1777459392058",
       "name": "By Your Side",
-      "poster": "https://i.mydramalist.com/ABX754_4c.jpg?v=1",
+      "poster": "https://pbs.twimg.com/media/HJJbCoybMAA5ZAl?format=jpg&name=4096x4096",
       "synopsis": "Zhaojun es una estudiante universitaria como cualquier otra durante el día, pero por la noche se adentra en un mundo secreto de encuentros de alto riesgo y deseos ocultos. Mientras intenta compaginar los estudios, los amigos y la presión de su trabajo poco convencional, nunca imaginó que una reunión rutinaria se convertiría en un momento capaz de desmoronar todo.\n\nCuando una misteriosa nueva clienta, Namnueng, se cruza en su camino, Zhaojun debe enfrentarse a la tensión entre el deseo, el peligro y las decisiones que definen quién es realmente. Si a esto le sumamos amigos que se preocupan demasiado, profesores que saben demasiado y secretos que se niegan a permanecer ocultos, de repente cada decisión adquiere un peso que va mucho más allá del dinero.\n\n¿Podrá sobrevivir a la emoción y el riesgo de un mundo donde las apariencias engañan y los límites se difuminan, o será un solo encuentro lo que cambie su vida para siempre?",
       "year": "",
       "country": "Tailandia",
@@ -9565,7 +9565,7 @@
       "genres": [
         "Romance"
       ],
-      "updatedAt": "2026-05-22T07:24:21.561Z",
+      "updatedAt": "2026-05-25T07:57:08.885Z",
       "nameEn": "น้อง Sideline",
       "category": "series",
       "seriesType": "serie",
@@ -9596,7 +9596,9 @@
       "productoraId": "1779136384575",
       "sourceType": "novela",
       "moods": [],
-      "awards": []
+      "awards": [],
+      "tropos": [],
+      "dinamica": []
     },
     {
       "id": "1777459455348",
@@ -33899,5 +33901,5 @@
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-05-24T16:22:51.618Z"
+  "exportedAt": "2026-05-25T07:57:10.818Z"
 }
