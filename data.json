@@ -21054,17 +21054,17 @@
         {
           "label": "Temporada 1",
           "startDate": "2026-05-25",
-          "totalEpisodes": 12,
+          "totalEpisodes": 50,
           "emissionDays": [
             0
           ],
-          "allInOneDay": false,
+          "allInOneDay": true,
           "skipDates": [],
           "episodes": [],
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-24T09:57:51.400Z"
+      "updatedAt": "2026-05-26T06:59:00.630Z"
     },
     {
       "id": "1779639066759",
@@ -33901,5 +33901,5 @@
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-05-25T19:46:00.081Z"
+  "exportedAt": "2026-05-26T06:59:06.508Z"
 }
