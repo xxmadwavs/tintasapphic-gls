@@ -1137,7 +1137,7 @@
       "basedOnBook": true,
       "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/429133/Thumbnail/book_detail_large.gif?2",
       "bookUrl": "https://en.mebmarket.com/?action=book_details&book_id=429133",
-      "upcoming": true,
+      "upcoming": false,
       "skipDates": [],
       "episodes": [],
       "watchLinks": [],
@@ -1181,7 +1181,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-23T18:23:16.128Z",
+      "updatedAt": "2026-05-28T08:40:50.789Z",
       "nameEn": "วาดฝันวันวิวาห์",
       "episodeDuration": "",
       "myPick": false,
@@ -1200,7 +1200,21 @@
       "dinamica": [
         "Femme × Femme"
       ],
-      "awards": []
+      "awards": [],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-06-19",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ]
     },
     {
       "id": "1776932166717",
@@ -33901,5 +33915,5 @@
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-05-26T06:59:06.508Z"
+  "exportedAt": "2026-05-28T08:40:58.289Z"
 }
