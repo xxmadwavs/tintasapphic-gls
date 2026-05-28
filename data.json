@@ -1131,7 +1131,7 @@
       "synopsis": "Ranlaphat y Phiracha sueñan con tomarse de la mano en cada prueba, con un amor duradero, con envejecer juntas. Pero esos sueños se desmoronan sin previo aviso, obligando a la pareja a enfrentar un obstáculo tras otro.",
       "year": 2026,
       "country": "Tailandia",
-      "network": "Netflix, Ch3",
+      "network": "",
       "networkUrl": "",
       "bookSource": "In Love Forever",
       "basedOnBook": true,
@@ -1181,7 +1181,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-28T08:42:54.879Z",
+      "updatedAt": "2026-05-28T18:07:44.865Z",
       "nameEn": "วาดฝันวันวิวาห์",
       "episodeDuration": "",
       "myPick": false,
@@ -1205,7 +1205,7 @@
         {
           "label": "Temporada 1",
           "startDate": "2026-06-19",
-          "totalEpisodes": 12,
+          "totalEpisodes": 10,
           "emissionDays": [
             4
           ],
@@ -21201,6 +21201,68 @@
         }
       ],
       "updatedAt": "2026-05-24T16:13:38.592Z"
+    },
+    {
+      "id": "1779991449685",
+      "name": "Your Portrait",
+      "nameEn": "너의 초상화",
+      "poster": "https://i.mydramalist.com/nOkLpE_4f.jpg",
+      "synopsis": "El primer amor de Se Hyun la dejó con el corazón roto, pero encuentra el verdadero amor en la universidad, donde conoce a su primera novia, Seon U. La pareja comparte felizmente un apartamento hasta que Seon U se ve obligada a mudarse después de graduarse. Se Hyun acepta a un nuevo compañero de piso, Jin A, quien resulta ser... ¿el ex de Seon U? ¿Sobrevivirá la relación de Se Hyun y Seon U a los intentos de Jin A por reconquistar a Seon U? (",
+      "year": 2025,
+      "country": "Corea del Sur",
+      "network": "vigloo",
+      "networkUrl": "https://www.vigloo.com/ko/video/15000153?episode=1",
+      "watchLinks": [
+        {
+          "name": "vigloo",
+          "url": "https://www.vigloo.com/ko/video/15000153?episode=1"
+        }
+      ],
+      "trailerUrl": "https://www.vigloo.com/ko/video/15000153?season=15000153&episode=0",
+      "bookSource": "Portrait of You",
+      "basedOnBook": true,
+      "sourceType": "manhwa",
+      "bookCoverUrl": "https://preview.redd.it/portrait-of-you-day-144-of-recommending-yuri-manhwa-v0-uu0rfkwo5n6f1.png?width=640&crop=smart&auto=webp&s=3015a0d9838397fa6e32912ba0e0f13bce3892c3",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": 2,
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2025-01-01",
+          "totalEpisodes": 40,
+          "emissionDays": [
+            2
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-05-28T18:04:09.685Z"
     }
   ],
   "movies": [
@@ -30962,6 +31024,88 @@
       "cast": [],
       "productoraId": "",
       "updatedAt": "2026-05-24T16:18:26.085Z"
+    },
+    {
+      "id": "1779990666997",
+      "name": "Criaturas celestiales",
+      "nameEn": "Heavenly Creatures",
+      "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/1/6/9/51169-heavenly-creatures-0-1000-0-1500-crop.jpg?v=9f6a5f4e5c",
+      "synopsis": "Basada en la historia real de Juliet Hulme y Pauline Parker, dos amigas que comparten el amor por a fantasía y la literatura y conspiran para matar a la madre de Pauline luego de que ésta intentara ponerle fin a la intensa y obsesiva relación de las chicas.",
+      "year": 1994,
+      "country": "Estados Unidos / Alemania / Nueva Zelanda",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/_bIUDcnHDlg?si=CGFM6mxBOTuVCGy0",
+      "date": "1994-09-08",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Drama",
+        "Fantasía"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "awards": [
+        {
+          "name": "Writers Guild Awards",
+          "festival": "",
+          "category": "Mejor guion original",
+          "year": 1995,
+          "result": "nominated"
+        }
+      ],
+      "category": "movie",
+      "movieType": "film",
+      "duration": 109,
+      "cast": [],
+      "productoraId": "",
+      "updatedAt": "2026-05-28T17:52:41.616Z"
+    },
+    {
+      "id": "1779990989856",
+      "name": "La princesa Kaguya del cosmos",
+      "nameEn": "超かぐや姫！",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/9YrbOSKoreS4oIjuwx9YjkAU8KP.jpg",
+      "synopsis": "Una estudiante de 17 años que equilibra escuela y trabajo conoce a Kaguya, una misteriosa chica lunar que irrumpe en su vida",
+      "year": 2026,
+      "country": "Japón",
+      "network": "Netflix",
+      "networkUrl": "https://www.netflix.com/es/title/81756595",
+      "watchLinks": [
+        {
+          "name": "Netflix",
+          "url": "https://www.netflix.com/es/title/81756595"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/uine6d15yGE?si=46MEH03W08tHNN2Q",
+      "date": "2026-01-22",
+      "basedOnBook": true,
+      "bookSource": "Cosmic Princess Kaguya!",
+      "bookCoverUrl": "https://preview.redd.it/cosmic-princess-kaguya-manga-volume-1-emergency-reprint-v0-om9ff00tyuhg1.jpeg?auto=webp&s=e98daf8a3ea9b927ffa915b5bc41fd0019990192",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Animación",
+        "Anime",
+        "Fantasía"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "manga",
+      "awards": [],
+      "category": "anime",
+      "movieType": "film",
+      "duration": 141,
+      "cast": [],
+      "productoraId": "",
+      "updatedAt": "2026-05-28T17:56:29.856Z"
     }
   ],
   "actresses": [
@@ -33915,5 +34059,5 @@
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-05-28T08:42:59.266Z"
+  "exportedAt": "2026-05-28T18:07:46.361Z"
 }
