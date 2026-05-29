@@ -1233,7 +1233,7 @@
       "skipDates": [],
       "episodes": [],
       "watchLinks": [],
-      "trailerUrl": "",
+      "trailerUrl": "https://youtu.be/-m-afYbLgTA?si=qyDAWqxmfjfoLQAj",
       "bookLinks": [
         {
           "lang": "th",
@@ -1262,7 +1262,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-23T18:26:47.291Z",
+      "updatedAt": "2026-05-29T06:41:51.698Z",
       "nameEn": "รักได้ไหม",
       "episodeDuration": "",
       "myPick": false,
@@ -1276,8 +1276,7 @@
       "sourceType": "novela",
       "moods": [],
       "tropos": [
-        "Amor prohibido",
-        "Romance rico / pobre"
+        "Amor prohibido"
       ],
       "dinamica": [
         "Femme × Femme",
@@ -34048,5 +34047,5 @@
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-05-28T18:48:57.819Z"
+  "exportedAt": "2026-05-29T06:41:52.884Z"
 }
