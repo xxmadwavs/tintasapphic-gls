@@ -142,6 +142,17 @@ html[data-theme="dark"] .movie-card-stripe::after{opacity:.85}
 .dark-toggle:hover{background:var(--surface2);color:var(--accent);border-color:var(--accent2)}
 html[data-theme="dark"] .dark-toggle{background:var(--surface2);color:var(--gold);border-color:var(--border2)}
 
+/* ═══ SHARE BUTTON ═══ */
+.share-modal-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:7px 14px;border-radius:20px;border:1.5px solid var(--border2);
+  background:var(--surface);color:var(--muted);
+  font-size:12px;font-weight:600;font-family:var(--font-body);
+  cursor:pointer;transition:all .18s;flex-shrink:0;
+}
+.share-modal-btn:hover{background:var(--accent-soft);color:var(--accent);border-color:var(--accent2)}
+.share-modal-btn.copied{background:var(--teal-soft);color:var(--teal);border-color:var(--teal)}
+.share-modal-btn svg{flex-shrink:0}
 
 /* ═══ NAVBAR ═══ */
 .navbar{
@@ -2734,6 +2745,17 @@ const DINAMICAS_EN={
 function tropoLabel(t){const en=TROPOS_EN[t];return en&&en!==t?`${t} (${en})`:t;}
 function dinamicaLabel(d){const en=DINAMICAS_EN[d];return en&&en!==d?`${d} (${en})`:d;}
 
+// Mapa de tropos que quedan cubiertos si la dinámica equivalente ya está presente
+const TROPO_CUBIERTO_POR_DINAMICA={
+  'Romance rico / pobre':'Rica × Pobre',
+  'Jefa y empleada':'Jefa × Subordinada',
+};
+// Filtra tropos redundantes respecto a la dinámica del mismo ítem
+function filtrarTropos(tropos,dinamica){
+  if(!tropos||!dinamica) return tropos||[];
+  return tropos.filter(t=>!(TROPO_CUBIERTO_POR_DINAMICA[t]&&dinamica.includes(TROPO_CUBIERTO_POR_DINAMICA[t])));
+}
+
 let state={month:new Date().getMonth(),year:new Date().getFullYear(),tab:'cal',series:[],movies:[],actresses:[],ships:[],productoras:[],listas:[]};
 
 // ═══ SESSION PERSISTENCE ═══
@@ -3468,9 +3490,11 @@ function moodPillsHtml(moods,max=3){
   if(!moods||!moods.length) return '';
   return `<div class="sc-moods">${moods.slice(0,max).map(m=>`<span class="sc-mood-pill">${m}</span>`).join('')}</div>`;
 }
-function tropoPillsHtml(tropos,max=3){
+function tropoPillsHtml(tropos,max=3,dinamica=[]){
   if(!tropos||!tropos.length) return '';
-  return `<div class="sc-tropos">${tropos.slice(0,max).map(t=>`<span class="sc-tropo-pill" onclick="seriesFilters.tropo='${t.replace(/'/g,"\\'")}';switchTab('list');renderList();renderListResults()" style="cursor:pointer" title="Filtrar por este tropo">${tropoLabel(t)}</span>`).join('')}</div>`;
+  const filtered=filtrarTropos(tropos,dinamica);
+  if(!filtered.length) return '';
+  return `<div class="sc-tropos">${filtered.slice(0,max).map(t=>`<span class="sc-tropo-pill" onclick="seriesFilters.tropo='${t.replace(/'/g,"\\'")}';switchTab('list');renderList();renderListResults()" style="cursor:pointer" title="Filtrar por este tropo">${tropoLabel(t)}</span>`).join('')}</div>`;
 }
 function dinamicaPillsHtml(dinamica,max=3){
   if(!dinamica||!dinamica.length) return '';
@@ -4442,7 +4466,7 @@ function openSeries(si){
   ${s.nameEn?`<div style="font-size:13px;color:var(--muted);font-style:italic;margin-bottom:2px;margin-top:-2px">${s.nameEn}</div>`:''}
   ${s.genres&&s.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 2px">${s.genres.map(g=>`<span style="font-size:11.5px;font-weight:700;padding:3px 11px;border-radius:20px;background:var(--accent-soft);color:var(--accent);border:1px solid rgba(201,79,124,.2)">${g}</span>`).join('')}</div>`:''}
   ${s.moods&&s.moods.length?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin:4px 0 4px">${s.moods.map(m=>`<span style="font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;background:var(--lavender-soft);color:var(--lavender);border:1px solid rgba(139,114,190,0.25)">${m}</span>`).join('')}</div>`:''}
-  ${s.tropos&&s.tropos.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 2px;align-items:center"><span style="font-size:9.5px;color:var(--muted);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-right:4px;flex-shrink:0">Tropos</span>${s.tropos.map(t=>`<span onclick="closeModal();seriesFilters.tropo='${t.replace(/'/g,"\\'")}';switchTab('list');renderList();renderListResults()" style="font-size:10.5px;font-weight:600;padding:3px 10px;border-radius:6px;background:var(--surface2);color:var(--text);border:1px solid var(--border2);cursor:pointer;transition:all .15s" onmouseover="this.style.background='var(--accent-soft)';this.style.color='var(--accent)'" onmouseout="this.style.background='var(--surface2)';this.style.color='var(--text)'" title="Filtrar por este tropo">${tropoLabel(t)}</span>`).join('')}</div>`:''}
+  ${(()=>{const ft=filtrarTropos(s.tropos||[],s.dinamica||[]);return ft.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 2px;align-items:center"><span style="font-size:9.5px;color:var(--muted);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-right:4px;flex-shrink:0">Tropos</span>${ft.map(t=>`<span onclick="closeModal();seriesFilters.tropo='${t.replace(/'/g,"\\'")}';switchTab('list');renderList();renderListResults()" style="font-size:10.5px;font-weight:600;padding:3px 10px;border-radius:6px;background:var(--surface2);color:var(--text);border:1px solid var(--border2);cursor:pointer;transition:all .15s" onmouseover="this.style.background='var(--accent-soft)';this.style.color='var(--accent)'" onmouseout="this.style.background='var(--surface2)';this.style.color='var(--text)'" title="Filtrar por este tropo">${tropoLabel(t)}</span>`).join('')}</div>`:''})()}
   ${s.dinamica&&s.dinamica.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin:4px 0 10px;align-items:center"><span style="font-size:9.5px;color:var(--muted);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-right:4px;flex-shrink:0">Dinámica</span>${s.dinamica.map(d=>`<span onclick="closeModal();seriesFilters.dinamica='${d.replace(/'/g,"\\'")}';switchTab('list');renderList();renderListResults()" style="font-size:10.5px;font-weight:600;padding:3px 10px;border-radius:6px;background:var(--surface2);color:var(--text);border:1px solid var(--border2);cursor:pointer;transition:all .15s" onmouseover="this.style.background='var(--teal-soft)';this.style.color='var(--teal)'" onmouseout="this.style.background='var(--surface2)';this.style.color='var(--text)'" title="Filtrar por esta dinámica">${dinamicaLabel(d)}</span>`).join('')}</div>`:''}
   ${nextBadgeHtml}
   ${progressBlock}
@@ -4471,10 +4495,14 @@ function openSeries(si){
   <div id="spanel_eps">${epsHtml}</div>
   <div id="spanel_cast" style="display:none">${castHtml}</div>
   ${buildSimilarHtml(s,'serie')}
-  <div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;flex-wrap:wrap;gap:8px">
+    ${_shareBtnHtml('serie',s.id)}
+    <button class="btn" onclick="closeModal()">Cerrar</button>
+  </div>
   </div>`;
   document.getElementById('modalBox').innerHTML=html;
   document.getElementById('modalBg').classList.add('open');
+  history.replaceState(null,'', location.pathname+(location.search||'')+'#serie-'+s.id);
   _pushModal('modal');
 }
 
@@ -4547,9 +4575,10 @@ function openUpcoming(si){
   </div>
   <div id="uppanel_cast">${castHtml}</div>`:''}
   
-  ${buildSimilarHtml(s,'serie')}<div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div></div>`;
+  ${buildSimilarHtml(s,'serie')}<div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;flex-wrap:wrap;gap:8px">${_shareBtnHtml('serie',s.id)}<button class="btn" onclick="closeModal()">Cerrar</button></div></div>`;
   document.getElementById('modalBox').innerHTML=html;
   document.getElementById('modalBg').classList.add('open');
+  history.replaceState(null,'', location.pathname+(location.search||'')+'#serie-'+s.id);
   _pushModal('modal');
 }
 
@@ -4633,9 +4662,10 @@ function openMovie(mi){
   <div id="mvpanel_info" style="display:none"></div>
   <div id="mvpanel_cast">${castHtml}</div>`:''}
   
-  ${buildSimilarHtml(mv,'pelicula')}<div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div></div>`;
+  ${buildSimilarHtml(mv,'pelicula')}<div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;flex-wrap:wrap;gap:8px">${_shareBtnHtml('pelicula',mv.id)}<button class="btn" onclick="closeModal()">Cerrar</button></div></div>`;
   document.getElementById('modalBox').innerHTML=html;
   document.getElementById('modalBg').classList.add('open');
+  history.replaceState(null,'', location.pathname+(location.search||'')+'#pelicula-'+mv.id);
   _pushModal('modal');
 }
 
@@ -4854,7 +4884,50 @@ function switchMovieModalTab(tab){
     if(btn) btn.classList.toggle('active',p===tab);
   });
 }
-function closeModal(){ document.getElementById('modalBg').classList.remove('open'); }
+function closeModal(){
+  document.getElementById('modalBg').classList.remove('open');
+  if(location.hash && (location.hash.startsWith('#serie-') || location.hash.startsWith('#pelicula-'))){
+    history.replaceState(null,'', location.pathname + (location.search||''));
+  }
+}
+
+function _shareBtnHtml(type, id){
+  return `<button id="shareModalBtn" class="share-modal-btn" onclick="shareModal('${type}','${id}')">` +
+    `<svg width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'>` +
+    `<circle cx='18' cy='5' r='3'/><circle cx='6' cy='12' r='3'/><circle cx='18' cy='19' r='3'/>` +
+    `<line x1='8.59' y1='13.51' x2='15.42' y2='17.49'/><line x1='15.41' y1='6.51' x2='8.59' y2='10.49'/>` +
+    `</svg> Compartir ficha</button>`;
+}
+
+function shareModal(type, id){
+  const url = location.origin + location.pathname + (location.search||'') + '#' + type + '-' + id;
+  history.replaceState(null,'', location.pathname + (location.search||'') + '#' + type + '-' + id);
+  const btn = document.getElementById('shareModalBtn');
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url).then(()=>_shareFlash(btn)).catch(()=>_shareFallback(url,btn));
+  } else {
+    _shareFallback(url,btn);
+  }
+}
+
+function _shareFallback(url,btn){
+  try{
+    const ta=document.createElement('textarea');
+    ta.value=url; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    _shareFlash(btn);
+  }catch(e){ alert('Copia este enlace:\n'+url); }
+}
+
+function _shareFlash(btn){
+  if(!btn) return;
+  btn.classList.add('copied');
+  const orig=btn.innerHTML;
+  btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> ¡Copiado!';
+  setTimeout(()=>{ btn.classList.remove('copied'); btn.innerHTML=orig; },2000);
+}
 
 function getYoutubeId(url){
   if(!url) return null;
@@ -7025,6 +7098,29 @@ document.addEventListener('keydown',e=>{
     else renderWeekView();
     // Seed history so the very first back press doesn't exit the page
     history.replaceState({tab:savedTab},'',location.pathname+'?tab='+savedTab);
+    // ── Deep-link: abrir modal si hay hash #serie-{id} o #pelicula-{id} ──
+    const _hash = location.hash;
+    if(_hash){
+      const _mSerie    = _hash.match(/^#serie-(\d+)$/);
+      const _mPelicula = _hash.match(/^#pelicula-(\d+)$/);
+      if(_mSerie){
+        const _id = Number(_mSerie[1]);
+        const _si = state.series.findIndex(x=>x.id===_id);
+        if(_si>=0){
+          const _s = state.series[_si];
+          const _tabTarget = _s.upcoming ? 'upcoming' : (_s.category==='anime'?'anime':_s.category==='reality'?'realities':'list');
+          switchTab(_tabTarget);
+          setTimeout(()=>{ if(_s.upcoming) openUpcoming(_si); else openSeries(_si); }, 80);
+        }
+      } else if(_mPelicula){
+        const _id = Number(_mPelicula[1]);
+        const _mi = state.movies.findIndex(x=>x.id===_id);
+        if(_mi>=0){
+          switchTab('movies');
+          setTimeout(()=>openMovie(_mi), 80);
+        }
+      }
+    }
   }
 })();
 
