@@ -5222,11 +5222,12 @@ function openSeries(si){
   <div id="spanel_eps">${epsHtml}</div>
   <div id="spanel_cast" style="display:none">${castHtml}</div>
   ${buildSimilarHtml(s,'serie')}
-  <div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div>
+  <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:1rem">${_buildShareBtnHtml()}<button class="btn" onclick="closeModal()">Cerrar</button></div>
   </div>`;
   document.getElementById('modalBox').innerHTML=html;
   document.getElementById('modalBg').classList.add('open');
   _pushModal('modal');
+  if(s.id) _setModalShareHash('#serie-'+s.id);
 }
 
 
@@ -5316,10 +5317,11 @@ function openUpcoming(si){
   </div>
   <div id="uppanel_cast">${castHtml}</div>`:''}
   
-  ${buildSimilarHtml(s,'serie')}<div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div></div>`;
+  ${buildSimilarHtml(s,'serie')}<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:1rem">${_buildShareBtnHtml()}<button class="btn" onclick="closeModal()">Cerrar</button></div></div>`;
   document.getElementById('modalBox').innerHTML=html;
   document.getElementById('modalBg').classList.add('open');
   _pushModal('modal');
+  if(s.id) _setModalShareHash('#serie-'+s.id);
 }
 
 function switchUpcomingModalTab(tab){
@@ -5410,10 +5412,11 @@ function openMovie(mi){
   <div id="mvpanel_info" style="display:none"></div>
   <div id="mvpanel_cast">${castHtml}</div>`:''}
   
-  ${buildSimilarHtml(mv,'pelicula')}<div style="display:flex;justify-content:flex-end;margin-top:1rem"><button class="btn" onclick="closeModal()">Cerrar</button></div></div>`;
+  ${buildSimilarHtml(mv,'pelicula')}<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:1rem">${_buildShareBtnHtml()}<button class="btn" onclick="closeModal()">Cerrar</button></div></div>`;
   document.getElementById('modalBox').innerHTML=html;
   document.getElementById('modalBg').classList.add('open');
   _pushModal('modal');
+  if(mv.id) _setModalShareHash('#pelicula-'+mv.id);
 }
 
 function handleMoviesGenreChange(val){
@@ -5631,7 +5634,54 @@ function switchMovieModalTab(tab){
     if(btn) btn.classList.toggle('active',p===tab);
   });
 }
-function closeModal(){ document.getElementById('modalBg').classList.remove('open'); }
+function closeModal(){
+  document.getElementById('modalBg').classList.remove('open');
+  // Limpiar hash de la URL sin recargar ni crear entrada en el historial
+  if(location.hash && (location.hash.startsWith('#serie-') || location.hash.startsWith('#pelicula-'))){
+    history.replaceState(history.state, '', location.pathname + (location.search||''));
+  }
+}
+
+// ── Compartir ficha ──────────────────────────────────────────────────────────
+function _setModalShareHash(hash){
+  history.replaceState(history.state, '', location.pathname + (location.search||'') + hash);
+}
+
+function copyShareLink(){
+  const url = location.href.split('#')[0] + location.hash;
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url).then(()=>_flashShareBtn('¡Copiado!')).catch(()=>_shareFallback(url));
+  } else {
+    _shareFallback(url);
+  }
+}
+
+function _shareFallback(url){
+  const inp = document.createElement('input');
+  inp.value = url;
+  document.body.appendChild(inp);
+  inp.select();
+  try{ document.execCommand('copy'); _flashShareBtn('¡Copiado!'); }catch(e){ _flashShareBtn('Error'); }
+  document.body.removeChild(inp);
+}
+
+function _flashShareBtn(msg){
+  const btn = document.getElementById('shareModalBtn');
+  if(!btn) return;
+  const orig = btn.innerHTML;
+  btn.innerHTML = `<span style="font-size:13px">✓ ${msg}</span>`;
+  btn.style.background='var(--teal-soft)';
+  btn.style.color='var(--teal)';
+  btn.style.borderColor='rgba(74,173,160,0.4)';
+  setTimeout(()=>{ btn.innerHTML=orig; btn.style.background=''; btn.style.color=''; btn.style.borderColor=''; }, 2000);
+}
+
+function _buildShareBtnHtml(){
+  return `<button id="shareModalBtn" class="btn" onclick="copyShareLink()" title="Copiar enlace a esta ficha" style="display:flex;align-items:center;gap:6px;font-size:12px;padding:7px 14px;border:1.5px solid var(--border2);color:var(--muted);background:var(--surface2)">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+    Compartir
+  </button>`;
+}
 
 function getYoutubeId(url){
   if(!url) return null;
@@ -7798,6 +7848,31 @@ document.addEventListener('keydown',e=>{
     else renderWeekView();
     // Seed history so the very first back press doesn't exit the page
     history.replaceState({tab:savedTab},'',location.pathname+'?tab='+savedTab);
+
+    // ── Deep-link: abrir modal si la URL tiene #serie-ID o #pelicula-ID ──────
+    (function resolveHashDeepLink(){
+      const hash = location.hash; // e.g. "#serie-1748871234567" or "#pelicula-..."
+      if(!hash) return;
+      const mSerie = hash.match(/^#serie-(.+)$/);
+      const mPelicula = hash.match(/^#pelicula-(.+)$/);
+      if(mSerie){
+        const id = mSerie[1];
+        const si = state.series.findIndex(s=>String(s.id)===id);
+        if(si !== -1){
+          const s = state.series[si];
+          // Render the right tab first so context is loaded
+          switchTab(s.upcoming?'upcoming':'list', true);
+          setTimeout(()=>{ s.upcoming ? openUpcoming(si) : openSeries(si); }, 80);
+        }
+      } else if(mPelicula){
+        const id = mPelicula[1];
+        const mi = state.movies.findIndex(mv=>String(mv.id)===id);
+        if(mi !== -1){
+          switchTab('movies', true);
+          setTimeout(()=>openMovie(mi), 80);
+        }
+      }
+    })();
   }
 })();
 
