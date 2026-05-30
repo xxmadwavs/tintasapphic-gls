@@ -1893,6 +1893,69 @@ html[data-theme="dark"] .ship-retired{background:rgba(180,140,160,.08);color:#a0
   .cast-name{font-size:10.5px}
   .cast-char{font-size:9.5px}
 }
+/* ── Elenco principal destacado en ficha pública ── */
+.main-cast-preview{
+  display:flex;align-items:center;gap:8px;
+  flex-wrap:wrap;
+  margin:10px 0 4px;
+  padding:10px 12px;
+  background:var(--surface2);
+  border:1px solid var(--border2);
+  border-radius:12px;
+}
+.main-cast-preview-label{
+  font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--muted);flex-shrink:0;width:100%;margin-bottom:2px;
+}
+.main-cast-preview-list{
+  display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap;
+}
+.main-cast-preview-sep{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:3px;padding-top:8px;flex-shrink:0;
+}
+.main-cast-preview-sep-heart{font-size:11px;color:var(--accent);line-height:1}
+.main-cast-preview-sep-line{width:1px;height:18px;background:var(--border2)}
+.main-cast-chip{
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  cursor:pointer;border-radius:8px;padding:4px 6px;
+  transition:background .15s;
+  text-align:center;min-width:52px;max-width:72px;
+}
+.main-cast-chip:hover{background:rgba(201,79,124,0.07)}
+.main-cast-chip-photo{
+  width:40px;height:40px;border-radius:50%;
+  object-fit:cover;object-position:top;
+  border:2px solid var(--border2);
+  background:var(--surface2);flex-shrink:0;
+  transition:border-color .15s;
+}
+.main-cast-chip:hover .main-cast-chip-photo{border-color:var(--accent2)}
+.main-cast-chip-ph{
+  width:40px;height:40px;border-radius:50%;
+  background:var(--accent-soft);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+  border:2px solid var(--border2);
+}
+.main-cast-chip-name{
+  font-size:9.5px;font-weight:700;color:var(--text);
+  line-height:1.2;word-break:break-word;
+}
+.main-cast-chip-char{
+  font-size:9px;color:var(--muted);line-height:1.1;
+}
+.main-cast-preview-more{
+  font-size:10.5px;font-weight:600;color:var(--muted);
+  cursor:pointer;padding:4px 8px;border-radius:20px;
+  background:var(--surface3);border:1px solid var(--border2);
+  white-space:nowrap;transition:all .15s;align-self:center;
+}
+.main-cast-preview-more:hover{background:var(--accent-soft);color:var(--accent);border-color:var(--accent2)}
+@media(max-width:480px){
+  .main-cast-chip-photo,.main-cast-chip-ph{width:36px;height:36px}
+  .main-cast-chip-name{font-size:9px}
+}
 /* Actress tab */
 .actress-tab-grid{
   display:grid;
@@ -5114,6 +5177,75 @@ function closeActressModal(){
   document.getElementById('actressModalBg').classList.remove('open');
 }
 
+// ── Elenco principal destacado en ficha pública ──
+// Muestra hasta 3 actrices (o 2 parejas principales) con foto y nombre
+// Igual que la vista rápida de MyDramaList
+function buildMainCastPreviewHtml(cast, switchToTabFn){
+  if(!cast||!cast.length) return '';
+  const actresses=state.actresses||[];
+  // Sólo parejas/miembros principales
+  const mainMembers=cast.filter(m=>m.coupleType==='main');
+  if(!mainMembers.length) return '';
+
+  // Agrupa por coupleNum para presentar parejas separadas
+  const coupleMap={};
+  mainMembers.forEach(m=>{
+    const k=m.coupleNum||1;
+    if(!coupleMap[k]) coupleMap[k]=[];
+    coupleMap[k].push(m);
+  });
+  const coupleKeys=Object.keys(coupleMap).sort((a,b)=>+a-+b);
+
+  // Construye chips individuales
+  function chip(m){
+    const a=actresses.find(x=>x.id===m.actressId);
+    if(!a) return '';
+    const photo=a.photo
+      ?`<img class="main-cast-chip-photo" src="${a.photo}" alt="${a.name}" onerror="this.outerHTML='<div class=main-cast-chip-ph>🎭</div>'">`
+      :'<div class="main-cast-chip-ph">🎭</div>';
+    const shortName=a.name.length>18?a.name.slice(0,17)+'…':a.name;
+    return `<div class="main-cast-chip" onclick="openActressProfile('${a.id}')" title="${a.name}">
+      ${photo}
+      <div class="main-cast-chip-name">${shortName}</div>
+      ${m.character?`<div class="main-cast-chip-char">${m.character}</div>`:''}
+    </div>`;
+  }
+
+  let innerHtml='';
+  let chipsShown=0;
+  const MAX_CHIPS=6; // máximo de chips antes del botón "Ver más"
+
+  coupleKeys.forEach((k,ci)=>{
+    const members=coupleMap[k];
+    // Separador entre parejas
+    if(ci>0 && chipsShown<MAX_CHIPS){
+      innerHtml+=`<div class="main-cast-preview-sep">
+        <div class="main-cast-preview-sep-line"></div>
+        <div class="main-cast-preview-sep-heart">💕</div>
+        <div class="main-cast-preview-sep-line"></div>
+      </div>`;
+    }
+    members.forEach(m=>{
+      if(chipsShown>=MAX_CHIPS) return;
+      innerHtml+=chip(m);
+      chipsShown++;
+    });
+  });
+
+  // Botón "Ver cast completo" si hay más
+  const totalMain=mainMembers.filter(m=>actresses.find(a=>a.id===m.actressId)).length;
+  const totalAll=cast.filter(m=>actresses.find(a=>a.id===m.actressId)).length;
+  const moreBtn=totalAll>0
+    ?`<div class="main-cast-preview-more" onclick="${switchToTabFn}" title="Ver reparto completo">🎭 Cast completo</div>`
+    :'';
+
+  return `<div class="main-cast-preview">
+    <div class="main-cast-preview-label">✦ Elenco principal</div>
+    <div class="main-cast-preview-list">${innerHtml}</div>
+    ${moreBtn}
+  </div>`;
+}
+
 function openSeries(si){
   const s=state.series[si], allEps=genEps(s), now=new Date();
   const seasons=getSeasons(s);
@@ -5227,6 +5359,7 @@ function openSeries(si){
   ${s.moods&&s.moods.length?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin:4px 0 4px">${s.moods.map(m=>`<span style="font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;background:var(--lavender-soft);color:var(--lavender);border:1px solid rgba(139,114,190,0.25)">${m}</span>`).join('')}</div>`:''}
   ${(()=>{const ft=filtrarTropos(s.tropos||[],s.dinamica||[]);return ft.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 2px;align-items:center"><span style="font-size:9.5px;color:var(--muted);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-right:4px;flex-shrink:0">Tropos</span>${ft.map(t=>`<span onclick="closeModal();seriesFilters.tropo='${t.replace(/'/g,"\\'")}';switchTab('list');renderList();renderListResults()" style="font-size:10.5px;font-weight:600;padding:3px 10px;border-radius:6px;background:var(--surface2);color:var(--text);border:1px solid var(--border2);cursor:pointer;transition:all .15s" onmouseover="this.style.background='var(--accent-soft)';this.style.color='var(--accent)'" onmouseout="this.style.background='var(--surface2)';this.style.color='var(--text)'" title="Filtrar por este tropo">${tropoLabel(t)}</span>`).join('')}</div>`:''})()}
   ${s.dinamica&&s.dinamica.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin:4px 0 10px;align-items:center"><span style="font-size:9.5px;color:var(--muted);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-right:4px;flex-shrink:0">Dinámica</span>${s.dinamica.map(d=>`<span onclick="closeModal();seriesFilters.dinamica='${d.replace(/'/g,"\\'")}';switchTab('list');renderList();renderListResults()" style="font-size:10.5px;font-weight:600;padding:3px 10px;border-radius:6px;background:var(--surface2);color:var(--text);border:1px solid var(--border2);cursor:pointer;transition:all .15s" onmouseover="this.style.background='var(--teal-soft)';this.style.color='var(--teal)'" onmouseout="this.style.background='var(--surface2)';this.style.color='var(--text)'" title="Filtrar por esta dinámica">${dinamicaLabel(d)}</span>`).join('')}</div>`:''}
+  ${buildMainCastPreviewHtml(s.cast||[],"switchSeriesModalTab('cast')")}
   ${nextBadgeHtml}
   ${progressBlock}
   ${watchLinksHtml}
@@ -5343,6 +5476,7 @@ function openUpcoming(si){
     <span style="white-space:nowrap">${pctInfo}%</span>
   </div>
   ${s.country?`<div class="modal-dates-row"><span class="modal-date-chip">${countryFlag(s.country)} ${s.country}</span>${s.year?`<span class="modal-date-chip">📆 ${s.year}</span>`:''}</div>`:''}
+  ${buildMainCastPreviewHtml(s.cast||[],"switchUpcomingModalTab('cast')")}
   ${watchLinksHtml}
   ${(metaGrid||s.synopsis||s.trailerUrl||upBookHtml)?`<div class="modal-details-accordion">
     <button class="modal-details-toggle" onclick="toggleModalDetails('updetails_body',this)">
@@ -5434,6 +5568,7 @@ function openMovie(mi){
   ${chipsHtml}
   ${mv.genres&&mv.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 2px">${mv.genres.map(g=>`<span style="font-size:11.5px;font-weight:700;padding:3px 11px;border-radius:20px;background:var(--lavender-soft);color:var(--lavender);border:1px solid rgba(139,114,190,0.2)">${g}</span>`).join('')}</div>`:''}
   ${mv.moods&&mv.moods.length?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin:4px 0">${mv.moods.map(m=>`<span style="font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;background:var(--lavender-soft);color:var(--lavender);border:1px solid rgba(139,114,190,0.25)">${m}</span>`).join('')}</div>`:''}
+  ${buildMainCastPreviewHtml(mv.cast||[],"switchMovieModalTab('cast')")}
   ${releaseBadgeHtml}
   ${watchLinksHtml}
   ${(metaGrid||mv.synopsis||mv.trailerUrl||bookBlock||buildAwardsHtml(mv))?`<div class="modal-details-accordion">
