@@ -3606,7 +3606,7 @@ function buildCountryPicker(id, onChange, availableCountries){
 
 let seriesSubtab='airing';
 let seriesFinishedSubtab='all';
-let seriesFilters={q:'',countries:[],sort:'recent',book:'all',year:'',genre:'',type:'',region:'',tropo:'',dinamica:''};
+let seriesFilters={q:'',countries:[],sort:'recent',book:'all',year:'',genre:'',type:'',region:'',tropo:'',dinamica:'',mood:'',status:''};
 // Pagination state
 const PAGE_SIZE=20;
 const paginationState={series:{airing:1,notstarted:1,finished:1,finished_serie:1,finished_webserie:1},movies:1,upcoming:1};
@@ -3642,13 +3642,17 @@ function renderListResults(){
   const typeSel=document.getElementById('seriesTypeSel');
   const tropoSel=document.getElementById('seriesTropoSel');
   const dinamicaSel=document.getElementById('seriesDinamicaSel');
+  const moodSel=document.getElementById('seriesMoodSel');
+  const statusSel=document.getElementById('seriesStatusSel');
   if(sortSel) sortSel.value=seriesFilters.sort;
   if(bookSel) bookSel.value=seriesFilters.book;
   if(genreSel) genreSel.value=seriesFilters.genre;
   if(typeSel) typeSel.value=seriesFilters.type||'';
   if(tropoSel) tropoSel.value=seriesFilters.tropo||'';
   if(dinamicaSel) dinamicaSel.value=seriesFilters.dinamica||'';
-  if(clearBtn) clearBtn.style.display=(seriesFilters.countries&&seriesFilters.countries.length||seriesFilters.book!=='all'||seriesFilters.year||seriesFilters.genre||seriesFilters.type||seriesFilters.region||seriesFilters.tropo||seriesFilters.dinamica)?'':'none';
+  if(moodSel) moodSel.value=seriesFilters.mood||'';
+  if(statusSel) statusSel.value=seriesFilters.status||'';
+  if(clearBtn) clearBtn.style.display=(seriesFilters.countries&&seriesFilters.countries.length||seriesFilters.book!=='all'||seriesFilters.year||seriesFilters.genre||seriesFilters.type||seriesFilters.region||seriesFilters.tropo||seriesFilters.dinamica||seriesFilters.mood||seriesFilters.status)?'':'none';
   // Refresh region pills active state
   const regionPillsEl=document.getElementById('seriesRegionPills');
   if(regionPillsEl){
@@ -3710,6 +3714,32 @@ function renderListResults(){
 
   if(!filtered.length){
     resultsEl.innerHTML='<div class="search-empty">No se encontró ninguna serie con esos filtros.</div>';
+    return;
+  }
+
+  // When status filter is active → show flat grid without subtabs
+  if(seriesFilters.status){
+    window.setSeriesPage_statusfiltered=p=>{paginationState.series._statusFiltered=p;saveSession();renderListResults();scrollToResults('listResults');};
+    if(!paginationState.series._statusFiltered) paginationState.series._statusFiltered=1;
+    const page=paginationState.series._statusFiltered;
+    const totalPages=Math.ceil(filtered.length/PAGE_SIZE);
+    const safePage=Math.min(page,totalPages);
+    paginationState.series._statusFiltered=safePage;
+    const slice=filtered.slice((safePage-1)*PAGE_SIZE,safePage*PAGE_SIZE);
+    const statusLabel={airing:'En emisión',notstarted:'Estreno próximo',finished:'Finalizadas'}[seriesFilters.status]||'';
+    let html2=`<div class="subtabs"><span class="subtab active" style="cursor:default">${statusLabel}<span class="subtab-count">${filtered.length}</span></span></div>`;
+    html2+=`<div class="books-count">Mostrando <strong>${(safePage-1)*PAGE_SIZE+1}–${Math.min(safePage*PAGE_SIZE,filtered.length)}</strong> de <strong>${filtered.length}</strong> serie${filtered.length!==1?'s':''}</div><div class="series-grid">`;
+    slice.forEach(s=>{ html2+=seriesCardHtml(s, state.series.indexOf(s)); });
+    html2+='</div>';
+    html2+=paginationHtml(safePage,totalPages,'setSeriesPage_statusfiltered');
+    // Banner canceladas
+    const cancelledSeries2=(state.series||[]).filter(s=>s.cancelStatus);
+    if(cancelledSeries2.length){
+      const items2=cancelledSeries2.slice(0,4).map(s=>`<span style="font-weight:600">${s.name}</span>`).join(', ');
+      const extra2=cancelledSeries2.length>4?` y ${cancelledSeries2.length-4} más`:'';
+      html2=`<div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:#fde8e8;border:1.5px solid rgba(201,64,64,.2);border-radius:12px;margin-bottom:1rem;font-size:12.5px;flex-wrap:wrap"><span style="font-size:16px;flex-shrink:0">❌</span><span style="color:#c94040;font-weight:600">${cancelledSeries2.length} serie${cancelledSeries2.length!==1?'s':''} cancelada${cancelledSeries2.length!==1?'s':''}:</span><span style="color:#8a3030">${items2}${extra2}</span><button onclick="switchTab('canceladas')" style="margin-left:auto;padding:4px 11px;border-radius:20px;border:1.5px solid rgba(201,64,64,.3);background:white;color:#c94040;font-size:11.5px;font-weight:600;cursor:pointer;font-family:var(--font-body)">Ver sección ›</button></div>`+html2;
+    }
+    resultsEl.innerHTML=html2;
     return;
   }
 
@@ -3839,6 +3869,19 @@ function applySeriesFilters(arr){
   if(seriesFilters.genre) r=r.filter(s=>s.genres&&s.genres.includes(seriesFilters.genre));
   if(seriesFilters.tropo) r=r.filter(s=>s.tropos&&s.tropos.includes(seriesFilters.tropo));
   if(seriesFilters.dinamica) r=r.filter(s=>s.dinamica&&s.dinamica.includes(seriesFilters.dinamica));
+  if(seriesFilters.mood) r=r.filter(s=>s.moods&&s.moods.includes(seriesFilters.mood));
+  if(seriesFilters.status){
+    const now2=new Date();
+    r=r.filter(s=>{
+      const eps=genEps(s);
+      const hasAired=eps.some(e=>new Date(e.date+'T12:00:00')<=now2&&!e.skipped);
+      const hasFuture=eps.some(e=>new Date(e.date+'T12:00:00')>now2&&!e.skipped);
+      if(seriesFilters.status==='airing') return hasAired&&hasFuture;
+      if(seriesFilters.status==='notstarted') return hasFuture&&!hasAired;
+      if(seriesFilters.status==='finished') return !hasFuture;
+      return true;
+    });
+  }
   if(seriesFilters.type) r=r.filter(s=>(s.seriesType||'serie')===seriesFilters.type);
   if(seriesFilters.region){
     const regionCountries=COUNTRY_REGIONS[seriesFilters.region]||[];
@@ -3925,7 +3968,22 @@ function renderList(){
             <option value="">💞 Dinámica</option>${DINAMICAS.map(d=>`<option value="${d}"${seriesFilters.dinamica===d?' selected':''}>${d}</option>`).join('')}
           </select>
         </div>
-        <button id="seriesClearBtn" class="filter-clear-btn" onclick="seriesFilters.countries=[];seriesFilters.book='all';seriesFilters.year='';seriesFilters.genre='';seriesFilters.type='';seriesFilters.region='';seriesFilters.tropo='';seriesFilters.dinamica='';document.getElementById('seriesBookSel').value='all';document.getElementById('seriesYearSel').value='';document.getElementById('seriesGenreSel').value='';document.getElementById('seriesTypeSel').value='';document.getElementById('seriesTropoSel').value='';document.getElementById('seriesDinamicaSel').value='';const scp=document.getElementById('cpWrap_series');if(scp&&scp._reset)scp._reset();resetSeriesPages();renderListResults()" style="display:none">✕ Limpiar</button>
+        <div class="filter-group">
+          <span class="filter-label">Mood</span>
+          <select id="seriesMoodSel" class="filter-select" onchange="seriesFilters.mood=this.value;resetSeriesPages();renderListResults()">
+            <option value="">🎭 Mood</option>${[...new Set(state.series.filter(s=>!s.upcoming&&s.category!=='anime'&&s.category!=='reality').flatMap(s=>s.moods||[]))].sort().map(m=>`<option value="${m}"${seriesFilters.mood===m?' selected':''}>${m}</option>`).join('')}
+          </select>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Estado</span>
+          <select id="seriesStatusSel" class="filter-select" onchange="seriesFilters.status=this.value;resetSeriesPages();renderListResults()">
+            <option value="">📡 Estado</option>
+            <option value="airing"${seriesFilters.status==='airing'?' selected':''}>▶ En emisión</option>
+            <option value="notstarted"${seriesFilters.status==='notstarted'?' selected':''}>📅 Estreno próximo</option>
+            <option value="finished"${seriesFilters.status==='finished'?' selected':''}>✓ Finalizadas</option>
+          </select>
+        </div>
+        <button id="seriesClearBtn" class="filter-clear-btn" onclick="seriesFilters.countries=[];seriesFilters.book='all';seriesFilters.year='';seriesFilters.genre='';seriesFilters.type='';seriesFilters.region='';seriesFilters.tropo='';seriesFilters.dinamica='';seriesFilters.mood='';seriesFilters.status='';document.getElementById('seriesBookSel').value='all';document.getElementById('seriesYearSel').value='';document.getElementById('seriesGenreSel').value='';document.getElementById('seriesTypeSel').value='';document.getElementById('seriesTropoSel').value='';document.getElementById('seriesDinamicaSel').value='';document.getElementById('seriesMoodSel').value='';document.getElementById('seriesStatusSel').value='';const scp=document.getElementById('cpWrap_series');if(scp&&scp._reset)scp._reset();resetSeriesPages();renderListResults()" style="display:none">✕ Limpiar</button>
       </div>
     </div>
     <div id="listResults"></div>`;
