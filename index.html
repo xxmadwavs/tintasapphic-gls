@@ -1630,24 +1630,67 @@ html[data-theme="dark"] .ship-retired{background:rgba(180,140,160,.08);color:#a0
 /* Toolbar rows para separar búsqueda de filtros */
 .toolbar-search-row{width:100%;margin-bottom:0}
 .toolbar-filters-row{display:flex;flex-wrap:wrap;gap:8px;width:100%;align-items:center}
+/* ── Botón toggle filtros móvil ── */
+.filter-toggle-btn{
+  display:none; /* solo en móvil */
+  align-items:center;gap:6px;
+  padding:8px 14px;border-radius:20px;
+  border:1.5px solid var(--border2);
+  background:var(--surface);color:var(--muted);
+  font-size:12.5px;font-weight:600;cursor:pointer;
+  font-family:var(--font-body);transition:all .15s;
+  white-space:nowrap;flex-shrink:0;
+}
+.filter-toggle-btn.active{
+  background:var(--accent-soft);color:var(--accent);
+  border-color:rgba(201,79,124,0.35);
+}
+.filter-toggle-btn .ftb-count{
+  background:var(--accent);color:#fff;
+  font-size:10px;font-weight:700;
+  border-radius:20px;padding:1px 6px;
+  display:none;
+}
+.filter-toggle-btn .ftb-count.visible{display:inline-block}
+
 @media(max-width:600px){
-  .books-toolbar{gap:6px;flex-direction:column;align-items:stretch}
+  .books-toolbar{gap:8px;flex-direction:column;align-items:stretch}
   .books-toolbar .search-wrap{width:100%;margin-bottom:0}
-  .toolbar-search-row{width:100%}
-  .toolbar-filters-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;width:100%}
-  .toolbar-filters-row .filter-group{width:100%;min-width:0}
+  .toolbar-search-row{width:100%;display:flex;align-items:center;gap:8px}
+  /* El panel de filtros se oculta por defecto en móvil */
+  .toolbar-filters-row{
+    display:none;
+    flex-direction:column;gap:6px;width:100%;
+    padding:10px 12px;
+    background:var(--surface2);
+    border:1.5px solid var(--border2);
+    border-radius:12px;
+    margin-top:2px;
+  }
+  .toolbar-filters-row.mob-open{display:flex}
+  .toolbar-filters-row .filter-group{
+    width:100%;min-width:0;flex-direction:row;
+    align-items:center;gap:0;
+  }
   .toolbar-filters-row .filter-group select,
   .toolbar-filters-row .filter-group input{width:100%}
   .filter-group{flex:1;min-width:0}
-  .filter-select{width:100%;font-size:12px;padding:7px 8px}
-  .filter-label{font-size:10px;display:block;margin-bottom:2px;color:var(--muted)}
-  .filter-clear-btn{width:100%;text-align:center;margin-top:2px}
+  .filter-select{width:100%;font-size:13px;padding:8px 10px}
+  /* Label a la izquierda como prefijo dentro del select-row */
+  .filter-label{
+    font-size:10.5px;display:block;
+    min-width:52px;color:var(--muted);
+    flex-shrink:0;
+  }
+  .filter-clear-btn{width:100%;text-align:center;margin-top:4px}
+  .filter-toggle-btn{display:flex}
 }
 @media(min-width:601px){
   .filter-label{display:none}
   .books-toolbar{flex-direction:column;align-items:stretch;gap:8px}
   .toolbar-search-row{width:100%;display:block}
   .toolbar-filters-row{display:flex;flex-wrap:wrap;gap:8px;width:100%;align-items:center}
+  .filter-toggle-btn{display:none}
 }
 .alpha-bar{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:1.25rem}
 .alpha-btn{
@@ -4648,6 +4691,7 @@ function renderList(){
     const activeCountries=getCountries(state.series.filter(s=>!s.upcoming));
     const picker=buildCountryPicker('series',countries=>{seriesFilters.countries=countries;resetSeriesPages();renderListResults();},activeCountries);
     slot.appendChild(picker);
+    _initMobileFilterToggle(view.querySelector('.list-toolbar-shell'));
   }
   renderListResults();
 }
@@ -4746,6 +4790,7 @@ function renderUpcoming(){
     const upcomingCountries=getCountries(allUpcoming);
     const picker=buildCountryPicker('upcoming',countries=>{upcomingFilters.countries=countries;resetUpcomingPage();renderUpcomingResults();},upcomingCountries);
     slot.appendChild(picker);
+    _initMobileFilterToggle(view.querySelector('.upcoming-toolbar-shell'));
   }
   renderUpcomingResults();
 }
@@ -5556,6 +5601,7 @@ function renderMovies(){
     const moviesCountries=getCountries(state.movies.filter(m=>m.category!=='anime'&&m.category!=='reality'));
     const picker=buildCountryPicker('movies',countries=>{moviesFilters.countries=countries;resetMoviesPage();renderMoviesResults();},moviesCountries);
     slot.appendChild(picker);
+    _initMobileFilterToggle(view.querySelector('.movies-toolbar-shell'));
   }
   renderMoviesResults();
 }
@@ -5807,6 +5853,7 @@ function renderBooks(){
     </div>
     <div id="booksAlphaBar"></div>
     <div id="booksResults"></div>`;
+    _initMobileFilterToggle(view.querySelector('.books-toolbar'));
   }
   renderBooksResults();
 }
@@ -5978,7 +6025,7 @@ function renderAnime(){
       <div style="font-size:13px;font-weight:700;color:var(--lavender);margin-bottom:4px">🌸 ¿Falta algún anime?</div>
       <div style="font-size:12px;color:var(--muted)">Esta sección crece con el tiempo. Puedes sugerir animes GL a través de la cuenta de X <a href="https://x.com/xxmadwavs" target="_blank" style="color:var(--accent);font-weight:600">@xxmadwavs</a></div>
     </div>`;
-
+    _initMobileFilterToggle(view.querySelector('.books-toolbar'));
   renderAnimeResults();
 }
 
@@ -6340,7 +6387,7 @@ function renderRealities(){
       <div style="font-size:13px;font-weight:700;color:var(--teal);margin-bottom:4px">🎤 ¿Conoces más realities con representación GL?</div>
       <div style="font-size:12px;color:var(--muted)">Escríbenos en X <a href="https://x.com/xxmadwavs" target="_blank" style="color:var(--accent);font-weight:600">@xxmadwavs</a> y lo añadimos</div>
     </div>`;
-
+    _initMobileFilterToggle(view.querySelector('.books-toolbar'));
   renderRealitiesResults();
 }
 
@@ -6516,7 +6563,7 @@ function renderDocumentales(){
       <div style="font-size:13px;font-weight:700;color:var(--teal);margin-bottom:4px">🎞️ ¿Conoces más documentales GL?</div>
       <div style="font-size:12px;color:var(--muted)">Escríbenos en X <a href="https://x.com/xxmadwavs" target="_blank" style="color:var(--accent);font-weight:600">@xxmadwavs</a> y lo añadimos</div>
     </div>`;
-
+    _initMobileFilterToggle(view.querySelector('.books-toolbar'));
   renderDocumentalesResults();
 }
 
@@ -8201,6 +8248,69 @@ function getSimilarItems(item, type, limit=6){
   // Sort by score desc, then by name
   candidates.sort((a,b)=>b.sc-a.sc||a.item.name.localeCompare(b.item.name,'es'));
   return candidates.slice(0,limit);
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// FILTROS MÓVIL — botón toggle colapsable
+// ══════════════════════════════════════════════════════════════════════════════
+
+/**
+ * Inyecta el botón "⚙ Filtros" en un .toolbar-search-row que tenga un
+ * .toolbar-filters-row hermano. Se llama después de cada render de toolbar.
+ * Es idempotente: no añade el botón si ya existe.
+ */
+function _initMobileFilterToggle(toolbarEl){
+  if(!toolbarEl) return;
+  const searchRow = toolbarEl.querySelector('.toolbar-search-row');
+  const filtersRow = toolbarEl.querySelector('.toolbar-filters-row');
+  if(!searchRow || !filtersRow) return;
+  if(searchRow.querySelector('.filter-toggle-btn')) return; // ya existe
+
+  const btn = document.createElement('button');
+  btn.className = 'filter-toggle-btn';
+  btn.setAttribute('aria-expanded','false');
+  btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg> Filtros <span class="ftb-count" id="ftbCount_${Date.now()}"></span>`;
+
+  btn.onclick = function(){
+    const open = filtersRow.classList.toggle('mob-open');
+    btn.classList.toggle('active', open);
+    btn.setAttribute('aria-expanded', String(open));
+  };
+
+  searchRow.appendChild(btn);
+
+  // Observar cambios en los selects para actualizar el contador de filtros activos
+  _updateFilterToggleCount(toolbarEl);
+  filtersRow.addEventListener('change', () => _updateFilterToggleCount(toolbarEl));
+  filtersRow.addEventListener('input',  () => _updateFilterToggleCount(toolbarEl));
+}
+
+function _updateFilterToggleCount(toolbarEl){
+  const btn    = toolbarEl.querySelector('.filter-toggle-btn');
+  if(!btn) return;
+  const countEl = btn.querySelector('.ftb-count');
+  if(!countEl) return;
+  const filtersRow = toolbarEl.querySelector('.toolbar-filters-row');
+  if(!filtersRow) return;
+  // Cuenta selects con valor no vacío + inputs no vacíos (excluyendo el buscador principal)
+  const selects = filtersRow.querySelectorAll('select');
+  const inputs  = filtersRow.querySelectorAll('input');
+  let active = 0;
+  selects.forEach(s => { if(s.value && s.value !== 'all') active++; });
+  inputs.forEach(i  => { if(i.value && i.value.trim()) active++; });
+  countEl.textContent = active;
+  countEl.classList.toggle('visible', active > 0);
+  btn.classList.toggle('active', filtersRow.classList.contains('mob-open') || active > 0);
+}
+
+/**
+ * Inicializa todos los toolbars ya presentes en el DOM.
+ * Se llama desde el init principal y también puede llamarse tras renders dinámicos.
+ */
+function initAllMobileFilterToggles(){
+  document.querySelectorAll('.books-toolbar, .list-toolbar-shell, .movies-toolbar-shell, .upcoming-toolbar-shell').forEach(tb => {
+    _initMobileFilterToggle(tb);
+  });
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
