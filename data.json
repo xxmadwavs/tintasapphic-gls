@@ -17083,7 +17083,7 @@
           "episodes": []
         }
       ],
-      "updatedAt": "2026-05-19T08:01:00.217Z",
+      "updatedAt": "2026-06-02T12:36:53.668Z",
       "nameEn": "",
       "category": "series",
       "seriesType": "serie",
@@ -17093,12 +17093,17 @@
       "episodeDuration": "",
       "myPick": false,
       "myPick2026": false,
-      "cancelStatus": "limbo",
+      "cancelStatus": "cancelled",
       "cancelNote": "",
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": []
     },
     {
       "id": "1700000000289",
@@ -33223,7 +33228,8 @@
       "actressIds": [
         "1778669135059",
         "1778669089219"
-      ]
+      ],
+      "retired": true
     },
     {
       "id": "1779178121952",
@@ -34009,6 +34015,7 @@
       ],
       "movieIds": [
         "1700000000233",
+        "1700000000236",
         "1700000000266",
         "1700000000123",
         "1700000000234"
@@ -34047,5 +34054,5 @@
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-05-29T06:47:38.705Z"
+  "exportedAt": "2026-06-02T12:38:46.898Z"
 }

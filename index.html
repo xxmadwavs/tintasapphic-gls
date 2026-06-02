@@ -1893,69 +1893,6 @@ html[data-theme="dark"] .ship-retired{background:rgba(180,140,160,.08);color:#a0
   .cast-name{font-size:10.5px}
   .cast-char{font-size:9.5px}
 }
-/* ── Elenco principal destacado en ficha pública ── */
-.main-cast-preview{
-  display:flex;align-items:center;gap:8px;
-  flex-wrap:wrap;
-  margin:10px 0 4px;
-  padding:10px 12px;
-  background:var(--surface2);
-  border:1px solid var(--border2);
-  border-radius:12px;
-}
-.main-cast-preview-label{
-  font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
-  color:var(--muted);flex-shrink:0;width:100%;margin-bottom:2px;
-}
-.main-cast-preview-list{
-  display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap;
-}
-.main-cast-preview-sep{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:3px;padding-top:8px;flex-shrink:0;
-}
-.main-cast-preview-sep-heart{font-size:11px;color:var(--accent);line-height:1}
-.main-cast-preview-sep-line{width:1px;height:18px;background:var(--border2)}
-.main-cast-chip{
-  display:flex;flex-direction:column;align-items:center;gap:3px;
-  cursor:pointer;border-radius:8px;padding:4px 6px;
-  transition:background .15s;
-  text-align:center;min-width:52px;max-width:72px;
-}
-.main-cast-chip:hover{background:rgba(201,79,124,0.07)}
-.main-cast-chip-photo{
-  width:40px;height:40px;border-radius:50%;
-  object-fit:cover;object-position:top;
-  border:2px solid var(--border2);
-  background:var(--surface2);flex-shrink:0;
-  transition:border-color .15s;
-}
-.main-cast-chip:hover .main-cast-chip-photo{border-color:var(--accent2)}
-.main-cast-chip-ph{
-  width:40px;height:40px;border-radius:50%;
-  background:var(--accent-soft);
-  display:flex;align-items:center;justify-content:center;
-  font-size:16px;flex-shrink:0;
-  border:2px solid var(--border2);
-}
-.main-cast-chip-name{
-  font-size:9.5px;font-weight:700;color:var(--text);
-  line-height:1.2;word-break:break-word;
-}
-.main-cast-chip-char{
-  font-size:9px;color:var(--muted);line-height:1.1;
-}
-.main-cast-preview-more{
-  font-size:10.5px;font-weight:600;color:var(--muted);
-  cursor:pointer;padding:4px 8px;border-radius:20px;
-  background:var(--surface3);border:1px solid var(--border2);
-  white-space:nowrap;transition:all .15s;align-self:center;
-}
-.main-cast-preview-more:hover{background:var(--accent-soft);color:var(--accent);border-color:var(--accent2)}
-@media(max-width:480px){
-  .main-cast-chip-photo,.main-cast-chip-ph{width:36px;height:36px}
-  .main-cast-chip-name{font-size:9px}
-}
 /* Actress tab */
 .actress-tab-grid{
   display:grid;
@@ -3170,6 +3107,7 @@ html[data-theme="dark"] .filter-select {
         </button>
         <div class="tab-more-drop" id="tabMoreDrop" role="menu">
           <button class="tab-more-item" id="tabListas" role="menuitem" onclick="closeMoreDrop();switchTab('listas');closeMobileMenu()">📋 Listas GL</button>
+          <button class="tab-more-item" id="tabRuleta" role="menuitem" onclick="closeMoreDrop();switchTab('ruleta');closeMobileMenu()">🎡 Ruleta GL</button>
           <button class="tab-more-item" id="tabAnime" role="menuitem" onclick="closeMoreDrop();switchTab('anime');closeMobileMenu()">Anime</button>
           <button class="tab-more-item" id="tabRealities" role="menuitem" onclick="closeMoreDrop();switchTab('realities');closeMobileMenu()">Realities</button>
           <button class="tab-more-item" id="tabDocumentales" role="menuitem" onclick="closeMoreDrop();switchTab('documentales');closeMobileMenu()">Documentales</button>
@@ -3237,6 +3175,7 @@ html[data-theme="dark"] .filter-select {
   <div id="viewPicks2026" style="display:none"></div>
   <div id="viewShips" style="display:none"></div>
   <div id="viewListas" style="display:none"></div>
+  <div id="viewRuleta" style="display:none"></div>
   <div id="viewCanceladas" style="display:none"></div>
   <div id="viewSinNovedades" style="display:none"></div>
   <div id="viewProductoras" style="display:none"></div>
@@ -5177,75 +5116,6 @@ function closeActressModal(){
   document.getElementById('actressModalBg').classList.remove('open');
 }
 
-// ── Elenco principal destacado en ficha pública ──
-// Muestra hasta 3 actrices (o 2 parejas principales) con foto y nombre
-// Igual que la vista rápida de MyDramaList
-function buildMainCastPreviewHtml(cast, switchToTabFn){
-  if(!cast||!cast.length) return '';
-  const actresses=state.actresses||[];
-  // Sólo parejas/miembros principales
-  const mainMembers=cast.filter(m=>m.coupleType==='main');
-  if(!mainMembers.length) return '';
-
-  // Agrupa por coupleNum para presentar parejas separadas
-  const coupleMap={};
-  mainMembers.forEach(m=>{
-    const k=m.coupleNum||1;
-    if(!coupleMap[k]) coupleMap[k]=[];
-    coupleMap[k].push(m);
-  });
-  const coupleKeys=Object.keys(coupleMap).sort((a,b)=>+a-+b);
-
-  // Construye chips individuales
-  function chip(m){
-    const a=actresses.find(x=>x.id===m.actressId);
-    if(!a) return '';
-    const photo=a.photo
-      ?`<img class="main-cast-chip-photo" src="${a.photo}" alt="${a.name}" onerror="this.outerHTML='<div class=main-cast-chip-ph>🎭</div>'">`
-      :'<div class="main-cast-chip-ph">🎭</div>';
-    const shortName=a.name.length>18?a.name.slice(0,17)+'…':a.name;
-    return `<div class="main-cast-chip" onclick="openActressProfile('${a.id}')" title="${a.name}">
-      ${photo}
-      <div class="main-cast-chip-name">${shortName}</div>
-      ${m.character?`<div class="main-cast-chip-char">${m.character}</div>`:''}
-    </div>`;
-  }
-
-  let innerHtml='';
-  let chipsShown=0;
-  const MAX_CHIPS=6; // máximo de chips antes del botón "Ver más"
-
-  coupleKeys.forEach((k,ci)=>{
-    const members=coupleMap[k];
-    // Separador entre parejas
-    if(ci>0 && chipsShown<MAX_CHIPS){
-      innerHtml+=`<div class="main-cast-preview-sep">
-        <div class="main-cast-preview-sep-line"></div>
-        <div class="main-cast-preview-sep-heart">💕</div>
-        <div class="main-cast-preview-sep-line"></div>
-      </div>`;
-    }
-    members.forEach(m=>{
-      if(chipsShown>=MAX_CHIPS) return;
-      innerHtml+=chip(m);
-      chipsShown++;
-    });
-  });
-
-  // Botón "Ver cast completo" si hay más
-  const totalMain=mainMembers.filter(m=>actresses.find(a=>a.id===m.actressId)).length;
-  const totalAll=cast.filter(m=>actresses.find(a=>a.id===m.actressId)).length;
-  const moreBtn=totalAll>0
-    ?`<div class="main-cast-preview-more" onclick="${switchToTabFn}" title="Ver reparto completo">🎭 Cast completo</div>`
-    :'';
-
-  return `<div class="main-cast-preview">
-    <div class="main-cast-preview-label">✦ Elenco principal</div>
-    <div class="main-cast-preview-list">${innerHtml}</div>
-    ${moreBtn}
-  </div>`;
-}
-
 function openSeries(si){
   const s=state.series[si], allEps=genEps(s), now=new Date();
   const seasons=getSeasons(s);
@@ -5359,7 +5229,6 @@ function openSeries(si){
   ${s.moods&&s.moods.length?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin:4px 0 4px">${s.moods.map(m=>`<span style="font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;background:var(--lavender-soft);color:var(--lavender);border:1px solid rgba(139,114,190,0.25)">${m}</span>`).join('')}</div>`:''}
   ${(()=>{const ft=filtrarTropos(s.tropos||[],s.dinamica||[]);return ft.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 2px;align-items:center"><span style="font-size:9.5px;color:var(--muted);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-right:4px;flex-shrink:0">Tropos</span>${ft.map(t=>`<span onclick="closeModal();seriesFilters.tropo='${t.replace(/'/g,"\\'")}';switchTab('list');renderList();renderListResults()" style="font-size:10.5px;font-weight:600;padding:3px 10px;border-radius:6px;background:var(--surface2);color:var(--text);border:1px solid var(--border2);cursor:pointer;transition:all .15s" onmouseover="this.style.background='var(--accent-soft)';this.style.color='var(--accent)'" onmouseout="this.style.background='var(--surface2)';this.style.color='var(--text)'" title="Filtrar por este tropo">${tropoLabel(t)}</span>`).join('')}</div>`:''})()}
   ${s.dinamica&&s.dinamica.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin:4px 0 10px;align-items:center"><span style="font-size:9.5px;color:var(--muted);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-right:4px;flex-shrink:0">Dinámica</span>${s.dinamica.map(d=>`<span onclick="closeModal();seriesFilters.dinamica='${d.replace(/'/g,"\\'")}';switchTab('list');renderList();renderListResults()" style="font-size:10.5px;font-weight:600;padding:3px 10px;border-radius:6px;background:var(--surface2);color:var(--text);border:1px solid var(--border2);cursor:pointer;transition:all .15s" onmouseover="this.style.background='var(--teal-soft)';this.style.color='var(--teal)'" onmouseout="this.style.background='var(--surface2)';this.style.color='var(--text)'" title="Filtrar por esta dinámica">${dinamicaLabel(d)}</span>`).join('')}</div>`:''}
-  ${buildMainCastPreviewHtml(s.cast||[],"switchSeriesModalTab('cast')")}
   ${nextBadgeHtml}
   ${progressBlock}
   ${watchLinksHtml}
@@ -5476,7 +5345,6 @@ function openUpcoming(si){
     <span style="white-space:nowrap">${pctInfo}%</span>
   </div>
   ${s.country?`<div class="modal-dates-row"><span class="modal-date-chip">${countryFlag(s.country)} ${s.country}</span>${s.year?`<span class="modal-date-chip">📆 ${s.year}</span>`:''}</div>`:''}
-  ${buildMainCastPreviewHtml(s.cast||[],"switchUpcomingModalTab('cast')")}
   ${watchLinksHtml}
   ${(metaGrid||s.synopsis||s.trailerUrl||upBookHtml)?`<div class="modal-details-accordion">
     <button class="modal-details-toggle" onclick="toggleModalDetails('updetails_body',this)">
@@ -5568,7 +5436,6 @@ function openMovie(mi){
   ${chipsHtml}
   ${mv.genres&&mv.genres.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 2px">${mv.genres.map(g=>`<span style="font-size:11.5px;font-weight:700;padding:3px 11px;border-radius:20px;background:var(--lavender-soft);color:var(--lavender);border:1px solid rgba(139,114,190,0.2)">${g}</span>`).join('')}</div>`:''}
   ${mv.moods&&mv.moods.length?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin:4px 0">${mv.moods.map(m=>`<span style="font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;background:var(--lavender-soft);color:var(--lavender);border:1px solid rgba(139,114,190,0.25)">${m}</span>`).join('')}</div>`:''}
-  ${buildMainCastPreviewHtml(mv.cast||[],"switchMovieModalTab('cast')")}
   ${releaseBadgeHtml}
   ${watchLinksHtml}
   ${(metaGrid||mv.synopsis||mv.trailerUrl||bookBlock||buildAwardsHtml(mv))?`<div class="modal-details-accordion">
@@ -6938,9 +6805,9 @@ function renderPicks2026(){
 function switchTab(tab, fromPopstate=false){
   state.tab=tab;
   saveSession();
-  const moreTabs=['books','actresses','anime','realities','documentales','productoras','listas'];
+  const moreTabs=['books','actresses','anime','realities','documentales','productoras','listas','ruleta'];
   const picksTabs=['top10','picks2026'];
-  const allTabs=['cal','list','movies','upcoming','books','anime','realities','documentales','actresses','top10','picks2026','ships','productoras','canceladas','listas'];
+  const allTabs=['cal','list','movies','upcoming','books','anime','realities','documentales','actresses','top10','picks2026','ships','productoras','canceladas','listas','ruleta'];
 
   allTabs.forEach(t=>{
     const view=document.getElementById('view'+t.charAt(0).toUpperCase()+t.slice(1));
@@ -6986,6 +6853,7 @@ function switchTab(tab, fromPopstate=false){
   if(tab==='canceladas') renderCanceladas();
   if(tab==='productoras') renderProductoras();
   if(tab==='listas') renderListas();
+  if(tab==='ruleta') renderRuleta();
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
@@ -8007,7 +7875,7 @@ document.addEventListener('keydown',e=>{
     loadSession();
     const savedTab=state.tab||'cal';
     // Show the saved tab's view, hide others
-    ['cal','list','movies','upcoming','books','anime','realities','documentales','actresses','top10','picks2026','ships','canceladas','productoras'].forEach(t=>{
+    ['cal','list','movies','upcoming','books','anime','realities','documentales','actresses','top10','picks2026','ships','canceladas','productoras','listas','ruleta'].forEach(t=>{
       const btn=document.getElementById('tab'+t.charAt(0).toUpperCase()+t.slice(1));
       const view=document.getElementById('view'+t.charAt(0).toUpperCase()+t.slice(1));
       if(btn) btn.className='tab'+(savedTab===t?' active':'');
@@ -8027,6 +7895,8 @@ document.addEventListener('keydown',e=>{
     else if(savedTab==='ships') renderShips();
     else if(savedTab==='canceladas') renderCanceladas();
     else if(savedTab==='productoras') renderProductoras();
+    else if(savedTab==='listas') renderListas();
+    else if(savedTab==='ruleta') renderRuleta();
     else renderWeekView();
     // Seed history so the very first back press doesn't exit the page
     history.replaceState({tab:savedTab},'',location.pathname+'?tab='+savedTab);
@@ -8476,6 +8346,337 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e=>
     _syncDarkBtn();
   }
 });
+
+// ══════════════════════════════════════════════════════════════════════════════
+// RULETA GL — Elige una película o serie al azar
+// ══════════════════════════════════════════════════════════════════════════════
+
+const ruletaState = {
+  mode: 'movies',
+  includeShorts: true,
+  includeWebseries: true,
+  spinning: false,
+  lastResult: null,
+};
+
+function getRuletaPool(){
+  const {mode, includeShorts, includeWebseries} = ruletaState;
+  if(mode === 'movies'){
+    return (state.movies||[]).filter(m => {
+      if(!includeShorts && m.movieType === 'short') return false;
+      return true;
+    });
+  } else {
+    return (state.series||[]).filter(s => {
+      if(s.upcoming) return false; // excluir no estrenadas
+      if(!includeWebseries && s.seriesType === 'webserie') return false;
+      if(s.category === 'anime' || s.category === 'reality') return false;
+      return true;
+    });
+  }
+}
+
+function renderRuleta(){
+  const view = document.getElementById('viewRuleta');
+  if(!view) return;
+
+  view.innerHTML = `
+<style>
+.ruleta-shell{max-width:720px;margin:0 auto;padding:0 0 3rem}
+.ruleta-heading{font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--text);letter-spacing:-.01em;margin-bottom:.2rem}
+.ruleta-heading em{color:var(--accent);font-style:italic}
+.ruleta-desc{font-size:13px;color:var(--muted);margin-bottom:1.5rem}
+.ruleta-mode-tabs{display:flex;gap:8px;margin-bottom:1.25rem}
+.ruleta-mode-btn{
+  padding:8px 20px;border-radius:20px;border:1.5px solid var(--border2);
+  font-size:13px;font-weight:600;font-family:var(--font-body);cursor:pointer;
+  background:var(--surface);color:var(--muted);transition:all .15s;
+}
+.ruleta-mode-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.ruleta-mode-btn:hover:not(.active){background:var(--surface2);color:var(--text)}
+.ruleta-toggles{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.75rem}
+.ruleta-toggle{
+  display:flex;align-items:center;gap:7px;
+  padding:6px 14px;border-radius:20px;border:1.5px solid var(--border2);
+  font-size:12px;font-weight:600;font-family:var(--font-body);cursor:pointer;
+  background:var(--surface);color:var(--muted);transition:all .15s;user-select:none;
+}
+.ruleta-toggle.on{background:var(--accent-soft);color:var(--accent);border-color:var(--accent2)}
+.ruleta-toggle .rt-dot{width:9px;height:9px;border-radius:50%;background:var(--border2);transition:background .15s;flex-shrink:0}
+.ruleta-toggle.on .rt-dot{background:var(--accent)}
+.ruleta-wheel-wrap{
+  display:flex;flex-direction:column;align-items:center;gap:1.5rem;
+  padding:2rem 1rem;
+  background:var(--surface);border:1.5px solid var(--border2);
+  border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);
+  margin-bottom:1.5rem;
+}
+.ruleta-wheel-outer{position:relative;width:280px;height:280px;filter:drop-shadow(0 8px 24px rgba(180,80,120,0.18))}
+.ruleta-canvas{border-radius:50%;display:block}
+.ruleta-needle{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  width:0;height:0;
+  border-left:10px solid transparent;border-right:10px solid transparent;
+  border-top:26px solid var(--accent);
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.2));z-index:5;
+}
+.ruleta-center-btn{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:56px;height:56px;border-radius:50%;
+  background:var(--surface);border:3px solid var(--border2);
+  box-shadow:0 2px 12px rgba(0,0,0,.12);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;cursor:pointer;transition:transform .15s,box-shadow .15s;z-index:10;
+}
+.ruleta-center-btn:hover{transform:translate(-50%,-50%) scale(1.08);box-shadow:0 4px 18px rgba(180,80,120,.22)}
+.ruleta-center-btn.spinning{animation:ruletaPulse 0.5s ease-in-out infinite alternate}
+@keyframes ruletaPulse{from{transform:translate(-50%,-50%) scale(1)}to{transform:translate(-50%,-50%) scale(1.12)}}
+.ruleta-spin-btn{
+  padding:12px 36px;border-radius:24px;
+  background:linear-gradient(135deg,var(--accent),var(--lavender));
+  color:#fff;font-size:15px;font-weight:700;font-family:var(--font-body);
+  border:none;cursor:pointer;
+  box-shadow:0 4px 16px rgba(180,80,120,.25);
+  transition:all .2s;letter-spacing:.01em;
+}
+.ruleta-spin-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 24px rgba(180,80,120,.3)}
+.ruleta-spin-btn:disabled{opacity:.6;cursor:not-allowed}
+.ruleta-pool-count{font-size:12px;color:var(--muted);text-align:center}
+.ruleta-result{
+  background:var(--surface);border:1.5px solid var(--border2);
+  border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);
+  padding:1.5rem;display:flex;gap:1.25rem;align-items:flex-start;
+  animation:ruletaFadeIn .4s ease;
+}
+@keyframes ruletaFadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.ruleta-result-poster{width:90px;flex-shrink:0;border-radius:10px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.ruleta-result-poster img{width:100%;display:block}
+.ruleta-result-poster-ph{
+  width:90px;height:135px;border-radius:10px;
+  background:var(--surface2);display:flex;align-items:center;justify-content:center;
+  font-size:2.5rem;flex-shrink:0;
+}
+.ruleta-result-info{flex:1;min-width:0}
+.ruleta-result-label{font-size:10.5px;font-weight:700;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem}
+.ruleta-result-name{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:.45rem}
+.ruleta-result-meta{font-size:12px;color:var(--muted);margin-bottom:.6rem;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.ruleta-result-genres{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:.75rem}
+.ruleta-result-synopsis{font-size:12.5px;color:var(--muted);line-height:1.65;margin-bottom:.85rem;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.ruleta-result-btns{display:flex;flex-wrap:wrap;gap:8px}
+.ruleta-result-btn{
+  padding:7px 16px;border-radius:16px;font-size:12.5px;font-weight:600;
+  font-family:var(--font-body);cursor:pointer;transition:all .15s;border:1.5px solid;text-decoration:none;
+}
+.ruleta-result-btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.ruleta-result-btn.primary:hover{background:var(--accent2);border-color:var(--accent2)}
+.ruleta-result-btn.secondary{background:transparent;color:var(--muted);border-color:var(--border2)}
+.ruleta-result-btn.secondary:hover{background:var(--surface2);color:var(--text)}
+@media(max-width:500px){
+  .ruleta-wheel-outer{width:230px;height:230px}
+  .ruleta-result{flex-direction:column;gap:.85rem}
+}
+</style>
+<div class="ruleta-shell">
+  <div class="ruleta-heading">Ruleta <em>GL</em> 🎡</div>
+  <div class="ruleta-desc">¿No sabes qué ver? Gira la ruleta y deja que el destino decida.</div>
+
+  <div class="ruleta-mode-tabs">
+    <button class="ruleta-mode-btn${ruletaState.mode==='movies'?' active':''}" onclick="ruletaSetMode('movies')">🎥 Películas</button>
+    <button class="ruleta-mode-btn${ruletaState.mode==='series'?' active':''}" onclick="ruletaSetMode('series')">🎬 Series</button>
+  </div>
+
+  <div class="ruleta-toggles" id="ruletaToggles">
+    ${ruletaState.mode==='movies'
+      ? `<div class="ruleta-toggle${ruletaState.includeShorts?' on':''}" onclick="ruletaToggle('includeShorts')"><div class="rt-dot"></div>Incluir cortos</div>`
+      : `<div class="ruleta-toggle${ruletaState.includeWebseries?' on':''}" onclick="ruletaToggle('includeWebseries')"><div class="rt-dot"></div>Incluir web series</div>`
+    }
+  </div>
+
+  <div class="ruleta-wheel-wrap">
+    <div class="ruleta-wheel-outer">
+      <div class="ruleta-needle"></div>
+      <canvas class="ruleta-canvas" id="ruletaCanvas" width="280" height="280"></canvas>
+      <div class="ruleta-center-btn" id="ruletaCenterBtn" onclick="spinRuleta()">🎡</div>
+    </div>
+    <button class="ruleta-spin-btn" id="ruletaSpinBtn" onclick="spinRuleta()">✨ ¡Girar!</button>
+    <div class="ruleta-pool-count" id="ruletaPoolCount"></div>
+  </div>
+
+  <div id="ruletaResult"></div>
+</div>`;
+
+  _refreshRuletaSlices();
+  ruletaDrawWheel();
+}
+
+const RULETA_COLORS = [
+  '#e07aa0','#a98de0','#5dc4b8','#f0b866',
+  '#c94f7c','#7c5cbf','#4aada0','#d4874a',
+  '#e8a0c0','#c8a8e8','#8dd8d0','#f0d090',
+];
+
+// Holds the 12 shuffled items currently shown on the wheel
+let ruletaDisplaySlices = [];
+
+function _shuffleArray(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
+}
+
+// Refreshes ruletaDisplaySlices with a fresh random 12 from pool.
+// If forcedItem is provided it's guaranteed to be in the slices.
+function _refreshRuletaSlices(forcedItem){
+  const pool=getRuletaPool();
+  if(!pool.length){ruletaDisplaySlices=[];return;}
+  const shuffled=_shuffleArray(pool);
+  const n=Math.min(pool.length,12);
+  let slices=shuffled.slice(0,n);
+  // Ensure forcedItem is included
+  if(forcedItem && !slices.includes(forcedItem)){
+    slices[Math.floor(Math.random()*n)]=forcedItem;
+  }
+  ruletaDisplaySlices=slices;
+}
+
+function ruletaDrawWheel(angle){
+  const canvas = document.getElementById('ruletaCanvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const size = canvas.width;
+  const cx = size/2, cy = size/2, r = size/2 - 4;
+  const pool = getRuletaPool();
+  const slices = ruletaDisplaySlices.length ? ruletaDisplaySlices : pool.slice(0,Math.min(pool.length,12));
+  const n = slices.length;
+  ctx.clearRect(0,0,size,size);
+
+  if(!n){
+    ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);
+    ctx.fillStyle='#eee';ctx.fill();
+    ctx.fillStyle='#aaa';ctx.font='bold 13px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText('Sin títulos',cx,cy);
+    const countEl=document.getElementById('ruletaPoolCount');
+    if(countEl) countEl.textContent='0 títulos en el pool';
+    return;
+  }
+
+  const sliceAngle = (Math.PI*2)/n;
+  const startAngle = angle||0;
+
+  for(let i=0;i<n;i++){
+    const a0 = startAngle + i*sliceAngle;
+    const a1 = a0 + sliceAngle;
+    const item = slices[i];
+    ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,a0,a1);ctx.closePath();
+    ctx.fillStyle = RULETA_COLORS[i % RULETA_COLORS.length];ctx.fill();
+    ctx.strokeStyle='rgba(255,255,255,0.35)';ctx.lineWidth=2;ctx.stroke();
+  }
+  ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);
+  ctx.strokeStyle='rgba(255,255,255,0.5)';ctx.lineWidth=3;ctx.stroke();
+
+  const countEl=document.getElementById('ruletaPoolCount');
+  if(countEl) countEl.textContent=pool.length+' títulos en el pool';
+}
+
+function ruletaSetMode(mode){
+  ruletaState.mode=mode;
+  renderRuleta();
+}
+
+function ruletaToggle(key){
+  ruletaState[key]=!ruletaState[key];
+  const togglesEl=document.getElementById('ruletaToggles');
+  if(togglesEl){
+    if(ruletaState.mode==='movies'){
+      togglesEl.innerHTML=`<div class="ruleta-toggle${ruletaState.includeShorts?' on':''}" onclick="ruletaToggle('includeShorts')"><div class="rt-dot"></div>Incluir cortos</div>`;
+    } else {
+      togglesEl.innerHTML=`<div class="ruleta-toggle${ruletaState.includeWebseries?' on':''}" onclick="ruletaToggle('includeWebseries')"><div class="rt-dot"></div>Incluir web series</div>`;
+    }
+  }
+  _refreshRuletaSlices();
+  ruletaDrawWheel();
+}
+
+function spinRuleta(){
+  if(ruletaState.spinning) return;
+  const pool=getRuletaPool();
+  if(!pool.length) return;
+
+  ruletaState.spinning=true;
+  const spinBtn=document.getElementById('ruletaSpinBtn');
+  const centerBtn=document.getElementById('ruletaCenterBtn');
+  const resultEl=document.getElementById('ruletaResult');
+  if(spinBtn){spinBtn.disabled=true;spinBtn.textContent='Girando…';}
+  if(centerBtn) centerBtn.classList.add('spinning');
+  if(resultEl) resultEl.innerHTML='';
+
+  // Pick winner from full pool, then build a fresh random set of 12 that includes it
+  const winnerIdx=Math.floor(Math.random()*pool.length);
+  const winner=pool[winnerIdx];
+  _refreshRuletaSlices(winner);
+
+  const n=ruletaDisplaySlices.length;
+  const sliceAngle=(Math.PI*2)/n;
+  const winnerSegment=ruletaDisplaySlices.indexOf(winner);
+  const targetAngle=-Math.PI/2-(winnerSegment*sliceAngle+sliceAngle/2);
+  const fullSpins=(5+Math.floor(Math.random()*4))*Math.PI*2;
+  const finalAngle=targetAngle+fullSpins;
+  const duration=4000+Math.random()*1000;
+  const start=performance.now();
+
+  function animate(now){
+    const elapsed=now-start;
+    const progress=Math.min(elapsed/duration,1);
+    const ease=1-Math.pow(1-progress,3);
+    ruletaDrawWheel(ease*finalAngle);
+    if(progress<1){
+      requestAnimationFrame(animate);
+    } else {
+      ruletaState.spinning=false;
+      ruletaState.lastResult=winner;
+      if(spinBtn){spinBtn.disabled=false;spinBtn.textContent='🔄 Girar de nuevo';}
+      if(centerBtn) centerBtn.classList.remove('spinning');
+      // After landing, refresh slices again for next spin visual variety
+      _refreshRuletaSlices();
+      setTimeout(()=>ruletaDrawWheel(),50);
+      _showRuletaResult(winner);
+    }
+  }
+  requestAnimationFrame(animate);
+}
+
+function _showRuletaResult(item){
+  const resultEl=document.getElementById('ruletaResult');
+  if(!resultEl) return;
+  const isMovie=ruletaState.mode==='movies';
+  const allMovies=state.movies||[];
+  const allSeries=state.series||[];
+  const idx=isMovie?allMovies.indexOf(item):allSeries.indexOf(item);
+  const typeLabel=isMovie?(item.movieType==='short'?'Corto':'Película'):(item.seriesType==='webserie'?'Web serie':'Serie');
+  const poster=item.poster
+    ?`<div class="ruleta-result-poster"><img src="${item.poster}" alt="${item.name}" onerror="this.parentElement.outerHTML='<div class=ruleta-result-poster-ph>🎬</div>'"></div>`
+    :`<div class="ruleta-result-poster-ph">🎬</div>`;
+  const metaParts=[item.country?countryFlag(item.country)+' '+item.country:null,item.year||null,item.network||null].filter(Boolean);
+  const genres=(item.genres||[]).slice(0,3).map(g=>`<span class="sc-genre-pill">${g}</span>`).join('');
+  const synopsisEl=item.synopsis?`<div class="ruleta-result-synopsis">${item.synopsis}</div>`:'';
+  const openFn=isMovie&&idx>=0?`switchTab('movies');setTimeout(()=>openMovie(${idx}),60)`:(!isMovie&&idx>=0?`switchTab('list');setTimeout(()=>openSeries(${idx}),60)`:'');
+  const openBtn=openFn?`<button class="ruleta-result-btn primary" onclick="${openFn}">Ver ficha →</button>`:'';
+  const watchBtn=(item.watchLinks||[]).length?`<a href="${item.watchLinks[0].url}" target="_blank" rel="noopener" class="ruleta-result-btn secondary" style="display:flex;align-items:center">▶ Ver ahora</a>`:'';
+  const againBtn=`<button class="ruleta-result-btn secondary" onclick="spinRuleta()">🎡 Otra</button>`;
+  resultEl.innerHTML=`
+    <div style="font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.75rem;text-align:center">✨ ¡Te ha tocado!</div>
+    <div class="ruleta-result">
+      ${poster}
+      <div class="ruleta-result-info">
+        <div class="ruleta-result-label">${typeLabel}</div>
+        <div class="ruleta-result-name">${item.name}</div>
+        <div class="ruleta-result-meta">${metaParts.join(' · ')}</div>
+        ${genres?`<div class="ruleta-result-genres">${genres}</div>`:''}
+        ${synopsisEl}
+        <div class="ruleta-result-btns">${openBtn}${watchBtn}${againBtn}</div>
+      </div>
+    </div>`;
+}
 
 function scrollSimilar(stripId, dir){
   const strip = document.getElementById(stripId);

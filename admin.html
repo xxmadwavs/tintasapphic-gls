@@ -1806,6 +1806,8 @@ function toggleUpcomingFields(){
   const schedFields=document.getElementById('schedFields');
   const schedHidden=document.getElementById('schedFieldsHidden');
   const renewedRow=document.getElementById('f_renewed')?.closest('.toggle-row');
+  const mirror=document.getElementById('f_upcoming_mirror');
+  if(mirror) mirror.checked=!!up;
   if(schedFields) schedFields.style.display=up?'none':'';
   if(schedHidden) schedHidden.style.display=up?'':'none';
   if(renewedRow) renewedRow.style.display=up?'none':'';
@@ -1820,7 +1822,7 @@ function addSeasonBlock(seasonData=null, idx=null){
   if(!list) return;
   const blockIdx=list.children.length;
   const label=seasonData?.label||(blockIdx===0?'Temporada 1':`Temporada ${blockIdx+1}`);
-  const startDate=(seasonData?.startDate!=null&&seasonData.startDate!=='')?seasonData.startDate:new Date().toISOString().slice(0,10);
+  const startDate=(seasonData?.startDate!=null&&seasonData.startDate!=='')?seasonData.startDate:'';
   const totalEps=(seasonData?.totalEpisodes!=null&&seasonData.totalEpisodes>0)?seasonData.totalEpisodes:12;
   const emDays=seasonData?.emissionDays??(seasonData?.dayOfWeek!=null?[seasonData.dayOfWeek]:[0]);
   // Special premiere: premiereSchedule = [{fromEp, toEp, date}, ...]  OR legacy [{date, count}]
@@ -1853,7 +1855,7 @@ function addSeasonBlock(seasonData=null, idx=null){
       <button type="button" class="season-del-btn" onclick="this.closest('.season-block').remove();renumberSeasons()" title="Eliminar temporada">✕</button>
     </div>
     <div class="form-row" style="margin-bottom:10px">
-      <label class="form-label">Fecha del primer episodio *</label>
+      <label class="form-label">Fecha del primer episodio <span style="color:var(--muted);font-weight:400;font-size:11px;text-transform:none">(opcional si se desconoce)</span></label>
       <input type="date" class="s-start" value="${startDate}"/>
     </div>
     <div class="form-row" style="margin-bottom:10px">
@@ -1990,12 +1992,12 @@ function getSeasonsData(){
     const startDate=block.querySelector('.s-start').value;
     const totalEps=parseInt(block.querySelector('.s-eps').value);
     const allInOneDay=block.querySelector('.s-allday')?.checked||false;
-    const emissionDays=allInOneDay?[getDow(startDate)]:[...block.querySelectorAll('.s-dow .dow-chip.selected')].map(c=>parseInt(c.dataset.dow)).sort((a,b)=>a-b);
-    if(!startDate||isNaN(totalEps)||totalEps<1){
-      alert(`Temporada "${label}": rellena la fecha de inicio y el número de episodios.`);
+    const emissionDays=startDate?(allInOneDay?[getDow(startDate)]:[...block.querySelectorAll('.s-dow .dow-chip.selected')].map(c=>parseInt(c.dataset.dow)).sort((a,b)=>a-b)):[];
+    if(isNaN(totalEps)||totalEps<1){
+      alert(`Temporada "${label}": rellena el número de episodios.`);
       return null;
     }
-    if(!allInOneDay&&!emissionDays.length){
+    if(startDate&&!allInOneDay&&!emissionDays.length){
       alert(`Temporada "${label}": selecciona al menos un día de emisión (Lunes, Martes…)`);
       return null;
     }
@@ -2324,6 +2326,11 @@ function formHtml(s, forcedCategory=null){
       <button type="button" class="platform-add-btn" onclick="addSeasonBlock()" style="margin-top:8px">+ Añadir temporada</button>
     </div>
     <div class="form-col-right" id="schedFieldsHidden" style="${isUpcoming?'':'display:none'}">
+      <!-- Checkbox "Próximamente" visible también cuando upcoming=true -->
+      <label class="toggle-row" style="margin-bottom:10px">
+        <input type="checkbox" id="f_upcoming_mirror" checked style="width:auto;accent-color:var(--lavender)" onchange="document.getElementById('f_upcoming').checked=this.checked;toggleUpcomingFields()">
+        <div><div class="toggle-label">📅 Próximamente (sin fecha de emisión)</div><div class="toggle-desc">Desmarcar para asignar fecha y temporadas</div></div>
+      </label>
       ${(cat==='anime'||cat==='reality')?`
       <div class="form-row" id="animeSeason_wrap_upcoming" style="margin-bottom:14px">
         <label class="form-label">${cat==='reality'?'📅 Temporada documental':'🌸 Temporada anime'}</label>
@@ -2352,6 +2359,23 @@ function formHtml(s, forcedCategory=null){
           <label class="form-label">Nota adicional <span style="color:var(--muted);font-weight:400;text-transform:none;font-size:11px">(opcional)</span></label>
           <textarea id="f_snNote" placeholder="Ej: Producción pausada, actriz cambió de agencia…" rows="2" style="resize:vertical;min-height:50px">${escapeHtml(s&&s.snNote||'')}</textarea>
         </div>
+      </div>
+      <!-- CANCELACIÓN (también disponible en modo próximamente) -->
+      <div style="margin-top:10px;padding:10px 12px;background:rgba(201,64,64,.06);border:1.5px solid rgba(201,64,64,.18);border-radius:10px">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c94040;margin-bottom:8px">❌ Estado de cancelación</div>
+        <label style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="font-size:12px;font-weight:600;color:var(--text);min-width:80px">Estado</span>
+          <select id="f_cancelStatus_up" style="flex:1;padding:5px 8px;border:1.5px solid var(--border2);border-radius:7px;font-size:12px;font-family:var(--font-body);background:var(--surface)" onchange="document.getElementById('f_cancelStatus').value=this.value">
+            <option value="" ${!s||!s.cancelStatus?'selected':''}>— Sin cambios —</option>
+            <option value="cancelled" ${s&&s.cancelStatus==='cancelled'?'selected':''}>❌ Cancelada</option>
+            <option value="limbo" ${s&&s.cancelStatus==='limbo'?'selected':''}>⏸️ En limbo / Sin noticias</option>
+            <option value="closed" ${s&&s.cancelStatus==='closed'?'selected':''}>🏢 Productora cerrada</option>
+          </select>
+        </label>
+        <label style="display:flex;align-items:flex-start;gap:8px">
+          <span style="font-size:12px;font-weight:600;color:var(--text);min-width:80px;padding-top:4px">Nota</span>
+          <textarea id="f_cancelNote_up" rows="2" placeholder="Motivo de cancelación, fuente, etc." style="flex:1;padding:6px 8px;border:1.5px solid var(--border2);border-radius:7px;font-size:12px;font-family:var(--font-body);resize:vertical;background:var(--surface)" onchange="document.getElementById('f_cancelNote').value=this.value" oninput="document.getElementById('f_cancelNote').value=this.value">${s&&s.cancelNote||''}</textarea>
+        </label>
       </div>
       <div style="text-align:center;padding:2rem 1rem;color:var(--muted);font-size:13px">
         <div style="font-size:2rem;margin-bottom:8px">📅</div>
@@ -2831,8 +2855,8 @@ async function saveSeries(si, forcedCategory=null){
   const episodeDuration=parseDurationInput(document.getElementById('f_epDuration')?.value||'')||'';
   const myPick=document.getElementById('f_myPick')?.checked||false;
   const myPick2026=document.getElementById('f_myPick2026')?.checked||false;
-  const cancelStatus=document.getElementById('f_cancelStatus')?.value||'';
-  const cancelNote=document.getElementById('f_cancelNote')?.value.trim()||'';
+  const cancelStatus=(upcoming?(document.getElementById('f_cancelStatus_up')?.value||document.getElementById('f_cancelStatus')?.value):document.getElementById('f_cancelStatus')?.value)||'';
+  const cancelNote=(upcoming?(document.getElementById('f_cancelNote_up')?.value.trim()||document.getElementById('f_cancelNote')?.value.trim()):document.getElementById('f_cancelNote')?.value.trim())||'';
   const sinNovedades=document.getElementById('f_sinNovedades')?.checked||false;
   const snLastUpdate=document.getElementById('f_snLastUpdate')?.value.trim()||'';
   const snNote=document.getElementById('f_snNote')?.value.trim()||'';
