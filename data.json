@@ -21337,7 +21337,7 @@
         }
       ],
       "bookUrl": "https://www.mebmarket.com/ebook-387856-I-LOVE-YOU-English-ver-",
-      "upcoming": false,
+      "upcoming": true,
       "genres": [],
       "moods": [],
       "tropos": [],
@@ -21382,7 +21382,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-06-06T07:19:44.619Z"
+      "updatedAt": "2026-06-06T07:40:50.567Z"
     }
   ],
   "movies": [
@@ -34187,5 +34187,5 @@
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-06-02T19:16:41.614Z"
+  "exportedAt": "2026-06-06T07:42:10.951Z"
 }
