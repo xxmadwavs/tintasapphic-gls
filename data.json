@@ -2159,9 +2159,14 @@
       "synopsis": "Tres mujeres que huyen del amor se cruzan con otras tres que se niegan a renunciar a perseguir sus corazones, demostrando que el amor es lo que mantiene vivo el espíritu humano. No importa cuánto intentemos escapar, al final, todas queremos amar y ser amadas.",
       "year": 2026,
       "country": "Tailandia",
-      "network": "",
-      "networkUrl": "",
-      "watchLinks": [],
+      "network": "Netflix",
+      "networkUrl": "https://www.netflix.com/es/title/82761937",
+      "watchLinks": [
+        {
+          "name": "Netflix",
+          "url": "https://www.netflix.com/es/title/82761937"
+        }
+      ],
       "trailerUrl": "https://youtu.be/YVECcuW7swA",
       "bookSource": "Chasing Love",
       "basedOnBook": true,
@@ -2247,7 +2252,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-23T18:39:22.586Z",
+      "updatedAt": "2026-06-06T14:59:49.943Z",
       "nameEn": "",
       "episodeDuration": "",
       "myPick": false,
@@ -20454,8 +20459,13 @@
       "year": 2026,
       "country": "Tailandia",
       "network": "YouTube",
-      "networkUrl": "",
-      "watchLinks": [],
+      "networkUrl": "https://youtu.be/DH6b3St6DVU?si=PgN1hCNGnIvjX-sL",
+      "watchLinks": [
+        {
+          "name": "YouTube",
+          "url": "https://youtu.be/DH6b3St6DVU?si=PgN1hCNGnIvjX-sL"
+        }
+      ],
       "trailerUrl": "https://youtu.be/CufGfB9ylDw?si=MozwCV-QkQ4b9Dvk",
       "bookSource": "",
       "basedOnBook": false,
@@ -20493,7 +20503,7 @@
       "episodeDuration": "",
       "myPick": false,
       "myPick2026": false,
-      "updatedAt": "2026-05-20T20:54:38.305Z",
+      "updatedAt": "2026-06-06T15:00:12.918Z",
       "cancelStatus": "",
       "cancelNote": "",
       "sinNovedades": false,
@@ -20513,7 +20523,12 @@
           "episodes": [],
           "premiereSchedule": []
         }
-      ]
+      ],
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": []
     },
     {
       "id": "1778949161696",
@@ -34322,5 +34337,5 @@
     "TV Setouchi": "https://static.wikitide.net/avidwiki/thumb/2/20/JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg/534px-JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg",
     "tvN": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_tvN.svg/1280px-Logo_tvN.svg.png"
   },
-  "exportedAt": "2026-06-06T14:57:11.201Z"
+  "exportedAt": "2026-06-06T15:00:14.753Z"
 }
