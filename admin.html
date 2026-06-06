@@ -1236,9 +1236,10 @@ function showImportBanner(){
   document.body.appendChild(banner);
 }
 
-function getDow(d){ return (new Date(d+'T12:00:00').getDay()+6)%7; }
-function addDays(d,n){ const x=new Date(d+'T12:00:00'); x.setDate(x.getDate()+n); return x.toISOString().slice(0,10); }
-function fmtDate(d){ const x=new Date(d+'T12:00:00'); return `${x.getDate()} ${MONTHS_ES[x.getMonth()].slice(0,3)} ${x.getFullYear()}`; }
+function _validDate(d){ if(!d||typeof d!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(d)) return false; const x=new Date(d+'T12:00:00'); return !isNaN(x.getTime()); }
+function getDow(d){ if(!_validDate(d)) return 0; return (new Date(d+'T12:00:00').getDay()+6)%7; }
+function addDays(d,n){ if(!_validDate(d)) return d||''; const x=new Date(d+'T12:00:00'); x.setDate(x.getDate()+n); return x.toISOString().slice(0,10); }
+function fmtDate(d){ if(!_validDate(d)) return d||''; const x=new Date(d+'T12:00:00'); return `${x.getDate()} ${MONTHS_ES[x.getMonth()].slice(0,3)} ${x.getFullYear()}`; }
 function getEmissionDays(s){ if(s.emissionDays&&s.emissionDays.length>0) return [...s.emissionDays].sort((a,b)=>a-b); if(s.dayOfWeek!==undefined) return [s.dayOfWeek]; return [0]; }
 
 function getSeasons(s){
@@ -1260,10 +1261,11 @@ function genEpisodes(s){
 
     // ── Modo estreno completo en un día ──────────────────────────────────────
     if(season.allInOneDay){
+      const aioDate=_validDate(season.startDate)?season.startDate:'';
       for(let i=0;i<season.totalEpisodes;i++){
         const epNum=i+1, globalNum=offset+epNum;
         const ov=epOverrides.find(e=>e.num===epNum);
-        all.push(ov?{...ov,num:globalNum,seasonNum:epNum,season:idx+1}:{num:globalNum,seasonNum:epNum,season:idx+1,date:season.startDate,skipped:false});
+        all.push(ov?{...ov,num:globalNum,seasonNum:epNum,season:idx+1}:{num:globalNum,seasonNum:epNum,season:idx+1,date:aioDate,skipped:false});
       }
       offset+=season.totalEpisodes;
       return;
@@ -1306,7 +1308,12 @@ function genEpisodes(s){
 
     // Calcular la fecha de inicio del patrón semanal
     // = primera fecha de emisión regular DESPUÉS del último grupo especial (o desde startDate si no hay grupos)
-    let weekRefDate=season.startDate;
+    // Guard: if no valid startDate, skip regular scheduling
+    if(!_validDate(season.startDate) && !premiereSchedule.length){
+      offset+=season.totalEpisodes;
+      return;
+    }
+    let weekRefDate=_validDate(season.startDate)?season.startDate:new Date().toISOString().slice(0,10);
     let regularSearchStart=0; // sin premiereSchedule: startDate puede ser día de emisión
     if(premiereSchedule.length){
       // La última fecha especial usada
@@ -1372,7 +1379,7 @@ function getSeriesStatus(s){
   if(s.upcoming) return 'upcoming';
   const now=new Date();
   const eps=genEpisodes(s);
-  return eps.some(e=>new Date(e.date+'T12:00:00')>now&&!e.skipped)?'airing':'finished';
+  return eps.some(e=>e.date&&_validDate(e.date)&&new Date(e.date+'T12:00:00')>now&&!e.skipped)?'airing':'finished';
 }
 
 function switchStab(tab){
@@ -1408,7 +1415,7 @@ function render(){
   else if(sort==='za') filtered.sort((a,b)=>b.name.localeCompare(a.name,'es'));
   else if(sort==='next'){
     filtered.sort((a,b)=>{
-      const nextEp=s=>{ if(s.upcoming) return null; const ep=genEpisodes(s).find(e=>new Date(e.date+'T12:00:00')>now2&&!e.skipped); return ep?ep.date:null; };
+      const nextEp=s=>{ if(s.upcoming) return null; const ep=genEpisodes(s).find(e=>e.date&&_validDate(e.date)&&new Date(e.date+'T12:00:00')>now2&&!e.skipped); return ep?ep.date:null; };
       const da=nextEp(a), db=nextEp(b);
       if(!da&&!db) return a.name.localeCompare(b.name,'es');
       if(!da) return 1; if(!db) return -1;
@@ -1416,7 +1423,7 @@ function render(){
     });
   } else if(sort==='progress'){
     filtered.sort((a,b)=>{
-      const pct=s=>{ if(s.upcoming) return -1; const seasons=getSeasons(s),tot=seasons.reduce((a,t)=>a+t.totalEpisodes,0); if(!tot) return -1; const aired=genEpisodes(s).filter(e=>new Date(e.date+'T12:00:00')<=now2&&!e.skipped).length; return aired/tot; };
+      const pct=s=>{ if(s.upcoming) return -1; const seasons=getSeasons(s),tot=seasons.reduce((a,t)=>a+t.totalEpisodes,0); if(!tot) return -1; const aired=genEpisodes(s).filter(e=>e.date&&_validDate(e.date)&&new Date(e.date+'T12:00:00')<=now2&&!e.skipped).length; return aired/tot; };
       return pct(b)-pct(a);
     });
   }
@@ -1463,7 +1470,7 @@ function render(){
         const eps=genEpisodes(s), now=new Date();
         const seasons=getSeasons(s);
         const totalEps=seasons.reduce((a,t)=>a+t.totalEpisodes,0);
-        const aired=eps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
+        const aired=eps.filter(e=>e.date&&_validDate(e.date)&&new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
         const pct=Math.round(aired/Math.max(totalEps,1)*100);
         const lastSeason=seasons[seasons.length-1];
         const daysLabel=((lastSeason?.emissionDays&&lastSeason.emissionDays.length)?lastSeason.emissionDays:[lastSeason?.dayOfWeek||0]).map(d=>DAYS_ES[d]).join(' y ');
@@ -2748,7 +2755,7 @@ function renderAnimeGrid(){
     const si=series.indexOf(s);
     const now=new Date();
     const eps=genEpisodes(s);
-    const aired=eps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
+    const aired=eps.filter(e=>e.date&&_validDate(e.date)&&new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
     const total2=s.seasons?s.seasons.reduce((a,t)=>a+t.totalEpisodes,0):(s.totalEpisodes||0);
     const pct=Math.round(aired/Math.max(total2,1)*100);
     const cover=s.poster?`<img class="series-poster" src="${escapeHtml(s.poster)}" alt="" onerror="this.outerHTML='<div class=series-poster-ph>🌸</div>'">`:`<div class="series-poster-ph">🌸</div>`;
@@ -2801,7 +2808,7 @@ function renderRealitiesGrid(){
     const si=series.indexOf(s);
     const now=new Date();
     const eps=genEpisodes(s);
-    const aired=eps.filter(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
+    const aired=eps.filter(e=>e.date&&_validDate(e.date)&&new Date(e.date+'T12:00:00')<=now&&!e.skipped).length;
     const total2=s.seasons?s.seasons.reduce((a,t)=>a+t.totalEpisodes,0):(s.totalEpisodes||0);
     const pct=Math.round(aired/Math.max(total2,1)*100);
     const cover=s.poster?`<img class="series-poster" src="${escapeHtml(s.poster)}" alt="" onerror="this.outerHTML='<div class=series-poster-ph>🎤</div>'">`:`<div class="series-poster-ph">🎤</div>`;
