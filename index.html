@@ -2068,32 +2068,49 @@ html[data-theme="dark"] .modal-watch-block{
   color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:6px;
 }
 .watch-links-label::before{content:'';display:block;width:14px;height:1px;background:var(--muted);opacity:.5}
-.watch-links{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:0}
+.watch-links{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:0;align-items:center}
+/* Logo-style watch link */
 .watch-link{
-  display:inline-flex;align-items:center;gap:7px;
-  font-size:12.5px;font-weight:700;color:var(--accent);
+  display:inline-flex;align-items:center;justify-content:center;
   text-decoration:none;
   background:var(--surface);
-  border-radius:10px;padding:9px 18px;
-  border:1.5px solid rgba(201,79,124,0.28);
+  border-radius:12px;
+  border:1.5px solid var(--border2);
   transition:all .2s cubic-bezier(.25,.8,.25,1);
-  white-space:nowrap;
-  box-shadow:0 2px 8px rgba(201,79,124,0.1);
-  flex:1;min-width:0;justify-content:center;
+  box-shadow:0 2px 8px rgba(0,0,0,0.07);
+  overflow:hidden;
+  width:56px;height:56px;
+  flex-shrink:0;
+  position:relative;
 }
 .watch-link:hover{
-  background:var(--accent);color:#fff;border-color:var(--accent);
-  transform:translateY(-2px);
-  box-shadow:0 6px 18px rgba(201,79,124,0.28);
+  border-color:var(--accent2);
+  transform:translateY(-3px);
+  box-shadow:0 8px 22px rgba(201,79,124,0.22);
 }
-.watch-link-icon{
-  width:20px;height:20px;border-radius:50%;
-  background:rgba(201,79,124,0.12);
-  display:flex;align-items:center;justify-content:center;
-  font-size:8px;color:var(--accent);
-  flex-shrink:0;transition:inherit;
+/* Logo image inside */
+.watch-link-logo{
+  width:36px;height:36px;object-fit:contain;display:block;border-radius:6px;
 }
-.watch-link:hover .watch-link-icon{background:rgba(255,255,255,.22);color:#fff}
+/* Text fallback (no logo) */
+.watch-link-text{
+  font-size:10px;font-weight:700;color:var(--accent);
+  text-align:center;line-height:1.2;padding:6px 4px;
+  word-break:break-word;
+}
+/* Tooltip on hover */
+.watch-link[title]:hover::after{
+  content:attr(title);
+  position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);
+  background:rgba(0,0,0,0.82);color:#fff;
+  font-size:10px;font-weight:600;white-space:nowrap;
+  padding:3px 8px;border-radius:6px;pointer-events:none;
+  font-family:var(--font-body);
+}
+html[data-theme="dark"] .watch-link{background:var(--surface2)}
+html[data-theme="dark"] .watch-link:hover{border-color:var(--accent);box-shadow:0 8px 22px rgba(224,114,154,0.22)}
+/* Legacy icon (hidden now) */
+.watch-link-icon{display:none}
 
 /* Book block in modal */
 .book-block{
@@ -3476,6 +3493,100 @@ function filtrarTropos(tropos,dinamica){
 
 let state={month:new Date().getMonth(),year:new Date().getFullYear(),tab:'cal',series:[],movies:[],actresses:[],ships:[],productoras:[],listas:[]};
 
+// ── LOGOS DE PLATAFORMAS ──────────────────────────────────────────
+// Logos predefinidos (favicons oficiales vía Google S2)
+// Mapa canónico: una sola entrada por plataforma (nombre normalizado → logo)
+const PLATFORM_LOGOS_DEFAULT={
+  'YouTube':     'https://www.google.com/s2/favicons?sz=64&domain=youtube.com',
+  'Netflix':     'https://www.google.com/s2/favicons?sz=64&domain=netflix.com',
+  'Prime Video': 'https://www.google.com/s2/favicons?sz=64&domain=primevideo.com',
+  'Max':         'https://www.google.com/s2/favicons?sz=64&domain=max.com',
+  'GagaOOLala':  'https://www.google.com/s2/favicons?sz=64&domain=gagaoolala.com',
+  'WeTV':        'https://www.google.com/s2/favicons?sz=64&domain=wetv.vip',
+  'iQIYI':       'https://www.google.com/s2/favicons?sz=64&domain=iqiyi.com',
+  'Viki':        'https://www.google.com/s2/favicons?sz=64&domain=viki.com',
+  'VIU':         'https://www.google.com/s2/favicons?sz=64&domain=viu.com',
+  'CH3+':        'https://www.google.com/s2/favicons?sz=64&domain=ch3plus.com',
+  'OneD':        'https://www.google.com/s2/favicons?sz=64&domain=one31.net',
+  'Disney+':     'https://www.google.com/s2/favicons?sz=64&domain=disneyplus.com',
+  'Apple TV+':   'https://www.google.com/s2/favicons?sz=64&domain=tv.apple.com',
+  'Crunchyroll': 'https://www.google.com/s2/favicons?sz=64&domain=crunchyroll.com',
+  'Wavve':       'https://www.google.com/s2/favicons?sz=64&domain=wavve.com',
+  'TVING':       'https://www.google.com/s2/favicons?sz=64&domain=tving.com',
+  'Funimation':  'https://www.google.com/s2/favicons?sz=64&domain=funimation.com',
+  'Bilibili':    'https://www.google.com/s2/favicons?sz=64&domain=bilibili.com',
+  'Hulu':        'https://www.google.com/s2/favicons?sz=64&domain=hulu.com',
+  'Paramount+':  'https://www.google.com/s2/favicons?sz=64&domain=paramountplus.com',
+  'Plex':        'https://www.google.com/s2/favicons?sz=64&domain=plex.tv',
+  'RTVE':        'https://www.google.com/s2/favicons?sz=64&domain=rtve.es',
+  'RTL+':        'https://www.google.com/s2/favicons?sz=64&domain=rtl.de',
+  'Filmin':      'https://www.google.com/s2/favicons?sz=64&domain=filmin.es',
+  'Monomax':     'https://www.google.com/s2/favicons?sz=64&domain=monomax.me',
+  'TikTok':      'https://www.google.com/s2/favicons?sz=64&domain=tiktok.com',
+  'jTBC':        'https://www.google.com/s2/favicons?sz=64&domain=jtbc.co.kr',
+  'tvN':         'https://www.google.com/s2/favicons?sz=64&domain=tvn.com',
+  'iWant':       'https://www.google.com/s2/favicons?sz=64&domain=iwant.ph',
+  'GMM 25':      'https://www.google.com/s2/favicons?sz=64&domain=gmm25.com',
+  'TV Tokyo':    'https://www.google.com/s2/favicons?sz=64&domain=tv-tokyo.co.jp',
+};
+// Alias: variantes de escritura → nombre canónico
+const PLATFORM_ALIASES={
+  'youtube':'YouTube','Youtube':'YouTube','Yotube':'YouTube',
+  'hbo max':'Max','HBO Max':'Max','hbomax':'Max',
+  'iqiyi':'iQIYI','iQiyi':'iQIYI','IQIYI':'iQIYI',
+  'oned':'OneD','oneD':'OneD','One 31':'OneD','one31':'OneD',
+  'apple tv+':'Apple TV+','Apple Tv':'Apple TV+','AppleTv':'Apple TV+','apple tv':'Apple TV+',
+};
+function canonicalizePlatform(name){
+  if(!name) return name;
+  return PLATFORM_ALIASES[name] || PLATFORM_ALIASES[name.toLowerCase()] || name;
+}
+function getPlatformLogo(name){
+  const canon=canonicalizePlatform(name);
+  // 1) logos personalizados guardados en data.json
+  const custom=(state.platformLogos)||{};
+  // Entradas marcadas como ocultas no muestran logo
+  if(custom[canon]==='__hidden__'||custom[name]==='__hidden__') return null;
+  if(custom[canon]&&custom[canon]!=='__hidden__') return custom[canon];
+  if(custom[name]&&custom[name]!=='__hidden__') return custom[name];
+  // 2) predefinidos (nombre canónico)
+  return PLATFORM_LOGOS_DEFAULT[canon]||PLATFORM_LOGOS_DEFAULT[name]||null;
+}
+function normalizePlatformName(raw){
+  return raw.replace(/\s*\([^)]*\)/g,'').trim();
+}
+function splitPlatformNames(raw){
+  if(!raw) return [];
+  if(raw.length>60 && !raw.includes(',') && !raw.includes('/')) return [];
+  return raw.split(/[,\/]/)
+    .map(p=>normalizePlatformName(p))
+    .filter(p=>p && p!=='Ver serie' && p!=='Ver película' && p.length>1);
+}
+function buildWatchLinksHtml(links, accentColor, accentBorder, accentSoft){
+  if(!links||!links.length) return '';
+  // Expand each link: split comma/slash names into individual platform buttons
+  const expanded=[];
+  links.forEach(l=>{
+    const parts=splitPlatformNames(l.name);
+    if(!parts.length){ expanded.push(l); return; }
+    parts.forEach(name=>expanded.push({name, url:l.url}));
+  });
+  const btns=expanded.map(l=>{
+    const canonName=canonicalizePlatform(l.name);
+    const logo=getPlatformLogo(canonName);
+    const inner=logo
+      ?`<img class="watch-link-logo" src="${logo}" alt="${canonName}" onerror="this.outerHTML='<span class=watch-link-text>${canonName}</span>'">`
+      :`<span class="watch-link-text">${canonName}</span>`;
+    const style=accentBorder?`style="border-color:${accentBorder}"`:'';
+    return `<a class="watch-link" href="${l.url}" target="_blank" rel="noopener" title="${l.name}" ${style}>${inner}</a>`;
+  }).join('');
+  const labelStyle=accentColor?`style="color:${accentColor}"`:'';
+  return `<div class="modal-watch-block"${accentBorder?` style="border-color:${accentBorder}"`:''}>
+    <div class="modal-watch-label" ${labelStyle}>Dónde ver</div>
+    <div class="watch-links">${btns}</div>
+  </div>`;
+}
+
 // ═══ SESSION PERSISTENCE ═══
 const SS_KEY='tintaSapphicState';
 function saveSession(){
@@ -3709,6 +3820,7 @@ async function loadData(){
     state.ships=d.ships||[];
     state.productoras=d.productoras||[];
     state.listas=d.listas||[];
+    state.platformLogos=d.platformLogos||{};
     if(d.exportedAt){
       const dt=new Date(d.exportedAt);
       const badge=document.getElementById('updateBadge'); if(badge){badge.textContent='✓ Act. '+dt.toLocaleDateString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});badge.style.display='';}
@@ -5170,14 +5282,14 @@ function openSeries(si){
   let metaGrid='';
   if(s.year) metaGrid+=`<div class="meta-item"><div class="meta-key">Año</div><div class="meta-val">${s.year}</div></div>`;
   if(s.country) metaGrid+=`<div class="meta-item"><div class="meta-key">País</div><div class="meta-val">${countryFlag(s.country)} ${s.country}</div></div>`;
-  if(s.network) metaGrid+=`<div class="meta-item"><div class="meta-key">Plataforma</div><div class="meta-val">${s.network}</div></div>`;
+  if(s.network) metaGrid+=`<div class="meta-item"><div class="meta-key">Estreno / Cadena</div><div class="meta-val">${s.network}</div></div>`;
   metaGrid+=`<div class="meta-item"><div class="meta-key">Episodios</div><div class="meta-val">${totalEps}${seasons.length>1?` (${seasons.length}T)`:''}</div></div>`;
   const durInfo=getSeriesDurationInfo(s);
   if(durInfo.epDuration){
     metaGrid+=`<div class="meta-item"><div class="meta-key">⏱ Por episodio</div><div class="meta-val">${durInfo.source==='average'?'≈ ':''}</div></div>`.replace('</div></div>',`${fmtDuration(durInfo.epDuration)}</div></div>`);
     if(durInfo.totalMins) metaGrid+=`<div class="meta-item"><div class="meta-key">⏱ Total serie</div><div class="meta-val">${durInfo.source==='average'?'≈ ':''}${fmtDuration(durInfo.totalMins)}</div></div>`;
   }
-  const watchLinksHtml=(()=>{const links=s.watchLinks&&s.watchLinks.length?s.watchLinks:(s.networkUrl?[{name:s.network||'Ver serie',url:s.networkUrl}]:[]);if(!links.length)return '';return `<div class="modal-watch-block"><div class="modal-watch-label">Dónde ver</div><div class="watch-links">${links.map(l=>`<a class="watch-link" href="${l.url}" target="_blank" rel="noopener"><span class="watch-link-icon">▶</span>${l.name}</a>`).join('')}</div></div>`;})();
+  const watchLinksHtml=buildWatchLinksHtml(s.watchLinks&&s.watchLinks.length?s.watchLinks:(s.networkUrl?[{name:s.network||'Ver serie',url:s.networkUrl}]:[]),'','','');
   const progressBlock=`<div class="modal-progress-block">
     <div class="modal-progress-header">
       <span class="modal-progress-label">${aired} / ${totalEps} emitidos · ${activeDays}</span>
@@ -5331,8 +5443,8 @@ function openUpcoming(si){
   let metaGrid='';
   if(s.year) metaGrid+=`<div class="meta-item"><div class="meta-key">Año aprox.</div><div class="meta-val">${s.year}</div></div>`;
   if(s.country) metaGrid+=`<div class="meta-item"><div class="meta-key">País</div><div class="meta-val">${countryFlag(s.country)} ${s.country}</div></div>`;
-  if(s.network) metaGrid+=`<div class="meta-item"><div class="meta-key">Plataforma</div><div class="meta-val">${s.network}</div></div>`;
-  const watchLinksHtml=(()=>{const links=s.watchLinks&&s.watchLinks.length?s.watchLinks:(s.networkUrl?[{name:s.network||'Ver serie',url:s.networkUrl}]:[]);if(!links.length)return '';return `<div class="modal-watch-block"><div class="modal-watch-label">Dónde ver</div><div class="watch-links">${links.map(l=>`<a class="watch-link" href="${l.url}" target="_blank" rel="noopener"><span class="watch-link-icon">▶</span>${l.name}</a>`).join('')}</div></div>`;})();
+  if(s.network) metaGrid+=`<div class="meta-item"><div class="meta-key">Estreno / Cadena</div><div class="meta-val">${s.network}</div></div>`;
+  const watchLinksHtml=buildWatchLinksHtml(s.watchLinks&&s.watchLinks.length?s.watchLinks:(s.networkUrl?[{name:s.network||'Ver serie',url:s.networkUrl}]:[]),'','','');
 
   const castHtml=buildCastHtml(s.cast||[]);
   const castCount=s.cast&&s.cast.length?s.cast.filter(m=>(state.actresses||[]).find(a=>a.id===m.actressId)).length:0;
@@ -5422,7 +5534,7 @@ function openMovie(mi){
   let metaGrid='';
   if(mv.year) metaGrid+=`<div class="meta-item"><div class="meta-key">Año</div><div class="meta-val">${mv.year}</div></div>`;
   if(mv.country) metaGrid+=`<div class="meta-item"><div class="meta-key">País</div><div class="meta-val">${countryFlag(mv.country)} ${mv.country}</div></div>`;
-  if(mv.network) metaGrid+=`<div class="meta-item"><div class="meta-key">Plataforma</div><div class="meta-val">${mv.network}</div></div>`;
+  if(mv.network) metaGrid+=`<div class="meta-item"><div class="meta-key">Estreno / Cadena</div><div class="meta-val">${mv.network}</div></div>`;
   if(mv.date) metaGrid+=`<div class="meta-item"><div class="meta-key">Estreno</div><div class="meta-val">${fmtDate(mv.date)}</div></div>`;
   if(mv.duration) metaGrid+=`<div class="meta-item"><div class="meta-key">Duración</div><div class="meta-val">⏱ ${fmtDuration(mv.duration)}</div></div>`;
   const mvModalTypeBadge=mv.movieType==='short'
@@ -5442,7 +5554,7 @@ function openMovie(mi){
       ${editions.length?`<div class="book-editions-row">${edPills}</div>`:''}
     </div></div>`;
   })();
-  const watchLinksHtml=(()=>{const links=mv.watchLinks&&mv.watchLinks.length?mv.watchLinks:(mv.networkUrl?[{name:mv.network||'Ver película',url:mv.networkUrl}]:[]);if(!links.length)return '';return `<div class="modal-watch-block" style="border-color:rgba(124,92,191,0.28)"><div class="modal-watch-label" style="color:var(--movie-accent)">Dónde ver</div><div class="watch-links">${links.map(l=>`<a class="watch-link" href="${l.url}" target="_blank" rel="noopener" style="color:var(--movie-accent);border-color:var(--movie-border)"><span class="watch-link-icon" style="background:var(--movie-bar);color:var(--movie-accent)">▶</span>${l.name}</a>`).join('')}</div></div>`;})();
+  const watchLinksHtml=buildWatchLinksHtml(mv.watchLinks&&mv.watchLinks.length?mv.watchLinks:(mv.networkUrl?[{name:mv.network||'Ver película',url:mv.networkUrl}]:[]),'var(--movie-accent)','rgba(124,92,191,0.28)','var(--movie-bar)');
   const castHtml=buildCastHtml(mv.cast||[]);
   const castCount=mv.cast&&mv.cast.length?mv.cast.filter(m=>(state.actresses||[]).find(a=>a.id===m.actressId)).length:0;
   let html=`${posterEl}<div class="modal-body">
@@ -6315,9 +6427,7 @@ function openRichDetail(item, opts){
 
   // Watch links
   const links=item.watchLinks&&item.watchLinks.length?item.watchLinks:(item.networkUrl?[{name:item.network||'Ver',url:item.networkUrl}]:[]);
-  const watchLinksHtml=links.length
-    ?`<div class="modal-watch-block" style="border-color:${accentBorder}"><div class="modal-watch-label" style="color:${accentColor}">Dónde ver</div><div class="watch-links">${links.map(l=>`<a class="watch-link" href="${l.url}" target="_blank" rel="noopener" style="color:${accentColor};border-color:${accentBorder}"><span class="watch-link-icon" style="background:${accentSoft};color:${accentColor}">▶</span>${l.name}</a>`).join('')}</div></div>`
-    :'';
+  const watchLinksHtml=buildWatchLinksHtml(links,accentColor,accentBorder,accentSoft);
 
   // Trailer
   const trailerSection=item.trailerUrl?trailerHtml(item.trailerUrl):'';
@@ -6326,7 +6436,7 @@ function openRichDetail(item, opts){
   let metaGrid='';
   if(item.year) metaGrid+=`<div class="meta-item"><div class="meta-key">Año</div><div class="meta-val">${item.year}</div></div>`;
   if(item.country) metaGrid+=`<div class="meta-item"><div class="meta-key">País</div><div class="meta-val">${countryFlag(item.country)} ${item.country}</div></div>`;
-  if(item.network) metaGrid+=`<div class="meta-item"><div class="meta-key">Plataforma</div><div class="meta-val">${item.network}</div></div>`;
+  if(item.network) metaGrid+=`<div class="meta-item"><div class="meta-key">Estreno / Cadena</div><div class="meta-val">${item.network}</div></div>`;
   if(item.totalEpisodes) metaGrid+=`<div class="meta-item"><div class="meta-key">Episodios</div><div class="meta-val">${item.totalEpisodes}${item.seasons&&item.seasons.length>1?` (${item.seasons.length}T)`:''}</div></div>`;
 
   // Genre pills

@@ -573,6 +573,7 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
   <a class="qnav-btn" href="#section-ships" onclick="document.getElementById('section-ships').scrollIntoView({behavior:'smooth'});return false;">💕 Ships</a>
   <a class="qnav-btn" href="#section-listas" onclick="document.getElementById('section-listas').scrollIntoView({behavior:'smooth'});return false;">📋 Listas</a>
   <a class="qnav-btn" href="#section-productoras" onclick="document.getElementById('section-productoras').scrollIntoView({behavior:'smooth'});return false;">🏢 Productoras</a>
+  <a class="qnav-btn" href="#section-platform-logos" onclick="document.getElementById('section-platform-logos').scrollIntoView({behavior:'smooth'});return false;">🎬 Logos</a>
   <div class="quicknav-sep"></div>
   <button type="button" class="qnav-btn add" onclick="openAddSeries()">+ Serie GL</button>
   <button type="button" class="qnav-btn add-movie" onclick="openAddMovie()">+ Película</button>
@@ -751,6 +752,15 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
     <div id="productorasAdminGrid" style="display:grid;gap:10px;margin-top:8px"></div>
   </div>
 
+  <div class="card" id="section-platform-logos">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem">
+      <div class="card-title" style="margin-bottom:0">🎬 Logos de plataformas</div>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:1rem">Todas las plataformas que aparecen en el catálogo. Edita cualquiera para cambiar su logo. Los cambios se guardan en <code>data.json</code>.</p>
+    <div id="platformLogosGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-bottom:12px"></div>
+    <button type="button" class="btn primary" onclick="addPlatformLogoRow()" style="width:100%;background:linear-gradient(135deg,var(--accent),var(--accent2));border-color:var(--accent)">+ Añadir plataforma</button>
+  </div>
+
   <div class="card">
     <div class="card-title">📤 Cómo publicar cambios</div>
     <div class="export-box"><div class="export-instructions">Cada vez que hagas cambios, sigue estos pasos:
@@ -823,18 +833,26 @@ const MONTHS_ES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agost
 const PALETTE=['#d4608a','#5bbcb0','#9b82c9','#e8a84a','#e06fa0','#4eadb5','#b07ad4','#d47a4e'];
 
 const PLATFORMS=[
-  {name:'GagaOOLala', url:'https://www.gagaoolala.com'},
-  {name:'WeTV',       url:'https://wetv.vip'},
-  {name:'iQIYI',      url:'https://www.iqiyi.com'},
-  {name:'Viki',       url:'https://www.viki.com'},
-  {name:'VIU',        url:'https://www.viu.com'},
-  {name:'YouTube',    url:'https://www.youtube.com'},
-  {name:'Netflix',    url:'https://www.netflix.com'},
-  {name:'Prime Video',url:'https://www.primevideo.com'},
-  {name:'HBO Max',    url:'https://www.max.com'},
-  {name:'CH3+',       url:'https://www.ch3plus.com'},
-  {name:'OneD',       url:'https://www.one31.net'},
-  {name:'Otros',      url:''},
+  {name:'GagaOOLala',  url:'https://www.gagaoolala.com'},
+  {name:'WeTV',        url:'https://wetv.vip'},
+  {name:'iQIYI',       url:'https://www.iqiyi.com'},
+  {name:'Viki',        url:'https://www.viki.com'},
+  {name:'VIU',         url:'https://www.viu.com'},
+  {name:'YouTube',     url:'https://www.youtube.com'},
+  {name:'Netflix',     url:'https://www.netflix.com'},
+  {name:'Prime Video', url:'https://www.primevideo.com'},
+  {name:'Max',         url:'https://www.max.com'},
+  {name:'Disney+',     url:'https://www.disneyplus.com'},
+  {name:'Apple TV+',   url:'https://tv.apple.com'},
+  {name:'Crunchyroll', url:'https://www.crunchyroll.com'},
+  {name:'CH3+',        url:'https://www.ch3plus.com'},
+  {name:'OneD',        url:'https://www.one31.net'},
+  {name:'Bilibili',    url:'https://www.bilibili.com'},
+  {name:'Wavve',       url:'https://www.wavve.com'},
+  {name:'TVING',       url:'https://www.tving.com'},
+  {name:'Filmin',      url:'https://www.filmin.es'},
+  {name:'RTVE',        url:'https://www.rtve.es'},
+  {name:'Otros',       url:''},
 ];
 
 const MOODS=[
@@ -1134,6 +1152,7 @@ let actresses = [];
 let ships = [];   // Ships manuales
 let productoras = [];  // Productoras
 let listas = [];  // Listas temáticas curadas
+let platformLogos = {};  // Logos personalizados de plataformas
 let currentStab = 'active';
 
 const PAGE_SIZE = 20;
@@ -1207,7 +1226,8 @@ async function initData(){
         if(d.ships) ships = d.ships;
         if(d.productoras) productoras = d.productoras;
         if(d.listas) listas = d.listas;
-        render(); renderBooks(); renderAnimeGrid(); renderRealitiesGrid(); renderActressesGrid(); renderShipsAdmin(); renderProductorasAdmin(); renderListasAdmin();
+        if(d.platformLogos) platformLogos = d.platformLogos;
+        render(); renderBooks(); renderAnimeGrid(); renderRealitiesGrid(); renderActressesGrid(); renderShipsAdmin(); renderProductorasAdmin(); renderListasAdmin(); renderPlatformLogosSection();
         return;
       }
     } catch(e){ /* sin data.json accesible */ }
@@ -2155,7 +2175,7 @@ function formHtml(s, forcedCategory=null){
           <input id="f_year" type="number" placeholder="${new Date().getFullYear()}" min="1990" max="2035" value="${s&&s.year?s.year:''}"/>
         </div>
         <div class="form-row" style="margin-bottom:0">
-          <label class="form-label">Plataforma principal</label>
+          <label class="form-label">Estreno / Cadena <span style="color:var(--muted);font-weight:400;text-transform:none;font-size:11px">(dónde se emite originalmente)</span></label>
           <div class="platform-net-wrap">
             <input id="f_net" placeholder="Netflix, WeTV…" value="${s&&s.network?s.network:''}"/>
             <select class="platform-net-select" onchange="if(this.value){document.getElementById('f_net').value=this.value;this.value=''}">
@@ -3156,7 +3176,7 @@ function movieFormHtml(mv){
     </div>
   </div>
   <div class="form-row" style="margin-top:14px">
-    <label class="form-label">Plataforma / Canal principal</label>
+    <label class="form-label">Estreno / Cadena <span style="color:var(--muted);font-weight:400;text-transform:none;font-size:11px">(dónde se emite originalmente)</span></label>
     <div class="platform-net-wrap">
       <input id="mf_net" placeholder="Ej: Netflix, iQIYI…" value="${mv&&mv.network?mv.network:''}"/>
       <select class="platform-net-select" onchange="if(this.value){document.getElementById('mf_net').value=this.value;this.value=''}">
@@ -3528,7 +3548,7 @@ function renderBooks(){
 function exportData(){
   try {
     // Validate before exporting
-    const testJson = JSON.stringify({series, movies, actresses, ships, productoras, listas, exportedAt: new Date().toISOString()});
+    const testJson = JSON.stringify({series, movies, actresses, ships, productoras, listas, platformLogos, exportedAt: new Date().toISOString()});
     JSON.parse(testJson); // verify roundtrip
   } catch(e) {
     alert('Error al validar los datos antes de exportar: ' + e.message);
@@ -3538,7 +3558,7 @@ function exportData(){
   _unsavedCount=0;
   const dot=document.getElementById('exportDot');
   if(dot) dot.classList.remove('visible');
-  const blob=new Blob([JSON.stringify({series,movies,actresses,ships,productoras,listas,exportedAt:new Date().toISOString()},null,2)],{type:'application/json'});
+  const blob=new Blob([JSON.stringify({series,movies,actresses,ships,productoras,listas,platformLogos,exportedAt:new Date().toISOString()},null,2)],{type:'application/json'});
   const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='data.json'; a.click();
 }
 
@@ -3554,8 +3574,9 @@ function importData(e){
       if(d.ships) ships=d.ships;
       if(d.productoras) productoras=d.productoras;
       if(d.listas) listas=d.listas;
+      if(d.platformLogos) platformLogos=d.platformLogos;
       const ib=document.getElementById('importBanner'); if(ib) ib.remove();
-      save(); render(); renderMovies(); renderBooks(); renderAnimeGrid(); renderRealitiesGrid(); renderActressesGrid(); renderShipsAdmin(); renderProductorasAdmin(); renderListasAdmin();
+      save(); render(); renderMovies(); renderBooks(); renderAnimeGrid(); renderRealitiesGrid(); renderActressesGrid(); renderShipsAdmin(); renderProductorasAdmin(); renderListasAdmin(); renderPlatformLogosSection();
       alert('✓ Datos importados correctamente');
     }catch(err){ alert('Error al leer el archivo: '+err.message); }
   };
@@ -4782,6 +4803,7 @@ function renderListasAdmin(){
   grid.innerHTML = listas.map((l, li)=>{
     const count = (l.seriesIds||[]).length + (l.movieIds||[]).length;
     const emoji = l.emoji || '📋';
+    const safeId = (l.id||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");
     return `<div class="series-item" style="align-items:flex-start;gap:12px">
       <div style="font-size:2rem;line-height:1;flex-shrink:0;padding-top:2px">${emoji}</div>
       <div style="flex:1;min-width:0">
@@ -4791,7 +4813,7 @@ function renderListasAdmin(){
       </div>
       <div class="series-actions">
         <button class="btn small" onclick="openEditLista(${li})">✏️ Editar</button>
-        <button class="btn small danger" onclick="delLista(${li})">🗑</button>
+        <button class="btn small danger" onclick="delLista('${safeId}')">🗑</button>
       </div>
     </div>`;
   }).join('');
@@ -4876,14 +4898,14 @@ function openAddLista(){
 function openEditLista(li){
   document.getElementById('listaModalTitle').textContent = '✏️ Editar lista';
   document.getElementById('listaModalBody').innerHTML = _listaFormHtml(listas[li]);
-  document.getElementById('listaModal').dataset.li = li;
+  document.getElementById('listaModal').dataset.liId = listas[li].id;
   document.getElementById('listaModal').classList.add('open');
   document.getElementById('lf_items').addEventListener('change', _updateListaCount);
 }
 
 function closeLista(){
   document.getElementById('listaModal').classList.remove('open');
-  delete document.getElementById('listaModal').dataset.li;
+  delete document.getElementById('listaModal').dataset.liId;
 }
 
 function saveLista(){
@@ -4895,18 +4917,25 @@ function saveLista(){
   const checked = [...document.querySelectorAll('#lf_items input:checked')];
   const seriesIds = checked.filter(c=>c.dataset.type==='serie').map(c=>c.value);
   const movieIds  = checked.filter(c=>c.dataset.type==='pelicula').map(c=>c.value);
-  const li = document.getElementById('listaModal').dataset.li;
-  const payload = { title, emoji, desc, order, seriesIds, movieIds,
-    id: li!=null ? (listas[li]?.id||Date.now().toString()) : Date.now().toString() };
-  if(li!=null) listas[li] = payload;
-  else listas.push(payload);
+  const editId = document.getElementById('listaModal').dataset.liId;
+  if(editId){
+    // Editar existente — buscar por id, no por índice
+    const idx = listas.findIndex(l=>l.id===editId);
+    if(idx>=0) listas[idx] = { ...listas[idx], title, emoji, desc, order, seriesIds, movieIds };
+    else listas.push({ title, emoji, desc, order, seriesIds, movieIds, id: editId });
+  } else {
+    // Nueva lista
+    listas.push({ title, emoji, desc, order, seriesIds, movieIds, id: Date.now().toString() });
+  }
   listas.sort((a,b)=>(a.order||99)-(b.order||99));
   save();
   closeLista();
   renderListasAdmin();
 }
 
-async function delLista(li){
+async function delLista(listaId){
+  const li = listas.findIndex(l=>l.id===listaId);
+  if(li<0) return;
   const ok = await showConfirm({title:`¿Eliminar "${listas[li]?.title}"?`, desc:'Esta acción no se puede deshacer.', icon:'📋'});
   if(!ok) return;
   listas.splice(li,1);
@@ -4957,4 +4986,241 @@ function populateAwards(containerId, awards){
   list.innerHTML = '';
   (awards||[]).forEach(a=>addAwardRow(containerId, a));
 }
+
+// ═══ LOGOS DE PLATAFORMAS ═══════════════════════════════════
+const PLATFORM_LOGOS_DEFAULT_ADMIN={
+  'YouTube':     'https://www.google.com/s2/favicons?sz=64&domain=youtube.com',
+  'Youtube':     'https://www.google.com/s2/favicons?sz=64&domain=youtube.com',
+  'youtube':     'https://www.google.com/s2/favicons?sz=64&domain=youtube.com',
+  'Netflix':     'https://www.google.com/s2/favicons?sz=64&domain=netflix.com',
+  'Prime Video': 'https://www.google.com/s2/favicons?sz=64&domain=primevideo.com',
+  'HBO Max':     'https://www.google.com/s2/favicons?sz=64&domain=max.com',
+  'Max':         'https://www.google.com/s2/favicons?sz=64&domain=max.com',
+  'GagaOOLala':  'https://www.google.com/s2/favicons?sz=64&domain=gagaoolala.com',
+  'WeTV':        'https://www.google.com/s2/favicons?sz=64&domain=wetv.vip',
+  'iQIYI':       'https://www.google.com/s2/favicons?sz=64&domain=iqiyi.com',
+  'iQiyi':       'https://www.google.com/s2/favicons?sz=64&domain=iqiyi.com',
+  'Viki':        'https://www.google.com/s2/favicons?sz=64&domain=viki.com',
+  'VIU':         'https://www.google.com/s2/favicons?sz=64&domain=viu.com',
+  'CH3+':        'https://www.google.com/s2/favicons?sz=64&domain=ch3plus.com',
+  'OneD':        'https://www.google.com/s2/favicons?sz=64&domain=one31.net',
+  'oneD':        'https://www.google.com/s2/favicons?sz=64&domain=one31.net',
+  'One 31':      'https://www.google.com/s2/favicons?sz=64&domain=one31.net',
+  'Disney+':     'https://www.google.com/s2/favicons?sz=64&domain=disneyplus.com',
+  'Apple TV+':   'https://www.google.com/s2/favicons?sz=64&domain=tv.apple.com',
+  'Apple Tv':    'https://www.google.com/s2/favicons?sz=64&domain=tv.apple.com',
+  'AppleTv':     'https://www.google.com/s2/favicons?sz=64&domain=tv.apple.com',
+  'Crunchyroll': 'https://www.google.com/s2/favicons?sz=64&domain=crunchyroll.com',
+  'Wavve':       'https://www.google.com/s2/favicons?sz=64&domain=wavve.com',
+  'TVING':       'https://www.google.com/s2/favicons?sz=64&domain=tving.com',
+  'Funimation':  'https://www.google.com/s2/favicons?sz=64&domain=funimation.com',
+  'Bilibili':    'https://www.google.com/s2/favicons?sz=64&domain=bilibili.com',
+  'Hulu':        'https://www.google.com/s2/favicons?sz=64&domain=hulu.com',
+  'Paramount+':  'https://www.google.com/s2/favicons?sz=64&domain=paramountplus.com',
+  'Plex':        'https://www.google.com/s2/favicons?sz=64&domain=plex.tv',
+  'RTVE':        'https://www.google.com/s2/favicons?sz=64&domain=rtve.es',
+  'RTL+':        'https://www.google.com/s2/favicons?sz=64&domain=rtl.de',
+  'Filmin':      'https://www.google.com/s2/favicons?sz=64&domain=filmin.es',
+  'Monomax':     'https://www.google.com/s2/favicons?sz=64&domain=monomax.me',
+  'TikTok':      'https://www.google.com/s2/favicons?sz=64&domain=tiktok.com',
+  'jTBC':        'https://www.google.com/s2/favicons?sz=64&domain=jtbc.co.kr',
+  'tvN':         'https://www.google.com/s2/favicons?sz=64&domain=tvn.com',
+  'iWant':       'https://www.google.com/s2/favicons?sz=64&domain=iwant.ph',
+  'GMM 25':      'https://www.google.com/s2/favicons?sz=64&domain=gmm25.com',
+  'TV Tokyo':    'https://www.google.com/s2/favicons?sz=64&domain=tv-tokyo.co.jp',
+};
+
+function getCustomPlatformLogos(){
+  return platformLogos||{};
+}
+function saveCustomPlatformLogos(obj){
+  platformLogos=obj;
+  save();
+}
+
+// Recoge todas las plataformas únicas del catálogo actual
+function normalizePlatformName(raw){
+  // Remove parenthetical suffixes like (CUT), (UNCUT), (Pago), (recopilacion), (solo miembros), (USA, LATAM, UK) etc.
+  // But keep names that are just the platform, e.g. "Disney+" stays as-is
+  return raw.replace(/\s*\([^)]*\)/g,'').trim();
+}
+
+function splitPlatformNames(raw){
+  if(!raw) return [];
+  // Skip obviously corrupt/multi-region strings (very long with no clear separator pattern)
+  if(raw.length > 60 && !raw.includes(',') && !raw.includes('/')) return [];
+  // Split by comma or slash, normalize each part
+  return raw.split(/[,\/]/)
+    .map(p=>normalizePlatformName(p))
+    .filter(p=>p && p!=='Ver serie' && p!=='Ver película' && p.length>1);
+}
+
+function getAllPlatformNamesFromData(){
+  const names=new Set();
+  [...series,...movies].forEach(item=>{
+    splitPlatformNames(item.network).forEach(n=>names.add(n));
+    (item.watchLinks||[]).forEach(l=>splitPlatformNames(l.name).forEach(n=>names.add(n)));
+  });
+  return [...names].sort((a,b)=>a.toLowerCase().localeCompare(b.toLowerCase()));
+}
+
+function getLogoForPlatform(name){
+  const custom=getCustomPlatformLogos();
+  if(custom[name]==='__hidden__') return null;
+  return custom[name] || PLATFORM_LOGOS_DEFAULT_ADMIN[name] || null;
+}
+
+function renderPlatformLogosSection(){
+  const grid=document.getElementById('platformLogosGrid');
+  if(!grid) return;
+
+  const custom=getCustomPlatformLogos();
+  const dataNames=getAllPlatformNamesFromData();
+  // Union: plataformas en data + las que hayas añadido manualmente en platformLogos (excluye ocultas)
+  const customOnly=Object.keys(custom).filter(n=>!dataNames.includes(n)&&custom[n]!=='__hidden__');
+  // Filtra las que estén marcadas como ocultas
+  const allNames=[...dataNames.filter(n=>custom[n]!=='__hidden__'), ...customOnly];
+
+  if(!allNames.length){
+    grid.innerHTML=`<div style="grid-column:1/-1;color:var(--muted);font-size:13px;padding:8px 0">Importa el <code>data.json</code> para ver las plataformas.</div>`;
+    return;
+  }
+
+  // Count hidden entries to show restore button
+  const hiddenCount=Object.values(custom).filter(v=>v==='__hidden__').length;
+  const hiddenBar=hiddenCount>0
+    ?`<div style="grid-column:1/-1;font-size:12px;color:var(--muted);padding:4px 0;display:flex;align-items:center;gap:10px"><span>${hiddenCount} entrada${hiddenCount!==1?'s':''} oculta${hiddenCount!==1?'s':''}</span><button type="button" class="btn small" onclick="restoreAllHidden()" style="font-size:11px;padding:3px 10px">↩ Restaurar todas</button></div>`
+    :'';
+
+  grid.innerHTML=hiddenBar+allNames.map(name=>{
+    const logo=getLogoForPlatform(name);
+    const isCustomized=!!custom[name]&&custom[name]!=='__hidden__';
+    const escapedName=name.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+    const imgHtml=logo
+      ?`<img src="${logo}" style="width:32px;height:32px;object-fit:contain;display:block" alt="${name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+      :'';
+    const phHtml=`<span style="font-size:18px;display:${logo?'none':'flex'}">🎬</span>`;
+    return `<div class="platform-logo-row" id="plrow_${CSS.escape(name)}" style="background:var(--surface2);border-radius:12px;padding:10px 12px;border:1.5px solid ${isCustomized?'var(--accent2)':'var(--border2)'};display:flex;align-items:center;gap:10px">
+      <div style="width:44px;height:44px;border-radius:10px;border:1.5px solid var(--border2);background:var(--surface);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0">
+        ${imgHtml}${phHtml}
+      </div>
+      <div style="flex:1;min-width:0">
+        <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:1px">${name}</div>
+        <div style="font-size:10px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${logo||''}">${logo||'<em>sin logo</em>'}</div>
+      </div>
+      <div style="display:flex;gap:5px;flex-shrink:0">
+        <button type="button" class="platform-del-btn" style="background:var(--surface);border:1.5px solid var(--border2);color:var(--muted);border-radius:8px;padding:5px 9px;font-size:12px;cursor:pointer" onclick="editPlatformLogo('${escapedName}')" title="Editar logo">✏️</button>
+        <button type="button" class="platform-del-btn" style="background:var(--surface);border:1.5px solid rgba(200,60,60,0.3);color:#c83c3c;border-radius:8px;padding:5px 9px;font-size:12px;cursor:pointer" onclick="hidePlatformEntry('${escapedName}')" title="Ocultar esta entrada">🗑</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function hidePlatformEntry(name){
+  const custom=getCustomPlatformLogos();
+  custom[name]='__hidden__';
+  saveCustomPlatformLogos(custom);
+  renderPlatformLogosSection();
+}
+
+function restoreAllHidden(){
+  if(!confirm('¿Restaurar todas las entradas ocultas?')) return;
+  const custom=getCustomPlatformLogos();
+  Object.keys(custom).forEach(k=>{ if(custom[k]==='__hidden__') delete custom[k]; });
+  saveCustomPlatformLogos(custom);
+  renderPlatformLogosSection();
+}
+
+function editPlatformLogo(name){
+  // Close any open edit form first
+  document.querySelectorAll('.pl-edit-form').forEach(f=>f.remove());
+  const row=document.getElementById('plrow_'+CSS.escape(name));
+  if(!row) return;
+  const currentLogo=getLogoForPlatform(name)||'';
+  const form=document.createElement('div');
+  form.className='pl-edit-form';
+  form.style.cssText='grid-column:1/-1;background:var(--surface);border:1.5px solid var(--accent2);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px;margin-top:2px';
+  const eid='pledit_'+Date.now();
+  form.innerHTML=`
+    <div style="font-weight:700;font-size:13px;color:var(--text)">Editando: <em>${name}</em></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+      <input id="${eid}_url" placeholder="URL del logo (https://…)" value="${currentLogo}" style="flex:1;min-width:200px;padding:8px 12px;border-radius:10px;border:1.5px solid var(--border2);background:var(--surface2);color:var(--text);font-size:13px;font-family:inherit;outline:none">
+      <button type="button" class="btn small" onclick="previewPlEdit('${eid}')" style="background:var(--surface2);flex-shrink:0">👁 Ver</button>
+    </div>
+    <div style="font-size:11px;color:var(--muted)">💡 Favicon rápida: <code style="background:var(--surface2);padding:2px 6px;border-radius:4px;cursor:pointer" onclick="document.getElementById('${eid}_url').value='https://www.google.com/s2/favicons?sz=64&domain='">https://www.google.com/s2/favicons?sz=64&domain=<strong>dominio.com</strong></code></div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <div id="${eid}_prev" style="width:44px;height:44px;border-radius:10px;border:1.5px solid var(--border2);background:var(--surface2);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0">
+        ${currentLogo?`<img src="${currentLogo}" style="width:32px;height:32px;object-fit:contain" onerror="this.outerHTML='<span style=font-size:18px>❌</span>'">`:  '<span style="font-size:18px">🎬</span>'}
+      </div>
+      <button type="button" class="btn primary small" onclick="savePlEdit('${name.replace(/'/g,"\\'")}','${eid}')">Guardar</button>
+      <button type="button" class="btn small" onclick="this.closest('.pl-edit-form').remove()">Cancelar</button>
+    </div>`;
+  row.after(form);
+  document.getElementById(eid+'_url').focus();
+}
+
+function previewPlEdit(eid){
+  const url=document.getElementById(eid+'_url').value.trim();
+  const prev=document.getElementById(eid+'_prev');
+  if(!prev) return;
+  prev.innerHTML=url
+    ?`<img src="${url}" style="width:32px;height:32px;object-fit:contain" onerror="this.outerHTML='<span style=font-size:18px>❌</span>'">`
+    :'<span style="font-size:18px">🎬</span>';
+}
+
+function savePlEdit(name, eid){
+  const url=document.getElementById(eid+'_url').value.trim();
+  if(!url){alert('Escribe la URL del logo.');return;}
+  const custom=getCustomPlatformLogos();
+  custom[name]=url;
+  saveCustomPlatformLogos(custom);
+  document.querySelector('.pl-edit-form').remove();
+  renderPlatformLogosSection();
+}
+
+function deletePlatformLogo(name){
+  if(!confirm(`¿Quitar el logo personalizado de "${name}"? Se usará el predefinido si existe.`)) return;
+  const custom=getCustomPlatformLogos();
+  delete custom[name];
+  saveCustomPlatformLogos(custom);
+  renderPlatformLogosSection();
+}
+
+function addPlatformLogoRow(){
+  document.querySelectorAll('.pl-edit-form').forEach(f=>f.remove());
+  const grid=document.getElementById('platformLogosGrid');
+  const form=document.createElement('div');
+  form.className='pl-edit-form';
+  form.style.cssText='grid-column:1/-1;background:var(--surface);border:1.5px solid var(--accent2);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px;margin-bottom:10px';
+  const eid='pladd_'+Date.now();
+  form.innerHTML=`
+    <div style="font-weight:700;font-size:13px;color:var(--text)">Nueva plataforma</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <input id="${eid}_name" placeholder="Nombre (ej: Vigloo)" style="flex:1;min-width:130px;padding:8px 12px;border-radius:10px;border:1.5px solid var(--border2);background:var(--surface2);color:var(--text);font-size:13px;font-family:inherit;outline:none">
+      <input id="${eid}_url" placeholder="URL del logo (https://…)" style="flex:2;min-width:200px;padding:8px 12px;border-radius:10px;border:1.5px solid var(--border2);background:var(--surface2);color:var(--text);font-size:13px;font-family:inherit;outline:none">
+    </div>
+    <div style="font-size:11px;color:var(--muted)">💡 Favicon rápida: <code style="background:var(--surface2);padding:2px 6px;border-radius:4px">https://www.google.com/s2/favicons?sz=64&domain=dominio.com</code></div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <div id="${eid}_prev" style="width:44px;height:44px;border-radius:10px;border:1.5px solid var(--border2);background:var(--surface2);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0"><span style="font-size:18px">🎬</span></div>
+      <button type="button" class="btn small" onclick="previewPlEdit('${eid}')" style="background:var(--surface2)">👁 Ver</button>
+      <button type="button" class="btn primary small" onclick="saveNewPlatform('${eid}')">Guardar</button>
+      <button type="button" class="btn small" onclick="this.closest('.pl-edit-form').remove()">Cancelar</button>
+    </div>`;
+  grid.prepend(form);
+  document.getElementById(eid+'_name').focus();
+}
+
+function saveNewPlatform(eid){
+  const name=document.getElementById(eid+'_name').value.trim();
+  const url=document.getElementById(eid+'_url').value.trim();
+  if(!name||!url){alert('Rellena el nombre y la URL del logo.');return;}
+  const custom=getCustomPlatformLogos();
+  custom[name]=url;
+  saveCustomPlatformLogos(custom);
+  document.querySelector('.pl-edit-form').remove();
+  renderPlatformLogosSection();
+}
+
+// Init platform logos section on load
+document.addEventListener('DOMContentLoaded',()=>{ renderPlatformLogosSection(); });
 </script>

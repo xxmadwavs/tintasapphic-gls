@@ -1735,8 +1735,13 @@
       "year": 2026,
       "country": "Tailandia",
       "network": "Youtube (Pago)",
-      "networkUrl": "",
-      "watchLinks": [],
+      "networkUrl": "https://youtu.be/I57LYooYcJs?si=JEIK-cF0V_fPBPNa",
+      "watchLinks": [
+        {
+          "name": "YouTube",
+          "url": "https://youtu.be/I57LYooYcJs?si=JEIK-cF0V_fPBPNa"
+        }
+      ],
       "trailerUrl": "https://youtu.be/wtBVUpEJBmA",
       "bookSource": "",
       "basedOnBook": false,
@@ -1845,7 +1850,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": true,
-      "updatedAt": "2026-05-23T18:25:15.387Z",
+      "updatedAt": "2026-06-06T13:18:23.867Z",
       "nameEn": "เด็ก เรียบ ร้าย",
       "episodeDuration": 48,
       "myPick": false,
@@ -1863,9 +1868,8 @@
         "Amor no correspondido",
         "Enemigos a amantes",
         "Proximidad forzada",
-        "Triángulo amoroso",
         "Relación secreta",
-        "Amor no correspondido"
+        "Triángulo amoroso"
       ],
       "dinamica": [
         "Femme × Femme"
@@ -34293,5 +34297,30 @@
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-06-06T08:00:53.071Z"
+  "platformLogos": {
+    "vigloo": "https://play-lh.googleusercontent.com/67wXtHG32V_YeH6zvDMenRCL8yd6JxE1jnC8yhTrQ7auBKO35QqInNpDVWDSDGmpVw",
+    "Bilibili": "https://images.steamusercontent.com/ugc/952957720421013101/8A6D57C7DDAFA0D639927DA347FBC5A2CE1FCF6E/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false",
+    "Filmin": "https://play-lh.googleusercontent.com/_5dl3l4z8cAzlt5UDdXTiXjd9vQ5Vc2Ub_TPksjFzxVRNaK1hs6sgb3BzODs8LK1ew",
+    "Paramount+": "https://logodownload.org/wp-content/uploads/2021/03/paramount-plus-logo-0.png",
+    "HBO Max": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7PhD321p2v6R4C1b979seenFjvJ_3UydEUg&s",
+    "Wavve": "https://images.seeklogo.com/logo-png/43/1/wavve-logo-png_seeklogo-432204.png",
+    "TV Tokyo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/TV_Tokyo_logo_20110629.svg/330px-TV_Tokyo_logo_20110629.svg.png",
+    "Shortime": "https://shortime.app/assets/images/home/og_image.png",
+    "youtube": "__hidden__",
+    "YoutubeFull Version": "__hidden__",
+    "Yotube": "__hidden__",
+    "Vigloo": "https://play-lh.googleusercontent.com/67wXtHG32V_YeH6zvDMenRCL8yd6JxE1jnC8yhTrQ7auBKO35QqInNpDVWDSDGmpVw",
+    "UK)Netflix (USA": "__hidden__",
+    "Paramount+ (USA": "__hidden__",
+    "Max": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7PhD321p2v6R4C1b979seenFjvJ_3UydEUg&s",
+    "LATAM": "__hidden__",
+    "HuluDisney+": "__hidden__",
+    "LATAM)Prime VideoMovistar+": "__hidden__",
+    "Lezhin Snack": "https://play-lh.googleusercontent.com/4bkfrJYUrommh8EGCHGj40FGfUAivE4PDM0ayfcp6cOASlIKOK4-Iy240SJX09prEc2fr20CluOJ9AQoT-3AiQ=w240-h480-rw",
+    "TV Aichi": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9nS7NbQbdNWzwKC6CyJQZ4X_3j0pddUHqyw&s",
+    "TV Osaka": "https://static.wikia.nocookie.net/drama/images/3/30/TV_Osaka.png/revision/latest?cb=20190830141602&path-prefix=es",
+    "TV Setouchi": "https://static.wikitide.net/avidwiki/thumb/2/20/JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg/534px-JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg",
+    "tvN": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_tvN.svg/1280px-Logo_tvN.svg.png"
+  },
+  "exportedAt": "2026-06-06T14:57:11.201Z"
 }
