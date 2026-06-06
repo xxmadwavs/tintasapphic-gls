@@ -21307,6 +21307,82 @@
       "snNote": "",
       "productoraId": "",
       "updatedAt": "2026-06-02T19:16:29.798Z"
+    },
+    {
+      "id": "1780730384619",
+      "name": "Hak Na My Boss",
+      "nameEn": "ฮักนะ My Bos",
+      "poster": "https://pbs.twimg.com/media/HKGguI7WUAAtkpy?format=jpg&name=4096x4096",
+      "synopsis": "Cuando una secretaria decidida y dedicada empieza a trabajar codo con codo con una jefa perfecta y admirable, una relación que comenzó simplemente por obligación profesional se va transformando poco a poco en un sentimiento difícil de negar.",
+      "year": "",
+      "country": "",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "bookSource": "I Love You",
+      "basedOnBook": true,
+      "sourceType": "novela",
+      "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/368940/Thumbnail/book_detail_large.gif?4",
+      "bookLinks": [
+        {
+          "lang": "en",
+          "store": "MEB",
+          "url": "https://www.mebmarket.com/ebook-387856-I-LOVE-YOU-English-ver-"
+        },
+        {
+          "lang": "th",
+          "store": "MEB",
+          "url": "https://www.mebmarket.com/ebook-368940-I-LOVE-YOU-%E0%B9%81%E0%B8%9B%E0%B8%A5%E0%B8%A7%E0%B9%88%E0%B8%B2%E0%B8%89%E0%B8%B1%E0%B8%99%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B9%80%E0%B8%98%E0%B8%AD"
+        }
+      ],
+      "bookUrl": "https://www.mebmarket.com/ebook-387856-I-LOVE-YOU-English-ver-",
+      "upcoming": false,
+      "genres": [],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [
+        {
+          "actressId": "1780730128005",
+          "character": "Chama",
+          "coupleType": "main",
+          "coupleNum": 1
+        },
+        {
+          "actressId": "1780730283694",
+          "character": "Nilmookda",
+          "coupleType": "main",
+          "coupleNum": 1
+        }
+      ],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "",
+          "totalEpisodes": 12,
+          "emissionDays": [],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-06-06T07:19:44.619Z"
     }
   ],
   "movies": [
@@ -33042,6 +33118,23 @@
       "country": "Tailandia",
       "birthdate": "",
       "notes": "Actriz"
+    },
+    {
+      "id": "1780730128005",
+      "name": "Diana Flipo",
+      "photo": "https://m.media-amazon.com/images/M/MV5BYzQ3OTFlYTItM2FlZS00MjU2LWJlNWYtNDNmZDAyNzhhNWMxXkEyXkFqcGc@._V1_.jpg",
+      "country": "Tailandia",
+      "birthdate": "1994-08-11",
+      "height": 172,
+      "notes": "Actriz, Modelo"
+    },
+    {
+      "id": "1780730283694",
+      "name": "\"Yoshi\" Rinrada Thurapan",
+      "photo": "https://static.wikia.nocookie.net/drama/images/3/33/Rinrada_Thurapan.jpg/revision/latest?cb=20210928175900&path-prefix=es",
+      "country": "Tailandia",
+      "birthdate": "1997-02-05",
+      "notes": "Actriz, Modelo"
     }
   ],
   "ships": [
