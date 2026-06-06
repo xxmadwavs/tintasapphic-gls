@@ -21402,6 +21402,46 @@
         }
       ],
       "updatedAt": "2026-06-06T07:40:50.567Z"
+    },
+    {
+      "id": "1780758236051",
+      "name": "SINCENORITA",
+      "nameEn": "ตั้งแต่ได้รัก",
+      "poster": "https://pbs.twimg.com/media/HKIqTVTbgAApxET?format=jpg&name=large",
+      "synopsis": "No importa cuánto tiempo nos separe, mi gran amor me traerá de vuelta a ti a través del tiempo. Nene interpreta a Rita-Frey y Kaimook a Phiangkhwan. ¿Qué tipo de historia será?",
+      "year": "",
+      "country": "",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": true,
+      "genres": [],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "updatedAt": "2026-06-06T15:03:56.051Z"
     }
   ],
   "movies": [
@@ -34337,5 +34377,5 @@
     "TV Setouchi": "https://static.wikitide.net/avidwiki/thumb/2/20/JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg/534px-JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg",
     "tvN": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_tvN.svg/1280px-Logo_tvN.svg.png"
   },
-  "exportedAt": "2026-06-06T15:00:14.753Z"
+  "exportedAt": "2026-06-06T15:03:57.194Z"
 }
