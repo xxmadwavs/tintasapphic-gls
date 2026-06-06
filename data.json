@@ -31226,6 +31226,112 @@
       "cast": [],
       "productoraId": "",
       "updatedAt": "2026-05-28T17:56:29.856Z"
+    },
+    {
+      "id": "1780732422231",
+      "name": "When I Sleep",
+      "nameEn": "내가 누워있을 때",
+      "poster": "https://a.ltrbxd.com/resized/film-poster/8/6/0/9/7/4/860974-when-i-sleep-0-1000-0-1500-crop.jpg?v=4fd56c40a9",
+      "synopsis": "Suna, Jisu y Bomi, cada una con su propia historia, sufren un accidente de coche durante un viaje improvisado para visitar la tumba de los padres de Jisu. Las tres pasan la noche en un lugar desconocido y descubren los secretos de las demás.",
+      "year": 2022,
+      "country": "Corea del Sur",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/jnjAYTfbW7s?si=qBkqk7gOfPCvznIH",
+      "date": "2022-04-30",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Drama"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "awards": [],
+      "category": "movie",
+      "movieType": "film",
+      "duration": 116,
+      "cast": [],
+      "productoraId": "",
+      "updatedAt": "2026-06-06T07:56:41.581Z"
+    },
+    {
+      "id": "1780732565447",
+      "name": "Summer’s Camera",
+      "nameEn": "여름의 카메라",
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/2/4/9/9/2/1/1249921-summers-camera-0-1000-0-1500-crop.jpg?v=0c9af3de27",
+      "synopsis": "Summer no usará la película de cámara inacabada de su difunto padre hasta que conozca a Yeonwoo, la estrella del fútbol de su escuela. Las fotos desarrolladas revelan el pasado de su padre con Maru, una peluquera, mientras Summer navega por el primer amor y la pérdida.",
+      "year": 2025,
+      "country": "Corea del Sur",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/zTHUZUxMPjs?si=06VOxIGYwHpilYUS",
+      "date": "2025-03-24",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Drama"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "awards": [],
+      "category": "movie",
+      "movieType": "film",
+      "duration": 83,
+      "cast": [],
+      "productoraId": "",
+      "updatedAt": "2026-06-06T07:56:05.447Z"
+    },
+    {
+      "id": "1780732802332",
+      "name": "Love Letters",
+      "nameEn": "Des preuves d'amour",
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/0/0/9/2/8/6/1009286-love-letters-2025-0-1000-0-1500-crop.jpg?v=bed7236034",
+      "synopsis": "Céline, de 32 años, espera su primer hijo. Pero Céline no está embarazada. Dentro de tres meses, será Nadia, su esposa, quien dará a luz a su hija.",
+      "year": 2025,
+      "country": "",
+      "network": "Plex",
+      "networkUrl": "https://watch.plex.tv/es/movie/love-letters-2025?autoplay=1&utm_content=675ad353e630176cf37c4f55&utm_medium=deeplink&utm_source=justWatch-v2-catalog",
+      "watchLinks": [
+        {
+          "name": "Plex",
+          "url": "https://watch.plex.tv/es/movie/love-letters-2025?autoplay=1&utm_content=675ad353e630176cf37c4f55&utm_medium=deeplink&utm_source=justWatch-v2-catalog"
+        }
+      ],
+      "trailerUrl": "https://vimeo.com/1137598154?fl=pl&fe=sh",
+      "date": "2025-05-17",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Comedia",
+        "Drama",
+        "Found family"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "awards": [],
+      "category": "movie",
+      "movieType": "film",
+      "duration": 97,
+      "cast": [],
+      "productoraId": "",
+      "updatedAt": "2026-06-06T08:00:02.332Z"
     }
   ],
   "actresses": [
@@ -34187,5 +34293,5 @@
       "id": "1779437187677"
     }
   ],
-  "exportedAt": "2026-06-06T07:42:10.951Z"
+  "exportedAt": "2026-06-06T08:00:53.071Z"
 }
