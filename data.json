@@ -20926,44 +20926,6 @@
       "updatedAt": "2026-05-20T11:51:44.836Z"
     },
     {
-      "id": "1779277983623",
-      "name": "Never Fade",
-      "nameEn": "",
-      "poster": "https://girlsloveinfo.com/wp-content/uploads/2026/05/Never-Fade-Movie-PosterNeverFadeProjectNeverFadeProjectPresentedbyAuraBangkokClinic-818x1024.jpg",
-      "synopsis": "",
-      "year": "",
-      "country": "Tailandia",
-      "network": "",
-      "networkUrl": "",
-      "watchLinks": [],
-      "trailerUrl": "https://youtu.be/WBa2OP5AIwg?si=r6g7mX0KdQkMTgLG",
-      "bookSource": "",
-      "basedOnBook": false,
-      "bookCoverUrl": "",
-      "bookLinks": [],
-      "bookUrl": "",
-      "upcoming": true,
-      "genres": [
-        "Drama",
-        "Romance"
-      ],
-      "category": "series",
-      "seriesType": "serie",
-      "cast": [],
-      "animeSeason": "",
-      "renewedNextSeason": false,
-      "episodeDuration": "",
-      "myPick": false,
-      "myPick2026": false,
-      "cancelStatus": "",
-      "cancelNote": "",
-      "sinNovedades": false,
-      "snLastUpdate": "",
-      "snNote": "",
-      "productoraId": "",
-      "updatedAt": "2026-05-20T11:53:03.623Z"
-    },
-    {
       "id": "1779435653021",
       "name": "Bloom Into You",
       "nameEn": "やがて君になる",
@@ -31391,6 +31353,49 @@
       "cast": [],
       "productoraId": "",
       "updatedAt": "2026-06-06T08:00:02.332Z"
+    },
+    {
+      "id": "1780769465406",
+      "name": "Never Fade",
+      "nameEn": "",
+      "poster": "https://girlsloveinfo.com/wp-content/uploads/2026/05/Never-Fade-Movie-PosterNeverFadeProjectNeverFadeProjectPresentedbyAuraBangkokClinic-818x1024.jpg",
+      "synopsis": "",
+      "year": 2026,
+      "country": "Tailandia",
+      "network": "YouTube",
+      "networkUrl": "https://youtu.be/cxhBYv0On58?si=GovVjqqtLPlwrYdj",
+      "watchLinks": [
+        {
+          "name": "YouTube",
+          "url": "https://youtu.be/cxhBYv0On58?si=GovVjqqtLPlwrYdj"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/WBa2OP5AIwg?si=r6g7mX0KdQkMTgLG",
+      "date": "2026-06-06",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "awards": [],
+      "category": "movie",
+      "movieType": "short",
+      "duration": 18,
+      "cast": [
+        {
+          "actressId": "1778760989113",
+          "character": "",
+          "coupleType": "main",
+          "coupleNum": 1
+        }
+      ],
+      "productoraId": "",
+      "updatedAt": "2026-06-06T18:11:05.406Z"
     }
   ],
   "actresses": [
@@ -34377,5 +34382,5 @@
     "TV Setouchi": "https://static.wikitide.net/avidwiki/thumb/2/20/JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg/534px-JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg",
     "tvN": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_tvN.svg/1280px-Logo_tvN.svg.png"
   },
-  "exportedAt": "2026-06-06T15:03:57.194Z"
+  "exportedAt": "2026-06-06T18:11:09.967Z"
 }
