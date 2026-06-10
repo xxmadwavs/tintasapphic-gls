@@ -17987,8 +17987,8 @@
       "bookUrl": "",
       "upcoming": false,
       "genres": [
-        "Drama",
-        "Comedia"
+        "Comedia",
+        "Drama"
       ],
       "category": "series",
       "seasons": [
@@ -18129,11 +18129,55 @@
           "allInOneDay": false,
           "skipDates": [],
           "episodes": [],
-          "premiereSchedule": []
+          "premiereSchedule": [
+            {
+              "fromEp": 3,
+              "toEp": 5,
+              "date": "2026-04-30"
+            },
+            {
+              "fromEp": 6,
+              "toEp": 7,
+              "date": "2026-05-07"
+            },
+            {
+              "fromEp": 8,
+              "toEp": 8,
+              "date": "2026-05-14"
+            },
+            {
+              "fromEp": 9,
+              "toEp": 9,
+              "date": "2026-05-22"
+            },
+            {
+              "fromEp": 10,
+              "toEp": 10,
+              "date": "2026-05-29"
+            }
+          ]
         }
       ],
-      "updatedAt": "2026-05-10T07:07:36.737Z",
-      "nameEn": ""
+      "updatedAt": "2026-06-10T20:19:57.207Z",
+      "nameEn": "",
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1778397225013",
@@ -21404,167 +21448,6 @@
       "snNote": "",
       "productoraId": "",
       "updatedAt": "2026-06-06T15:03:56.051Z"
-    },
-    {
-      "id": "1781079940218",
-      "name": "Stand BI Me",
-      "nameEn": "",
-      "poster": "https://pbs.twimg.com/media/HKaubENWgAA8tIH?format=jpg&name=4096x4096",
-      "synopsis": "",
-      "year": 2026,
-      "country": "Corea del Sur",
-      "network": "Wavve",
-      "networkUrl": "",
-      "watchLinks": [],
-      "trailerUrl": "https://youtu.be/1NGjPRLBit8?si=bK_4qlgKO4OkKF3A",
-      "bookSource": "",
-      "basedOnBook": false,
-      "sourceType": "",
-      "bookCoverUrl": "",
-      "bookLinks": [],
-      "bookUrl": "",
-      "upcoming": false,
-      "genres": [
-        "Romance",
-        "Vida cotidiana"
-      ],
-      "moods": [],
-      "tropos": [],
-      "dinamica": [],
-      "awards": [],
-      "category": "reality",
-      "seriesType": "serie",
-      "cast": [],
-      "animeSeason": "Primavera 2026",
-      "renewedNextSeason": false,
-      "episodeDuration": "",
-      "myPick": false,
-      "myPick2026": false,
-      "cancelStatus": "",
-      "cancelNote": "",
-      "sinNovedades": false,
-      "snLastUpdate": "",
-      "snNote": "",
-      "productoraId": "",
-      "seasons": [
-        {
-          "label": "Temporada 1",
-          "startDate": "2026-06-19",
-          "totalEpisodes": 12,
-          "emissionDays": [
-            4
-          ],
-          "allInOneDay": false,
-          "skipDates": [],
-          "episodes": [],
-          "premiereSchedule": []
-        }
-      ],
-      "updatedAt": "2026-06-10T08:32:08.356Z"
-    },
-    {
-      "id": "1781080085263",
-      "name": "I want to love you till your dying day",
-      "nameEn": "きみが死ぬまで恋をしたい",
-      "poster": "https://cdn.myanimelist.net/images/anime/1850/158429.jpg",
-      "synopsis": "La muerte de la compañera de cuarto de Sheena Totsuki se anuncia casualmente al comienzo de la clase, y el día transcurre con normalidad. En un orfanato que cría niños como soldados, la muerte no es nada nuevo para sus residentes. Con su país de origen sumido en una guerra que se ha prolongado durante demasiados años y no muestra signos de terminar, los niños de la institución son enviados a morir en batalla cada día. A diferencia de los demás huérfanos, Sheena está profundamente perturbada por el conflicto y desea que termine.\n\nLa noche de la muerte de su compañera, Sheena conoció a una niña cubierta de sangre que, a pesar de su estado, se mantenía alegre. Al día siguiente, la niña aparece como una nueva alumna en la clase de Sheena y se presenta como Mimi Kagari. Inicialmente considerada una leyenda escolar, se dice que Mimi es el arma secreta del orfanato: una niña inmortal. Asignada como la nueva compañera de cuarto de Sheena, Mimi espera llevarse bien con ella y adaptarse a la vida escolar.\n\nSin embargo, inquieta por la actitud despreocupada de Mimi ante la guerra, Sheena lucha por aceptar el mundo en el que viven, mientras su inusual amistad florece en medio de la sombría situación.",
-      "year": 2026,
-      "country": "Japón",
-      "network": "",
-      "networkUrl": "",
-      "watchLinks": [],
-      "trailerUrl": "https://youtu.be/_3NsThP6HTw?si=Fb654xmdECVqSiqR",
-      "bookSource": "",
-      "basedOnBook": false,
-      "sourceType": "",
-      "bookCoverUrl": "",
-      "bookLinks": [],
-      "bookUrl": "",
-      "upcoming": false,
-      "genres": [
-        "Fantasía"
-      ],
-      "moods": [],
-      "tropos": [],
-      "dinamica": [],
-      "awards": [],
-      "category": "anime",
-      "seriesType": "serie",
-      "cast": [],
-      "animeSeason": "Verano 2026",
-      "renewedNextSeason": false,
-      "episodeDuration": "",
-      "myPick": false,
-      "myPick2026": false,
-      "cancelStatus": "",
-      "cancelNote": "",
-      "sinNovedades": false,
-      "snLastUpdate": "",
-      "snNote": "",
-      "productoraId": "",
-      "seasons": [
-        {
-          "label": "Temporada 1",
-          "startDate": "2026-07-07",
-          "totalEpisodes": 12,
-          "emissionDays": [
-            1
-          ],
-          "allInOneDay": false,
-          "skipDates": [],
-          "episodes": [],
-          "premiereSchedule": []
-        }
-      ],
-      "updatedAt": "2026-06-10T08:28:05.263Z"
-    },
-    {
-      "id": "1781080190265",
-      "name": "My Gorgeous Wife",
-      "nameEn": "คุณภรรยาคนสวย",
-      "poster": "",
-      "synopsis": "Kee, una agricultora del norte de Tailandia, acepta un matrimonio de conveniencia de un año con Khwan, una heredera de la alta sociedad. Lo que comienza como una relación marcada por la frialdad y la desconfianza acaba convirtiéndose en amor a medida que ambas se van acercando. Sin embargo, la presencia de una exnovia de Kee y del prometido de Khwan provoca conflictos, celos y malentendidos que conducen a la separación. Tras darse cuenta de sus verdaderos sentimientos, Khwan debe decidir si luchará por reconquistar a la mujer a la que ha aprendido a amar.",
-      "year": "",
-      "country": "",
-      "network": "",
-      "networkUrl": "",
-      "watchLinks": [],
-      "trailerUrl": "",
-      "bookSource": "My Gorgeous Wife",
-      "basedOnBook": true,
-      "sourceType": "",
-      "bookCoverUrl": "https://pbs.twimg.com/media/HKX2BgGWYAAv2Uz?format=jpg&name=medium",
-      "bookLinks": [
-        {
-          "lang": "en",
-          "store": "MEB",
-          "url": "https://en.mebmarket.com/ebook-392864-My-Gorgeous-Wife-%E0%B8%84%E0%B8%B8%E0%B8%93%E0%B8%A0%E0%B8%A3%E0%B8%A3%E0%B8%A2%E0%B8%B2%E0%B8%84%E0%B8%99%E0%B8%AA%E0%B8%A7%E0%B8%A2-English-version"
-        }
-      ],
-      "bookUrl": "https://en.mebmarket.com/ebook-392864-My-Gorgeous-Wife-%E0%B8%84%E0%B8%B8%E0%B8%93%E0%B8%A0%E0%B8%A3%E0%B8%A3%E0%B8%A2%E0%B8%B2%E0%B8%84%E0%B8%99%E0%B8%AA%E0%B8%A7%E0%B8%A2-English-version",
-      "upcoming": true,
-      "genres": [
-        "Romance"
-      ],
-      "moods": [],
-      "tropos": [],
-      "dinamica": [],
-      "awards": [],
-      "category": "series",
-      "seriesType": "serie",
-      "cast": [],
-      "animeSeason": "",
-      "renewedNextSeason": false,
-      "episodeDuration": "",
-      "myPick": false,
-      "myPick2026": false,
-      "cancelStatus": "",
-      "cancelNote": "",
-      "sinNovedades": false,
-      "snLastUpdate": "",
-      "snNote": "",
-      "productoraId": "",
-      "updatedAt": "2026-06-10T08:29:50.265Z"
     }
   ],
   "movies": [
@@ -34543,5 +34426,5 @@
     "TV Setouchi": "https://static.wikitide.net/avidwiki/thumb/2/20/JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg/534px-JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg",
     "tvN": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_tvN.svg/1280px-Logo_tvN.svg.png"
   },
-  "exportedAt": "2026-06-10T08:32:18.211Z"
+  "exportedAt": "2026-06-10T20:20:15.443Z"
 }
