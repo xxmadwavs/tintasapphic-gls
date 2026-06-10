@@ -18131,6 +18131,16 @@
           "episodes": [],
           "premiereSchedule": [
             {
+              "fromEp": 1,
+              "toEp": 1,
+              "date": "2026-04-09"
+            },
+            {
+              "fromEp": 2,
+              "toEp": 2,
+              "date": "2026-04-16"
+            },
+            {
               "fromEp": 3,
               "toEp": 5,
               "date": "2026-04-30"
@@ -18158,7 +18168,7 @@
           ]
         }
       ],
-      "updatedAt": "2026-06-10T20:19:57.207Z",
+      "updatedAt": "2026-06-10T20:22:19.805Z",
       "nameEn": "",
       "sourceType": "",
       "moods": [],
@@ -34426,5 +34436,5 @@
     "TV Setouchi": "https://static.wikitide.net/avidwiki/thumb/2/20/JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg/534px-JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg",
     "tvN": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_tvN.svg/1280px-Logo_tvN.svg.png"
   },
-  "exportedAt": "2026-06-10T20:20:15.443Z"
+  "exportedAt": "2026-06-10T20:22:25.230Z"
 }
