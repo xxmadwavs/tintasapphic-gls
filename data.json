@@ -1181,7 +1181,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-29T06:47:32.757Z",
+      "updatedAt": "2026-06-17T08:32:31.161Z",
       "nameEn": "วาดฝันวันวิวาห์",
       "episodeDuration": "",
       "myPick": false,
@@ -1205,7 +1205,7 @@
         {
           "label": "Temporada 1",
           "startDate": "2026-06-19",
-          "totalEpisodes": 10,
+          "totalEpisodes": 12,
           "emissionDays": [
             4
           ],
@@ -21150,7 +21150,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-26T06:59:00.630Z"
+      "updatedAt": "2026-06-17T08:33:11.754Z"
     },
     {
       "id": "1779639066759",
@@ -21737,6 +21737,82 @@
       "snNote": "",
       "productoraId": "",
       "updatedAt": "2026-06-13T20:06:54.497Z"
+    },
+    {
+      "id": "1781685513450",
+      "name": "Borderless Line",
+      "nameEn": "borderless line เลือนลบเส้นกั้นระหว่างใจ",
+      "poster": "https://i.mydramalist.com/RBg3OE_4c.jpg?v=1",
+      "synopsis": "La tranquila vida de Gorya se ve truncada cuando Prawfah, su compañera de piso, trae a su entrometida hermana Ingdao a vivir con ella. Ingdao ha estado secretamente enamorada de Gorya desde pequeña, así que mudarse a la misma casa le parece un sueño. Pero las cosas se complican: su condición de \"phi-nong\" hace que Ingdao tenga demasiado miedo de expresar sus sentimientos, y al mismo tiempo tiene que lidiar con Kirin, una amiga que también intenta coquetear con Gorya. A medida que Ingdao y Gorya se acercan, ¿cómo manejarán ambas sus sentimientos? ¿Cómo será la vida juntas, con sus momentos de discusiones, pero también con sus momentos de alegría y risas?",
+      "year": 2024,
+      "country": "Tailandia",
+      "network": "YouTube",
+      "networkUrl": "https://youtu.be/zFjNoLBc1Kg?si=FtiJUKH2bhq6xBxA",
+      "watchLinks": [
+        {
+          "name": "YouTube",
+          "url": "https://youtu.be/zFjNoLBc1Kg?si=FtiJUKH2bhq6xBxA"
+        }
+      ],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "series",
+      "seriesType": "webserie",
+      "cast": [
+        {
+          "actressId": "1778841431775",
+          "character": "Prawfah",
+          "coupleType": "main",
+          "coupleNum": 1
+        },
+        {
+          "actressId": "1778841532393",
+          "character": "Kirin",
+          "coupleType": "other",
+          "coupleNum": 1
+        }
+      ],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": 9,
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2024-09-21",
+          "totalEpisodes": 6,
+          "emissionDays": [
+            5
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": [],
+          "episodeDuration": 9
+        }
+      ],
+      "updatedAt": "2026-06-17T08:38:33.450Z"
     }
   ],
   "movies": [
@@ -31729,6 +31805,117 @@
       ],
       "productoraId": "",
       "updatedAt": "2026-06-06T18:11:05.406Z"
+    },
+    {
+      "id": "1781685870982",
+      "name": "The Lovers",
+      "nameEn": "",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/ocmGR20m9zgn39RupZq8FLWgwKT.jpg",
+      "synopsis": "Un amor que te destruye y luego te reconstruye.\nSara Lim Baylon, una chef de mariscos a regañadientes originaria de Binondo, Manila, es la más joven de su familia al frente del restaurante. Se enfrenta a la enorme presión de estar a la altura de la reputación de su difunto padre y mantener el negocio a flote. Cuando se planea la cena de investidura del gobernador en el restaurante, con una sirena como pieza central, Sara se ve envuelta en un peligroso romance con la criatura mítica.",
+      "year": 2026,
+      "country": "Estados Unidos",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/tEs08eC0GJE?si=85Fu9HUADNv0nqKJ",
+      "date": "2026-06-23",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Animación",
+        "Romance",
+        "Terror",
+        "Thriller"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "awards": [],
+      "category": "movie",
+      "movieType": "short",
+      "duration": 15,
+      "cast": [],
+      "productoraId": "",
+      "updatedAt": "2026-06-17T08:44:30.982Z"
+    },
+    {
+      "id": "1781686263186",
+      "name": "Love Me Against The Night",
+      "nameEn": "她的偏执",
+      "poster": "https://pbs.twimg.com/media/HFVs-slXEAAfyaR?format=jpg&name=small",
+      "synopsis": "La historia sigue a Bei Li, una heredera reservada y controladora, y a Nan Xun, un guardaespaldas silencioso pero inquebrantable. Su relación evoluciona desde la tensión y la desconfianza hasta una profunda dependencia emocional, ofreciendo una exploración compleja de la confianza, la vulnerabilidad y el crecimiento personal.",
+      "year": 2026,
+      "country": "China",
+      "network": "",
+      "networkUrl": "https://www.dailymotion.com/video/xa73ero",
+      "watchLinks": [
+        {
+          "name": "dailymotion",
+          "url": "https://www.dailymotion.com/video/xa73ero"
+        }
+      ],
+      "trailerUrl": "",
+      "date": "2026-04-07",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Acción",
+        "Drama",
+        "Romance",
+        "Thriller"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "awards": [],
+      "category": "movie",
+      "movieType": "film",
+      "duration": 102,
+      "cast": [],
+      "productoraId": "",
+      "updatedAt": "2026-06-17T08:51:03.186Z"
+    },
+    {
+      "id": "1781686367883",
+      "name": "The Fifth Season",
+      "nameEn": "다섯 번째 계절",
+      "poster": "https://i.mydramalist.com/d02ZBD_4c.jpg?v=1",
+      "synopsis": "Esta es una historia entre dos amantes lesbianas, Eunha y Seowoo. Un accidente inesperado pone a Seowoo en el hospital, y Eunha conoce a los padres de Seowoo.",
+      "year": 2018,
+      "country": "Corea del Sur",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "date": "2018-11-16",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "awards": [],
+      "category": "movie",
+      "movieType": "film",
+      "duration": "",
+      "cast": [],
+      "productoraId": "",
+      "updatedAt": "2026-06-17T08:52:47.883Z"
     }
   ],
   "actresses": [
@@ -34657,13 +34844,7 @@
         "1777584355784",
         "1700000000236"
       ],
-      "movieIds": [
-        "1700000000233",
-        "1700000000236",
-        "1700000000266",
-        "1700000000123",
-        "1700000000234"
-      ],
+      "movieIds": [],
       "id": "1779436788054"
     },
     {
@@ -34723,5 +34904,5 @@
     "TV Setouchi": "https://static.wikitide.net/avidwiki/thumb/2/20/JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg/534px-JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg",
     "tvN": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_tvN.svg/1280px-Logo_tvN.svg.png"
   },
-  "exportedAt": "2026-06-13T20:11:18.011Z"
+  "exportedAt": "2026-06-17T08:52:49.186Z"
 }
