@@ -21813,6 +21813,62 @@
         }
       ],
       "updatedAt": "2026-06-17T08:38:33.450Z"
+    },
+    {
+      "id": "1781802648161",
+      "name": "Did You Know",
+      "nameEn": "รักครั้งไหน ก็ใช่เธอ",
+      "poster": "https://pbs.twimg.com/media/HLGKYqmbcAAP-lO?format=jpg&name=small",
+      "synopsis": "La historia de comedia y romance que gira en torno a Phrae una doctora que tiene la regla estricta de no atarse emocionalmente a nadie, y Keen una chica que ha sido 'heterosexual' toda su vida y no quiere saber nada de las actitudes inmaduras y mujeriegas de Phrae.\n\nAmbas se conocen desde niñas. Al crecer y reencontrarse, la doctora Phrae pierde por completo su habitual control frío y se encapricha con Keen, desatando una intensa persistencia por conquistarla.\n\n(Créditos: X @ElClub4AM)",
+      "year": "",
+      "country": "Tailandia",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/_N7ep1NtUN0?si=-IRILVU4AQHWJ4CA",
+      "bookSource": "Did you know",
+      "basedOnBook": true,
+      "sourceType": "webnovel",
+      "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/451672/Thumbnail/book_detail_large.gif?2",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": true,
+      "genres": [
+        "Médico",
+        "Romance"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [
+        {
+          "actressId": "1781802487411",
+          "character": "Keen",
+          "coupleType": "main",
+          "coupleNum": 1
+        },
+        {
+          "actressId": "1781802534918",
+          "character": "Phrae",
+          "coupleType": "main",
+          "coupleNum": 1
+        }
+      ],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "updatedAt": "2026-06-18T17:10:48.161Z"
     }
   ],
   "movies": [
@@ -33833,6 +33889,24 @@
       "country": "Tailandia",
       "birthdate": "",
       "notes": "Actriz"
+    },
+    {
+      "id": "1781802487411",
+      "name": "\"Praew\" Narupornkamol Chaisang",
+      "photo": "https://gbaike-image.cdn.bcebos.com/b3119313b07eca8065381086a36880dda144ad342535/b3119313b07eca8065381086a36880dda144ad342535_url?x-bce-process=image/format,f_auto/resize,m_lfit,w_400,limit_1",
+      "country": "Tailandia",
+      "birthdate": "1998-06-01",
+      "height": 170,
+      "notes": "Actriz, Modelo"
+    },
+    {
+      "id": "1781802534918",
+      "name": "\"Claudine\" Atitaya Craig",
+      "photo": "https://static.wikia.nocookie.net/drama/images/8/8d/Claudine_Craig2.jpg/revision/latest?cb=20200731044108&path-prefix=es",
+      "country": "Tailandia",
+      "birthdate": "1999-06-13",
+      "height": 163,
+      "notes": "Actriz, Modelo"
     }
   ],
   "ships": [
@@ -34904,5 +34978,5 @@
     "TV Setouchi": "https://static.wikitide.net/avidwiki/thumb/2/20/JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg/534px-JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg",
     "tvN": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_tvN.svg/1280px-Logo_tvN.svg.png"
   },
-  "exportedAt": "2026-06-17T08:52:49.186Z"
+  "exportedAt": "2026-06-18T17:10:51.412Z"
 }
