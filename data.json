@@ -22146,6 +22146,46 @@
         }
       ],
       "updatedAt": "2026-07-01T11:27:16.140Z"
+    },
+    {
+      "id": "1782906958755",
+      "name": "Love Above The Clouds",
+      "nameEn": "ลวงรักเกมเหนือเมฆ",
+      "poster": "",
+      "synopsis": "Cuenta la historia de Rin, una espía que se infiltra en una empresa de ciberseguridad para encontrar pruebas que permitan arrestar a Zeer, el director ejecutivo sospechoso de ser Edelweiss, un notorio ciberdelincuente. Sin embargo, Rin se enamora de su objetivo.",
+      "year": "",
+      "country": "",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/bw9TWxqpDqk?si=QbjTpptDN019N1co",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": true,
+      "genres": [],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "updatedAt": "2026-07-01T11:55:58.755Z"
     }
   ],
   "movies": [
@@ -35263,5 +35303,5 @@
     "TV Setouchi": "https://static.wikitide.net/avidwiki/thumb/2/20/JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg/534px-JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg",
     "tvN": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_tvN.svg/1280px-Logo_tvN.svg.png"
   },
-  "exportedAt": "2026-07-01T11:28:18.972Z"
+  "exportedAt": "2026-07-01T11:56:00.935Z"
 }
