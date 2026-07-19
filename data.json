@@ -22300,43 +22300,43 @@
             {
               "fromEp": 22,
               "toEp": 22,
-              "date": "2026-08-21"
+              "date": "2026-07-21"
             },
             {
               "fromEp": 23,
               "toEp": 23,
-              "date": "2026-08-22"
+              "date": "2026-07-22"
             },
             {
               "fromEp": 24,
               "toEp": 24,
-              "date": "2026-08-23"
+              "date": "2026-07-23"
             },
             {
               "fromEp": 25,
               "toEp": 25,
-              "date": "2026-08-24"
+              "date": "2026-07-24"
             },
             {
               "fromEp": 26,
               "toEp": 26,
-              "date": "2026-08-25"
+              "date": "2026-07-25"
             },
             {
               "fromEp": 27,
               "toEp": 27,
-              "date": "2026-09-26"
+              "date": "2026-07-26"
             },
             {
               "fromEp": 28,
               "toEp": 28,
-              "date": "2026-10-27"
+              "date": "2026-07-27"
             }
           ],
           "episodeDuration": 10
         }
       ],
-      "updatedAt": "2026-07-19T17:11:34.666Z"
+      "updatedAt": "2026-07-19T17:18:01.086Z"
     },
     {
       "id": "1784481074654",
@@ -35609,5 +35609,5 @@
     "TV Setouchi": "https://static.wikitide.net/avidwiki/thumb/2/20/JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg/534px-JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg",
     "tvN": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_tvN.svg/1280px-Logo_tvN.svg.png"
   },
-  "exportedAt": "2026-07-19T17:15:30.856Z"
+  "exportedAt": "2026-07-19T17:18:06.416Z"
 }
