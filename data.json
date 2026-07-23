@@ -34511,6 +34511,15 @@
       "country": "Tailandia",
       "birthdate": "1996-01-02",
       "notes": "Actriz"
+    },
+    {
+      "id": "1784821244319",
+      "name": "Yuyu",
+      "photo": "https://pbs.twimg.com/profile_images/2079873002318217216/DtCIJswc_400x400.jpg",
+      "photoPosition": "center 50%",
+      "country": "Tailandia",
+      "birthdate": "",
+      "notes": "Actriz"
     }
   ],
   "ships": [
@@ -35156,6 +35165,19 @@
         "1784480397735",
         "1784480354646"
       ]
+    },
+    {
+      "id": "1784821281363",
+      "name": "TanYuyu",
+      "desc": "",
+      "retired": false,
+      "couplePhoto": "https://pbs.twimg.com/media/HN6EXJjbkAAe29D?format=jpg&name=large",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1778669135059",
+        "1784821244319"
+      ]
     }
   ],
   "productoras": [
@@ -35610,5 +35632,5 @@
     "TV Setouchi": "https://static.wikitide.net/avidwiki/thumb/2/20/JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg/534px-JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg",
     "tvN": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_tvN.svg/1280px-Logo_tvN.svg.png"
   },
-  "exportedAt": "2026-07-23T12:16:21.578Z"
+  "exportedAt": "2026-07-23T15:42:15.893Z"
 }
