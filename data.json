@@ -34725,7 +34725,8 @@
       ],
       "couplePhoto": "https://preview.redd.it/enjoyjune-in-denim-v0-cvi4rzabj7ef1.jpg?width=640&crop=smart&auto=webp&s=642cdf0d9a4ae118b3207c9463d7da817e2173e3",
       "couplePhotoPosition": "50% 20%",
-      "couplePhotoZoom": 1
+      "couplePhotoZoom": 1,
+      "retired": true
     },
     {
       "id": "1779137267689",
@@ -35609,5 +35610,5 @@
     "TV Setouchi": "https://static.wikitide.net/avidwiki/thumb/2/20/JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg/534px-JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg",
     "tvN": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_tvN.svg/1280px-Logo_tvN.svg.png"
   },
-  "exportedAt": "2026-07-19T17:18:06.416Z"
+  "exportedAt": "2026-07-23T12:16:21.578Z"
 }
