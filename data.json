@@ -2424,7 +2424,7 @@
       "network": "",
       "networkUrl": "",
       "watchLinks": [],
-      "trailerUrl": "https://youtu.be/LMKBoo8bvaw",
+      "trailerUrl": "https://youtu.be/1dZ-Z7kYsE0?si=ZSXerxLmf7Qf1szz",
       "bookSource": "Moon Shadow",
       "basedOnBook": true,
       "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/351465/Thumbnail/book_detail_large.gif?7",
@@ -2441,7 +2441,7 @@
         }
       ],
       "bookUrl": "https://www.mebmarket.com/ebook-351465-Moon-Shadow-%E0%B9%80%E0%B8%87%E0%B8%B2%E0%B9%83%E0%B8%95%E0%B9%89%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%88%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B9%8C-English-version",
-      "upcoming": true,
+      "upcoming": false,
       "skipDates": [],
       "episodes": [],
       "genres": [
@@ -2472,7 +2472,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-23T18:40:39.486Z",
+      "updatedAt": "2026-07-27T09:09:52.126Z",
       "nameEn": "",
       "episodeDuration": "",
       "myPick": false,
@@ -2492,7 +2492,21 @@
       "dinamica": [
         "Femme × Femme"
       ],
-      "awards": []
+      "awards": [],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-08-12",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            2
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ]
     },
     {
       "id": "1776971628835",
@@ -34511,15 +34525,6 @@
       "country": "Tailandia",
       "birthdate": "1996-01-02",
       "notes": "Actriz"
-    },
-    {
-      "id": "1784821244319",
-      "name": "Yuyu",
-      "photo": "https://pbs.twimg.com/profile_images/2079873002318217216/DtCIJswc_400x400.jpg",
-      "photoPosition": "center 50%",
-      "country": "Tailandia",
-      "birthdate": "",
-      "notes": "Actriz"
     }
   ],
   "ships": [
@@ -35165,19 +35170,6 @@
         "1784480397735",
         "1784480354646"
       ]
-    },
-    {
-      "id": "1784821281363",
-      "name": "TanYuyu",
-      "desc": "",
-      "retired": false,
-      "couplePhoto": "https://pbs.twimg.com/media/HN6EXJjbkAAe29D?format=jpg&name=large",
-      "couplePhotoPosition": "50% 20%",
-      "couplePhotoZoom": 1,
-      "actressIds": [
-        "1778669135059",
-        "1784821244319"
-      ]
     }
   ],
   "productoras": [
@@ -35632,5 +35624,5 @@
     "TV Setouchi": "https://static.wikitide.net/avidwiki/thumb/2/20/JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg/534px-JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg",
     "tvN": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_tvN.svg/1280px-Logo_tvN.svg.png"
   },
-  "exportedAt": "2026-07-23T15:42:15.893Z"
+  "exportedAt": "2026-07-27T09:10:13.770Z"
 }
