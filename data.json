@@ -2605,7 +2605,7 @@
     {
       "id": "1776972053631",
       "name": "Buy My Boss",
-      "poster": "https://i.mydramalist.com/81kwNm_4f.jpg",
+      "poster": "https://pbs.twimg.com/media/HO9Psn2agAA6idY?format=jpg&name=small",
       "synopsis": "Manfan, una recién graduada, está en bancarrota. Tiene el corazón roto y nada parece estar en orden. Sintiendo soledad, contrata a Araya, una escort, cuya calidez y encanto le brindan consuelo.\n\nJusto cuando su vida empieza a encarrilarse, consigue un trabajo prometedor y descubre que Araya es Issara, su nueva jefa.\n\nEste giro argumental desencadena una aventura llena de tensión romántica y emociones complejas.",
       "year": "",
       "country": "Tailandia",
@@ -2629,7 +2629,7 @@
         }
       ],
       "bookUrl": "https://www.mebmarket.com/ebook-343259-Buy-My-Boss-%E0%B8%89%E0%B8%B1%E0%B8%99%E0%B8%8B%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B9%80%E0%B8%88%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%B2%E0%B8%A2%E0%B8%81%E0%B8%B4%E0%B8%99-English-version",
-      "upcoming": true,
+      "upcoming": false,
       "skipDates": [],
       "episodes": [],
       "genres": [
@@ -2656,7 +2656,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-23T18:41:10.719Z",
+      "updatedAt": "2026-08-09T18:54:24.293Z",
       "episodeDuration": "",
       "myPick": false,
       "myPick2026": false,
@@ -2668,14 +2668,26 @@
       "productoraId": "1779137481839",
       "sourceType": "novela",
       "moods": [],
-      "tropos": [
-        "Jefa y empleada"
-      ],
+      "tropos": [],
       "dinamica": [
         "Jefa × Subordinada",
         "Rica × Pobre"
       ],
-      "awards": []
+      "awards": [],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-10-28",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            0
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ]
     },
     {
       "id": "1776972122133",
@@ -2693,7 +2705,7 @@
       "bookCoverUrl": "",
       "bookLinks": [],
       "bookUrl": "",
-      "upcoming": true,
+      "upcoming": false,
       "skipDates": [],
       "episodes": [],
       "genres": [
@@ -2723,7 +2735,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-19T07:54:07.117Z",
+      "updatedAt": "2026-08-09T19:45:35.732Z",
       "nameEn": "",
       "episodeDuration": "",
       "myPick": false,
@@ -2733,7 +2745,26 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779136191693"
+      "productoraId": "1779136191693",
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-10-17",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            5
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ]
     },
     {
       "id": "1776972237357",
@@ -3218,7 +3249,7 @@
         }
       ],
       "bookUrl": "https://en.mebmarket.com/?action=book_details&book_id=364040",
-      "upcoming": true,
+      "upcoming": false,
       "skipDates": [],
       "episodes": [],
       "genres": [
@@ -3257,7 +3288,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-19T07:54:48.860Z",
+      "updatedAt": "2026-08-09T19:45:52.307Z",
       "episodeDuration": "",
       "myPick": false,
       "myPick2026": false,
@@ -3266,7 +3297,26 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": "1779135573515"
+      "productoraId": "1779135573515",
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-09-07",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            0
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ]
     },
     {
       "id": "1776974252950",
@@ -22460,6 +22510,221 @@
       "snNote": "",
       "productoraId": "1779176820442",
       "updatedAt": "2026-07-19T17:14:19.128Z"
+    },
+    {
+      "id": "1786302108786",
+      "name": "In That Moment, It Was Love",
+      "nameEn": "その瞬間、恋だった",
+      "poster": "",
+      "synopsis": "",
+      "year": "",
+      "country": "Japón",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/Z6yylHCnZi4?si=MD8eEIkx0InNLVVt",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Romance"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-08-08",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            5
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-08-09T19:46:47.700Z"
+    },
+    {
+      "id": "1786304497845",
+      "name": "The Guy She Was Interested In Wasn’t a Guy at All",
+      "nameEn": "気になってる人が男じゃなかった",
+      "poster": "https://a.storyblok.com/f/178900/1064x1505/86a132704a/the-guy-she-was-interested-in-wasn-t-a-guy-at-all-kv-1064.png/m/filters:quality(95)format(webp)",
+      "synopsis": "Aya, una estudiante de secundaria moderna y optimista, adora escuchar rock, pero nadie más parece compartir su gusto… hasta que conoce a un empleado genial y con mucho estilo en una tienda de discos. Vestido completamente de negro, tiene un aire misterioso y un gusto musical impecable. Aya se enamora perdidamente de él, sin saber que en realidad está enamorada de su compañera de clase, Mitsuki. Por su parte, Mitsuki suele ser reservada y evita llamar la atención en la escuela. Pero como se sienta justo al lado de Aya, Mitsuki es muy consciente de los sentimientos de la otra chica y tiene miedo de revelar la verdad. Entonces, ¿por qué empieza a hablar cada vez más con Aya…?",
+      "year": 2027,
+      "country": "Japón",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/TL-IGyJGf-w?si=gPpMwvi3si2-BHr8",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": true,
+      "genres": [],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "anime",
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "Invierno 2027",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "updatedAt": "2026-08-09T19:41:37.845Z"
+    },
+    {
+      "id": "1786304715513",
+      "name": "Young Ladies Don't Play Fighting Games",
+      "nameEn": "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～",
+      "poster": "https://a.storyblok.com/f/178900/933x1320/6dd97b86f2/young-ladies-dont-play-fighting-games-key-visual.jpg/m/filters:quality(95)format(webp)",
+      "synopsis": "La Academia de Chicas Kuromi es una escuela refinada y elegante que espera lo mejor en comportamiento de sus jóvenes damas. Aya entró en esta inigualable institución de chicas ricas gracias a una beca, y espera llegar a ser tan encantadora como su compañera de estudios e ídolo, Shirayui. Pero Shirayui esconde un secreto terrible: ¡es una jugadora incondicional, despiadada, que insulta, encadena combos y aplasta a los novatos! ¿Podría una indulgencia mutua en el combate de videojuegos sin restricciones convertirse en una relación más profunda entre estas dos chicas?",
+      "year": 2926,
+      "country": "Japón",
+      "network": "Crunchyroll",
+      "networkUrl": "https://www.crunchyroll.com/es-es/series/GT00362362/young-ladies-dont-play-fighting-games?srsltid=AfmBOoo40JAgxfNh2FwyBa01AxvPsmLKFC-GBt6zTBuQmkJTqHDX0ZaK",
+      "watchLinks": [
+        {
+          "name": "Crunchyroll",
+          "url": "https://www.crunchyroll.com/es-es/series/GT00362362/young-ladies-dont-play-fighting-games?srsltid=AfmBOoo40JAgxfNh2FwyBa01AxvPsmLKFC-GBt6zTBuQmkJTqHDX0ZaK"
+        }
+      ],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Comedia",
+        "Escolar"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "anime",
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "Verano 2026",
+      "renewedNextSeason": false,
+      "episodeDuration": 23,
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-07-07",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            1
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-08-09T19:45:15.513Z"
+    },
+    {
+      "id": "1786305415447",
+      "name": "Does It Count If You Lose Your Virginity to an Android?",
+      "nameEn": "アンドロイドは経験人数に入りますか??",
+      "poster": "https://cdn.myanimelist.net/images/anime/1084/149783.jpg",
+      "synopsis": "Akane Tsuda, una oficinista de 28 años, parece tenerlo todo bajo control. Guapa, inteligente y una empleada indispensable en una empresa de robótica, Akane es admirada en el trabajo… porque sus compañeros no la ven en casa. En privado, Akane es un auténtico desastre, con un piso que parece más un vertedero que un lugar para vivir. ¡Menos mal que, borracha, encargó un nuevo androide llamado Nadeshiko para que la ayudara a limpiar! Bueno, quizá no sea tan bueno, porque la preciosa androide que llega es una bombón muy cachonda. ¡A Akane le espera más atención de la que esperaba!",
+      "year": 2026,
+      "country": "Japón",
+      "network": "Crunchyroll",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Ciencia Ficción"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "anime",
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "Invierno 2026",
+      "renewedNextSeason": false,
+      "episodeDuration": 3,
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-01-10",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            5
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": [],
+          "episodeDuration": 3
+        }
+      ],
+      "updatedAt": "2026-08-09T19:56:55.447Z"
     }
   ],
   "movies": [
@@ -35624,5 +35889,5 @@
     "TV Setouchi": "https://static.wikitide.net/avidwiki/thumb/2/20/JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg/534px-JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg",
     "tvN": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_tvN.svg/1280px-Logo_tvN.svg.png"
   },
-  "exportedAt": "2026-07-27T09:10:13.770Z"
+  "exportedAt": "2026-08-09T19:58:11.398Z"
 }
