@@ -2357,20 +2357,25 @@
     {
       "id": "1776971352334",
       "name": "Juliet & Juliet",
-      "poster": "https://i.mydramalist.com/YYpwWA_4f.jpg",
+      "poster": "https://i.mydramalist.com/b3oJdN_4c.jpg?v=1",
       "synopsis": "Cuando las herederas de dos familias enemistadas se convierten en el primer amor de la otra, ¿terminará en amor o en tragedia?",
       "year": 2026,
       "country": "Tailandia",
       "network": "",
-      "networkUrl": "",
-      "watchLinks": [],
+      "networkUrl": "https://www.one31.net",
+      "watchLinks": [
+        {
+          "name": "OneD",
+          "url": "https://www.one31.net"
+        }
+      ],
       "trailerUrl": "https://youtu.be/58A5Ayezj-0",
       "bookSource": "",
       "basedOnBook": false,
       "bookCoverUrl": "",
       "bookLinks": [],
       "bookUrl": "",
-      "upcoming": true,
+      "upcoming": false,
       "skipDates": [],
       "episodes": [],
       "genres": [
@@ -2396,7 +2401,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-05-23T18:40:20.207Z",
+      "updatedAt": "2026-08-10T06:48:03.861Z",
       "sourceType": "",
       "moods": [],
       "tropos": [
@@ -2412,7 +2417,21 @@
       "sinNovedades": false,
       "snLastUpdate": "",
       "snNote": "",
-      "productoraId": ""
+      "productoraId": "",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-09-05",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            5
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ]
     },
     {
       "id": "1776971502360",
@@ -22725,6 +22744,83 @@
         }
       ],
       "updatedAt": "2026-08-09T19:56:55.447Z"
+    },
+    {
+      "id": "1786349054932",
+      "name": "Sterling Point",
+      "nameEn": "",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/cThLWEGs6BEqY0QZMbU4FAeWwPT.jpg",
+      "synopsis": "Tras descubrir que ha heredado una isla remota en Canadá de un abuelo con el que no tenía relación y al que nunca le permitieron conocer, Annie Jacobson, de 17 años, decide investigar, lo que la sumerge en un mundo de secretos ocultos, una hermandad inesperada y la complicada historia familiar que nunca debería haber descubierto.",
+      "year": 2026,
+      "country": "Estados Unidos",
+      "network": "Prime Video",
+      "networkUrl": "https://www.primevideo.com/dp/amzn1.dv.gti.82e8be4e-9233-4de9-be85-0099b8f19b56?autoplay=0&ref_=atv_cf_strg_wb",
+      "watchLinks": [
+        {
+          "name": "Prime Video",
+          "url": "https://www.primevideo.com/dp/amzn1.dv.gti.82e8be4e-9233-4de9-be85-0099b8f19b56?autoplay=0&ref_=atv_cf_strg_wb"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/KKnqm1lbKCI?si=tov1TQ6eCTXQIbpy",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Comedia",
+        "Drama",
+        "Misterio",
+        "Romance"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [
+        {
+          "actressId": "1786348984473",
+          "character": "Ramona",
+          "coupleType": "main",
+          "coupleNum": 1
+        },
+        {
+          "actressId": "1786349013014",
+          "character": "Oona",
+          "coupleType": "main",
+          "coupleNum": 1
+        }
+      ],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": 47,
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-08-05",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            2
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-08-10T08:04:14.932Z"
     }
   ],
   "movies": [
@@ -34790,6 +34886,22 @@
       "country": "Tailandia",
       "birthdate": "1996-01-02",
       "notes": "Actriz"
+    },
+    {
+      "id": "1786348984473",
+      "name": "Amélie Hoeferle",
+      "photo": "https://media.themoviedb.org/t/p/w300_and_h450_face/7As5CmmphS4xXVkoIkVApFlxzXV.jpg",
+      "country": "Alemania",
+      "birthdate": "2002-06-05",
+      "notes": "Actriz"
+    },
+    {
+      "id": "1786349013014",
+      "name": "Bo Bragason",
+      "photo": "https://media.themoviedb.org/t/p/w300_and_h450_face/tslJVCWMpsYm9xGOgj2W70YToWs.jpg",
+      "country": "Reino Unido",
+      "birthdate": "2004-03-27",
+      "notes": "Actriz"
     }
   ],
   "ships": [
@@ -35889,5 +36001,5 @@
     "TV Setouchi": "https://static.wikitide.net/avidwiki/thumb/2/20/JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg/534px-JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg",
     "tvN": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_tvN.svg/1280px-Logo_tvN.svg.png"
   },
-  "exportedAt": "2026-08-09T19:58:11.398Z"
+  "exportedAt": "2026-08-10T08:04:31.089Z"
 }
