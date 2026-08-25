@@ -1219,7 +1219,7 @@
     {
       "id": "1776932166717",
       "name": "Pls Love",
-      "poster": "https://pbs.twimg.com/media/HIrM5CfawAA8cY2?format=jpg&name=4096x4096",
+      "poster": "https://i.mydramalist.com/VXnd80_4f.jpg",
       "synopsis": "Cuando a la jefa del club nocturno número uno, apodada \"El Ángel\", se le asigna un trabajo importante para una empresaria condescendiente y despreciada, las circunstancias inesperadamente las llevan a la cama juntas. ¿Cómo terminará esta relación tan íntima?\n\n\"¿Podemos amar?\" Es la misma pregunta, formulada en diferentes contextos. Pakinee pregunta porque no está segura de si una mujer como Panapsorn podría sentar cabeza con ella, mientras que Panapsorn pregunta porque no sabe si alguien de su bajo estatus tiene derecho a amar a otra persona...",
       "year": "",
       "country": "Tailandia",
@@ -1229,7 +1229,7 @@
       "basedOnBook": true,
       "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/374428/Thumbnail/book_detail_large.gif?13",
       "bookUrl": "https://www.mebmarket.com/ebook-374428-PLS-LOVE-%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B9%84%E0%B8%94%E0%B9%89%E0%B9%84%E0%B8%AB%E0%B8%A1",
-      "upcoming": true,
+      "upcoming": false,
       "skipDates": [],
       "episodes": [],
       "watchLinks": [],
@@ -1262,7 +1262,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-07-19T17:08:50.973Z",
+      "updatedAt": "2026-08-25T18:41:00.899Z",
       "nameEn": "รักได้ไหม",
       "episodeDuration": "",
       "myPick": false,
@@ -1282,7 +1282,21 @@
         "Femme × Femme",
         "Rica × Pobre"
       ],
-      "awards": []
+      "awards": [],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-09-11",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ]
     },
     {
       "id": "1776932289648",
@@ -2357,7 +2371,7 @@
     {
       "id": "1776971352334",
       "name": "Juliet & Juliet",
-      "poster": "https://i.mydramalist.com/b3oJdN_4c.jpg?v=1",
+      "poster": "https://i.mydramalist.com/YYJ6YB_4f.jpg",
       "synopsis": "Cuando las herederas de dos familias enemistadas se convierten en el primer amor de la otra, ¿terminará en amor o en tragedia?",
       "year": 2026,
       "country": "Tailandia",
@@ -2369,7 +2383,7 @@
           "url": "https://www.one31.net"
         }
       ],
-      "trailerUrl": "https://youtu.be/58A5Ayezj-0",
+      "trailerUrl": "https://youtu.be/Pbb7VU0VfYA?si=sxiQD7pKD8w-hjs-",
       "bookSource": "",
       "basedOnBook": false,
       "bookCoverUrl": "",
@@ -2388,20 +2402,20 @@
       "cast": [
         {
           "actressId": "1778785034033",
-          "character": "",
+          "character": "Tokyo",
           "coupleType": "main",
           "coupleNum": 1
         },
         {
           "actressId": "1778785101975",
-          "character": "",
+          "character": "\"Blue\" Phakhjira Monchaitrakul",
           "coupleType": "main",
           "coupleNum": 1
         }
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-08-10T06:48:03.861Z",
+      "updatedAt": "2026-08-25T18:41:34.531Z",
       "sourceType": "",
       "moods": [],
       "tropos": [
@@ -2711,7 +2725,7 @@
     {
       "id": "1776972122133",
       "name": "Under Her Rules",
-      "poster": "https://i.mydramalist.com/5vOz6V_4c.jpg?v=1",
+      "poster": "https://i.mydramalist.com/zBQNg1_4c.jpg?v=1",
       "synopsis": "Alice, una recién graduada, conoce a su intensa y seductora jefa, Nannalin.\n\nA medida que se desdibujan los límites entre el trabajo, el deseo y el poder, Alice debe decidir: ¿escapar de su exigente jefa o someterse a sus reglas?",
       "year": "",
       "country": "Tailandia",
@@ -2754,7 +2768,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-08-09T19:45:35.732Z",
+      "updatedAt": "2026-08-25T18:54:22.204Z",
       "nameEn": "",
       "episodeDuration": "",
       "myPick": false,
@@ -3246,7 +3260,7 @@
       "network": "",
       "networkUrl": "",
       "watchLinks": [],
-      "trailerUrl": "https://youtu.be/II86VoZ6v3A",
+      "trailerUrl": "https://youtu.be/PNPqobabDiU?si=2GVYpQeWzXKXBkfe",
       "bookSource": "Formidable eyes",
       "basedOnBook": true,
       "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/364040/Thumbnail/book_detail_large.gif?2",
@@ -3307,7 +3321,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-08-09T19:45:52.307Z",
+      "updatedAt": "2026-08-25T18:32:28.746Z",
       "episodeDuration": "",
       "myPick": false,
       "myPick2026": false,
@@ -4313,7 +4327,7 @@
         }
       ],
       "bookUrl": "https://www.mebmarket.com/ebook-189987-Third-Person-%E0%B8%96%E0%B9%89%E0%B8%AD%E0%B8%A2%E0%B8%A3%E0%B8%B1%E0%B8%81---%E0%B8%84%E0%B8%B3%E0%B8%A5%E0%B8%A7%E0%B8%87",
-      "upcoming": true,
+      "upcoming": false,
       "skipDates": [],
       "episodes": [],
       "genres": [
@@ -4321,7 +4335,7 @@
         "Drama",
         "Romance"
       ],
-      "updatedAt": "2026-05-22T06:46:20.023Z",
+      "updatedAt": "2026-08-25T18:55:15.055Z",
       "nameEn": "ถ้อยรักคำลวง",
       "category": "series",
       "seriesType": "serie",
@@ -4357,7 +4371,24 @@
       "snNote": "",
       "productoraId": "1779135760151",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-09-12",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            5
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ]
     },
     {
       "id": "1777048197930",
@@ -22821,6 +22852,328 @@
         }
       ],
       "updatedAt": "2026-08-10T08:04:14.932Z"
+    },
+    {
+      "id": "1787683046577",
+      "name": "Hello, Stranger",
+      "nameEn": "안녕, 낯선 사람",
+      "poster": "https://girlsloveinfo.com/wp-content/uploads/2026/08/Captura-de-Tela-2026-08-19-as-21.30.29.jpg",
+      "synopsis": "",
+      "year": 2026,
+      "country": "Corea del Sur",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/GGEOQXKiEnA?si=Br_YQIYLLVSvdRCq",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": true,
+      "genres": [],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "series",
+      "seriesType": "webserie",
+      "cast": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "updatedAt": "2026-08-25T18:37:32.834Z"
+    },
+    {
+      "id": "1787683216934",
+      "name": "Resonance",
+      "nameEn": "จังหวะรัก เพลงของเรา",
+      "poster": "https://i.mydramalist.com/l02qxb_3f.jpg",
+      "synopsis": "",
+      "year": "",
+      "country": "Tailandia",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": true,
+      "genres": [
+        "Romance"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [
+        {
+          "actressId": "1778705135312",
+          "character": "Fame",
+          "coupleType": "main",
+          "coupleNum": 1
+        },
+        {
+          "actressId": "1778705100123",
+          "character": "Oengoei",
+          "coupleType": "main",
+          "coupleNum": 1
+        }
+      ],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779136135118",
+      "updatedAt": "2026-08-25T18:40:16.934Z"
+    },
+    {
+      "id": "1787683435426",
+      "name": "Just Survive",
+      "nameEn": "",
+      "poster": "",
+      "synopsis": "",
+      "year": "",
+      "country": "",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": true,
+      "genres": [],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [
+        {
+          "actressId": "1778760606088",
+          "character": "",
+          "coupleType": "main",
+          "coupleNum": 1
+        },
+        {
+          "actressId": "1778841205354",
+          "character": "",
+          "coupleType": "main",
+          "coupleNum": 1
+        }
+      ],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "updatedAt": "2026-08-25T18:43:55.426Z"
+    },
+    {
+      "id": "1787683631570",
+      "name": "How Do We Relationship?",
+      "nameEn": "付き合ってあげてもいいかな",
+      "poster": "https://i.mydramalist.com/3o5zR4_4f.jpg",
+      "synopsis": "A la tímida Miwa siempre le ha hecho ilusión encontrar el amor, pero vivir en un pueblecito de Japón le dificultaba dar con la pareja ideal, ¡sobre todo porque le gustan las chicas! Ni siquiera irse a la universidad pareció aumentar sus posibilidades románticas, hasta que un día su extrovertida compañera de clase, Saeko, le sugiere que, ya que ninguna de las dos tiene otras opciones, podrían empezar a salir juntas.\n\nAl principio parece que las cosas no van a funcionar, ya que sus personalidades chocan y abundan los malentendidos. Pero cuando su amistad informal empieza a convertirse en algo más, Miwa comienza a preguntarse: ¿puede una propuesta pragmática conducir al amor verdadero?\n\n(Fuente: VIZ Media)",
+      "year": 2026,
+      "country": "Japón",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/CXVDGq8dRJg?si=de8eWQhr6lEiBoub",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Romance"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": 30,
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-09-10",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            3
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": [],
+          "episodeDuration": 30
+        }
+      ],
+      "updatedAt": "2026-08-25T18:47:11.570Z"
+    },
+    {
+      "id": "1787683765243",
+      "name": "Goodbye, Lara",
+      "nameEn": "さよならララ",
+      "poster": "https://cdn.myanimelist.net/images/anime/1411/156343.jpg",
+      "synopsis": "Hace mucho tiempo, una princesa sirena llamada Lara se enamoró de un príncipe humano. Para estar con él, usó la poción de una bruja y se convirtió en humana, pero la magia tenía un precio: si no encontraba el amor verdadero, se desvanecería para siempre en espuma de mar. Ahora, 200 años después, Lara despierta en el lago Biwa con una última oportunidad para vivir y amar.",
+      "year": 2026,
+      "country": "Japón",
+      "network": "Crunchyroll",
+      "networkUrl": "https://www.crunchyroll.com/es-es/series/GT00378059/goodbye-lara?srsltid=AfmBOopyT59QF447h6d7o-B2b1vg0kZmpNvNcrNFwsyq1YQ1mk8_9RRF",
+      "watchLinks": [
+        {
+          "name": "Crunchyroll",
+          "url": "https://www.crunchyroll.com/es-es/series/GT00378059/goodbye-lara?srsltid=AfmBOopyT59QF447h6d7o-B2b1vg0kZmpNvNcrNFwsyq1YQ1mk8_9RRF"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/gkze74TXiU8?si=ResN9uKtgzFww7j1",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "anime",
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "Verano 2026",
+      "renewedNextSeason": false,
+      "episodeDuration": 24,
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-07-06",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            0
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-08-25T18:49:25.243Z"
+    },
+    {
+      "id": "1787684249207",
+      "name": "Still Water",
+      "nameEn": "วารี ๑๐๐ ศพ",
+      "poster": "https://i.mydramalist.com/JBQxqd_4c.jpg?v=1",
+      "synopsis": "La pequeña localidad de Wari Pasop parece tranquila, pero bajo esa apariencia de calma se esconden oscuros secretos. Años atrás, la inexplicable desaparición de una mujer desencadenó una cadena de acontecimientos que desembocaron en una compleja serie de asesinatos y en una carrera por descubrir una verdad bien enterrada.",
+      "year": 2026,
+      "country": "Tailandia",
+      "network": "Disney+",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://www.youtube.com/watch?v=_NvKLPSGG6A",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Drama",
+        "Misterio",
+        "Thriller"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-08-28",
+          "totalEpisodes": 4,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-08-25T18:58:08.652Z"
     }
   ],
   "movies": [
@@ -32924,6 +33277,39 @@
       "cast": [],
       "productoraId": "",
       "updatedAt": "2026-06-17T08:52:47.883Z"
+    },
+    {
+      "id": "1787683987871",
+      "name": "Happily Ever After",
+      "nameEn": "幸福快樂的日子",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYTUxNDMwYmUtYTRmNi00NmM0LThmMjQtMzM1YTM0N2QwYWI2XkEyXkFqcGc@._V1_.jpg",
+      "synopsis": "A medida que una hermana se prepara para el matrimonio y la otra se resiste a todas las convenciones que representa, su frágil vínculo se pone a prueba por el amor, las expectativas familiares y la pregunta de si la felicidad puede ser realmente elegida.",
+      "year": 2026,
+      "country": "Taiwán",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "date": "",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Vida cotidiana"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "awards": [],
+      "category": "movie",
+      "movieType": "film",
+      "duration": 95,
+      "cast": [],
+      "productoraId": "",
+      "updatedAt": "2026-08-25T18:53:07.871Z"
     }
   ],
   "actresses": [
@@ -34390,11 +34776,12 @@
     },
     {
       "id": "1778841205354",
-      "name": "\"Pink\" Subhisara Suksathan",
+      "name": "\"Pinky\" Subhisara Suksathan",
       "photo": "https://i.mydramalist.com/zBxBPe_5c.jpg",
       "country": "Tailandia",
       "birthdate": "1999-06-10",
-      "notes": ""
+      "notes": "",
+      "photoPosition": "center 15%"
     },
     {
       "id": "1778841289552",
@@ -36001,5 +36388,5 @@
     "TV Setouchi": "https://static.wikitide.net/avidwiki/thumb/2/20/JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg/534px-JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg",
     "tvN": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_tvN.svg/1280px-Logo_tvN.svg.png"
   },
-  "exportedAt": "2026-08-10T08:04:31.089Z"
+  "exportedAt": "2026-08-25T19:01:28.706Z"
 }
