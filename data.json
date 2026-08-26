@@ -1219,7 +1219,7 @@
     {
       "id": "1776932166717",
       "name": "Pls Love",
-      "poster": "https://i.mydramalist.com/VXnd80_4f.jpg",
+      "poster": "https://pbs.twimg.com/media/HIrM5CfawAA8cY2?format=jpg&name=4096x4096",
       "synopsis": "Cuando a la jefa del club nocturno número uno, apodada \"El Ángel\", se le asigna un trabajo importante para una empresaria condescendiente y despreciada, las circunstancias inesperadamente las llevan a la cama juntas. ¿Cómo terminará esta relación tan íntima?\n\n\"¿Podemos amar?\" Es la misma pregunta, formulada en diferentes contextos. Pakinee pregunta porque no está segura de si una mujer como Panapsorn podría sentar cabeza con ella, mientras que Panapsorn pregunta porque no sabe si alguien de su bajo estatus tiene derecho a amar a otra persona...",
       "year": "",
       "country": "Tailandia",
@@ -1229,7 +1229,7 @@
       "basedOnBook": true,
       "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/374428/Thumbnail/book_detail_large.gif?13",
       "bookUrl": "https://www.mebmarket.com/ebook-374428-PLS-LOVE-%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B9%84%E0%B8%94%E0%B9%89%E0%B9%84%E0%B8%AB%E0%B8%A1",
-      "upcoming": false,
+      "upcoming": true,
       "skipDates": [],
       "episodes": [],
       "watchLinks": [],
@@ -1262,7 +1262,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-08-25T18:41:00.899Z",
+      "updatedAt": "2026-07-19T17:08:50.973Z",
       "nameEn": "รักได้ไหม",
       "episodeDuration": "",
       "myPick": false,
@@ -1282,21 +1282,7 @@
         "Femme × Femme",
         "Rica × Pobre"
       ],
-      "awards": [],
-      "seasons": [
-        {
-          "label": "Temporada 1",
-          "startDate": "2026-09-11",
-          "totalEpisodes": 8,
-          "emissionDays": [
-            4
-          ],
-          "allInOneDay": false,
-          "skipDates": [],
-          "episodes": [],
-          "premiereSchedule": []
-        }
-      ]
+      "awards": []
     },
     {
       "id": "1776932289648",
@@ -2371,7 +2357,7 @@
     {
       "id": "1776971352334",
       "name": "Juliet & Juliet",
-      "poster": "https://i.mydramalist.com/YYJ6YB_4f.jpg",
+      "poster": "https://i.mydramalist.com/b3oJdN_4c.jpg?v=1",
       "synopsis": "Cuando las herederas de dos familias enemistadas se convierten en el primer amor de la otra, ¿terminará en amor o en tragedia?",
       "year": 2026,
       "country": "Tailandia",
@@ -2383,7 +2369,7 @@
           "url": "https://www.one31.net"
         }
       ],
-      "trailerUrl": "https://youtu.be/Pbb7VU0VfYA?si=sxiQD7pKD8w-hjs-",
+      "trailerUrl": "https://youtu.be/58A5Ayezj-0",
       "bookSource": "",
       "basedOnBook": false,
       "bookCoverUrl": "",
@@ -2402,20 +2388,20 @@
       "cast": [
         {
           "actressId": "1778785034033",
-          "character": "Tokyo",
+          "character": "",
           "coupleType": "main",
           "coupleNum": 1
         },
         {
           "actressId": "1778785101975",
-          "character": "\"Blue\" Phakhjira Monchaitrakul",
+          "character": "",
           "coupleType": "main",
           "coupleNum": 1
         }
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-08-25T18:41:34.531Z",
+      "updatedAt": "2026-08-10T06:48:03.861Z",
       "sourceType": "",
       "moods": [],
       "tropos": [
@@ -2725,7 +2711,7 @@
     {
       "id": "1776972122133",
       "name": "Under Her Rules",
-      "poster": "https://i.mydramalist.com/zBQNg1_4c.jpg?v=1",
+      "poster": "https://i.mydramalist.com/5vOz6V_4c.jpg?v=1",
       "synopsis": "Alice, una recién graduada, conoce a su intensa y seductora jefa, Nannalin.\n\nA medida que se desdibujan los límites entre el trabajo, el deseo y el poder, Alice debe decidir: ¿escapar de su exigente jefa o someterse a sus reglas?",
       "year": "",
       "country": "Tailandia",
@@ -2768,7 +2754,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-08-25T18:54:22.204Z",
+      "updatedAt": "2026-08-09T19:45:35.732Z",
       "nameEn": "",
       "episodeDuration": "",
       "myPick": false,
@@ -3260,7 +3246,7 @@
       "network": "",
       "networkUrl": "",
       "watchLinks": [],
-      "trailerUrl": "https://youtu.be/PNPqobabDiU?si=2GVYpQeWzXKXBkfe",
+      "trailerUrl": "https://youtu.be/II86VoZ6v3A",
       "bookSource": "Formidable eyes",
       "basedOnBook": true,
       "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/364040/Thumbnail/book_detail_large.gif?2",
@@ -3321,7 +3307,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-08-25T18:32:28.746Z",
+      "updatedAt": "2026-08-09T19:45:52.307Z",
       "episodeDuration": "",
       "myPick": false,
       "myPick2026": false,
@@ -4327,7 +4313,7 @@
         }
       ],
       "bookUrl": "https://www.mebmarket.com/ebook-189987-Third-Person-%E0%B8%96%E0%B9%89%E0%B8%AD%E0%B8%A2%E0%B8%A3%E0%B8%B1%E0%B8%81---%E0%B8%84%E0%B8%B3%E0%B8%A5%E0%B8%A7%E0%B8%87",
-      "upcoming": false,
+      "upcoming": true,
       "skipDates": [],
       "episodes": [],
       "genres": [
@@ -4335,7 +4321,7 @@
         "Drama",
         "Romance"
       ],
-      "updatedAt": "2026-08-25T18:55:15.055Z",
+      "updatedAt": "2026-05-22T06:46:20.023Z",
       "nameEn": "ถ้อยรักคำลวง",
       "category": "series",
       "seriesType": "serie",
@@ -4371,24 +4357,7 @@
       "snNote": "",
       "productoraId": "1779135760151",
       "sourceType": "novela",
-      "moods": [],
-      "tropos": [],
-      "dinamica": [],
-      "awards": [],
-      "seasons": [
-        {
-          "label": "Temporada 1",
-          "startDate": "2026-09-12",
-          "totalEpisodes": 12,
-          "emissionDays": [
-            5
-          ],
-          "allInOneDay": false,
-          "skipDates": [],
-          "episodes": [],
-          "premiereSchedule": []
-        }
-      ]
+      "moods": []
     },
     {
       "id": "1777048197930",
@@ -19062,8 +19031,33 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-10T09:27:17.229Z",
-      "nameEn": ""
+      "updatedAt": "2026-08-26T20:45:46.735Z",
+      "nameEn": "",
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "seriesType": "serie",
+      "cast": [
+        {
+          "actressId": "1787777094415",
+          "character": "Shelby Goodkind",
+          "coupleType": "main",
+          "coupleNum": 1
+        }
+      ],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1778405690996",
@@ -21712,7 +21706,9 @@
             4
           ],
           "allInOneDay": false,
-          "skipDates": [],
+          "skipDates": [
+            "2026-08-28"
+          ],
           "episodes": [],
           "premiereSchedule": []
         }
@@ -23174,6 +23170,170 @@
         }
       ],
       "updatedAt": "2026-08-25T18:58:08.652Z"
+    },
+    {
+      "id": "1787776313277",
+      "name": "Slo Pitch",
+      "nameEn": "",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/cvo5GOJzfow81Xa4mjYseTxfvxD.jpg",
+      "synopsis": "Bienvenidos al mundo de los deportes de ligas amateur, donde Joanne Pico es la entrenadora de «The Public Lass Brovaries», un equipo que ha perdido seis veces la liga. La entrenadora Joanne está decidida a darle la vuelta a la situación esta temporada, a pesar de que su novia —y cofundadora del equipo— acaba de dejarla de forma brutal. A lo largo del verano, Joanne guía a su adorable y caótica pandilla a través de una temporada de strikeouts, rivalidades insignificantes, patrocinadores políticos conservadores y sensuales eventos benéficos de lavado de coches que salen mal. Ahora que su ex juega en un equipo rival, Joanne tiene mucho que demostrar esta temporada. Es hora de superar la ruptura, volver a reunir a la pandilla y, quizá, incluso encontrar un nuevo amor entre cervezas en el banquillo.",
+      "year": 2026,
+      "country": "Estados Unidos",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/aecr7t8nSfg?si=CUh9KR1O7eAIL4zE",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Comedia"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-09-25",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-08-26T20:31:53.277Z"
+    },
+    {
+      "id": "1787777722275",
+      "name": "The Moon on a Rainy Night",
+      "nameEn": "雨夜の月",
+      "poster": "https://a.storyblok.com/f/178900/849x1200/ccb22d81f2/the_moon_on_a_rainy_night_teaser_art.jpg/m/filters:quality(95)format(webp)",
+      "synopsis": "La Luna en una Noche Lluviosa\n\n\"Es una metáfora de las cosas que no se pueden ver. Como la luna, oculta tras las nubes de lluvia.\"\n\nJusto antes de empezar el instituto, Saki Kindaichi se encuentra con una chica atractiva de pelo largo y suelto, Kanon Oikawa, camino a una clase de piano.\n\nPara su sorpresa, se reencuentran en la ceremonia de entrada, ahora como compañeras de clase.\n\nKanon tiene dificultades auditivas y tiende a mantener las distancias con los demás. Saki, inquieta por cómo algunos compañeros y profesores tratan a Kanon, se siente obligada a acercarse.\n\nConmovida por la silenciosa determinación de Saki, Kanon empieza a bajar la guardia... y poco a poco, su mundo empieza a cambiar.\n\nUn ritmo suave y cotidiano acerca sus corazones, paso a paso.\n\nEsta es la historia de dos chicas: de luchas invisibles, vínculos tácitos y un amor que, silenciosamente, echa raíces.",
+      "year": "",
+      "country": "Japón",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": true,
+      "genres": [
+        "Drama",
+        "Escolar"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "anime",
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "updatedAt": "2026-08-26T20:55:22.275Z"
+    },
+    {
+      "id": "1787777994531",
+      "name": "Roll Over and Die",
+      "nameEn": "「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/uzRpWknriZnd8fxkse5sfVaQwJn.jpg",
+      "synopsis": "Flum Apricot nunca estuvo destinada a ser una heroína. A pesar de tener estadísticas en cero y un poder que ni siquiera puede usar, de alguna manera termina formando parte de un grupo de héroes. Pero su vida toca fondo cuando el renombrado sabio del grupo, Jean Inteige, decide que la chica inútil es un estorbo y organiza su venta como esclava. Arrojada a las bestias para ser devorada por diversión de su amo, Flum toma una decisión desesperada: empuñar un arma maldita… y algo nuevo despierta dentro de ella. Una historia oscura y sangrienta sobre la lucha de una mujer por recuperar su vida.",
+      "year": 2026,
+      "country": "Japón",
+      "network": "Crunchyroll",
+      "networkUrl": "https://www.crunchyroll.com/es-es/series/GT00365592/roll-over-and-die?srsltid=AfmBOorolM-vDtKV0egnL38EiJsAWJ6pp3lRpPA3GDSeXEYcIzWkMK8v",
+      "watchLinks": [
+        {
+          "name": "Crunchyroll",
+          "url": "https://www.crunchyroll.com/es-es/series/GT00365592/roll-over-and-die?srsltid=AfmBOorolM-vDtKV0egnL38EiJsAWJ6pp3lRpPA3GDSeXEYcIzWkMK8v"
+        }
+      ],
+      "trailerUrl": "https://youtu.be/_RM62zjB3Bk?si=0wXBu0pQyuLyCA-Z",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Acción",
+        "Animación",
+        "Anime",
+        "Aventura",
+        "Fantasía"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "anime",
+      "seriesType": "serie",
+      "cast": [],
+      "animeSeason": "Invierno 2026",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-01-09",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-08-26T20:59:54.531Z"
     }
   ],
   "movies": [
@@ -33310,6 +33470,181 @@
       "cast": [],
       "productoraId": "",
       "updatedAt": "2026-08-25T18:53:07.871Z"
+    },
+    {
+      "id": "1787776941440",
+      "name": "Tal vez",
+      "nameEn": "Tal vez",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/eDvaJ34eIGxrZtpw4UsPPuAlaXH.jpg",
+      "synopsis": "Año 1968. La estrella mundial del Circo Price, Pinito del Oro, prepara su última actuación. Pero antes de su retirada, quiere elaborar sus memorias. En la poeta canaria Natalia Sosa encuentra a la biógrafa perfecta: pocos la conocen fuera de su isla, pero sus textos son desgarradores. Su magnetismo es tal que surge entre ellas una conexión profunda que levanta sospechas, hasta que el encargo se rompe. Quedan cosas por decir. Pero su amistad se consolida durante décadas con cartas que sortean los obstáculos de la época. Lo que esas hojas guardan por fin saldrá a la luz. Inspirada en hechos reales.",
+      "year": 2026,
+      "country": "España",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/cedgjVT5aU8?si=LBLVA3hVhfXmOnhU",
+      "date": "2026-07-10",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "awards": [],
+      "category": "movie",
+      "movieType": "film",
+      "duration": 116,
+      "cast": [],
+      "productoraId": "",
+      "updatedAt": "2026-08-26T20:42:21.440Z"
+    },
+    {
+      "id": "1787777112778",
+      "name": "Twisted",
+      "nameEn": "",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/rF6txsM6cgF9vg6Ra5sNbkvUwrw.jpg",
+      "synopsis": "Dos millennials ganan dinero rápido alquilando increíbles pisos de Nueva York que no son suyos a personas que no saben que están siendo estafadas. La estafa funciona a las mil maravillas hasta que se topan con el propietario de un piso que esconde un oscuro secreto y les da la vuelta a la tortilla.",
+      "year": 2026,
+      "country": "Estados Unidos",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/fAkM20N5YV0?si=IybxeeitUcBjsHFp",
+      "date": "2026-02-06",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Terror",
+        "Thriller"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "awards": [],
+      "category": "movie",
+      "movieType": "film",
+      "duration": 93,
+      "cast": [
+        {
+          "actressId": "1787777094415",
+          "character": "Smith",
+          "coupleType": "main",
+          "coupleNum": 1
+        }
+      ],
+      "productoraId": "",
+      "updatedAt": "2026-08-26T20:45:12.778Z"
+    },
+    {
+      "id": "1787777300196",
+      "name": "Undercard",
+      "nameEn": "",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/5QRH0zH0rCYHuEkwz5vAVORfSji.jpg",
+      "synopsis": "Tras abandonar a su hijo, una entrenadora de boxeo resurge de sus cenizas para prepararlo para el combate más importante de su carrera.",
+      "year": 2025,
+      "country": "Estados Unidos",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/gC18799mhok?si=0VbClbPd4a42N9Q0",
+      "date": "2025-10-01",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Drama"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "awards": [],
+      "category": "movie",
+      "movieType": "film",
+      "duration": 105,
+      "cast": [],
+      "productoraId": "",
+      "updatedAt": "2026-08-26T20:48:20.196Z"
+    },
+    {
+      "id": "1787777458506",
+      "name": "Pioneras: solo querían jugar",
+      "nameEn": "",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYWNmMTUwODUtNjk1Mi00YzMxLWE1ZDUtYzFjOGNlNjlmZmIxXkEyXkFqcGc@._V1_.jpg",
+      "synopsis": "En la España de principios de los años 70, con el franquismo aún firmemente arraigado en la sociedad, un grupo de chicas muy jóvenes decide jugar al fútbol en un país que no contempla su lugar en el deporte. En el camino encuentran a un aliado inesperado: un promotor deportivo tan audaz como visionario. Juntos, y contra todo pronóstico, desafiarán al sistema y pondrán la primera piedra de una lucha que cambiará para siempre la historia del fútbol femenino en España.",
+      "year": 2026,
+      "country": "España / Portugal",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/ku6PYT7PhBY?si=nhrKklLdZJsRfk9I",
+      "date": "2026-06-05",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Deportes",
+        "Drama"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "awards": [],
+      "category": "movie",
+      "movieType": "film",
+      "duration": 106,
+      "cast": [],
+      "productoraId": "",
+      "updatedAt": "2026-08-26T20:50:58.506Z"
+    },
+    {
+      "id": "1787777617721",
+      "name": "Another Day",
+      "nameEn": "Garance",
+      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/uVEkYwPFNQUjdPMibPOGHR0fVcV.jpg",
+      "synopsis": "Garance es una joven actriz, pero no una estrella. Se las arregla como puede, valiente, alegre, como una luchadora, y encuentra en el alcohol un combustible incondicional, una fuente de consuelo. Garance cambia de vida y emprende un viaje de ocho años lleno de mudanzas, trabajo, encuentros, fiestas y ansiedades, alegrías y dificultades… Una revolución íntima, amistosa y sexual. Pero consume cada vez más. Hasta llegar a la posibilidad misma de la muerte…",
+      "year": 2026,
+      "country": "Francia / Bélgica",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://youtu.be/FPtZcAXhvKw?si=MjHpdPJUMXTGZKbk",
+      "date": "2026-09-23",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Drama"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "awards": [],
+      "category": "movie",
+      "movieType": "film",
+      "duration": 120,
+      "cast": [],
+      "productoraId": "",
+      "updatedAt": "2026-08-26T20:53:37.721Z"
     }
   ],
   "actresses": [
@@ -34776,12 +35111,11 @@
     },
     {
       "id": "1778841205354",
-      "name": "\"Pinky\" Subhisara Suksathan",
+      "name": "\"Pink\" Subhisara Suksathan",
       "photo": "https://i.mydramalist.com/zBxBPe_5c.jpg",
       "country": "Tailandia",
       "birthdate": "1999-06-10",
-      "notes": "",
-      "photoPosition": "center 15%"
+      "notes": ""
     },
     {
       "id": "1778841289552",
@@ -35288,6 +35622,14 @@
       "photo": "https://media.themoviedb.org/t/p/w300_and_h450_face/tslJVCWMpsYm9xGOgj2W70YToWs.jpg",
       "country": "Reino Unido",
       "birthdate": "2004-03-27",
+      "notes": "Actriz"
+    },
+    {
+      "id": "1787777094415",
+      "name": "Mia Healey",
+      "photo": "https://media.themoviedb.org/t/p/w300_and_h450_face/zk8wvcGxirWjsksvYBI7ZbkqkfL.jpg",
+      "country": "Australia",
+      "birthdate": "1998-08-28",
       "notes": "Actriz"
     }
   ],
@@ -36388,5 +36730,5 @@
     "TV Setouchi": "https://static.wikitide.net/avidwiki/thumb/2/20/JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg/534px-JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg",
     "tvN": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_tvN.svg/1280px-Logo_tvN.svg.png"
   },
-  "exportedAt": "2026-08-25T19:01:28.706Z"
+  "exportedAt": "2026-08-26T21:01:08.196Z"
 }
