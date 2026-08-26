@@ -1219,7 +1219,7 @@
     {
       "id": "1776932166717",
       "name": "Pls Love",
-      "poster": "https://pbs.twimg.com/media/HIrM5CfawAA8cY2?format=jpg&name=4096x4096",
+      "poster": "https://i.mydramalist.com/KpwevJ_4c.jpg?v=1",
       "synopsis": "Cuando a la jefa del club nocturno número uno, apodada \"El Ángel\", se le asigna un trabajo importante para una empresaria condescendiente y despreciada, las circunstancias inesperadamente las llevan a la cama juntas. ¿Cómo terminará esta relación tan íntima?\n\n\"¿Podemos amar?\" Es la misma pregunta, formulada en diferentes contextos. Pakinee pregunta porque no está segura de si una mujer como Panapsorn podría sentar cabeza con ella, mientras que Panapsorn pregunta porque no sabe si alguien de su bajo estatus tiene derecho a amar a otra persona...",
       "year": "",
       "country": "Tailandia",
@@ -1229,7 +1229,7 @@
       "basedOnBook": true,
       "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/374428/Thumbnail/book_detail_large.gif?13",
       "bookUrl": "https://www.mebmarket.com/ebook-374428-PLS-LOVE-%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B9%84%E0%B8%94%E0%B9%89%E0%B9%84%E0%B8%AB%E0%B8%A1",
-      "upcoming": true,
+      "upcoming": false,
       "skipDates": [],
       "episodes": [],
       "watchLinks": [],
@@ -1262,7 +1262,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-07-19T17:08:50.973Z",
+      "updatedAt": "2026-08-26T21:16:20.190Z",
       "nameEn": "รักได้ไหม",
       "episodeDuration": "",
       "myPick": false,
@@ -1282,7 +1282,21 @@
         "Femme × Femme",
         "Rica × Pobre"
       ],
-      "awards": []
+      "awards": [],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-09-11",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ]
     },
     {
       "id": "1776932289648",
@@ -2357,7 +2371,7 @@
     {
       "id": "1776971352334",
       "name": "Juliet & Juliet",
-      "poster": "https://i.mydramalist.com/b3oJdN_4c.jpg?v=1",
+      "poster": "https://i.mydramalist.com/YYJ6YB_4c.jpg?v=1",
       "synopsis": "Cuando las herederas de dos familias enemistadas se convierten en el primer amor de la otra, ¿terminará en amor o en tragedia?",
       "year": 2026,
       "country": "Tailandia",
@@ -2382,7 +2396,7 @@
         "Drama",
         "Romance"
       ],
-      "nameEn": "",
+      "nameEn": "จูเลียตแอนด์จูเลียต",
       "category": "series",
       "seriesType": "serie",
       "cast": [
@@ -2401,7 +2415,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-08-10T06:48:03.861Z",
+      "updatedAt": "2026-08-26T21:18:40.735Z",
       "sourceType": "",
       "moods": [],
       "tropos": [
@@ -3246,7 +3260,7 @@
       "network": "",
       "networkUrl": "",
       "watchLinks": [],
-      "trailerUrl": "https://youtu.be/II86VoZ6v3A",
+      "trailerUrl": "https://youtu.be/PNPqobabDiU?si=d_Bw8v5zDMX08P3z",
       "bookSource": "Formidable eyes",
       "basedOnBook": true,
       "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/364040/Thumbnail/book_detail_large.gif?2",
@@ -3307,7 +3321,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-08-09T19:45:52.307Z",
+      "updatedAt": "2026-08-26T21:19:19.970Z",
       "episodeDuration": "",
       "myPick": false,
       "myPick2026": false,
@@ -4313,7 +4327,7 @@
         }
       ],
       "bookUrl": "https://www.mebmarket.com/ebook-189987-Third-Person-%E0%B8%96%E0%B9%89%E0%B8%AD%E0%B8%A2%E0%B8%A3%E0%B8%B1%E0%B8%81---%E0%B8%84%E0%B8%B3%E0%B8%A5%E0%B8%A7%E0%B8%87",
-      "upcoming": true,
+      "upcoming": false,
       "skipDates": [],
       "episodes": [],
       "genres": [
@@ -4321,7 +4335,7 @@
         "Drama",
         "Romance"
       ],
-      "updatedAt": "2026-05-22T06:46:20.023Z",
+      "updatedAt": "2026-08-26T21:19:45.294Z",
       "nameEn": "ถ้อยรักคำลวง",
       "category": "series",
       "seriesType": "serie",
@@ -4357,7 +4371,24 @@
       "snNote": "",
       "productoraId": "1779135760151",
       "sourceType": "novela",
-      "moods": []
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-09-12",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            5
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ]
     },
     {
       "id": "1777048197930",
@@ -36753,5 +36784,5 @@
     "TV Setouchi": "https://static.wikitide.net/avidwiki/thumb/2/20/JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg/534px-JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg",
     "tvN": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_tvN.svg/1280px-Logo_tvN.svg.png"
   },
-  "exportedAt": "2026-08-26T21:14:04.472Z"
+  "exportedAt": "2026-08-26T21:19:53.197Z"
 }
