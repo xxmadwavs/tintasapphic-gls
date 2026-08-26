@@ -21701,19 +21701,48 @@
         {
           "label": "Temporada 1",
           "startDate": "2026-06-19",
-          "totalEpisodes": 12,
+          "totalEpisodes": 14,
           "emissionDays": [
             4
           ],
           "allInOneDay": false,
-          "skipDates": [
-            "2026-08-28"
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 2,
+              "date": "2026-06-19",
+              "skipped": false
+            },
+            {
+              "num": 4,
+              "date": "2026-06-26",
+              "skipped": false
+            },
+            {
+              "num": 6,
+              "date": "2026-07-03",
+              "skipped": false
+            },
+            {
+              "num": 9,
+              "date": "2026-07-17",
+              "skipped": false
+            },
+            {
+              "num": 11,
+              "date": "2026-07-24",
+              "skipped": false
+            },
+            {
+              "num": 13,
+              "date": "2026-07-31",
+              "skipped": false
+            }
           ],
-          "episodes": [],
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-06-10T08:32:08.356Z"
+      "updatedAt": "2026-08-26T21:12:53.896Z"
     },
     {
       "id": "1781080085263",
@@ -22067,19 +22096,13 @@
           "emissionDays": [
             5
           ],
-          "allInOneDay": false,
+          "allInOneDay": true,
           "skipDates": [],
           "episodes": [],
-          "premiereSchedule": [
-            {
-              "fromEp": 1,
-              "toEp": 6,
-              "date": "2026-06-27"
-            }
-          ]
+          "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-07-01T11:02:30.761Z"
+      "updatedAt": "2026-08-26T21:13:32.559Z"
     },
     {
       "id": "1782904390425",
@@ -36730,5 +36753,5 @@
     "TV Setouchi": "https://static.wikitide.net/avidwiki/thumb/2/20/JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg/534px-JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg",
     "tvN": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_tvN.svg/1280px-Logo_tvN.svg.png"
   },
-  "exportedAt": "2026-08-26T21:01:08.196Z"
+  "exportedAt": "2026-08-26T21:14:04.472Z"
 }
