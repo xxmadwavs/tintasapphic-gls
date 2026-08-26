@@ -1262,7 +1262,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-08-26T21:16:20.190Z",
+      "updatedAt": "2026-08-26T21:21:26.533Z",
       "nameEn": "รักได้ไหม",
       "episodeDuration": "",
       "myPick": false,
@@ -1287,7 +1287,7 @@
         {
           "label": "Temporada 1",
           "startDate": "2026-09-11",
-          "totalEpisodes": 12,
+          "totalEpisodes": 8,
           "emissionDays": [
             4
           ],
@@ -2725,7 +2725,7 @@
     {
       "id": "1776972122133",
       "name": "Under Her Rules",
-      "poster": "https://i.mydramalist.com/5vOz6V_4c.jpg?v=1",
+      "poster": "https://i.mydramalist.com/zBQNg1_4c.jpg?v=1",
       "synopsis": "Alice, una recién graduada, conoce a su intensa y seductora jefa, Nannalin.\n\nA medida que se desdibujan los límites entre el trabajo, el deseo y el poder, Alice debe decidir: ¿escapar de su exigente jefa o someterse a sus reglas?",
       "year": "",
       "country": "Tailandia",
@@ -2768,7 +2768,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-08-09T19:45:35.732Z",
+      "updatedAt": "2026-08-26T21:21:58.579Z",
       "nameEn": "",
       "episodeDuration": "",
       "myPick": false,
@@ -22615,7 +22615,7 @@
       "id": "1786302108786",
       "name": "In That Moment, It Was Love",
       "nameEn": "その瞬間、恋だった",
-      "poster": "",
+      "poster": "https://preview.redd.it/japan-in-that-moment-it-was-love-ep-1-v0-7wqjrwxlx4ih1.jpg?width=1920&format=pjpg&auto=webp&s=db0ae897850938f941dc3f8fb7b4caef2956f130",
       "synopsis": "",
       "year": "",
       "country": "Japón",
@@ -22665,7 +22665,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-08-09T19:46:47.700Z"
+      "updatedAt": "2026-08-26T21:22:29.536Z"
     },
     {
       "id": "1786304497845",
@@ -36784,5 +36784,5 @@
     "TV Setouchi": "https://static.wikitide.net/avidwiki/thumb/2/20/JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg/534px-JOPH-DTV_%28TSC_TV_Setouchi%2C_2006%2C_credit_-_TSC%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%29.jpeg",
     "tvN": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_tvN.svg/1280px-Logo_tvN.svg.png"
   },
-  "exportedAt": "2026-08-26T21:19:53.197Z"
+  "exportedAt": "2026-08-26T21:22:30.814Z"
 }
