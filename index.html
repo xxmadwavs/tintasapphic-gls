@@ -1342,22 +1342,6 @@ html[data-theme="dark"] .ship-retired{background:rgba(180,140,160,.08);color:#a0
 .movie-card-poster-wrap{position:relative;overflow:hidden}
 .movie-card-poster{width:100%;aspect-ratio:2/3;object-fit:cover;display:block;background:var(--lavender-soft)}
 .movie-card-poster-ph{width:100%;aspect-ratio:2/3;background:linear-gradient(135deg,var(--lavender-soft) 0%,var(--surface3) 100%);display:flex;align-items:center;justify-content:center;font-size:40px;color:var(--movie-accent)}
-/* Overlay gradiente más profundo en películas */
-.movie-card-poster-wrap::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:60%;
-  background:linear-gradient(to top,rgba(20,10,35,0.80) 0%,transparent 100%);
-  pointer-events:none;
-}
-/* Badge 🎬 flotante sobre el poster */
-.movie-card-poster-wrap::before{
-  content:'🎬';
-  position:absolute;top:7px;right:7px;
-  font-size:13px;line-height:1;z-index:2;
-  background:rgba(20,10,35,0.65);
-  border-radius:20px;padding:3px 7px;
-  backdrop-filter:blur(4px);
-  pointer-events:none;
-}
 .movie-card-body{
   padding:12px 13px;flex:1;display:flex;flex-direction:column;
   background:linear-gradient(180deg,var(--surface) 0%,var(--movie-bar) 100%);
@@ -2622,15 +2606,6 @@ footer {
   content: '';
   position: absolute; top: 0; left: 0; right: 0; height: 3px;
   background: linear-gradient(90deg, var(--movie-accent), var(--lavender), var(--accent));
-  z-index: 1;
-}
-/* Quitar el ::before que ya existe con el clapperboard emoji — reemplazarlo limpio */
-.movie-card-poster-wrap::before {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0; height: 55%;
-  background: linear-gradient(to top, rgba(20,10,35,0.82) 0%, transparent 100%);
-  pointer-events: none;
   z-index: 1;
 }
 .movie-card-poster {
