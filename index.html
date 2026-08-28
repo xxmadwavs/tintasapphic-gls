@@ -21,6 +21,25 @@ html.is-mobile #navbarLinks{display:none!important}
 html.is-mobile #navbarLinks.open{display:flex!important}
 </style>
 <title>TINTA SAPPHIC ~ GL Series & Películas</title>
+<meta name="description" content="Calendario, catálogo y comunidad de series, películas, anime y realities GL (sáficas) de todo el mundo. Estrenos, dónde ver, novelas en las que se basan y mucho más.">
+
+<!-- Open Graph (WhatsApp, Telegram, Facebook, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TINTA Sapphic">
+<meta property="og:title" content="TINTA SAPPHIC ~ GL Series & Películas">
+<meta property="og:description" content="Calendario, catálogo y comunidad de series, películas, anime y realities GL (sáficas) de todo el mundo. Estrenos, dónde ver, novelas en las que se basan y mucho más.">
+<meta property="og:image" content="https://xxmadwavs.github.io/tintasapphic-gls/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://xxmadwavs.github.io/tintasapphic-gls/">
+<meta property="og:locale" content="es_ES">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TINTA SAPPHIC ~ GL Series & Películas">
+<meta name="twitter:description" content="Calendario, catálogo y comunidad de series, películas, anime y realities GL (sáficas) de todo el mundo.">
+<meta name="twitter:image" content="https://xxmadwavs.github.io/tintasapphic-gls/og-image.jpg">
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700;1,800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -3795,7 +3814,9 @@ function genEps(s){
 
 async function loadData(){
   try{
-    const r=await fetch('data.json?t='+Date.now());
+    // 'no-cache' fuerza revalidar con el servidor (nunca sirve un data.json viejo),
+    // pero permite reutilizar el body cacheado si el servidor responde 304 (no cambió).
+    const r=await fetch('data.json',{cache:'no-cache'});
     if(!r.ok) throw new Error('No se encontró data.json (código '+r.status+')');
     const d=await r.json();
     state.series=d.series||[];
