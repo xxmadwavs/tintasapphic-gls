@@ -8194,7 +8194,8 @@ document.addEventListener('keydown',e=>{
     else if(savedTab==='ruleta') renderRuleta();
     else renderWeekView();
     // Seed history so the very first back press doesn't exit the page
-    history.replaceState({tab:savedTab},'',location.pathname+'?tab='+savedTab);
+    // (conservamos location.hash para no perder los deep-links #serie-/#pelicula-)
+    history.replaceState({tab:savedTab},'',location.pathname+'?tab='+savedTab+location.hash);
 
     // ── Deep-link: abrir modal si la URL tiene #serie-ID o #pelicula-ID ──────
     (function resolveHashDeepLink(){
