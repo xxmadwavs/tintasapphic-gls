@@ -3277,7 +3277,7 @@ html[data-theme="dark"] .chk-cta-banner{background:linear-gradient(90deg,var(--a
       <span class="chk-cta-icon">✅</span>
       <div>
         <div class="chk-cta-title">Haz CheckList series</div>
-        <div class="chk-cta-subtitle">Marca las series, películas y novelas GL Thai, China y Japón que ya has visto o leído</div>
+        <div class="chk-cta-subtitle">Marca las series GL Thai, China y Japón que ya has visto o leído</div>
       </div>
     </div>
     <div class="chk-cta-arrow">→</div>
@@ -3910,6 +3910,10 @@ const CHK_COUNTRIES = {
   china: { flag:'🇨🇳', label:'GL China', storageKey:'tsChinaChecklistProgress', filePart:'china', defaultTitulo:'GL China ~ Checklist' },
   japan: { flag:'🇯🇵', label:'GL Japón', storageKey:'tsJapanChecklistProgress', filePart:'japan', defaultTitulo:'GL Japón ~ Checklist' }
 };
+const CHK_TYPE_LABELS = { serie:'Serie', pelicula:'Película', novela:'Novela', anime:'Anime', webserie:'Web serie' };
+let chkActiveCountry = 'thai';
+let chkState = { thai:{activeType:'todos',q:''}, china:{activeType:'todos',q:''}, japan:{activeType:'todos',q:''} };
+let chkChecked = { thai:null, china:null, japan:null };
 function _chkDefaultList(country){ return { titulo: CHK_COUNTRIES[country].defaultTitulo, subtitulo:'Marca las que ya has visto o leído', items: [] }; }
 // Migra un checklist con el formato antiguo (plano, sin países) al nuevo formato por país
 function normalizeChecklist(raw){
@@ -9189,10 +9193,6 @@ function buildSimilarHtml(item, type){
 // ══════════════════════════════════════════════════════════════════════════════
 // CHECKLIST (Thai / China / Japón)
 // ══════════════════════════════════════════════════════════════════════════════
-const CHK_TYPE_LABELS = { serie:'Serie', pelicula:'Película', novela:'Novela', anime:'Anime', webserie:'Web serie' };
-let chkActiveCountry = 'thai';
-let chkState = { thai:{activeType:'todos',q:''}, china:{activeType:'todos',q:''}, japan:{activeType:'todos',q:''} };
-let chkChecked = { thai:null, china:null, japan:null };
 
 function _chkLoadChecked(country){
   if(chkChecked[country]) return chkChecked[country];
