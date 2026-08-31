@@ -8302,6 +8302,13 @@ document.addEventListener('keydown',e=>{
     renderStats();
     renderRecentlyAdded();
     loadSession();
+    // Si la URL trae ?tab=xxx (p.ej. un enlace compartido), tiene prioridad sobre
+    // la pestaña guardada en sessionStorage — si no, un enlace directo a una pestaña
+    // concreta se ignoraba en la primera carga y solo funcionaba tras refrescar
+    // varias veces (cuando ya había quedado esa pestaña guardada en la sesión).
+    const CHK_VALID_TABS=['cal','list','movies','upcoming','books','anime','realities','documentales','actresses','top10','picks2026','ships','canceladas','productoras','listas','ruleta','checklist'];
+    const urlTab=new URLSearchParams(location.search).get('tab');
+    if(urlTab && CHK_VALID_TABS.includes(urlTab)) state.tab=urlTab;
     const savedTab=state.tab||'cal';
     // Show the saved tab's view, hide others
     ['cal','list','movies','upcoming','books','anime','realities','documentales','actresses','top10','picks2026','ships','canceladas','productoras','listas','ruleta','checklist'].forEach(t=>{
