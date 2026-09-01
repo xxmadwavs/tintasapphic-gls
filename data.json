@@ -20039,7 +20039,7 @@
       "poster": "https://i.mydramalist.com/YYe7nQ_4c.jpg?v=1",
       "synopsis": "",
       "year": 2025,
-      "country": "",
+      "country": "Corea del Sur",
       "network": "YouTube",
       "networkUrl": "https://youtu.be/Rz2oXfbRl7Q?si=QqC3IHRLEKaHVmwl",
       "watchLinks": [
@@ -20059,7 +20059,7 @@
         "Romance"
       ],
       "category": "series",
-      "seriesType": "webserie",
+      "seriesType": "serie",
       "cast": [
         {
           "actressId": "1778790560422",
@@ -20090,7 +20090,21 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-14T20:31:43.263Z"
+      "updatedAt": "2026-09-01T08:05:57.602Z",
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1778794257224",
@@ -38393,9 +38407,16 @@
           "type": "serie",
           "year": 2025,
           "poster": "https://i.mydramalist.com/nOkLpE_4f.jpg"
+        },
+        {
+          "id": "almost-lover-ekqh",
+          "title": "Almost Lover",
+          "type": "serie",
+          "year": 2025,
+          "poster": "https://i.mydramalist.com/YYe7nQ_4c.jpg?v=1"
         }
       ]
     }
   },
-  "exportedAt": "2026-09-01T07:57:44.547Z"
+  "exportedAt": "2026-09-01T08:06:28.322Z"
 }
