@@ -226,25 +226,33 @@ html[data-theme="dark"] .dark-toggle{background:var(--surface2);color:var(--gold
 .nav-picks-item:hover{background:var(--surface2);color:var(--accent)}
 .nav-picks-item.active{background:var(--accent-soft);color:var(--accent)}
 
-/* Más dropdown */
-.tab-more-wrap{position:relative;flex-shrink:0}
-.tab-more-drop{
+/* Mis picks: separador entre picks y herramientas */
+.nav-picks-sep{height:1px;background:var(--border2);margin:4px 8px}
+
+/* Explorar (mega-dropdown con columnas) */
+.nav-explore-wrap{position:relative;flex-shrink:0}
+.nav-explore-drop{
   position:absolute;top:calc(100% + 8px);left:0;
   background:var(--surface);border:1.5px solid var(--border2);
   border-radius:12px;box-shadow:var(--shadow-md);
-  min-width:170px;z-index:200;
-  display:none;flex-direction:column;overflow:hidden;padding:4px;
+  min-width:460px;z-index:200;
+  display:none;gap:22px;overflow:hidden;padding:14px;
 }
-.tab-more-drop.open{display:flex}
-.tab-more-item{
+.nav-explore-drop.open{display:flex}
+.explore-col{display:flex;flex-direction:column;gap:1px;min-width:130px}
+.explore-col-title{
+  font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;
+  color:var(--muted);padding:4px 10px 6px;
+}
+.explore-item{
   display:flex;align-items:center;gap:8px;
-  padding:9px 14px;font-size:13px;font-weight:600;
+  padding:9px 10px;font-size:13px;font-weight:600;
   color:var(--text);cursor:pointer;transition:background .12s;
   border:none;background:transparent;font-family:var(--font-body);
   text-align:left;width:100%;border-radius:8px;
 }
-.tab-more-item:hover{background:var(--surface2);color:var(--accent)}
-.tab-more-item.active{background:var(--accent-soft);color:var(--accent)}
+.explore-item:hover{background:var(--surface2);color:var(--accent)}
+.explore-item.active{background:var(--accent-soft);color:var(--accent)}
 
 /* Right: search + X */
 .navbar-right{display:flex;align-items:center;gap:10px;margin-left:auto;flex-shrink:0}
@@ -367,15 +375,17 @@ footer{
     border-radius:10px;margin-top:6px;
     box-shadow:none;border:1.5px solid var(--border2);
   }
-  .nav-picks-drop,.tab-more-drop{
+  .nav-picks-drop,.nav-explore-drop{
     position:static;box-shadow:none;border:none;
     padding:0 0 0 12px;border-radius:0;background:transparent;
-    display:none;flex-direction:column;
+    display:none;flex-direction:column;min-width:0;gap:2px;
   }
-  .nav-picks-drop.open,.tab-more-drop.open{
+  .nav-picks-drop.open,.nav-explore-drop.open{
     display:flex;
   }
-  .nav-picks-item,.tab-more-item{padding:8px 12px;font-size:13px;border-radius:8px}
+  .nav-picks-item,.explore-item{padding:8px 12px;font-size:13px;border-radius:8px}
+  .explore-col{min-width:0;gap:0}
+  .explore-col-title{padding:10px 12px 2px}
 }
 
 /* 700px → móvil puro (ya heredan lo de arriba) */
@@ -3205,12 +3215,37 @@ html[data-theme="dark"] .chk-cta-banner{background:linear-gradient(90deg,var(--a
         <div class="navbar-search-results" id="navSearchResultsMobile" style="display:none"></div>
       </div>
       <button class="nav-link active" id="tabCal" onclick="switchTab('cal');closeMobileMenu()">Calendario</button>
-      <button class="nav-link" id="tabList" onclick="switchTab('list');closeMobileMenu()">Series</button>
-      <button class="nav-link" id="tabMovies" onclick="switchTab('movies');closeMobileMenu()">Películas</button>
-      <button class="nav-link" id="tabUpcoming" onclick="switchTab('upcoming');closeMobileMenu()">Próximamente</button>
+
+      <!-- Explorar (mega-dropdown de catálogo) -->
+      <div class="nav-explore-wrap" id="navExploreWrap">
+        <button class="nav-link" id="tabExplore" type="button" onclick="toggleExploreDrop(event)" aria-haspopup="true" aria-expanded="false">
+          Explorar <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" style="margin-left:2px;opacity:.6"><path d="M1 3l4 4 4-4"/></svg>
+        </button>
+        <div class="nav-explore-drop" id="navExploreDrop" role="menu">
+          <div class="explore-col">
+            <span class="explore-col-title">Series & Pelis</span>
+            <button class="explore-item" id="tabList" role="menuitem" onclick="closeExploreDrop();switchTab('list');closeMobileMenu()">Series</button>
+            <button class="explore-item" id="tabMovies" role="menuitem" onclick="closeExploreDrop();switchTab('movies');closeMobileMenu()">Películas</button>
+            <button class="explore-item" id="tabUpcoming" role="menuitem" onclick="closeExploreDrop();switchTab('upcoming');closeMobileMenu()">Próximamente</button>
+          </div>
+          <div class="explore-col">
+            <span class="explore-col-title">Más contenido</span>
+            <button class="explore-item" id="tabAnime" role="menuitem" onclick="closeExploreDrop();switchTab('anime');closeMobileMenu()">Anime</button>
+            <button class="explore-item" id="tabRealities" role="menuitem" onclick="closeExploreDrop();switchTab('realities');closeMobileMenu()">Realities</button>
+            <button class="explore-item" id="tabDocumentales" role="menuitem" onclick="closeExploreDrop();switchTab('documentales');closeMobileMenu()">Documentales</button>
+            <button class="explore-item" id="tabBooks" role="menuitem" onclick="closeExploreDrop();switchTab('books');closeMobileMenu()">Libros</button>
+          </div>
+          <div class="explore-col">
+            <span class="explore-col-title">Personas</span>
+            <button class="explore-item" id="tabActresses" role="menuitem" onclick="closeExploreDrop();switchTab('actresses');closeMobileMenu()">Actrices</button>
+            <button class="explore-item" id="tabProductoras" role="menuitem" onclick="closeExploreDrop();switchTab('productoras');closeMobileMenu()">Productoras</button>
+          </div>
+        </div>
+      </div>
+
       <button class="nav-link" id="tabShips" onclick="switchTab('ships');closeMobileMenu()">Ships Thais</button>
 
-      <!-- Mis Picks con subtabs -->
+      <!-- Mis Picks: subtabs de picks + herramientas personales -->
       <div class="nav-picks-wrap" id="navPicksWrap">
         <button class="nav-link nav-picks-btn" id="tabPicksGroup" type="button" onclick="togglePicksDrop(event)" aria-haspopup="true" aria-expanded="false">
           Mis picks <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" style="margin-left:2px;opacity:.6"><path d="M1 3l4 4 4-4"/></svg>
@@ -3218,24 +3253,10 @@ html[data-theme="dark"] .chk-cta-banner{background:linear-gradient(90deg,var(--a
         <div class="nav-picks-drop" id="navPicksDrop" role="menu">
           <button class="nav-picks-item" id="tabTop10" role="menuitem" onclick="closePicksDrop();switchTab('top10');closeMobileMenu()">Picks generales</button>
           <button class="nav-picks-item" id="tabPicks2026" role="menuitem" onclick="closePicksDrop();switchTab('picks2026');closeMobileMenu()">Picks 2026</button>
-        </div>
-      </div>
-
-      <!-- Más (desplegable) -->
-      <div class="tab-more-wrap" id="tabMoreWrap">
-        <button class="nav-link" id="tabMore" type="button" onclick="toggleMoreDrop(event)" aria-haspopup="true" aria-expanded="false">
-          Más <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" style="margin-left:2px;opacity:.6"><path d="M1 3l4 4 4-4"/></svg>
-        </button>
-        <div class="tab-more-drop" id="tabMoreDrop" role="menu">
-          <button class="tab-more-item" id="tabChecklist" role="menuitem" onclick="closeMoreDrop();switchTab('checklist');closeMobileMenu()">✅ Checklist</button>
-          <button class="tab-more-item" id="tabListas" role="menuitem" onclick="closeMoreDrop();switchTab('listas');closeMobileMenu()">📋 Listas GL</button>
-          <button class="tab-more-item" id="tabRuleta" role="menuitem" onclick="closeMoreDrop();switchTab('ruleta');closeMobileMenu()">🎡 Ruleta GL</button>
-          <button class="tab-more-item" id="tabAnime" role="menuitem" onclick="closeMoreDrop();switchTab('anime');closeMobileMenu()">Anime</button>
-          <button class="tab-more-item" id="tabRealities" role="menuitem" onclick="closeMoreDrop();switchTab('realities');closeMobileMenu()">Realities</button>
-          <button class="tab-more-item" id="tabDocumentales" role="menuitem" onclick="closeMoreDrop();switchTab('documentales');closeMobileMenu()">Documentales</button>
-          <button class="tab-more-item" id="tabBooks" role="menuitem" onclick="closeMoreDrop();switchTab('books');closeMobileMenu()">Libros</button>
-          <button class="tab-more-item" id="tabActresses" role="menuitem" onclick="closeMoreDrop();switchTab('actresses');closeMobileMenu()">Actrices</button>
-          <button class="tab-more-item" id="tabProductoras" role="menuitem" onclick="closeMoreDrop();switchTab('productoras');closeMobileMenu()">Productoras</button>
+          <div class="nav-picks-sep"></div>
+          <button class="nav-picks-item" id="tabChecklist" role="menuitem" onclick="closePicksDrop();switchTab('checklist');closeMobileMenu()">✅ Checklist</button>
+          <button class="nav-picks-item" id="tabListas" role="menuitem" onclick="closePicksDrop();switchTab('listas');closeMobileMenu()">📋 Listas GL</button>
+          <button class="nav-picks-item" id="tabRuleta" role="menuitem" onclick="closePicksDrop();switchTab('ruleta');closeMobileMenu()">🎡 Ruleta GL</button>
         </div>
       </div>
     </div>
@@ -7191,8 +7212,8 @@ function renderPicks2026(){
 function switchTab(tab, fromPopstate=false){
   state.tab=tab;
   saveSession();
-  const moreTabs=['books','actresses','anime','realities','documentales','productoras','listas','ruleta','checklist'];
-  const picksTabs=['top10','picks2026'];
+  const exploreTabs=['list','movies','upcoming','books','actresses','anime','realities','documentales','productoras'];
+  const picksTabs=['top10','picks2026','listas','ruleta','checklist'];
   const allTabs=['cal','list','movies','upcoming','books','anime','realities','documentales','actresses','top10','picks2026','ships','productoras','canceladas','listas','ruleta','checklist'];
 
   allTabs.forEach(t=>{
@@ -7201,8 +7222,8 @@ function switchTab(tab, fromPopstate=false){
     const btn=document.getElementById('tab'+t.charAt(0).toUpperCase()+t.slice(1));
     if(!btn) return;
     const isActive=tab===t;
-    if(moreTabs.includes(t)){
-      btn.className='tab-more-item'+(isActive?' active':'');
+    if(exploreTabs.includes(t)){
+      btn.className='explore-item'+(isActive?' active':'');
     } else if(picksTabs.includes(t)){
       btn.className='nav-picks-item'+(isActive?' active':'');
     } else {
@@ -7210,9 +7231,9 @@ function switchTab(tab, fromPopstate=false){
     }
   });
 
-  // "Más" button highlight
-  const moreBtn=document.getElementById('tabMore');
-  if(moreBtn) moreBtn.className='nav-link'+(moreTabs.includes(tab)?' active':'');
+  // "Explorar" button highlight
+  const exploreBtn=document.getElementById('tabExplore');
+  if(exploreBtn) exploreBtn.className='nav-link'+(exploreTabs.includes(tab)?' active':'');
 
   // "Mis picks" button highlight
   const picksBtn=document.getElementById('tabPicksGroup');
@@ -8068,19 +8089,19 @@ window.addEventListener('popstate', function(e){
   closeMobileMenu();
 });
 
-function toggleMoreDrop(e){
+function toggleExploreDrop(e){
   e.stopPropagation();
-  const drop=document.getElementById('tabMoreDrop');
-  const btn=document.getElementById('tabMore');
+  const drop=document.getElementById('navExploreDrop');
+  const btn=document.getElementById('tabExplore');
   const isOpen=drop.classList.contains('open');
   drop.classList.toggle('open',!isOpen);
   if(btn) btn.setAttribute('aria-expanded',String(!isOpen));
   // close picks
   document.getElementById('navPicksDrop')?.classList.remove('open');
 }
-function closeMoreDrop(){
-  document.getElementById('tabMoreDrop')?.classList.remove('open');
-  document.getElementById('tabMore')?.setAttribute('aria-expanded','false');
+function closeExploreDrop(){
+  document.getElementById('navExploreDrop')?.classList.remove('open');
+  document.getElementById('tabExplore')?.setAttribute('aria-expanded','false');
 }
 function togglePicksDrop(e){
   e.stopPropagation();
@@ -8089,8 +8110,8 @@ function togglePicksDrop(e){
   const isOpen=drop.classList.contains('open');
   drop.classList.toggle('open',!isOpen);
   if(btn) btn.setAttribute('aria-expanded',String(!isOpen));
-  // close más
-  document.getElementById('tabMoreDrop')?.classList.remove('open');
+  // close explorar
+  document.getElementById('navExploreDrop')?.classList.remove('open');
 }
 function closePicksDrop(){
   document.getElementById('navPicksDrop')?.classList.remove('open');
@@ -8116,7 +8137,7 @@ function toggleNavMobile(){
   }
 }
 document.addEventListener('click',e=>{
-  if(!document.getElementById('tabMoreWrap')?.contains(e.target)) closeMoreDrop();
+  if(!document.getElementById('navExploreWrap')?.contains(e.target)) closeExploreDrop();
   if(!document.getElementById('navPicksWrap')?.contains(e.target)) closePicksDrop();
   if(!document.getElementById('mainNavbar')?.contains(e.target)) document.getElementById('navbarLinks')?.classList.remove('open');
 });
@@ -8412,13 +8433,29 @@ const INFO_CONTENT = {
       <p style="font-size:13.5px;color:var(--muted);line-height:1.75;margin-bottom:1rem">
         Nuestro objetivo es que ninguna historia quede sin ser descubierta. Por eso recopilamos, organizamos y compartimos todo lo que encontramos — desde producciones asiáticas hasta series occidentales, pasando por cortos, documentales y animación.
       </p>
-      <p style="font-size:13.5px;color:var(--muted);line-height:1.75;margin-bottom:1.25rem">
+      <p style="font-size:13.5px;color:var(--muted);line-height:1.75;margin-bottom:1rem">
         Este proyecto lo mantenemos con mucho cariño desde nuestro tiempo libre. Si encuentras algo desactualizado o quieres sugerir un título, puedes escribirnos por X — siempre estamos dispuestas a escuchar.
+      </p>
+      <p style="font-size:13.5px;color:var(--muted);line-height:1.75;margin-bottom:1.25rem">
+        TINTA Sapphic es un proyecto de fans, sin ánimo de lucro: no vendemos nada, no hay publicidad ni suscripciones, y no se recauda ningún dinero por su uso — es totalmente gratuita. La información de series, películas, fechas de estreno y sinopsis se recopila de fuentes públicas como <strong style="color:var(--text)">MyDramaList</strong>, <strong style="color:var(--text)">IMDb</strong> y <strong style="color:var(--text)">TMDB</strong>, entre otras, solo con fines informativos para la comunidad.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:14px 16px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:1.25rem">
+        <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);width:100%">Fuentes de datos e imágenes</span>
+        <a href="https://www.themoviedb.org/" target="_blank" rel="noopener" title="The Movie Database (TMDB)" style="display:inline-flex;align-items:center;height:26px">
+          <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg" alt="TMDB" style="height:20px" onerror="this.outerHTML='<span style=&quot;font-size:12.5px;font-weight:700;color:var(--accent)&quot;>TMDB</span>'">
+        </a>
+        <a href="https://www.imdb.com/" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:700;color:var(--accent);text-decoration:none;padding:4px 10px;border-radius:6px;background:var(--accent-soft)">IMDb ↗</a>
+        <a href="https://mydramalist.com/" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:700;color:var(--accent);text-decoration:none;padding:4px 10px;border-radius:6px;background:var(--accent-soft)">MyDramaList ↗</a>
+      </div>
+      <p style="font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:1.25rem;opacity:.85">
+        Este sitio utiliza datos e imágenes de TMDB pero no está respaldado ni certificado por TMDB. Todas las marcas, logos e imágenes pertenecen a sus respectivos propietarios.
       </p>
       <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:1.25rem">
         <span style="font-size:11.5px;padding:4px 12px;border-radius:20px;background:var(--accent-soft);color:var(--accent);border:1px solid rgba(201,79,124,.2);font-weight:600">✨ Hecho con amor</span>
         <span style="font-size:11.5px;padding:4px 12px;border-radius:20px;background:var(--lavender-soft);color:var(--lavender);border:1px solid rgba(139,114,190,.2);font-weight:600">🌍 Contenido global GL</span>
         <span style="font-size:11.5px;padding:4px 12px;border-radius:20px;background:var(--teal-soft);color:var(--teal);border:1px solid rgba(74,173,160,.2);font-weight:600">📅 Actualización continua</span>
+        <span style="font-size:11.5px;padding:4px 12px;border-radius:20px;background:var(--gold-soft);color:var(--gold);border:1px solid rgba(212,168,68,.2);font-weight:600">💌 100% gratuita</span>
+        <span style="font-size:11.5px;padding:4px 12px;border-radius:20px;background:var(--surface3);color:var(--muted);border:1px solid var(--border2);font-weight:600">🎗️ Sin ánimo de lucro</span>
       </div>
     `
   },
@@ -8460,6 +8497,8 @@ const INFO_CONTENT = {
       <div style="display:flex;flex-direction:column;gap:14px">
         ${[
           ['🎬','Contenido informativo','La información de series, películas, fechas y plataformas se ofrece solo con fines informativos. Hacemos todo lo posible por mantenerla actualizada, pero no garantizamos su exactitud en todo momento.'],
+          ['📚','Fuentes de datos','Los datos, sinopsis y fechas de estreno se recopilan de fuentes públicas como <a href="https://mydramalist.com/" target="_blank" style="color:var(--accent);font-weight:600;text-decoration:none">MyDramaList</a>, <a href="https://www.imdb.com/" target="_blank" style="color:var(--accent);font-weight:600;text-decoration:none">IMDb</a> y <a href="https://www.themoviedb.org/" target="_blank" style="color:var(--accent);font-weight:600;text-decoration:none">TMDB</a>, entre otras. Los derechos de esa información pertenecen a sus respectivos propietarios. Este producto usa datos de TMDB pero no está respaldado ni certificado por TMDB.'],
+          ['🎗️','Sin ánimo de lucro','TINTA Sapphic es un proyecto de fans totalmente gratuito. No hay publicidad, suscripciones ni ningún tipo de recaudación económica por su uso.'],
           ['🚫','Sin uso comercial','Queda prohibido reproducir, vender o utilizar el contenido de esta web con fines comerciales sin autorización expresa.'],
           ['🔗','Enlaces de terceros','Los enlaces a plataformas de streaming son externos. No nos hacemos responsables del contenido, disponibilidad o políticas de dichas plataformas.'],
           ['🌸','Comunidad respetuosa','Este es un espacio seguro para la comunidad GL. No se tolera ningún tipo de discriminación, odio o contenido inapropiado en ninguna de nuestras redes.'],
