@@ -28876,9 +28876,9 @@
     },
     {
       "id": "1700000000066",
-      "name": "Cites",
-      "poster": "https://www.formulatv.com/images/series/posters/1000/1086/dest_1.jpg",
-      "synopsis": "En busca del amor, sexo, o simplemente alguien con quien alejarse de la soledad, los personajes de “Cités” se encuentran cara a cara, tras conocerse por internet, cargados de incertidumbres y esperanzas. Basado en el formato original de la serie británica “Cités” de Brian Elsley. Cada episodio de la serie, ambientado en Barcelona, ​​se centra en dos de estas citas, en las que entran en juego los miedos, secretos y expectativas de sus protagonistas. Una red de relaciones personales existentes en torno a un personaje que se cruzará con el otro y que volveremos a encontrar a lo largo de la serie.\n \n (Fuente: TMDB)",
+      "name": "Citas",
+      "poster": "https://image.tmdb.org/t/p/w500/3RLwkaklIjuIIhJvjkr0A7jPf9o.jpg",
+      "synopsis": "Adaptación de la serie británica 'Citas' para la cadena autonómica catalana TV3 donde se cuentan las historias de diversas parejas en sus primeras citas. En cada capítulo vemos dos citas diferentes y algunos de los personajes salen en más de una ocasión, teniendo citas con la misma pareja o con parejas distintas.",
       "year": 2015,
       "country": "España",
       "network": "Prime Video",
@@ -28891,8 +28891,8 @@
       ],
       "trailerUrl": "https://www.youtube.com/watch?v=kciBUq63hnY",
       "genres": [
-        "Romance",
-        "Drama"
+        "Drama",
+        "Romance"
       ],
       "basedOnBook": false,
       "bookSource": "",
@@ -28910,7 +28910,113 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2015-04-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/xFbRhlpP7v3BrJWmUIudU9dO7vc.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2015-05-04",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/744jgZkPM3fZBvr86kRJew7Ieu2.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2015-05-11",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/cbv2esJPMYOntcc3MxzxsaMPfk3.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2015-05-18",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/zCpPxD0kDnFHanKGAgsvVbofEk1.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2015-05-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/5YXTRsymYg1zaymfiPxG4fCstb0.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2015-06-01",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/mQp1hskZMhLsOUee2XLQswDqtci.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2015-06-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/gNGEG3Zro3sfVxolMMH7mMUu26I.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2015-06-15",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/aHLc2RotJypnXDqoZDwy038A5XI.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2015-06-29",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/zjfdRoYENQkHFTFTJBDMOt0VMgL.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2015-07-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/nOum5fKBZzUfowwUiI3KwPCLGZU.jpg"
+            },
+            {
+              "num": 11,
+              "date": "2015-07-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/f0sZ8boKaWKKi8IrQrN3mfUSJI3.jpg"
+            },
+            {
+              "num": 12,
+              "date": "2015-07-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/2cXVzkdCtghrr4WIZGXxqEUMltW.jpg"
+            },
+            {
+              "num": 13,
+              "date": "2015-07-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/9ImJ46UiW1hj4XhbHLmrLytyXXf.jpg"
+            }
+          ],
+          "premiereSchedule": []
         },
         {
           "label": "Temporada 2",
@@ -28921,43 +29027,149 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
-        },
-        {
-          "label": "Temporada 3",
-          "startDate": "2023-06-12",
-          "totalEpisodes": 6,
-          "emissionDays": [
-            0
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2016-05-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/1R4ecebohAZ9qTooFvKHe8uUavH.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2016-05-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/osxZzUJOIJswjTgrofPSxojxsJZ.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2016-05-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/oo3CDq5wAZbUio01Ned4xMiAxeu.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2016-05-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/kWLjmy7d6iPSI3TqRB3sCsHxBE2.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2016-06-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/4UpN4hOElifIBU99svAdu8nKp7V.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2016-06-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/xHq0pGyjK5pZSsIEOTjzIlyWNeO.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2016-06-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/yxHd8h4BGqwvGjJkY08iyjPo5AH.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2016-06-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/r0HbE8qTUnfKUSIPL5jmvJxS7pG.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2016-07-04",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/vUrDPXj3kdZGuRTpCNwnYelENuP.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2016-07-11",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/dr3wnDA3XhwGvQS5XNhBjMwkYgp.jpg"
+            },
+            {
+              "num": 11,
+              "date": "2016-07-18",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/7Nz3h0K5Cdq7p4JetIgaIFY7inT.jpg"
+            },
+            {
+              "num": 12,
+              "date": "2016-07-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/7YBzWliJVV6IrzYLf0kbHGMCHnW.jpg"
+            },
+            {
+              "num": 13,
+              "date": "2016-07-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/xBKRScRu6HF6oN4JB1yqop1tAPl.jpg"
+            }
           ],
-          "allInOneDay": false,
-          "skipDates": [],
-          "episodes": []
-        },
-        {
-          "label": "Temporada 4",
-          "startDate": "2024-10-21",
-          "totalEpisodes": 6,
-          "emissionDays": [
-            0
-          ],
-          "allInOneDay": false,
-          "skipDates": [],
-          "episodes": []
+          "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-03T11:39:40.774Z",
-      "nameEn": "",
-      "tmdbId": 62453,
+      "updatedAt": "2026-09-12T19:03:10.742Z",
+      "nameEn": "Cites",
+      "tmdbId": "62453",
       "tmdbKind": "tv",
       "tmdbRating": 6.9,
-      "tmdbVoteCount": 18
+      "tmdbVoteCount": 18,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "pareja-secundaria",
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": 45,
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000068",
       "name": "Felizes para Sempre?",
-      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/a1voyp7MCxG9x1BMJJgkJsa8Fj2.jpg",
-      "synopsis": "¿Felices para siempre? cuenta la historia de una pareja en crisis. Cuando la misteriosa prostituta Danny Bond entra en escena, un crimen pasional cambia para siempre la vida de todos los involucrados. ¿Quién será la víctima? ¿Y el villano? Después de todo, en una historia tan llena de secretos e infidelidades, ¿quién puede salirse con la suya y vivir felices para siempre?\n \n (Fuente: IMDB)",
+      "poster": "https://image.tmdb.org/t/p/w500/a1voyp7MCxG9x1BMJJgkJsa8Fj2.jpg",
+      "synopsis": "Cuando la misteriosa prostituta Danny Bond entra en escena, un crimen pasional cambia para siempre las vidas de todos los implicados. ¿Quién será la víctima? ¿Y el villano? Al fin y al cabo, en una historia tan llena de secretos e infidelidades, ¿quién podrá salirse con la suya y vivir feliz para siempre?",
       "year": 2015,
       "country": "Brasil",
       "network": "",
@@ -28965,9 +29177,9 @@
       "watchLinks": [],
       "trailerUrl": "https://youtu.be/OeIvS87X1nQ",
       "genres": [
-        "Romance",
+        "Crimen",
         "Drama",
-        "Crimen"
+        "Romance"
       ],
       "basedOnBook": false,
       "bookSource": "",
@@ -28989,15 +29201,119 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2015-01-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 50,
+              "still": "https://image.tmdb.org/t/p/w300/khKI3wfOzahPTx4OuuRCmZk7Kjo.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2015-01-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 50,
+              "still": "https://image.tmdb.org/t/p/w300/9kiap4cx01wLFUlJVEAwiS05L54.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2015-01-28",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 50,
+              "still": "https://image.tmdb.org/t/p/w300/mwxo8qd8MI4u8qp36aqy9nCoNLS.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2015-01-29",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 50,
+              "still": "https://image.tmdb.org/t/p/w300/8SCau1l9Pqdmp4vpejbgy7foUs2.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2015-01-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 50,
+              "still": "https://image.tmdb.org/t/p/w300/1eGvKS2whc28ML9r2b4w4BWoG49.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2015-02-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 50,
+              "still": "https://image.tmdb.org/t/p/w300/lhsl4DsRV63ym1rNsJ1jnvj9GqS.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2015-02-03",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 50,
+              "still": "https://image.tmdb.org/t/p/w300/sTyIarVHudlokqYKDQEHzA9Wnc7.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2015-02-04",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 50,
+              "still": "https://image.tmdb.org/t/p/w300/tni1GJtIj1N5QYfaTGyDQYSMulY.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2015-02-05",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 50,
+              "still": "https://image.tmdb.org/t/p/w300/jzm0lh7Ji0edHaF4qDXX2rHSWwU.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2015-02-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 50,
+              "still": "https://image.tmdb.org/t/p/w300/xxxMPn5epQNT0KbowB3IDmotykH.jpg"
+            }
+          ],
+          "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-03T11:42:05.383Z",
+      "updatedAt": "2026-09-12T19:05:28.255Z",
       "nameEn": "",
-      "tmdbId": 80013,
+      "tmdbId": "80013",
       "tmdbKind": "tv",
       "tmdbRating": 7.1,
-      "tmdbVoteCount": 9
+      "tmdbVoteCount": 9,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "romance-secundario-protagonista",
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": 50,
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000072",
@@ -29016,9 +29332,9 @@
       ],
       "trailerUrl": "https://youtu.be/_rgzmQ_vpSo",
       "genres": [
-        "Drama",
         "Acción",
-        "Aventura"
+        "Aventura",
+        "Drama"
       ],
       "basedOnBook": false,
       "bookSource": "",
@@ -29036,7 +29352,8 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [],
+          "premiereSchedule": []
         },
         {
           "label": "Temporada 2",
@@ -29047,7 +29364,8 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [],
+          "premiereSchedule": []
         },
         {
           "label": "Temporada 3",
@@ -29058,7 +29376,8 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [],
+          "premiereSchedule": []
         },
         {
           "label": "Temporada 4",
@@ -29069,7 +29388,8 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [],
+          "premiereSchedule": []
         },
         {
           "label": "Temporada 5",
@@ -29080,7 +29400,8 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [],
+          "premiereSchedule": []
         },
         {
           "label": "Temporada 6",
@@ -29091,7 +29412,8 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [],
+          "premiereSchedule": []
         },
         {
           "label": "Temporada 7",
@@ -29102,15 +29424,38 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [],
+          "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-03T11:45:09.385Z",
+      "updatedAt": "2026-09-12T19:03:08.267Z",
       "nameEn": "",
-      "tmdbId": 62643,
+      "tmdbId": "62643",
       "tmdbKind": "tv",
       "tmdbRating": 7.2,
-      "tmdbVoteCount": 2516
+      "tmdbVoteCount": 2516,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "romance-secundario-protagonista",
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000073",
@@ -29146,7 +29491,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T20:02:46.570Z",
+      "updatedAt": "2026-09-12T19:03:20.111Z",
       "category": "series",
       "seriesType": "webserie",
       "animeSeason": "",
@@ -29157,13 +29502,14 @@
       "tmdbId": 271877,
       "tmdbKind": "tv",
       "tmdbRating": 3,
-      "tmdbVoteCount": 1
+      "tmdbVoteCount": 1,
+      "wlwFocus": "pareja-principal"
     },
     {
       "id": "1700000000091",
-      "name": "Zarah - Wilde Jahre",
-      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/lGuiNaSZVyrB29udNa7I39AMJQ5.jpg",
-      "synopsis": "Hamburgo, 1973. Cuando la conocida activista por los derechos de la mujer Zarah Wolf recibe una oferta para convertirse en redactora jefe adjunta de la revista de gran tirada \"Relevant\", la comprometida periodista ve la oportunidad de impulsar la cuestión de la emancipación.\n \n (Fuente: IMDb)",
+      "name": "Zarah: Wilde Jahre",
+      "poster": "https://image.tmdb.org/t/p/w500/8bU5bUoih2SsE9ooegMaEkeGyzQ.jpg",
+      "synopsis": "Hamburgo, 1973. Cuando la conocida activista por los derechos de la mujer Zarah Wolf recibe la oferta de convertirse en subdirectora de la revista de gran tirada «Relevant», esta periodista comprometida ve en ello la oportunidad de impulsar la causa de la emancipación.",
       "year": 2017,
       "country": "Alemania",
       "network": "Prime Video",
@@ -29194,15 +29540,87 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2017-09-07",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/jCNPXvY6kytgqNqCxtW4XBvej7z.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2017-09-21",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/8osRMEBSTTwEJ9XMNQdwLWxmN5q.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2017-09-28",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/8OaVNHA5KxKmgviu2naU9bGqOEk.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2017-10-05",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/3WjEQkgHtV8AqQFjjqq9bWcgx5N.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2017-10-12",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/3WjEQkgHtV8AqQFjjqq9bWcgx5N.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2017-10-19",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/a9pXPUssZ8H0ZMUaSbyLyd50L2E.jpg"
+            }
+          ],
+          "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-03T11:47:16.844Z",
+      "updatedAt": "2026-09-12T19:04:28.396Z",
       "nameEn": "",
-      "tmdbId": 74209,
+      "tmdbId": "74209",
       "tmdbKind": "tv",
       "tmdbRating": 7,
-      "tmdbVoteCount": 2
+      "tmdbVoteCount": 2,
+      "wlwFocus": "romance-secundario-protagonista",
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": 45,
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000103",
@@ -29249,8 +29667,9 @@
           "episodes": []
         }
       ],
-      "updatedAt": "2026-05-03T11:48:32.178Z",
-      "nameEn": ""
+      "updatedAt": "2026-09-12T19:03:18.125Z",
+      "nameEn": "",
+      "wlwFocus": "romance-secundario-protagonista"
     },
     {
       "id": "1700000000104",
@@ -29286,8 +29705,9 @@
           "episodes": []
         }
       ],
-      "updatedAt": "2026-05-03T12:16:53.708Z",
-      "nameEn": ""
+      "updatedAt": "2026-09-12T19:03:44.726Z",
+      "nameEn": "",
+      "wlwFocus": "pareja-principal"
     },
     {
       "id": "1700000000106",
@@ -29360,7 +29780,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T20:02:56.100Z",
+      "updatedAt": "2026-09-12T19:03:57.191Z",
       "category": "series",
       "seriesType": "webserie",
       "animeSeason": "",
@@ -29371,7 +29791,8 @@
       "tmdbId": 92388,
       "tmdbKind": "tv",
       "tmdbRating": 5.8,
-      "tmdbVoteCount": 20
+      "tmdbVoteCount": 20,
+      "wlwFocus": "pareja-principal"
     },
     {
       "id": "1700000000107",
@@ -29465,19 +29886,23 @@
     {
       "id": "1700000000115",
       "name": "Euphoria",
-      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/6Sdm5XwdCnspdEF8fTFx6UJrl7o.jpg",
-      "synopsis": "Una mirada a la vida de un grupo de estudiantes de secundaria mientras lidian con problemas de drogas, sexo y violencia.\n \n (Fuente: IMDb)",
+      "poster": "https://image.tmdb.org/t/p/w500/6Sdm5XwdCnspdEF8fTFx6UJrl7o.jpg",
+      "synopsis": "Una reflexión sobre la adolescencia a través de un grupo de estudiantes de instituto que tienen que hacer frente a temas recurrentes de su edad, como la droga, el sexo y la violencia.",
       "year": 2019,
       "country": "Estados Unidos",
-      "network": "Max",
-      "networkUrl": "https://play.hbomax.com/series/urn:hbo:series:GXKN_xQX5csPDwwEAAABj?source=googleHBOMAX&action=open",
+      "network": "HBO Max Amazon Channel, HBO Max",
+      "networkUrl": "https://www.max.com",
       "watchLinks": [
         {
+          "name": "HBO Max Amazon Channel",
+          "url": "https://www.max.com"
+        },
+        {
           "name": "HBO Max",
-          "url": "https://play.hbomax.com/series/urn:hbo:series:GXKN_xQX5csPDwwEAAABj?source=googleHBOMAX&action=open"
+          "url": "https://www.max.com"
         }
       ],
-      "trailerUrl": "https://www.youtube.com/watch?v=nqSQUrlnB9s",
+      "trailerUrl": "https://www.youtube.com/watch?v=UR4Pxgnm-GA",
       "genres": [
         "Drama"
       ],
@@ -29490,14 +29915,80 @@
       "seasons": [
         {
           "label": "Temporada 1",
-          "startDate": "2019-06-21",
-          "totalEpisodes": 10,
+          "startDate": "2019-06-16",
+          "totalEpisodes": 8,
           "emissionDays": [
             6
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2019-06-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 54,
+              "still": "https://image.tmdb.org/t/p/w300/u59av3aNA9zLXxBvy40hAQzJ2Hw.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2019-06-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61,
+              "still": "https://image.tmdb.org/t/p/w300/4NCKs8RMxevYrBzuqGI4usEprUL.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2019-06-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 57,
+              "still": "https://image.tmdb.org/t/p/w300/sgs0AMFBHPenfwIsxqLSGqbnOhw.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2019-07-07",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 56,
+              "still": "https://image.tmdb.org/t/p/w300/CkshIxWHj1yI0Xqh84dgDfAAfG.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2019-07-14",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 53,
+              "still": "https://image.tmdb.org/t/p/w300/3ff187LdnqgrrOQWlzGShPR5sLS.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2019-07-21",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 51,
+              "still": "https://image.tmdb.org/t/p/w300/40TkPAIhEhZkSOB7EIeaysAb6Ni.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2019-07-28",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60,
+              "still": "https://image.tmdb.org/t/p/w300/vMQsSORQsV2tfUw1ezyGiCbO6l8.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2019-08-04",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 65,
+              "still": "https://image.tmdb.org/t/p/w300/kLsHM3fxgYMPw4Cwg3oZDAnenV2.jpg"
+            }
+          ],
+          "premiereSchedule": []
         },
         {
           "label": "Temporada 2",
@@ -29508,7 +29999,73 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2022-01-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 62,
+              "still": "https://image.tmdb.org/t/p/w300/8rW1LANR14YRkT8poSziWOiRa5U.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2022-01-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 58,
+              "still": "https://image.tmdb.org/t/p/w300/nee4LaQLFGSiMeBomd3xKjj9ysI.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2022-01-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61,
+              "still": "https://image.tmdb.org/t/p/w300/nibFSc6mQLHeFAkfKEifnObtYRR.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2022-01-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 62,
+              "still": "https://image.tmdb.org/t/p/w300/nuTsLlLNacklbITyQPRvKOAtXlg.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2022-02-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 54,
+              "still": "https://image.tmdb.org/t/p/w300/muzj1UxcvashpXQGwpAXDtRJf98.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2022-02-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61,
+              "still": "https://image.tmdb.org/t/p/w300/a4FJJ4jPpYc34jmtXzgm2uAS6V7.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2022-02-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 59,
+              "still": "https://image.tmdb.org/t/p/w300/1qXV8oAPhIqkqaNouwb9JC28SfV.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2022-02-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 62,
+              "still": "https://image.tmdb.org/t/p/w300/po4G5fgneIoiuk7TWlvcusWM1HS.jpg"
+            }
+          ],
+          "premiereSchedule": []
         },
         {
           "label": "Temporada 3",
@@ -29519,37 +30076,130 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2026-04-12",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 62,
+              "still": "https://image.tmdb.org/t/p/w300/hbz0xyNFagcXKcBAYbxDJ31wn9M.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2026-04-19",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60,
+              "still": "https://image.tmdb.org/t/p/w300/hnRxdmQRxz3dhAuwOHkGpAauhaq.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2026-04-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60,
+              "still": "https://image.tmdb.org/t/p/w300/pjzzBxorSBsEkvVsISvIuP8aVaa.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2026-05-03",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 62,
+              "still": "https://image.tmdb.org/t/p/w300/1DpoRaiA7weWvLSL4PsZPPHwmvI.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2026-05-10",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61,
+              "still": "https://image.tmdb.org/t/p/w300/8jbiRbDPLpfcS8D1SeanKiDdbG9.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2026-05-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60,
+              "still": "https://image.tmdb.org/t/p/w300/1lvXuZV4A8yoidLbntLtpQnzZaH.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2026-05-24",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 78,
+              "still": "https://image.tmdb.org/t/p/w300/dlIpRRIH6t6jVpDcsQhwmMotEpY.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2026-05-31",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 93,
+              "still": "https://image.tmdb.org/t/p/w300/asmuTZNYmsKOzWPOS3CwIk63xjw.jpg"
+            }
+          ],
+          "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-03T13:29:10.481Z",
+      "updatedAt": "2026-09-12T19:04:10.382Z",
       "nameEn": "",
-      "tmdbId": 85552,
+      "tmdbId": "85552",
       "tmdbKind": "tv",
       "tmdbRating": 8.3,
-      "tmdbVoteCount": 11068
+      "tmdbVoteCount": 11069,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000117",
       "name": "Harley Quinn",
-      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/9Dm1SEh8Wxt8LNNg02exHQ595zg.jpg",
-      "synopsis": "Harley Quinn finalmente ha roto de una vez por todas con el Joker e intenta triunfar por su cuenta como la reina criminal de Ciudad Gótica.\n\n(Source: TMDB)",
+      "poster": "https://image.tmdb.org/t/p/w500/9Dm1SEh8Wxt8LNNg02exHQ595zg.jpg",
+      "synopsis": "Harley Quinn finalmente ha roto las cosas de una vez por todas con el Joker e intenta hacerlo por sí misma como la reina criminal de Gotham City.",
       "year": 2019,
       "country": "Estados Unidos",
-      "network": "Max",
-      "networkUrl": "https://play.max.com/show/dc3552e4-32ed-4719-b3fb-7938b59b4658",
+      "network": "HBO Max Amazon Channel, HBO Max",
+      "networkUrl": "https://www.max.com",
       "watchLinks": [
         {
-          "name": "Max",
-          "url": "https://play.max.com/show/dc3552e4-32ed-4719-b3fb-7938b59b4658"
+          "name": "HBO Max Amazon Channel",
+          "url": "https://www.max.com"
+        },
+        {
+          "name": "HBO Max",
+          "url": "https://www.max.com"
         }
       ],
-      "trailerUrl": "https://youtu.be/mT7A5-oxR3o",
+      "trailerUrl": "https://www.youtube.com/watch?v=0FrB7mJoesg",
       "genres": [
-        "Comedia",
         "Acción",
-        "Fantasía",
-        "Ciencia Ficción"
+        "Animación",
+        "Ciencia Ficción",
+        "Comedia",
+        "Fantasía"
       ],
       "basedOnBook": false,
       "bookSource": "",
@@ -29560,14 +30210,120 @@
       "seasons": [
         {
           "label": "Temporada 1",
-          "startDate": "2019-07-27",
+          "startDate": "2019-11-29",
           "totalEpisodes": 13,
           "emissionDays": [
-            5
+            4
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2019-11-29",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/w8DMfVxiyVOIPsB5YLqWyZMaT5p.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2019-12-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/fbQu2Z9tLTYDIN14NwSbcG1gBdw.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2019-12-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/ccS92LvZovvVCRJgNKIaw4GnqMQ.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2019-12-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/pnod1diLLRYlIAi3vqiauU91YvD.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2019-12-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/k2FuGFmTjkttoQVafXAuFteVgkU.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2020-01-03",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/4vTsbHDPK3X3EPEIWbgyXfIs5Dq.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2020-01-10",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/xWNhtoSV42yyqy647Pjpl0vOq8b.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2020-01-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/qCbIhbXrwbKSUAcjzj9ObsTcWDS.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2020-01-24",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/w8RqEhuhPQBxGB9PgJ1ygD0gt2c.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2020-01-31",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/xVGhRWBqqA47eRHcCy4rw4jNpOT.jpg"
+            },
+            {
+              "num": 11,
+              "date": "2020-02-07",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/zOnOj8fl39e2b1RUcmGXDtPLHSx.jpg"
+            },
+            {
+              "num": 12,
+              "date": "2020-02-14",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/diLwX1RYjisUA6NjL4XL3DidGGB.jpg"
+            },
+            {
+              "num": 13,
+              "date": "2020-02-21",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/gTu6g7QCy40Ly8f5Hixi2UGTtiO.jpg"
+            }
+          ],
+          "premiereSchedule": []
         },
         {
           "label": "Temporada 2",
@@ -29578,7 +30334,113 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2020-04-03",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/9B5YcXj6GimIBasNpNJrGjTxq44.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2020-04-10",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/3TkkcyqZeIH5N5wJZ377BOXmIqF.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2020-04-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/11zkBxYBO6pxL6cHkVfIYrtdgjV.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2020-04-24",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/4mAA8mcOtcmm7JGrfRIg2iGhJpp.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2020-05-01",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/aA3OcRJWXZaorNOl69nunhuxVD3.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2020-05-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/rCVbICrphDzK4XXEufXhi3PpTgk.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2020-05-15",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/6jyBpgFShlsu3lPfmoagwGGHoVi.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2020-05-22",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/pV7e0JbcJb5sVb5q16IgBzBZ0YR.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2020-05-29",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/qKGR65tXsrAOdqLumyXf5BB9JlL.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2020-06-05",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/uRtki2qIyHEt0iYciaE78E44ncI.jpg"
+            },
+            {
+              "num": 11,
+              "date": "2020-06-12",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/6w6hJD391szNzpuXurPgqOoNkX7.jpg"
+            },
+            {
+              "num": 12,
+              "date": "2020-06-19",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/d6pO7gqrWbUdZevNdJXiLMtiDmZ.jpg"
+            },
+            {
+              "num": 13,
+              "date": "2020-06-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/8HzE91LtQyL85iKpQOtb5Uc7R5O.jpg"
+            }
+          ],
+          "premiereSchedule": []
         },
         {
           "label": "Temporada 3",
@@ -29587,9 +30449,99 @@
           "emissionDays": [
             3
           ],
-          "allInOneDay": false,
+          "allInOneDay": true,
           "skipDates": [],
-          "episodes": []
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2022-07-28",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/tpmECRzhXPf6jNPp3GrX9vD7Vpz.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2022-07-28",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/sPEltOadXGMgeMvlCanKNa7Fw46.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2022-07-28",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/vzQ8lyeNetbwirQTqdIEqiR69aA.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2022-08-04",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/tFF4CEKZHEfesARNJ94tXrlylwQ.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2022-08-11",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/a7HPhlzQL6mv5CgSDwChLTx0xLw.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2022-08-18",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/rmzf0NIxnnC3tJO7kzCVh9v5FXl.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2022-08-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/atE5RdfRq2QAWP5Xa5zQtUEQL0R.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2022-09-01",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/f8owjce2zqE9v849bE4S88g8gsH.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2022-09-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/kR6LOTUWx60ORZQuRuMCYgi2tLx.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2022-09-15",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/lv4otwXHZljAOGKRlMmsanzKngs.jpg"
+            },
+            {
+              "num": 11,
+              "date": "2023-02-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/tXOfLcGBbIBBCWn7NQXmm89JNXa.jpg"
+            }
+          ],
+          "premiereSchedule": []
         },
         {
           "label": "Temporada 4",
@@ -29598,9 +30550,91 @@
           "emissionDays": [
             3
           ],
-          "allInOneDay": false,
+          "allInOneDay": true,
           "skipDates": [],
-          "episodes": []
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2023-07-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/isvqACkGEzQUOAT2ZtNDt5HtuEZ.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2023-07-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/cnhaiPtFoSgEl72I2va9drKproO.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2023-07-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/ALMPyxyRxr6RR5oiOU21qc7EXt.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2023-08-03",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/bhE9nZLprMw5qebJaaSaySPg6qd.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2023-08-10",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/nWPMQriu0ndTPzzbCADGZvVVkIA.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2023-08-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/4y4a2CtVTZ8e6KZ9rHpChcBgLB4.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2023-08-24",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/yaRA5E903KlI3SjhJwGYCi0w2fo.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2023-08-31",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/qgFJPiQ2fo4safwg7sZfrb3uWlK.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2023-09-07",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/d7MtoIkR1AcEzQZkrqldKJrvspE.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2023-09-14",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/wUN5y1XM9MWd9CuDHUtPlvd33Ku.jpg"
+            }
+          ],
+          "premiereSchedule": []
         },
         {
           "label": "Temporada 5",
@@ -29611,32 +30645,140 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2025-01-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/tYWZazI50V1q7RLBiqMjDv1mLzr.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2025-01-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/3RaXN5m4K3Vuj8VIKhshPvU90td.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2025-01-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/y2lz0McoKR0LbDaTeZgAyfUZ0y5.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2025-02-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 22,
+              "still": "https://image.tmdb.org/t/p/w300/8Ntj8bKZgKAGftTcbUzofNlVjNP.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2025-02-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/wbkWxtjoIh9jWyXvHm231IGUJUa.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2025-02-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/feFN1w8XD1Tvt3tDn93Yg9P3eib.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2025-02-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 22,
+              "still": "https://image.tmdb.org/t/p/w300/ekHM3J4eCw11Hy0TFzCr5566Z64.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2025-03-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 22,
+              "still": "https://image.tmdb.org/t/p/w300/7XzowlwxAdNSrN3GSqQLLbY8915.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2025-03-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 22,
+              "still": "https://image.tmdb.org/t/p/w300/aSoOmV2OOcv3aBPnKFOCEyhhk96.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2025-03-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 22,
+              "still": "https://image.tmdb.org/t/p/w300/lv3NWsKmLZ1HuouD3HsGEhMCOG5.jpg"
+            }
+          ],
+          "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-03T13:32:58.680Z",
+      "updatedAt": "2026-09-12T19:06:14.234Z",
       "nameEn": "",
-      "tmdbId": 74440,
+      "tmdbId": "74440",
       "tmdbKind": "tv",
       "tmdbRating": 8.3,
-      "tmdbVoteCount": 1185
+      "tmdbVoteCount": 1185,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "romance-secundario-protagonista",
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000119",
       "name": "Gentleman Jack",
-      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/hLQl8LKLXdA4gF4ArR8TXzXGRYV.jpg",
-      "synopsis": "Una dramatización de la vida de la pionera lesbiana, estudiante voraz y diarista críptica Anne Lister.\n \n (Fuente: IMDb)",
+      "poster": "https://image.tmdb.org/t/p/w500/hLQl8LKLXdA4gF4ArR8TXzXGRYV.jpg",
+      "synopsis": "Anne Lister regresa a Halifax, West Yorkshire en 1832, decidida a transformar el destino de su descolorida casa ancestral Shibden Hall.",
       "year": 2019,
-      "country": "Reino Unido",
-      "network": "Max",
-      "networkUrl": "https://play.hbomax.com/series/urn:hbo:series:GXI-WvQqTfKuWIwEAAAAC?source=googleHBOMAX&action=open",
+      "country": "Estados Unidos",
+      "network": "HBO Max Amazon Channel, HBO Max",
+      "networkUrl": "https://www.max.com",
       "watchLinks": [
         {
+          "name": "HBO Max Amazon Channel",
+          "url": "https://www.max.com"
+        },
+        {
           "name": "HBO Max",
-          "url": "https://play.hbomax.com/series/urn:hbo:series:GXI-WvQqTfKuWIwEAAAAC?source=googleHBOMAX&action=open"
+          "url": "https://www.max.com"
         }
       ],
-      "trailerUrl": "https://www.youtube.com/watch?v=-uBYRcP44M4&pp=ygUfR2VudGxlbWFuIEphY2sgdHJhaWxlciBvZmZpY2lhbA%3D%3D",
+      "trailerUrl": "https://www.youtube.com/watch?v=-uBYRcP44M4",
       "genres": [
         "Drama"
       ],
@@ -29656,31 +30798,185 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2019-04-22",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61,
+              "still": "https://image.tmdb.org/t/p/w300/9pZm8bbG5KpELAcztYT6BHLm0C9.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2019-04-29",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61,
+              "still": "https://image.tmdb.org/t/p/w300/96tGogOqxa9Tjtng5Zm6hVmxEYJ.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2019-05-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 62,
+              "still": "https://image.tmdb.org/t/p/w300/5ZqstRjUkhJh9eGQFdVX2HPKy1B.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2019-05-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 62,
+              "still": "https://image.tmdb.org/t/p/w300/g7anhk8GksTAgC66pfsxal1Tofx.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2019-05-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61,
+              "still": "https://image.tmdb.org/t/p/w300/28R3KG7ob7PyWyb5gelvEF1u9xJ.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2019-05-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 62,
+              "still": "https://image.tmdb.org/t/p/w300/oK6UrSjv15DLpQPE3FPA4LY3DF9.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2019-06-03",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 62,
+              "still": "https://image.tmdb.org/t/p/w300/ppxK0SFDAF8g6VqsmNc5ZOvj7EB.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2019-06-10",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61,
+              "still": "https://image.tmdb.org/t/p/w300/wytx5BZnSzRt5uy5WPYjfNNuQky.jpg"
+            }
+          ],
+          "premiereSchedule": []
         },
         {
           "label": "Temporada 2",
-          "startDate": "2022-04-10",
+          "startDate": "2022-04-25",
           "totalEpisodes": 8,
           "emissionDays": [
-            6
+            0
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2022-04-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 58,
+              "still": "https://image.tmdb.org/t/p/w300/9T22sXxzxuuii88C8aDAir8nzuA.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2022-05-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 58,
+              "still": "https://image.tmdb.org/t/p/w300/aKrtfh94LtzyegcFwHWrPEpA88P.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2022-05-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 58,
+              "still": "https://image.tmdb.org/t/p/w300/zUaUNLpQwtFMtvv0J7MdfzR35pk.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2022-05-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 59,
+              "still": "https://image.tmdb.org/t/p/w300/2KCsjNR9mq460T1jzuh4BDI2KG4.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2022-05-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 58,
+              "still": "https://image.tmdb.org/t/p/w300/pkeKw8MqTvqxCrAlkAuMRUSkl1F.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2022-05-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 59,
+              "still": "https://image.tmdb.org/t/p/w300/tFfx16DYu8oAAR7zwVJ0AIHnI6L.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2022-06-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 59,
+              "still": "https://image.tmdb.org/t/p/w300/tMetjfuh0YzUVosnvec2f6KbcTw.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2022-06-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 70,
+              "still": "https://image.tmdb.org/t/p/w300/vn4zn8rNtoWkzql83qyzacD6zmo.jpg"
+            }
+          ],
+          "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-03T13:34:05.283Z",
+      "updatedAt": "2026-09-12T19:06:12.221Z",
       "nameEn": "",
-      "tmdbId": 86163,
+      "tmdbId": "86163",
       "tmdbKind": "tv",
       "tmdbRating": 7.8,
-      "tmdbVoteCount": 214
+      "tmdbVoteCount": 214,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "pareja-principal",
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": 60,
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000121",
       "name": "Do You \"Truth or Dare\" with Me?",
-      "poster": "https://i.mydramalist.com/Z0wEjc.jpg?v=1",
+      "poster": "https://image.tmdb.org/t/p/w500/gd6wD9S7VA23VRsWSZ4bo0uutfD.jpg",
       "synopsis": "\"Oye, ¿quieres jugar a verdad o reto conmigo? Yo también te gusto, ¿verdad?\"\n \n (Fuente: Stylelife Contents Lab, Youtube)",
       "year": 2019,
       "country": "Corea del Sur",
@@ -29706,30 +31002,61 @@
           "emissionDays": [
             4
           ],
-          "allInOneDay": true,
+          "allInOneDay": false,
           "skipDates": [],
-          "episodes": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2019-02-22",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 6
+            },
+            {
+              "num": 2,
+              "date": "2019-03-01",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 6
+            }
+          ],
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T20:03:13.655Z",
+      "updatedAt": "2026-09-12T19:06:19.424Z",
       "category": "series",
       "seriesType": "webserie",
       "animeSeason": "",
       "renewedNextSeason": false,
       "nameEn": "언니 나랑 진실게임 할래요",
       "cast": [],
-      "episodeDuration": "",
-      "tmdbId": 230284,
+      "episodeDuration": 5,
+      "tmdbId": "230284",
       "tmdbKind": "tv",
       "tmdbRating": 1,
-      "tmdbVoteCount": 2
+      "tmdbVoteCount": 2,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "pareja-principal",
+      "awards": [],
+      "couples": [],
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000122",
       "name": "Romantic Witch's Starlight Sonata",
-      "poster": "https://i.mydramalist.com/PwVy0c.jpg?v=1",
-      "synopsis": "El amor nunca espera. La puerta secreta se abre de par en par solo para quien intenta conseguirla. Jeongyoon, siempre dice lo que quiere decir. Yejin, siempre depende de Jeongyoon. Siguen jugando al frío y al calor, sin que nadie se dé cuenta. Un día, la sombra se interpuso frente a Jeongyoon y Yejin. Todo cambia en la noche con la oscuridad.\n \n (Fuente: TMDB)",
+      "poster": "https://image.tmdb.org/t/p/w500/mSeL1MWfR23Qey9GS55pYmJBwdg.jpg",
+      "synopsis": "Love never waits. The secret door opens widely only for whom tries to get. Jeongyoon, always say what she want to say. Yejin, always depend on Jeongyoon. They keep playing hot and cold with or without notice each other. One day, the shadow came in front of Jeongyoon and Yejin. Everything changes on the night with darkness.",
       "year": 2019,
       "country": "Corea del Sur",
       "network": "",
@@ -29737,6 +31064,7 @@
       "watchLinks": [],
       "trailerUrl": "",
       "genres": [
+        "Drama",
         "Fantasía",
         "Romance"
       ],
@@ -29752,32 +31080,66 @@
           "startDate": "2019-03-09",
           "totalEpisodes": 2,
           "emissionDays": [
+            2,
             5
           ],
-          "allInOneDay": true,
+          "allInOneDay": false,
           "skipDates": [],
-          "episodes": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2019-03-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 4,
+              "still": "https://image.tmdb.org/t/p/w300/3jHGqE4QYamT4y53R1L4sunAjN8.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2019-03-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 5,
+              "still": "https://image.tmdb.org/t/p/w300/joTWZ16a1YLI7ROKyqF5XcSJZZy.jpg"
+            }
+          ],
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T20:03:29.637Z",
+      "updatedAt": "2026-09-12T19:15:46.154Z",
       "category": "series",
       "seriesType": "webserie",
       "animeSeason": "",
       "renewedNextSeason": false,
       "nameEn": "순정 마녀의 별빛 소나타",
       "cast": [],
-      "episodeDuration": "",
-      "tmdbId": 110277,
+      "episodeDuration": 5,
+      "tmdbId": "110277",
       "tmdbKind": "tv",
       "tmdbRating": 5,
-      "tmdbVoteCount": 1
+      "tmdbVoteCount": 1,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "couples": [],
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000123",
       "name": "Out of Breath",
-      "poster": "https://i.mydramalist.com/BbZY7c.jpg?v=1",
-      "synopsis": "La novia de Ha Eun rompe con ella porque tiene miedo de que la gente sepa que es lesbiana. Después de que su mejor amiga la presione, Ha Eun conoce a Min Seo en una aplicación de citas. Las dos hacen todas las cosas de la lista de citas de Ha Eun que nunca llegó a hacer con su ex. Después de pasar tiempo juntas, ¿podrá Ha Eun superar a su ex y seguir adelante?\n \n \n (Fuente: TMDB)",
+      "poster": "https://image.tmdb.org/t/p/w500/eDQudqJtWBZLCGngSsOnW9YS4N6.jpg",
+      "synopsis": "Ha Eun's girlfriend breaks up with her because she's scared of people knowing she's a lesbian. After a push from her best friend, Ha Eun meets Min Seo on a dating app. The two of them do all of the things on Ha Eun's list of dates that she never got to do with her ex. After spending time together, will Ha Eun be able to get over her ex and move on?",
       "year": 2019,
       "country": "Corea del Sur",
       "network": "Youtube",
@@ -29788,8 +31150,9 @@
           "url": "https://youtu.be/7RA8815wDF0?si=6934e2VGGllvM44W"
         }
       ],
-      "trailerUrl": "https://youtu.be/jN1V3Lh4AHc",
+      "trailerUrl": "https://www.youtube.com/watch?v=Jtr88hKmPno",
       "genres": [
+        "Comedia",
         "Drama",
         "Romance"
       ],
@@ -29807,13 +31170,38 @@
           "emissionDays": [
             6
           ],
-          "allInOneDay": true,
+          "allInOneDay": false,
           "skipDates": [],
-          "episodes": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2019-08-04",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 43,
+              "still": "https://image.tmdb.org/t/p/w300/auawnqXe2tCJq1g513pQT0WZ1N.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2019-08-11",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 43,
+              "still": "https://image.tmdb.org/t/p/w300/qaaGhIGbzsuL4gGYlE1wtrhvRRO.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2019-08-18",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 43,
+              "still": "https://image.tmdb.org/t/p/w300/8XHnlQMOaCZRfhDvToarDYOXvhh.jpg"
+            }
+          ],
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T20:03:44.002Z",
+      "updatedAt": "2026-09-12T19:16:01.510Z",
       "category": "series",
       "seriesType": "webserie",
       "animeSeason": "",
@@ -29821,16 +31209,32 @@
       "nameEn": "숨이 벅차",
       "cast": [],
       "episodeDuration": 14,
-      "tmdbId": 95620,
+      "tmdbId": "95620",
       "tmdbKind": "tv",
       "tmdbRating": 7.9,
-      "tmdbVoteCount": 7
+      "tmdbVoteCount": 7,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "couples": [],
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000125",
       "name": "Afraid of",
-      "poster": "https://i.mydramalist.com/Q76DWc.jpg?v=1",
-      "synopsis": "Hyeon A es una lesbiana que oculta sus sentimientos hasta que empieza a cuestionarlos cuando una chica guapa de su clase, de la que se enamora, le da su número.",
+      "poster": "https://image.tmdb.org/t/p/w500/qDuFMY7fibtno465e6QOGPgbTLo.jpg",
+      "synopsis": "Hyun Ah is a closeted lesbian who hides her feelings until she starts questioning it when a cute girl from her class she develops a crush on gives her her number.",
       "year": 2019,
       "country": "Corea del Sur",
       "network": "Youtube",
@@ -29843,6 +31247,7 @@
       ],
       "trailerUrl": "https://www.youtube.com/watch?v=nROAXAF9Y2E&pp=ygUWQWZyYWlkIE9mIDIwMTkgdHJhaWxlcg%3D%3D",
       "genres": [
+        "Drama",
         "Romance"
       ],
       "basedOnBook": false,
@@ -29854,18 +31259,43 @@
       "seasons": [
         {
           "label": "Temporada 1",
-          "startDate": "2019-12-15",
+          "startDate": "2019-12-16",
           "totalEpisodes": 3,
           "emissionDays": [
             0
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2019-12-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 7,
+              "still": "https://image.tmdb.org/t/p/w300/uke4QIbu5xEDDyYhazk0BrBT82Q.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2019-12-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 7,
+              "still": "https://image.tmdb.org/t/p/w300/dZxlcHc3SU6e3HxS1Srq3JLDOEk.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2019-12-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 7,
+              "still": "https://image.tmdb.org/t/p/w300/4cRIhycr0gmBeeoLjlmr37O1eJp.jpg"
+            }
+          ],
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T20:03:57.311Z",
+      "updatedAt": "2026-09-12T19:15:55.587Z",
       "category": "series",
       "seriesType": "webserie",
       "animeSeason": "",
@@ -29873,10 +31303,26 @@
       "nameEn": "어프레이드 오브",
       "cast": [],
       "episodeDuration": 7,
-      "tmdbId": 93693,
+      "tmdbId": "138462",
       "tmdbKind": "tv",
-      "tmdbRating": 7.6,
-      "tmdbVoteCount": 258
+      "tmdbRating": 7,
+      "tmdbVoteCount": 2,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "couples": [],
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000132",
@@ -29927,8 +31373,8 @@
     {
       "id": "1700000000136",
       "name": "You I Didn't Know",
-      "poster": "https://i.mydramalist.com/w7jA8_4c.jpg?v=1",
-      "synopsis": "Ep. 1 Tae Il se siente frustrada por las obsesiones interminables de su novia. Ep. 2 Ji Won está triste porque la dejan de lado porque su mejor amiga tiene un nuevo novio. Ep. 3 Hye Joo ya no puede guardarse para sí misma sus sentimientos por su vieja amiga Sol. ¿Volverán las cosas a ser como antes, cuando todo era más sencillo?\n \n (Fuente: Viki",
+      "poster": "https://image.tmdb.org/t/p/w500/wA0TRLBVckdgeMu8Rd3X0yCtwtV.jpg",
+      "synopsis": "Ep. 1 Tae Il is frustrated by her girlfriend's endless obsessions.\n\nEp. 2 Ji Won is sad when she's left out because her best friend gets a new boyfriend.\n\nEp. 3 Hye Joo can no longer keep her feelings for her old friend Sol to herself.\n\nWill things ever go back to the way it used to be when everything was simpler?",
       "year": 2020,
       "country": "Corea del Sur",
       "network": "Yotube",
@@ -29960,11 +31406,30 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2020-08-12",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 2,
+              "date": "2020-08-19",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 3,
+              "date": "2020-09-02",
+              "skipped": false,
+              "source": "tmdb"
+            }
+          ],
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T20:04:38.035Z",
+      "updatedAt": "2026-09-12T19:16:10.803Z",
       "category": "series",
       "seriesType": "webserie",
       "animeSeason": "",
@@ -29972,10 +31437,26 @@
       "nameEn": "내가 몰랐던 너",
       "cast": [],
       "episodeDuration": 8,
-      "tmdbId": 239165,
+      "tmdbId": "239165",
       "tmdbKind": "tv",
       "tmdbRating": 4,
-      "tmdbVoteCount": 1
+      "tmdbVoteCount": 1,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "couples": [],
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000137",
@@ -30038,8 +31519,8 @@
     {
       "id": "1700000000139",
       "name": "Pearl Next Door",
-      "poster": "https://i.mydramalist.com/6wrOj_4c.jpg?v=1",
-      "synopsis": "La historia de Pearl de la serie \"Gameboys\".\n \n Pearl se abre a la posibilidad del amor, pero recibe algo totalmente inesperado a cambio.\n \n (Fuente: TMDB)",
+      "poster": "https://image.tmdb.org/t/p/w500/x1FxufVWtXEmiU0Ad8ktdkX0cez.jpg",
+      "synopsis": "La historia de Pearl, de la serie «Gameboys».\n\nPearl se abre a la posibilidad del amor, pero a cambio recibe algo totalmente inesperado.",
       "year": 2020,
       "country": "Filipinas",
       "network": "Youtube",
@@ -30050,8 +31531,9 @@
           "url": "https://youtube.com/playlist?list=PLEr9FH7oPOQ5-G5qcbW-vTFYZgURm_vma&si=uhbTWTFTGuptcRa9"
         }
       ],
-      "trailerUrl": "https://youtu.be/2_oy8eN64pQ",
+      "trailerUrl": "https://www.youtube.com/watch?v=iTEwKhdj7gQ",
       "genres": [
+        "Comedia",
         "Drama",
         "Romance"
       ],
@@ -30072,11 +31554,65 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2020-10-23",
+              "skipped": false,
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/pZGid9DNqFLQvmdvEbjly4144ip.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2020-10-30",
+              "skipped": false,
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/hPswJ94F01gSlSaQj6skeSIpZT5.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2020-11-14",
+              "skipped": false,
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/AtqSiaohCWa6WTnR6vN8aYff0Cl.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2020-11-21",
+              "skipped": false,
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/x7Tfb3loU1Dsc49Sw9OUeGWnUBJ.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2020-11-28",
+              "skipped": false,
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/8LYGjl5im3uTS3FOa041v3ZBqsW.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2020-12-26",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 7,
+              "date": "2021-01-02",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 8,
+              "date": "2021-01-09",
+              "skipped": false,
+              "source": "tmdb"
+            }
+          ],
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T20:09:38.697Z",
+      "updatedAt": "2026-09-12T19:20:38.345Z",
       "nameEn": "",
       "category": "series",
       "seriesType": "serie",
@@ -30084,27 +31620,43 @@
       "animeSeason": "",
       "renewedNextSeason": false,
       "episodeDuration": 25,
-      "tmdbId": 114986,
+      "tmdbId": "114986",
       "tmdbKind": "tv",
       "tmdbRating": 4.6,
-      "tmdbVoteCount": 5
+      "tmdbVoteCount": 5,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "couples": [],
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000141",
-      "name": "YellowJackets",
-      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/xRnGrn7Z7SC0KIBodocoU1QgDZF.jpg",
-      "synopsis": "Yellowjackets es una serie que combina una épica de supervivencia, una historia de terror psicológico y un drama sobre el paso de la infancia a la adultez, y que narra la historia de un equipo de chicas de secundaria con un gran talento que se convierten en las (des)afortunadas supervivientes de un accidente aéreo en las profundidades de una zona remota del norte. La serie narra su descenso desde un equipo complicado pero próspero a clanes salvajes, al tiempo que sigue las vidas que han intentado reconstruir casi 25 años después, lo que demuestra que el pasado nunca es realmente pasado y que lo que comenzó en el desierto está lejos de terminar. \n\n(Wiki Yellowjackets)",
+      "name": "Yellowjackets",
+      "poster": "https://image.tmdb.org/t/p/w500/xRnGrn7Z7SC0KIBodocoU1QgDZF.jpg",
+      "synopsis": "Después de un accidente de avión en las profundidades de Ontario, los miembros de un equipo de fútbol femenino son los únicos supervivientes del accidente. Las chicas de secundaria tendrán que luchar por su supervivencia contra los clanes caníbales.",
       "year": 2021,
       "country": "Estados Unidos",
-      "network": "Paramount+ (USA, LATAM, UK)Netflix (USA, LATAM)Prime Video (Thailand)Movistar+ (España)",
-      "networkUrl": "https://www.paramountplus.com/shows/yellowjackets/",
+      "network": "Paramount Plus, MovistarTV, Claro video, Paramount Plus Apple TV channel, Paramount+ Amazon Channel",
+      "networkUrl": "https://tv.apple.com",
       "watchLinks": [
         {
-          "name": "Paramount+ (USA, LATAM, UK)Netflix (USA, LATAM)Prime Video (Thailand)Movistar+ (España)",
-          "url": "https://www.paramountplus.com/shows/yellowjackets/"
+          "name": "Paramount Plus Apple TV channel",
+          "url": "https://tv.apple.com"
         }
       ],
-      "trailerUrl": "https://youtu.be/mX22D65TqAs",
+      "trailerUrl": "https://www.youtube.com/watch?v=Axx9Qhct49w",
       "genres": [
         "Drama",
         "Misterio"
@@ -30125,63 +31677,340 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2021-11-14",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 56,
+              "still": "https://image.tmdb.org/t/p/w300/auqCUaYGDXiRMZbYdDn5gPHLiAy.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2021-11-21",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 57,
+              "still": "https://image.tmdb.org/t/p/w300/wlsLlt84Jedh5nVsEjtV8KTMCzC.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2021-11-28",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 57,
+              "still": "https://image.tmdb.org/t/p/w300/cifHyYw3rkFEjv64n4CZwfYlFLL.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2021-12-05",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 58,
+              "still": "https://image.tmdb.org/t/p/w300/sPpbLnTELJqXuoOvzk1vYjO48ii.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2021-12-12",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 58,
+              "still": "https://image.tmdb.org/t/p/w300/4DacGSEd2yzLpu1wWk9PvMiNAwX.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2021-12-19",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 58,
+              "still": "https://image.tmdb.org/t/p/w300/19vvCa44Jv0G5DaFziryUCEXpUV.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2021-12-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 58,
+              "still": "https://image.tmdb.org/t/p/w300/wqzWSPb0yNZCEE6GYlkVoHGqbM3.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2022-01-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 58,
+              "still": "https://image.tmdb.org/t/p/w300/lRmMUvj2jXd2pzutB25VWmLwNyE.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2022-01-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 58,
+              "still": "https://image.tmdb.org/t/p/w300/1eKwkKWyrSsr3nbyz1EDxORKEAT.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2022-01-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 59,
+              "still": "https://image.tmdb.org/t/p/w300/peqday8J3DpItYalNmfQYYKHfoU.jpg"
+            }
+          ],
           "premiereSchedule": []
         },
         {
           "label": "Temporada 2",
-          "startDate": "2023-03-27",
+          "startDate": "2023-03-26",
           "totalEpisodes": 9,
           "emissionDays": [
-            4
+            6
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2023-03-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 59,
+              "still": "https://image.tmdb.org/t/p/w300/t9U5kOWwJKSdF0BvfPeVrnIJNmV.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2023-04-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60,
+              "still": "https://image.tmdb.org/t/p/w300/ykoWQGd6Wu5zjhgJfRWCRLj9Okn.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2023-04-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 57,
+              "still": "https://image.tmdb.org/t/p/w300/uWlTAkAgIk5SQHrgMuxtOShO4PE.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2023-04-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60,
+              "still": "https://image.tmdb.org/t/p/w300/ve1pHpS75Pnbo2oXPBD1gkV4UX5.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2023-04-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 59,
+              "still": "https://image.tmdb.org/t/p/w300/ovZdsafPZFrF1OIRGnjKmz25qSR.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2023-05-07",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 55,
+              "still": "https://image.tmdb.org/t/p/w300/cu1r2X3Aj5VVN3jVc8bzBbRjlMb.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2023-05-14",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 59,
+              "still": "https://image.tmdb.org/t/p/w300/rwHRZpkhLTqsvJfrDq0TXgV4igH.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2023-05-21",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 51,
+              "still": "https://image.tmdb.org/t/p/w300/tOyM3Zm53t720zklbZhIPRDn5pT.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2023-05-28",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61,
+              "still": "https://image.tmdb.org/t/p/w300/haCD2oR8C0UJi08RQ5RupTILCJ1.jpg"
+            }
+          ],
           "premiereSchedule": []
         },
         {
           "label": "Temporada 3",
-          "startDate": "2025-02-14",
+          "startDate": "2025-02-16",
           "totalEpisodes": 10,
           "emissionDays": [
-            4
+            6
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2025-02-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60,
+              "still": "https://image.tmdb.org/t/p/w300/hm1wUcFBAXdkjP3qa7stvIM6uiV.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2025-02-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 58,
+              "still": "https://image.tmdb.org/t/p/w300/sBjGuCBnWc8TvZjxXNC6sR7GEMA.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2025-02-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 55,
+              "still": "https://image.tmdb.org/t/p/w300/mTdEEpwHFWIuK2Xi6JUX5ftvtH.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2025-03-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 55,
+              "still": "https://image.tmdb.org/t/p/w300/iNSudsLn2ophdz9VyrZRVKJJXHA.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2025-03-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 55,
+              "still": "https://image.tmdb.org/t/p/w300/wNrxzi1fNYOut7yiBRzTupYcIVq.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2025-03-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 54,
+              "still": "https://image.tmdb.org/t/p/w300/lStAjOJYexlJQ1IvLCG0WiVbVOC.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2025-03-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 54,
+              "still": "https://image.tmdb.org/t/p/w300/qSuBClT5gUUWQHwFzI3xDgW6Uhw.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2025-03-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 55,
+              "still": "https://image.tmdb.org/t/p/w300/1xL0A5DveIX1iWpR4tbABBeW4Td.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2025-04-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 55,
+              "still": "https://image.tmdb.org/t/p/w300/jyH3UR7iksHpvh8XQFaiGgQOY7M.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2025-04-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60,
+              "still": "https://image.tmdb.org/t/p/w300/bx10gBsPuBNwdDAlt4MoqpQVNfC.jpg"
+            }
+          ],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 4",
+          "startDate": "2026-11-22",
+          "totalEpisodes": 1,
+          "emissionDays": [
+            6
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2026-11-22",
+              "skipped": false,
+              "source": "tmdb"
+            }
+          ],
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-12T19:21:05.416Z",
+      "updatedAt": "2026-09-12T19:16:55.353Z",
       "category": "series",
       "animeSeason": "",
       "renewedNextSeason": true,
       "nameEn": "",
-      "tmdbId": 117488,
+      "tmdbId": "117488",
       "tmdbKind": "tv",
       "tmdbRating": 7.4,
-      "tmdbVoteCount": 1027
+      "tmdbVoteCount": 1027,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000142",
-      "name": "The Sex Lives of College Girls",
-      "poster": "https://pics.filmaffinity.com/the_sex_lives_of_college_girls-881831928-mmed.jpg",
-      "synopsis": "Sigue a cuatro compañeras de cuarto de la universidad cuando llegan al prestigioso Essex College de Nueva Inglaterra. Estas chicas, un manojo de contradicciones y hormonas, son adorables y exasperantes a partes iguales mientras viven sus nuevas vidas libres en el campus.\n\n(Source: TMDB)",
+      "name": "La vida sexual de las universitarias",
+      "poster": "https://image.tmdb.org/t/p/w500/pfcOeYD0XoiKmQzdw3OQ80JriIr.jpg",
+      "synopsis": "Cuatro compañeras de cuarto de la universidad llegan al prestigioso Essex College de Nueva Inglaterra. Un lugar lleno de contradicciones y hormonas, donde estas chicas que son a partes iguales adorables y exasperantes viven sus nuevas vidas en el campus.",
       "year": 2021,
       "country": "Estados Unidos",
-      "network": "Max",
-      "networkUrl": "https://play.max.com/show/b1113b51-d27b-4941-a0d4-bc2826158464?utm_source=universal_search",
+      "network": "Movistar Plus+ Ficción Total , HBO Max, HBO Max Amazon Channel",
+      "networkUrl": "https://www.max.com",
       "watchLinks": [
         {
-          "name": "Max",
-          "url": "https://play.max.com/show/b1113b51-d27b-4941-a0d4-bc2826158464?utm_source=universal_search"
+          "name": "HBO Max",
+          "url": "https://www.max.com"
+        },
+        {
+          "name": "HBO Max Amazon Channel",
+          "url": "https://www.max.com"
         }
       ],
-      "trailerUrl": "https://youtu.be/FgQ-ugHEhiA",
+      "trailerUrl": "https://www.youtube.com/watch?v=X6ItI1mekLk",
       "genres": [
-        "Drama",
-        "Comedia"
+        "Comedia",
+        "Drama"
       ],
       "basedOnBook": false,
       "bookSource": "",
@@ -30197,9 +32026,91 @@
           "emissionDays": [
             3
           ],
-          "allInOneDay": false,
+          "allInOneDay": true,
           "skipDates": [],
-          "episodes": []
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2021-11-18",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 52,
+              "still": "https://image.tmdb.org/t/p/w300/p8l6LZp5DdrWUGcUEt1PCfiZDHT.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2021-11-18",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 30,
+              "still": "https://image.tmdb.org/t/p/w300/mI2loK02FylHsihb7OaIPN3PHxv.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2021-11-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 28,
+              "still": "https://image.tmdb.org/t/p/w300/gQhcHitYTJANhosqkouwSD1E04B.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2021-11-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 26,
+              "still": "https://image.tmdb.org/t/p/w300/n8ieXmCaQgW71kZx7aAa1qL3ZlD.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2021-11-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 28,
+              "still": "https://image.tmdb.org/t/p/w300/aDgJ2gRGf7GbHG1JBBxtJpPeCCg.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2021-12-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 26,
+              "still": "https://image.tmdb.org/t/p/w300/mkOrK2EZW54jP0rzhwfqq0mRHAY.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2021-12-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 25,
+              "still": "https://image.tmdb.org/t/p/w300/AsXXzXmDgjy7b4a5bqNzNBZyon0.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2021-12-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 29,
+              "still": "https://image.tmdb.org/t/p/w300/r4TcjXM3Fmi4wPj2T1D1hhSQbLj.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2021-12-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 27,
+              "still": "https://image.tmdb.org/t/p/w300/f2ZdlXbf28JSPWNxazHuoHU5lGB.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2021-12-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 29,
+              "still": "https://image.tmdb.org/t/p/w300/4m21t8UljHhBXfXBRletvqdaWPb.jpg"
+            }
+          ],
+          "premiereSchedule": []
         },
         {
           "label": "Temporada 2",
@@ -30208,9 +32119,91 @@
           "emissionDays": [
             3
           ],
-          "allInOneDay": false,
+          "allInOneDay": true,
           "skipDates": [],
-          "episodes": []
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2022-11-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 29,
+              "still": "https://image.tmdb.org/t/p/w300/zboNvbaweAOWA9dg74qM3tqV4jH.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2022-11-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 25,
+              "still": "https://image.tmdb.org/t/p/w300/gnwjK5aGAS7hf67vVE9ZqmRFKR3.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2022-11-24",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/3IJfr7S6zq81zlt3W1q4vauoFAl.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2022-11-24",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 26,
+              "still": "https://image.tmdb.org/t/p/w300/bUKwtYNiUe2yNkcolTXojhxRYlc.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2022-12-01",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 28,
+              "still": "https://image.tmdb.org/t/p/w300/edOwy7KaFGUP6aAZKVtFbbB9Ycd.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2022-12-01",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 28,
+              "still": "https://image.tmdb.org/t/p/w300/kyF90o9rB140MQLoSYUdedYnCRd.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2022-12-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 28,
+              "still": "https://image.tmdb.org/t/p/w300/e1tUS6x3CalaamO4QUSqwkrIkfL.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2022-12-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/y9NdaM7zHnNFfFrSsQL3TtXkebi.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2022-12-15",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 26,
+              "still": "https://image.tmdb.org/t/p/w300/eHHKNh7Ar49TnBt4PvU3dPLTtC1.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2022-12-15",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 30,
+              "still": "https://image.tmdb.org/t/p/w300/fBouhCVT9q83Zb5uWKgGioT5Kja.jpg"
+            }
+          ],
+          "premiereSchedule": []
         },
         {
           "label": "Temporada 3",
@@ -30221,36 +32214,145 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2024-11-21",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 37,
+              "still": "https://image.tmdb.org/t/p/w300/7w6FRuVxjH9t1i1mQEZgfspTwyp.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2024-11-28",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 37,
+              "still": "https://image.tmdb.org/t/p/w300/6FiocEGqcuOzlY7BK7RCsvyz1HL.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2024-12-05",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 31,
+              "still": "https://image.tmdb.org/t/p/w300/m3wV5ZNZp1CvZN4CZ7B4rJhsY2K.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2024-12-12",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 32,
+              "still": "https://image.tmdb.org/t/p/w300/o1XOyMyDIFyzcaos3S09av550nz.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2024-12-19",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 30,
+              "still": "https://image.tmdb.org/t/p/w300/tYWGiiz3uxj6RWanZuKOpp4XuEg.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2024-12-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 34,
+              "still": "https://image.tmdb.org/t/p/w300/sAezrZB89gSUkSTPwyGx4XPKZGo.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2025-01-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 32,
+              "still": "https://image.tmdb.org/t/p/w300/aTN5qOxMMRN7q9dY0IzIP49TVlm.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2025-01-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 26,
+              "still": "https://image.tmdb.org/t/p/w300/fOf28b5tprOQvqphbV3dWt3Tt6D.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2025-01-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 29,
+              "still": "https://image.tmdb.org/t/p/w300/xJLsYYU8kJfchVY9ykRmMCNXrC4.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2025-01-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 35,
+              "still": "https://image.tmdb.org/t/p/w300/y9HxYeVdLV4XoIWtvCqnGf6yXAt.jpg"
+            }
+          ],
+          "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-07T07:47:05.142Z",
-      "nameEn": "",
-      "tmdbId": 134373,
+      "updatedAt": "2026-09-12T19:17:15.094Z",
+      "nameEn": "The Sex Lives of College Girls",
+      "tmdbId": "134373",
       "tmdbKind": "tv",
       "tmdbRating": 7.2,
-      "tmdbVoteCount": 390
+      "tmdbVoteCount": 390,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "romance-secundario-protagonista",
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000143",
       "name": "Arcane",
-      "poster": "https://resizing.flixster.com/qKecUZNM4r1B6Mc-KmMAWbAVnG8=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvYWY2ZjNlYzEtMmZlMS00NzBiLWJhODEtY2NhYWFkMmFhYzExLmpwZw==",
-      "synopsis": "En medio de la marcada discordia entre las ciudades gemelas de Piltover y Zaun, dos hermanas luchan en bandos rivales de una guerra entre tecnologías mágicas y convicciones enfrentadas.\n \n (Fuente: TMDB)",
+      "poster": "https://image.tmdb.org/t/p/w500/87C0wecB8bHb1PsrKBI4kJiEkgV.jpg",
+      "synopsis": "Con las dispares ciudades de Piltover y Zaun como telón de fondo, dos hermanas luchan en bandos opuestos de una guerra entre tecnologías mágicas y creencias enfrentadas.",
       "year": 2021,
       "country": "Estados Unidos",
-      "network": "Netflix",
-      "networkUrl": "https://www.netflix.com/watch/81435684?source=35",
+      "network": "Netflix, Netflix Standard with Ads",
+      "networkUrl": "https://www.netflix.com",
       "watchLinks": [
         {
           "name": "Netflix",
-          "url": "https://www.netflix.com/watch/81435684?source=35"
+          "url": "https://www.netflix.com"
+        },
+        {
+          "name": "Netflix Standard with Ads",
+          "url": "https://www.netflix.com"
         }
       ],
-      "trailerUrl": "https://youtu.be/fXmAurh012s",
+      "trailerUrl": "https://www.youtube.com/watch?v=iKJ-coaQmBE",
       "genres": [
         "Acción",
-        "Fantasía",
-        "Ciencia Ficción"
+        "Animación",
+        "Ciencia Ficción",
+        "Fantasía"
       ],
       "basedOnBook": false,
       "bookSource": "",
@@ -30261,14 +32363,88 @@
       "seasons": [
         {
           "label": "Temporada 1",
-          "startDate": "2021-11-07",
+          "startDate": "2021-11-06",
           "totalEpisodes": 9,
           "emissionDays": [
-            6
+            5
           ],
           "allInOneDay": true,
           "skipDates": [],
-          "episodes": []
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2021-11-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 44,
+              "still": "https://image.tmdb.org/t/p/w300/g7dMkFJvJECDYoL0TRzGQCfF3xD.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2021-11-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 41,
+              "still": "https://image.tmdb.org/t/p/w300/1uubdoW7nPtpYS6T59COLEKDB7A.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2021-11-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/zCc7AEH53aH8r61F5f9DkIQGeZC.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2021-11-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 41,
+              "still": "https://image.tmdb.org/t/p/w300/b0EGdWDOFxbhaGwlJ11vO2h0az6.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2021-11-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 41,
+              "still": "https://image.tmdb.org/t/p/w300/72Ti7nTKEAPgx4VSggb1ksl31rm.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2021-11-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 43,
+              "still": "https://image.tmdb.org/t/p/w300/sPpQYLgoSZ8UXai20CSEABG9rFz.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2021-11-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 41,
+              "still": "https://image.tmdb.org/t/p/w300/ieYvkXKqOuIYcBps7COg8w6rJyN.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2021-11-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 41,
+              "still": "https://image.tmdb.org/t/p/w300/vYIBscxveNMkxFNTcPZ6YoF6fdU.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2021-11-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 42,
+              "still": "https://image.tmdb.org/t/p/w300/3mSWRynTvvE2IYJ6sI47m8V77Jq.jpg"
+            }
+          ],
+          "premiereSchedule": []
         },
         {
           "label": "Temporada 2",
@@ -30279,35 +32455,140 @@
           ],
           "allInOneDay": true,
           "skipDates": [],
-          "episodes": []
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2024-11-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 41,
+              "still": "https://image.tmdb.org/t/p/w300/AKzTyLJkQEuftVNIuh0gcJCbDl.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2024-11-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 40,
+              "still": "https://image.tmdb.org/t/p/w300/z2MSNefctJYAYGdPJQUcxRcZWTh.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2024-11-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 41,
+              "still": "https://image.tmdb.org/t/p/w300/yXD0EtrlnupXne4R9XHFPkGMxJr.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2024-11-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 40,
+              "still": "https://image.tmdb.org/t/p/w300/ktXtr0O2WF10Z2r89Xjds4owCXX.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2024-11-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 43,
+              "still": "https://image.tmdb.org/t/p/w300/3mhMhwHlZQQiB2otufCLZteRPMZ.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2024-11-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 40,
+              "still": "https://image.tmdb.org/t/p/w300/A6A6HWu0TjMRcNW31glNuZvVfxp.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2024-11-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 42,
+              "still": "https://image.tmdb.org/t/p/w300/sgKSyfB7uor4hSzSsWMEUnMC5SA.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2024-11-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 41,
+              "still": "https://image.tmdb.org/t/p/w300/vqoFpOXDGEEsgkD10QhopOQYoN3.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2024-11-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 51,
+              "still": "https://image.tmdb.org/t/p/w300/7wYoQZAdbB6e3CFDDYvxQY1sM7.jpg"
+            }
+          ],
+          "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-07T07:48:32.166Z",
+      "updatedAt": "2026-09-12T19:18:19.686Z",
       "nameEn": "",
-      "tmdbId": 94605,
+      "tmdbId": "94605",
       "tmdbKind": "tv",
       "tmdbRating": 8.7,
-      "tmdbVoteCount": 6167
+      "tmdbVoteCount": 6167,
+      "wlwFocus": "romance-secundario-protagonista",
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [
+        {
+          "actressId": "tmdb_130640_mtyqjo09",
+          "character": "Vi (voz)"
+        }
+      ],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000144",
-      "name": "The Tower",
-      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/9rRbvY0NcYvprgiPi0h9uun14U3.jpg",
-      "synopsis": "Los detectives Sarah Collins y Steve Bradshaw encuentran dos cuerpos: un policía veterano, Hadley Matthews, y Farah Mehenni, una joven refugiada.\n\n(Source: HBO Max)",
+      "name": "La torre",
+      "poster": "https://image.tmdb.org/t/p/w500/9rRbvY0NcYvprgiPi0h9uun14U3.jpg",
+      "synopsis": "Los detectives Sarah Collins y Steve Bradshaw acuden a la escena de un crimen en la torre Portland en el sureste de Londres. Al llegar se encuentran dos cuerpos: el de un policía veterano llamado Hadley Matthews y el de Farah Mehenni, una joven refugiada.",
       "year": 2021,
       "country": "Reino Unido",
-      "network": "Max",
-      "networkUrl": "https://www.hbomax.com/es/es/shows/la-torre/4059260c-1d10-46ec-ad65-8b1e3c46b361",
+      "network": "Movistar Plus+ Ficción Total , HBO Max, HBO Max Amazon Channel",
+      "networkUrl": "https://www.max.com",
       "watchLinks": [
         {
           "name": "HBO Max",
-          "url": "https://www.hbomax.com/es/es/shows/la-torre/4059260c-1d10-46ec-ad65-8b1e3c46b361"
+          "url": "https://www.max.com"
+        },
+        {
+          "name": "HBO Max Amazon Channel",
+          "url": "https://www.max.com"
         }
       ],
-      "trailerUrl": "https://youtu.be/mW0kvg578cY",
+      "trailerUrl": "https://www.youtube.com/watch?v=mW0kvg578cY",
       "genres": [
-        "Drama",
-        "Crimen"
+        "Crimen",
+        "Drama"
       ],
       "basedOnBook": false,
       "bookSource": "",
@@ -30327,40 +32608,156 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2021-11-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 47,
+              "still": "https://image.tmdb.org/t/p/w300/4YKMh0yRd9zVVFzkqhxH2dDolOI.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2021-11-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 46,
+              "still": "https://image.tmdb.org/t/p/w300/Zr0NJRbHwpwHh5ZORJRW0mL9hI.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2021-11-10",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 47,
+              "still": "https://image.tmdb.org/t/p/w300/lRgCsnyLR0Jof3pynIJLZjnDqS8.jpg"
+            }
+          ],
+          "premiereSchedule": []
         },
         {
           "label": "Temporada 2",
-          "startDate": "2023-08-28",
+          "startDate": "2023-05-16",
           "totalEpisodes": 4,
           "emissionDays": [
             1
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2023-05-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 46,
+              "still": "https://image.tmdb.org/t/p/w300/7JnEjHVc9eveupA2cKh5jTAMZwi.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2023-05-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/33BcDsUU5TYT4q3G9CsCuIFUKWC.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2023-05-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/pg2aXOQFNv1qZn6dmvIxQKc843N.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2023-06-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/ppoRw6080HXhivuf4v1zqgdFKpL.jpg"
+            }
+          ],
+          "premiereSchedule": []
         },
         {
           "label": "Temporada 3",
-          "startDate": "2024-09-01",
+          "startDate": "2024-09-02",
           "totalEpisodes": 4,
           "emissionDays": [
             0,
             1,
             2,
-            6
+            3
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": []
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2024-09-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 48,
+              "still": "https://image.tmdb.org/t/p/w300/sofwQ4POLk70PkmxCdcLr0RMVe6.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2024-09-03",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 46,
+              "still": "https://image.tmdb.org/t/p/w300/zoGvXZLhi1xAV7Xkc4lMNFCTaQU.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2024-09-04",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 47,
+              "still": "https://image.tmdb.org/t/p/w300/evH1s9KEzG0quQ0Tl2lR7ZBAiWo.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2024-09-05",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 47,
+              "still": "https://image.tmdb.org/t/p/w300/mVRCV0RM0W7O1dF8zsoAhToRlDD.jpg"
+            }
+          ],
+          "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-07T07:50:20.150Z",
-      "nameEn": "",
-      "tmdbId": 138181,
+      "updatedAt": "2026-09-12T19:18:31.997Z",
+      "nameEn": "The Tower",
+      "tmdbId": "138181",
       "tmdbKind": "tv",
       "tmdbRating": 6.8,
-      "tmdbVoteCount": 82
+      "tmdbVoteCount": 82,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": 46,
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000147",
@@ -30413,8 +32810,8 @@
     {
       "id": "1700000000148",
       "name": "The Debut",
-      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/5kt9O8TGk9GJ6U7xapFLFJrit7v.jpg",
-      "synopsis": "La muerte de uno de los miembros de Newtype conduce a una búsqueda para encontrar la razón detrás de esto por parte de sus 6 miembros Yok, Smile, Yui, Kirin, Minnie y Minor.\n \n Fame decide hacer una audición para el famoso grupo de ídolos \"Newtype\" para descubrir la verdad sobre la muerte de su hermana Farn, ex miembro del grupo. Necesita cambiar de chica rockera para encajar en Newtype, con la ayuda de Kla. Su investigación la llevó a presenciar que muchos miembros del grupo han violado sus propias reglas. Toda esta experiencia también creó un conflicto con su novio rockero Ble, a quien no le gusta el hecho de que estén en una relación secreta.\n \n ¿Qué hará Fame? ¿Y qué elegirá entre su relación y descubrir la verdad?\n \n \n (Fuente: WeTV)",
+      "poster": "https://image.tmdb.org/t/p/w500/5kt9O8TGk9GJ6U7xapFLFJrit7v.jpg",
+      "synopsis": "Fame decide presentarse a la audición del famoso grupo de ídolos «Newtype» para descubrir la verdad sobre la muerte de su hermana Farn, antigua integrante del grupo. Para encajar en Newtype, tiene que dejar de ser una chica rockera, con la ayuda de Kla. Su investigación la llevó a descubrir que muchas integrantes del grupo han infringido sus propias normas. Toda esta experiencia también provocó un conflicto con su novio rockero, Ble, a quien no le gusta que mantengan una relación secreta.\n\n¿Qué hará Fame? ¿Y qué elegirá entre su relación y descubrir la verdad?",
       "year": 2021,
       "country": "Tailandia",
       "network": "WeTV",
@@ -30427,6 +32824,7 @@
       ],
       "trailerUrl": "https://youtu.be/bO6ZVPSZzco",
       "genres": [
+        "Drama",
         "Misterio",
         "Psicológico",
         "Thriller"
@@ -30441,18 +32839,110 @@
         {
           "label": "Temporada 1",
           "startDate": "2021-03-16",
-          "totalEpisodes": 13,
+          "totalEpisodes": 14,
           "emissionDays": [
             1,
             2
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2021-03-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 40
+            },
+            {
+              "num": 2,
+              "date": "2021-03-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 40
+            },
+            {
+              "num": 3,
+              "date": "2021-03-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 40
+            },
+            {
+              "num": 4,
+              "date": "2021-03-24",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 40
+            },
+            {
+              "num": 5,
+              "date": "2021-03-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 40
+            },
+            {
+              "num": 6,
+              "date": "2021-03-31",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 40
+            },
+            {
+              "num": 7,
+              "date": "2021-04-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 40
+            },
+            {
+              "num": 8,
+              "date": "2021-04-07",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 40
+            },
+            {
+              "num": 9,
+              "date": "2021-04-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 40
+            },
+            {
+              "num": 10,
+              "date": "2021-04-14",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 40
+            },
+            {
+              "num": 11,
+              "date": "2021-04-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 40
+            },
+            {
+              "num": 12,
+              "date": "2021-04-21",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 40
+            },
+            {
+              "num": 13,
+              "date": "2021-04-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 40
+            }
+          ],
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T20:11:10.120Z",
+      "updatedAt": "2026-09-12T19:21:04.039Z",
       "nameEn": "เดอะเดบิวต์..อวสานไอดอล",
       "category": "series",
       "seriesType": "serie",
@@ -30464,18 +32954,33 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 45,
+      "episodeDuration": 40,
       "couples": [],
-      "tmdbId": 121061,
+      "tmdbId": "121061",
       "tmdbKind": "tv",
       "tmdbRating": 9,
-      "tmdbVoteCount": 3
+      "tmdbVoteCount": 3,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000149",
-      "name": "Fragrance of the First Flower",
-      "poster": "https://i.mydramalist.com/w4LVb_4c.jpg?v=1",
-      "synopsis": "La historia de dos mujeres que, separadas en la escuela secundaria por los prejuicios y el miedo, se reencuentran más tarde en la vida y se abren a la posibilidad de un amor que nunca se atrevieron a soñar que florecería.\n \n (Fuente: ContentAsia)",
+      "name": "La fragancia del primer amor",
+      "poster": "https://image.tmdb.org/t/p/w500/nBA3oIsCIs3EYbG64eu76kGG2Qn.jpg",
+      "synopsis": "Un emotivo drama que, con la delicadeza de una flor, nos narra el amor prohibido entre dos amigas a lo largo de dos momentos de su vida: la adolescencia y la madurez.\n\nYi-Ming vive sola con su hijo, ya que su marido trabaja fuera de casa. Se reencuentra con Ting Ting en una boda, una chica que fue su mejor amiga, y algo más, en secundaria. En el pasado, Yi-Ming negó su relación por miedo a vivir como una mujer lesbiana, pero volver a encontrarse con Ting Ting enciende algo en ella, la posibilidad de escapar de su aburrida vida de casada. Ahora que Taiwán ha legalizado el matrimonio entre personas del mismo sexo, ¿podrá Yi-Ming encontrar el valor para aceptar sus sentimientos? Con el futuro de un niño en sus manos y bajo la presión de su marido, su familia política y su propia familia, ¿seguirá adelante con este nuevo capítulo de su vida?",
       "year": 2021,
       "country": "Taiwán",
       "network": "GagaOOLala",
@@ -30486,7 +32991,7 @@
           "url": "https://www.gagaoolala.com/en/videos/2412/fragrance-of-the-first-flower-2021-s01e01"
         }
       ],
-      "trailerUrl": "https://youtu.be/RkdxhA-LZ2E",
+      "trailerUrl": "https://www.youtube.com/watch?v=BDk8bKCZxW0",
       "genres": [
         "Drama",
         "Romance"
@@ -30505,9 +33010,58 @@
           "emissionDays": [
             4
           ],
-          "allInOneDay": false,
+          "allInOneDay": true,
           "skipDates": [],
-          "episodes": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2021-11-12",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 20,
+              "still": "https://image.tmdb.org/t/p/w300/dQoFo9ri5w56dG69Eh1POi523GI.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2021-11-12",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 20,
+              "still": "https://image.tmdb.org/t/p/w300/tABR5EDgbdRVYtMui4ZjcLa09cg.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2021-11-19",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 20,
+              "still": "https://image.tmdb.org/t/p/w300/m1Py7JsJjVyiLOwjhv5Xn0Yw1X6.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2021-11-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 20,
+              "still": "https://image.tmdb.org/t/p/w300/dbRGD7FwBIozaBNmxrnQAZdXftS.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2021-12-03",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 20,
+              "still": "https://image.tmdb.org/t/p/w300/kLHf1T5oVD9LcagCraHGzFspTN8.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2021-12-10",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 20,
+              "still": "https://image.tmdb.org/t/p/w300/p5DxmHxuCaVELxajnkfUaRrQnGq.jpg"
+            }
+          ],
           "premiereSchedule": []
         },
         {
@@ -30517,13 +33071,110 @@
           "emissionDays": [
             1
           ],
-          "allInOneDay": false,
+          "allInOneDay": true,
           "skipDates": [],
-          "episodes": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2025-02-18",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 28,
+              "still": "https://image.tmdb.org/t/p/w300/eWFDCm4kIPRztb8fWppKMTSQdM0.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2025-02-18",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 33,
+              "still": "https://image.tmdb.org/t/p/w300/jb5EUp14Z4EWN4r8n6dNKMR4NG1.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2025-02-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 34,
+              "still": "https://image.tmdb.org/t/p/w300/edkS4HNAhVk2GByWaXjDevcSEPa.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2025-02-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 32,
+              "still": "https://image.tmdb.org/t/p/w300/sADGKJjAKIO2bx6lfVouM3gRZXP.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2025-03-04",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 30,
+              "still": "https://image.tmdb.org/t/p/w300/mnJ7m4aT7XWNTr9407XuduHcRj7.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2025-03-04",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 37,
+              "still": "https://image.tmdb.org/t/p/w300/u9CHGSwo7F7bsKv5usno3Y3irnV.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2025-03-11",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 39,
+              "still": "https://image.tmdb.org/t/p/w300/nTJHD8OitzflBaR62PR0RNq22GD.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2025-03-11",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 33,
+              "still": "https://image.tmdb.org/t/p/w300/l49mVFHsYophsAJxg3DVVg5p7KQ.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2025-03-18",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 30,
+              "still": "https://image.tmdb.org/t/p/w300/bk4pGFTIk3oUQQI2W7ydWjTx4ss.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2025-03-18",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 34,
+              "still": "https://image.tmdb.org/t/p/w300/zkFcKlLZTAaJKNGoHc2QBqunBV7.jpg"
+            },
+            {
+              "num": 11,
+              "date": "2025-03-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 40,
+              "still": "https://image.tmdb.org/t/p/w300/2GVDRaveb5VvWvlTyeirjRwhexT.jpg"
+            },
+            {
+              "num": 12,
+              "date": "2025-03-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 32,
+              "still": "https://image.tmdb.org/t/p/w300/cOfIOYiR5zZFCF3WjtdSrgJWeIC.jpg"
+            }
+          ],
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T20:13:53.027Z",
+      "updatedAt": "2026-09-12T19:21:24.159Z",
       "nameEn": "第一次遇見花香的那刻",
       "category": "series",
       "seriesType": "serie",
@@ -30539,23 +33190,38 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 21,
+      "episodeDuration": 20,
       "couples": [
         [
           "1778875987751",
           "1778876013546"
         ]
       ],
-      "tmdbId": 135422,
+      "tmdbId": "135422",
       "tmdbKind": "tv",
       "tmdbRating": 7.1,
-      "tmdbVoteCount": 10
+      "tmdbVoteCount": 10,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "pareja-principal",
+      "awards": [],
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000155",
       "name": "BetCin",
-      "poster": "https://i.mydramalist.com/jDv5b_4c.jpg?v=1",
-      "synopsis": "La serie de comedia romántica sigue a Beth y Cindy, una pareja de celebridades de las redes sociales llamada \"BetCin\", quienes se unen a un concurso en línea llamado \"#RelationshipGoals\" y son percibidas como personas con una relación perfecta. (Fuente: TMDB)",
+      "poster": "https://image.tmdb.org/t/p/w500/9j4d1f9HDt8aER4NZwjG2spfR8l.jpg",
+      "synopsis": "La serie de comedia romántica sigue a Beth y Cindy, una pareja de celebridades de las redes sociales llamada \"BetCin\", que se unen a un concurso en línea llamado \"#RelationshipGoals\" y se percibe que tienen una relación perfecta.",
       "year": 2021,
       "country": "Filipinas",
       "network": "WeTV",
@@ -30568,6 +33234,8 @@
       ],
       "trailerUrl": "https://www.youtube.com/watch?v=GxOSFu8jPp4&pp=ygUOYmV0Y2luIHRyYWlsZXI%3D",
       "genres": [
+        "Comedia",
+        "Drama",
         "Romance"
       ],
       "basedOnBook": false,
@@ -30584,30 +33252,103 @@
           "emissionDays": [
             4
           ],
-          "allInOneDay": false,
+          "allInOneDay": true,
           "skipDates": [],
-          "episodes": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2021-10-15",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 30
+            },
+            {
+              "num": 2,
+              "date": "2021-10-15",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 30
+            },
+            {
+              "num": 3,
+              "date": "2021-10-15",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 30
+            },
+            {
+              "num": 4,
+              "date": "2021-10-22",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 30
+            },
+            {
+              "num": 5,
+              "date": "2021-10-29",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 30
+            },
+            {
+              "num": 6,
+              "date": "2021-11-12",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 30
+            },
+            {
+              "num": 7,
+              "date": "2021-11-19",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 30
+            },
+            {
+              "num": 8,
+              "date": "2021-11-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 30
+            }
+          ],
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T20:14:08.249Z",
+      "updatedAt": "2026-09-12T19:18:55.140Z",
       "nameEn": "",
       "category": "series",
       "seriesType": "serie",
       "cast": [],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": 35,
-      "tmdbId": 136661,
+      "episodeDuration": 30,
+      "tmdbId": "136661",
       "tmdbKind": "tv",
       "tmdbRating": 4.5,
-      "tmdbVoteCount": 4
+      "tmdbVoteCount": 4,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "couples": [],
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000156",
       "name": "The Married Woman",
-      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/c6OsJNAiXzdzpm51VAwZUYZtE8f.jpg",
-      "synopsis": "Esposa, madre, maestra, ama de casa... ha desempeñado todos los papeles, pero ¿qué hay de ser fiel a sí misma? ¿Ser Astha? Forma parte del viaje de Astha mientras rompe los límites impuestos por la sociedad para encontrarse a sí misma.\n \n (Fuente: TMDB)",
+      "poster": "https://image.tmdb.org/t/p/w500/c6OsJNAiXzdzpm51VAwZUYZtE8f.jpg",
+      "synopsis": "Esposa, madre, profesora, ama de casa… Ha desempeñado todos esos papeles, pero ¿qué hay de ser fiel a sí misma? ¿De ser Astha? Acompaña a Astha en su viaje mientras rompe las barreras impuestas por la sociedad para encontrarse a sí misma.",
       "year": 2021,
       "country": "India",
       "network": "",
@@ -30633,11 +33374,100 @@
           ],
           "allInOneDay": true,
           "skipDates": [],
-          "episodes": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2021-03-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 32,
+              "still": "https://image.tmdb.org/t/p/w300/u0TrYEC98S18wgJ2inb0ZYQmT9a.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2021-03-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 32,
+              "still": "https://image.tmdb.org/t/p/w300/iqAyLm0PHXI51Poud3E9bAMV2Sc.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2021-03-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 32,
+              "still": "https://image.tmdb.org/t/p/w300/m7Do0LJ612myr3HOsJnijZ5EnNJ.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2021-03-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 32,
+              "still": "https://image.tmdb.org/t/p/w300/hBGS1ESFOjkyO8NVVUTYSV3qZy3.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2021-03-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 32,
+              "still": "https://image.tmdb.org/t/p/w300/cYXu0zmiavwLOszjpP8tS4fDXG3.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2021-03-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 32,
+              "still": "https://image.tmdb.org/t/p/w300/aqwPpvDW9CQLuF2f23lDCURU99q.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2021-03-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 32,
+              "still": "https://image.tmdb.org/t/p/w300/pBSp5mC3yM3x3iwElZgpLj60p1I.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2021-03-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 32,
+              "still": "https://image.tmdb.org/t/p/w300/o6RYosEyN2ituessBu7ClscUrqp.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2021-03-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 32,
+              "still": "https://image.tmdb.org/t/p/w300/iJfRibVaX0mWHznbR7MWXbqpa1A.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2021-03-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 32,
+              "still": "https://image.tmdb.org/t/p/w300/HZm1xHoHqhelrYOn62tXlev59n.jpg"
+            },
+            {
+              "num": 11,
+              "date": "2021-03-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 32,
+              "still": "https://image.tmdb.org/t/p/w300/kPNVMnioabgxYfhS51HApKUtlM0.jpg"
+            }
+          ],
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T20:14:32.887Z",
+      "updatedAt": "2026-09-12T19:21:19.225Z",
       "nameEn": "",
       "category": "series",
       "seriesType": "serie",
@@ -30645,23 +33475,41 @@
       "animeSeason": "",
       "renewedNextSeason": false,
       "episodeDuration": 32,
-      "tmdbId": 120333,
+      "tmdbId": "120333",
       "tmdbKind": "tv",
       "tmdbRating": 2,
-      "tmdbVoteCount": 4
+      "tmdbVoteCount": 4,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "couples": [],
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000158",
       "name": "Legend of Yunze",
-      "poster": "https://i.mydramalist.com/r6WWg_4f.jpg",
-      "synopsis": "La espada Tange de la cultivadora Jiang Zhao Yun la lleva a la aldea Changshui, donde una misteriosa joven, A Ze, ha aparecido de repente. A Ze siente que algo extraño está sucediendo en la aldea Changshui y le pide a Zhao Yun que investiguen la aldea juntos. Poco a poco descubren la verdad detrás de los extraños sucesos en la aldea Changshui.\n \n Con la ayuda de A Ze, Zhao Yun, que siempre había creído que todos los demonios eran malvados y menos dignos que los humanos, se da cuenta de que los humanos pueden ser incluso más crueles y rapaces que los demonios. Después de los acontecimientos de la aldea Changshui, los dos acuerdan viajar juntos al monte Qingyuan.\n \n (Fuente:云起志Canal de YouTube)",
+      "poster": "https://image.tmdb.org/t/p/w500/ytII4l8mymp8Pt6Nv9UfKthHuWC.jpg",
+      "synopsis": "La espada de la cultivadora Jiang Zhao-yun, Tange, la lleva a la aldea de Changshui, donde ha aparecido de repente una misteriosa joven llamada A-Ze. A-Ze intuye que algo extraño está sucediendo en la aldea de Changshui y le pide a Zhao-yun que investiguen juntas el lugar. Poco a poco, van descubriendo la verdad que se esconde tras los extraños sucesos de la aldea de Changshui. Con la ayuda de A-Ze, Zhao Yun —que siempre había creído que todos los demonios eran seres malvados y menos dignos que los humanos— llega a darse cuenta de que los humanos pueden ser incluso más crueles y rapaces que los demonios. Tras los acontecimientos de la aldea de Changshui, ambas acuerdan viajar juntas al monte Qingyuan.",
       "year": 2021,
       "country": "China",
       "network": "",
       "networkUrl": "",
       "watchLinks": [],
-      "trailerUrl": "",
+      "trailerUrl": "https://www.youtube.com/watch?v=AP1x3gthEcE",
       "genres": [
+        "Comedia",
+        "Drama",
         "Fantasía",
         "Misterio",
         "Romance"
@@ -30683,12 +33531,98 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2021-08-14",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 3
+            },
+            {
+              "num": 2,
+              "date": "2021-08-18",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 3
+            },
+            {
+              "num": 3,
+              "date": "2021-08-21",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 3,
+              "still": "https://image.tmdb.org/t/p/w300/enUFZl2TrnACCWhCsstSbS1sGtR.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2021-08-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 3
+            },
+            {
+              "num": 5,
+              "date": "2021-08-28",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 3
+            },
+            {
+              "num": 6,
+              "date": "2021-09-01",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 3
+            },
+            {
+              "num": 7,
+              "date": "2021-09-04",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 3
+            },
+            {
+              "num": 8,
+              "date": "2021-09-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 3
+            },
+            {
+              "num": 9,
+              "date": "2021-09-11",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 3
+            },
+            {
+              "num": 10,
+              "date": "2021-09-15",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 3
+            },
+            {
+              "num": 11,
+              "date": "2021-09-18",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 3
+            },
+            {
+              "num": 12,
+              "date": "2021-09-22",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 3
+            }
+          ],
           "premiereSchedule": []
         },
         {
           "label": "Temporada 2",
-          "startDate": "2022-04-30",
+          "startDate": "2022-04-29",
           "totalEpisodes": 15,
           "emissionDays": [
             1,
@@ -30696,11 +33630,117 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2022-04-29",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 5
+            },
+            {
+              "num": 2,
+              "date": "2022-05-03",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 3
+            },
+            {
+              "num": 3,
+              "date": "2022-05-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 3
+            },
+            {
+              "num": 4,
+              "date": "2022-05-10",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 3
+            },
+            {
+              "num": 5,
+              "date": "2022-05-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 3
+            },
+            {
+              "num": 6,
+              "date": "2022-05-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 3
+            },
+            {
+              "num": 7,
+              "date": "2022-05-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 3
+            },
+            {
+              "num": 8,
+              "date": "2022-05-24",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 3
+            },
+            {
+              "num": 9,
+              "date": "2022-05-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 4
+            },
+            {
+              "num": 10,
+              "date": "2022-05-31",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 4
+            },
+            {
+              "num": 11,
+              "date": "2022-06-05",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 4
+            },
+            {
+              "num": 12,
+              "date": "2022-06-07",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 4
+            },
+            {
+              "num": 13,
+              "date": "2022-06-10",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 4
+            },
+            {
+              "num": 14,
+              "date": "2022-06-14",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 4
+            },
+            {
+              "num": 15,
+              "date": "2022-06-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 8
+            }
+          ],
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T20:15:22.197Z",
+      "updatedAt": "2026-09-12T19:21:33.886Z",
       "category": "series",
       "seriesType": "webserie",
       "animeSeason": "",
@@ -30708,10 +33748,26 @@
       "nameEn": "云泽传",
       "cast": [],
       "episodeDuration": 3,
-      "tmdbId": 131340,
+      "tmdbId": "131340",
       "tmdbKind": "tv",
       "tmdbRating": 6.6,
-      "tmdbVoteCount": 9
+      "tmdbVoteCount": 9,
+      "sourceType": "",
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "pareja-principal",
+      "awards": [],
+      "couples": [],
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": ""
     },
     {
       "id": "1700000000159",
@@ -30750,14 +33806,15 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T20:15:04.473Z",
+      "updatedAt": "2026-09-12T19:21:35.141Z",
       "category": "series",
       "seriesType": "webserie",
       "animeSeason": "",
       "renewedNextSeason": false,
       "nameEn": "云泽传 番外",
       "cast": [],
-      "episodeDuration": 3
+      "episodeDuration": 3,
+      "wlwFocus": "pareja-principal"
     },
     {
       "id": "1700000000164",
@@ -30798,7 +33855,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-19T08:00:19.533Z",
+      "updatedAt": "2026-09-12T19:21:38.006Z",
       "nameEn": "",
       "category": "series",
       "seriesType": "serie",
@@ -30832,7 +33889,8 @@
       "tmdbId": 209466,
       "tmdbKind": "tv",
       "tmdbRating": 6.6,
-      "tmdbVoteCount": 5
+      "tmdbVoteCount": 5,
+      "wlwFocus": "pareja-secundaria"
     },
     {
       "id": "1700000000165",
@@ -30874,7 +33932,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T13:19:18.302Z",
+      "updatedAt": "2026-09-12T19:21:41.137Z",
       "category": "series",
       "seriesType": "webserie",
       "animeSeason": "",
@@ -30887,7 +33945,8 @@
       "tmdbId": 293342,
       "tmdbKind": "tv",
       "tmdbRating": "",
-      "tmdbVoteCount": 0
+      "tmdbVoteCount": 0,
+      "wlwFocus": "pareja-principal"
     },
     {
       "id": "1700000000168",
@@ -30928,7 +33987,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T20:16:17.151Z",
+      "updatedAt": "2026-09-12T19:21:42.330Z",
       "nameEn": "อากงจ๋า..ป๊าไม่รู้",
       "category": "series",
       "seriesType": "serie",
@@ -30945,7 +34004,8 @@
       "tmdbId": 220429,
       "tmdbKind": "tv",
       "tmdbRating": 6,
-      "tmdbVoteCount": 1
+      "tmdbVoteCount": 1,
+      "wlwFocus": "pareja-principal"
     },
     {
       "id": "1700000000169",
@@ -30986,7 +34046,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T13:19:32.167Z",
+      "updatedAt": "2026-09-12T19:21:43.859Z",
       "category": "series",
       "seriesType": "webserie",
       "animeSeason": "",
@@ -30995,7 +34055,8 @@
       "cast": [],
       "episodeDuration": "",
       "myPick": false,
-      "myPick2026": false
+      "myPick2026": false,
+      "wlwFocus": "pareja-principal"
     },
     {
       "id": "1700000000174",
@@ -31037,7 +34098,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-15T20:16:40.266Z",
+      "updatedAt": "2026-09-12T19:21:45.845Z",
       "category": "series",
       "seriesType": "webserie",
       "animeSeason": "",
@@ -31048,7 +34109,8 @@
       "tmdbId": 263352,
       "tmdbKind": "tv",
       "tmdbRating": 3,
-      "tmdbVoteCount": 1
+      "tmdbVoteCount": 1,
+      "wlwFocus": "pareja-principal"
     },
     {
       "id": "1700000000178",
@@ -31101,7 +34163,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-08-31T21:44:01.373Z",
+      "updatedAt": "2026-09-12T19:21:47.764Z",
       "nameEn": "彼女のくちづけ感染するリビド",
       "category": "series",
       "seriesType": "serie",
@@ -31125,7 +34187,8 @@
       "tmdbId": 206057,
       "tmdbKind": "tv",
       "tmdbRating": 10,
-      "tmdbVoteCount": 1
+      "tmdbVoteCount": 1,
+      "wlwFocus": "pareja-principal"
     },
     {
       "id": "1700000000179",
@@ -31179,7 +34242,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-09-01T07:45:42.893Z",
+      "updatedAt": "2026-09-12T19:21:49.465Z",
       "nameEn": "作りたい女と食べたい女",
       "category": "series",
       "seriesType": "serie",
@@ -31203,7 +34266,8 @@
       "tmdbId": 212765,
       "tmdbKind": "tv",
       "tmdbRating": 8.8,
-      "tmdbVoteCount": 24
+      "tmdbVoteCount": 24,
+      "wlwFocus": "pareja-principal"
     },
     {
       "id": "1700000000180",
@@ -31246,7 +34310,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-05-16T13:17:44.357Z",
+      "updatedAt": "2026-09-12T19:21:50.974Z",
       "category": "series",
       "seriesType": "webserie",
       "animeSeason": "",
@@ -31259,7 +34323,8 @@
       "tmdbId": 212911,
       "tmdbKind": "tv",
       "tmdbRating": 7.7,
-      "tmdbVoteCount": 3
+      "tmdbVoteCount": 3,
+      "wlwFocus": "pareja-principal"
     },
     {
       "id": "1700000000185",
@@ -43532,6 +46597,988 @@
         }
       ],
       "updatedAt": "2026-09-12T11:57:18.562Z"
+    },
+    {
+      "id": "1789239718426",
+      "name": "The Dreamer: Condo/Barista/Architect",
+      "nameEn": "เดอะดรีมเมอร์ คอนโด/บาริสต้า/สถาปนิก",
+      "poster": "https://image.tmdb.org/t/p/w500/4atfdzB2Mv0ehDsGfvAnK0PtWdc.jpg",
+      "synopsis": "Pongkhwan es una arquitecta que cree en el diseño sostenible. Intenta mantener esos estándares tanto en su trabajo como en su vida cotidiana. Le encargan un proyecto para diseñar un bloque de pisos que incorpore el diseño sostenible y la vida ecológica. Es justo lo suyo, pero nada de ello resulta fácil.\n\nA Ted, un compañero más joven de Pongkhwan, le gusta bromear con ella. Justo cuando su rivalidad da paso a una nueva cercanía, Pong conoce a Tle, un barista que regenta una cafetería cerca de su casa. Lo que empieza como una relación entre clienta y tendero pronto se convierte en una estrecha amistad. Parece que su cercanía no se limitará a ser solo amigos.",
+      "year": 2016,
+      "country": "Tailandia",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Drama"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [
+        {
+          "actressId": "1778749121827",
+          "character": "Pongkhwan / Pong"
+        }
+      ],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": 45,
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "tmdbId": "250431",
+      "tmdbKind": "tv",
+      "tmdbRating": "",
+      "tmdbVoteCount": 0,
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2016-01-23",
+          "totalEpisodes": 4,
+          "emissionDays": [
+            5
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2016-01-23",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 2,
+              "date": "2016-01-30",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 3,
+              "date": "2016-02-06",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 4,
+              "date": "2016-02-13",
+              "skipped": false,
+              "source": "tmdb"
+            }
+          ],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-09-12T19:01:58.426Z"
+    },
+    {
+      "id": "1789240982966",
+      "name": "Lulu",
+      "nameEn": "",
+      "poster": "https://image.tmdb.org/t/p/w500/zli5yawrmxmXL5nksoEL3yWKYP1.jpg",
+      "synopsis": "Los caminos de dos mujeres se cruzan cuando ambas se encuentran en una encrucijada personal. ¿Encontrarán el amor justo cuando menos lo necesitan? Devastada por una ruptura sentimental, Sophie, una chica de por sí alegre y sin pelos en la lengua, quiere desconectar del mundo. Tras desactivar sus cuentas en las redes sociales, se refugia en su casa de Airbnb frente al mar, con la intención además de reformarla. Pero todo lo que hace acaba siendo un desastre. De hecho, Sophie cree que, en sus 25 años de vida, no ha hecho nada bien. Pero cuando Abi llega a su casa y entra en su vida, todo parece encajar a la perfección.",
+      "year": 2022,
+      "country": "Filipinas",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://www.youtube.com/watch?v=0sFpvAMe1NI",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Comedia",
+        "Drama"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "pareja-principal",
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "tmdbId": "195324",
+      "tmdbKind": "tv",
+      "tmdbRating": 2.7,
+      "tmdbVoteCount": 3,
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2022-03-17",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            3
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2022-03-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 31,
+              "still": "https://image.tmdb.org/t/p/w300/9xtarAlN005h4OEYOVykQqYjzzB.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2022-03-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 34,
+              "still": "https://image.tmdb.org/t/p/w300/a3VaiWOHShkqdy9J835sLhfjUxo.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2022-03-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 26,
+              "still": "https://image.tmdb.org/t/p/w300/zm1t6svK5b0AYmoaUhCHzrnkFUv.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2022-03-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 22,
+              "still": "https://image.tmdb.org/t/p/w300/qaLTn41kbrldjf42Rns1pRMsdPG.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2022-03-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 25,
+              "still": "https://image.tmdb.org/t/p/w300/x7QBhUzZocMKcZHASjKNscZgtdi.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2022-03-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 28,
+              "still": "https://image.tmdb.org/t/p/w300/ozqAHKIlyWHqzIeDaI8Pj1pj1N5.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2022-03-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 26,
+              "still": "https://image.tmdb.org/t/p/w300/mi29jbpdQ6R3FrTpj0sneuqrA9R.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2022-03-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 31,
+              "still": "https://image.tmdb.org/t/p/w300/xCIgpsv3kKDD6SDo3bk6s4AopKP.jpg"
+            }
+          ],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-09-12T19:23:06.480Z"
+    },
+    {
+      "id": "1789241020902",
+      "name": "Transit Girls",
+      "nameEn": "トランジットガールズ",
+      "poster": "https://image.tmdb.org/t/p/w500/cDLKykdtg7j57fB1DosC7SMX8bU.jpg",
+      "synopsis": "Sayuri, una estudiante de instituto, se está enamorando de Yui, la hija de la prometida de su padre.",
+      "year": 2015,
+      "country": "Japón",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Drama"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": 20,
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "tmdbId": "78749",
+      "tmdbKind": "tv",
+      "tmdbRating": 6.9,
+      "tmdbVoteCount": 28,
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2015-11-07",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            5
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2015-11-07",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 20,
+              "still": "https://image.tmdb.org/t/p/w300/cjYWB9bhA17UDacAqHqqZxOIpYf.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2015-11-14",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 20,
+              "still": "https://image.tmdb.org/t/p/w300/2gUG5gUF9xq2NseGCvFQK61Rpsg.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2015-11-21",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 20,
+              "still": "https://image.tmdb.org/t/p/w300/5lBXgZQbJQGg3VCkHjWWOtyt9i4.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2015-11-28",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 20,
+              "still": "https://image.tmdb.org/t/p/w300/99kefHhm1p2zMZMX2oq756qZxV2.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2015-12-05",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 20,
+              "still": "https://image.tmdb.org/t/p/w300/a6AOEYs7mBTkdoFjJMHNymoM8MF.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2015-12-12",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 20,
+              "still": "https://image.tmdb.org/t/p/w300/jY8jt5shuuAq29aztr4VoBMFICF.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2015-12-19",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 20,
+              "still": "https://image.tmdb.org/t/p/w300/3u7aU3pju7928kUS8FbyznEj2U8.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2015-12-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 20,
+              "still": "https://image.tmdb.org/t/p/w300/z2HlBYptXKFSXkAA6GoknOxORWs.jpg"
+            }
+          ],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-09-12T19:23:40.902Z"
+    },
+    {
+      "id": "1789241040473",
+      "name": "Legend of Yun Qian",
+      "nameEn": "云芊传",
+      "poster": "https://image.tmdb.org/t/p/w500/3eH8g92aJ54RrGsVctk1k9kSGWX.jpg",
+      "synopsis": "Los discípulos de la Secta Lingchuan llevan casi un siglo custodiando los Abanicos del Cielo y la Tierra. Mu Yun y Hua Yue son los únicos discípulos que quedan en la secta. Hua Yue, una chica testaruda y desobediente, descubre sin querer que el Abanico del Cielo posee el poder de viajar en el tiempo. Para escapar de que Mu Yun la obligue a estudiar y practicar artes marciales, Hua Yue viaja al futuro para divertirse. Cientos de años más adelante, conoce a Xiao Qian, que es exactamente igual que ella. Los secretos salen a la luz y comienzan las aventuras.",
+      "year": 2020,
+      "country": "China",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://www.youtube.com/watch?v=RDrtA5OhrVU",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Comedia",
+        "Drama"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "pareja-principal",
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": 4,
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "tmdbId": "208783",
+      "tmdbKind": "tv",
+      "tmdbRating": 5.4,
+      "tmdbVoteCount": 5,
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2020-12-21",
+          "totalEpisodes": 15,
+          "emissionDays": [
+            0,
+            1,
+            2,
+            3,
+            5
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2020-12-21",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 4
+            },
+            {
+              "num": 2,
+              "date": "2020-12-22",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 4
+            },
+            {
+              "num": 3,
+              "date": "2020-12-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 4
+            },
+            {
+              "num": 4,
+              "date": "2020-12-24",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 4
+            },
+            {
+              "num": 5,
+              "date": "2020-12-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 4
+            },
+            {
+              "num": 6,
+              "date": "2020-12-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 4
+            },
+            {
+              "num": 7,
+              "date": "2020-12-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 4
+            },
+            {
+              "num": 8,
+              "date": "2020-12-28",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 4
+            },
+            {
+              "num": 9,
+              "date": "2020-12-29",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 4
+            },
+            {
+              "num": 10,
+              "date": "2020-12-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 4
+            },
+            {
+              "num": 11,
+              "date": "2020-12-31",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 4
+            },
+            {
+              "num": 12,
+              "date": "2021-01-01",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 4
+            },
+            {
+              "num": 13,
+              "date": "2021-01-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 4
+            },
+            {
+              "num": 14,
+              "date": "2021-01-03",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 4
+            },
+            {
+              "num": 15,
+              "date": "2021-01-04",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 4
+            }
+          ],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-09-12T19:27:37.164Z"
+    },
+    {
+      "id": "1789241124812",
+      "name": "Nevertheless,",
+      "nameEn": "알고있지만,",
+      "poster": "https://image.tmdb.org/t/p/w500/4zp48TRhUAMlnUr3nEROWwuoATD.jpg",
+      "synopsis": "[Nevertheless] Un romance hiperrealista entre un hombre al que le molestan las relaciones pero le gusta coquetear y una mujer que quiere salir pero no cree en el amor.",
+      "year": 2021,
+      "country": "Corea del Sur",
+      "network": "Netflix, Netflix Standard with Ads",
+      "networkUrl": "https://www.netflix.com",
+      "watchLinks": [
+        {
+          "name": "Netflix",
+          "url": "https://www.netflix.com"
+        },
+        {
+          "name": "Netflix Standard with Ads",
+          "url": "https://www.netflix.com"
+        }
+      ],
+      "trailerUrl": "https://www.youtube.com/watch?v=xJCTxUuu3js",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Drama"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "pareja-secundaria",
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [
+        {
+          "actressId": "tmdb_2265560_mtyrxq3a",
+          "character": "Yoon Sol"
+        },
+        {
+          "actressId": "tmdb_3129872_mtyrxq3b",
+          "character": "Seo Ji-wan"
+        }
+      ],
+      "couples": [
+        [
+          "tmdb_2265560_mtyrxq3a",
+          "tmdb_3129872_mtyrxq3b"
+        ]
+      ],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": 69,
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "tmdbId": "126035",
+      "tmdbKind": "tv",
+      "tmdbRating": 7.3,
+      "tmdbVoteCount": 230,
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2021-06-19",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            5
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2021-06-19",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 73,
+              "still": "https://image.tmdb.org/t/p/w300/jYBxTpP3BM7fe57AS0nYudKyBSj.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2021-06-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 67,
+              "still": "https://image.tmdb.org/t/p/w300/rJtqI4b1TPPItfUXQj1E4lP6Wst.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2021-07-03",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 76,
+              "still": "https://image.tmdb.org/t/p/w300/6VlQBeCha4cCGwFICCTk0zdtteG.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2021-07-10",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 76,
+              "still": "https://image.tmdb.org/t/p/w300/cSy6suoiWuO9QVKCse9LKTgFtEH.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2021-07-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 71,
+              "still": "https://image.tmdb.org/t/p/w300/4HGTwRks00LZ3a5fT37wnzqlVbc.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2021-07-24",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 67,
+              "still": "https://image.tmdb.org/t/p/w300/jsGc68VTOMfId8jG3cVm3atQfNU.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2021-07-31",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 63,
+              "still": "https://image.tmdb.org/t/p/w300/8mn94PtISrawo1xfrR6WTGVFFuH.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2021-08-07",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 66,
+              "still": "https://image.tmdb.org/t/p/w300/rnBCEr8lzViW3iQLzeaeJFze665.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2021-08-14",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 70,
+              "still": "https://image.tmdb.org/t/p/w300/km2bs0NpdxhPCOBrvMGXgDLzc3c.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2021-08-21",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 70,
+              "still": "https://image.tmdb.org/t/p/w300/guTR5bxcz9StwNv1LxuEWdNJOub.jpg"
+            }
+          ],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-09-12T19:25:24.812Z"
+    },
+    {
+      "id": "1789241282463",
+      "name": "Dear Uranus",
+      "nameEn": "親愛的天王星",
+      "poster": "https://image.tmdb.org/t/p/w500/hwFRSlFC4rufZzelVUSD5dt3g7Z.jpg",
+      "synopsis": "¿Todavía te acuerdas de cuando teníamos diecisiete años: las caras sonrojadas, los latidos acelerados por primera vez, conocer a la persona que nos gustaba? ¿Tomarías la iniciativa o te quedarías mirando en silencio?",
+      "year": 2021,
+      "country": "",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "tmdbId": "121983",
+      "tmdbKind": "tv",
+      "tmdbRating": 7.4,
+      "tmdbVoteCount": 7,
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2021-03-14",
+          "totalEpisodes": 3,
+          "emissionDays": [
+            6
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2021-03-14",
+              "skipped": false,
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/2NBXImVKXBkL2AKhzkl9MRsI0ZJ.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2021-03-21",
+              "skipped": false,
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/nLw15bJjnu6EnzlotUERGgc0y7s.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2021-03-28",
+              "skipped": false,
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/bbhIlcyrwLS7kSvsN7H8kSSITDb.jpg"
+            }
+          ],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-09-12T19:28:02.463Z"
+    },
+    {
+      "id": "1789241315376",
+      "name": "Soul Sisters",
+      "nameEn": "双兔",
+      "poster": "https://image.tmdb.org/t/p/w500/duVvmVhIs2iUrqccuz7fB7HAfBk.jpg",
+      "synopsis": "Gu Jinyu, la inteligente joven señorita de la ciudad de Bailong, lleva desde la infancia haciéndose pasar por un hombre. Mientras se encuentra infiltrada en la Fortaleza del Tigre Negro en busca de un mapa del tesoro, es secuestrada por Bai Yunxi, la dulce pero torpe heredera, y obligada a contraer un matrimonio ficticio. Ambas forman una alianza inesperada para salvar la fortaleza, que se encuentra en decadencia, y se enfrentan a conspiraciones rivales, enemigos y retos.",
+      "year": 2024,
+      "country": "China",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Drama"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "pareja-principal",
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "tmdbId": "279377",
+      "tmdbKind": "tv",
+      "tmdbRating": 8,
+      "tmdbVoteCount": 2,
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2024-12-27",
+          "totalEpisodes": 24,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2024-12-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 10,
+              "still": "https://image.tmdb.org/t/p/w300/lRhh2OdO9qr1Lxuvyl1y2doGrSE.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2024-12-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 14,
+              "still": "https://image.tmdb.org/t/p/w300/bm8P3Lk6vYcGA5rpi5Mvnj5kkP4.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2024-12-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 12,
+              "still": "https://image.tmdb.org/t/p/w300/7rqAwkD3BPV0d8T2ixzhZuKp6Vd.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2024-12-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 12,
+              "still": "https://image.tmdb.org/t/p/w300/1mA74dFzOHsu0pL7rhO0LUQXKCN.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2024-12-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 13,
+              "still": "https://image.tmdb.org/t/p/w300/d9JumX9U4z3SSEPYGSbM6qIMw4R.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2024-12-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 11,
+              "still": "https://image.tmdb.org/t/p/w300/ud6IBq06hhfkW7fNGde7OUh9rsx.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2024-12-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 12,
+              "still": "https://image.tmdb.org/t/p/w300/29mlo4rqlnpt6jj2g9MPCGiosLr.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2024-12-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 13,
+              "still": "https://image.tmdb.org/t/p/w300/xRlwwQbIhUNnWasOAhssJiiZ2q6.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2024-12-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 12,
+              "still": "https://image.tmdb.org/t/p/w300/vTqs6usQmVSnkT2gb55KNGp8HwT.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2024-12-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 10,
+              "still": "https://image.tmdb.org/t/p/w300/eeFMk2OyUVqiUjU75gmUnQc8kZr.jpg"
+            },
+            {
+              "num": 11,
+              "date": "2024-12-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 13,
+              "still": "https://image.tmdb.org/t/p/w300/sOUq2WiIyXtHU0F9OnTcvTASXYz.jpg"
+            },
+            {
+              "num": 12,
+              "date": "2024-12-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 11,
+              "still": "https://image.tmdb.org/t/p/w300/ptrlXoLnpvR24F6Jd79EYCGenwU.jpg"
+            },
+            {
+              "num": 19,
+              "date": "2024-12-29",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 14,
+              "still": "https://image.tmdb.org/t/p/w300/uqsW21GHyXTTRZdBl4cU4jjVJI4.jpg"
+            },
+            {
+              "num": 20,
+              "date": "2024-12-29",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 14,
+              "still": "https://image.tmdb.org/t/p/w300/izyfqcnK8k1apSEPPtzYWgzJBrD.jpg"
+            },
+            {
+              "num": 21,
+              "date": "2024-12-29",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 17,
+              "still": "https://image.tmdb.org/t/p/w300/nl66feaazyesZ2J7maJuyNn0b8.jpg"
+            },
+            {
+              "num": 22,
+              "date": "2024-12-29",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 14,
+              "still": "https://image.tmdb.org/t/p/w300/77n3LnTWnEALxUTRp6UkeZssbmL.jpg"
+            },
+            {
+              "num": 23,
+              "date": "2024-12-29",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 11,
+              "still": "https://image.tmdb.org/t/p/w300/lc4jjse6DyqSTPFdaaXmF9XPYqw.jpg"
+            },
+            {
+              "num": 24,
+              "date": "2024-12-29",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 11,
+              "still": "https://image.tmdb.org/t/p/w300/dj0zI4mUjs7XHl0l5Q7JCdnDFRk.jpg"
+            }
+          ],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-09-12T19:29:56.181Z"
     }
   ],
   "movies": [
@@ -56226,6 +60273,212 @@
           "1789200425786"
         ]
       ]
+    },
+    {
+      "id": "1789241222259",
+      "name": "Encore Martha",
+      "nameEn": "安可瑪莎",
+      "poster": "https://image.tmdb.org/t/p/w500/jQ4NyaUTnUlNPLpLfgyUa32dDAJ.jpg",
+      "synopsis": "Cuenta la historia de dos mujeres que se reencuentran tras 30 años de separación. Contra todo pronóstico, vuelven a enamorarse y, a pesar de que la juventud ya no está de su parte, deciden pasar el resto de sus últimos años en los brazos la una de la otra, sea cual sea el tiempo que les quede.",
+      "year": 2021,
+      "country": "Taiwán",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "date": "2021-12-10",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Drama",
+        "Familia",
+        "Romance"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "wlwFocus": "pareja-principal",
+      "awards": [],
+      "category": "movie",
+      "biFormat": false,
+      "movieType": "short",
+      "duration": 24,
+      "cast": [],
+      "couples": [],
+      "productoraId": "",
+      "tmdbId": "901414",
+      "tmdbKind": "movie",
+      "tmdbRating": "",
+      "tmdbVoteCount": 0,
+      "updatedAt": "2026-09-12T19:27:13.275Z"
+    },
+    {
+      "id": "1789241387126",
+      "name": "The Tribulation of the Mountain God",
+      "nameEn": "相思误之山神劫",
+      "poster": "https://i.mydramalist.com/x4wXZN_4c.jpg?v=1",
+      "synopsis": "Sin saberlo, la curandera novata An Qi salva al dios de la montaña al que venera con devoción e intenta cuidarlo hasta que recupere por completo la salud.",
+      "year": 2023,
+      "country": "China",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "date": "2023-01-05",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Fantasía",
+        "Romance"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "wlwFocus": "pareja-principal",
+      "awards": [],
+      "category": "movie",
+      "biFormat": false,
+      "movieType": "short",
+      "duration": 12,
+      "cast": [],
+      "couples": [],
+      "productoraId": "",
+      "tmdbId": "",
+      "tmdbKind": "movie",
+      "tmdbRating": "",
+      "tmdbVoteCount": 0,
+      "updatedAt": "2026-09-12T19:29:54.787Z"
+    },
+    {
+      "id": "1789241417627",
+      "name": "Maria Watches Over Us",
+      "nameEn": "マリア様がみてる",
+      "poster": "https://image.tmdb.org/t/p/w500/meF7zmsOHP5V7zg1cUMiNZx0sLW.jpg",
+      "synopsis": "Yumi Fukuzawa es una estudiante corriente de primer curso de la Academia Femenina Lillian. Por casualidad, Yumi conoce a Sachiko Ogasawara, una estudiante de segundo curso que es candidata a convertirse en una «Rosa Roja». Más tarde, Sachiko le regala su rosario a Yumi Fukuzawa, lo que significa que se convertirá en una hermana mayor para ella. Mientras tanto, Yumi, que ya admira a la popular Sachiko, no entiende por qué la han elegido a ella. Se acerca entonces un festival llamado «Cenicienta», organizado por el Consejo Yamayuri. Pronto comienzan los conflictos entre las hermanas mayores y las menores...",
+      "year": 2010,
+      "country": "Japón",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "date": "2010-11-06",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Comedia",
+        "Drama",
+        "Romance"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "wlwFocus": "",
+      "awards": [],
+      "category": "movie",
+      "biFormat": false,
+      "movieType": "film",
+      "duration": 90,
+      "cast": [],
+      "couples": [],
+      "productoraId": "",
+      "tmdbId": "457478",
+      "tmdbKind": "movie",
+      "tmdbRating": 3.3,
+      "tmdbVoteCount": 4,
+      "updatedAt": "2026-09-12T19:30:17.627Z"
+    },
+    {
+      "id": "1789241528403",
+      "name": "The Cherry Orchard: Blossoming",
+      "nameEn": "櫻の園 -さくらのその-",
+      "poster": "https://image.tmdb.org/t/p/w500/m1HaX6iVmEkj0LgcAoHheEN3Ecy.jpg",
+      "synopsis": "Remake de la exitosa película de 1990 «El jardín de los cerezos», dirigida por el propio Nakahara y basada en un popular cómic de Akimi Yoshida. La historia se desarrolla en un prestigioso instituto femenino donde todas las alumnas se ven oprimidas por las normas. Una chica que acaba de incorporarse al centro encuentra un guion perdido hace tiempo de «El jardín de los cerezos», de Antón Chéjov, que fue prohibido en el instituto hace once años. Rompiendo las estrictas normas y límites del centro, ella y sus amigas deciden representar la obra. Con sentimiento, amor y pasión, las chicas disfrutan de ese momento de sus vidas antes de dar el siguiente paso hacia la edad adulta.",
+      "year": 2008,
+      "country": "Japón",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "date": "2008-11-08",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Drama"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "wlwFocus": "romance-secundario-protagonista",
+      "awards": [],
+      "category": "movie",
+      "biFormat": false,
+      "movieType": "film",
+      "duration": 102,
+      "cast": [],
+      "couples": [],
+      "productoraId": "",
+      "tmdbId": "125136",
+      "tmdbKind": "movie",
+      "tmdbRating": 6,
+      "tmdbVoteCount": 2,
+      "updatedAt": "2026-09-12T19:32:11.175Z"
+    },
+    {
+      "id": "1789241616336",
+      "name": "White Snake",
+      "nameEn": "我的蛇精女友",
+      "poster": "https://image.tmdb.org/t/p/w500/9mOmFciefrF4W4rLPl2GeZlpwux.jpg",
+      "synopsis": "",
+      "year": 2017,
+      "country": "China",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "date": "2017-01-17",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Comedia",
+        "Romance"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "wlwFocus": "",
+      "awards": [],
+      "category": "movie",
+      "biFormat": false,
+      "movieType": "film",
+      "duration": "",
+      "cast": [],
+      "couples": [],
+      "productoraId": "",
+      "tmdbId": "488934",
+      "tmdbKind": "movie",
+      "tmdbRating": "",
+      "tmdbVoteCount": 0,
+      "updatedAt": "2026-09-12T19:34:30.887Z"
     }
   ],
   "actresses": [
@@ -59578,6 +63831,20 @@
       "photo": "https://image.tmdb.org/t/p/w300/wDIoib7TwbLdypMWc1JOL5vtIF7.jpg",
       "country": "Canadá",
       "birthdate": "1977-10-28"
+    },
+    {
+      "id": "tmdb_2265560_mtyrxq3a",
+      "name": "Lee Ho-jung",
+      "photo": "https://image.tmdb.org/t/p/w300/dFjbnb6MUnQcacNZLcV0BXeAh8b.jpg",
+      "country": "Corea del Sur",
+      "birthdate": "1997-01-20"
+    },
+    {
+      "id": "tmdb_3129872_mtyrxq3b",
+      "name": "Yoon Seo-ah",
+      "photo": "https://image.tmdb.org/t/p/w300/fsQvLwbsFMkLpMKLXE3IuZzxSaA.jpg",
+      "country": "Corea del Sur",
+      "birthdate": "2000-09-30"
     }
   ],
   "ships": [
@@ -61724,5 +65991,5 @@
       ]
     }
   },
-  "exportedAt": "2026-09-12T18:52:06.789Z"
+  "exportedAt": "2026-09-12T19:38:13.678Z"
 }
