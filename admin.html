@@ -420,6 +420,7 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
 /* ═══ CATEGORY BADGE ═══ */
 .badge-anime{background:#ede7f8;color:#7c5cbf;border:1px solid rgba(124,92,191,0.3)}
 .badge-reality{background:#d4f0ed;color:#3a9e94;border:1px solid rgba(58,158,148,0.3)}
+.badge-bi{background:#fce8f1;color:#c94f7c;border:1px solid rgba(201,79,124,0.3)}
 .badge-series{background:#f7dce9;color:#d4608a;border:1px solid rgba(212,96,138,0.3)}
 .badge-movie{background:#ede7f8;color:#9b82c9;border:1px solid rgba(155,130,201,0.3)}
 
@@ -687,6 +688,7 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
           <option value="sin-asignar">Sin asignar</option>
           <option value="pareja-principal">Pareja principal</option>
           <option value="pareja-secundaria">Pareja secundaria</option>
+          <option value="romance-secundario-protagonista">Romance secundario de protagonista</option>
           <option value="personaje">Personaje</option>
           <option value="subtexto">Subtexto</option>
         </select>
@@ -720,6 +722,7 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
           <option value="sin-asignar">Sin asignar</option>
           <option value="pareja-principal">Pareja principal</option>
           <option value="pareja-secundaria">Pareja secundaria</option>
+          <option value="romance-secundario-protagonista">Romance secundario de protagonista</option>
           <option value="personaje">Personaje</option>
           <option value="subtexto">Subtexto</option>
         </select>
@@ -752,6 +755,7 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
           <option value="sin-asignar">Sin asignar</option>
           <option value="pareja-principal">Pareja principal</option>
           <option value="pareja-secundaria">Pareja secundaria</option>
+          <option value="romance-secundario-protagonista">Romance secundario de protagonista</option>
           <option value="personaje">Personaje</option>
           <option value="subtexto">Subtexto</option>
         </select>
@@ -784,6 +788,7 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
           <option value="sin-asignar">Sin asignar</option>
           <option value="pareja-principal">Pareja principal</option>
           <option value="pareja-secundaria">Pareja secundaria</option>
+          <option value="romance-secundario-protagonista">Romance secundario de protagonista</option>
           <option value="personaje">Personaje</option>
           <option value="subtexto">Subtexto</option>
         </select>
@@ -1170,6 +1175,7 @@ const SOURCE_TYPES=[
 const WLW_FOCUS=[
   {value:'pareja-principal',label:'Pareja principal'},
   {value:'pareja-secundaria',label:'Pareja secundaria'},
+  {value:'romance-secundario-protagonista',label:'Romance secundario de protagonista'},
   {value:'personaje',label:'Personaje'},
   {value:'subtexto',label:'Subtexto'},
 ];
@@ -2672,6 +2678,14 @@ function formHtml(s, forcedCategory=null){
         <div class="form-hint">Ej: Primavera 2025. Aparece en la ficha.</div>
       </div>
 
+      <label class="toggle-row" id="biFormat_wrap" style="margin-bottom:14px;${cat!=='reality'?'display:none':''}">
+        <input type="checkbox" id="f_biFormat" ${s&&s.biFormat?'checked':''} style="width:auto;accent-color:#3a9e94">
+        <div style="flex:1">
+          <div class="toggle-label" style="color:#3a9e94">Formato bi (posible)</div>
+          <div class="toggle-desc">El formato del reality permite parejas de cualquier género (no es exclusivamente hetero)</div>
+        </div>
+      </label>
+
       <input type="hidden" id="f_tmdbId" value="${s&&s.tmdbId?s.tmdbId:''}">
       <input type="hidden" id="f_tmdbKind" value="${s&&s.tmdbKind?s.tmdbKind:'tv'}">
       <div class="seasons-list" id="seasonsList"></div>
@@ -2988,6 +3002,9 @@ function selectCategory(cat){
   // Show/hide anime season field
   const asWrap=document.getElementById('animeSeason_wrap');
   if(asWrap) asWrap.style.display=(cat==='anime'||cat==='reality')?'':'none';
+  // Show/hide "Formato bi (posible)" field (solo Reality)
+  const biWrap=document.getElementById('biFormat_wrap');
+  if(biWrap) biWrap.style.display=(cat==='reality')?'':'none';
 }
 
 function selectSeriesType(type, el){
@@ -3171,7 +3188,7 @@ function renderRealitiesGrid(){
     const div=document.createElement('div'); div.className='series-item';
     div.innerHTML=`${cover}
       <div class="series-info">
-        <div class="series-name">${escapeHtml(s.name)} <span class="badge badge-reality">Reality</span>${s.basedOnBook?'<span class="badge badge-book"></span>':''}${s.animeSeason?`<span class="anime-season-badge">${escapeHtml(s.animeSeason)}</span>`:''}</div>
+        <div class="series-name">${escapeHtml(s.name)} <span class="badge badge-reality">Reality</span>${s.biFormat?'<span class="badge badge-bi">Bi</span>':''}${s.basedOnBook?'<span class="badge badge-book"></span>':''}${s.animeSeason?`<span class="anime-season-badge">${escapeHtml(s.animeSeason)}</span>`:''}</div>
         <div class="series-meta">${[s.country,s.network,s.year].filter(Boolean).map(escapeHtml).join(' · ')} · ${total2} eps</div>
         <div class="progress-wrap"><div class="progress-fill" style="width:${pct}%;background:#3a9e94"></div></div>
         ${wlwQuickSelectHtml('series', si, s.wlwFocus||'')}
@@ -3228,6 +3245,7 @@ async function saveSeries(si, forcedCategory=null){
   const episodeDuration=parseDurationInput(document.getElementById('f_epDuration')?.value||'')||'';
   const myPick=document.getElementById('f_myPick')?.checked||false;
   const myPick2026=document.getElementById('f_myPick2026')?.checked||false;
+  const biFormat=(category==='reality')?(document.getElementById('f_biFormat')?.checked||false):false;
   const cancelStatus=(upcoming?(document.getElementById('f_cancelStatus_up')?.value||document.getElementById('f_cancelStatus')?.value):document.getElementById('f_cancelStatus')?.value)||'';
   const cancelNote=(upcoming?(document.getElementById('f_cancelNote_up')?.value.trim()||document.getElementById('f_cancelNote')?.value.trim()):document.getElementById('f_cancelNote')?.value.trim())||'';
   const sinNovedades=document.getElementById('f_sinNovedades')?.checked||false;
@@ -3239,7 +3257,7 @@ async function saveSeries(si, forcedCategory=null){
   const tmdbRatingRaw=document.getElementById('f_tmdbRating')?.value.trim()||'';
   const tmdbRating=tmdbRatingRaw?parseFloat(tmdbRatingRaw):'';
   const tmdbVoteCount=parseInt(document.getElementById('f_tmdbVoteCount')?.value||'0')||0;
-  let payload={name,nameEn,poster,synopsis,year:year?parseInt(year):'',country,network:net,networkUrl,watchLinks,trailerUrl,bookSource,basedOnBook,sourceType,bookCoverUrl,bookLinks,bookUrl,upcoming,genres,moods,tropos,dinamica,wlwFocus,awards,category,seriesType,cast,couples,animeSeason,renewedNextSeason,episodeDuration,myPick,myPick2026,cancelStatus,cancelNote,sinNovedades,snLastUpdate,snNote,productoraId,tmdbId,tmdbKind,tmdbRating,tmdbVoteCount};
+  let payload={name,nameEn,poster,synopsis,year:year?parseInt(year):'',country,network:net,networkUrl,watchLinks,trailerUrl,bookSource,basedOnBook,sourceType,bookCoverUrl,bookLinks,bookUrl,upcoming,genres,moods,tropos,dinamica,wlwFocus,awards,category,seriesType,cast,couples,animeSeason,renewedNextSeason,episodeDuration,myPick,myPick2026,biFormat,cancelStatus,cancelNote,sinNovedades,snLastUpdate,snNote,productoraId,tmdbId,tmdbKind,tmdbRating,tmdbVoteCount};
   if(!upcoming){
     const seasons=getSeasonsData();
     if(!seasons) return;
@@ -3641,6 +3659,13 @@ function movieFormHtml(mv){
     <input type="hidden" id="mf_category" value="${mv&&mv.category?mv.category:'movie'}">
     <div class="form-hint">Elige "Anime" si es una película anime, "Documental/Reality" si es un documental o reality, o déjalo en Película GL por defecto.</div>
   </div>
+  <label class="toggle-row" id="mf_biFormat_wrap" style="margin-bottom:14px;${mv&&mv.category==='reality'?'':'display:none'}">
+    <input type="checkbox" id="mf_biFormat" ${mv&&mv.biFormat?'checked':''} style="width:auto;accent-color:#3a9e94">
+    <div style="flex:1">
+      <div class="toggle-label" style="color:#3a9e94">Formato bi (posible)</div>
+      <div class="toggle-desc">El formato del documental/reality permite parejas de cualquier género (no es exclusivamente hetero)</div>
+    </div>
+  </label>
   <div class="form-row">
     <label class="form-label">Géneros <span style="text-transform:none;letter-spacing:0;font-weight:400;font-size:11px">(selecciona todos los que apliquen)</span></label>
     <div class="genre-chips" id="mf_genres">${genreChipsHtml(mv&&mv.genres?mv.genres:[])}</div>
@@ -3839,6 +3864,8 @@ function selectMovieCat(cat, el){
   else { el.style.background='var(--lavender-soft)'; el.style.color='var(--lavender)'; el.style.borderColor='var(--lavender)'; }
   const hidden=document.getElementById('mf_category');
   if(hidden) hidden.value=cat;
+  const biWrap=document.getElementById('mf_biFormat_wrap');
+  if(biWrap) biWrap.style.display=(cat==='reality')?'':'none';
 }
 
 function openAddMovie(){
@@ -3942,6 +3969,7 @@ async function saveMovie(mi){
     wlwFocus,
     awards,
     category:movieCategory,
+    biFormat:(movieCategory==='reality')?(document.getElementById('mf_biFormat')?.checked||false):false,
     movieType:document.getElementById('mf_movieType')?.value||'film',
     duration:parseDurationInput(document.getElementById('mf_duration')?.value||''),
     cast:getMovieCastData(),

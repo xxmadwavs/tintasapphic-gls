@@ -3618,6 +3618,7 @@ const DINAMICAS=[
 const WLW_FOCUS=[
   {value:'pareja-principal',label:'Pareja principal'},
   {value:'pareja-secundaria',label:'Pareja secundaria'},
+  {value:'romance-secundario-protagonista',label:'Romance secundario de protagonista'},
   {value:'personaje',label:'Personaje'},
   {value:'subtexto',label:'Subtexto'},
   {value:'sin-etiquetar',label:'Sin etiquetar'},
@@ -4917,6 +4918,12 @@ function toggleNsExpanded(ns,key,val){
   FILTER_NS_REGISTRY[ns].expanded[key]=val;
   FILTER_NS_REGISTRY[ns].render();
 }
+function toggleNsBooleanFilter(ns,key){
+  const cfg=FILTER_NS_REGISTRY[ns];
+  cfg.filters[key]=!cfg.filters[key];
+  cfg.resetPage();
+  cfg.render();
+}
 function buildNsCheckGroup(ns,filterKey,title,options){
   if(!options.length) return '';
   const cfg=FILTER_NS_REGISTRY[ns];
@@ -4934,7 +4941,7 @@ function buildNsCheckGroup(ns,filterKey,title,options){
 const NS_DEFAULTS={
   movies:{q:'',countries:[],sort:'date',book:'all',wlwFocus:[],genres:[],years:[],networks:[],tropos:[],dinamicas:[],moods:[]},
   anime:{q:'',countries:[],sort:'az',book:'all',wlwFocus:[],genres:[],years:[],networks:[],tropos:[],dinamicas:[],moods:[]},
-  realities:{q:'',countries:[],sort:'az',wlwFocus:[],genres:[],years:[],networks:[],tropos:[],dinamicas:[],moods:[]},
+  realities:{q:'',countries:[],sort:'az',wlwFocus:[],genres:[],years:[],networks:[],tropos:[],dinamicas:[],moods:[],biFormat:false},
   documentales:{q:'',countries:[],sort:'az',wlwFocus:[],genres:[],years:[],networks:[],tropos:[],dinamicas:[],moods:[]}
 };
 function clearNsFilters(ns){
@@ -4969,6 +4976,12 @@ function buildNsSidebarHtml(ns,active){
     if(y) yearMap[y]=(yearMap[y]||0)+1;
   });
   const yearOpts=Object.keys(yearMap).sort((a,b)=>b.localeCompare(a)).map(y=>({value:y,label:y,count:yearMap[y]}));
+  const biFormatGroup=(ns==='realities')?`<div class="fside-group"><div class="fside-title">Formato</div>
+    <label class="fside-row">
+      <input type="checkbox" ${FILTER_NS_REGISTRY[ns].filters.biFormat?'checked':''} onchange="toggleNsBooleanFilter('${ns}','biFormat')">
+      <span class="fside-label">Formato bi (posible)</span>
+    </label>
+  </div>`:'';
   return `<button class="fside-clear-all" onclick="clearNsFilters('${ns}')">Limpiar filtros</button>
     ${buildNsCheckGroup(ns,'wlwFocus','Foco sáfico',wlwOpts)}
     ${buildNsCheckGroup(ns,'genres','Género',genreOpts)}
@@ -4977,7 +4990,8 @@ function buildNsSidebarHtml(ns,active){
     ${buildNsCheckGroup(ns,'networks','Cadena',networkOpts)}
     ${buildNsCheckGroup(ns,'tropos','Tropo',tropoOpts)}
     ${buildNsCheckGroup(ns,'dinamicas','Dinámica',dinamicaOpts)}
-    ${buildNsCheckGroup(ns,'moods','Mood',moodOpts)}`;
+    ${buildNsCheckGroup(ns,'moods','Mood',moodOpts)}
+    ${biFormatGroup}`;
 }
 
 function renderListResults(){
@@ -6777,6 +6791,7 @@ function openRichDetail(item, opts){
   let badgeHtml='';
   if(item.seasons&&item.seasons.length>1) badgeHtml+=`<span class="badge" style="background:${accentSoft};color:${accentColor}">${item.seasons.length} temporadas</span>`;
   badgeHtml+=`<span class="badge" style="background:${accentSoft};color:${accentColor}">${typeIcon} ${typeLabel}</span>`;
+  if(item.biFormat) badgeHtml+=`<span class="badge" style="background:#fce8f1;color:#c94f7c">Formato bi</span>`;
 
   // Próximo episodio / progreso (solo series con episodios)
   let nextBadgeHtml='', progressBlock='';
@@ -6956,6 +6971,7 @@ function applyRealitiesFilters(arr){
   if(realitiesFilters.tropos&&realitiesFilters.tropos.length) r=r.filter(s=>s.tropos&&s.tropos.some(t=>realitiesFilters.tropos.includes(t)));
   if(realitiesFilters.dinamicas&&realitiesFilters.dinamicas.length) r=r.filter(s=>s.dinamica&&s.dinamica.some(d=>realitiesFilters.dinamicas.includes(d)));
   if(realitiesFilters.moods&&realitiesFilters.moods.length) r=r.filter(s=>s.moods&&s.moods.some(m=>realitiesFilters.moods.includes(m)));
+  if(realitiesFilters.biFormat) r=r.filter(s=>s.biFormat);
   if(realitiesFilters.sort==='az') r.sort((a,b)=>a.name.localeCompare(b.name,'es'));
   else if(realitiesFilters.sort==='za') r.sort((a,b)=>b.name.localeCompare(a.name,'es'));
   else if(realitiesFilters.sort==='date') r.sort((a,b)=>((b.startDate||b.date||'')).localeCompare((a.startDate||a.date||'')));
@@ -7025,7 +7041,7 @@ function renderRealitiesResults(){
   });
 
   const clearBtn=document.getElementById('realitiesClearBtn');
-  const hasActiveFilter=['wlwFocus','genres','years','countries','networks','tropos','dinamicas','moods'].some(k=>realitiesFilters[k]&&realitiesFilters[k].length);
+  const hasActiveFilter=['wlwFocus','genres','years','countries','networks','tropos','dinamicas','moods'].some(k=>realitiesFilters[k]&&realitiesFilters[k].length)||!!realitiesFilters.biFormat;
   if(clearBtn) clearBtn.style.display=hasActiveFilter?'':'none';
 
   const activeBase=realitiesSubtab==='movies'?getRealitiesMoviesData():getRealitiesSeriesData();
@@ -7051,7 +7067,7 @@ function renderRealitiesResults(){
       html+=`<div class="series-card" onclick="openRealityDetail('series','${s.id||s.name}')">
         ${posterEl}
         <div class="series-card-body">
-          <div class="card-badges">${seasonsCount}${s.country?`<span class="badge" style="background:var(--teal-soft);color:var(--teal)">${countryFlag(s.country)} ${s.country}</span>`:''}</div>
+          <div class="card-badges">${seasonsCount}${s.country?`<span class="badge" style="background:var(--teal-soft);color:var(--teal)">${countryFlag(s.country)} ${s.country}</span>`:''}${s.biFormat?'<span class="badge" style="background:#fce8f1;color:#c94f7c">Formato bi</span>':''}</div>
           <div class="series-card-name">${s.name}</div>
           <div class="series-card-meta">${[s.network,year?''+year:null,s.totalEpisodes?''+s.totalEpisodes+' ep.':null].filter(Boolean).join(' · ')}</div>
           ${genrePills}
@@ -7079,7 +7095,7 @@ function renderRealitiesResults(){
       html+=`<div class="movie-card" onclick="openRealityDetail('movie','${mv.id||mv.name}')">
         ${posterEl}
         <div class="movie-card-body">
-          <div class="card-badges">${mv.country?`<span class="badge" style="background:var(--teal-soft);color:var(--teal)">${countryFlag(mv.country)} ${mv.country}</span>`:''}</div>
+          <div class="card-badges">${mv.country?`<span class="badge" style="background:var(--teal-soft);color:var(--teal)">${countryFlag(mv.country)} ${mv.country}</span>`:''}${mv.biFormat?'<span class="badge" style="background:#fce8f1;color:#c94f7c">Formato bi</span>':''}</div>
           <div class="movie-card-name">${mv.name}</div>
           <div class="movie-card-meta">Documental · ${dateStr}${mv.totalEpisodes?' · '+mv.totalEpisodes+' ep.':''}</div>
           ${genrePills}
@@ -7215,7 +7231,7 @@ function renderDocumentalesResults(){
     html+=`<div class="movie-card" onclick="openRealityDetail('movie','${mv.id||mv.name}')">
       ${posterEl}
       <div class="movie-card-body">
-        <div class="card-badges">${mv.country?`<span class="badge" style="background:var(--teal-soft);color:var(--teal)">${countryFlag(mv.country)} ${mv.country}</span>`:''}</div>
+        <div class="card-badges">${mv.country?`<span class="badge" style="background:var(--teal-soft);color:var(--teal)">${countryFlag(mv.country)} ${mv.country}</span>`:''}${mv.biFormat?'<span class="badge" style="background:#fce8f1;color:#c94f7c">Formato bi</span>':''}</div>
         <div class="movie-card-name">${mv.name}</div>
         <div class="movie-card-meta">Documental · ${dateStr}${mv.totalEpisodes?' · '+mv.totalEpisodes+' ep.':''}</div>
         ${genrePills}
