@@ -2097,6 +2097,7 @@ html[data-theme="dark"] .ship-retired{background:rgba(180,140,160,.08);color:#a0
   box-shadow:var(--shadow-sm);
 }
 .btn:hover{background:var(--accent-soft);border-color:var(--accent2);color:var(--accent);transform:translateY(-1px)}
+.actress-show-more-btn{display:block;margin:.85rem auto 0}
 
 /* ═══ MODAL HIERARCHY — 3 BLOQUE STRUCTURE ═══ */
 
@@ -7245,6 +7246,8 @@ function renderDocumentalesResults(){
 
 /* ═══ ACTRESSES TAB ═══ */
 let actressesTabState={q:'', nationality:''};
+let actressCountryExpanded={};
+const ACTRESS_COUNTRY_BATCH=24;
 
 function renderActressesTab(){
   const view=document.getElementById('viewActresses');
@@ -7315,6 +7318,9 @@ function renderActressesTabResults(){
     sortedCountries.forEach(country=>{
       const list=groups[country].sort((a,b)=>seriesCount(b)-seriesCount(a));
       const flag=countryFlag(country);
+      const expanded=!!actressCountryExpanded[country];
+      const visibleList=expanded?list:list.slice(0,ACTRESS_COUNTRY_BATCH);
+      const remaining=list.length-visibleList.length;
       html+=`<div class="actress-nationality-section">
         <div class="actress-nationality-header">
           <span class="actress-nationality-flag">${flag}</span>
@@ -7322,13 +7328,19 @@ function renderActressesTabResults(){
           <span class="actress-nationality-count">${list.length} actrices</span>
         </div>
         <div class="actress-tab-grid">
-          ${list.map(a=>actressTabCardHtml(a,seriesCount(a))).join('')}
+          ${visibleList.map(a=>actressTabCardHtml(a,seriesCount(a))).join('')}
         </div>
+        ${remaining>0?`<button type="button" class="btn actress-show-more-btn" onclick="expandActressCountry('${country.replace(/'/g,"\\'")}')">Ver ${remaining} más</button>`:''}
       </div>`;
     });
   }
 
   resultsEl.innerHTML=html;
+}
+
+function expandActressCountry(country){
+  actressCountryExpanded[country]=true;
+  renderActressesTabResults();
 }
 
 function actressTabCardHtml(a, count){
