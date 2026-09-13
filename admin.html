@@ -4048,13 +4048,9 @@ function renderBooks(){
 }
 
 function exportData(){
-  // La API key de TMDB configurada aquí (⚙ API key) se publica también en data.json:
-  // así la web pública puede consultar en vivo "Dónde ver" con selector de país,
-  // sin que cada visitante tenga que configurar nada.
-  const tmdbApiKey = tmdbGetKey();
   try {
     // Validate before exporting
-    const testJson = JSON.stringify({series, movies, actresses, ships, productoras, listas, platformLogos, checklist, tmdbApiKey, exportedAt: new Date().toISOString()});
+    const testJson = JSON.stringify({series, movies, actresses, ships, productoras, listas, platformLogos, checklist, exportedAt: new Date().toISOString()});
     JSON.parse(testJson); // verify roundtrip
   } catch(e) {
     alert('Error al validar los datos antes de exportar: ' + e.message);
@@ -4064,7 +4060,7 @@ function exportData(){
   _unsavedCount=0;
   const dot=document.getElementById('exportDot');
   if(dot) dot.classList.remove('visible');
-  const blob=new Blob([JSON.stringify({series,movies,actresses,ships,productoras,listas,platformLogos,checklist,tmdbApiKey,exportedAt:new Date().toISOString()},null,2)],{type:'application/json'});
+  const blob=new Blob([JSON.stringify({series,movies,actresses,ships,productoras,listas,platformLogos,checklist,exportedAt:new Date().toISOString()},null,2)],{type:'application/json'});
   const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='data.json'; a.click();
 }
 
@@ -4340,7 +4336,6 @@ function tmdbBarHtml(type){
     +'<div class="tmdb-bar-status" id="tmdbStatus"></div>'
     +'<div class="tmdb-results" id="tmdbResults"></div>'
     +'<div class="tmdb-attribution">Datos de streaming proporcionados por JustWatch a través de la API de TMDB.</div>'
-    +'<div class="tmdb-attribution" style="margin-top:2px">Esta misma API key se incluye al exportar <code>data.json</code>, para que la web pública muestre "Dónde ver" en vivo con selector de país.</div>'
     +'</div>';
 }
 

@@ -2207,40 +2207,6 @@ html[data-theme="dark"] .watch-link:hover{border-color:var(--accent);box-shadow:
 /* Legacy icon (hidden now) */
 .watch-link-icon{display:none}
 
-/* "Dónde ver" en vivo (TMDB / JustWatch) con selector de país */
-.wtw-block{
-  background:linear-gradient(135deg, rgba(201,79,124,0.06) 0%, rgba(139,114,190,0.06) 100%);
-  border:1.5px solid rgba(201,79,124,0.22);
-  border-radius:12px;
-  padding:10px 11px;
-}
-html[data-theme="dark"] .wtw-block{
-  background:linear-gradient(135deg, rgba(224,114,154,0.08) 0%, rgba(169,141,224,0.08) 100%);
-  border-color:rgba(224,114,154,0.20);
-}
-.wtw-loading{font-size:11.5px;color:var(--muted);padding:4px 2px}
-.wtw-header{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:2px}
-.wtw-title{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}
-.wtw-jw-label{font-size:8.5px;font-weight:800;letter-spacing:.06em;color:var(--muted);margin-bottom:7px}
-.wtw-country-select{
-  font-size:11px;font-weight:700;color:var(--text);
-  background:var(--surface);border:1.5px solid var(--border2);border-radius:7px;
-  padding:2px 6px;cursor:pointer;max-width:110px;
-}
-.wtw-row{margin-bottom:7px}
-.wtw-row:last-child{margin-bottom:0}
-.wtw-row-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:5px}
-.wtw-row-logos{display:flex;flex-wrap:wrap;gap:6px}
-.wtw-logo{
-  width:34px;height:34px;object-fit:contain;border-radius:8px;
-  background:var(--surface);border:1.5px solid var(--border2);
-  box-shadow:0 2px 6px rgba(0,0,0,0.06);
-}
-html[data-theme="dark"] .wtw-logo{background:var(--surface2)}
-.wtw-empty{font-size:11.5px;color:var(--muted);margin-bottom:6px}
-.wtw-attribution{font-size:9.5px;color:var(--muted);opacity:.85}
-.wtw-attribution a{color:var(--accent);font-weight:600;text-decoration:none}
-
 /* Book block in modal */
 .book-block{
   display:flex;align-items:flex-start;gap:12px;
@@ -3889,115 +3855,6 @@ function buildWatchLinksHtml(links, accentColor, accentBorder, accentSoft){
   </div>`;
 }
 
-// ═══ "DÓNDE VER" EN VIVO (TMDB / JustWatch) CON SELECTOR DE PAÍS ═══
-const TMDB_API_BASE_PUB='https://api.themoviedb.org/3';
-const TMDB_PROVIDER_LOGO_BASE='https://image.tmdb.org/t/p/w92';
-let TMDB_PUBLIC_KEY='';
-const _wtwMemCache={};
-const _wtwResultsById={};
-
-function isoFlagEmoji(cc){
-  if(!cc||cc.length!==2) return '';
-  const up=cc.toUpperCase();
-  if(!/^[A-Z]{2}$/.test(up)) return '';
-  return String.fromCodePoint(...[...up].map(c=>127397+c.charCodeAt(0)));
-}
-function _wtwCacheGet(key){
-  if(_wtwMemCache[key]) return _wtwMemCache[key];
-  try{
-    const raw=localStorage.getItem('wtwCache_'+key);
-    if(raw){
-      const parsed=JSON.parse(raw);
-      if(parsed&&parsed.t&&(Date.now()-parsed.t)<6*60*60*1000){ _wtwMemCache[key]=parsed.d; return parsed.d; }
-    }
-  }catch(e){}
-  return null;
-}
-function _wtwCacheSet(key,data){
-  _wtwMemCache[key]=data;
-  try{ localStorage.setItem('wtwCache_'+key, JSON.stringify({t:Date.now(),d:data})); }catch(e){}
-}
-function _wtwPreferredCountry(available){
-  try{
-    const saved=localStorage.getItem('wtwCountry');
-    if(saved&&available.includes(saved)) return saved;
-  }catch(e){}
-  try{
-    const parts=(navigator.language||'').split('-');
-    const guess=(parts[1]||'').toUpperCase();
-    if(guess&&available.includes(guess)) return guess;
-  }catch(e){}
-  if(available.includes('ES')) return 'ES';
-  return available[0]||'ES';
-}
-async function fetchWatchProviders(tmdbId, tmdbKind){
-  const kind=tmdbKind==='movie'?'movie':'tv';
-  const cacheKey=kind+'_'+tmdbId;
-  const cached=_wtwCacheGet(cacheKey);
-  if(cached) return cached;
-  if(!TMDB_PUBLIC_KEY||!tmdbId) return null;
-  try{
-    const r=await fetch(`${TMDB_API_BASE_PUB}/${kind}/${tmdbId}/watch/providers?api_key=${encodeURIComponent(TMDB_PUBLIC_KEY)}`);
-    if(!r.ok) return null;
-    const j=await r.json();
-    const results=j.results||{};
-    _wtwCacheSet(cacheKey, results);
-    return results;
-  }catch(e){ return null; }
-}
-function _wtwProviderRow(label, list){
-  if(!list||!list.length) return '';
-  const seen=new Set();
-  const items=list.slice().sort((a,b)=>(a.display_priority??99)-(b.display_priority??99))
-    .filter(p=>{ if(seen.has(p.provider_id)) return false; seen.add(p.provider_id); return true; })
-    .map(p=>`<img class="wtw-logo" src="${TMDB_PROVIDER_LOGO_BASE}${p.logo_path}" alt="${p.provider_name}" title="${p.provider_name}" loading="lazy">`).join('');
-  if(!items) return '';
-  return `<div class="wtw-row"><div class="wtw-row-label">${label}</div><div class="wtw-row-logos">${items}</div></div>`;
-}
-function _wtwRenderForCountry(results, code){
-  const rc=results[code]||{};
-  const streaming=[...(rc.flatrate||[]),...(rc.ads||[]),...(rc.free||[])];
-  const rowsHtml=[
-    _wtwProviderRow('Streaming', streaming),
-    _wtwProviderRow('Alquiler', rc.rent),
-    _wtwProviderRow('Compra', rc.buy)
-  ].join('');
-  const link=rc.link||'https://www.justwatch.com/';
-  const attribution=`<div class="wtw-attribution">Datos de streaming proporcionados por <a href="${link}" target="_blank" rel="noopener">JustWatch</a></div>`;
-  if(!rowsHtml){
-    return `<div class="wtw-empty">No hay disponibilidad en streaming en ${isoFlagEmoji(code)} ${code} por ahora.</div>${attribution}`;
-  }
-  return rowsHtml+attribution;
-}
-function _wtwOnCountryChange(containerId, code){
-  try{ localStorage.setItem('wtwCountry', code); }catch(e){}
-  const results=_wtwResultsById[containerId];
-  const body=document.getElementById(containerId+'_body');
-  if(results&&body) body.innerHTML=_wtwRenderForCountry(results, code);
-}
-async function mountWhereToWatch(containerId, tmdbId, tmdbKind){
-  const el=document.getElementById(containerId);
-  if(!el) return;
-  if(!TMDB_PUBLIC_KEY||!tmdbId){ el.style.display='none'; return; }
-  el.style.display='';
-  el.innerHTML=`<div class="wtw-loading">Cargando plataformas de streaming…</div>`;
-  const results=await fetchWatchProviders(tmdbId, tmdbKind);
-  const elNow=document.getElementById(containerId); // el modal pudo cerrarse/re-renderizarse mientras esperábamos
-  if(!elNow) return;
-  if(!results||!Object.keys(results).length){ elNow.style.display='none'; return; }
-  _wtwResultsById[containerId]=results;
-  const codes=Object.keys(results).sort();
-  const current=_wtwPreferredCountry(codes);
-  const selectHtml=`<select class="wtw-country-select" onchange="_wtwOnCountryChange('${containerId}', this.value)">${codes.map(c=>`<option value="${c}" ${c===current?'selected':''}>${isoFlagEmoji(c)} ${c}</option>`).join('')}</select>`;
-  elNow.innerHTML=`<div class="wtw-block">
-    <div class="wtw-header">
-      <span class="wtw-title">Dónde ver</span>
-      ${selectHtml}
-    </div>
-    <div class="wtw-jw-label">JustWatch</div>
-    <div class="wtw-body" id="${containerId}_body">${_wtwRenderForCountry(results, current)}</div>
-  </div>`;
-}
 
 // ═══ SESSION PERSISTENCE ═══
 const SS_KEY='tintaSapphicState';
@@ -4315,7 +4172,6 @@ async function loadData(){
     state.listas=d.listas||[];
     state.platformLogos=d.platformLogos||{};
     state.checklist=normalizeChecklist(d.checklist);
-    TMDB_PUBLIC_KEY=d.tmdbApiKey||'';
     if(d.exportedAt){
       const dt=new Date(d.exportedAt);
       const badge=document.getElementById('updateBadge'); if(badge){badge.textContent='✓ Act. '+dt.toLocaleDateString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});badge.style.display='';}
@@ -5988,7 +5844,7 @@ function openSeries(si){
     <div class="detail-poster-col">
       ${posterEl.replace('modal-poster-full','detail-poster').replace('modal-poster-full-ph','detail-poster-ph')}
       ${(nextBadgeHtml||progressBlock)?`<div style="margin-top:10px">${nextBadgeHtml}${progressBlock}</div>`:''}
-      ${s.tmdbId?`<div id="wtw_series_${s.id}" style="margin-top:8px;display:none"></div>`:(watchLinksHtml?`<div style="margin-top:8px">${watchLinksHtml}</div>`:'')}
+      ${watchLinksHtml?`<div style="margin-top:8px">${watchLinksHtml}</div>`:''}
     </div>
     <div class="detail-info">
       <div class="modal-badges">${seasons.length>1?`<span class="badge" style="background:var(--lavender-soft);color:var(--lavender)">${seasons.length} temporadas</span>`:''}${s.renewedNextSeason?'<span class="badge" style="background:var(--teal-soft);color:var(--teal);border:1px solid rgba(74,173,160,.3)">Renovada</span>':''}${s.seriesType==='webserie'?'<span class="badge" style="background:#e8f4fd;color:#2a7dbf;border:1px solid rgba(42,125,191,.3)">Web serie</span>':''}</div>
@@ -6018,7 +5874,6 @@ function openSeries(si){
   document.getElementById('modalBg').classList.add('open');
   _pushModal('modal');
   if(s.id) _setModalShareHash('#serie-'+s.id);
-  if(s.tmdbId) mountWhereToWatch('wtw_series_'+s.id, s.tmdbId, s.tmdbKind||'tv');
 }
 
 
@@ -6097,7 +5952,7 @@ function openUpcoming(si){
   <div class="detail-hero">
     <div class="detail-poster-col">
       ${posterEl}
-      ${s.tmdbId?`<div id="wtw_upcoming_${s.id}" style="margin-top:8px;display:none"></div>`:(watchLinksHtml?`<div style="margin-top:8px">${watchLinksHtml}</div>`:'')}
+      ${watchLinksHtml?`<div style="margin-top:8px">${watchLinksHtml}</div>`:''}
     </div>
     <div class="detail-info">
       <div class="modal-badges"><span class="badge badge-upcoming">Próximamente</span></div>
@@ -6126,7 +5981,6 @@ function openUpcoming(si){
   document.getElementById('modalBg').classList.add('open');
   _pushModal('modal');
   if(s.id) _setModalShareHash('#serie-'+s.id);
-  if(s.tmdbId) mountWhereToWatch('wtw_upcoming_'+s.id, s.tmdbId, s.tmdbKind||'tv');
 }
 
 function switchUpcomingModalTab(tab){
@@ -6199,7 +6053,7 @@ function openMovie(mi){
     <div class="detail-poster-col">
       ${posterEl}
       <div style="margin-top:10px">${releaseBadgeHtml}</div>
-      ${mv.tmdbId?`<div id="wtw_movie_${mv.id}" style="margin-top:8px;display:none"></div>`:(watchLinksHtml?`<div style="margin-top:8px">${watchLinksHtml}</div>`:'')}
+      ${watchLinksHtml?`<div style="margin-top:8px">${watchLinksHtml}</div>`:''}
     </div>
     <div class="detail-info">
       <div class="modal-badges">${mvModalTypeBadge}${isPast?'<span class="badge" style="background:var(--teal-soft);color:var(--teal)">✓ Estrenada</span>':'<span class="badge" style="background:var(--accent-soft);color:var(--accent)">Próximamente</span>'}</div>
@@ -6226,7 +6080,6 @@ function openMovie(mi){
   document.getElementById('modalBg').classList.add('open');
   _pushModal('modal');
   if(mv.id) _setModalShareHash('#pelicula-'+mv.id);
-  if(mv.tmdbId) mountWhereToWatch('wtw_movie_'+mv.id, mv.tmdbId, mv.tmdbKind||'movie');
 }
 
 function applyMoviesFilters(arr){
@@ -7104,7 +6957,7 @@ function openRichDetail(item, opts){
       <div class="detail-poster-col">
         ${posterEl}
         ${(nextBadgeHtml||progressBlock)?`<div style="margin-top:10px">${nextBadgeHtml}${progressBlock}</div>`:''}
-        ${item.tmdbId?`<div id="wtw_rich_${item.id}" style="margin-top:8px;display:none"></div>`:(watchLinksHtml?`<div style="margin-top:8px">${watchLinksHtml}</div>`:'')}
+        ${watchLinksHtml?`<div style="margin-top:8px">${watchLinksHtml}</div>`:''}
       </div>
       <div class="detail-info">
         <div class="modal-badges">${badgeHtml}</div>
@@ -7122,7 +6975,6 @@ function openRichDetail(item, opts){
   </div>`;
   document.getElementById('modalBg').classList.add('open');
   _pushModal('modal');
-  if(item.tmdbId) mountWhereToWatch('wtw_rich_'+item.id, item.tmdbId, item.tmdbKind||(isSeries?'tv':'movie'));
 }
 
 function openAnimeDetail(type,key){
