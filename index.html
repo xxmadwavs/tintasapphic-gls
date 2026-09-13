@@ -4693,7 +4693,10 @@ function seriesCardHtml(s, si){
 
   // ── Estado y próximo episodio
   let statusPill='';
-  if(todayEps.length){
+  const cancelLabels={cancelled:'Cancelada',limbo:'En limbo',closed:'Prod. cerrada'};
+  if(s.cancelStatus){
+    statusPill=`<div class="sc-status-pill cancelled" style="background:#c94040;color:#fff">${cancelLabels[s.cancelStatus]||'Cancelada'}</div>`;
+  } else if(todayEps.length){
     statusPill=`<div class="sc-status-pill today">Hoy · ${epLabel(todayEps[0],seasons)}</div>`;
   } else if(next){
     const du=daysUntil(next.date);
@@ -4767,6 +4770,41 @@ const COUNTRY_REGIONS={
   oceania:['Australia','Nueva Zelanda'],
 };
 const REGION_LABELS={'asia':'Asia','europa':'Europa','america':'América','oceania':'Oceanía','otros':'Otros'};
+
+/** Alias de nombres de cadena/streaming crudos (como vienen de TMDB/JustWatch) a un nombre canónico único,
+ * para no tratar "Amazon Prime Video, Amazon Prime Video with Ads" como un bloque distinto de "Prime Video". */
+const NETWORK_ALIASES={
+  'Amazon Prime Video':'Prime Video','Amazon Prime Video with Ads':'Prime Video','Amazon Video':'Prime Video',
+  'Apple TV Store':'Apple TV','Apple TV Amazon Channel':'Apple TV',
+  'AMC Plus Apple TV channel':'AMC+','AMC+ Amazon Channel':'AMC+',
+  'Acontra Plus Amazon Channel':'Acontra Plus',
+  'BritBox Amazon Channel':'BritBox','Britbox Apple TV channel':'BritBox',
+  'Discovery+ Amazon Channel':'Discovery+',
+  'Disney Plus':'Disney+',
+  'HBO Max Amazon Channel':'HBO Max',
+  'Howdy Amazon Channel':'Howdy',
+  'MUBI Amazon Channel':'MUBI',
+  'Movistar Plus+ Ficción Total':'Movistar Plus+',
+  'Netflix Standard with Ads':'Netflix',
+  'PBS Masterpiece Amazon Channel':'PBS',
+  'Paramount Plus':'Paramount+','Paramount+ Amazon Channel':'Paramount+','Paramount Plus Apple TV channel':'Paramount+','Paramount Plus Premium':'Paramount+','Paramount+ Roku Premium Channel':'Paramount+',
+  'Rakuten Viki':'Viki',
+  'vigloo':'Vigloo',
+  'Yotube':'YouTube','Youtube':'YouTube','youtube':'YouTube','Youtube (Pago)':'YouTube','YoutubeFull Version':'YouTube',
+  'iQiyi':'iQIYI',
+  'jTBC':'JTBC',
+};
+/** Dado un string de cadena/streaming (posiblemente varias separadas por comas), devuelve la lista
+ * de plataformas individuales ya normalizadas (sin bloques conjuntos). */
+function parseNetworkParts(network){
+  if(!network) return [];
+  const seen=[];
+  network.split(',').map(s=>s.trim()).filter(Boolean).forEach(raw=>{
+    const canon=NETWORK_ALIASES[raw]||raw;
+    if(!seen.includes(canon)) seen.push(canon);
+  });
+  return seen;
+}
 
 /** Dado un string de país (puede ser 'A / B'), devuelve los fragmentos atómicos. */
 function parseCountryParts(country){
@@ -5014,7 +5052,7 @@ function buildSeriesSidebarHtml(active){
   active.forEach(s=>{ parseCountryParts(s.country||'').forEach(p=>{ if(p) countryMap[p]=(countryMap[p]||0)+1; }); });
   const countryOpts=Object.keys(countryMap).map(c=>({value:c,label:`${countryFlag(c)} ${c}`,count:countryMap[c]})).sort(az);
 
-  const networkMap=_countByGetter(active,s=>s.network||'');
+  const networkMap=_countByGetter(active,s=>parseNetworkParts(s.network));
   const networkOpts=Object.keys(networkMap).map(n=>({value:n,label:n,count:networkMap[n]})).sort(az);
 
   const yearMap={};
@@ -5114,7 +5152,7 @@ function buildNsSidebarHtml(ns,active){
   const countryMap={};
   active.forEach(s=>{ parseCountryParts(s.country||'').forEach(p=>{ if(p) countryMap[p]=(countryMap[p]||0)+1; }); });
   const countryOpts=Object.keys(countryMap).map(c=>({value:c,label:`${countryFlag(c)} ${c}`,count:countryMap[c]})).sort(az);
-  const networkMap=_countByGetter(active,s=>s.network||'');
+  const networkMap=_countByGetter(active,s=>parseNetworkParts(s.network));
   const networkOpts=Object.keys(networkMap).map(n=>({value:n,label:n,count:networkMap[n]})).sort(az);
   const yearMap={};
   active.forEach(s=>{
@@ -5159,6 +5197,7 @@ function renderListResults(){
 
   // "En emisión": ya ha emitido al menos 1 ep Y tiene episodios futuros pendientes
   const airing=filtered.filter(s=>{
+    if(s.cancelStatus) return false;
     const eps=genEps(s);
     const hasAired=eps.some(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped);
     const hasFuture=eps.some(e=>new Date(e.date+'T12:00:00')>now&&!e.skipped);
@@ -5171,7 +5210,10 @@ function renderListResults(){
   });
 
   // "Próximamente" (dentro de Series): todos los episodios son futuros, ninguno emitido aún
+  // Las series marcadas manualmente como canceladas / en limbo / productora cerrada
+  // no cuentan aquí: su estado vive solo en la pestaña "Canceladas".
   const notStarted=filtered.filter(s=>{
+    if(s.cancelStatus) return false;
     const eps=genEps(s);
     const hasAired=eps.some(e=>new Date(e.date+'T12:00:00')<=now&&!e.skipped);
     const hasFuture=eps.some(e=>new Date(e.date+'T12:00:00')>now&&!e.skipped);
@@ -5180,6 +5222,7 @@ function renderListResults(){
 
   // "Emitidas": sin episodios futuros
   const finished=filtered.filter(s=>{
+    if(s.cancelStatus) return false;
     const eps=genEps(s);
     return !eps.some(e=>new Date(e.date+'T12:00:00')>now&&!e.skipped);
   });
@@ -5318,7 +5361,7 @@ function applySeriesFilters(arr){
   if(seriesFilters.dinamicas&&seriesFilters.dinamicas.length) r=r.filter(s=>s.dinamica&&s.dinamica.some(d=>seriesFilters.dinamicas.includes(d)));
   if(seriesFilters.moods&&seriesFilters.moods.length) r=r.filter(s=>s.moods&&s.moods.some(m=>seriesFilters.moods.includes(m)));
   if(seriesFilters.wlwFocus&&seriesFilters.wlwFocus.length) r=r.filter(s=>seriesFilters.wlwFocus.includes(seriesWlwFocus(s)));
-  if(seriesFilters.networks&&seriesFilters.networks.length) r=r.filter(s=>s.network&&seriesFilters.networks.includes(s.network));
+  if(seriesFilters.networks&&seriesFilters.networks.length) r=r.filter(s=>parseNetworkParts(s.network).some(n=>seriesFilters.networks.includes(n)));
   if(seriesFilters.types&&seriesFilters.types.length) r=r.filter(s=>seriesFilters.types.includes(s.seriesType||'serie'));
   if(seriesFilters.region){
     const regionCountries=COUNTRY_REGIONS[seriesFilters.region]||[];
@@ -6196,7 +6239,7 @@ function applyMoviesFilters(arr){
   if(moviesFilters.years&&moviesFilters.years.length) r=r.filter(mv=>mv.date&&moviesFilters.years.includes(mv.date.substring(0,4)));
   if(moviesFilters.genres&&moviesFilters.genres.length) r=r.filter(mv=>mv.genres&&mv.genres.some(g=>moviesFilters.genres.includes(g)));
   if(moviesFilters.wlwFocus&&moviesFilters.wlwFocus.length) r=r.filter(mv=>moviesFilters.wlwFocus.includes(seriesWlwFocus(mv)));
-  if(moviesFilters.networks&&moviesFilters.networks.length) r=r.filter(mv=>mv.network&&moviesFilters.networks.includes(mv.network));
+  if(moviesFilters.networks&&moviesFilters.networks.length) r=r.filter(mv=>parseNetworkParts(mv.network).some(n=>moviesFilters.networks.includes(n)));
   if(moviesFilters.tropos&&moviesFilters.tropos.length) r=r.filter(mv=>mv.tropos&&mv.tropos.some(t=>moviesFilters.tropos.includes(t)));
   if(moviesFilters.dinamicas&&moviesFilters.dinamicas.length) r=r.filter(mv=>mv.dinamica&&mv.dinamica.some(d=>moviesFilters.dinamicas.includes(d)));
   if(moviesFilters.moods&&moviesFilters.moods.length) r=r.filter(mv=>mv.moods&&mv.moods.some(m=>moviesFilters.moods.includes(m)));
@@ -6774,7 +6817,7 @@ function applyAnimeFilters(arr){
   if(animeFilters.years&&animeFilters.years.length) r=r.filter(s=>{ const y=(s.startDate||s.date||(s.year?String(s.year):'')).substring(0,4); return animeFilters.years.includes(y); });
   if(animeFilters.genres&&animeFilters.genres.length) r=r.filter(s=>s.genres&&s.genres.some(g=>animeFilters.genres.includes(g)));
   if(animeFilters.wlwFocus&&animeFilters.wlwFocus.length) r=r.filter(s=>animeFilters.wlwFocus.includes(seriesWlwFocus(s)));
-  if(animeFilters.networks&&animeFilters.networks.length) r=r.filter(s=>s.network&&animeFilters.networks.includes(s.network));
+  if(animeFilters.networks&&animeFilters.networks.length) r=r.filter(s=>parseNetworkParts(s.network).some(n=>animeFilters.networks.includes(n)));
   if(animeFilters.tropos&&animeFilters.tropos.length) r=r.filter(s=>s.tropos&&s.tropos.some(t=>animeFilters.tropos.includes(t)));
   if(animeFilters.dinamicas&&animeFilters.dinamicas.length) r=r.filter(s=>s.dinamica&&s.dinamica.some(d=>animeFilters.dinamicas.includes(d)));
   if(animeFilters.moods&&animeFilters.moods.length) r=r.filter(s=>s.moods&&s.moods.some(m=>animeFilters.moods.includes(m)));
@@ -7117,7 +7160,7 @@ function applyRealitiesFilters(arr){
   if(realitiesFilters.years&&realitiesFilters.years.length) r=r.filter(s=>{ const y=(s.startDate||s.date||(s.year?String(s.year):'')).substring(0,4); return realitiesFilters.years.includes(y); });
   if(realitiesFilters.genres&&realitiesFilters.genres.length) r=r.filter(s=>s.genres&&s.genres.some(g=>realitiesFilters.genres.includes(g)));
   if(realitiesFilters.wlwFocus&&realitiesFilters.wlwFocus.length) r=r.filter(s=>realitiesFilters.wlwFocus.includes(seriesWlwFocus(s)));
-  if(realitiesFilters.networks&&realitiesFilters.networks.length) r=r.filter(s=>s.network&&realitiesFilters.networks.includes(s.network));
+  if(realitiesFilters.networks&&realitiesFilters.networks.length) r=r.filter(s=>parseNetworkParts(s.network).some(n=>realitiesFilters.networks.includes(n)));
   if(realitiesFilters.tropos&&realitiesFilters.tropos.length) r=r.filter(s=>s.tropos&&s.tropos.some(t=>realitiesFilters.tropos.includes(t)));
   if(realitiesFilters.dinamicas&&realitiesFilters.dinamicas.length) r=r.filter(s=>s.dinamica&&s.dinamica.some(d=>realitiesFilters.dinamicas.includes(d)));
   if(realitiesFilters.moods&&realitiesFilters.moods.length) r=r.filter(s=>s.moods&&s.moods.some(m=>realitiesFilters.moods.includes(m)));
@@ -7292,7 +7335,7 @@ function applyDocumentalesFilters(arr){
   if(documentalesFilters.years&&documentalesFilters.years.length) r=r.filter(s=>{ const y=(s.startDate||s.date||(s.year?String(s.year):'')).substring(0,4); return documentalesFilters.years.includes(y); });
   if(documentalesFilters.genres&&documentalesFilters.genres.length) r=r.filter(s=>s.genres&&s.genres.some(g=>documentalesFilters.genres.includes(g)));
   if(documentalesFilters.wlwFocus&&documentalesFilters.wlwFocus.length) r=r.filter(s=>documentalesFilters.wlwFocus.includes(seriesWlwFocus(s)));
-  if(documentalesFilters.networks&&documentalesFilters.networks.length) r=r.filter(s=>s.network&&documentalesFilters.networks.includes(s.network));
+  if(documentalesFilters.networks&&documentalesFilters.networks.length) r=r.filter(s=>parseNetworkParts(s.network).some(n=>documentalesFilters.networks.includes(n)));
   if(documentalesFilters.tropos&&documentalesFilters.tropos.length) r=r.filter(s=>s.tropos&&s.tropos.some(t=>documentalesFilters.tropos.includes(t)));
   if(documentalesFilters.dinamicas&&documentalesFilters.dinamicas.length) r=r.filter(s=>s.dinamica&&s.dinamica.some(d=>documentalesFilters.dinamicas.includes(d)));
   if(documentalesFilters.moods&&documentalesFilters.moods.length) r=r.filter(s=>s.moods&&s.moods.some(m=>documentalesFilters.moods.includes(m)));
