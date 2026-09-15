@@ -51606,6 +51606,173 @@
         }
       ],
       "updatedAt": "2026-09-13T15:14:31.033Z"
+    },
+    {
+      "id": "1789462007728",
+      "name": "Kamiina Botan, Yoeru Sugata wa Yuri no Hana",
+      "nameEn": "上伊那ぼたん、酔へる姿は百合の花",
+      "poster": "https://image.tmdb.org/t/p/w500/se1dHUNQMRwUt75xRqkQRmXJicg.jpg",
+      "synopsis": "Botan, una universitaria de 20 años, se emborracha en la fiesta del dormitorio y termina involucrándose con Ibuki, su burlona líder. ¡Una divertida comedia de enredos!",
+      "year": 2026,
+      "country": "Japón",
+      "network": "Crunchyroll",
+      "networkUrl": "https://www.crunchyroll.com",
+      "watchLinks": [
+        {
+          "name": "Crunchyroll",
+          "url": "https://www.crunchyroll.com"
+        }
+      ],
+      "trailerUrl": "https://www.youtube.com/watch?v=OvDSB0XhYpQ",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Animación",
+        "Comedia",
+        "Drama"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "category": "anime",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": 24,
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "tmdbId": "283905",
+      "tmdbKind": "tv",
+      "tmdbRating": 7.5,
+      "tmdbVoteCount": 24,
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-04-11",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            5
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2026-04-11",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/yKIPX8gEiTHfZGQ4TzltCZWJ4mo.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2026-04-18",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/kWeDasAp5hYJVzruqzFNxingXk.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2026-04-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/12FdGCb51FpZnaySejeBnjNeBTM.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2026-05-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/9aE1gBd8xVwkfKUavFhk8DMwuEF.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2026-05-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/sfoacVKXzqCnAzThPxk3gzQjN4c.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2026-05-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/aiKiSPvvRUrHLo7egiWQhIWmV75.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2026-05-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/aCdaKAGqUWJLysAolfpjrlSP4m1.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2026-05-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/sEQ6kB79CVAObnT1QhJqJEsW2yL.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2026-06-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/5NK8Ikn7XFemvzTdclgPaW6eqC9.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2026-06-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/3olECAUdM2nlMmQOxpuVCv1I4T6.jpg"
+            },
+            {
+              "num": 11,
+              "date": "2026-06-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/lfrZrau4eVOdrPPM1GF3tWASn1c.jpg"
+            },
+            {
+              "num": 12,
+              "date": "2026-06-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 25,
+              "still": "https://image.tmdb.org/t/p/w300/oJGa2XtCMBVnx8Nteffu54LXzz9.jpg"
+            }
+          ],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-09-15T08:46:55.475Z"
     }
   ],
   "movies": [
@@ -64507,6 +64674,93 @@
       "tmdbRating": "",
       "tmdbVoteCount": 0,
       "updatedAt": "2026-09-12T19:34:30.887Z"
+    },
+    {
+      "id": "1789461868988",
+      "name": "La isla del deseo",
+      "nameEn": "Kenraaliharjoitus",
+      "poster": "https://image.tmdb.org/t/p/w500/ge7hC7AzW7llK76SOsGeD1lB6je.jpg",
+      "synopsis": "Jane, una metódica agente de viajes en Helsinki, lleva una vida cómoda con su novio de siempre, Mikki, un actor sin suerte. Cuando él propone abrir la relación para reavivar la pasión, ella accede a regañadientes y acude a un retiro. Allí conoce a Valma, una mujer libre y segura de sí misma que la hará cuestionarse todo lo que creía saber sobre el amor.",
+      "year": 2025,
+      "country": "Finlandia",
+      "network": "Movistar Plus+, Movistar Plus+ Ficción Total",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "date": "2025-03-07",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Comedia",
+        "Drama",
+        "Romance"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "wlwFocus": "",
+      "awards": [],
+      "category": "movie",
+      "biFormat": false,
+      "movieType": "film",
+      "duration": 99,
+      "cast": [],
+      "couples": [],
+      "productoraId": "",
+      "tmdbId": "1377676",
+      "tmdbKind": "movie",
+      "tmdbRating": 4.4,
+      "tmdbVoteCount": 5,
+      "updatedAt": "2026-09-15T08:44:28.988Z"
+    },
+    {
+      "id": "1789461891217",
+      "name": "Rivière",
+      "nameEn": "",
+      "poster": "https://image.tmdb.org/t/p/w500/kScNJK24q2n7DD3OmaHtCx27qgU.jpg",
+      "synopsis": "Manon, una joven de 17 años, parte de los Alpes suizos en busca de su padre, desaparecido. Está decidida a perseguir su objetivo de convertirse en jugadora de hockey profesional mientras hace nuevos amigos y se enamora por primera vez.",
+      "year": 2023,
+      "country": "Francia",
+      "network": "Amazon Prime Video, Amazon Prime Video with Ads",
+      "networkUrl": "https://www.primevideo.com",
+      "watchLinks": [
+        {
+          "name": "Amazon Prime Video",
+          "url": "https://www.primevideo.com"
+        }
+      ],
+      "trailerUrl": "",
+      "date": "2023-09-16",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Drama"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "wlwFocus": "",
+      "awards": [],
+      "category": "movie",
+      "biFormat": false,
+      "movieType": "film",
+      "duration": 105,
+      "cast": [],
+      "couples": [],
+      "productoraId": "",
+      "tmdbId": "962314",
+      "tmdbKind": "movie",
+      "tmdbRating": 5.6,
+      "tmdbVoteCount": 18,
+      "updatedAt": "2026-09-15T08:45:09.678Z"
     }
   ],
   "actresses": [
@@ -70127,6 +70381,5 @@
       ]
     }
   },
-  "tmdbApiKey": "eb8ea526ba600256624f77935bf88ecb",
-  "exportedAt": "2026-09-13T15:18:12.218Z"
+  "exportedAt": "2026-09-15T08:47:45.379Z"
 }
