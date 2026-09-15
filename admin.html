@@ -2787,7 +2787,7 @@ function openEdit(si){
     formHtml(series[si])+
     `<div class="modal-footer-btns"><button type="button" class="btn" style="margin-right:auto;opacity:.7" onclick="convertSeriesToMovie(${si})" title="Mover esta ficha a la sección de Películas">🔁 Convertir a película</button><button type="button" class="btn" onclick="closeAll()">Cancelar</button><button type="button" class="btn primary" onclick="saveSeries(${si})" title="Guardar (Ctrl+S)">Guardar cambios</button></div>`;
   document.getElementById('seriesModal').classList.add('open');
-  const tq0=document.getElementById('tmdbQuery'); if(tq0) tq0.value=series[si].name||'';
+  const tq0=_findInModal('tmdbQuery'); if(tq0) tq0.value=series[si].name||'';
   bindPoster();
   const links=series[si].watchLinks||(series[si].networkUrl?[{name:series[si].network||'Ver serie',url:series[si].networkUrl}]:[]);
   initPlatforms(links);
@@ -3053,7 +3053,7 @@ function openEditAnime(si){
     formHtml(series[si],'anime')+
     `<div class="modal-footer-btns"><button type="button" class="btn" style="margin-right:auto;opacity:.7" onclick="convertSeriesToMovie(${si})" title="Mover esta ficha a la sección de Películas">🔁 Convertir a película</button><button type="button" class="btn" onclick="closeAll()">Cancelar</button><button type="button" class="btn primary" style="background:#7c5cbf;border-color:#7c5cbf" onclick="saveSeries(${si})" title="Guardar (Ctrl+S)">Guardar cambios</button></div>`;
   document.getElementById('animeModal').classList.add('open');
-  const tq0=document.getElementById('tmdbQuery'); if(tq0) tq0.value=series[si].name||'';
+  const tq0=_findInModal('tmdbQuery'); if(tq0) tq0.value=series[si].name||'';
   bindPoster();
   const s=series[si];
   const links=s.watchLinks||(s.networkUrl?[{name:s.network||'Ver',url:s.networkUrl}]:[]);
@@ -3089,7 +3089,7 @@ function openEditReality(si){
     formHtml(series[si],'reality')+
     `<div class="modal-footer-btns"><button type="button" class="btn" style="margin-right:auto;opacity:.7" onclick="convertSeriesToMovie(${si})" title="Mover esta ficha a la sección de Películas">🔁 Convertir a película</button><button type="button" class="btn" onclick="closeAll()">Cancelar</button><button type="button" class="btn primary" style="background:#3a9e94;border-color:#3a9e94" onclick="saveSeries(${si})" title="Guardar (Ctrl+S)">Guardar cambios</button></div>`;
   document.getElementById('realityModal').classList.add('open');
-  const tq0=document.getElementById('tmdbQuery'); if(tq0) tq0.value=series[si].name||'';
+  const tq0=_findInModal('tmdbQuery'); if(tq0) tq0.value=series[si].name||'';
   bindPoster();
   const s=series[si];
   const links=s.watchLinks||(s.networkUrl?[{name:s.network||'Ver',url:s.networkUrl}]:[]);
@@ -3898,7 +3898,7 @@ function openEditMovie(mi){
     movieFormHtml(movies[mi])+
     `<div class="modal-footer-btns"><button type="button" class="btn" style="margin-right:auto;opacity:.7" onclick="convertMovieToSeries(${mi})" title="Mover esta ficha a la sección de Series">🔁 Convertir a serie</button><button type="button" class="btn" onclick="closeAll()">Cancelar</button><button type="button" class="btn primary" onclick="saveMovie(${mi})" title="Guardar (Ctrl+S)">Guardar cambios</button></div>`;
   document.getElementById('movieModal').classList.add('open');
-  const tq0=document.getElementById('tmdbQuery'); if(tq0) tq0.value=movies[mi].name||'';
+  const tq0=_findInModal('tmdbQuery'); if(tq0) tq0.value=movies[mi].name||'';
   bindMovieForm();
   const mv=movies[mi];
   const links=mv.watchLinks||(mv.networkUrl?[{name:mv.network||'Ver película',url:mv.networkUrl}]:[]);
@@ -4340,9 +4340,9 @@ function tmdbBarHtml(type){
 }
 
 async function tmdbSearch(type){
-  const status = document.getElementById('tmdbStatus');
-  const results = document.getElementById('tmdbResults');
-  const q = (document.getElementById('tmdbQuery')?.value || '').trim();
+  const status = _findInModal('tmdbStatus');
+  const results = _findInModal('tmdbResults');
+  const q = (_findInModal('tmdbQuery')?.value || '').trim();
   results.innerHTML = '';
   if(!q){ status.className='tmdb-bar-status err'; status.textContent='⚠ Escribe primero un título.'; return; }
   let key = tmdbGetKey();
@@ -4536,7 +4536,7 @@ async function tmdbAddNextSeasonFromForm(btn){
 }
 
 async function tmdbApplyResult(id, kind, type){
-  const status = document.getElementById('tmdbStatus');
+  const status = _findInModal('tmdbStatus');
   const key = tmdbGetKey();
   const region = tmdbGetRegion();
   status.className='tmdb-bar-status'; status.textContent='Cargando detalles...';
@@ -4592,7 +4592,7 @@ async function tmdbApplyResult(id, kind, type){
     // (para series: las que salen en un % relevante de episodios, no comparsas de 1 capítulo;
     //  para películas: primeras en orden de créditos)
     // (solo si la casilla "Importar reparto" está marcada para esta búsqueda)
-    const importCast = document.getElementById('tmdbImportCastChk')?.checked ?? true;
+    const importCast = _findInModal('tmdbImportCastChk')?.checked ?? true;
     let femaleCast = [];
     if(importCast) try{
       let rawCast = [];
@@ -4647,7 +4647,7 @@ async function tmdbApplyResult(id, kind, type){
     }catch(e){}
 
     function setVal(elId,val){
-      const el=document.getElementById(elId);
+      const el=_findInModal(elId);
       if(el && val!==null && val!==undefined && String(val)!==''){ el.value=val; }
     }
 
@@ -4696,7 +4696,7 @@ async function tmdbApplyResult(id, kind, type){
       setVal('mf_tmdbKind', kind);
       setVal('mf_tmdbRating', tmdbRating);
       setVal('mf_tmdbVoteCount', tmdbVoteCount);
-      const mfRatingDisp=document.getElementById('mf_tmdbRatingDisplay');
+      const mfRatingDisp=_findInModal('mf_tmdbRatingDisplay');
       if(mfRatingDisp) mfRatingDisp.textContent = tmdbRating ? `★ ${tmdbRating}/10 (${tmdbVoteCount} votos)` : 'Sin valoración en TMDB todavía';
       if(poster) posterSetImage(poster);
       if(dateStr) setVal('mf_date', dateStr);
@@ -4705,7 +4705,7 @@ async function tmdbApplyResult(id, kind, type){
       tmdbApplyGenres(d.genres, 'movie');
       const movieOriginCountry = TMDB_COUNTRY_MAP[(d.origin_country||(d.production_countries||[]).map(c=>c.iso_3166_1))[0]] || '';
       if(femaleCast.length){
-        const mcl=document.getElementById('movieCastList');
+        const mcl=_findInModal('movieCastList');
         if(mcl){
           const existingIds = new Set([...mcl.querySelectorAll('.cast-actress-sel')].map(inp=>inp.value).filter(Boolean));
           femaleCast.forEach(person=>{
@@ -4717,7 +4717,7 @@ async function tmdbApplyResult(id, kind, type){
         }
       }
       if(providers.length){
-        const mwl=document.getElementById('moviePlatformsList');
+        const mwl=_findInModal('moviePlatformsList');
         if(mwl){ mwl.innerHTML=''; providers.forEach(p=>addMoviePlatformRow(p, tmdbMatchPlatformUrl(p))); }
       }
     } else {
@@ -4732,7 +4732,7 @@ async function tmdbApplyResult(id, kind, type){
       setVal('f_tmdbKind', kind);
       setVal('f_tmdbRating', tmdbRating);
       setVal('f_tmdbVoteCount', tmdbVoteCount);
-      const fRatingDisp=document.getElementById('f_tmdbRatingDisplay');
+      const fRatingDisp=_findInModal('f_tmdbRatingDisplay');
       if(fRatingDisp) fRatingDisp.textContent = tmdbRating ? `★ ${tmdbRating}/10 (${tmdbVoteCount} votos)` : 'Sin valoración en TMDB todavía';
       if(poster) posterSetImage(poster);
       if(runtimeMins) setVal('f_epDuration', formatDurationDisplay(runtimeMins));
@@ -5269,7 +5269,7 @@ function runPasteAutofill(type){
     status.className='paste-bar-status ok';
     status.textContent='\u2713 Rellenados: '+det.join(', ')+'. Revisa y completa lo que falte.';
     ta.value='';
-    if(info.name){ var tq=document.getElementById('tmdbQuery'); if(tq) tq.value=info.name; }
+    if(info.name){ var tq=_findInModal('tmdbQuery'); if(tq) tq.value=info.name; }
   } else {
     status.className='paste-bar-status err';
     status.textContent='\u2715 No se detectaron datos. Comprueba el formato de la ficha.';
