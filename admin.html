@@ -699,6 +699,14 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
           <option value="subtexto">Subtexto</option>
         </select>
       </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="font-size:12px;color:var(--muted);font-weight:600;white-space:nowrap">Enlace</span>
+        <select id="adminSeriesLinkFilter" onchange="pages.series=1;render()" style="padding:6px 12px;border-radius:20px;border:1.5px solid var(--border2);background:var(--surface2);color:var(--text);font-size:12px;font-family:'Nunito',sans-serif;font-weight:600;outline:none;cursor:pointer">
+          <option value="">Todos</option>
+          <option value="con-enlace">Con enlace</option>
+          <option value="sin-enlace">Sin enlace</option>
+        </select>
+      </div>
     </div>
     <button type="button" class="btn primary" style="margin-bottom:1rem;width:100%" onclick="openAddSeries()">+ Añadir nueva serie</button>
     <div class="series-count-label" id="seriesCountLabel"></div>
@@ -733,6 +741,14 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
           <option value="personaje">Personaje</option>
           <option value="presencia-sin-desarrollo">Presencia sin desarrollo</option>
           <option value="subtexto">Subtexto</option>
+        </select>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="font-size:12px;color:var(--muted);font-weight:600;white-space:nowrap">Enlace</span>
+        <select id="adminMoviesLinkFilter" onchange="pages.movies=1;renderMovies()" style="padding:6px 12px;border-radius:20px;border:1.5px solid var(--border2);background:var(--surface2);color:var(--text);font-size:12px;font-family:'Nunito',sans-serif;font-weight:600;outline:none;cursor:pointer">
+          <option value="">Todos</option>
+          <option value="con-enlace">Con enlace</option>
+          <option value="sin-enlace">Sin enlace</option>
         </select>
       </div>
     </div>
@@ -770,6 +786,14 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
           <option value="subtexto">Subtexto</option>
         </select>
       </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="font-size:12px;color:var(--muted);font-weight:600;white-space:nowrap">Enlace</span>
+        <select id="adminAnimeLinkFilter" onchange="pages.anime=1;renderAnimeGrid()" style="padding:6px 12px;border-radius:20px;border:1.5px solid var(--border2);background:var(--surface2);color:var(--text);font-size:12px;font-family:'Nunito',sans-serif;font-weight:600;outline:none;cursor:pointer">
+          <option value="">Todos</option>
+          <option value="con-enlace">Con enlace</option>
+          <option value="sin-enlace">Sin enlace</option>
+        </select>
+      </div>
     </div>
     <button type="button" class="btn primary" style="margin-bottom:1rem;width:100%;background:#7c5cbf;border-color:#7c5cbf" onclick="openAddAnime()">+ Añadir anime</button>
     <div class="series-count-label" id="animeCountLabel"></div>
@@ -803,6 +827,14 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
           <option value="personaje">Personaje</option>
           <option value="presencia-sin-desarrollo">Presencia sin desarrollo</option>
           <option value="subtexto">Subtexto</option>
+        </select>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="font-size:12px;color:var(--muted);font-weight:600;white-space:nowrap">Enlace</span>
+        <select id="adminRealitiesLinkFilter" onchange="pages.realities=1;renderRealitiesGrid()" style="padding:6px 12px;border-radius:20px;border:1.5px solid var(--border2);background:var(--surface2);color:var(--text);font-size:12px;font-family:'Nunito',sans-serif;font-weight:600;outline:none;cursor:pointer">
+          <option value="">Todos</option>
+          <option value="con-enlace">Con enlace</option>
+          <option value="sin-enlace">Sin enlace</option>
         </select>
       </div>
     </div>
@@ -1226,6 +1258,21 @@ function applyWlwFilter(list, selectId){
   if(!val) return list;
   if(val==='sin-asignar') return list.filter(x=>!x.wlwFocus);
   return list.filter(x=>x.wlwFocus===val);
+}
+// ¿Tiene esta serie/película al menos un enlace de plataforma guardado (watchLinks o networkUrl)?
+function hasWatchLink(item){
+  if(!item) return false;
+  if((item.watchLinks||[]).some(l=>l&&l.url&&l.url.trim())) return true;
+  if(item.networkUrl&&item.networkUrl.trim()) return true;
+  return false;
+}
+// Filtra un array de series/películas según el valor elegido en el <select> de Enlace de esa sección
+function applyLinkFilter(list, selectId){
+  const val=document.getElementById(selectId)?.value||'';
+  if(!val) return list;
+  if(val==='con-enlace') return list.filter(hasWatchLink);
+  if(val==='sin-enlace') return list.filter(x=>!hasWatchLink(x));
+  return list;
 }
 
 const GENRES=[
@@ -1722,6 +1769,7 @@ function render(){
     return true;
   });
   filtered=applyWlwFilter(filtered, 'adminSeriesWlwFilter');
+  filtered=applyLinkFilter(filtered, 'adminSeriesLinkFilter');
 
   // Ordenación
   const sort=(document.getElementById('adminSeriesSort')?.value)||'added';
@@ -1827,6 +1875,7 @@ function renderMovies(){
       (mv.watchLinks||[]).some(l=>(l.name||'').toLowerCase().includes(q)||(l.url||'').toLowerCase().includes(q));
   });
   filtered=applyWlwFilter(filtered, 'adminMoviesWlwFilter');
+  filtered=applyLinkFilter(filtered, 'adminMoviesLinkFilter');
 
   if(sort==='az') filtered.sort((a,b)=>a.name.localeCompare(b.name,'es'));
   else if(sort==='za') filtered.sort((a,b)=>b.name.localeCompare(a.name,'es'));
@@ -3122,9 +3171,12 @@ function renderAnimeGrid(){
   let animes=series.filter(s=>s.category==='anime');
   let filtered=animes.filter(s=>{
     if(!q) return true;
-    return s.name.toLowerCase().includes(q)||(s.country||'').toLowerCase().includes(q)||(s.network||'').toLowerCase().includes(q);
+    return s.name.toLowerCase().includes(q)||(s.country||'').toLowerCase().includes(q)||(s.network||'').toLowerCase().includes(q)||
+      (s.networkUrl||'').toLowerCase().includes(q)||
+      (s.watchLinks||[]).some(l=>(l.name||'').toLowerCase().includes(q)||(l.url||'').toLowerCase().includes(q));
   });
   filtered=applyWlwFilter(filtered, 'adminAnimeWlwFilter');
+  filtered=applyLinkFilter(filtered, 'adminAnimeLinkFilter');
 
   if(sort==='az') filtered.sort((a,b)=>a.name.localeCompare(b.name,'es'));
   else if(sort==='za') filtered.sort((a,b)=>b.name.localeCompare(a.name,'es'));
@@ -3177,9 +3229,12 @@ function renderRealitiesGrid(){
   let realities=series.filter(s=>s.category==='reality');
   let filtered=realities.filter(s=>{
     if(!q) return true;
-    return s.name.toLowerCase().includes(q)||(s.country||'').toLowerCase().includes(q)||(s.network||'').toLowerCase().includes(q);
+    return s.name.toLowerCase().includes(q)||(s.country||'').toLowerCase().includes(q)||(s.network||'').toLowerCase().includes(q)||
+      (s.networkUrl||'').toLowerCase().includes(q)||
+      (s.watchLinks||[]).some(l=>(l.name||'').toLowerCase().includes(q)||(l.url||'').toLowerCase().includes(q));
   });
   filtered=applyWlwFilter(filtered, 'adminRealitiesWlwFilter');
+  filtered=applyLinkFilter(filtered, 'adminRealitiesLinkFilter');
 
   if(sort==='az') filtered.sort((a,b)=>a.name.localeCompare(b.name,'es'));
   else if(sort==='za') filtered.sort((a,b)=>b.name.localeCompare(a.name,'es'));
