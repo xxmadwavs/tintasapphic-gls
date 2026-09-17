@@ -47906,7 +47906,7 @@
       "id": "1788895582415",
       "name": "Yes Maybe No",
       "nameEn": "YES maybe NO เหมือนจะใช่เมื่อใจมีรัก",
-      "poster": "",
+      "poster": "https://pbs.twimg.com/media/HSLUqZNaQAAlm4z?format=jpg&name=medium",
       "synopsis": "Una chica introvertida se reencuentra con su primer amor, que también era su amigo. Pero su corazón ya ha ido mucho más allá de la amistad. Su falta de valor para admitir sus propios sentimientos hace que esté a punto de perder ese amor para siempre.",
       "year": "",
       "country": "Tailandia",
@@ -47951,7 +47951,7 @@
       "snLastUpdate": "",
       "snNote": "",
       "productoraId": "1779136303417",
-      "updatedAt": "2026-09-12T08:57:09.130Z",
+      "updatedAt": "2026-09-17T08:09:47.685Z",
       "wlwFocus": "pareja-principal",
       "couples": [
         [
@@ -47959,10 +47959,11 @@
           "1788895574201"
         ]
       ],
-      "tmdbId": 76411,
+      "tmdbId": "76411",
       "tmdbKind": "tv",
       "tmdbRating": 1,
-      "tmdbVoteCount": 2
+      "tmdbVoteCount": 2,
+      "biFormat": false
     },
     {
       "id": "1788896024625",
@@ -50990,7 +50991,7 @@
       "moods": [],
       "tropos": [],
       "dinamica": [],
-      "wlwFocus": "",
+      "wlwFocus": "pareja-principal",
       "awards": [],
       "category": "series",
       "seriesType": "serie",
@@ -51048,7 +51049,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-09-12T19:28:02.463Z"
+      "updatedAt": "2026-09-17T08:21:12.637Z"
     },
     {
       "id": "1789241315376",
@@ -51773,6 +51774,327 @@
         }
       ],
       "updatedAt": "2026-09-15T08:46:55.475Z"
+    },
+    {
+      "id": "1789632890149",
+      "name": "SheXShe",
+      "nameEn": "你是我心选的她",
+      "poster": "https://image.tmdb.org/t/p/w500/jo4G86JtM6VVaGj0Z0AvHS1RPzr.jpg",
+      "synopsis": "Is a highly popular Chinese Girls' Love (GL) dating reality show. The series format features 8 female contestants living together in a beach house for 7 days, participating in 5 unique partner challenges to find their true romantic match.",
+      "year": 2026,
+      "country": "China",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://www.youtube.com/watch?v=rKRxZ_UroAY",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "category": "reality",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "tmdbId": "326566",
+      "tmdbKind": "tv",
+      "tmdbRating": "",
+      "tmdbVoteCount": 0,
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-03-29",
+          "totalEpisodes": 24,
+          "emissionDays": [
+            6
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2026-03-29",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 2,
+              "date": "2026-03-29",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 3,
+              "date": "2026-03-29",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 4,
+              "date": "2026-03-29",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 5,
+              "date": "2026-03-29",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 6,
+              "date": "2026-03-29",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 7,
+              "date": "2026-03-29",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 8,
+              "date": "2026-03-29",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 9,
+              "date": "2026-04-04",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 10,
+              "date": "2026-04-04",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 11,
+              "date": "2026-04-04",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 12,
+              "date": "2026-04-04",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 13,
+              "date": "2026-04-06",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 14,
+              "date": "2026-04-06",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 15,
+              "date": "2026-04-06",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 16,
+              "date": "2026-04-06",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 17,
+              "date": "2026-04-12",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 18,
+              "date": "2026-04-12",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 19,
+              "date": "2026-04-12",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 20,
+              "date": "2026-04-12",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 21,
+              "date": "2026-04-13",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 22,
+              "date": "2026-04-13",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 23,
+              "date": "2026-04-13",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 24,
+              "date": "2026-04-13",
+              "skipped": false,
+              "source": "tmdb"
+            }
+          ],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-09-17T08:14:50.149Z"
+    },
+    {
+      "id": "1789633246451",
+      "name": "Bust Up",
+      "nameEn": "",
+      "poster": "https://image.tmdb.org/t/p/w500/kBCBgvC40J84s1RycCtqa7h3Oky.jpg",
+      "synopsis": "Ten years after their breakup, ex-lovers Mihi and Deb are reunited as reluctant police partners in a small New Zealand town, solving local crimes while confronting unresolved feelings and a larger mystery.",
+      "year": 2026,
+      "country": "Nueva Zelanda",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://www.youtube.com/watch?v=pGz8Tcj35IY",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Comedia",
+        "Crimen",
+        "Drama",
+        "Misterio"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": 50,
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "tmdbId": "323866",
+      "tmdbKind": "tv",
+      "tmdbRating": 6.6,
+      "tmdbVoteCount": 5,
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-05-27",
+          "totalEpisodes": 6,
+          "emissionDays": [
+            2
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2026-05-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 49,
+              "still": "https://image.tmdb.org/t/p/w300/j8zK82G3L9kRd3D0VPPwZUFbiNp.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2026-06-03",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 53,
+              "still": "https://image.tmdb.org/t/p/w300/6VT7pGOxlFSR3e0U9GoHbTNa0Jp.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2026-06-10",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 50,
+              "still": "https://image.tmdb.org/t/p/w300/rhpPM0WYjNnUuMsuXbI6PfN68co.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2026-06-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 49,
+              "still": "https://image.tmdb.org/t/p/w300/7zm2uKUEcfMw7HdcvA0re53IREu.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2026-06-24",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 49,
+              "still": "https://image.tmdb.org/t/p/w300/91NGH8XkGxCGl1XHIfXaDVX1VMX.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2026-07-01",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 49,
+              "still": "https://image.tmdb.org/t/p/w300/bsPbQf0maNGIG1RljGSiVAT4SQj.jpg"
+            }
+          ],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-09-17T08:20:46.451Z"
     }
   ],
   "movies": [
@@ -52094,16 +52416,12 @@
       "synopsis": "En tiempos cambiantes, dos mujeres mantuvieron en secreto su amor de décadas. Pero salir más tarde en la vida viene con su propio conjunto de desafíos.",
       "year": 2020,
       "country": "Estados Unidos",
-      "network": "Netflix, Netflix Standard with Ads",
-      "networkUrl": "https://www.netflix.com",
+      "network": "Netflix",
+      "networkUrl": "https://www.netflix.com/watch/80209024?source=35",
       "watchLinks": [
         {
           "name": "Netflix",
-          "url": "https://www.netflix.com"
-        },
-        {
-          "name": "Netflix Standard with Ads",
-          "url": "https://www.netflix.com"
+          "url": "https://www.netflix.com/watch/80209024?source=35"
         }
       ],
       "trailerUrl": "https://www.youtube.com/watch?v=ghv3-lpFOcc",
@@ -52117,7 +52435,7 @@
         "Documental"
       ],
       "category": "reality",
-      "updatedAt": "2026-09-12T11:35:43.102Z",
+      "updatedAt": "2026-09-17T08:25:39.069Z",
       "movieType": "film",
       "duration": 82,
       "cast": [
@@ -52142,7 +52460,8 @@
       "sourceType": "",
       "awards": [],
       "couples": [],
-      "productoraId": ""
+      "productoraId": "",
+      "biFormat": false
     },
     {
       "id": "1700000000000",
@@ -52152,11 +52471,11 @@
       "country": "Alemania",
       "date": "1931-11-27",
       "network": "Filmin",
-      "networkUrl": "https://www.filmin.es",
+      "networkUrl": "https://www.filmin.es/pelicula/muchachas-de-uniforme",
       "watchLinks": [
         {
           "name": "Filmin",
-          "url": "https://www.filmin.es"
+          "url": "https://www.filmin.es/pelicula/muchachas-de-uniforme"
         }
       ],
       "trailerUrl": "https://www.youtube.com/watch?v=uPC7OBgY09Y",
@@ -52171,7 +52490,7 @@
       "bookLinks": [],
       "bookUrl": "",
       "category": "movie",
-      "updatedAt": "2026-09-12T11:36:12.676Z",
+      "updatedAt": "2026-09-17T08:26:05.997Z",
       "movieType": "film",
       "duration": 88,
       "tmdbId": "9653",
@@ -52196,7 +52515,8 @@
         }
       ],
       "couples": [],
-      "productoraId": ""
+      "productoraId": "",
+      "biFormat": false
     },
     {
       "id": "1700000000001",
@@ -52206,11 +52526,11 @@
       "country": "Alemania",
       "date": "1958-07-07",
       "network": "Filmin",
-      "networkUrl": "https://www.filmin.es",
+      "networkUrl": "https://www.filmin.es/pelicula/corrupcion-en-el-internado?origin=searcher&origin-query=primary",
       "watchLinks": [
         {
           "name": "Filmin",
-          "url": "https://www.filmin.es"
+          "url": "https://www.filmin.es/pelicula/corrupcion-en-el-internado?origin=searcher&origin-query=primary"
         }
       ],
       "trailerUrl": "https://www.youtube.com/watch?v=m7_pbo3NQco",
@@ -52224,7 +52544,7 @@
       "bookLinks": [],
       "bookUrl": "",
       "category": "movie",
-      "updatedAt": "2026-09-12T11:36:39.482Z",
+      "updatedAt": "2026-09-17T08:26:35.730Z",
       "movieType": "film",
       "duration": 95,
       "tmdbId": "4955",
@@ -52249,7 +52569,8 @@
         }
       ],
       "couples": [],
-      "productoraId": ""
+      "productoraId": "",
+      "biFormat": false
     },
     {
       "id": "1700000000002",
@@ -52405,9 +52726,18 @@
       "year": 1991,
       "country": "Estados Unidos",
       "date": "1991-12-27",
-      "network": "Movistar Plus+, Movistar Plus+ Ficción Total",
-      "networkUrl": "",
-      "watchLinks": [],
+      "network": "Movistar Plus+, rtve",
+      "networkUrl": "https://www.rtve.es/play/videos/cine-de-siempre/tomates-verdes-fritos/16004746/",
+      "watchLinks": [
+        {
+          "name": "RTVE",
+          "url": "https://www.rtve.es/play/videos/cine-de-siempre/tomates-verdes-fritos/16004746/"
+        },
+        {
+          "name": "Movistar+",
+          "url": "https://www.movistarplus.es/cine/tomates-verdes-fritos/ficha?tipo=E&id=22107&origen=GGL&referrer=GGL&utm_campaign=product_feed&utm_medium=aggregator&utm_source=google"
+        }
+      ],
       "trailerUrl": "https://www.youtube.com/watch?v=vxDDX2V9LrQ",
       "genres": [
         "Comedia",
@@ -52420,7 +52750,7 @@
       "bookLinks": [],
       "bookUrl": "",
       "category": "movie",
-      "updatedAt": "2026-09-12T11:40:49.394Z",
+      "updatedAt": "2026-09-17T08:27:25.527Z",
       "movieType": "film",
       "duration": 130,
       "tmdbId": "1633",
@@ -52457,7 +52787,8 @@
         }
       ],
       "couples": [],
-      "productoraId": ""
+      "productoraId": "",
+      "biFormat": false
     },
     {
       "id": "1700000000006",
@@ -52516,9 +52847,14 @@
       "year": 1997,
       "country": "Estados Unidos",
       "date": "1997-03-05",
-      "network": "MUBI, MUBI Amazon Channel",
-      "networkUrl": "",
-      "watchLinks": [],
+      "network": "MUBI",
+      "networkUrl": "https://mubi.com/es/es/films/the-watermelon-woman",
+      "watchLinks": [
+        {
+          "name": "MUBI",
+          "url": "https://mubi.com/es/es/films/the-watermelon-woman"
+        }
+      ],
       "trailerUrl": "https://www.youtube.com/watch?v=mtU6Wo29VXI",
       "genres": [
         "Comedia",
@@ -52532,7 +52868,7 @@
       "bookLinks": [],
       "bookUrl": "",
       "category": "movie",
-      "updatedAt": "2026-09-12T11:41:34.698Z",
+      "updatedAt": "2026-09-17T08:28:07.723Z",
       "movieType": "film",
       "duration": 90,
       "tmdbId": "44479",
@@ -52565,7 +52901,8 @@
         }
       ],
       "couples": [],
-      "productoraId": ""
+      "productoraId": "",
+      "biFormat": false
     },
     {
       "id": "1700000000008",
@@ -52574,9 +52911,14 @@
       "year": 1996,
       "country": "Estados Unidos",
       "date": "1996-09-13",
-      "network": "Rakuten TV, Google Play Movies",
-      "networkUrl": "",
-      "watchLinks": [],
+      "network": "OrangeTV",
+      "networkUrl": "https://orangetv.orange.es/vps/dyn/lazos-ardientes_PAGE_HD",
+      "watchLinks": [
+        {
+          "name": "OrangeTV",
+          "url": "https://orangetv.orange.es/vps/dyn/lazos-ardientes_PAGE_HD"
+        }
+      ],
       "trailerUrl": "https://www.youtube.com/watch?v=ToCMwdOaWh4",
       "genres": [
         "Crimen",
@@ -52590,7 +52932,7 @@
       "bookLinks": [],
       "bookUrl": "",
       "category": "movie",
-      "updatedAt": "2026-09-12T11:41:53.313Z",
+      "updatedAt": "2026-09-17T08:28:44.368Z",
       "movieType": "film",
       "duration": 105,
       "tmdbId": "9303",
@@ -52615,7 +52957,8 @@
         }
       ],
       "couples": [],
-      "productoraId": ""
+      "productoraId": "",
+      "biFormat": false
     },
     {
       "id": "1700000000009",
@@ -62837,71 +63180,104 @@
     {
       "id": "1700000000305",
       "name": "Flat Girls",
-      "synopsis": "Jane es hija de un sargento de policía. Vive en el mismo bloque de viviendas de la policía (viviendas públicas subvencionadas que se proporcionan a los policías y sus familias) desde su nacimiento. Tras la muerte de su padre, Jane y su madre deben prepararse para marcharse.\n\nA medida que se acerca la fecha de la mudanza, Jane reflexiona sobre la juventud que pasó entre los confines de las viviendas de la policía. Afloran recuerdos de su pasado como estudiante de instituto de mejillas regordetas que todavía cuestionaba su sexualidad. Estos recuerdos sacan a la luz secretos del pasado: secretos que Jane nunca le ha contado a nadie.\n\n(Source: filmfestival.nl)",
+      "synopsis": "As Jane prepares to leave a police flat where she was born and raised, she starts to reflect on old memories including a painful story of love and intimacy lost between a handsome young policeman and Ann, the ambitious older girl Jane once secretly loved.",
       "year": 2025,
       "country": "Tailandia",
       "date": "2025-02-06",
       "network": "Netflix",
-      "networkUrl": "https://www.netflix.com/es/title/82051204",
+      "networkUrl": "https://www.netflix.com/es/title/82051204?source=35&fromWatch=true",
       "watchLinks": [
         {
           "name": "Netflix",
-          "url": "https://www.netflix.com/es/title/82051204"
+          "url": "https://www.netflix.com/es/title/82051204?source=35&fromWatch=true"
         }
       ],
-      "trailerUrl": "",
+      "trailerUrl": "https://www.youtube.com/watch?v=Kc4bDKN1CWE",
       "genres": [
         "Drama"
       ],
-      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/d3X1E1WzxWtwIvIy6WbyzCm7jaH.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/d3X1E1WzxWtwIvIy6WbyzCm7jaH.jpg",
       "basedOnBook": false,
       "bookSource": "",
       "bookCoverUrl": "",
       "bookLinks": [],
       "bookUrl": "",
       "category": "movie",
-      "updatedAt": "2026-05-14T21:19:16.575Z",
-      "nameEn": "เด็กแฟลต",
+      "updatedAt": "2026-09-17T08:24:15.992Z",
+      "nameEn": "แฟลตเกิร์ล ชั้นห่างระหว่าง เ ร า",
       "movieType": "film",
       "duration": 130,
-      "cast": [],
-      "tmdbId": 1290205,
+      "cast": [
+        {
+          "actressId": "tmdb_3724880_mtzlxren",
+          "character": "Ann"
+        },
+        {
+          "actressId": "tmdb_3287492_mtzlxrep",
+          "character": "Jane"
+        }
+      ],
+      "tmdbId": "1290205",
       "tmdbKind": "movie",
       "tmdbRating": 7.1,
-      "tmdbVoteCount": 19
+      "tmdbVoteCount": 19,
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "wlwFocus": "",
+      "awards": [],
+      "biFormat": false,
+      "couples": [
+        [
+          "tmdb_3724880_mtzlxren",
+          "tmdb_3287492_mtzlxrep"
+        ]
+      ],
+      "productoraId": ""
     },
     {
       "id": "1700000000306",
-      "name": "Lesbian Space Princess",
-      "synopsis": "Una comedia de ciencia ficción muy queer\nUna princesa del espacio se ve obligada a abandonar su vida protegida para embarcarse en una misión galáctica para salvar a su exnovia cazarrecompensas de los Maliens blancos heterosexuales.\n\n(Source: TMDB)",
+      "name": "Princesa lesbiana del espacio",
+      "synopsis": "Una princesa del espacio se ve empujada a abandonar su cómoda vida y a embarcarse en una búsqueda galáctica para salvar a su ex novia cazarrecompensas de los Malienses Blancos.",
       "year": 2025,
       "country": "Australia",
       "date": "2025-09-11",
-      "network": "",
+      "network": "Movistar Plus+, Movistar Plus+ Ficción Total",
       "networkUrl": "",
       "watchLinks": [],
-      "trailerUrl": "https://youtu.be/2FaVAEjWoxM",
+      "trailerUrl": "https://www.youtube.com/watch?v=Nra14aUNYS8",
       "genres": [
         "Animación",
+        "Aventura",
         "Ciencia Ficción",
         "Comedia"
       ],
-      "poster": "https://www.themoviedb.org/t/p/w600_and_h900_face/bmf6spk0WZ10lz4eAK95P1zRB4F.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/rADP7V2LqqYX2vUHmbGwQAwwDoz.jpg",
       "basedOnBook": false,
       "bookSource": "",
       "bookCoverUrl": "",
       "bookLinks": [],
       "bookUrl": "",
       "category": "movie",
-      "updatedAt": "2026-05-14T21:19:35.397Z",
-      "nameEn": "",
+      "updatedAt": "2026-09-17T08:22:11.529Z",
+      "nameEn": "Lesbian Space Princess",
       "movieType": "film",
-      "duration": 90,
+      "duration": 87,
       "cast": [],
-      "tmdbId": 1333141,
+      "tmdbId": "1333141",
       "tmdbKind": "movie",
       "tmdbRating": 3.7,
-      "tmdbVoteCount": 215
+      "tmdbVoteCount": 220,
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "wlwFocus": "",
+      "awards": [],
+      "biFormat": false,
+      "couples": [],
+      "productoraId": ""
     },
     {
       "id": "1700000000307",
@@ -70381,5 +70757,5 @@
       ]
     }
   },
-  "exportedAt": "2026-09-15T08:47:45.379Z"
+  "exportedAt": "2026-09-17T08:28:46.177Z"
 }
