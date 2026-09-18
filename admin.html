@@ -623,7 +623,7 @@ code{background:var(--lavender-soft);color:var(--lavender);padding:1px 7px;borde
     <button type="button" class="btn small" onclick="document.getElementById('importFile').click()">Importar data.json</button>
     <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
     <button type="button" class="btn small" onclick="tmdbBulkLinkAll(this)" title="Busca en TMDB cada serie/película sin vincular y guarda solo su ID, tipo y valoración — no toca sinopsis, póster ni reparto">🔗 Vincular todas a TMDB</button>
-    <button type="button" class="btn small" onclick="tmdbBulkRefreshRatings(this)" title="Vuelve a consultar TMDB para todas las series y películas ya vinculadas, y actualiza su valoración de una sola vez">🔄 Actualizar valoraciones TMDB</button>
+    <button type="button" class="btn small" onclick="tmdbBulkRefreshRatings(this)" title="Vuelve a consultar TMDB para todas las series y películas ya vinculadas, actualiza su valoración y rellena las portadas de episodios que aún falten (sin tocar las que ya tienen)">🔄 Actualizar valoraciones TMDB</button>
     <button type="button" class="btn small" onclick="window.open('index.html','_blank')">Ver público</button>
     <div class="export-btn-wrap">
       <button type="button" class="btn export small" id="exportTopBtn" onclick="exportData()">Exportar data.json</button>
@@ -4643,6 +4643,10 @@ async function tmdbApplyResult(id, kind, type){
     if(!providers.length) providers = provNames(rwp.ads);
     if(!providers.length) providers = provNames(rwp.rent);
     if(!providers.length) providers = provNames(rwp.buy);
+    // Amazon Prime Video: JustWatch/TMDB a veces la lista aparte como "Amazon Prime Video with Ads",
+    // pero el enlace es siempre el mismo, así que la unificamos con la versión sin ads y quitamos duplicados
+    providers = providers.map(p => /amazon prime video/i.test(p) ? 'Prime Video' : p);
+    providers = [...new Set(providers)];
     const networkStr = providers.join(', ');
 
     // Tráiler de YouTube
@@ -4896,12 +4900,12 @@ async function tmdbBulkLinkAll(btn){
   }
   const ok = await showConfirm({
     title:`¿Buscar en TMDB ${targets.length} ficha${targets.length===1?'':'s'} sin vincular?`,
-    desc:'Se busca cada una por nombre (y año, si lo tiene puesto) y solo se guarda su ID, tipo y valoración de TMDB — no se toca sinopsis, póster ni reparto. Las que no encuentren un resultado fiable se dejan sin vincular para revisarlas a mano. Al terminar, recuerda exportar data.json.',
+    desc:'Se busca cada una por nombre (y año, si lo tiene puesto) y se guarda su ID, tipo y valoración de TMDB, además de las miniaturas de los episodios en las series que ya tengan temporadas guardadas — no se toca sinopsis, póster general ni reparto. Las que no encuentren un resultado fiable se dejan sin vincular para revisarlas a mano. Al terminar, recuerda exportar data.json.',
     okLabel:'Vincular todas'
   });
   if(!ok) return;
   const prevLabel = btn?btn.textContent:'';
-  let done=0, linked=0, skipped=0, errors=0;
+  let done=0, linked=0, skipped=0, errors=0, stillsUpdated=0;
   for(const {item,kind} of targets){
     if(btn){ btn.disabled=true; btn.textContent=`Vinculando ${done+1}/${targets.length}...`; }
     try{
@@ -4932,6 +4936,14 @@ async function tmdbBulkLinkAll(btn){
           item.tmdbRating = match.vote_average ? Math.round(match.vote_average*10)/10 : '';
           item.tmdbVoteCount = match.vote_count || 0;
           linked++;
+          // Portadas de episodios: solo para series (kind 'tv') que ya tengan temporadas guardadas.
+          // No toca sinopsis, póster general ni reparto — únicamente el "still" de cada episodio.
+          if(kind==='tv' && item.seasons && item.seasons.length){
+            try{
+              const changed = await tmdbFillEpisodeStills(match.id, item, key);
+              if(changed) stillsUpdated++;
+            }catch(e){}
+          }
         } else {
           skipped++;
         }
@@ -4948,7 +4960,49 @@ async function tmdbBulkLinkAll(btn){
   try{ renderMovies(); }catch(e){}
   try{ renderAnimeGrid(); }catch(e){}
   try{ renderRealitiesGrid(); }catch(e){}
-  alert(`✓ Listo: ${linked} vinculada${linked===1?'':'s'}, ${skipped} sin match fiable (revísalas a mano)${errors?`, ${errors} con error de conexión`:''}.\n\nRecuerda exportar data.json para publicar los cambios.`);
+  alert(`✓ Listo: ${linked} vinculada${linked===1?'':'s'}${stillsUpdated?`, ${stillsUpdated} con portadas de episodios actualizadas`:''}, ${skipped} sin match fiable (revísalas a mano)${errors?`, ${errors} con error de conexión`:''}.\n\nRecuerda exportar data.json para publicar los cambios.`);
+}
+
+// Rellena/actualiza únicamente la miniatura ("still") de cada episodio de una serie recién vinculada a
+// TMDB, sin tocar fecha, duración ni ningún otro dato de la temporada. Si el episodio no tenía override
+// guardado todavía, se crea uno nuevo con su fecha real de TMDB (genEpisodes sustituye el episodio entero
+// por el override cuando existe, así que necesita fecha siempre para no perder la fecha calculada).
+// Devuelve true si se ha añadido o cambiado alguna miniatura.
+// onlyMissing=false (por defecto, usado al vincular por primera vez): sobrescribe siempre con la de TMDB.
+// onlyMissing=true (usado al refrescar valoraciones en fichas ya vinculadas): NO toca las miniaturas que
+// ya existan, solo rellena los episodios que aún no tienen portada.
+async function tmdbFillEpisodeStills(tmdbId, item, key, onlyMissing=false){
+  let any=false;
+  for(let sIdx=0; sIdx<item.seasons.length; sIdx++){
+    const season=item.seasons[sIdx];
+    const m=/(\d+)/.exec(season.label||'');
+    const seasonNumber = m ? parseInt(m[1]) : sIdx+1;
+    const sd = await tmdbFetchSeason(tmdbId, seasonNumber, key);
+    const eps = (sd && sd.episodes) || [];
+    if(!eps.length) continue;
+    if(!season.episodes) season.episodes=[];
+    eps.forEach(e=>{
+      if(!e.still_path) return;
+      const stillUrl = TMDB_STILL_BASE+e.still_path;
+      const ov = season.episodes.find(x=>x.num===e.episode_number);
+      if(ov){
+        if(onlyMissing){
+          if(!ov.still){ ov.still=stillUrl; any=true; }
+        } else if(ov.still!==stillUrl){ ov.still=stillUrl; any=true; }
+      } else if(e.air_date){
+        // Solo creamos override nuevo si TMDB tiene fecha real; si no, se deja sin miniatura
+        // para no forzar una fecha inventada en un episodio aún sin anunciar.
+        season.episodes.push({
+          num:e.episode_number, date:e.air_date, skipped:false, source:'tmdb',
+          ...(e.runtime?{duration:e.runtime}:{}),
+          still:stillUrl,
+        });
+        any=true;
+      }
+    });
+    await new Promise(res=>setTimeout(res, 150));
+  }
+  return any;
 }
 
 async function tmdbBulkRefreshRatings(btn){
@@ -4963,12 +5017,12 @@ async function tmdbBulkRefreshRatings(btn){
   }
   const ok = await showConfirm({
     title:`¿Actualizar la valoración de ${targets.length} ficha${targets.length===1?'':'s'}?`,
-    desc:'Se consulta TMDB una a una, así que puede tardar un poco si tienes muchas fichas vinculadas. Al terminar, recuerda exportar data.json para publicar los cambios.',
+    desc:'Se consulta TMDB una a una, así que puede tardar un poco si tienes muchas fichas vinculadas. De paso, en las series con temporadas guardadas se rellenan las portadas de los episodios que todavía no tengan una (las que ya tienen portada no se tocan). Al terminar, recuerda exportar data.json para publicar los cambios.',
     okLabel:'Actualizar todas'
   });
   if(!ok) return;
   const prevLabel = btn?btn.textContent:'';
-  let done=0, changed=0, errors=0;
+  let done=0, changed=0, errors=0, stillsUpdated=0;
   for(const {item,kind} of targets){
     if(btn){ btn.disabled=true; btn.textContent=`Actualizando ${done+1}/${targets.length}...`; }
     try{
@@ -4983,6 +5037,14 @@ async function tmdbBulkRefreshRatings(btn){
       } else {
         errors++;
       }
+      // Además de la valoración, rellenamos (sin sobrescribir) las portadas de episodios que falten
+      // en las series ya vinculadas que tengan temporadas guardadas.
+      if(kind==='tv' && item.seasons && item.seasons.length){
+        try{
+          const gotStills = await tmdbFillEpisodeStills(item.tmdbId, item, key, true);
+          if(gotStills) stillsUpdated++;
+        }catch(e){}
+      }
     }catch(e){ errors++; }
     done++;
     // Pequeña pausa entre peticiones para no saturar la API de TMDB
@@ -4994,7 +5056,7 @@ async function tmdbBulkRefreshRatings(btn){
   try{ renderMovies(); }catch(e){}
   try{ renderAnimeGrid(); }catch(e){}
   try{ renderRealitiesGrid(); }catch(e){}
-  alert(`✓ Listo: ${done} ficha${done===1?'':'s'} consultada${done===1?'':'s'}, ${changed} con la nota actualizada${errors?`, ${errors} con error de conexión`:''}.\n\nRecuerda exportar data.json para publicar los cambios.`);
+  alert(`✓ Listo: ${done} ficha${done===1?'':'s'} consultada${done===1?'':'s'}, ${changed} con la nota actualizada${stillsUpdated?`, ${stillsUpdated} serie${stillsUpdated===1?'':'s'} con portadas de episodios completadas`:''}${errors?`, ${errors} con error de conexión`:''}.\n\nRecuerda exportar data.json para publicar los cambios.`);
 }
 
 async function tmdbRefreshRating(type, btn){
