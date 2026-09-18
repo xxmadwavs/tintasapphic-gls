@@ -55894,8 +55894,8 @@
       "id": "1787683216934",
       "name": "Resonance: Our Song of Love",
       "nameEn": "จังหวะรัก เพลงของเรา",
-      "poster": "https://image.tmdb.org/t/p/w500/se0YOPwHkaqWOASoNHBIztdZU9e.jpg",
-      "synopsis": "The series follows Fame, played by Friend, a reserved woman who keeps most people at a distance but has a deep connection with music. Palm plays Aing-Aei, an optimistic independent musician who travels to Japan in search of a new opportunity for her career.\n\nTheir personalities could hardly be more different.\n\nFame is guarded and difficult to read, while Aing-Aei approaches life with considerably more energy and openness. Their meeting gradually changes the direction of both their personal lives and their dreams.\n\nBut music is not simply a backdrop. The story also explores the pressure placed on artists in an industry increasingly influenced by views, trends and public attention. As Fame and Aing-Aei grow closer, secrets connected to their music begin to complicate their relationship.",
+      "poster": "https://pbs.twimg.com/media/HSayjQoWgAAhsm3?format=jpg&name=small",
+      "synopsis": "La serie narra la historia de Fame, interpretada por Friend, una mujer reservada que mantiene a la mayoría de la gente a distancia, pero que tiene una profunda conexión con la música. Palm interpreta a Aing-Aei, una música independiente y optimista que viaja a Japón en busca de una nueva oportunidad para su carrera.\n\nSus personalidades no podrían ser más diferentes.\n\nFame es reservada y difícil de descifrar, mientras que Aing-Aei afronta la vida con mucha más energía y franqueza. Su encuentro va cambiando poco a poco el rumbo tanto de sus vidas personales como de sus sueños.\n\nPero la música no es simplemente un telón de fondo. La historia también explora la presión a la que se ven sometidos los artistas en una industria cada vez más influenciada por las opiniones, las tendencias y la atención del público. A medida que Fame y Aing-Aei se van acercando, los secretos relacionados con su música comienzan a complicar su relación.",
       "year": "",
       "country": "Tailandia",
       "network": "",
@@ -55939,7 +55939,7 @@
       "snLastUpdate": "",
       "snNote": "",
       "productoraId": "1779136135118",
-      "updatedAt": "2026-09-12T08:56:42.836Z",
+      "updatedAt": "2026-09-18T07:40:34.293Z",
       "wlwFocus": "pareja-principal",
       "couples": [
         [
@@ -55947,10 +55947,11 @@
           "1778705100123"
         ]
       ],
-      "tmdbId": 332579,
+      "tmdbId": "332579",
       "tmdbKind": "tv",
       "tmdbRating": "",
-      "tmdbVoteCount": 0
+      "tmdbVoteCount": 0,
+      "biFormat": false
     },
     {
       "id": "1787683435426",
@@ -71157,6 +71158,135 @@
         }
       ],
       "updatedAt": "2026-09-17T17:08:06.662Z"
+    },
+    {
+      "id": "1789717151693",
+      "name": "Monstruo: La historia de Lizzie Borden",
+      "nameEn": "Monster: The Lizzie Borden Story",
+      "poster": "https://image.tmdb.org/t/p/w500/v66pL1ryECiTML3tjiKGxFVJQ91.jpg",
+      "synopsis": "Atrapada en un hogar victoriano marcado por la crueldad, Lizzie Borden mata brutalmente a sus padres a hachazos y conmociona a todo el país.",
+      "year": 2026,
+      "country": "Estados Unidos",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://www.youtube.com/watch?v=gYTzF1vna40",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Crimen",
+        "Drama"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "tmdbId": "299939",
+      "tmdbKind": "tv",
+      "tmdbRating": 8,
+      "tmdbVoteCount": 10,
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-09-17",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            3
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2026-09-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 56,
+              "still": "https://image.tmdb.org/t/p/w300/miB1w0i5QFnlYlRTsmLlbIiL6wG.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2026-09-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 56,
+              "still": "https://image.tmdb.org/t/p/w300/9rh2NK5MyDcBAHKCk5O8ZTFbEtr.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2026-09-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 49,
+              "still": "https://image.tmdb.org/t/p/w300/kx3CxNffckeE5LOJHjcLvRolT4G.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2026-09-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 45,
+              "still": "https://image.tmdb.org/t/p/w300/wPSYOpo6A1Sei0jecAyuYY4g7jG.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2026-09-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 40,
+              "still": "https://image.tmdb.org/t/p/w300/ul1XZhEDdWssfDJWui4WGBcB4xA.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2026-09-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 47,
+              "still": "https://image.tmdb.org/t/p/w300/2gCa9Lzi7ewNynOVG7LBLmsW1Nh.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2026-09-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 46,
+              "still": "https://image.tmdb.org/t/p/w300/uFmtfQVUIrKfRlo4WcolB47Pz6E.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2026-09-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 65,
+              "still": "https://image.tmdb.org/t/p/w300/a2LfgIDYABaSVYvLrh4K4uaEXGs.jpg"
+            }
+          ],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-09-18T07:39:11.693Z"
     }
   ],
   "movies": [
@@ -84838,11 +84968,12 @@
     {
       "id": "1778705100123",
       "name": "\"Palm\" Paramee Luengnaruemitchai",
-      "photo": "https://girlsloveinfo.com/wp-content/uploads/2025/08/Palm-Paramee.png",
+      "photo": "https://i.mydramalist.com/zBmZ6z_5c.jpg",
       "country": "Tailandia",
       "notes": "Actriz",
       "birthdate": "2005-05-31",
-      "height": null
+      "photoPosition": "50% 42%",
+      "photoZoom": 1
     },
     {
       "id": "1778705135312",
@@ -90112,5 +90243,5 @@
       ]
     }
   },
-  "exportedAt": "2026-09-17T17:39:09.284Z"
+  "exportedAt": "2026-09-18T07:45:54.974Z"
 }
