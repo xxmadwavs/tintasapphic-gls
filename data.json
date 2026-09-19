@@ -5461,7 +5461,7 @@
     {
       "id": "1776976364805",
       "name": "Love On Hire",
-      "poster": "https://image.tmdb.org/t/p/w500/hUmjaaGkHfISdpNApn7wopsQVbS.jpg",
+      "poster": "https://pbs.twimg.com/media/HSkyQI2a8AAconN?format=jpg&name=large",
       "synopsis": "Thitinan aceptará cualquier trabajo: desde hacerse pasar por una novia falsa y romper una relación hasta, algo exclusivo para Miss Chat, convertirse en asesora sexual.",
       "year": "",
       "country": "Tailandia",
@@ -5508,7 +5508,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-09-12T13:25:17.205Z",
+      "updatedAt": "2026-09-19T16:40:19.215Z",
       "episodeDuration": "",
       "myPick": false,
       "myPick2026": false,
@@ -5533,7 +5533,8 @@
       "tmdbKind": "tv",
       "tmdbRating": "",
       "tmdbVoteCount": 0,
-      "wlwFocus": ""
+      "wlwFocus": "",
+      "biFormat": false
     },
     {
       "id": "1776976452500",
@@ -71279,6 +71280,1600 @@
         }
       ],
       "updatedAt": "2026-09-18T07:39:11.693Z"
+    },
+    {
+      "id": "1789836178891",
+      "name": "Watashi ga Koibito ni Nareru Wake Nai jan, Muri Muri! (※Muri ja Nakatta!?)",
+      "nameEn": "わたしが恋人になれるわけないじゃん、ムリムリ！（※ムリじゃなかった!?）",
+      "poster": "https://image.tmdb.org/t/p/w500/oTZzpIktlKx6fmmsIaUu4usUah1.jpg",
+      "synopsis": "Renako Amaori quiere una vida normal en la preparatoria, pero todo cambia al conocer a Mai Ouzuka, la estrella de la escuela. Su amistad se complica cuando Mai le confiesa su amor, desatando un torbellino de emociones mientras Renako intenta mantenerlas como amigas.",
+      "year": 2025,
+      "country": "Japón",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Animación",
+        "Comedia"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "category": "anime",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": 24,
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "tmdbId": "277513",
+      "tmdbKind": "tv",
+      "tmdbRating": 8.3,
+      "tmdbVoteCount": 49,
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2025-07-08",
+          "totalEpisodes": 17,
+          "emissionDays": [
+            1
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2025-07-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/dm2iK24CsVQlSopWehKI7uCoJji.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2025-07-15",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/rLExSBzSgemRxd9s85DOgRB4QCq.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2025-07-22",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/okP9hMdnCP3OCto9R530Z2FYEHk.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2025-07-29",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/i1m5eX9EtPHB6FiQTGzIP6KT4cU.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2025-08-05",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/dwvyN0fQnGxpN5GPc16MWKZyDxw.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2025-08-12",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/Ab94xg20ustsZDlhQcg76krsY3h.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2025-08-19",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/plM20HkUHez9UwgSCVNW2NblJrM.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2025-08-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/rmFv8AcuHsYxlEfFbLz6Nvg9szA.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2025-09-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/7Mr6p3FPDNfvLpfIhEsoyHx1zIx.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2025-09-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/eW1d49abE8bmid1vDMVkc0yICQQ.jpg"
+            },
+            {
+              "num": 11,
+              "date": "2025-09-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/t9TzJvudSG2Za9AVuRN0xDlQwfJ.jpg"
+            },
+            {
+              "num": 12,
+              "date": "2025-09-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/sYwzvFYE8UpZwzqvGCr3m1bPZrg.jpg"
+            },
+            {
+              "num": 13,
+              "date": "2026-01-01",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/fu8SSBumoo7IawcrgJvvIXOQG8q.jpg"
+            },
+            {
+              "num": 14,
+              "date": "2026-01-01",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/1ETr7WL9WeHbQtHPqKv8ZiCNocm.jpg"
+            },
+            {
+              "num": 15,
+              "date": "2026-01-01",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/n0QJhZRBi8lkFOQ7ASrFEEKAQox.jpg"
+            },
+            {
+              "num": 16,
+              "date": "2026-01-01",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/3A6txJtOyO5gogaa4RsSS3JXNzK.jpg"
+            },
+            {
+              "num": 17,
+              "date": "2026-01-01",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/e8UK2U8ITZ5iTXUov0ADMelGcTn.jpg"
+            }
+          ],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-09-19T16:42:58.891Z"
+    },
+    {
+      "id": "1789836211931",
+      "name": "Velma",
+      "nameEn": "",
+      "poster": "https://image.tmdb.org/t/p/w500/sDQVF2zu0KW0AgkAadVjaHMe8uE.jpg",
+      "synopsis": "Los orígenes de Velma Dinkley, la inteligente y gran olvidada integrante de Misterios S. A. de Scooby-Doo. Una serie divertida y original que descubre el complejo y peculiar pasado de una de las detectives más queridas.",
+      "year": 2023,
+      "country": "Estados Unidos",
+      "network": "Movistar Plus+ Ficción Total , HBO Max, HBO Max Amazon Channel",
+      "networkUrl": "https://www.max.com",
+      "watchLinks": [
+        {
+          "name": "HBO Max",
+          "url": "https://www.max.com"
+        },
+        {
+          "name": "HBO Max Amazon Channel",
+          "url": "https://www.max.com"
+        }
+      ],
+      "trailerUrl": "https://www.youtube.com/watch?v=tUo0TUCgj9Y",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Animación",
+        "Comedia",
+        "Crimen",
+        "Misterio"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "tmdbId": "126725",
+      "tmdbKind": "tv",
+      "tmdbRating": 3.4,
+      "tmdbVoteCount": 366,
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2023-01-12",
+          "totalEpisodes": 10,
+          "emissionDays": [
+            3
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2023-01-12",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 26,
+              "still": "https://image.tmdb.org/t/p/w300/v46BcgA4XpRnALRGptLUcHVefqK.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2023-01-12",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 25,
+              "still": "https://image.tmdb.org/t/p/w300/cyc0YfyQBe2uoBOPb1j2ALs2ANB.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2023-01-19",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 25,
+              "still": "https://image.tmdb.org/t/p/w300/uJsBcoTIjWjUUgG9MIJoB3AGUQb.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2023-01-19",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/1EMtdSjzPBZGYCJ7OFWj4xxGO9m.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2023-01-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 26,
+              "still": "https://image.tmdb.org/t/p/w300/oaVyUEtYR4ykfLAq7IaKaS2wWXF.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2023-01-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 25,
+              "still": "https://image.tmdb.org/t/p/w300/vN3wMAMaHA1BGas3LcthWcEszBZ.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2023-02-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 25,
+              "still": "https://image.tmdb.org/t/p/w300/qyUtH1EeLawl0kMd4DJzujkV2jA.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2023-02-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 25,
+              "still": "https://image.tmdb.org/t/p/w300/fEFRHw9Qnn2XbincXw6XkIvov0L.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2023-02-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 25,
+              "still": "https://image.tmdb.org/t/p/w300/htIEsarYiATAK4G1YjjsePL34K8.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2023-02-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 29,
+              "still": "https://image.tmdb.org/t/p/w300/acmFRsSvNxL2WDyyqzN1ItXvw9Z.jpg"
+            }
+          ],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 2",
+          "startDate": "2024-04-25",
+          "totalEpisodes": 11,
+          "emissionDays": [
+            3
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2024-04-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 28,
+              "still": "https://image.tmdb.org/t/p/w300/op6R6thBl3byfAhyl9AANL5dwpG.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2024-04-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 25,
+              "still": "https://image.tmdb.org/t/p/w300/xqGrlZdaTzsMY89PnNlu8IlzHwp.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2024-04-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/c2iBmRvD7uF5LPoElmW2HbbHJRJ.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2024-04-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 26,
+              "still": "https://image.tmdb.org/t/p/w300/8ymO8xZbJFzD6eKx6v60hN3fVhD.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2024-04-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 25,
+              "still": "https://image.tmdb.org/t/p/w300/lwXYv58dDQjswRUoeCuxm2EYWRB.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2024-04-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 25,
+              "still": "https://image.tmdb.org/t/p/w300/lGs9bGbSFftoZL9YPCFp0Ypm9hC.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2024-04-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 26,
+              "still": "https://image.tmdb.org/t/p/w300/65yNOfOUpZgT2UCKKq5ZQ1JPhD4.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2024-04-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 26,
+              "still": "https://image.tmdb.org/t/p/w300/cKWScldAudtkcPxqWsBmDFzM8fn.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2024-04-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 25,
+              "still": "https://image.tmdb.org/t/p/w300/uwBUKL4G2TURQ43F5fAPfLisKY2.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2024-04-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 26,
+              "still": "https://image.tmdb.org/t/p/w300/3bkkFikNka1HQkW57iStqAOIz57.jpg"
+            },
+            {
+              "num": 11,
+              "date": "2024-10-03",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 38,
+              "still": "https://image.tmdb.org/t/p/w300/o0f5kU9oBFT1shU1aRFksx8azqj.jpg"
+            }
+          ],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-09-19T16:43:31.931Z"
+    },
+    {
+      "id": "1789836240172",
+      "name": "Lady Oscar: La Rosa de Versalles",
+      "nameEn": "ベルサイユのばら",
+      "poster": "https://image.tmdb.org/t/p/w500/d8YF6O2QS7o8r7wLM80L71umc0a.jpg",
+      "synopsis": "Criada desde su nacimiento como un hombre, Lady Oscar está al mando de los guardias del palacio de Versalles en los años anteriores a la Revolución Francesa. Su belleza y espíritu noble la convierten en una figura brillante a los ojos de hombres y mujeres, pero se debate entre su vida elegida de servicio y deber hacia la clase y el país y su propio corazón y deseos. Vive como una noble en medio de la opulencia de Versalles, pero sus agudos sentidos y su compasión no se ciegan ante la pobreza del pueblo francés.",
+      "year": 1979,
+      "country": "Japón",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://www.youtube.com/watch?v=eJIeJIqw-J0",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Animación",
+        "Drama"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "category": "anime",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": 24,
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "tmdbId": "32676",
+      "tmdbKind": "tv",
+      "tmdbRating": 8.3,
+      "tmdbVoteCount": 197,
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "1979-10-10",
+          "totalEpisodes": 40,
+          "emissionDays": [
+            2
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "1979-10-10",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/bxuyOyFs2OtRN2BloXbrQ3Qv4F3.jpg"
+            },
+            {
+              "num": 2,
+              "date": "1979-10-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/pWHZYBZJe0ipsZcXDG1fKNEkapk.jpg"
+            },
+            {
+              "num": 3,
+              "date": "1979-10-24",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/dVq6kCO9ZrM25w6U7GI2l680DHI.jpg"
+            },
+            {
+              "num": 4,
+              "date": "1979-10-31",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/9vnDINbINRb9lfDw7PGsspDCqUF.jpg"
+            },
+            {
+              "num": 5,
+              "date": "1979-11-07",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/sXWeobvpFuSbj3hquzxtE7UFuTu.jpg"
+            },
+            {
+              "num": 6,
+              "date": "1979-11-14",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/zQ4lrFcvw9zgI0WhardTZfmNPq8.jpg"
+            },
+            {
+              "num": 7,
+              "date": "1979-11-21",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/aPAGiicB1MKayPdGrWN39UtyS6O.jpg"
+            },
+            {
+              "num": 8,
+              "date": "1979-11-28",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/s69SOi3fs3NAFRtfjms1JAPX7nr.jpg"
+            },
+            {
+              "num": 9,
+              "date": "1979-12-05",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/ct1rSKVMNAEZ9jYWq3N1kxcf9k7.jpg"
+            },
+            {
+              "num": 10,
+              "date": "1979-12-12",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/wGBdzL4KvIgUmgIqDqImUbRiVJ7.jpg"
+            },
+            {
+              "num": 11,
+              "date": "1979-12-19",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/zsmZ5wQ7bymhEZJ4l0auLVqUVqp.jpg"
+            },
+            {
+              "num": 12,
+              "date": "1979-12-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/epPpzg9wrU3c0k634Ma6OIEJ1cM.jpg"
+            },
+            {
+              "num": 13,
+              "date": "1980-01-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/wAt4zfwqPy1p2UZ0fmueqQr2cma.jpg"
+            },
+            {
+              "num": 14,
+              "date": "1980-01-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/5Urra6eJd5nq6REy7BLwxbYrqut.jpg"
+            },
+            {
+              "num": 15,
+              "date": "1980-01-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/sopfsFGyNEqjkg3C9ycU9GFC5XY.jpg"
+            },
+            {
+              "num": 16,
+              "date": "1980-01-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/4Bsl3clKGVFmfQ7tntKwvCe9YlH.jpg"
+            },
+            {
+              "num": 17,
+              "date": "1980-02-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/3FmLHGa3deeTUsLA5DkA1y0drjB.jpg"
+            },
+            {
+              "num": 18,
+              "date": "1980-02-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/6VN1vvuklqNHv9qv1cyKpu00uEY.jpg"
+            },
+            {
+              "num": 19,
+              "date": "1980-02-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/pJy7BmVsZO8FvxSQ8kHwPLUlMeN.jpg"
+            },
+            {
+              "num": 20,
+              "date": "1980-02-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/fjRc3nw8CDIkcXOLXkt7mWPeC0G.jpg"
+            },
+            {
+              "num": 21,
+              "date": "1980-03-05",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/tAS8nn9YpOvHaq41wNISv96W1l2.jpg"
+            },
+            {
+              "num": 22,
+              "date": "1980-03-12",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/zYMOcmG0Etii1iU1XivsZFXt0I4.jpg"
+            },
+            {
+              "num": 23,
+              "date": "1980-03-19",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/dlI3ovI9gPglrtzKSCAZT8wrTco.jpg"
+            },
+            {
+              "num": 24,
+              "date": "1980-03-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/aP1Mxu4MIEEDC2X1eYeeG2dxqdD.jpg"
+            },
+            {
+              "num": 25,
+              "date": "1980-04-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/wymsexbC95zQEFrLQgKJ3z8tPXh.jpg"
+            },
+            {
+              "num": 26,
+              "date": "1980-04-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/uZCINMbOV7ySowa3DpWVu5kZdUS.jpg"
+            },
+            {
+              "num": 27,
+              "date": "1980-04-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/eIKKk5mHFknzxGhlq3OYhlNcGPf.jpg"
+            },
+            {
+              "num": 28,
+              "date": "1980-04-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/fRvuakVHkfJQlISrcL3vVZGoMJK.jpg"
+            },
+            {
+              "num": 29,
+              "date": "1980-05-14",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/awDkPwqwCNV5laxt3gEIimBdtXK.jpg"
+            },
+            {
+              "num": 30,
+              "date": "1980-05-21",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/do2cHiWskSybxPhzyiseKWGRvCJ.jpg"
+            },
+            {
+              "num": 31,
+              "date": "1980-06-04",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/212AB54rf4rTXIBWW7ClZUXHo59.jpg"
+            },
+            {
+              "num": 32,
+              "date": "1980-06-18",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/qFE38EM9pkgt5DYHzPehFWaZQsC.jpg"
+            },
+            {
+              "num": 33,
+              "date": "1980-07-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/cdtg17TqhuyCXc9c658DAlS9dA4.jpg"
+            },
+            {
+              "num": 34,
+              "date": "1980-07-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/6bsxTBvjy1OPNqn94zbaliMmgr2.jpg"
+            },
+            {
+              "num": 35,
+              "date": "1980-07-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/svSiFHh3wGJ5QNLbJHOgaYcXKOH.jpg"
+            },
+            {
+              "num": 36,
+              "date": "1980-07-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/aPpGjadHD9Pvf1qXzQX25GDRq5p.jpg"
+            },
+            {
+              "num": 37,
+              "date": "1980-08-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/smeMoP5tkgHFEiHgzXIghkCTp4L.jpg"
+            },
+            {
+              "num": 38,
+              "date": "1980-08-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/6D2jI0KFfAAJnRn8hOOLc4Kvar7.jpg"
+            },
+            {
+              "num": 39,
+              "date": "1980-08-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/mtyCnDvgZJVN4tTis3uE9IVcwym.jpg"
+            },
+            {
+              "num": 40,
+              "date": "1980-09-03",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/1tbGk0bnixmmHpJOcqRIJZeR5fT.jpg"
+            }
+          ],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-09-19T16:44:00.172Z"
+    },
+    {
+      "id": "1789836291250",
+      "name": "Urasekai Picnic",
+      "nameEn": "裏世界ピクニック",
+      "poster": "https://image.tmdb.org/t/p/w500/h7mTcQeBajpRDOOKKvuSQKllhqI.jpg",
+      "synopsis": "Existen puertas que pueden llevar a las personas al “otro lado”, donde las extrañas leyendas urbanas y los mitos de Internet resultan ser reales. La estudiante universitaria Sorawo Kamikoshi descubre una de estas puertas y por poco muere estando del otro lado, hasta que es rescatada por otra chica llamada Toriko Nishina.\n\nToriko tiene un aura misteriosa pero es hábil con las armas, y parece que ella está buscando a alguien del otro lado. Juntas, las chicas explorarán cada una de las puertas en el mundo.",
+      "year": 2021,
+      "country": "Japón",
+      "network": "Crunchyroll Amazon Channel",
+      "networkUrl": "https://www.crunchyroll.com",
+      "watchLinks": [
+        {
+          "name": "Crunchyroll Amazon Channel",
+          "url": "https://www.crunchyroll.com"
+        }
+      ],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Animación",
+        "Misterio"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "category": "anime",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": 24,
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "tmdbId": "100077",
+      "tmdbKind": "tv",
+      "tmdbRating": 6.7,
+      "tmdbVoteCount": 32,
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2021-01-04",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            0
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2021-01-04",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/6lRG9obcDkmk9DqX2a5yn7cIN8f.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2021-01-11",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/tBUwfRhHItendCa7hZTG6JBbI37.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2021-01-18",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/1VC5SEanBxa2gj6xMf5wDyam1xp.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2021-01-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/cmhtZruD71FThQ30CO0zEzVv5NN.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2021-02-01",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/ri6Eb1W5IoP4pcr3nN2gzk5Zduv.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2021-02-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/lOo45jm6Y324yspX8JeNubgwEoA.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2021-02-15",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/kLqP3VFRzgJrSEAxwuG9je7hjeM.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2021-02-22",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/irZMN4kf1cFoH0VTWn9bT37jZHq.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2021-03-01",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/kX6ChhaX9QdoFQu9clXpQjkbzlD.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2021-03-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/eqWC4tnh3G3HqvmLI4Cs8x2CTID.jpg"
+            },
+            {
+              "num": 11,
+              "date": "2021-03-15",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/kXVEC0rchmi1g9RGXtxa0aW0jr5.jpg"
+            },
+            {
+              "num": 12,
+              "date": "2021-03-22",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/bEjxvBs2CSc0CgdR2D71XeXZxZG.jpg"
+            }
+          ],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-09-19T16:44:51.250Z"
+    },
+    {
+      "id": "1789836326914",
+      "name": "Gushing over Magical Girls",
+      "nameEn": "魔法少女にあこがれて",
+      "poster": "https://image.tmdb.org/t/p/w500/hKnDZDiL0T5FpYJf6ITi0E21dJX.jpg",
+      "synopsis": "iiragi Utena siempre ha admirado a las chicas mágicas y ha fantaseado con convertirse en una heroína genial que lucha contra el mal. Por eso, cuando una figura parecida a una muñeca se acerca a ella una noche, afirmando que tiene un poder mágico latente en su interior, tiembla de emoción. Pero su colorido sueño se ve rápidamente truncado en un irónico giro de los acontecimientos cuando se transforma en una villana.\n\nDesinteresada por asociarse con las fuerzas del mal, intenta abandonar cuando aparece un grupo de chicas mágicas que le declaran la guerra. Se entabla una batalla y Hiiragi pronto descubre que disfruta infligiendo dolor a los demás a medida que su verdadera naturaleza empieza a emerger. “Mahou Shoujo ni Akogarete” sigue a Hiiragi en su nueva vida como líder de los villanos, luchando contra las chicas mágicas y dando rienda suelta a su nueva naturaleza sádica.",
+      "year": 2024,
+      "country": "Japón",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://www.youtube.com/watch?v=L2UctB1gOT8",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Animación",
+        "Comedia"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "category": "anime",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": 24,
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "tmdbId": "236338",
+      "tmdbKind": "tv",
+      "tmdbRating": 8.3,
+      "tmdbVoteCount": 123,
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2024-01-03",
+          "totalEpisodes": 13,
+          "emissionDays": [
+            2
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2024-01-03",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/d3R1I2msqOGI7uDJbGobOskizV0.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2024-01-10",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/lNvAguT99zR3g4ickdgP1vpjnaH.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2024-01-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/y2jfBznct9SENl7d5ljtT3h9ff8.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2024-01-24",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/7JcTXpjiNygyBh3dRFPgBMuGZmJ.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2024-01-31",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/deqnIfex9aWlTQoulRTyLkW7FEl.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2024-02-07",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/je8CXTw72wkInvK42jrwLuNyhiG.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2024-02-14",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/npuNspS0pz6iZWZSbWTQhr06XKr.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2024-02-21",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/jIo6QC89EcmwdRktAbSUCB7ciZ9.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2024-02-28",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/2uuGxmPqjkH1b529ROmF8NQw5K1.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2024-03-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/dh7K7kdB2gsSAVCsmKaRDmiDXyf.jpg"
+            },
+            {
+              "num": 11,
+              "date": "2024-03-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/A4Z66Db6qK11AuHaDm5AYugzHBZ.jpg"
+            },
+            {
+              "num": 12,
+              "date": "2024-03-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/rSF1lZXE50IFgysX7FErrGyckQq.jpg"
+            },
+            {
+              "num": 13,
+              "date": "2024-03-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/99DJgEodjbdwtUPBFhIlkX06NNW.jpg"
+            }
+          ],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 2",
+          "startDate": "",
+          "totalEpisodes": 1,
+          "emissionDays": [],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-09-19T16:45:26.914Z"
+    },
+    {
+      "id": "1789836349803",
+      "name": "Kuzu no Honkai",
+      "nameEn": "クズの本懐",
+      "poster": "https://image.tmdb.org/t/p/w500/kixNrDVpLNDf6wNWXrZI2NormRT.jpg",
+      "synopsis": "Hanabi y Mugi parecen la pareja ideal, pero en realidad aman a otras personas. Para llenar su vacío, deciden usarse mutuamente como sustitutos, compartiendo intimidad mientras enfrentan su soledad.",
+      "year": 2017,
+      "country": "Japón",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Animación",
+        "Drama"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "category": "anime",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": 23,
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "tmdbId": "69292",
+      "tmdbKind": "tv",
+      "tmdbRating": 6.4,
+      "tmdbVoteCount": 126,
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2017-01-13",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            3,
+            4
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2017-01-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/nXyfX5OEJFT7dPdOkw4C7K3TTyP.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2017-01-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/3zBThcyGNIQW0ZzzfcYyr4PDKzV.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2017-01-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/rT5PZ1QcDhVUAjfpHZ2dEU6WAOi.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2017-02-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/uyi4cBbOCj8h2zD2Df4Sl3ahmvJ.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2017-02-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/xItuwJdlzeq0la8YeMEsaKbUTQC.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2017-02-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/gLkgqbvsLCuRq1GwLRVyGNLeBza.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2017-02-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/5qZ6v65EMGtJd9krrLrHN7BKNnr.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2017-03-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/zhMTfmTTJPh8Xb46UzQYsrrggSS.jpg"
+            },
+            {
+              "num": 9,
+              "date": "2017-03-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/lUcA7dl3VUPim5VgfTLn52OVD7o.jpg"
+            },
+            {
+              "num": 10,
+              "date": "2017-03-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/xiBSKC1YVex5caZaCwJLC8cagKG.jpg"
+            },
+            {
+              "num": 11,
+              "date": "2017-03-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/imXjy8HD3LnKK1kRzJX3zr6UmfD.jpg"
+            },
+            {
+              "num": 12,
+              "date": "2017-03-31",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 23,
+              "still": "https://image.tmdb.org/t/p/w300/knx80HZGeZZwUouOFS5SkVsFopQ.jpg"
+            }
+          ],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-09-19T16:45:49.803Z"
+    },
+    {
+      "id": "1789836391832",
+      "name": "Complejo Residencial C",
+      "nameEn": "Housing",
+      "poster": "https://image.tmdb.org/t/p/w500/dJHp3WlbbBhhKo2h0avTHTrwp4C.jpg",
+      "synopsis": "Kimi vive en un pequeño complejo de viviendas de bajo costo ubicado en la ciudad costera de Kurosaki, con incidentes horribles que comienzan a ocurrir y problemas que aparentemente la siguen donde quiera que vaya. ¿Un antiguo mal acecha a los residentes del Complejo de Vivienda C?",
+      "year": 2022,
+      "country": "Estados Unidos",
+      "network": "HBO Max",
+      "networkUrl": "https://www.max.com",
+      "watchLinks": [
+        {
+          "name": "HBO Max",
+          "url": "https://www.max.com"
+        },
+        {
+          "name": "HBO Max Amazon Channel",
+          "url": "https://www.max.com"
+        }
+      ],
+      "trailerUrl": "https://www.youtube.com/watch?v=JT8QtXL4GSs",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Animación",
+        "Misterio"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "category": "anime",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": 26,
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "tmdbId": "195382",
+      "tmdbKind": "tv",
+      "tmdbRating": 7.2,
+      "tmdbVoteCount": 80,
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2022-10-02",
+          "totalEpisodes": 4,
+          "emissionDays": [
+            6
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2022-10-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 26,
+              "still": "https://image.tmdb.org/t/p/w300/eqSXuFaMYAM4XCSSFyRz3ge9LQ5.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2022-10-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 25,
+              "still": "https://image.tmdb.org/t/p/w300/kzzqLutL1Ey64MpeRayfSHVXJhB.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2022-10-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 26,
+              "still": "https://image.tmdb.org/t/p/w300/v3SCPcuwziUA9H6G4Ph6AUBYwmJ.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2022-10-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 26,
+              "still": "https://image.tmdb.org/t/p/w300/7nwDexwUIQ8C7XwhNIvaZt6mykm.jpg"
+            }
+          ],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-09-19T16:46:31.832Z"
+    },
+    {
+      "id": "1789836419597",
+      "name": "Scott Pilgrim da el salto",
+      "nameEn": "",
+      "poster": "https://image.tmdb.org/t/p/w500/te8owhHPKeYE7rflhhaoVc5KUU9.jpg",
+      "synopsis": "Scott Pilgrim conoce a Ramona Flowers, la chica de sus sueños. Pero pronto descubre que los siete diabólicos ex de la joven no le van a poner las cosas nada fáciles.",
+      "year": 2023,
+      "country": "Japón / Reino Unido / Estados Unidos",
+      "network": "Netflix, Netflix Standard with Ads",
+      "networkUrl": "https://www.netflix.com",
+      "watchLinks": [
+        {
+          "name": "Netflix",
+          "url": "https://www.netflix.com"
+        },
+        {
+          "name": "Netflix Standard with Ads",
+          "url": "https://www.netflix.com"
+        }
+      ],
+      "trailerUrl": "https://www.youtube.com/watch?v=9EZG8YqBvIY",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Animación",
+        "Comedia"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "",
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "tmdbId": "155292",
+      "tmdbKind": "tv",
+      "tmdbRating": 7.9,
+      "tmdbVoteCount": 427,
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2023-11-17",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": true,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2023-11-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 29,
+              "still": "https://image.tmdb.org/t/p/w300/q3eIJSxZO2zXig4Ni3oo8md6mWS.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2023-11-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 28,
+              "still": "https://image.tmdb.org/t/p/w300/l5KY9oQToDlm7IE0Crem81unYYK.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2023-11-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 28,
+              "still": "https://image.tmdb.org/t/p/w300/oIDhyfYp2NrVOWZKCyHmxCxLsPj.jpg"
+            },
+            {
+              "num": 4,
+              "date": "2023-11-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 28,
+              "still": "https://image.tmdb.org/t/p/w300/tijvdUst0B3JD7IMyBlEP3jwOIg.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2023-11-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 27,
+              "still": "https://image.tmdb.org/t/p/w300/elP1A7AiF83zFclChgQvElz4rDF.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2023-11-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 28,
+              "still": "https://image.tmdb.org/t/p/w300/4KCMO6yLKbH4SSXFm2Dv5HjhDOw.jpg"
+            },
+            {
+              "num": 7,
+              "date": "2023-11-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 28,
+              "still": "https://image.tmdb.org/t/p/w300/krz9V21IErIOtjJoY8aY9PVhLrX.jpg"
+            },
+            {
+              "num": 8,
+              "date": "2023-11-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 29,
+              "still": "https://image.tmdb.org/t/p/w300/xCkHgTlNF75wVJVo10E2FCBwwP7.jpg"
+            }
+          ],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-09-19T16:46:59.597Z"
     }
   ],
   "movies": [
@@ -90349,5 +91944,5 @@
       ]
     }
   },
-  "exportedAt": "2026-09-19T12:40:48.785Z"
+  "exportedAt": "2026-09-19T16:47:23.583Z"
 }
