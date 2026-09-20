@@ -2014,7 +2014,8 @@
               "num": 2,
               "date": "2026-09-18",
               "skipped": false,
-              "source": "tmdb"
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/7bWqqZqtarDM5qoi8a3MF8VV3wn.jpg"
             },
             {
               "num": 3,
@@ -2065,8 +2066,8 @@
       ],
       "tmdbId": "316241",
       "tmdbKind": "tv",
-      "tmdbRating": "",
-      "tmdbVoteCount": 0,
+      "tmdbRating": 10,
+      "tmdbVoteCount": 1,
       "biFormat": false
     },
     {
@@ -5461,7 +5462,7 @@
     {
       "id": "1776976364805",
       "name": "Love On Hire",
-      "poster": "https://pbs.twimg.com/media/HSkyQI2a8AAconN?format=jpg&name=large",
+      "poster": "https://image.tmdb.org/t/p/w500/hUmjaaGkHfISdpNApn7wopsQVbS.jpg",
       "synopsis": "Thitinan aceptará cualquier trabajo: desde hacerse pasar por una novia falsa y romper una relación hasta, algo exclusivo para Miss Chat, convertirse en asesora sexual.",
       "year": "",
       "country": "Tailandia",
@@ -5508,7 +5509,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-09-19T16:40:19.215Z",
+      "updatedAt": "2026-09-12T13:25:17.205Z",
       "episodeDuration": "",
       "myPick": false,
       "myPick2026": false,
@@ -5533,8 +5534,7 @@
       "tmdbKind": "tv",
       "tmdbRating": "",
       "tmdbVoteCount": 0,
-      "wlwFocus": "",
-      "biFormat": false
+      "wlwFocus": ""
     },
     {
       "id": "1776976452500",
@@ -8834,7 +8834,7 @@
       "tmdbId": "225171",
       "tmdbKind": "tv",
       "tmdbRating": 7.9,
-      "tmdbVoteCount": 1098,
+      "tmdbVoteCount": 1105,
       "sourceType": "",
       "moods": [],
       "tropos": [],
@@ -10703,8 +10703,8 @@
       ],
       "tmdbId": "258538",
       "tmdbKind": "tv",
-      "tmdbRating": 8.5,
-      "tmdbVoteCount": 44,
+      "tmdbRating": 8.6,
+      "tmdbVoteCount": 45,
       "tropos": [],
       "dinamica": [],
       "wlwFocus": "pareja-principal",
@@ -22912,7 +22912,7 @@
       "tmdbId": "1424",
       "tmdbKind": "tv",
       "tmdbRating": 7.6,
-      "tmdbVoteCount": 2899,
+      "tmdbVoteCount": 2900,
       "wlwFocus": "romance-secundario-protagonista",
       "sourceType": "",
       "moods": [],
@@ -23533,7 +23533,7 @@
       "tmdbId": "62455",
       "tmdbKind": "tv",
       "tmdbRating": 8,
-      "tmdbVoteCount": 2535,
+      "tmdbVoteCount": 2536,
       "wlwFocus": "romance-secundario-protagonista",
       "sourceType": "",
       "moods": [],
@@ -28416,7 +28416,7 @@
       "tmdbId": "48866",
       "tmdbKind": "tv",
       "tmdbRating": 7.9,
-      "tmdbVoteCount": 8788,
+      "tmdbVoteCount": 8790,
       "wlwFocus": "romance-secundario-protagonista",
       "sourceType": "",
       "moods": [],
@@ -31958,7 +31958,7 @@
       "tmdbId": "85552",
       "tmdbKind": "tv",
       "tmdbRating": 8.3,
-      "tmdbVoteCount": 11077,
+      "tmdbVoteCount": 11080,
       "sourceType": "",
       "moods": [],
       "tropos": [],
@@ -34411,7 +34411,7 @@
       "tmdbId": "94605",
       "tmdbKind": "tv",
       "tmdbRating": 8.7,
-      "tmdbVoteCount": 6173,
+      "tmdbVoteCount": 6179,
       "wlwFocus": "romance-secundario-protagonista",
       "sourceType": "",
       "moods": [],
@@ -36552,7 +36552,7 @@
       "tmdbId": "100088",
       "tmdbKind": "tv",
       "tmdbRating": 8.4,
-      "tmdbVoteCount": 7329,
+      "tmdbVoteCount": 7339,
       "sourceType": "",
       "moods": [],
       "tropos": [],
@@ -36837,7 +36837,7 @@
       "tmdbId": "113962",
       "tmdbKind": "tv",
       "tmdbRating": 8.2,
-      "tmdbVoteCount": 1559,
+      "tmdbVoteCount": 1568,
       "sourceType": "",
       "moods": [],
       "tropos": [],
@@ -37325,7 +37325,7 @@
       "tmdbId": 92783,
       "tmdbKind": "tv",
       "tmdbRating": 6.1,
-      "tmdbVoteCount": 2590,
+      "tmdbVoteCount": 2592,
       "wlwFocus": "pareja-principal"
     },
     {
@@ -37905,7 +37905,7 @@
       "tmdbId": "138501",
       "tmdbKind": "tv",
       "tmdbRating": 7.4,
-      "tmdbVoteCount": 1034,
+      "tmdbVoteCount": 1035,
       "sourceType": "",
       "moods": [],
       "tropos": [],
@@ -42323,7 +42323,7 @@
       "tmdbId": 94997,
       "tmdbKind": "tv",
       "tmdbRating": 8.4,
-      "tmdbVoteCount": 7123,
+      "tmdbVoteCount": 7130,
       "wlwFocus": "pareja-principal"
     },
     {
@@ -42880,7 +42880,7 @@
       "tmdbId": "72750",
       "tmdbKind": "tv",
       "tmdbRating": 7.9,
-      "tmdbVoteCount": 1553,
+      "tmdbVoteCount": 1554,
       "wlwFocus": "romance-secundario-protagonista",
       "tropos": [],
       "dinamica": [],
@@ -43387,7 +43387,7 @@
       "tmdbId": 56296,
       "tmdbKind": "tv",
       "tmdbRating": 7.8,
-      "tmdbVoteCount": 1483,
+      "tmdbVoteCount": 1485,
       "wlwFocus": "pareja-secundaria"
     },
     {
@@ -44036,7 +44036,7 @@
       "tmdbId": 61664,
       "tmdbKind": "tv",
       "tmdbRating": 7.7,
-      "tmdbVoteCount": 1931,
+      "tmdbVoteCount": 1933,
       "wlwFocus": "romance-secundario-protagonista"
     },
     {
@@ -44513,7 +44513,7 @@
       "tmdbId": 65988,
       "tmdbKind": "tv",
       "tmdbRating": 7.8,
-      "tmdbVoteCount": 825,
+      "tmdbVoteCount": 826,
       "wlwFocus": "pareja-secundaria"
     },
     {
@@ -48659,7 +48659,7 @@
       "tmdbId": 31917,
       "tmdbKind": "tv",
       "tmdbRating": 8,
-      "tmdbVoteCount": 2835
+      "tmdbVoteCount": 2836
     },
     {
       "id": "1778404949218",
@@ -55827,7 +55827,7 @@
       "tmdbId": 283297,
       "tmdbKind": "tv",
       "tmdbRating": 8.2,
-      "tmdbVoteCount": 140
+      "tmdbVoteCount": 141
     },
     {
       "id": "1787683046577",
@@ -56086,7 +56086,24 @@
           ],
           "allInOneDay": false,
           "skipDates": [],
-          "episodes": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2026-09-11",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/kjSOCs9RVeKK0GuoOvlcYaTlAF7.jpg"
+            },
+            {
+              "num": 2,
+              "date": "2026-09-18",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/j3LXi95rYVuGBJbaGoS06mANKcY.jpg"
+            }
+          ],
           "premiereSchedule": []
         }
       ],
@@ -56107,19 +56124,23 @@
       "id": "1787683765243",
       "name": "Goodbye, Lara",
       "nameEn": "さよならララ",
-      "poster": "https://cdn.myanimelist.net/images/anime/1411/156343.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/pmKGSvCKL3qh9iyLYVlnYP0eguT.jpg",
       "synopsis": "Hace mucho tiempo, una princesa sirena llamada Lara se enamoró de un príncipe humano. Para estar con él, usó la poción de una bruja y se convirtió en humana, pero la magia tenía un precio: si no encontraba el amor verdadero, se desvanecería para siempre en espuma de mar. Ahora, 200 años después, Lara despierta en el lago Biwa con una última oportunidad para vivir y amar.",
       "year": 2026,
       "country": "Japón",
-      "network": "Crunchyroll",
-      "networkUrl": "https://www.crunchyroll.com/es-es/series/GT00378059/goodbye-lara?srsltid=AfmBOopyT59QF447h6d7o-B2b1vg0kZmpNvNcrNFwsyq1YQ1mk8_9RRF",
+      "network": "Crunchyroll, Crunchyroll Amazon Channel",
+      "networkUrl": "https://www.crunchyroll.com",
       "watchLinks": [
         {
           "name": "Crunchyroll",
-          "url": "https://www.crunchyroll.com/es-es/series/GT00378059/goodbye-lara?srsltid=AfmBOopyT59QF447h6d7o-B2b1vg0kZmpNvNcrNFwsyq1YQ1mk8_9RRF"
+          "url": "https://www.crunchyroll.com"
+        },
+        {
+          "name": "Crunchyroll Amazon Channel",
+          "url": "https://www.crunchyroll.com"
         }
       ],
-      "trailerUrl": "https://youtu.be/gkze74TXiU8?si=ResN9uKtgzFww7j1",
+      "trailerUrl": "https://www.youtube.com/watch?v=iPEeNBtnIOY",
       "bookSource": "",
       "basedOnBook": false,
       "sourceType": "",
@@ -56127,7 +56148,10 @@
       "bookLinks": [],
       "bookUrl": "",
       "upcoming": false,
-      "genres": [],
+      "genres": [
+        "Animación",
+        "Drama"
+      ],
       "moods": [],
       "tropos": [],
       "dinamica": [],
@@ -56256,12 +56280,14 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-09-17T16:41:27.197Z",
-      "tmdbId": 295071,
+      "updatedAt": "2026-09-19T20:04:24.065Z",
+      "tmdbId": "295071",
       "tmdbKind": "tv",
       "tmdbRating": 8.9,
       "tmdbVoteCount": 11,
-      "wlwFocus": "presencia-sin-desarrollo"
+      "wlwFocus": "presencia-sin-desarrollo",
+      "couples": [],
+      "biFormat": false
     },
     {
       "id": "1787684249207",
@@ -57982,7 +58008,7 @@
       "tmdbId": 126167,
       "tmdbKind": "tv",
       "tmdbRating": 7.2,
-      "tmdbVoteCount": 279
+      "tmdbVoteCount": 280
     },
     {
       "id": "1788895582415",
@@ -65048,7 +65074,7 @@
       "tmdbId": "71578",
       "tmdbKind": "tv",
       "tmdbRating": 8,
-      "tmdbVoteCount": 1272,
+      "tmdbVoteCount": 1274,
       "seasons": [
         {
           "label": "Temporada 1",
@@ -66876,7 +66902,7 @@
       "tmdbId": "61175",
       "tmdbKind": "tv",
       "tmdbRating": 8.4,
-      "tmdbVoteCount": 1386,
+      "tmdbVoteCount": 1387,
       "seasons": [
         {
           "label": "Temporada 1",
@@ -69650,7 +69676,7 @@
       "tmdbId": "1417",
       "tmdbKind": "tv",
       "tmdbRating": 6.8,
-      "tmdbVoteCount": 974,
+      "tmdbVoteCount": 975,
       "seasons": [
         {
           "label": "Temporada 1",
@@ -70758,7 +70784,7 @@
       "tmdbId": "94904",
       "tmdbKind": "tv",
       "tmdbRating": 7.5,
-      "tmdbVoteCount": 108,
+      "tmdbVoteCount": 109,
       "seasons": [
         {
           "label": "Temporada 1",
@@ -71198,8 +71224,8 @@
       "productoraId": "",
       "tmdbId": "299939",
       "tmdbKind": "tv",
-      "tmdbRating": 8,
-      "tmdbVoteCount": 10,
+      "tmdbRating": 7,
+      "tmdbVoteCount": 31,
       "seasons": [
         {
           "label": "Temporada 1",
@@ -71282,13 +71308,13 @@
       "updatedAt": "2026-09-18T07:39:11.693Z"
     },
     {
-      "id": "1789836178891",
-      "name": "Watashi ga Koibito ni Nareru Wake Nai jan, Muri Muri! (※Muri ja Nakatta!?)",
-      "nameEn": "わたしが恋人になれるわけないじゃん、ムリムリ！（※ムリじゃなかった!?）",
-      "poster": "https://image.tmdb.org/t/p/w500/oTZzpIktlKx6fmmsIaUu4usUah1.jpg",
-      "synopsis": "Renako Amaori quiere una vida normal en la preparatoria, pero todo cambia al conocer a Mai Ouzuka, la estrella de la escuela. Su amistad se complica cuando Mai le confiesa su amor, desatando un torbellino de emociones mientras Renako intenta mantenerlas como amigas.",
-      "year": 2025,
-      "country": "Japón",
+      "id": "1789918352216",
+      "name": "El Peligro de Quererte",
+      "nameEn": "",
+      "poster": "https://image.tmdb.org/t/p/w500/r0KqnTDYQ1uQv3xFIGpEQbxlerw.jpg",
+      "synopsis": "Un amor prohibido en el Valparaíso de los años 50 está a punto de comenzar. Alba (Fernanda Finsterbusch), una de las primeras mujeres en estudiar Medicina en Chile, y Zahira (Carmen Zabala), heredera de una familia vinculada al narcotráfico y dueña del burdel La Joya, pertenecen a mundos completamente opuestos.",
+      "year": 2026,
+      "country": "Chile",
       "network": "",
       "networkUrl": "",
       "watchLinks": [],
@@ -71301,225 +71327,13 @@
       "bookUrl": "",
       "upcoming": false,
       "genres": [
-        "Animación",
-        "Comedia"
-      ],
-      "moods": [],
-      "tropos": [],
-      "dinamica": [],
-      "wlwFocus": "",
-      "awards": [],
-      "category": "anime",
-      "seriesType": "serie",
-      "cast": [],
-      "couples": [],
-      "animeSeason": "",
-      "renewedNextSeason": false,
-      "episodeDuration": 24,
-      "myPick": false,
-      "myPick2026": false,
-      "biFormat": false,
-      "cancelStatus": "",
-      "cancelNote": "",
-      "sinNovedades": false,
-      "snLastUpdate": "",
-      "snNote": "",
-      "productoraId": "",
-      "tmdbId": "277513",
-      "tmdbKind": "tv",
-      "tmdbRating": 8.3,
-      "tmdbVoteCount": 49,
-      "seasons": [
-        {
-          "label": "Temporada 1",
-          "startDate": "2025-07-08",
-          "totalEpisodes": 17,
-          "emissionDays": [
-            1
-          ],
-          "allInOneDay": false,
-          "skipDates": [],
-          "episodes": [
-            {
-              "num": 1,
-              "date": "2025-07-08",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/dm2iK24CsVQlSopWehKI7uCoJji.jpg"
-            },
-            {
-              "num": 2,
-              "date": "2025-07-15",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/rLExSBzSgemRxd9s85DOgRB4QCq.jpg"
-            },
-            {
-              "num": 3,
-              "date": "2025-07-22",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/okP9hMdnCP3OCto9R530Z2FYEHk.jpg"
-            },
-            {
-              "num": 4,
-              "date": "2025-07-29",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/i1m5eX9EtPHB6FiQTGzIP6KT4cU.jpg"
-            },
-            {
-              "num": 5,
-              "date": "2025-08-05",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/dwvyN0fQnGxpN5GPc16MWKZyDxw.jpg"
-            },
-            {
-              "num": 6,
-              "date": "2025-08-12",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/Ab94xg20ustsZDlhQcg76krsY3h.jpg"
-            },
-            {
-              "num": 7,
-              "date": "2025-08-19",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/plM20HkUHez9UwgSCVNW2NblJrM.jpg"
-            },
-            {
-              "num": 8,
-              "date": "2025-08-26",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/rmFv8AcuHsYxlEfFbLz6Nvg9szA.jpg"
-            },
-            {
-              "num": 9,
-              "date": "2025-09-02",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/7Mr6p3FPDNfvLpfIhEsoyHx1zIx.jpg"
-            },
-            {
-              "num": 10,
-              "date": "2025-09-09",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/eW1d49abE8bmid1vDMVkc0yICQQ.jpg"
-            },
-            {
-              "num": 11,
-              "date": "2025-09-16",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/t9TzJvudSG2Za9AVuRN0xDlQwfJ.jpg"
-            },
-            {
-              "num": 12,
-              "date": "2025-09-23",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/sYwzvFYE8UpZwzqvGCr3m1bPZrg.jpg"
-            },
-            {
-              "num": 13,
-              "date": "2026-01-01",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/fu8SSBumoo7IawcrgJvvIXOQG8q.jpg"
-            },
-            {
-              "num": 14,
-              "date": "2026-01-01",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/1ETr7WL9WeHbQtHPqKv8ZiCNocm.jpg"
-            },
-            {
-              "num": 15,
-              "date": "2026-01-01",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/n0QJhZRBi8lkFOQ7ASrFEEKAQox.jpg"
-            },
-            {
-              "num": 16,
-              "date": "2026-01-01",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/3A6txJtOyO5gogaa4RsSS3JXNzK.jpg"
-            },
-            {
-              "num": 17,
-              "date": "2026-01-01",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/e8UK2U8ITZ5iTXUov0ADMelGcTn.jpg"
-            }
-          ],
-          "premiereSchedule": []
-        }
-      ],
-      "updatedAt": "2026-09-19T16:42:58.891Z"
-    },
-    {
-      "id": "1789836211931",
-      "name": "Velma",
-      "nameEn": "",
-      "poster": "https://image.tmdb.org/t/p/w500/sDQVF2zu0KW0AgkAadVjaHMe8uE.jpg",
-      "synopsis": "Los orígenes de Velma Dinkley, la inteligente y gran olvidada integrante de Misterios S. A. de Scooby-Doo. Una serie divertida y original que descubre el complejo y peculiar pasado de una de las detectives más queridas.",
-      "year": 2023,
-      "country": "Estados Unidos",
-      "network": "Movistar Plus+ Ficción Total , HBO Max, HBO Max Amazon Channel",
-      "networkUrl": "https://www.max.com",
-      "watchLinks": [
-        {
-          "name": "HBO Max",
-          "url": "https://www.max.com"
-        },
-        {
-          "name": "HBO Max Amazon Channel",
-          "url": "https://www.max.com"
-        }
-      ],
-      "trailerUrl": "https://www.youtube.com/watch?v=tUo0TUCgj9Y",
-      "bookSource": "",
-      "basedOnBook": false,
-      "sourceType": "",
-      "bookCoverUrl": "",
-      "bookLinks": [],
-      "bookUrl": "",
-      "upcoming": false,
-      "genres": [
-        "Animación",
-        "Comedia",
         "Crimen",
-        "Misterio"
+        "Drama"
       ],
       "moods": [],
       "tropos": [],
       "dinamica": [],
-      "wlwFocus": "",
+      "wlwFocus": "pareja-principal",
       "awards": [],
       "category": "series",
       "seriesType": "serie",
@@ -71537,946 +71351,83 @@
       "snLastUpdate": "",
       "snNote": "",
       "productoraId": "",
-      "tmdbId": "126725",
+      "tmdbId": "333884",
       "tmdbKind": "tv",
-      "tmdbRating": 3.4,
-      "tmdbVoteCount": 366,
+      "tmdbRating": "",
+      "tmdbVoteCount": 0,
       "seasons": [
         {
           "label": "Temporada 1",
-          "startDate": "2023-01-12",
-          "totalEpisodes": 10,
+          "startDate": "2026-08-29",
+          "totalEpisodes": 6,
           "emissionDays": [
-            3
+            5
           ],
           "allInOneDay": true,
           "skipDates": [],
           "episodes": [
             {
               "num": 1,
-              "date": "2023-01-12",
+              "date": "2026-08-29",
               "skipped": false,
               "source": "tmdb",
-              "duration": 26,
-              "still": "https://image.tmdb.org/t/p/w300/v46BcgA4XpRnALRGptLUcHVefqK.jpg"
+              "duration": 37,
+              "still": "https://image.tmdb.org/t/p/w300/gDmnFOSImA7OmZbyWhPe9u4CYrT.jpg"
             },
             {
               "num": 2,
-              "date": "2023-01-12",
+              "date": "2026-08-29",
               "skipped": false,
               "source": "tmdb",
-              "duration": 25,
-              "still": "https://image.tmdb.org/t/p/w300/cyc0YfyQBe2uoBOPb1j2ALs2ANB.jpg"
+              "duration": 32,
+              "still": "https://image.tmdb.org/t/p/w300/3bp0ioTjqXsaSEqpGLwjR2OUXpp.jpg"
             },
             {
               "num": 3,
-              "date": "2023-01-19",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 25,
-              "still": "https://image.tmdb.org/t/p/w300/uJsBcoTIjWjUUgG9MIJoB3AGUQb.jpg"
-            },
-            {
-              "num": 4,
-              "date": "2023-01-19",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/1EMtdSjzPBZGYCJ7OFWj4xxGO9m.jpg"
-            },
-            {
-              "num": 5,
-              "date": "2023-01-26",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 26,
-              "still": "https://image.tmdb.org/t/p/w300/oaVyUEtYR4ykfLAq7IaKaS2wWXF.jpg"
-            },
-            {
-              "num": 6,
-              "date": "2023-01-26",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 25,
-              "still": "https://image.tmdb.org/t/p/w300/vN3wMAMaHA1BGas3LcthWcEszBZ.jpg"
-            },
-            {
-              "num": 7,
-              "date": "2023-02-02",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 25,
-              "still": "https://image.tmdb.org/t/p/w300/qyUtH1EeLawl0kMd4DJzujkV2jA.jpg"
-            },
-            {
-              "num": 8,
-              "date": "2023-02-02",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 25,
-              "still": "https://image.tmdb.org/t/p/w300/fEFRHw9Qnn2XbincXw6XkIvov0L.jpg"
-            },
-            {
-              "num": 9,
-              "date": "2023-02-09",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 25,
-              "still": "https://image.tmdb.org/t/p/w300/htIEsarYiATAK4G1YjjsePL34K8.jpg"
-            },
-            {
-              "num": 10,
-              "date": "2023-02-09",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 29,
-              "still": "https://image.tmdb.org/t/p/w300/acmFRsSvNxL2WDyyqzN1ItXvw9Z.jpg"
-            }
-          ],
-          "premiereSchedule": []
-        },
-        {
-          "label": "Temporada 2",
-          "startDate": "2024-04-25",
-          "totalEpisodes": 11,
-          "emissionDays": [
-            3
-          ],
-          "allInOneDay": true,
-          "skipDates": [],
-          "episodes": [
-            {
-              "num": 1,
-              "date": "2024-04-25",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 28,
-              "still": "https://image.tmdb.org/t/p/w300/op6R6thBl3byfAhyl9AANL5dwpG.jpg"
-            },
-            {
-              "num": 2,
-              "date": "2024-04-25",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 25,
-              "still": "https://image.tmdb.org/t/p/w300/xqGrlZdaTzsMY89PnNlu8IlzHwp.jpg"
-            },
-            {
-              "num": 3,
-              "date": "2024-04-25",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/c2iBmRvD7uF5LPoElmW2HbbHJRJ.jpg"
-            },
-            {
-              "num": 4,
-              "date": "2024-04-25",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 26,
-              "still": "https://image.tmdb.org/t/p/w300/8ymO8xZbJFzD6eKx6v60hN3fVhD.jpg"
-            },
-            {
-              "num": 5,
-              "date": "2024-04-25",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 25,
-              "still": "https://image.tmdb.org/t/p/w300/lwXYv58dDQjswRUoeCuxm2EYWRB.jpg"
-            },
-            {
-              "num": 6,
-              "date": "2024-04-25",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 25,
-              "still": "https://image.tmdb.org/t/p/w300/lGs9bGbSFftoZL9YPCFp0Ypm9hC.jpg"
-            },
-            {
-              "num": 7,
-              "date": "2024-04-25",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 26,
-              "still": "https://image.tmdb.org/t/p/w300/65yNOfOUpZgT2UCKKq5ZQ1JPhD4.jpg"
-            },
-            {
-              "num": 8,
-              "date": "2024-04-25",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 26,
-              "still": "https://image.tmdb.org/t/p/w300/cKWScldAudtkcPxqWsBmDFzM8fn.jpg"
-            },
-            {
-              "num": 9,
-              "date": "2024-04-25",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 25,
-              "still": "https://image.tmdb.org/t/p/w300/uwBUKL4G2TURQ43F5fAPfLisKY2.jpg"
-            },
-            {
-              "num": 10,
-              "date": "2024-04-25",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 26,
-              "still": "https://image.tmdb.org/t/p/w300/3bkkFikNka1HQkW57iStqAOIz57.jpg"
-            },
-            {
-              "num": 11,
-              "date": "2024-10-03",
+              "date": "2026-09-05",
               "skipped": false,
               "source": "tmdb",
               "duration": 38,
-              "still": "https://image.tmdb.org/t/p/w300/o0f5kU9oBFT1shU1aRFksx8azqj.jpg"
-            }
-          ],
-          "premiereSchedule": []
-        }
-      ],
-      "updatedAt": "2026-09-19T16:43:31.931Z"
-    },
-    {
-      "id": "1789836240172",
-      "name": "Lady Oscar: La Rosa de Versalles",
-      "nameEn": "ベルサイユのばら",
-      "poster": "https://image.tmdb.org/t/p/w500/d8YF6O2QS7o8r7wLM80L71umc0a.jpg",
-      "synopsis": "Criada desde su nacimiento como un hombre, Lady Oscar está al mando de los guardias del palacio de Versalles en los años anteriores a la Revolución Francesa. Su belleza y espíritu noble la convierten en una figura brillante a los ojos de hombres y mujeres, pero se debate entre su vida elegida de servicio y deber hacia la clase y el país y su propio corazón y deseos. Vive como una noble en medio de la opulencia de Versalles, pero sus agudos sentidos y su compasión no se ciegan ante la pobreza del pueblo francés.",
-      "year": 1979,
-      "country": "Japón",
-      "network": "",
-      "networkUrl": "",
-      "watchLinks": [],
-      "trailerUrl": "https://www.youtube.com/watch?v=eJIeJIqw-J0",
-      "bookSource": "",
-      "basedOnBook": false,
-      "sourceType": "",
-      "bookCoverUrl": "",
-      "bookLinks": [],
-      "bookUrl": "",
-      "upcoming": false,
-      "genres": [
-        "Animación",
-        "Drama"
-      ],
-      "moods": [],
-      "tropos": [],
-      "dinamica": [],
-      "wlwFocus": "",
-      "awards": [],
-      "category": "anime",
-      "seriesType": "serie",
-      "cast": [],
-      "couples": [],
-      "animeSeason": "",
-      "renewedNextSeason": false,
-      "episodeDuration": 24,
-      "myPick": false,
-      "myPick2026": false,
-      "biFormat": false,
-      "cancelStatus": "",
-      "cancelNote": "",
-      "sinNovedades": false,
-      "snLastUpdate": "",
-      "snNote": "",
-      "productoraId": "",
-      "tmdbId": "32676",
-      "tmdbKind": "tv",
-      "tmdbRating": 8.3,
-      "tmdbVoteCount": 197,
-      "seasons": [
-        {
-          "label": "Temporada 1",
-          "startDate": "1979-10-10",
-          "totalEpisodes": 40,
-          "emissionDays": [
-            2
-          ],
-          "allInOneDay": false,
-          "skipDates": [],
-          "episodes": [
-            {
-              "num": 1,
-              "date": "1979-10-10",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/bxuyOyFs2OtRN2BloXbrQ3Qv4F3.jpg"
-            },
-            {
-              "num": 2,
-              "date": "1979-10-17",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/pWHZYBZJe0ipsZcXDG1fKNEkapk.jpg"
-            },
-            {
-              "num": 3,
-              "date": "1979-10-24",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/dVq6kCO9ZrM25w6U7GI2l680DHI.jpg"
+              "still": "https://image.tmdb.org/t/p/w300/w3wS6MBA0vgPLeqmiZm0EV8y03a.jpg"
             },
             {
               "num": 4,
-              "date": "1979-10-31",
+              "date": "2026-09-05",
               "skipped": false,
               "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/9vnDINbINRb9lfDw7PGsspDCqUF.jpg"
+              "duration": 35,
+              "still": "https://image.tmdb.org/t/p/w300/t6S4HEgmlosx3maN2CyC8p6e3ru.jpg"
             },
             {
               "num": 5,
-              "date": "1979-11-07",
+              "date": "2026-09-12",
               "skipped": false,
               "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/sXWeobvpFuSbj3hquzxtE7UFuTu.jpg"
+              "duration": 30,
+              "still": "https://image.tmdb.org/t/p/w300/7vZh6xe6dos1q7baYdMmRqKjDur.jpg"
             },
             {
               "num": 6,
-              "date": "1979-11-14",
+              "date": "2026-09-12",
               "skipped": false,
               "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/zQ4lrFcvw9zgI0WhardTZfmNPq8.jpg"
-            },
-            {
-              "num": 7,
-              "date": "1979-11-21",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/aPAGiicB1MKayPdGrWN39UtyS6O.jpg"
-            },
-            {
-              "num": 8,
-              "date": "1979-11-28",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/s69SOi3fs3NAFRtfjms1JAPX7nr.jpg"
-            },
-            {
-              "num": 9,
-              "date": "1979-12-05",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/ct1rSKVMNAEZ9jYWq3N1kxcf9k7.jpg"
-            },
-            {
-              "num": 10,
-              "date": "1979-12-12",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/wGBdzL4KvIgUmgIqDqImUbRiVJ7.jpg"
-            },
-            {
-              "num": 11,
-              "date": "1979-12-19",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/zsmZ5wQ7bymhEZJ4l0auLVqUVqp.jpg"
-            },
-            {
-              "num": 12,
-              "date": "1979-12-26",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/epPpzg9wrU3c0k634Ma6OIEJ1cM.jpg"
-            },
-            {
-              "num": 13,
-              "date": "1980-01-09",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/wAt4zfwqPy1p2UZ0fmueqQr2cma.jpg"
-            },
-            {
-              "num": 14,
-              "date": "1980-01-16",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/5Urra6eJd5nq6REy7BLwxbYrqut.jpg"
-            },
-            {
-              "num": 15,
-              "date": "1980-01-23",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/sopfsFGyNEqjkg3C9ycU9GFC5XY.jpg"
-            },
-            {
-              "num": 16,
-              "date": "1980-01-30",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/4Bsl3clKGVFmfQ7tntKwvCe9YlH.jpg"
-            },
-            {
-              "num": 17,
-              "date": "1980-02-06",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/3FmLHGa3deeTUsLA5DkA1y0drjB.jpg"
-            },
-            {
-              "num": 18,
-              "date": "1980-02-13",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/6VN1vvuklqNHv9qv1cyKpu00uEY.jpg"
-            },
-            {
-              "num": 19,
-              "date": "1980-02-20",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/pJy7BmVsZO8FvxSQ8kHwPLUlMeN.jpg"
-            },
-            {
-              "num": 20,
-              "date": "1980-02-27",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/fjRc3nw8CDIkcXOLXkt7mWPeC0G.jpg"
-            },
-            {
-              "num": 21,
-              "date": "1980-03-05",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/tAS8nn9YpOvHaq41wNISv96W1l2.jpg"
-            },
-            {
-              "num": 22,
-              "date": "1980-03-12",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/zYMOcmG0Etii1iU1XivsZFXt0I4.jpg"
-            },
-            {
-              "num": 23,
-              "date": "1980-03-19",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/dlI3ovI9gPglrtzKSCAZT8wrTco.jpg"
-            },
-            {
-              "num": 24,
-              "date": "1980-03-26",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/aP1Mxu4MIEEDC2X1eYeeG2dxqdD.jpg"
-            },
-            {
-              "num": 25,
-              "date": "1980-04-02",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/wymsexbC95zQEFrLQgKJ3z8tPXh.jpg"
-            },
-            {
-              "num": 26,
-              "date": "1980-04-09",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/uZCINMbOV7ySowa3DpWVu5kZdUS.jpg"
-            },
-            {
-              "num": 27,
-              "date": "1980-04-16",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/eIKKk5mHFknzxGhlq3OYhlNcGPf.jpg"
-            },
-            {
-              "num": 28,
-              "date": "1980-04-30",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/fRvuakVHkfJQlISrcL3vVZGoMJK.jpg"
-            },
-            {
-              "num": 29,
-              "date": "1980-05-14",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/awDkPwqwCNV5laxt3gEIimBdtXK.jpg"
-            },
-            {
-              "num": 30,
-              "date": "1980-05-21",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/do2cHiWskSybxPhzyiseKWGRvCJ.jpg"
-            },
-            {
-              "num": 31,
-              "date": "1980-06-04",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/212AB54rf4rTXIBWW7ClZUXHo59.jpg"
-            },
-            {
-              "num": 32,
-              "date": "1980-06-18",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/qFE38EM9pkgt5DYHzPehFWaZQsC.jpg"
-            },
-            {
-              "num": 33,
-              "date": "1980-07-02",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/cdtg17TqhuyCXc9c658DAlS9dA4.jpg"
-            },
-            {
-              "num": 34,
-              "date": "1980-07-09",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/6bsxTBvjy1OPNqn94zbaliMmgr2.jpg"
-            },
-            {
-              "num": 35,
-              "date": "1980-07-23",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/svSiFHh3wGJ5QNLbJHOgaYcXKOH.jpg"
-            },
-            {
-              "num": 36,
-              "date": "1980-07-30",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/aPpGjadHD9Pvf1qXzQX25GDRq5p.jpg"
-            },
-            {
-              "num": 37,
-              "date": "1980-08-06",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/smeMoP5tkgHFEiHgzXIghkCTp4L.jpg"
-            },
-            {
-              "num": 38,
-              "date": "1980-08-20",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/6D2jI0KFfAAJnRn8hOOLc4Kvar7.jpg"
-            },
-            {
-              "num": 39,
-              "date": "1980-08-27",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/mtyCnDvgZJVN4tTis3uE9IVcwym.jpg"
-            },
-            {
-              "num": 40,
-              "date": "1980-09-03",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/1tbGk0bnixmmHpJOcqRIJZeR5fT.jpg"
+              "duration": 36,
+              "still": "https://image.tmdb.org/t/p/w300/ph4lrQlhfjH4WizRAVMytau3kDJ.jpg"
             }
           ],
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-09-19T16:44:00.172Z"
+      "updatedAt": "2026-09-20T15:32:32.216Z"
     },
     {
-      "id": "1789836291250",
-      "name": "Urasekai Picnic",
-      "nameEn": "裏世界ピクニック",
-      "poster": "https://image.tmdb.org/t/p/w500/h7mTcQeBajpRDOOKKvuSQKllhqI.jpg",
-      "synopsis": "Existen puertas que pueden llevar a las personas al “otro lado”, donde las extrañas leyendas urbanas y los mitos de Internet resultan ser reales. La estudiante universitaria Sorawo Kamikoshi descubre una de estas puertas y por poco muere estando del otro lado, hasta que es rescatada por otra chica llamada Toriko Nishina.\n\nToriko tiene un aura misteriosa pero es hábil con las armas, y parece que ella está buscando a alguien del otro lado. Juntas, las chicas explorarán cada una de las puertas en el mundo.",
-      "year": 2021,
-      "country": "Japón",
-      "network": "Crunchyroll Amazon Channel",
-      "networkUrl": "https://www.crunchyroll.com",
-      "watchLinks": [
-        {
-          "name": "Crunchyroll Amazon Channel",
-          "url": "https://www.crunchyroll.com"
-        }
-      ],
-      "trailerUrl": "",
-      "bookSource": "",
-      "basedOnBook": false,
-      "sourceType": "",
-      "bookCoverUrl": "",
-      "bookLinks": [],
-      "bookUrl": "",
-      "upcoming": false,
-      "genres": [
-        "Animación",
-        "Misterio"
-      ],
-      "moods": [],
-      "tropos": [],
-      "dinamica": [],
-      "wlwFocus": "",
-      "awards": [],
-      "category": "anime",
-      "seriesType": "serie",
-      "cast": [],
-      "couples": [],
-      "animeSeason": "",
-      "renewedNextSeason": false,
-      "episodeDuration": 24,
-      "myPick": false,
-      "myPick2026": false,
-      "biFormat": false,
-      "cancelStatus": "",
-      "cancelNote": "",
-      "sinNovedades": false,
-      "snLastUpdate": "",
-      "snNote": "",
-      "productoraId": "",
-      "tmdbId": "100077",
-      "tmdbKind": "tv",
-      "tmdbRating": 6.7,
-      "tmdbVoteCount": 32,
-      "seasons": [
-        {
-          "label": "Temporada 1",
-          "startDate": "2021-01-04",
-          "totalEpisodes": 12,
-          "emissionDays": [
-            0
-          ],
-          "allInOneDay": false,
-          "skipDates": [],
-          "episodes": [
-            {
-              "num": 1,
-              "date": "2021-01-04",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/6lRG9obcDkmk9DqX2a5yn7cIN8f.jpg"
-            },
-            {
-              "num": 2,
-              "date": "2021-01-11",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/tBUwfRhHItendCa7hZTG6JBbI37.jpg"
-            },
-            {
-              "num": 3,
-              "date": "2021-01-18",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/1VC5SEanBxa2gj6xMf5wDyam1xp.jpg"
-            },
-            {
-              "num": 4,
-              "date": "2021-01-25",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/cmhtZruD71FThQ30CO0zEzVv5NN.jpg"
-            },
-            {
-              "num": 5,
-              "date": "2021-02-01",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/ri6Eb1W5IoP4pcr3nN2gzk5Zduv.jpg"
-            },
-            {
-              "num": 6,
-              "date": "2021-02-08",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/lOo45jm6Y324yspX8JeNubgwEoA.jpg"
-            },
-            {
-              "num": 7,
-              "date": "2021-02-15",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/kLqP3VFRzgJrSEAxwuG9je7hjeM.jpg"
-            },
-            {
-              "num": 8,
-              "date": "2021-02-22",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/irZMN4kf1cFoH0VTWn9bT37jZHq.jpg"
-            },
-            {
-              "num": 9,
-              "date": "2021-03-01",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/kX6ChhaX9QdoFQu9clXpQjkbzlD.jpg"
-            },
-            {
-              "num": 10,
-              "date": "2021-03-08",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/eqWC4tnh3G3HqvmLI4Cs8x2CTID.jpg"
-            },
-            {
-              "num": 11,
-              "date": "2021-03-15",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/kXVEC0rchmi1g9RGXtxa0aW0jr5.jpg"
-            },
-            {
-              "num": 12,
-              "date": "2021-03-22",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/bEjxvBs2CSc0CgdR2D71XeXZxZG.jpg"
-            }
-          ],
-          "premiereSchedule": []
-        }
-      ],
-      "updatedAt": "2026-09-19T16:44:51.250Z"
-    },
-    {
-      "id": "1789836326914",
-      "name": "Gushing over Magical Girls",
-      "nameEn": "魔法少女にあこがれて",
-      "poster": "https://image.tmdb.org/t/p/w500/hKnDZDiL0T5FpYJf6ITi0E21dJX.jpg",
-      "synopsis": "iiragi Utena siempre ha admirado a las chicas mágicas y ha fantaseado con convertirse en una heroína genial que lucha contra el mal. Por eso, cuando una figura parecida a una muñeca se acerca a ella una noche, afirmando que tiene un poder mágico latente en su interior, tiembla de emoción. Pero su colorido sueño se ve rápidamente truncado en un irónico giro de los acontecimientos cuando se transforma en una villana.\n\nDesinteresada por asociarse con las fuerzas del mal, intenta abandonar cuando aparece un grupo de chicas mágicas que le declaran la guerra. Se entabla una batalla y Hiiragi pronto descubre que disfruta infligiendo dolor a los demás a medida que su verdadera naturaleza empieza a emerger. “Mahou Shoujo ni Akogarete” sigue a Hiiragi en su nueva vida como líder de los villanos, luchando contra las chicas mágicas y dando rienda suelta a su nueva naturaleza sádica.",
+      "id": "1789918405154",
+      "name": "Agios Erotas",
+      "nameEn": "Άγιος Έρωτας",
+      "poster": "https://image.tmdb.org/t/p/w500/yJ2KgfNMPJ3NUbC6cL63v8DiMjl.jpg",
+      "synopsis": "A young priest and professor of theology upsets a small town upon his arrival. Apart from charm, however, it also hides secrets. No one knows the real reason it is there. And no one can predict, least of all himself, that the young daughter of the most powerful man in the area will prove to be his greatest test.",
       "year": 2024,
-      "country": "Japón",
-      "network": "",
-      "networkUrl": "",
-      "watchLinks": [],
-      "trailerUrl": "https://www.youtube.com/watch?v=L2UctB1gOT8",
-      "bookSource": "",
-      "basedOnBook": false,
-      "sourceType": "",
-      "bookCoverUrl": "",
-      "bookLinks": [],
-      "bookUrl": "",
-      "upcoming": false,
-      "genres": [
-        "Animación",
-        "Comedia"
-      ],
-      "moods": [],
-      "tropos": [],
-      "dinamica": [],
-      "wlwFocus": "",
-      "awards": [],
-      "category": "anime",
-      "seriesType": "serie",
-      "cast": [],
-      "couples": [],
-      "animeSeason": "",
-      "renewedNextSeason": false,
-      "episodeDuration": 24,
-      "myPick": false,
-      "myPick2026": false,
-      "biFormat": false,
-      "cancelStatus": "",
-      "cancelNote": "",
-      "sinNovedades": false,
-      "snLastUpdate": "",
-      "snNote": "",
-      "productoraId": "",
-      "tmdbId": "236338",
-      "tmdbKind": "tv",
-      "tmdbRating": 8.3,
-      "tmdbVoteCount": 123,
-      "seasons": [
-        {
-          "label": "Temporada 1",
-          "startDate": "2024-01-03",
-          "totalEpisodes": 13,
-          "emissionDays": [
-            2
-          ],
-          "allInOneDay": false,
-          "skipDates": [],
-          "episodes": [
-            {
-              "num": 1,
-              "date": "2024-01-03",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/d3R1I2msqOGI7uDJbGobOskizV0.jpg"
-            },
-            {
-              "num": 2,
-              "date": "2024-01-10",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/lNvAguT99zR3g4ickdgP1vpjnaH.jpg"
-            },
-            {
-              "num": 3,
-              "date": "2024-01-17",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/y2jfBznct9SENl7d5ljtT3h9ff8.jpg"
-            },
-            {
-              "num": 4,
-              "date": "2024-01-24",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/7JcTXpjiNygyBh3dRFPgBMuGZmJ.jpg"
-            },
-            {
-              "num": 5,
-              "date": "2024-01-31",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/deqnIfex9aWlTQoulRTyLkW7FEl.jpg"
-            },
-            {
-              "num": 6,
-              "date": "2024-02-07",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/je8CXTw72wkInvK42jrwLuNyhiG.jpg"
-            },
-            {
-              "num": 7,
-              "date": "2024-02-14",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/npuNspS0pz6iZWZSbWTQhr06XKr.jpg"
-            },
-            {
-              "num": 8,
-              "date": "2024-02-21",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/jIo6QC89EcmwdRktAbSUCB7ciZ9.jpg"
-            },
-            {
-              "num": 9,
-              "date": "2024-02-28",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/2uuGxmPqjkH1b529ROmF8NQw5K1.jpg"
-            },
-            {
-              "num": 10,
-              "date": "2024-03-06",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/dh7K7kdB2gsSAVCsmKaRDmiDXyf.jpg"
-            },
-            {
-              "num": 11,
-              "date": "2024-03-13",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/A4Z66Db6qK11AuHaDm5AYugzHBZ.jpg"
-            },
-            {
-              "num": 12,
-              "date": "2024-03-20",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/rSF1lZXE50IFgysX7FErrGyckQq.jpg"
-            },
-            {
-              "num": 13,
-              "date": "2024-03-27",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 24,
-              "still": "https://image.tmdb.org/t/p/w300/99DJgEodjbdwtUPBFhIlkX06NNW.jpg"
-            }
-          ],
-          "premiereSchedule": []
-        },
-        {
-          "label": "Temporada 2",
-          "startDate": "",
-          "totalEpisodes": 1,
-          "emissionDays": [],
-          "allInOneDay": false,
-          "skipDates": [],
-          "episodes": [],
-          "premiereSchedule": []
-        }
-      ],
-      "updatedAt": "2026-09-19T16:45:26.914Z"
-    },
-    {
-      "id": "1789836349803",
-      "name": "Kuzu no Honkai",
-      "nameEn": "クズの本懐",
-      "poster": "https://image.tmdb.org/t/p/w500/kixNrDVpLNDf6wNWXrZI2NormRT.jpg",
-      "synopsis": "Hanabi y Mugi parecen la pareja ideal, pero en realidad aman a otras personas. Para llenar su vacío, deciden usarse mutuamente como sustitutos, compartiendo intimidad mientras enfrentan su soledad.",
-      "year": 2017,
-      "country": "Japón",
+      "country": "",
       "network": "",
       "networkUrl": "",
       "watchLinks": [],
@@ -72489,290 +71440,12 @@
       "bookUrl": "",
       "upcoming": false,
       "genres": [
-        "Animación",
         "Drama"
       ],
       "moods": [],
       "tropos": [],
       "dinamica": [],
-      "wlwFocus": "",
-      "awards": [],
-      "category": "anime",
-      "seriesType": "serie",
-      "cast": [],
-      "couples": [],
-      "animeSeason": "",
-      "renewedNextSeason": false,
-      "episodeDuration": 23,
-      "myPick": false,
-      "myPick2026": false,
-      "biFormat": false,
-      "cancelStatus": "",
-      "cancelNote": "",
-      "sinNovedades": false,
-      "snLastUpdate": "",
-      "snNote": "",
-      "productoraId": "",
-      "tmdbId": "69292",
-      "tmdbKind": "tv",
-      "tmdbRating": 6.4,
-      "tmdbVoteCount": 126,
-      "seasons": [
-        {
-          "label": "Temporada 1",
-          "startDate": "2017-01-13",
-          "totalEpisodes": 12,
-          "emissionDays": [
-            3,
-            4
-          ],
-          "allInOneDay": false,
-          "skipDates": [],
-          "episodes": [
-            {
-              "num": 1,
-              "date": "2017-01-13",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/nXyfX5OEJFT7dPdOkw4C7K3TTyP.jpg"
-            },
-            {
-              "num": 2,
-              "date": "2017-01-20",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/3zBThcyGNIQW0ZzzfcYyr4PDKzV.jpg"
-            },
-            {
-              "num": 3,
-              "date": "2017-01-27",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/rT5PZ1QcDhVUAjfpHZ2dEU6WAOi.jpg"
-            },
-            {
-              "num": 4,
-              "date": "2017-02-02",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/uyi4cBbOCj8h2zD2Df4Sl3ahmvJ.jpg"
-            },
-            {
-              "num": 5,
-              "date": "2017-02-09",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/xItuwJdlzeq0la8YeMEsaKbUTQC.jpg"
-            },
-            {
-              "num": 6,
-              "date": "2017-02-16",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/gLkgqbvsLCuRq1GwLRVyGNLeBza.jpg"
-            },
-            {
-              "num": 7,
-              "date": "2017-02-23",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/5qZ6v65EMGtJd9krrLrHN7BKNnr.jpg"
-            },
-            {
-              "num": 8,
-              "date": "2017-03-02",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/zhMTfmTTJPh8Xb46UzQYsrrggSS.jpg"
-            },
-            {
-              "num": 9,
-              "date": "2017-03-09",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/lUcA7dl3VUPim5VgfTLn52OVD7o.jpg"
-            },
-            {
-              "num": 10,
-              "date": "2017-03-16",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/xiBSKC1YVex5caZaCwJLC8cagKG.jpg"
-            },
-            {
-              "num": 11,
-              "date": "2017-03-23",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/imXjy8HD3LnKK1kRzJX3zr6UmfD.jpg"
-            },
-            {
-              "num": 12,
-              "date": "2017-03-31",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 23,
-              "still": "https://image.tmdb.org/t/p/w300/knx80HZGeZZwUouOFS5SkVsFopQ.jpg"
-            }
-          ],
-          "premiereSchedule": []
-        }
-      ],
-      "updatedAt": "2026-09-19T16:45:49.803Z"
-    },
-    {
-      "id": "1789836391832",
-      "name": "Complejo Residencial C",
-      "nameEn": "Housing",
-      "poster": "https://image.tmdb.org/t/p/w500/dJHp3WlbbBhhKo2h0avTHTrwp4C.jpg",
-      "synopsis": "Kimi vive en un pequeño complejo de viviendas de bajo costo ubicado en la ciudad costera de Kurosaki, con incidentes horribles que comienzan a ocurrir y problemas que aparentemente la siguen donde quiera que vaya. ¿Un antiguo mal acecha a los residentes del Complejo de Vivienda C?",
-      "year": 2022,
-      "country": "Estados Unidos",
-      "network": "HBO Max",
-      "networkUrl": "https://www.max.com",
-      "watchLinks": [
-        {
-          "name": "HBO Max",
-          "url": "https://www.max.com"
-        },
-        {
-          "name": "HBO Max Amazon Channel",
-          "url": "https://www.max.com"
-        }
-      ],
-      "trailerUrl": "https://www.youtube.com/watch?v=JT8QtXL4GSs",
-      "bookSource": "",
-      "basedOnBook": false,
-      "sourceType": "",
-      "bookCoverUrl": "",
-      "bookLinks": [],
-      "bookUrl": "",
-      "upcoming": false,
-      "genres": [
-        "Animación",
-        "Misterio"
-      ],
-      "moods": [],
-      "tropos": [],
-      "dinamica": [],
-      "wlwFocus": "",
-      "awards": [],
-      "category": "anime",
-      "seriesType": "serie",
-      "cast": [],
-      "couples": [],
-      "animeSeason": "",
-      "renewedNextSeason": false,
-      "episodeDuration": 26,
-      "myPick": false,
-      "myPick2026": false,
-      "biFormat": false,
-      "cancelStatus": "",
-      "cancelNote": "",
-      "sinNovedades": false,
-      "snLastUpdate": "",
-      "snNote": "",
-      "productoraId": "",
-      "tmdbId": "195382",
-      "tmdbKind": "tv",
-      "tmdbRating": 7.2,
-      "tmdbVoteCount": 80,
-      "seasons": [
-        {
-          "label": "Temporada 1",
-          "startDate": "2022-10-02",
-          "totalEpisodes": 4,
-          "emissionDays": [
-            6
-          ],
-          "allInOneDay": false,
-          "skipDates": [],
-          "episodes": [
-            {
-              "num": 1,
-              "date": "2022-10-02",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 26,
-              "still": "https://image.tmdb.org/t/p/w300/eqSXuFaMYAM4XCSSFyRz3ge9LQ5.jpg"
-            },
-            {
-              "num": 2,
-              "date": "2022-10-09",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 25,
-              "still": "https://image.tmdb.org/t/p/w300/kzzqLutL1Ey64MpeRayfSHVXJhB.jpg"
-            },
-            {
-              "num": 3,
-              "date": "2022-10-16",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 26,
-              "still": "https://image.tmdb.org/t/p/w300/v3SCPcuwziUA9H6G4Ph6AUBYwmJ.jpg"
-            },
-            {
-              "num": 4,
-              "date": "2022-10-23",
-              "skipped": false,
-              "source": "tmdb",
-              "duration": 26,
-              "still": "https://image.tmdb.org/t/p/w300/7nwDexwUIQ8C7XwhNIvaZt6mykm.jpg"
-            }
-          ],
-          "premiereSchedule": []
-        }
-      ],
-      "updatedAt": "2026-09-19T16:46:31.832Z"
-    },
-    {
-      "id": "1789836419597",
-      "name": "Scott Pilgrim da el salto",
-      "nameEn": "",
-      "poster": "https://image.tmdb.org/t/p/w500/te8owhHPKeYE7rflhhaoVc5KUU9.jpg",
-      "synopsis": "Scott Pilgrim conoce a Ramona Flowers, la chica de sus sueños. Pero pronto descubre que los siete diabólicos ex de la joven no le van a poner las cosas nada fáciles.",
-      "year": 2023,
-      "country": "Japón / Reino Unido / Estados Unidos",
-      "network": "Netflix, Netflix Standard with Ads",
-      "networkUrl": "https://www.netflix.com",
-      "watchLinks": [
-        {
-          "name": "Netflix",
-          "url": "https://www.netflix.com"
-        },
-        {
-          "name": "Netflix Standard with Ads",
-          "url": "https://www.netflix.com"
-        }
-      ],
-      "trailerUrl": "https://www.youtube.com/watch?v=9EZG8YqBvIY",
-      "bookSource": "",
-      "basedOnBook": false,
-      "sourceType": "",
-      "bookCoverUrl": "",
-      "bookLinks": [],
-      "bookUrl": "",
-      "upcoming": false,
-      "genres": [
-        "Animación",
-        "Comedia"
-      ],
-      "moods": [],
-      "tropos": [],
-      "dinamica": [],
-      "wlwFocus": "",
+      "wlwFocus": "subplot",
       "awards": [],
       "category": "series",
       "seriesType": "serie",
@@ -72780,7 +71453,7 @@
       "couples": [],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": "",
+      "episodeDuration": 60,
       "myPick": false,
       "myPick2026": false,
       "biFormat": false,
@@ -72790,90 +71463,1918 @@
       "snLastUpdate": "",
       "snNote": "",
       "productoraId": "",
-      "tmdbId": "155292",
+      "tmdbId": "272366",
       "tmdbKind": "tv",
-      "tmdbRating": 7.9,
-      "tmdbVoteCount": 427,
+      "tmdbRating": 6.5,
+      "tmdbVoteCount": 2,
       "seasons": [
         {
           "label": "Temporada 1",
-          "startDate": "2023-11-17",
-          "totalEpisodes": 8,
+          "startDate": "2024-09-25",
+          "totalEpisodes": 150,
           "emissionDays": [
-            4
+            2
           ],
           "allInOneDay": true,
           "skipDates": [],
           "episodes": [
             {
               "num": 1,
-              "date": "2023-11-17",
+              "date": "2024-09-25",
               "skipped": false,
               "source": "tmdb",
-              "duration": 29,
-              "still": "https://image.tmdb.org/t/p/w300/q3eIJSxZO2zXig4Ni3oo8md6mWS.jpg"
+              "duration": 60
             },
             {
               "num": 2,
-              "date": "2023-11-17",
+              "date": "2024-09-25",
               "skipped": false,
               "source": "tmdb",
-              "duration": 28,
-              "still": "https://image.tmdb.org/t/p/w300/l5KY9oQToDlm7IE0Crem81unYYK.jpg"
+              "duration": 60
             },
             {
               "num": 3,
-              "date": "2023-11-17",
+              "date": "2024-10-02",
               "skipped": false,
               "source": "tmdb",
-              "duration": 28,
-              "still": "https://image.tmdb.org/t/p/w300/oIDhyfYp2NrVOWZKCyHmxCxLsPj.jpg"
+              "duration": 60
             },
             {
               "num": 4,
-              "date": "2023-11-17",
+              "date": "2024-10-02",
               "skipped": false,
               "source": "tmdb",
-              "duration": 28,
-              "still": "https://image.tmdb.org/t/p/w300/tijvdUst0B3JD7IMyBlEP3jwOIg.jpg"
+              "duration": 60
             },
             {
               "num": 5,
-              "date": "2023-11-17",
+              "date": "2024-10-03",
               "skipped": false,
               "source": "tmdb",
-              "duration": 27,
-              "still": "https://image.tmdb.org/t/p/w300/elP1A7AiF83zFclChgQvElz4rDF.jpg"
+              "duration": 60
             },
             {
               "num": 6,
-              "date": "2023-11-17",
+              "date": "2024-10-04",
               "skipped": false,
               "source": "tmdb",
-              "duration": 28,
-              "still": "https://image.tmdb.org/t/p/w300/4KCMO6yLKbH4SSXFm2Dv5HjhDOw.jpg"
+              "duration": 60
             },
             {
               "num": 7,
-              "date": "2023-11-17",
+              "date": "2024-10-04",
               "skipped": false,
               "source": "tmdb",
-              "duration": 28,
-              "still": "https://image.tmdb.org/t/p/w300/krz9V21IErIOtjJoY8aY9PVhLrX.jpg"
+              "duration": 60
             },
             {
               "num": 8,
-              "date": "2023-11-17",
+              "date": "2024-10-09",
               "skipped": false,
               "source": "tmdb",
-              "duration": 29,
-              "still": "https://image.tmdb.org/t/p/w300/xCkHgTlNF75wVJVo10E2FCBwwP7.jpg"
+              "duration": 60
+            },
+            {
+              "num": 9,
+              "date": "2024-10-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 10,
+              "date": "2024-10-11",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 11,
+              "date": "2024-10-11",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 12,
+              "date": "2024-10-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 13,
+              "date": "2024-10-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 14,
+              "date": "2024-10-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 15,
+              "date": "2024-10-18",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 16,
+              "date": "2024-10-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 17,
+              "date": "2024-10-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 18,
+              "date": "2024-10-24",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 19,
+              "date": "2024-10-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 20,
+              "date": "2024-10-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 21,
+              "date": "2024-10-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 22,
+              "date": "2024-10-31",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 23,
+              "date": "2024-11-01",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 24,
+              "date": "2024-11-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 25,
+              "date": "2024-11-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 26,
+              "date": "2024-11-07",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 27,
+              "date": "2024-11-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 28,
+              "date": "2024-11-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 29,
+              "date": "2024-11-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 30,
+              "date": "2024-11-15",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 31,
+              "date": "2024-11-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 32,
+              "date": "2024-11-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 33,
+              "date": "2024-11-21",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 34,
+              "date": "2024-11-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 35,
+              "date": "2024-11-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 36,
+              "date": "2024-11-28",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 37,
+              "date": "2024-12-04",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 38,
+              "date": "2024-12-04",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 39,
+              "date": "2024-12-05",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 40,
+              "date": "2024-12-11",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 41,
+              "date": "2024-12-11",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 42,
+              "date": "2024-12-12",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 43,
+              "date": "2024-12-18",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 44,
+              "date": "2024-12-18",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 45,
+              "date": "2024-12-19",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 46,
+              "date": "2025-01-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60,
+              "still": "https://image.tmdb.org/t/p/w300/mmemhidl6mjDvJu3cEwiJf2eHrT.jpg"
+            },
+            {
+              "num": 47,
+              "date": "2025-01-20",
+              "skipped": false,
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/m6RzfT4PcAVFiigSTMvnTZL2W0f.jpg"
+            },
+            {
+              "num": 48,
+              "date": "2025-01-21",
+              "skipped": false,
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/qKYoyKB6s19FzJhdWoW6yQgKiNG.jpg"
+            },
+            {
+              "num": 49,
+              "date": "2025-01-22",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60,
+              "still": "https://image.tmdb.org/t/p/w300/5aZo9QtVKsR7YkbzMtEkTtExx14.jpg"
+            },
+            {
+              "num": 50,
+              "date": "2025-01-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60,
+              "still": "https://image.tmdb.org/t/p/w300/dqbggFNzPZa2Lptg9H1WZwKC5Va.jpg"
+            },
+            {
+              "num": 51,
+              "date": "2025-01-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 52,
+              "date": "2025-01-28",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 53,
+              "date": "2025-01-29",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 54,
+              "date": "2025-01-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 55,
+              "date": "2025-02-03",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 56,
+              "date": "2025-02-04",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 57,
+              "date": "2025-02-05",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 58,
+              "date": "2025-02-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 59,
+              "date": "2025-02-10",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 60,
+              "date": "2025-02-11",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 61,
+              "date": "2025-02-12",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 62,
+              "date": "2025-02-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 63,
+              "date": "2025-02-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 64,
+              "date": "2025-02-18",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 65,
+              "date": "2025-02-19",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 66,
+              "date": "2025-02-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 67,
+              "date": "2025-02-24",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 68,
+              "date": "2025-02-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 69,
+              "date": "2025-02-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 70,
+              "date": "2025-02-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 71,
+              "date": "2025-03-03",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 72,
+              "date": "2025-03-04",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 73,
+              "date": "2025-03-05",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 74,
+              "date": "2025-03-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 75,
+              "date": "2025-03-07",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 76,
+              "date": "2025-03-10",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 77,
+              "date": "2025-03-11",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 78,
+              "date": "2025-03-12",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 79,
+              "date": "2025-03-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 80,
+              "date": "2025-03-14",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 81,
+              "date": "2025-03-17",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 82,
+              "date": "2025-03-18",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 83,
+              "date": "2025-03-19",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 84,
+              "date": "2025-03-20",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 85,
+              "date": "2025-03-24",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 90
+            },
+            {
+              "num": 86,
+              "date": "2025-03-25",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 87,
+              "date": "2025-03-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 88,
+              "date": "2025-03-27",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 89,
+              "date": "2025-03-31",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 90,
+              "date": "2025-04-01",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 91,
+              "date": "2025-04-02",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 92,
+              "date": "2025-04-03",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 93,
+              "date": "2025-04-07",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 94,
+              "date": "2025-04-08",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 95,
+              "date": "2025-04-09",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 96,
+              "date": "2025-04-10",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 97,
+              "date": "2025-04-11",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 98,
+              "date": "2025-04-14",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 99,
+              "date": "2025-04-15",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 100,
+              "date": "2025-04-22",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 101,
+              "date": "2025-04-23",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 102,
+              "date": "2025-04-24",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 103,
+              "date": "2025-04-25",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 104,
+              "date": "2025-04-28",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 105,
+              "date": "2025-04-29",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 106,
+              "date": "2025-04-30",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 107,
+              "date": "2025-05-01",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 108,
+              "date": "2025-05-02",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 109,
+              "date": "2025-05-05",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 110,
+              "date": "2025-05-06",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 111,
+              "date": "2025-05-07",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 112,
+              "date": "2025-05-08",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 113,
+              "date": "2025-05-09",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 114,
+              "date": "2025-05-12",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 115,
+              "date": "2025-05-13",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 116,
+              "date": "2025-05-14",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 117,
+              "date": "2025-05-15",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 118,
+              "date": "2025-05-16",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 119,
+              "date": "2025-05-19",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 120,
+              "date": "2025-05-20",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 121,
+              "date": "2025-05-21",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 122,
+              "date": "2025-05-22",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 58
+            },
+            {
+              "num": 123,
+              "date": "2025-05-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 62
+            },
+            {
+              "num": 124,
+              "date": "2025-05-26",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 125,
+              "date": "2025-05-27",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 126,
+              "date": "2025-05-28",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 127,
+              "date": "2025-05-29",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 128,
+              "date": "2025-05-30",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 129,
+              "date": "2025-06-02",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 130,
+              "date": "2025-06-03",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 131,
+              "date": "2025-06-04",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 132,
+              "date": "2025-06-09",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 133,
+              "date": "2025-06-10",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 134,
+              "date": "2025-06-11",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 135,
+              "date": "2025-06-12",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 136,
+              "date": "2025-06-16",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 137,
+              "date": "2025-06-17",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 138,
+              "date": "2025-06-18",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 139,
+              "date": "2025-06-19",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 140,
+              "date": "2025-06-20",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 141,
+              "date": "2025-06-23",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 142,
+              "date": "2025-06-24",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 143,
+              "date": "2025-06-25",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 144,
+              "date": "2025-06-26",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 145,
+              "date": "2025-06-27",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 146,
+              "date": "2025-06-30",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 147,
+              "date": "2025-07-01",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 148,
+              "date": "2025-07-02",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 149,
+              "date": "2025-07-03",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 150,
+              "date": "2025-07-04",
+              "skipped": false,
+              "source": "tmdb"
+            }
+          ],
+          "premiereSchedule": []
+        },
+        {
+          "label": "Temporada 2",
+          "startDate": "2025-09-23",
+          "totalEpisodes": 130,
+          "emissionDays": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "date": "2025-09-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 64
+            },
+            {
+              "num": 2,
+              "date": "2025-09-24",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 3,
+              "date": "2025-09-29",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61
+            },
+            {
+              "num": 4,
+              "date": "2025-09-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 62
+            },
+            {
+              "num": 5,
+              "date": "2025-10-01",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 6,
+              "date": "2025-10-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 7,
+              "date": "2025-10-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 65
+            },
+            {
+              "num": 8,
+              "date": "2025-10-07",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 9,
+              "date": "2025-10-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 65
+            },
+            {
+              "num": 10,
+              "date": "2025-10-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 11,
+              "date": "2025-10-14",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61
+            },
+            {
+              "num": 12,
+              "date": "2025-10-15",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 59
+            },
+            {
+              "num": 13,
+              "date": "2025-10-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 63
+            },
+            {
+              "num": 14,
+              "date": "2025-10-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61
+            },
+            {
+              "num": 15,
+              "date": "2025-10-21",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61
+            },
+            {
+              "num": 16,
+              "date": "2025-10-22",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 62
+            },
+            {
+              "num": 17,
+              "date": "2025-10-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 18,
+              "date": "2025-10-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 59
+            },
+            {
+              "num": 19,
+              "date": "2025-10-28",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 64
+            },
+            {
+              "num": 20,
+              "date": "2025-10-29",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 57
+            },
+            {
+              "num": 21,
+              "date": "2025-10-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61
+            },
+            {
+              "num": 22,
+              "date": "2025-11-03",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61
+            },
+            {
+              "num": 23,
+              "date": "2025-11-04",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 65
+            },
+            {
+              "num": 24,
+              "date": "2025-11-05",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 59
+            },
+            {
+              "num": 25,
+              "date": "2025-11-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 66
+            },
+            {
+              "num": 26,
+              "date": "2025-11-10",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 59
+            },
+            {
+              "num": 27,
+              "date": "2025-11-11",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 28,
+              "date": "2025-11-12",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 62
+            },
+            {
+              "num": 29,
+              "date": "2025-11-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 30,
+              "date": "2025-11-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61
+            },
+            {
+              "num": 31,
+              "date": "2025-11-18",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 64
+            },
+            {
+              "num": 32,
+              "date": "2025-11-19",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61
+            },
+            {
+              "num": 33,
+              "date": "2025-11-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61
+            },
+            {
+              "num": 34,
+              "date": "2025-11-24",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 35,
+              "date": "2025-11-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 64
+            },
+            {
+              "num": 36,
+              "date": "2025-11-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61
+            },
+            {
+              "num": 37,
+              "date": "2025-12-01",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 63
+            },
+            {
+              "num": 38,
+              "date": "2025-12-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 39,
+              "date": "2025-12-03",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 62
+            },
+            {
+              "num": 40,
+              "date": "2025-12-04",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 41,
+              "date": "2025-12-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61
+            },
+            {
+              "num": 42,
+              "date": "2025-12-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 43,
+              "date": "2025-12-10",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 44,
+              "date": "2025-12-11",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 45,
+              "date": "2025-12-15",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 46,
+              "date": "2025-12-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 66
+            },
+            {
+              "num": 47,
+              "date": "2025-12-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 67
+            },
+            {
+              "num": 48,
+              "date": "2025-12-18",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 49,
+              "date": "2025-12-22",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 64
+            },
+            {
+              "num": 50,
+              "date": "2025-12-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 51,
+              "date": "2026-01-19",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 52,
+              "date": "2026-01-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 53,
+              "date": "2026-01-21",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61
+            },
+            {
+              "num": 54,
+              "date": "2026-01-22",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 63
+            },
+            {
+              "num": 55,
+              "date": "2026-01-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 63
+            },
+            {
+              "num": 56,
+              "date": "2026-01-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 62
+            },
+            {
+              "num": 57,
+              "date": "2026-01-29",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 62
+            },
+            {
+              "num": 58,
+              "date": "2026-01-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 65
+            },
+            {
+              "num": 59,
+              "date": "2026-02-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61
+            },
+            {
+              "num": 60,
+              "date": "2026-02-03",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61
+            },
+            {
+              "num": 61,
+              "date": "2026-02-04",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61
+            },
+            {
+              "num": 62,
+              "date": "2026-02-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 63,
+              "date": "2026-02-10",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 62
+            },
+            {
+              "num": 64,
+              "date": "2026-02-11",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61
+            },
+            {
+              "num": 65,
+              "date": "2026-02-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61
+            },
+            {
+              "num": 66,
+              "date": "2026-02-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 61
+            },
+            {
+              "num": 67,
+              "date": "2026-02-18",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 68,
+              "date": "2026-02-19",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 69,
+              "date": "2026-02-23",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 70,
+              "date": "2026-02-24",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 71,
+              "date": "2026-02-25",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 72,
+              "date": "2026-02-26",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 73,
+              "date": "2026-03-02",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 74,
+              "date": "2026-03-03",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 75,
+              "date": "2026-03-04",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 76,
+              "date": "2026-03-05",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 77,
+              "date": "2026-03-09",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 78,
+              "date": "2026-03-10",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 79,
+              "date": "2026-03-16",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 80,
+              "date": "2026-03-17",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 81,
+              "date": "2026-03-18",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 82,
+              "date": "2026-03-19",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 83,
+              "date": "2026-03-23",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 84,
+              "date": "2026-03-24",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 85,
+              "date": "2026-03-25",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 86,
+              "date": "2026-03-26",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 87,
+              "date": "2026-03-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 88,
+              "date": "2026-03-31",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 89,
+              "date": "2026-04-01",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 90,
+              "date": "2026-04-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 91,
+              "date": "2026-04-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 92,
+              "date": "2026-04-07",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 93,
+              "date": "2026-04-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 94,
+              "date": "2026-04-15",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 95,
+              "date": "2026-04-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 96,
+              "date": "2026-04-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 97,
+              "date": "2026-04-21",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 98,
+              "date": "2026-04-22",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 99,
+              "date": "2026-04-23",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 100,
+              "date": "2026-04-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 101,
+              "date": "2026-04-28",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 102,
+              "date": "2026-04-29",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 103,
+              "date": "2026-04-30",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 104,
+              "date": "2026-05-04",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 105,
+              "date": "2026-05-05",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 106,
+              "date": "2026-05-06",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 107,
+              "date": "2026-05-07",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 108,
+              "date": "2026-05-11",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 109,
+              "date": "2026-05-12",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 110,
+              "date": "2026-05-13",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 111,
+              "date": "2026-05-14",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 112,
+              "date": "2026-05-18",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 113,
+              "date": "2026-05-19",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 114,
+              "date": "2026-05-20",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 115,
+              "date": "2026-05-21",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 116,
+              "date": "2026-05-25",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 117,
+              "date": "2026-05-26",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 118,
+              "date": "2026-05-27",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 119,
+              "date": "2026-05-28",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 120,
+              "date": "2026-06-01",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 121,
+              "date": "2026-06-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 122,
+              "date": "2026-06-03",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 123,
+              "date": "2026-06-04",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 124,
+              "date": "2026-06-08",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 125,
+              "date": "2026-06-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 126,
+              "date": "2026-06-10",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 127,
+              "date": "2026-06-11",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 128,
+              "date": "2026-06-15",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 60
+            },
+            {
+              "num": 129,
+              "date": "2026-06-16",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 65
+            },
+            {
+              "num": 130,
+              "date": "2026-06-17",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 65
             }
           ],
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-09-19T16:46:59.597Z"
+      "updatedAt": "2026-09-20T15:33:25.154Z"
     }
   ],
   "movies": [
@@ -72928,8 +73429,8 @@
       "productoraId": "",
       "tmdbId": "1397485",
       "tmdbKind": "movie",
-      "tmdbRating": 7.6,
-      "tmdbVoteCount": 61,
+      "tmdbRating": 7.5,
+      "tmdbVoteCount": 62,
       "couples": [
         [
           "tmdb_4658358_mtyay0b4",
@@ -73020,7 +73521,7 @@
       "tmdbId": "1102883",
       "tmdbKind": "movie",
       "tmdbRating": 5.7,
-      "tmdbVoteCount": 192,
+      "tmdbVoteCount": 194,
       "nameEn": "",
       "moods": [],
       "tropos": [],
@@ -73121,8 +73622,8 @@
       "updatedAt": "2026-09-12T11:35:19.343Z",
       "tmdbId": "1240889",
       "tmdbKind": "movie",
-      "tmdbRating": 6.7,
-      "tmdbVoteCount": 108,
+      "tmdbRating": 6.5,
+      "tmdbVoteCount": 130,
       "nameEn": "",
       "moods": [],
       "tropos": [],
@@ -73998,7 +74499,7 @@
       "tmdbId": "20770",
       "tmdbKind": "movie",
       "tmdbRating": 7.1,
-      "tmdbVoteCount": 886,
+      "tmdbVoteCount": 887,
       "nameEn": "",
       "moods": [],
       "tropos": [],
@@ -74220,7 +74721,7 @@
       "tmdbId": "1018",
       "tmdbKind": "movie",
       "tmdbRating": 7.8,
-      "tmdbVoteCount": 7281,
+      "tmdbVoteCount": 7284,
       "nameEn": "",
       "moods": [],
       "tropos": [],
@@ -74352,7 +74853,7 @@
       "tmdbId": "504",
       "tmdbKind": "movie",
       "tmdbRating": 7.2,
-      "tmdbVoteCount": 2623,
+      "tmdbVoteCount": 2624,
       "nameEn": "",
       "moods": [],
       "tropos": [],
@@ -75138,7 +75639,7 @@
       "tmdbId": 19994,
       "tmdbKind": "movie",
       "tmdbRating": 6,
-      "tmdbVoteCount": 4398
+      "tmdbVoteCount": 4400
     },
     {
       "id": "1700000000036",
@@ -76189,7 +76690,7 @@
       "tmdbId": 287499,
       "tmdbKind": "movie",
       "tmdbRating": 6.8,
-      "tmdbVoteCount": 85
+      "tmdbVoteCount": 86
     },
     {
       "id": "1700000000068",
@@ -76348,7 +76849,7 @@
       "tmdbId": 258480,
       "tmdbKind": "movie",
       "tmdbRating": 7.5,
-      "tmdbVoteCount": 4036
+      "tmdbVoteCount": 4037
     },
     {
       "id": "1700000000073",
@@ -77154,7 +77655,7 @@
       "tmdbId": 345934,
       "tmdbKind": "movie",
       "tmdbRating": 5.1,
-      "tmdbVoteCount": 293
+      "tmdbVoteCount": 294
     },
     {
       "id": "1700000000098",
@@ -78241,7 +78742,7 @@
       "tmdbId": 529962,
       "tmdbKind": "movie",
       "tmdbRating": 6.4,
-      "tmdbVoteCount": 1501
+      "tmdbVoteCount": 1502
     },
     {
       "id": "1700000000131",
@@ -78906,7 +79407,7 @@
       "tmdbId": 505600,
       "tmdbKind": "movie",
       "tmdbRating": 7,
-      "tmdbVoteCount": 2916,
+      "tmdbVoteCount": 2918,
       "wlwFocus": "subplot"
     },
     {
@@ -79884,7 +80385,7 @@
       "tmdbId": 597219,
       "tmdbKind": "movie",
       "tmdbRating": 7.1,
-      "tmdbVoteCount": 1624
+      "tmdbVoteCount": 1625
     },
     {
       "id": "1700000000180",
@@ -80185,7 +80686,7 @@
       "tmdbId": 523977,
       "tmdbKind": "movie",
       "tmdbRating": 7.5,
-      "tmdbVoteCount": 233
+      "tmdbVoteCount": 234
     },
     {
       "id": "1700000000189",
@@ -80744,7 +81245,7 @@
       "tmdbId": 541305,
       "tmdbKind": "movie",
       "tmdbRating": 6.3,
-      "tmdbVoteCount": 561
+      "tmdbVoteCount": 562
     },
     {
       "id": "1700000000207",
@@ -81098,7 +81599,7 @@
       "tmdbId": 591273,
       "tmdbKind": "movie",
       "tmdbRating": 6.7,
-      "tmdbVoteCount": 2748
+      "tmdbVoteCount": 2750
     },
     {
       "id": "1700000000218",
@@ -81133,7 +81634,7 @@
       "tmdbId": 591274,
       "tmdbKind": "movie",
       "tmdbRating": 7.2,
-      "tmdbVoteCount": 2314
+      "tmdbVoteCount": 2315
     },
     {
       "id": "1700000000219",
@@ -81242,7 +81743,7 @@
       "tmdbId": 591275,
       "tmdbKind": "movie",
       "tmdbRating": 7.1,
-      "tmdbVoteCount": 2067
+      "tmdbVoteCount": 2068
     },
     {
       "id": "1700000000222",
@@ -81552,7 +82053,7 @@
       "tmdbId": 501929,
       "tmdbKind": "movie",
       "tmdbRating": 7.8,
-      "tmdbVoteCount": 3489
+      "tmdbVoteCount": 3493
     },
     {
       "id": "1700000000231",
@@ -82570,7 +83071,7 @@
       "tmdbId": 714964,
       "tmdbKind": "movie",
       "tmdbRating": 5.6,
-      "tmdbVoteCount": 61
+      "tmdbVoteCount": 62
     },
     {
       "id": "1700000000261",
@@ -82632,8 +83133,8 @@
       "nameEn": "Marte Um",
       "tmdbId": 913816,
       "tmdbKind": "movie",
-      "tmdbRating": 7.3,
-      "tmdbVoteCount": 99
+      "tmdbRating": 7.4,
+      "tmdbVoteCount": 100
     },
     {
       "id": "1700000000263",
@@ -82834,7 +83335,7 @@
       "tmdbId": 1075813,
       "tmdbKind": "movie",
       "tmdbRating": 6.2,
-      "tmdbVoteCount": 18,
+      "tmdbVoteCount": 19,
       "wlwFocus": "pareja-principal"
     },
     {
@@ -83372,8 +83873,8 @@
       "cast": [],
       "tmdbId": 814776,
       "tmdbKind": "movie",
-      "tmdbRating": 6.7,
-      "tmdbVoteCount": 920
+      "tmdbRating": 6.8,
+      "tmdbVoteCount": 921
     },
     {
       "id": "1700000000286",
@@ -83728,7 +84229,7 @@
       "tmdbId": 827931,
       "tmdbKind": "movie",
       "tmdbRating": 5.6,
-      "tmdbVoteCount": 631
+      "tmdbVoteCount": 632
     },
     {
       "id": "1700000000298",
@@ -83788,7 +84289,7 @@
       "tmdbId": 948549,
       "tmdbKind": "movie",
       "tmdbRating": 6.6,
-      "tmdbVoteCount": 1026
+      "tmdbVoteCount": 1027
     },
     {
       "id": "1700000000300",
@@ -83881,7 +84382,7 @@
       "tmdbId": 1092506,
       "tmdbKind": "movie",
       "tmdbRating": 6.2,
-      "tmdbVoteCount": 136
+      "tmdbVoteCount": 137
     },
     {
       "id": "1700000000303",
@@ -84036,7 +84537,7 @@
       "tmdbId": "1333141",
       "tmdbKind": "movie",
       "tmdbRating": 3.7,
-      "tmdbVoteCount": 220,
+      "tmdbVoteCount": 221,
       "moods": [],
       "tropos": [],
       "dinamica": [],
@@ -84927,7 +85428,7 @@
       "tmdbId": 1575337,
       "tmdbKind": "movie",
       "tmdbRating": 8.1,
-      "tmdbVoteCount": 115
+      "tmdbVoteCount": 116
     },
     {
       "id": "1780732422231",
@@ -91944,5 +92445,5 @@
       ]
     }
   },
-  "exportedAt": "2026-09-19T16:47:23.583Z"
+  "exportedAt": "2026-09-20T15:35:42.725Z"
 }
