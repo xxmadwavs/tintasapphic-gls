@@ -3090,7 +3090,7 @@
     {
       "id": "1776967103985",
       "name": "Built in Love",
-      "poster": "https://image.tmdb.org/t/p/w500/xyjVYwngsH8dU2lnngQd5JXxoIO.jpg",
+      "poster": "https://i.mydramalist.com/3vyRrR_4f.jpg",
       "synopsis": "Soul es una arquitecta experta. Xinxin es una reconocida maestra de feng shui. Cuando estas dos mujeres, con personalidades diametralmente opuestas, son contratadas para construir juntas una casa para sus propietarios, se desata una batalla entre ellas. Pero, ¿habrá espacio para que florezca el amor?",
       "year": "",
       "country": "Tailandia",
@@ -3102,7 +3102,7 @@
       "basedOnBook": true,
       "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/305897/Thumbnail/book_detail_large.gif?11",
       "bookUrl": "https://www.mebmarket.com/ebook-305897-BUILT-IN-LOVE-Spanish-Version",
-      "upcoming": true,
+      "upcoming": false,
       "skipDates": [],
       "episodes": [],
       "bookLinks": [
@@ -3163,7 +3163,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-09-12T11:29:54.840Z",
+      "updatedAt": "2026-09-23T11:58:56.145Z",
       "sourceType": "novela",
       "moods": [],
       "episodeDuration": "",
@@ -3194,7 +3194,22 @@
       "tmdbId": "307831",
       "tmdbKind": "tv",
       "tmdbRating": "",
-      "tmdbVoteCount": 0
+      "tmdbVoteCount": 0,
+      "biFormat": false,
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-10-21",
+          "totalEpisodes": 1,
+          "emissionDays": [
+            2
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ]
     },
     {
       "id": "1776971232987",
@@ -92484,5 +92499,5 @@
       ]
     }
   },
-  "exportedAt": "2026-09-21T19:04:51.341Z"
+  "exportedAt": "2026-09-23T11:59:03.029Z"
 }
