@@ -3163,7 +3163,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-09-23T11:58:56.145Z",
+      "updatedAt": "2026-09-23T12:05:01.077Z",
       "sourceType": "novela",
       "moods": [],
       "episodeDuration": "",
@@ -3200,7 +3200,7 @@
         {
           "label": "Temporada 1",
           "startDate": "2026-10-21",
-          "totalEpisodes": 1,
+          "totalEpisodes": 10,
           "emissionDays": [
             2
           ],
@@ -92499,5 +92499,5 @@
       ]
     }
   },
-  "exportedAt": "2026-09-23T11:59:03.029Z"
+  "exportedAt": "2026-09-23T12:05:06.585Z"
 }
