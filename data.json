@@ -82036,7 +82036,7 @@
       "tmdbId": 591275,
       "tmdbKind": "movie",
       "tmdbRating": 7.1,
-      "tmdbVoteCount": 2071
+      "tmdbVoteCount": 2073
     },
     {
       "id": "1700000000222",
@@ -82346,7 +82346,7 @@
       "tmdbId": 501929,
       "tmdbKind": "movie",
       "tmdbRating": 7.8,
-      "tmdbVoteCount": 3503
+      "tmdbVoteCount": 3508
     },
     {
       "id": "1700000000231",
@@ -83256,7 +83256,7 @@
       "tmdbId": 860159,
       "tmdbKind": "movie",
       "tmdbRating": 7.4,
-      "tmdbVoteCount": 503
+      "tmdbVoteCount": 506
     },
     {
       "id": "1700000000258",
@@ -83702,7 +83702,7 @@
       "tmdbId": 849869,
       "tmdbKind": "movie",
       "tmdbRating": 6.9,
-      "tmdbVoteCount": 573
+      "tmdbVoteCount": 574
     },
     {
       "id": "1700000000271",
@@ -83957,7 +83957,7 @@
       "tmdbId": 1096342,
       "tmdbKind": "movie",
       "tmdbRating": 5.6,
-      "tmdbVoteCount": 319
+      "tmdbVoteCount": 320
     },
     {
       "id": "1700000000279",
@@ -84015,7 +84015,7 @@
       "tmdbId": 1113278,
       "tmdbKind": "movie",
       "tmdbRating": 5,
-      "tmdbVoteCount": 201
+      "tmdbVoteCount": 202
     },
     {
       "id": "1700000000281",
@@ -84166,8 +84166,8 @@
       "cast": [],
       "tmdbId": 814776,
       "tmdbKind": "movie",
-      "tmdbRating": 6.7,
-      "tmdbVoteCount": 923
+      "tmdbRating": 6.8,
+      "tmdbVoteCount": 927
     },
     {
       "id": "1700000000286",
@@ -84283,7 +84283,7 @@
       "tmdbId": 957304,
       "tmdbKind": "movie",
       "tmdbRating": 5.5,
-      "tmdbVoteCount": 622
+      "tmdbVoteCount": 623
     },
     {
       "id": "1700000000291",
@@ -84582,7 +84582,7 @@
       "tmdbId": 948549,
       "tmdbKind": "movie",
       "tmdbRating": 6.6,
-      "tmdbVoteCount": 1034
+      "tmdbVoteCount": 1037
     },
     {
       "id": "1700000000300",
@@ -84830,7 +84830,7 @@
       "tmdbId": "1333141",
       "tmdbKind": "movie",
       "tmdbRating": 3.8,
-      "tmdbVoteCount": 227,
+      "tmdbVoteCount": 229,
       "moods": [],
       "tropos": [],
       "dinamica": [],
@@ -85677,7 +85677,7 @@
       "tmdbId": 1024,
       "tmdbKind": "movie",
       "tmdbRating": 7,
-      "tmdbVoteCount": 1064
+      "tmdbVoteCount": 1065
     },
     {
       "id": "1779990989856",
@@ -86124,8 +86124,8 @@
       "couples": [],
       "tmdbId": 1373198,
       "tmdbKind": "movie",
-      "tmdbRating": 4.7,
-      "tmdbVoteCount": 53
+      "tmdbRating": 4.6,
+      "tmdbVoteCount": 54
     },
     {
       "id": "1787777300196",
@@ -92785,5 +92785,5 @@
       ]
     }
   },
-  "exportedAt": "2026-09-26T13:28:31.288Z"
+  "exportedAt": "2026-09-26T13:29:47.601Z"
 }
