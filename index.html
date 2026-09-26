@@ -1588,8 +1588,15 @@ html[data-theme="dark"] .ship-retired{background:rgba(180,140,160,.08);color:#a0
 /* Desktop: 6-column grid */
 .ra-strip{
   display:grid;
-  grid-template-columns:repeat(6,1fr);
+  grid-template-columns:repeat(6,minmax(0,1fr));
   gap:10px;
+  width:100%;
+  min-width:0;
+}
+
+.ra-card{
+  min-width:0;
+  width:100%;
 }
 
 /* Tablet: 4 columns */
