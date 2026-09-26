@@ -545,6 +545,14 @@ footer{
 .month-cal-wrap.open{display:block}
 /* ═══ CONTAINER ═══ */
 .container{max-width:1200px;margin:0 auto;padding:2rem 1.5rem;position:relative;z-index:1}
+/* FIX: body es flex (línea ~332) y sus hijos tienen flex-shrink:0, así que .container
+   nunca se encogía por debajo del ancho intrínseco de sus contenidos (p.ej. las 7
+   columnas fijas de .week-days-strip = 1084px). Eso empujaba TODA la página más
+   ancha que la ventana, y como html,body tienen overflow-x:hidden, el sobrante se
+   recortaba en silencio sin scrollbar ni aviso. Con esto, .container se ajusta al
+   ancho real disponible y las tiras internas (que ya tienen overflow-x:auto) hacen
+   scroll horizontal correctamente dentro de su propio espacio. */
+.container{min-width:0;flex-shrink:1;width:100%}
 @media(max-width:600px){
   .container{padding:1.25rem 1rem 2rem;width:100%;}
   .hero-stats{flex-wrap:wrap}
@@ -918,6 +926,19 @@ html[data-theme="dark"] .day-cell.has-eps{background:var(--surface3)}
 .similar-nav-btn:hover{background:var(--lavender-soft);border-color:var(--lavender);color:var(--lavender)}
 .similar-nav-btn:disabled{opacity:.3;cursor:default;pointer-events:none}
 .similar-scroll-wrap{position:relative;overflow:hidden}
+
+/* ═══ Flechas genéricas para tiras horizontales (mismo patrón que .similar-nav-btn) ═══ */
+.strip-nav{display:flex;gap:4px}
+.strip-nav-btn{
+  width:28px;height:28px;border-radius:50%;
+  border:1.5px solid var(--border2);background:var(--surface);
+  color:var(--muted);cursor:pointer;font-size:13px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .15s;flex-shrink:0;font-family:var(--font-body);
+}
+.strip-nav-btn:hover{background:var(--lavender-soft);border-color:var(--lavender);color:var(--lavender)}
+.strip-nav-btn:disabled{opacity:.3;cursor:default;pointer-events:none}
+.week-strip-head{display:flex;justify-content:flex-end;margin-bottom:6px}
 .similar-strip{display:flex;gap:10px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px;scroll-behavior:smooth}
 .similar-strip::-webkit-scrollbar{display:none}
 .similar-card{
@@ -1577,7 +1598,7 @@ html[data-theme="dark"] .ship-retired{background:rgba(180,140,160,.08);color:#a0
 .ra-category-block{margin-bottom:1.5rem}
 .ra-category-block:last-child{margin-bottom:0}
 .ra-header{
-  display:flex;align-items:center;
+  display:flex;align-items:center;justify-content:space-between;
   margin-bottom:10px;
 }
 .ra-header-left{display:flex;align-items:center;gap:10px}
@@ -1588,15 +1609,8 @@ html[data-theme="dark"] .ship-retired{background:rgba(180,140,160,.08);color:#a0
 /* Desktop: 6-column grid */
 .ra-strip{
   display:grid;
-  grid-template-columns:repeat(6,minmax(0,1fr));
+  grid-template-columns:repeat(6,1fr);
   gap:10px;
-  width:100%;
-  min-width:0;
-}
-
-.ra-card{
-  min-width:0;
-  width:100%;
 }
 
 /* Tablet: 4 columns */
@@ -3462,7 +3476,13 @@ html[data-theme="dark"] .chk-cta-banner{background:linear-gradient(90deg,var(--a
           <button class="nav-btn" id="nextWeekBtn">Semana siguiente →</button>
         </div>
       </div>
-      <div class="week-days-strip" id="weekDaysStrip"></div>
+      <div class="week-strip-head">
+        <div class="strip-nav" id="weekDaysStrip_nav">
+          <button class="strip-nav-btn" id="weekDaysStrip_prev" onclick="scrollStripBy('weekDaysStrip',-1)" title="Días anteriores" aria-label="Días anteriores">&#8592;</button>
+          <button class="strip-nav-btn" id="weekDaysStrip_next" onclick="scrollStripBy('weekDaysStrip',1)" title="Días siguientes" aria-label="Días siguientes">&#8594;</button>
+        </div>
+      </div>
+      <div class="week-days-strip" id="weekDaysStrip" onscroll="updateStripArrows('weekDaysStrip')"></div>
     </div>
     <!-- Month calendar toggle -->
     <div class="month-toggle-wrap">
@@ -3496,8 +3516,12 @@ html[data-theme="dark"] .chk-cta-banner{background:linear-gradient(90deg,var(--a
               <div class="ra-subtitle">Series GL nuevas en la base de datos</div>
             </div>
           </div>
+          <div class="strip-nav" id="recentlyAddedStrip_series_nav">
+            <button class="strip-nav-btn" id="recentlyAddedStrip_series_prev" onclick="scrollStripBy('recentlyAddedStrip_series',-1)" title="Anterior" aria-label="Anterior">&#8592;</button>
+            <button class="strip-nav-btn" id="recentlyAddedStrip_series_next" onclick="scrollStripBy('recentlyAddedStrip_series',1)" title="Siguiente" aria-label="Siguiente">&#8594;</button>
+          </div>
         </div>
-        <div class="ra-strip" id="recentlyAddedStrip_series"></div>
+        <div class="ra-strip" id="recentlyAddedStrip_series" onscroll="updateStripArrows('recentlyAddedStrip_series')"></div>
       </div>
 
       <!-- Películas & Documentales -->
@@ -3510,8 +3534,12 @@ html[data-theme="dark"] .chk-cta-banner{background:linear-gradient(90deg,var(--a
               <div class="ra-subtitle">Películas y documentales nuevos en la base de datos</div>
             </div>
           </div>
+          <div class="strip-nav" id="recentlyAddedStrip_movies_nav">
+            <button class="strip-nav-btn" id="recentlyAddedStrip_movies_prev" onclick="scrollStripBy('recentlyAddedStrip_movies',-1)" title="Anterior" aria-label="Anterior">&#8592;</button>
+            <button class="strip-nav-btn" id="recentlyAddedStrip_movies_next" onclick="scrollStripBy('recentlyAddedStrip_movies',1)" title="Siguiente" aria-label="Siguiente">&#8594;</button>
+          </div>
         </div>
-        <div class="ra-strip" id="recentlyAddedStrip_movies"></div>
+        <div class="ra-strip" id="recentlyAddedStrip_movies" onscroll="updateStripArrows('recentlyAddedStrip_movies')"></div>
       </div>
 
       <!-- Anime -->
@@ -3524,8 +3552,12 @@ html[data-theme="dark"] .chk-cta-banner{background:linear-gradient(90deg,var(--a
               <div class="ra-subtitle">Anime GL nuevo en la base de datos</div>
             </div>
           </div>
+          <div class="strip-nav" id="recentlyAddedStrip_anime_nav">
+            <button class="strip-nav-btn" id="recentlyAddedStrip_anime_prev" onclick="scrollStripBy('recentlyAddedStrip_anime',-1)" title="Anterior" aria-label="Anterior">&#8592;</button>
+            <button class="strip-nav-btn" id="recentlyAddedStrip_anime_next" onclick="scrollStripBy('recentlyAddedStrip_anime',1)" title="Siguiente" aria-label="Siguiente">&#8594;</button>
+          </div>
         </div>
-        <div class="ra-strip" id="recentlyAddedStrip_anime"></div>
+        <div class="ra-strip" id="recentlyAddedStrip_anime" onscroll="updateStripArrows('recentlyAddedStrip_anime')"></div>
       </div>
 
     </div>
@@ -4351,6 +4383,7 @@ function renderWeekView(){
   });
 
   document.getElementById('weekDaysStrip').innerHTML=html;
+  setTimeout(()=>updateStripArrows('weekDaysStrip'), 30);
 }
 
 function toggleMonthCal(){
@@ -8304,6 +8337,8 @@ function renderRecentlyAdded(){
     secAnime.style.display='';
     document.getElementById('recentlyAddedStrip_anime').innerHTML=_buildRaCards(anime);
   } else { secAnime.style.display='none'; }
+
+  setTimeout(updateAllStripArrows, 30);
 }
 
 // Init both on load
@@ -9424,6 +9459,38 @@ function _showRuletaResult(item){
       </div>
     </div>`;
 }
+
+// ── Flechas genéricas para tiras horizontales (week-days-strip, ra-strip) ──
+// Mismo patrón que scrollSimilar/updateSimilarArrows, pero reutilizable por id
+// y ocultando el bloque de flechas entero cuando la tira no necesita scroll
+// (p.ej. en escritorio ancho, o si hay pocos elementos).
+function scrollStripBy(stripId, dir){
+  const strip = document.getElementById(stripId);
+  if(!strip) return;
+  strip.scrollBy({left: dir * Math.round(strip.clientWidth*0.85), behavior:'smooth'});
+}
+function updateStripArrows(stripId){
+  const strip = document.getElementById(stripId);
+  const prev  = document.getElementById(stripId+'_prev');
+  const next  = document.getElementById(stripId+'_next');
+  const nav   = document.getElementById(stripId+'_nav');
+  if(!strip||!prev||!next) return;
+  const scrollable = strip.scrollWidth > strip.clientWidth + 4;
+  if(nav) nav.style.display = scrollable ? '' : 'none';
+  prev.disabled = strip.scrollLeft <= 4;
+  next.disabled = strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 4;
+}
+function updateAllStripArrows(){
+  ['weekDaysStrip','recentlyAddedStrip_series','recentlyAddedStrip_movies','recentlyAddedStrip_anime']
+    .forEach(id=>updateStripArrows(id));
+}
+(function(){
+  let t=null;
+  window.addEventListener('resize', ()=>{
+    clearTimeout(t);
+    t=setTimeout(updateAllStripArrows, 120);
+  });
+})();
 
 function scrollSimilar(stripId, dir){
   const strip = document.getElementById(stripId);
