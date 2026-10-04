@@ -56561,7 +56561,7 @@
       "name": "Slo Pitch",
       "nameEn": "",
       "poster": "https://image.tmdb.org/t/p/w500/cvo5GOJzfow81Xa4mjYseTxfvxD.jpg",
-      "synopsis": "Bienvenidos al mundo de los deportes de ligas amateur, donde Joanne Pico es la entrenadora de «The Public Lass Brovaries», un equipo que ha perdido seis veces la liga. La entrenadora Joanne está decidida a darle la vuelta a la situación esta temporada, a pesar de que su novia —y cofundadora del equipo— acaba de dejarla de forma brutal. A lo largo del verano, Joanne guía a su adorable y caótica pandilla a través de una temporada de strikeouts, rivalidades insignificantes, patrocinadores políticos conservadores y sensuales eventos benéficos de lavado de coches que salen mal. Ahora que su ex juega en un equipo rival, Joanne tiene mucho que demostrar esta temporada. Es hora de superar la ruptura, volver a reunir a la pandilla y, quizá, incluso encontrar un nuevo amor entre cervezas en el banquillo",
+      "synopsis": "A determined coach leads their ragtag LGBTQ+ softball team through ups and downs on and off the field as they chase their dreams.",
       "year": 2026,
       "country": "Canadá",
       "network": "",
@@ -56620,7 +56620,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "episodeDuration": "",
+      "episodeDuration": 30,
       "myPick": false,
       "myPick2026": false,
       "cancelStatus": "",
@@ -56637,7 +56637,7 @@
           "emissionDays": [
             4
           ],
-          "allInOneDay": false,
+          "allInOneDay": true,
           "skipDates": [],
           "episodes": [
             {
@@ -56645,6 +56645,7 @@
               "date": "2026-09-25",
               "skipped": false,
               "source": "tmdb",
+              "duration": 25,
               "still": "https://image.tmdb.org/t/p/w300/2JUiyGUL8aGD2Ov3cdkBzHSVEE3.jpg"
             },
             {
@@ -56654,18 +56655,69 @@
               "source": "tmdb",
               "duration": 23,
               "still": "https://image.tmdb.org/t/p/w300/2NtN6NVEtp0EAnNFTsBXifxeqT9.jpg"
+            },
+            {
+              "num": 3,
+              "date": "2026-10-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 21
+            },
+            {
+              "num": 4,
+              "date": "2026-10-02",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 25
+            },
+            {
+              "num": 5,
+              "date": "2026-10-09",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 6,
+              "date": "2026-10-09",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 7,
+              "date": "2026-10-16",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 8,
+              "date": "2026-10-16",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 9,
+              "date": "2026-10-23",
+              "skipped": false,
+              "source": "tmdb"
+            },
+            {
+              "num": 10,
+              "date": "2026-10-23",
+              "skipped": false,
+              "source": "tmdb"
             }
           ],
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-09-13T15:06:09.455Z",
+      "updatedAt": "2026-10-04T13:32:15.692Z",
       "wlwFocus": "romance-secundario-protagonista",
       "tmdbId": "310890",
       "tmdbKind": "tv",
       "tmdbRating": 10,
       "tmdbVoteCount": 3,
-      "couples": []
+      "couples": [],
+      "biFormat": false
     },
     {
       "id": "1787777722275",
@@ -93022,5 +93074,5 @@
       ]
     }
   },
-  "exportedAt": "2026-10-04T12:09:16.931Z"
+  "exportedAt": "2026-10-04T13:32:21.945Z"
 }
