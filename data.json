@@ -55569,13 +55569,13 @@
       "name": "The Guy She Was Interested In Wasn’t a Guy at All",
       "nameEn": "気になってる人が男じゃなかった",
       "poster": "https://a.storyblok.com/f/178900/1064x1505/86a132704a/the-guy-she-was-interested-in-wasn-t-a-guy-at-all-kv-1064.png/m/filters:quality(95)format(webp)",
-      "synopsis": "Aya, una estudiante de secundaria moderna y optimista, adora escuchar rock, pero nadie más parece compartir su gusto… hasta que conoce a un empleado genial y con mucho estilo en una tienda de discos. Vestido completamente de negro, tiene un aire misterioso y un gusto musical impecable. Aya se enamora perdidamente de él, sin saber que en realidad está enamorada de su compañera de clase, Mitsuki. Por su parte, Mitsuki suele ser reservada y evita llamar la atención en la escuela. Pero como se sienta justo al lado de Aya, Mitsuki es muy consciente de los sentimientos de la otra chica y tiene miedo de revelar la verdad. Entonces, ¿por qué empieza a hablar cada vez más con Aya…?",
+      "synopsis": "Aya se enamora de un chico misterioso de una tienda de discos, pero descubre que en realidad es Mitsuki, su compañera de clase. ¿Qué pasará con este inesperado amor?",
       "year": 2027,
       "country": "Japón",
       "network": "",
       "networkUrl": "",
       "watchLinks": [],
-      "trailerUrl": "https://youtu.be/TL-IGyJGf-w?si=gPpMwvi3si2-BHr8",
+      "trailerUrl": "https://www.youtube.com/watch?v=2KPFnP1othM",
       "bookSource": "",
       "basedOnBook": false,
       "sourceType": "",
@@ -55583,7 +55583,11 @@
       "bookLinks": [],
       "bookUrl": "",
       "upcoming": true,
-      "genres": [],
+      "genres": [
+        "Animación",
+        "Comedia",
+        "Drama"
+      ],
       "moods": [],
       "tropos": [],
       "dinamica": [],
@@ -55602,8 +55606,15 @@
       "snLastUpdate": "",
       "snNote": "",
       "productoraId": "",
-      "updatedAt": "2026-09-11T23:13:45.141Z",
-      "wlwFocus": "pareja-principal"
+      "updatedAt": "2026-10-10T09:22:13.573Z",
+      "wlwFocus": "pareja-principal",
+      "couples": [],
+      "biFormat": false,
+      "tmdbId": "284751",
+      "tmdbKind": "tv",
+      "tmdbRating": "",
+      "tmdbVoteCount": 0,
+      "streaming": {}
     },
     {
       "id": "1786304715513",
@@ -73968,6 +73979,487 @@
       "tmdbRating": "",
       "tmdbVoteCount": 0,
       "updatedAt": "2026-10-04T08:44:22.682Z"
+    },
+    {
+      "id": "1791624175050",
+      "name": "The Unseen",
+      "nameEn": "暗处",
+      "poster": "https://image.tmdb.org/t/p/w500/fiI8VPRfsk5Xe43Eq7ldZiarXND.jpg",
+      "synopsis": "Mientras investiga el presunto suicidio de su hermana, la bloguera Shen Man se ve envuelta en un extraño caso relacionado con la histerectomía de la obstetra Ai Xia, convirtiéndose en la principal sospechosa. La oficial de policía Jiang Li la ayuda a limpiar su nombre. Una simple postal, que vincula ambos casos, obliga a estas dos mujeres opuestas a unir fuerzas. Sin embargo, un segundo asesinato ocurre rápidamente, espesando la niebla del misterio...",
+      "year": 2026,
+      "country": "China",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Crimen",
+        "Misterio"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "subtexto",
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "tmdbId": "290983",
+      "tmdbKind": "tv",
+      "tmdbRating": 10,
+      "tmdbVoteCount": 1,
+      "streaming": {},
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-01-23",
+          "totalEpisodes": 24,
+          "emissionDays": [
+            0
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "skipped": false,
+              "date": "2026-01-23",
+              "source": "tmdb"
+            },
+            {
+              "num": 2,
+              "skipped": false,
+              "date": "2026-01-23",
+              "source": "tmdb"
+            },
+            {
+              "num": 3,
+              "skipped": false,
+              "date": "2026-01-23",
+              "source": "tmdb"
+            },
+            {
+              "num": 4,
+              "skipped": false,
+              "date": "2026-01-23",
+              "source": "tmdb"
+            },
+            {
+              "num": 5,
+              "skipped": false,
+              "date": "2026-01-23",
+              "source": "tmdb"
+            },
+            {
+              "num": 6,
+              "skipped": false,
+              "date": "2026-01-23",
+              "source": "tmdb"
+            },
+            {
+              "num": 7,
+              "skipped": false,
+              "date": "2026-01-24",
+              "source": "tmdb"
+            },
+            {
+              "num": 8,
+              "skipped": false,
+              "date": "2026-01-24",
+              "source": "tmdb"
+            },
+            {
+              "num": 9,
+              "skipped": false,
+              "date": "2026-01-25",
+              "source": "tmdb"
+            },
+            {
+              "num": 10,
+              "skipped": false,
+              "date": "2026-01-25",
+              "source": "tmdb"
+            },
+            {
+              "num": 11,
+              "skipped": false,
+              "date": "2026-01-26",
+              "source": "tmdb"
+            },
+            {
+              "num": 12,
+              "skipped": false,
+              "date": "2026-01-26",
+              "source": "tmdb"
+            },
+            {
+              "num": 13,
+              "skipped": false,
+              "date": "2026-01-27",
+              "source": "tmdb"
+            },
+            {
+              "num": 14,
+              "skipped": false,
+              "date": "2026-01-28",
+              "source": "tmdb"
+            },
+            {
+              "num": 15,
+              "skipped": false,
+              "date": "2026-01-29",
+              "source": "tmdb"
+            },
+            {
+              "num": 16,
+              "skipped": false,
+              "date": "2026-01-30",
+              "source": "tmdb"
+            },
+            {
+              "num": 17,
+              "skipped": false,
+              "date": "2026-01-31",
+              "source": "tmdb"
+            },
+            {
+              "num": 18,
+              "skipped": false,
+              "date": "2026-02-01",
+              "source": "tmdb"
+            },
+            {
+              "num": 19,
+              "skipped": false,
+              "date": "2026-02-02",
+              "source": "tmdb"
+            },
+            {
+              "num": 20,
+              "skipped": false,
+              "date": "2026-02-02",
+              "source": "tmdb"
+            },
+            {
+              "num": 21,
+              "skipped": false,
+              "date": "2026-02-02",
+              "source": "tmdb"
+            },
+            {
+              "num": 22,
+              "skipped": false,
+              "date": "2026-02-02",
+              "source": "tmdb"
+            },
+            {
+              "num": 23,
+              "skipped": false,
+              "date": "2026-02-02",
+              "source": "tmdb"
+            },
+            {
+              "num": 24,
+              "skipped": false,
+              "date": "2026-02-02",
+              "source": "tmdb"
+            }
+          ],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-10-10T09:27:11.842Z"
+    },
+    {
+      "id": "1791624215359",
+      "name": "Duet of Shadows",
+      "nameEn": "双姝美探",
+      "poster": "https://image.tmdb.org/t/p/w500/79Uv5tW1gua2eFYlnuCNN49EMfJ.jpg",
+      "synopsis": "En el Shanghái de los años veinte, la heredera Lin Lan se convierte en detective del Departamento Central de Policía y forma equipo con la experta forense Qin Xin y un hábil equipo de investigación. Juntas se enfrentan a casos extraordinarios, formando un poderoso dúo de detectives y forjando al mismo tiempo una amistad inquebrantable.",
+      "year": 2026,
+      "country": "China",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Drama",
+        "Misterio"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "subtexto",
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [],
+      "couples": [],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": "",
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "",
+      "tmdbId": "312731",
+      "tmdbKind": "tv",
+      "tmdbRating": 6.5,
+      "tmdbVoteCount": 2,
+      "streaming": {},
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-02-04",
+          "totalEpisodes": 31,
+          "emissionDays": [
+            0
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb"
+            },
+            {
+              "num": 2,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb"
+            },
+            {
+              "num": 3,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb"
+            },
+            {
+              "num": 4,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb"
+            },
+            {
+              "num": 5,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb"
+            },
+            {
+              "num": 6,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb"
+            },
+            {
+              "num": 7,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb"
+            },
+            {
+              "num": 8,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb"
+            },
+            {
+              "num": 9,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb"
+            },
+            {
+              "num": 10,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb"
+            },
+            {
+              "num": 11,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb"
+            },
+            {
+              "num": 12,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb"
+            },
+            {
+              "num": 13,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb",
+              "duration": 19
+            },
+            {
+              "num": 14,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb",
+              "duration": 18
+            },
+            {
+              "num": 15,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb",
+              "duration": 19
+            },
+            {
+              "num": 16,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb",
+              "duration": 18
+            },
+            {
+              "num": 17,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb",
+              "duration": 19
+            },
+            {
+              "num": 18,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb",
+              "duration": 18
+            },
+            {
+              "num": 19,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb",
+              "duration": 19
+            },
+            {
+              "num": 20,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb",
+              "duration": 18
+            },
+            {
+              "num": 21,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb",
+              "duration": 17
+            },
+            {
+              "num": 22,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb",
+              "duration": 19
+            },
+            {
+              "num": 23,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb",
+              "duration": 19
+            },
+            {
+              "num": 24,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb",
+              "duration": 19
+            },
+            {
+              "num": 25,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb",
+              "duration": 19
+            },
+            {
+              "num": 26,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb",
+              "duration": 19
+            },
+            {
+              "num": 27,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb",
+              "duration": 19
+            },
+            {
+              "num": 28,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb",
+              "duration": 19
+            },
+            {
+              "num": 29,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb",
+              "duration": 18
+            },
+            {
+              "num": 30,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb",
+              "duration": 19
+            },
+            {
+              "num": 31,
+              "skipped": false,
+              "date": "2026-02-04",
+              "source": "tmdb",
+              "duration": 18
+            }
+          ],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-10-10T09:27:17.857Z"
     }
   ],
   "movies": [
@@ -87273,6 +87765,147 @@
       "tmdbRating": "",
       "tmdbVoteCount": 0,
       "updatedAt": "2026-09-24T19:09:05.219Z"
+    },
+    {
+      "id": "1791624328962",
+      "name": "Mi nombre era Eileen",
+      "nameEn": "",
+      "poster": "https://image.tmdb.org/t/p/w500/6xKD6etr0ECYokegyZPz4lfLYHK.jpg",
+      "synopsis": "Boston, años 60. Eileen es una chica atrapada entre un hogar lúgubre con un padre alcohólico y su empleo en una prisión, donde sus compañeros la han condenado al ostracismo. Cuando una guapa y magnética mujer se une al personal de la prisión, Eileen es incapaz de resistirse a esa milagrosa e incipiente amistad. Pero esa amistad la involucrará en un crimen que alterará todo.",
+      "year": 2023,
+      "country": "Estados Unidos",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://www.youtube.com/watch?v=otDHCJcdN34",
+      "date": "2023-12-01",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Crimen",
+        "Thriller"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "wlwFocus": "",
+      "awards": [],
+      "category": "movie",
+      "biFormat": false,
+      "movieType": "film",
+      "duration": 98,
+      "cast": [],
+      "couples": [],
+      "productoraId": "",
+      "tmdbId": "664341",
+      "tmdbKind": "movie",
+      "tmdbRating": 5.8,
+      "tmdbVoteCount": 426,
+      "streaming": {},
+      "updatedAt": "2026-10-10T09:25:28.962Z"
+    },
+    {
+      "id": "1791624402628",
+      "name": "La boda de mi madre",
+      "nameEn": "",
+      "poster": "https://image.tmdb.org/t/p/w500/dNRGnUmBJwxa8VitUPbz99KdPnO.jpg",
+      "synopsis": "Tres hermanas regresan a su casa para la tercera boda de su madre. Pero madre e hijas se ven obligadas a volver a visitar el pasado y confrontar el futuro, con la ayuda de un colorido grupo de invitados inesperados a la boda.",
+      "year": 2025,
+      "country": "Estados Unidos",
+      "network": "Movistar Plus+ Ficción Total, SkyShowtime, HBO Max, HBO Max Amazon Channel",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://www.youtube.com/watch?v=tdhh-2iW_n8",
+      "date": "2025-08-08",
+      "basedOnBook": false,
+      "bookSource": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "genres": [
+        "Comedia",
+        "Drama"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "sourceType": "",
+      "wlwFocus": "",
+      "awards": [],
+      "category": "movie",
+      "biFormat": false,
+      "movieType": "film",
+      "duration": 96,
+      "cast": [],
+      "couples": [],
+      "productoraId": "",
+      "tmdbId": "985602",
+      "tmdbKind": "movie",
+      "tmdbRating": 6.1,
+      "tmdbVoteCount": 59,
+      "streaming": {
+        "ES": [
+          {
+            "name": "Movistar Plus+ Ficción Total",
+            "url": "",
+            "type": "flatrate"
+          },
+          {
+            "name": "SkyShowtime",
+            "url": "",
+            "type": "flatrate"
+          }
+        ],
+        "MX": [
+          {
+            "name": "HBO Max",
+            "url": "",
+            "type": "flatrate"
+          },
+          {
+            "name": "HBO Max Amazon Channel",
+            "url": "",
+            "type": "flatrate"
+          },
+          {
+            "name": "Apple TV Store",
+            "url": "",
+            "type": "rent"
+          },
+          {
+            "name": "Apple TV Store",
+            "url": "",
+            "type": "buy"
+          },
+          {
+            "name": "Prime Video",
+            "url": "https://www.primevideo.com",
+            "type": "buy"
+          }
+        ],
+        "AR": [
+          {
+            "name": "HBO Max",
+            "url": "",
+            "type": "flatrate"
+          },
+          {
+            "name": "Apple TV Store",
+            "url": "",
+            "type": "rent"
+          },
+          {
+            "name": "Apple TV Store",
+            "url": "",
+            "type": "buy"
+          }
+        ]
+      },
+      "updatedAt": "2026-10-10T09:26:42.628Z"
     }
   ],
   "actresses": [
@@ -93098,5 +93731,5 @@
       ]
     }
   },
-  "exportedAt": "2026-10-05T21:05:29.090Z"
+  "exportedAt": "2026-10-10T09:27:20.571Z"
 }
