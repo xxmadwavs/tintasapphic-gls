@@ -2078,7 +2078,7 @@
       "name": "Love Bound",
       "poster": "https://image.tmdb.org/t/p/w500/yHd0oWMjP40qvAvjj2do3TOgLuU.jpg",
       "synopsis": "Tres mujeres, cada una de ellas cargando con el peso del amor, la traición y las penas del pasado, ven cómo sus vidas se entrelazan en un apasionante viaje hacia la sanación, el perdón y los nuevos comienzos.",
-      "year": "",
+      "year": 2026,
       "country": "Tailandia",
       "network": "",
       "networkUrl": "",
@@ -2086,11 +2086,11 @@
       "basedOnBook": true,
       "bookCoverUrl": "https://cdn-local.mebmarket.com/meb/server1/413568/Thumbnail/book_detail_large.gif?4",
       "bookUrl": "https://en.mebmarket.com/?action=book_details&book_id=413568",
-      "upcoming": true,
+      "upcoming": false,
       "skipDates": [],
       "episodes": [],
       "watchLinks": [],
-      "trailerUrl": "https://youtu.be/iflgdLZf_BU",
+      "trailerUrl": "https://www.youtube.com/watch?v=iflgdLZf_BU",
       "bookLinks": [
         {
           "lang": "en",
@@ -2121,7 +2121,7 @@
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-09-11T23:55:07.394Z",
+      "updatedAt": "2026-10-15T20:28:32.089Z",
       "episodeDuration": "",
       "myPick": false,
       "myPick2026": false,
@@ -2143,10 +2143,33 @@
           "1778781856216"
         ]
       ],
-      "tmdbId": 303533,
+      "tmdbId": "303533",
       "tmdbKind": "tv",
       "tmdbRating": "",
-      "tmdbVoteCount": 0
+      "tmdbVoteCount": 0,
+      "biFormat": false,
+      "streaming": {},
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-11-08",
+          "totalEpisodes": 12,
+          "emissionDays": [
+            6
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [
+            {
+              "num": 1,
+              "skipped": false,
+              "date": "2026-11-08",
+              "source": "tmdb"
+            }
+          ],
+          "premiereSchedule": []
+        }
+      ]
     },
     {
       "id": "1776932412578",
@@ -54118,12 +54141,12 @@
     },
     {
       "id": "1780730384619",
-      "name": "Hak Na My Boss",
-      "nameEn": "ฮักนะ My Bos",
-      "poster": "https://pbs.twimg.com/media/HKGguI7WUAAtkpy?format=jpg&name=4096x4096",
-      "synopsis": "Cuando una secretaria decidida y dedicada empieza a trabajar codo con codo con una jefa perfecta y admirable, una relación que comenzó simplemente por obligación profesional se va transformando poco a poco en un sentimiento difícil de negar.",
-      "year": "",
-      "country": "",
+      "name": "My Boss: I Love You",
+      "nameEn": "ฮักนะ..MyBoss",
+      "poster": "https://image.tmdb.org/t/p/w500/glTqct2gQ5BWzEvKdMfxNzwOcSu.jpg",
+      "synopsis": "Me llamo Chama y soy la propietaria de una empresa de importación y exportación tan exitosa que me han concedido varios premios como mujer de negocios. A medida que mi negocio crecía, también aumentaba la necesidad de contratar a más empleados, lo que me llevó a conocer a Nilmookda.\n\nEra una recién graduada que había solicitado un puesto en el departamento de contabilidad. En cuanto la vi, supe que era amor a primera vista. Era la mujer de mi vida.\n\nEmpecé a regalarle ramos de flores, a dejarle notas adhesivas en su mesa y a colmarla de fruta y regalos. Pero su reacción no fue la que esperaba. Se volvió paranoica, convencida de que alguien la estaba vigilando. ¡Ay, aunque mis intenciones eran buenas, su respuesta me hizo perder toda la confianza!",
+      "year": 2026,
+      "country": "Tailandia",
       "network": "",
       "networkUrl": "",
       "watchLinks": [],
@@ -54146,7 +54169,9 @@
       ],
       "bookUrl": "https://www.mebmarket.com/ebook-387856-I-LOVE-YOU-English-ver-",
       "upcoming": false,
-      "genres": [],
+      "genres": [
+        "Drama"
+      ],
       "moods": [],
       "tropos": [],
       "dinamica": [],
@@ -54188,17 +54213,20 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-08-31T18:23:19.299Z",
+      "updatedAt": "2026-10-15T20:29:31.139Z",
       "couples": [
         [
           "1780730128005",
           "1780730283694"
         ]
       ],
-      "tmdbId": 315165,
+      "tmdbId": "315165",
       "tmdbKind": "tv",
       "tmdbRating": "",
-      "tmdbVoteCount": 0
+      "tmdbVoteCount": 0,
+      "wlwFocus": "",
+      "biFormat": false,
+      "streaming": {}
     },
     {
       "id": "1780758236051",
@@ -93909,5 +93937,5 @@
       ]
     }
   },
-  "exportedAt": "2026-10-15T07:39:49.271Z"
+  "exportedAt": "2026-10-15T20:29:34.151Z"
 }
