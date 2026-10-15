@@ -739,7 +739,7 @@
       "tmdbId": 312583,
       "tmdbKind": "tv",
       "tmdbRating": 8.2,
-      "tmdbVoteCount": 9
+      "tmdbVoteCount": 10
     },
     {
       "id": "1776889365998",
@@ -2035,7 +2035,8 @@
               "num": 5,
               "date": "2026-10-09",
               "skipped": false,
-              "source": "tmdb"
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/odkgYeP9Fi1jN0GtzlPGPlJQ5ls.jpg"
             },
             {
               "num": 6,
@@ -3604,7 +3605,8 @@
               "num": 6,
               "date": "2026-10-10",
               "skipped": false,
-              "source": "tmdb"
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/wydx8KigKUQBstAFv0vKxhqqopU.jpg"
             },
             {
               "num": 7,
@@ -3703,11 +3705,15 @@
         {
           "actressId": "1789219190319",
           "character": "Peach"
+        },
+        {
+          "actressId": "1778667608624",
+          "character": "Elle"
         }
       ],
       "animeSeason": "",
       "renewedNextSeason": false,
-      "updatedAt": "2026-09-12T13:20:00.237Z",
+      "updatedAt": "2026-10-15T07:27:23.832Z",
       "nameEn": "เงาใต้พระจันทร์",
       "episodeDuration": 64,
       "myPick": false,
@@ -3804,13 +3810,15 @@
               "num": 9,
               "date": "2026-10-07",
               "skipped": false,
-              "source": "tmdb"
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/zUDIVikGsW3QdIvFeu2fuXEajF2.jpg"
             },
             {
               "num": 10,
               "date": "2026-10-14",
               "skipped": false,
-              "source": "tmdb"
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/npEpKnnfmXBk10tchq7e58JgriV.jpg"
             }
           ],
           "premiereSchedule": []
@@ -3820,13 +3828,19 @@
         [
           "1778667533099",
           "1778667585326"
+        ],
+        [
+          "1778667631376",
+          "1778667608624"
         ]
       ],
       "tmdbId": "307433",
       "tmdbKind": "tv",
       "tmdbRating": 8.5,
       "tmdbVoteCount": 2,
-      "wlwFocus": "pareja-principal"
+      "wlwFocus": "pareja-principal",
+      "biFormat": false,
+      "streaming": {}
     },
     {
       "id": "1776971628835",
@@ -4873,13 +4887,15 @@
               "num": 5,
               "date": "2026-10-05",
               "skipped": false,
-              "source": "tmdb"
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/aAMufbn2QaxM6EDg9dJoifnyn5B.jpg"
             },
             {
               "num": 6,
               "date": "2026-10-12",
               "skipped": false,
-              "source": "tmdb"
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/uoW548rJRFLURVJ7yx3fQ0beFHA.jpg"
             },
             {
               "num": 7,
@@ -4922,7 +4938,7 @@
       "tmdbId": "308261",
       "tmdbKind": "tv",
       "tmdbRating": 9,
-      "tmdbVoteCount": 1,
+      "tmdbVoteCount": 2,
       "wlwFocus": "pareja-principal",
       "biFormat": false
     },
@@ -6340,7 +6356,8 @@
               "num": 5,
               "date": "2026-10-10",
               "skipped": false,
-              "source": "tmdb"
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/PopBlS01Fl4GHyJAPBpTdZKZwC.jpg"
             },
             {
               "num": 6,
@@ -8793,7 +8810,7 @@
       "tmdbId": "87689",
       "tmdbKind": "tv",
       "tmdbRating": 7.9,
-      "tmdbVoteCount": 1339,
+      "tmdbVoteCount": 1342,
       "sourceType": "",
       "moods": [],
       "tropos": [],
@@ -8927,7 +8944,7 @@
       "tmdbId": "225171",
       "tmdbKind": "tv",
       "tmdbRating": 7.9,
-      "tmdbVoteCount": 1134,
+      "tmdbVoteCount": 1151,
       "sourceType": "",
       "moods": [],
       "tropos": [],
@@ -10142,7 +10159,7 @@
       ],
       "tmdbId": "320866",
       "tmdbKind": "tv",
-      "tmdbRating": 6.3,
+      "tmdbRating": 6.2,
       "tmdbVoteCount": 8,
       "wlwFocus": "pareja-principal"
     },
@@ -11576,7 +11593,7 @@
       "tmdbId": "257788",
       "tmdbKind": "tv",
       "tmdbRating": 8.2,
-      "tmdbVoteCount": 60,
+      "tmdbVoteCount": 61,
       "tropos": [],
       "dinamica": [],
       "wlwFocus": "pareja-principal",
@@ -17435,8 +17452,8 @@
       "episodeDuration": 8,
       "tmdbId": "310616",
       "tmdbKind": "tv",
-      "tmdbRating": 5.8,
-      "tmdbVoteCount": 4,
+      "tmdbRating": 6,
+      "tmdbVoteCount": 5,
       "sourceType": "",
       "moods": [],
       "tropos": [],
@@ -21111,7 +21128,7 @@
       "tmdbId": "99610",
       "tmdbKind": "tv",
       "tmdbRating": 7.1,
-      "tmdbVoteCount": 255,
+      "tmdbVoteCount": 256,
       "wlwFocus": "pareja-principal",
       "sourceType": "",
       "moods": [],
@@ -21816,7 +21833,7 @@
       "tmdbId": "111616",
       "tmdbKind": "tv",
       "tmdbRating": 7.7,
-      "tmdbVoteCount": 350,
+      "tmdbVoteCount": 351,
       "sourceType": "",
       "moods": [],
       "tropos": [],
@@ -23005,7 +23022,7 @@
       "tmdbId": "1424",
       "tmdbKind": "tv",
       "tmdbRating": 7.6,
-      "tmdbVoteCount": 2917,
+      "tmdbVoteCount": 2921,
       "wlwFocus": "romance-secundario-protagonista",
       "sourceType": "",
       "moods": [],
@@ -23626,7 +23643,7 @@
       "tmdbId": "62455",
       "tmdbKind": "tv",
       "tmdbRating": 8,
-      "tmdbVoteCount": 2538,
+      "tmdbVoteCount": 2539,
       "wlwFocus": "romance-secundario-protagonista",
       "sourceType": "",
       "moods": [],
@@ -24091,7 +24108,7 @@
       "tmdbId": "92685",
       "tmdbKind": "tv",
       "tmdbRating": 8.7,
-      "tmdbVoteCount": 1845,
+      "tmdbVoteCount": 1847,
       "wlwFocus": "romance-secundario-protagonista",
       "sourceType": "",
       "moods": [],
@@ -24436,7 +24453,7 @@
       "tmdbId": "89901",
       "tmdbKind": "tv",
       "tmdbRating": 8.5,
-      "tmdbVoteCount": 999,
+      "tmdbVoteCount": 1001,
       "sourceType": "",
       "moods": [],
       "tropos": [],
@@ -25409,7 +25426,7 @@
       ],
       "tmdbId": "2081",
       "tmdbKind": "tv",
-      "tmdbRating": 7.2,
+      "tmdbRating": 7.3,
       "tmdbVoteCount": 34,
       "wlwFocus": "pareja-principal",
       "sourceType": "",
@@ -26290,7 +26307,7 @@
       "tmdbId": "33852",
       "tmdbKind": "tv",
       "tmdbRating": 7.7,
-      "tmdbVoteCount": 458,
+      "tmdbVoteCount": 460,
       "wlwFocus": "romance-secundario-protagonista",
       "sourceType": "",
       "moods": [],
@@ -26589,7 +26606,7 @@
       "tmdbId": "56336",
       "tmdbKind": "tv",
       "tmdbRating": 7.5,
-      "tmdbVoteCount": 120,
+      "tmdbVoteCount": 121,
       "wlwFocus": "romance-secundario-protagonista",
       "sourceType": "",
       "moods": [],
@@ -28509,7 +28526,7 @@
       "tmdbId": "48866",
       "tmdbKind": "tv",
       "tmdbRating": 7.9,
-      "tmdbVoteCount": 8812,
+      "tmdbVoteCount": 8824,
       "wlwFocus": "romance-secundario-protagonista",
       "sourceType": "",
       "moods": [],
@@ -31065,7 +31082,7 @@
       "tmdbId": "62643",
       "tmdbKind": "tv",
       "tmdbRating": 7.2,
-      "tmdbVoteCount": 2525,
+      "tmdbVoteCount": 2529,
       "sourceType": "",
       "moods": [],
       "tropos": [],
@@ -32051,7 +32068,7 @@
       "tmdbId": "85552",
       "tmdbKind": "tv",
       "tmdbRating": 8.3,
-      "tmdbVoteCount": 11109,
+      "tmdbVoteCount": 11124,
       "sourceType": "",
       "moods": [],
       "tropos": [],
@@ -32636,7 +32653,7 @@
       "tmdbId": "74440",
       "tmdbKind": "tv",
       "tmdbRating": 8.3,
-      "tmdbVoteCount": 1191,
+      "tmdbVoteCount": 1193,
       "sourceType": "",
       "moods": [],
       "tropos": [],
@@ -33334,7 +33351,7 @@
       "tmdbId": 81354,
       "tmdbKind": "tv",
       "tmdbRating": 7.6,
-      "tmdbVoteCount": 1288,
+      "tmdbVoteCount": 1289,
       "wlwFocus": "romance-secundario-protagonista"
     },
     {
@@ -33934,7 +33951,7 @@
       "tmdbId": "117488",
       "tmdbKind": "tv",
       "tmdbRating": 7.4,
-      "tmdbVoteCount": 1046,
+      "tmdbVoteCount": 1053,
       "sourceType": "",
       "moods": [],
       "tropos": [],
@@ -34271,7 +34288,7 @@
       "tmdbId": "134373",
       "tmdbKind": "tv",
       "tmdbRating": 7.2,
-      "tmdbVoteCount": 391,
+      "tmdbVoteCount": 392,
       "sourceType": "",
       "moods": [],
       "tropos": [],
@@ -34504,7 +34521,7 @@
       "tmdbId": "94605",
       "tmdbKind": "tv",
       "tmdbRating": 8.7,
-      "tmdbVoteCount": 6214,
+      "tmdbVoteCount": 6235,
       "wlwFocus": "romance-secundario-protagonista",
       "sourceType": "",
       "moods": [],
@@ -36645,7 +36662,7 @@
       "tmdbId": "100088",
       "tmdbKind": "tv",
       "tmdbRating": 8.4,
-      "tmdbVoteCount": 7385,
+      "tmdbVoteCount": 7418,
       "sourceType": "",
       "moods": [],
       "tropos": [],
@@ -36930,7 +36947,7 @@
       "tmdbId": "113962",
       "tmdbKind": "tv",
       "tmdbRating": 8.3,
-      "tmdbVoteCount": 1672,
+      "tmdbVoteCount": 1696,
       "sourceType": "",
       "moods": [],
       "tropos": [],
@@ -37418,7 +37435,7 @@
       "tmdbId": 92783,
       "tmdbKind": "tv",
       "tmdbRating": 6.1,
-      "tmdbVoteCount": 2610,
+      "tmdbVoteCount": 2615,
       "wlwFocus": "pareja-principal"
     },
     {
@@ -37719,8 +37736,8 @@
       "nameEn": "The Lost Flowers of Alice Hart",
       "tmdbId": "125816",
       "tmdbKind": "tv",
-      "tmdbRating": 7.7,
-      "tmdbVoteCount": 159,
+      "tmdbRating": 7.6,
+      "tmdbVoteCount": 160,
       "sourceType": "",
       "moods": [],
       "tropos": [],
@@ -37856,7 +37873,7 @@
       "tmdbId": "211358",
       "tmdbKind": "tv",
       "tmdbRating": 7.7,
-      "tmdbVoteCount": 249,
+      "tmdbVoteCount": 251,
       "sourceType": "",
       "moods": [],
       "tropos": [],
@@ -37998,7 +38015,7 @@
       "tmdbId": "138501",
       "tmdbKind": "tv",
       "tmdbRating": 7.4,
-      "tmdbVoteCount": 1049,
+      "tmdbVoteCount": 1058,
       "sourceType": "",
       "moods": [],
       "tropos": [],
@@ -42416,7 +42433,7 @@
       "tmdbId": 94997,
       "tmdbKind": "tv",
       "tmdbRating": 8.4,
-      "tmdbVoteCount": 7186,
+      "tmdbVoteCount": 7219,
       "wlwFocus": "pareja-principal"
     },
     {
@@ -42973,7 +42990,7 @@
       "tmdbId": "72750",
       "tmdbKind": "tv",
       "tmdbRating": 7.9,
-      "tmdbVoteCount": 1565,
+      "tmdbVoteCount": 1575,
       "wlwFocus": "romance-secundario-protagonista",
       "tropos": [],
       "dinamica": [],
@@ -43480,7 +43497,7 @@
       "tmdbId": 56296,
       "tmdbKind": "tv",
       "tmdbRating": 7.8,
-      "tmdbVoteCount": 1497,
+      "tmdbVoteCount": 1506,
       "wlwFocus": "pareja-secundaria"
     },
     {
@@ -44129,7 +44146,7 @@
       "tmdbId": 61664,
       "tmdbKind": "tv",
       "tmdbRating": 7.7,
-      "tmdbVoteCount": 1942,
+      "tmdbVoteCount": 1949,
       "wlwFocus": "romance-secundario-protagonista"
     },
     {
@@ -44606,7 +44623,7 @@
       "tmdbId": 65988,
       "tmdbKind": "tv",
       "tmdbRating": 7.8,
-      "tmdbVoteCount": 830,
+      "tmdbVoteCount": 831,
       "wlwFocus": "pareja-secundaria"
     },
     {
@@ -45217,7 +45234,7 @@
       "tmdbId": 124101,
       "tmdbKind": "tv",
       "tmdbRating": 7.5,
-      "tmdbVoteCount": 396,
+      "tmdbVoteCount": 403,
       "wlwFocus": "romance-secundario-protagonista"
     },
     {
@@ -46153,7 +46170,7 @@
       "tmdbId": 89247,
       "tmdbKind": "tv",
       "tmdbRating": 6.8,
-      "tmdbVoteCount": 1611
+      "tmdbVoteCount": 1615
     },
     {
       "id": "1778402515248",
@@ -46835,7 +46852,7 @@
       "tmdbId": 71225,
       "tmdbKind": "tv",
       "tmdbRating": 7.8,
-      "tmdbVoteCount": 501
+      "tmdbVoteCount": 502
     },
     {
       "id": "1778402853203",
@@ -47290,7 +47307,7 @@
       "tmdbId": 69017,
       "tmdbKind": "tv",
       "tmdbRating": 7.7,
-      "tmdbVoteCount": 203
+      "tmdbVoteCount": 205
     },
     {
       "id": "1778403375094",
@@ -48752,7 +48769,7 @@
       "tmdbId": 31917,
       "tmdbKind": "tv",
       "tmdbRating": 8,
-      "tmdbVoteCount": 2847
+      "tmdbVoteCount": 2854
     },
     {
       "id": "1778404949218",
@@ -49269,7 +49286,7 @@
       "tmdbId": 81357,
       "tmdbKind": "tv",
       "tmdbRating": 7.3,
-      "tmdbVoteCount": 657
+      "tmdbVoteCount": 660
     },
     {
       "id": "1778405237229",
@@ -49499,7 +49516,7 @@
       "tmdbId": 113367,
       "tmdbKind": "tv",
       "tmdbRating": 7.6,
-      "tmdbVoteCount": 505
+      "tmdbVoteCount": 506
     },
     {
       "id": "1778405690996",
@@ -52090,8 +52107,8 @@
       ],
       "tmdbId": 299681,
       "tmdbKind": "tv",
-      "tmdbRating": 6.7,
-      "tmdbVoteCount": 3
+      "tmdbRating": 7.3,
+      "tmdbVoteCount": 4
     },
     {
       "id": "1778933359445",
@@ -52766,7 +52783,7 @@
       "tmdbId": 259288,
       "tmdbKind": "tv",
       "tmdbRating": 8.7,
-      "tmdbVoteCount": 124
+      "tmdbVoteCount": 125
     },
     {
       "id": "1778937948266",
@@ -53322,8 +53339,8 @@
       ],
       "tmdbId": "291920",
       "tmdbKind": "tv",
-      "tmdbRating": 6.2,
-      "tmdbVoteCount": 14,
+      "tmdbRating": 6.4,
+      "tmdbVoteCount": 15,
       "tropos": [],
       "dinamica": [],
       "wlwFocus": "pareja-principal",
@@ -54564,8 +54581,8 @@
       "wlwFocus": "pareja-principal",
       "tmdbId": 285574,
       "tmdbKind": "tv",
-      "tmdbRating": 9.1,
-      "tmdbVoteCount": 12
+      "tmdbRating": 8.5,
+      "tmdbVoteCount": 15
     },
     {
       "id": "1781080190265",
@@ -55411,6 +55428,14 @@
               "source": "tmdb",
               "duration": 62,
               "still": "https://image.tmdb.org/t/p/w300/dURPNXz8tL7g78T8Evkz9om2BCG.jpg"
+            },
+            {
+              "num": 6,
+              "date": "2026-10-11",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 64,
+              "still": "https://image.tmdb.org/t/p/w300/oBbIfQwWvwlp5ulsIujBjX5nbi7.jpg"
             }
           ],
           "premiereSchedule": []
@@ -55971,7 +55996,7 @@
       "tmdbId": 283297,
       "tmdbKind": "tv",
       "tmdbRating": 8.2,
-      "tmdbVoteCount": 161
+      "tmdbVoteCount": 168
     },
     {
       "id": "1787683046577",
@@ -56262,6 +56287,14 @@
               "source": "tmdb",
               "duration": 24,
               "still": "https://image.tmdb.org/t/p/w300/uX3ZE3OoRDuDnp3EPAXKJiNX1pn.jpg"
+            },
+            {
+              "num": 5,
+              "date": "2026-10-09",
+              "skipped": false,
+              "source": "tmdb",
+              "duration": 24,
+              "still": "https://image.tmdb.org/t/p/w300/ffKgLgVcytJXKxI8W3JN6izwxu5.jpg"
             }
           ],
           "premiereSchedule": []
@@ -56444,7 +56477,7 @@
       "tmdbId": "295071",
       "tmdbKind": "tv",
       "tmdbRating": 7.5,
-      "tmdbVoteCount": 17,
+      "tmdbVoteCount": 20,
       "wlwFocus": "presencia-sin-desarrollo",
       "couples": [],
       "biFormat": false
@@ -56696,13 +56729,15 @@
               "num": 5,
               "date": "2026-10-09",
               "skipped": false,
-              "source": "tmdb"
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/rwUwhjZQhKwCiGPXYr41A488vvG.jpg"
             },
             {
               "num": 6,
               "date": "2026-10-09",
               "skipped": false,
-              "source": "tmdb"
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/bQppDzK8ObqISdnrYQRt5z76OTk.jpg"
             },
             {
               "num": 7,
@@ -57260,8 +57295,8 @@
       "couples": [],
       "tmdbId": 105136,
       "tmdbKind": "tv",
-      "tmdbRating": 8.3,
-      "tmdbVoteCount": 86
+      "tmdbRating": 8.2,
+      "tmdbVoteCount": 89
     },
     {
       "id": "1788248324001",
@@ -58769,7 +58804,7 @@
       "tmdbId": 128883,
       "tmdbKind": "tv",
       "tmdbRating": 8.2,
-      "tmdbVoteCount": 663
+      "tmdbVoteCount": 665
     },
     {
       "id": "1789203927073",
@@ -61322,7 +61357,7 @@
       "tmdbId": "126035",
       "tmdbKind": "tv",
       "tmdbRating": 7.3,
-      "tmdbVoteCount": 232,
+      "tmdbVoteCount": 233,
       "seasons": [
         {
           "label": "Temporada 1",
@@ -61758,7 +61793,7 @@
       "snLastUpdate": "",
       "snNote": "",
       "productoraId": "",
-      "tmdbId": "",
+      "tmdbId": 335800,
       "tmdbKind": "tv",
       "tmdbRating": "",
       "tmdbVoteCount": 0,
@@ -61931,7 +61966,7 @@
       "tmdbId": "244447",
       "tmdbKind": "tv",
       "tmdbRating": 6.9,
-      "tmdbVoteCount": 107,
+      "tmdbVoteCount": 108,
       "seasons": [
         {
           "label": "Temporada 1",
@@ -62127,7 +62162,7 @@
       "tmdbId": "283905",
       "tmdbKind": "tv",
       "tmdbRating": 7.5,
-      "tmdbVoteCount": 24,
+      "tmdbVoteCount": 25,
       "seasons": [
         {
           "label": "Temporada 1",
@@ -62787,8 +62822,8 @@
       "productoraId": "",
       "tmdbId": "239614",
       "tmdbKind": "tv",
-      "tmdbRating": 7.2,
-      "tmdbVoteCount": 46,
+      "tmdbRating": 7.3,
+      "tmdbVoteCount": 47,
       "seasons": [
         {
           "label": "Temporada 1",
@@ -63912,7 +63947,7 @@
       "tmdbId": "94954",
       "tmdbKind": "tv",
       "tmdbRating": 8.5,
-      "tmdbVoteCount": 1662,
+      "tmdbVoteCount": 1667,
       "seasons": [
         {
           "label": "Temporada 1",
@@ -64654,7 +64689,7 @@
       "tmdbId": "227192",
       "tmdbKind": "tv",
       "tmdbRating": 8.1,
-      "tmdbVoteCount": 156,
+      "tmdbVoteCount": 158,
       "seasons": [
         {
           "label": "Temporada 1",
@@ -65311,7 +65346,7 @@
       "tmdbId": "71578",
       "tmdbKind": "tv",
       "tmdbRating": 8,
-      "tmdbVoteCount": 1284,
+      "tmdbVoteCount": 1287,
       "seasons": [
         {
           "label": "Temporada 1",
@@ -65723,7 +65758,7 @@
       "tmdbId": "33880",
       "tmdbKind": "tv",
       "tmdbRating": 8.2,
-      "tmdbVoteCount": 2438,
+      "tmdbVoteCount": 2449,
       "seasons": [
         {
           "label": "Temporada 1",
@@ -66984,7 +67019,7 @@
       "tmdbId": "90766",
       "tmdbKind": "tv",
       "tmdbRating": 7.7,
-      "tmdbVoteCount": 378,
+      "tmdbVoteCount": 377,
       "seasons": [
         {
           "label": "Temporada 1",
@@ -67139,7 +67174,7 @@
       "tmdbId": "61175",
       "tmdbKind": "tv",
       "tmdbRating": 8.4,
-      "tmdbVoteCount": 1395,
+      "tmdbVoteCount": 1397,
       "seasons": [
         {
           "label": "Temporada 1",
@@ -68495,7 +68530,7 @@
       "tmdbId": "106431",
       "tmdbKind": "tv",
       "tmdbRating": 7.3,
-      "tmdbVoteCount": 164,
+      "tmdbVoteCount": 165,
       "seasons": [
         {
           "label": "Temporada 1",
@@ -68632,7 +68667,7 @@
       "tmdbId": "69017",
       "tmdbKind": "tv",
       "tmdbRating": 7.7,
-      "tmdbVoteCount": 203,
+      "tmdbVoteCount": 205,
       "seasons": [
         {
           "label": "Temporada 1",
@@ -69539,7 +69574,7 @@
       "tmdbId": "67466",
       "tmdbKind": "tv",
       "tmdbRating": 7.3,
-      "tmdbVoteCount": 1005,
+      "tmdbVoteCount": 1006,
       "seasons": [
         {
           "label": "Temporada 1",
@@ -69913,7 +69948,7 @@
       "tmdbId": "1417",
       "tmdbKind": "tv",
       "tmdbRating": 6.8,
-      "tmdbVoteCount": 980,
+      "tmdbVoteCount": 986,
       "seasons": [
         {
           "label": "Temporada 1",
@@ -71461,8 +71496,8 @@
       "productoraId": "",
       "tmdbId": "299939",
       "tmdbKind": "tv",
-      "tmdbRating": 7.1,
-      "tmdbVoteCount": 159,
+      "tmdbRating": 7,
+      "tmdbVoteCount": 190,
       "seasons": [
         {
           "label": "Temporada 1",
@@ -73702,7 +73737,7 @@
       "moods": [],
       "tropos": [],
       "dinamica": [],
-      "wlwFocus": "",
+      "wlwFocus": "pareja-principal",
       "awards": [],
       "category": "series",
       "seriesType": "serie",
@@ -73724,7 +73759,7 @@
       "tmdbKind": "tv",
       "tmdbRating": "",
       "tmdbVoteCount": 0,
-      "updatedAt": "2026-09-26T13:27:17.090Z"
+      "updatedAt": "2026-10-15T07:39:43.802Z"
     },
     {
       "id": "1790429271477",
@@ -73749,7 +73784,7 @@
       "moods": [],
       "tropos": [],
       "dinamica": [],
-      "wlwFocus": "",
+      "wlwFocus": "pareja-principal",
       "awards": [],
       "category": "series",
       "seriesType": "serie",
@@ -73767,11 +73802,11 @@
       "snLastUpdate": "",
       "snNote": "",
       "productoraId": "",
-      "tmdbId": "",
+      "tmdbId": 217815,
       "tmdbKind": "tv",
       "tmdbRating": "",
       "tmdbVoteCount": 0,
-      "updatedAt": "2026-09-26T13:27:51.477Z"
+      "updatedAt": "2026-10-15T07:39:40.715Z"
     },
     {
       "id": "1791102796066",
@@ -73801,7 +73836,7 @@
       "moods": [],
       "tropos": [],
       "dinamica": [],
-      "wlwFocus": "",
+      "wlwFocus": "pareja-principal",
       "awards": [],
       "category": "series",
       "seriesType": "webserie",
@@ -73884,7 +73919,7 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-10-04T08:33:16.066Z"
+      "updatedAt": "2026-10-15T07:39:42.061Z"
     },
     {
       "id": "1791103423058",
@@ -73909,7 +73944,7 @@
       "moods": [],
       "tropos": [],
       "dinamica": [],
-      "wlwFocus": "",
+      "wlwFocus": "pareja-principal",
       "awards": [],
       "category": "series",
       "seriesType": "serie",
@@ -73931,7 +73966,8 @@
       "tmdbKind": "tv",
       "tmdbRating": "",
       "tmdbVoteCount": 0,
-      "updatedAt": "2026-10-04T08:43:43.058Z"
+      "updatedAt": "2026-10-15T07:29:33.538Z",
+      "streaming": {}
     },
     {
       "id": "1791103462682",
@@ -73956,7 +73992,7 @@
       "moods": [],
       "tropos": [],
       "dinamica": [],
-      "wlwFocus": "",
+      "wlwFocus": "pareja-principal",
       "awards": [],
       "category": "series",
       "seriesType": "serie",
@@ -73974,11 +74010,12 @@
       "snLastUpdate": "",
       "snNote": "",
       "productoraId": "",
-      "tmdbId": "",
+      "tmdbId": "338056",
       "tmdbKind": "tv",
       "tmdbRating": "",
       "tmdbVoteCount": 0,
-      "updatedAt": "2026-10-04T08:44:22.682Z"
+      "updatedAt": "2026-10-15T07:29:36.869Z",
+      "streaming": {}
     },
     {
       "id": "1791624175050",
@@ -74254,212 +74291,322 @@
               "num": 1,
               "skipped": false,
               "date": "2026-02-04",
-              "source": "tmdb"
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/jmI9zR0yRMNJlPEQDPhsE691hb5.jpg"
             },
             {
               "num": 2,
               "skipped": false,
               "date": "2026-02-04",
-              "source": "tmdb"
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/yRYBp8t3H0q2P30mjSFCtjFkYJd.jpg"
             },
             {
               "num": 3,
               "skipped": false,
               "date": "2026-02-04",
-              "source": "tmdb"
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/kOhmPgFrUZKLpKyNw76Ccstlies.jpg"
             },
             {
               "num": 4,
               "skipped": false,
               "date": "2026-02-04",
-              "source": "tmdb"
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/ub7PMQ5azys6N5pLUphMZewzOkC.jpg"
             },
             {
               "num": 5,
               "skipped": false,
               "date": "2026-02-04",
-              "source": "tmdb"
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/oDjSAbBL05dxJaA3VFmi6iBasDo.jpg"
             },
             {
               "num": 6,
               "skipped": false,
               "date": "2026-02-04",
-              "source": "tmdb"
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/tpKOHz08i2ZJkJSZI84bGizzcIE.jpg"
             },
             {
               "num": 7,
               "skipped": false,
               "date": "2026-02-04",
-              "source": "tmdb"
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/d3UWdcaXGTTTMM2ezNCKMa3uOMM.jpg"
             },
             {
               "num": 8,
               "skipped": false,
               "date": "2026-02-04",
-              "source": "tmdb"
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/AeUWsXo9q99hPuXfsSqzNhylYs7.jpg"
             },
             {
               "num": 9,
               "skipped": false,
               "date": "2026-02-04",
-              "source": "tmdb"
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/3F90QDe7pjQsp4qmuVLE9ceK5ej.jpg"
             },
             {
               "num": 10,
               "skipped": false,
               "date": "2026-02-04",
-              "source": "tmdb"
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/w6VyJL6iKBgTlCe01YYEXWj4kSB.jpg"
             },
             {
               "num": 11,
               "skipped": false,
               "date": "2026-02-04",
-              "source": "tmdb"
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/30OVc40tLt2rrL29VYpUXCdn4sS.jpg"
             },
             {
               "num": 12,
               "skipped": false,
               "date": "2026-02-04",
-              "source": "tmdb"
+              "source": "tmdb",
+              "still": "https://image.tmdb.org/t/p/w300/VvMRRsZE5SvsdvNofGfY5zRJEo.jpg"
             },
             {
               "num": 13,
               "skipped": false,
               "date": "2026-02-04",
               "source": "tmdb",
-              "duration": 19
+              "duration": 19,
+              "still": "https://image.tmdb.org/t/p/w300/3EgbVYgMxToehICNS5gyOpSEUOT.jpg"
             },
             {
               "num": 14,
               "skipped": false,
               "date": "2026-02-04",
               "source": "tmdb",
-              "duration": 18
+              "duration": 18,
+              "still": "https://image.tmdb.org/t/p/w300/yF5hl0wwj2h9ogu6X3LJLp0WeeZ.jpg"
             },
             {
               "num": 15,
               "skipped": false,
               "date": "2026-02-04",
               "source": "tmdb",
-              "duration": 19
+              "duration": 19,
+              "still": "https://image.tmdb.org/t/p/w300/3qae8szVLSrX0QZmoKwBoyqBlYf.jpg"
             },
             {
               "num": 16,
               "skipped": false,
               "date": "2026-02-04",
               "source": "tmdb",
-              "duration": 18
+              "duration": 18,
+              "still": "https://image.tmdb.org/t/p/w300/liXpJ0FEVqeNDJNggXmZXybk9gO.jpg"
             },
             {
               "num": 17,
               "skipped": false,
               "date": "2026-02-04",
               "source": "tmdb",
-              "duration": 19
+              "duration": 19,
+              "still": "https://image.tmdb.org/t/p/w300/5Z4PXHOZdXlCjkdz1gp5NJHpIH4.jpg"
             },
             {
               "num": 18,
               "skipped": false,
               "date": "2026-02-04",
               "source": "tmdb",
-              "duration": 18
+              "duration": 18,
+              "still": "https://image.tmdb.org/t/p/w300/w5YheY5wJfB3BTzlvxQxyBrZXuC.jpg"
             },
             {
               "num": 19,
               "skipped": false,
               "date": "2026-02-04",
               "source": "tmdb",
-              "duration": 19
+              "duration": 19,
+              "still": "https://image.tmdb.org/t/p/w300/4XwtGd7kHaF1VqWa9IY4GqPhOXO.jpg"
             },
             {
               "num": 20,
               "skipped": false,
               "date": "2026-02-04",
               "source": "tmdb",
-              "duration": 18
+              "duration": 18,
+              "still": "https://image.tmdb.org/t/p/w300/dSI3NLRU7ErGehtXpjZrCOK14yU.jpg"
             },
             {
               "num": 21,
               "skipped": false,
               "date": "2026-02-04",
               "source": "tmdb",
-              "duration": 17
+              "duration": 17,
+              "still": "https://image.tmdb.org/t/p/w300/4k87clXT1ZbMeUDWr3HoQUz6eMb.jpg"
             },
             {
               "num": 22,
               "skipped": false,
               "date": "2026-02-04",
               "source": "tmdb",
-              "duration": 19
+              "duration": 19,
+              "still": "https://image.tmdb.org/t/p/w300/rMhif4vt78d2O5vWLUECra5HX54.jpg"
             },
             {
               "num": 23,
               "skipped": false,
               "date": "2026-02-04",
               "source": "tmdb",
-              "duration": 19
+              "duration": 19,
+              "still": "https://image.tmdb.org/t/p/w300/osmVwL2iazNGkY2mA6PuZflOw6x.jpg"
             },
             {
               "num": 24,
               "skipped": false,
               "date": "2026-02-04",
               "source": "tmdb",
-              "duration": 19
+              "duration": 19,
+              "still": "https://image.tmdb.org/t/p/w300/vvsEQQdefXC1GrJU6dK1igK5Lz2.jpg"
             },
             {
               "num": 25,
               "skipped": false,
               "date": "2026-02-04",
               "source": "tmdb",
-              "duration": 19
+              "duration": 19,
+              "still": "https://image.tmdb.org/t/p/w300/4TdybSKKjCXfXidn1kTGS7D9Nnu.jpg"
             },
             {
               "num": 26,
               "skipped": false,
               "date": "2026-02-04",
               "source": "tmdb",
-              "duration": 19
+              "duration": 19,
+              "still": "https://image.tmdb.org/t/p/w300/6sDWzL70g2z1LuHLlcKtfBUK1t8.jpg"
             },
             {
               "num": 27,
               "skipped": false,
               "date": "2026-02-04",
               "source": "tmdb",
-              "duration": 19
+              "duration": 19,
+              "still": "https://image.tmdb.org/t/p/w300/jh7Hl4NUj0rFx6sxOybm6sPVmzX.jpg"
             },
             {
               "num": 28,
               "skipped": false,
               "date": "2026-02-04",
               "source": "tmdb",
-              "duration": 19
+              "duration": 19,
+              "still": "https://image.tmdb.org/t/p/w300/1EwKJImXOODJ3pvMxybM9TAsAcy.jpg"
             },
             {
               "num": 29,
               "skipped": false,
               "date": "2026-02-04",
               "source": "tmdb",
-              "duration": 18
+              "duration": 18,
+              "still": "https://image.tmdb.org/t/p/w300/v8F1p8O7FzV5LT1GPDefdnbc2ej.jpg"
             },
             {
               "num": 30,
               "skipped": false,
               "date": "2026-02-04",
               "source": "tmdb",
-              "duration": 19
+              "duration": 19,
+              "still": "https://image.tmdb.org/t/p/w300/tobPkYc37q8OtH844utSrdix3FQ.jpg"
             },
             {
               "num": 31,
               "skipped": false,
               "date": "2026-02-04",
               "source": "tmdb",
-              "duration": 18
+              "duration": 18,
+              "still": "https://image.tmdb.org/t/p/w300/fOVX1sFXIrJxcXJWPsRTkfO081I.jpg"
             }
           ],
           "premiereSchedule": []
         }
       ],
       "updatedAt": "2026-10-10T09:27:17.857Z"
+    },
+    {
+      "id": "1792049202360",
+      "name": "Love Me to Hurt Me",
+      "nameEn": "รัก = ร้าย",
+      "poster": "https://i.mydramalist.com/YAYbqd_4f.jpg",
+      "synopsis": "Song es una glamurosa magnate de la joyería; lo tiene todo menos la paz. Atormentada por la mujer que le rompió el corazón, aprovecha la oportunidad para vengarse cuando su antigua amante, Oh, se convierte inesperadamente en la enfermera privada de su madre. Atada por un contrato y atrapada bajo el mismo techo, Oh soporta la fría crueldad de Song mientras oculta la dolorosa verdad que se esconde tras su separación.\n\nA medida que se reabren viejas heridas, el resentimiento da paso poco a poco al anhelo. Sin embargo, cuando los secretos salen finalmente a la luz, Song se da cuenta de que ha estado castigando a la mujer que lo sacrificó todo por ella. ¿Habrá una segunda oportunidad para el amor, o ya es demasiado tarde?",
+      "year": 2026,
+      "country": "Tailandia",
+      "network": "",
+      "networkUrl": "",
+      "watchLinks": [],
+      "trailerUrl": "https://www.youtube.com/watch?v=qawbKsGSPEE",
+      "bookSource": "",
+      "basedOnBook": false,
+      "sourceType": "",
+      "bookCoverUrl": "",
+      "bookLinks": [],
+      "bookUrl": "",
+      "upcoming": false,
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "moods": [],
+      "tropos": [],
+      "dinamica": [],
+      "wlwFocus": "pareja-principal",
+      "awards": [],
+      "category": "series",
+      "seriesType": "serie",
+      "cast": [
+        {
+          "actressId": "1792048931210",
+          "character": "\"Oh\" Uttawadee"
+        },
+        {
+          "actressId": "1778669135059",
+          "character": "\"Song\" Kasira"
+        }
+      ],
+      "couples": [
+        [
+          "1778669135059",
+          "1792048931210"
+        ]
+      ],
+      "animeSeason": "",
+      "renewedNextSeason": false,
+      "episodeDuration": 45,
+      "myPick": false,
+      "myPick2026": false,
+      "biFormat": false,
+      "cancelStatus": "",
+      "cancelNote": "",
+      "sinNovedades": false,
+      "snLastUpdate": "",
+      "snNote": "",
+      "productoraId": "1779135450707",
+      "tmdbId": "330168",
+      "tmdbKind": "tv",
+      "tmdbRating": "",
+      "tmdbVoteCount": 0,
+      "streaming": {},
+      "seasons": [
+        {
+          "label": "Temporada 1",
+          "startDate": "2026-11-06",
+          "totalEpisodes": 8,
+          "emissionDays": [
+            4
+          ],
+          "allInOneDay": false,
+          "skipDates": [],
+          "episodes": [],
+          "premiereSchedule": []
+        }
+      ],
+      "updatedAt": "2026-10-15T07:29:27.401Z"
     }
   ],
   "movies": [
@@ -74514,8 +74661,8 @@
       "productoraId": "",
       "tmdbId": "1397485",
       "tmdbKind": "movie",
-      "tmdbRating": 7.6,
-      "tmdbVoteCount": 72,
+      "tmdbRating": 7.5,
+      "tmdbVoteCount": 79,
       "couples": [
         [
           "tmdb_4658358_mtyay0b4",
@@ -74607,7 +74754,7 @@
       "tmdbId": "1102883",
       "tmdbKind": "movie",
       "tmdbRating": 5.7,
-      "tmdbVoteCount": 205,
+      "tmdbVoteCount": 210,
       "nameEn": "",
       "moods": [],
       "tropos": [],
@@ -74708,8 +74855,8 @@
       "updatedAt": "2026-09-12T11:35:19.343Z",
       "tmdbId": "1240889",
       "tmdbKind": "movie",
-      "tmdbRating": 6.3,
-      "tmdbVoteCount": 252,
+      "tmdbRating": 6.2,
+      "tmdbVoteCount": 300,
       "nameEn": "",
       "moods": [],
       "tropos": [],
@@ -74915,8 +75062,8 @@
       "duration": 95,
       "tmdbId": "4955",
       "tmdbKind": "movie",
-      "tmdbRating": 6.1,
-      "tmdbVoteCount": 60,
+      "tmdbRating": 6.2,
+      "tmdbVoteCount": 61,
       "nameEn": "Mädchen in Uniform",
       "moods": [],
       "tropos": [],
@@ -75122,7 +75269,7 @@
       "tmdbId": "1633",
       "tmdbKind": "movie",
       "tmdbRating": 7.7,
-      "tmdbVoteCount": 1537,
+      "tmdbVoteCount": 1538,
       "nameEn": "Fried Green Tomatoes",
       "moods": [],
       "tropos": [],
@@ -75304,7 +75451,7 @@
       "tmdbId": "9303",
       "tmdbKind": "movie",
       "tmdbRating": 7.2,
-      "tmdbVoteCount": 1156,
+      "tmdbVoteCount": 1160,
       "nameEn": "Bound",
       "moods": [],
       "tropos": [],
@@ -75475,7 +75622,7 @@
       "tmdbId": "11634",
       "tmdbKind": "movie",
       "tmdbRating": 7.1,
-      "tmdbVoteCount": 615,
+      "tmdbVoteCount": 616,
       "nameEn": "Fucking Åmål",
       "moods": [],
       "tropos": [],
@@ -75585,7 +75732,7 @@
       "tmdbId": "20770",
       "tmdbKind": "movie",
       "tmdbRating": 7.1,
-      "tmdbVoteCount": 894,
+      "tmdbVoteCount": 899,
       "nameEn": "",
       "moods": [],
       "tropos": [],
@@ -75687,8 +75834,8 @@
       "duration": 96,
       "tmdbId": "28031",
       "tmdbKind": "movie",
-      "tmdbRating": 6.6,
-      "tmdbVoteCount": 122,
+      "tmdbRating": 6.5,
+      "tmdbVoteCount": 123,
       "nameEn": "If These Walls Could Talk 2",
       "moods": [],
       "tropos": [],
@@ -75807,7 +75954,7 @@
       "tmdbId": "1018",
       "tmdbKind": "movie",
       "tmdbRating": 7.8,
-      "tmdbVoteCount": 7330,
+      "tmdbVoteCount": 7353,
       "nameEn": "",
       "moods": [],
       "tropos": [],
@@ -75852,8 +75999,8 @@
       "duration": 110,
       "tmdbId": "590",
       "tmdbKind": "movie",
-      "tmdbRating": 7.3,
-      "tmdbVoteCount": 1914,
+      "tmdbRating": 7.2,
+      "tmdbVoteCount": 1922,
       "nameEn": "The Hours",
       "moods": [],
       "tropos": [],
@@ -75909,7 +76056,7 @@
       "tmdbId": 4911,
       "tmdbKind": "movie",
       "tmdbRating": 6.2,
-      "tmdbVoteCount": 400
+      "tmdbVoteCount": 404
     },
     {
       "id": "1700000000020",
@@ -75939,7 +76086,7 @@
       "tmdbId": "504",
       "tmdbKind": "movie",
       "tmdbRating": 7.2,
-      "tmdbVoteCount": 2640,
+      "tmdbVoteCount": 2649,
       "nameEn": "",
       "moods": [],
       "tropos": [],
@@ -75986,7 +76133,7 @@
       "tmdbId": "19316",
       "tmdbKind": "movie",
       "tmdbRating": 7.2,
-      "tmdbVoteCount": 278,
+      "tmdbVoteCount": 279,
       "nameEn": "Saving Face",
       "moods": [],
       "tropos": [],
@@ -76053,7 +76200,7 @@
       "tmdbId": "9709",
       "tmdbKind": "movie",
       "tmdbRating": 6.2,
-      "tmdbVoteCount": 332,
+      "tmdbVoteCount": 336,
       "nameEn": "My Summer of Love",
       "moods": [],
       "tropos": [],
@@ -76108,7 +76255,7 @@
       "tmdbId": "540",
       "tmdbKind": "movie",
       "tmdbRating": 6.6,
-      "tmdbVoteCount": 664,
+      "tmdbVoteCount": 665,
       "nameEn": "",
       "moods": [],
       "tropos": [],
@@ -76158,7 +76305,7 @@
       "tmdbId": "1544",
       "tmdbKind": "movie",
       "tmdbRating": 7.6,
-      "tmdbVoteCount": 1139,
+      "tmdbVoteCount": 1144,
       "nameEn": "Imagine me and you",
       "moods": [],
       "tropos": [],
@@ -76244,7 +76391,7 @@
       "tmdbId": "17612",
       "tmdbKind": "movie",
       "tmdbRating": 6.8,
-      "tmdbVoteCount": 541
+      "tmdbVoteCount": 543
     },
     {
       "id": "1700000000026",
@@ -76274,7 +76421,7 @@
       "tmdbId": "19344",
       "tmdbKind": "movie",
       "tmdbRating": 6.6,
-      "tmdbVoteCount": 314,
+      "tmdbVoteCount": 316,
       "nameEn": "",
       "moods": [],
       "tropos": [],
@@ -76503,7 +76650,7 @@
       "tmdbId": "10818",
       "tmdbKind": "movie",
       "tmdbRating": 6.5,
-      "tmdbVoteCount": 483,
+      "tmdbVoteCount": 485,
       "moods": [],
       "tropos": [],
       "dinamica": [],
@@ -76637,7 +76784,7 @@
       "tmdbId": "31216",
       "tmdbKind": "movie",
       "tmdbRating": 7.5,
-      "tmdbVoteCount": 336,
+      "tmdbVoteCount": 337,
       "nameEn": "",
       "moods": [],
       "tropos": [],
@@ -76725,7 +76872,7 @@
       "tmdbId": 19994,
       "tmdbKind": "movie",
       "tmdbRating": 6,
-      "tmdbVoteCount": 4427
+      "tmdbVoteCount": 4448
     },
     {
       "id": "1700000000036",
@@ -76813,7 +76960,7 @@
       "tmdbId": 39781,
       "tmdbKind": "movie",
       "tmdbRating": 6.6,
-      "tmdbVoteCount": 1636
+      "tmdbVoteCount": 1646
     },
     {
       "id": "1700000000039",
@@ -76876,7 +77023,7 @@
       "tmdbId": 48650,
       "tmdbKind": "movie",
       "tmdbRating": 6.4,
-      "tmdbVoteCount": 851
+      "tmdbVoteCount": 853
     },
     {
       "id": "1700000000041",
@@ -77053,7 +77200,7 @@
       "tmdbId": 110160,
       "tmdbKind": "movie",
       "tmdbRating": 7.6,
-      "tmdbVoteCount": 919
+      "tmdbVoteCount": 920
     },
     {
       "id": "1700000000046",
@@ -77253,8 +77400,8 @@
       "duration": 95,
       "tmdbId": 167305,
       "tmdbKind": "movie",
-      "tmdbRating": 5.7,
-      "tmdbVoteCount": 112
+      "tmdbRating": 5.9,
+      "tmdbVoteCount": 122
     },
     {
       "id": "1700000000052",
@@ -77286,7 +77433,7 @@
       "tmdbId": 152584,
       "tmdbKind": "movie",
       "tmdbRating": 7.1,
-      "tmdbVoteCount": 4952
+      "tmdbVoteCount": 4963
     },
     {
       "id": "1700000000053",
@@ -77489,8 +77636,8 @@
       ],
       "tmdbId": 254936,
       "tmdbKind": "movie",
-      "tmdbRating": 5.9,
-      "tmdbVoteCount": 41
+      "tmdbRating": 5.8,
+      "tmdbVoteCount": 42
     },
     {
       "id": "1700000000059",
@@ -77836,7 +77983,7 @@
       "tmdbId": 342474,
       "tmdbKind": "movie",
       "tmdbRating": 5.7,
-      "tmdbVoteCount": 441
+      "tmdbVoteCount": 442
     },
     {
       "id": "1700000000070",
@@ -77935,7 +78082,7 @@
       "tmdbId": 258480,
       "tmdbKind": "movie",
       "tmdbRating": 7.5,
-      "tmdbVoteCount": 4048
+      "tmdbVoteCount": 4055
     },
     {
       "id": "1700000000073",
@@ -77995,7 +78142,7 @@
       "tmdbId": 192132,
       "tmdbKind": "movie",
       "tmdbRating": 6.1,
-      "tmdbVoteCount": 931
+      "tmdbVoteCount": 933
     },
     {
       "id": "1700000000075",
@@ -78054,7 +78201,7 @@
       "tmdbId": 310568,
       "tmdbKind": "movie",
       "tmdbRating": 6.4,
-      "tmdbVoteCount": 111
+      "tmdbVoteCount": 112
     },
     {
       "id": "1700000000077",
@@ -78286,7 +78433,7 @@
       "tmdbId": 402025,
       "tmdbKind": "movie",
       "tmdbRating": 5.9,
-      "tmdbVoteCount": 36
+      "tmdbVoteCount": 37
     },
     {
       "id": "1700000000084",
@@ -78443,7 +78590,7 @@
       "tmdbId": 370663,
       "tmdbKind": "movie",
       "tmdbRating": 6.8,
-      "tmdbVoteCount": 1326
+      "tmdbVoteCount": 1329
     },
     {
       "id": "1700000000089",
@@ -78541,8 +78688,8 @@
       "nameEn": "Córki dancingu",
       "tmdbId": 375742,
       "tmdbKind": "movie",
-      "tmdbRating": 6.2,
-      "tmdbVoteCount": 307
+      "tmdbRating": 6.1,
+      "tmdbVoteCount": 310
     },
     {
       "id": "1700000000092",
@@ -78705,7 +78852,7 @@
       "tmdbId": 341013,
       "tmdbKind": "movie",
       "tmdbRating": 6.4,
-      "tmdbVoteCount": 6801
+      "tmdbVoteCount": 6821
     },
     {
       "id": "1700000000097",
@@ -78902,7 +79049,7 @@
       "tmdbId": 420622,
       "tmdbKind": "movie",
       "tmdbRating": 7.2,
-      "tmdbVoteCount": 957
+      "tmdbVoteCount": 959
     },
     {
       "id": "1700000000103",
@@ -79014,7 +79161,7 @@
       "tmdbId": 454889,
       "tmdbKind": "movie",
       "tmdbRating": 6.6,
-      "tmdbVoteCount": 160
+      "tmdbVoteCount": 161
     },
     {
       "id": "1700000000106",
@@ -79076,7 +79223,7 @@
       "tmdbId": 434714,
       "tmdbKind": "movie",
       "tmdbRating": 7.3,
-      "tmdbVoteCount": 253
+      "tmdbVoteCount": 254
     },
     {
       "id": "1700000000108",
@@ -79298,7 +79445,7 @@
       "tmdbId": 369192,
       "tmdbKind": "movie",
       "tmdbRating": 6.7,
-      "tmdbVoteCount": 1994
+      "tmdbVoteCount": 1995
     },
     {
       "id": "1700000000115",
@@ -79337,7 +79484,7 @@
       "tmdbId": 426338,
       "tmdbKind": "movie",
       "tmdbRating": 6.8,
-      "tmdbVoteCount": 369
+      "tmdbVoteCount": 370
     },
     {
       "id": "1700000000116",
@@ -79563,7 +79710,7 @@
       "tmdbId": 404604,
       "tmdbKind": "movie",
       "tmdbRating": 7.5,
-      "tmdbVoteCount": 224
+      "tmdbVoteCount": 225
     },
     {
       "id": "1700000000123",
@@ -79828,7 +79975,7 @@
       "tmdbId": 529962,
       "tmdbKind": "movie",
       "tmdbRating": 6.4,
-      "tmdbVoteCount": 1512
+      "tmdbVoteCount": 1517
     },
     {
       "id": "1700000000131",
@@ -79894,7 +80041,7 @@
       "tmdbId": 499319,
       "tmdbKind": "movie",
       "tmdbRating": 5.4,
-      "tmdbVoteCount": 234
+      "tmdbVoteCount": 235
     },
     {
       "id": "1700000000133",
@@ -79997,7 +80144,7 @@
       "tmdbId": 375262,
       "tmdbKind": "movie",
       "tmdbRating": 7.5,
-      "tmdbVoteCount": 6068
+      "tmdbVoteCount": 6085
     },
     {
       "id": "1700000000136",
@@ -80129,7 +80276,7 @@
       "tmdbId": 426613,
       "tmdbKind": "movie",
       "tmdbRating": 6.9,
-      "tmdbVoteCount": 1033
+      "tmdbVoteCount": 1036
     },
     {
       "id": "1700000000140",
@@ -80159,7 +80306,7 @@
       "tmdbId": 470333,
       "tmdbKind": "movie",
       "tmdbRating": 6.8,
-      "tmdbVoteCount": 289
+      "tmdbVoteCount": 292
     },
     {
       "id": "1700000000141",
@@ -80189,7 +80336,7 @@
       "tmdbId": 401847,
       "tmdbKind": "movie",
       "tmdbRating": 6.8,
-      "tmdbVoteCount": 1389
+      "tmdbVoteCount": 1392
     },
     {
       "id": "1700000000142",
@@ -80220,7 +80367,7 @@
       "tmdbId": 447034,
       "tmdbKind": "movie",
       "tmdbRating": 6.8,
-      "tmdbVoteCount": 224
+      "tmdbVoteCount": 225
     },
     {
       "id": "1700000000143",
@@ -80255,7 +80402,7 @@
       "tmdbId": 460071,
       "tmdbKind": "movie",
       "tmdbRating": 6.2,
-      "tmdbVoteCount": 307
+      "tmdbVoteCount": 308
     },
     {
       "id": "1700000000144",
@@ -80359,7 +80506,7 @@
       "tmdbId": 475888,
       "tmdbKind": "movie",
       "tmdbRating": 7.5,
-      "tmdbVoteCount": 479
+      "tmdbVoteCount": 481
     },
     {
       "id": "1700000000147",
@@ -80396,7 +80543,7 @@
       "tmdbId": 533148,
       "tmdbKind": "movie",
       "tmdbRating": 5.6,
-      "tmdbVoteCount": 65
+      "tmdbVoteCount": 66
     },
     {
       "id": "1700000000148",
@@ -80460,7 +80607,11 @@
       "movieType": "short",
       "duration": 7,
       "cast": [],
-      "nameEn": "菸"
+      "nameEn": "菸",
+      "tmdbId": 1747839,
+      "tmdbKind": "movie",
+      "tmdbRating": "",
+      "tmdbVoteCount": 0
     },
     {
       "id": "1700000000150",
@@ -80493,7 +80644,7 @@
       "tmdbId": 505600,
       "tmdbKind": "movie",
       "tmdbRating": 7,
-      "tmdbVoteCount": 2935,
+      "tmdbVoteCount": 2945,
       "wlwFocus": "subplot"
     },
     {
@@ -80558,7 +80709,7 @@
       "tmdbId": 588001,
       "tmdbKind": "movie",
       "tmdbRating": 6,
-      "tmdbVoteCount": 436
+      "tmdbVoteCount": 437
     },
     {
       "id": "1700000000153",
@@ -81126,7 +81277,7 @@
       "tmdbId": 419743,
       "tmdbKind": "movie",
       "tmdbRating": 6.9,
-      "tmdbVoteCount": 1308
+      "tmdbVoteCount": 1310
     },
     {
       "id": "1700000000170",
@@ -81340,7 +81491,7 @@
       "tmdbId": 531428,
       "tmdbKind": "movie",
       "tmdbRating": 8.1,
-      "tmdbVoteCount": 3065
+      "tmdbVoteCount": 3070
     },
     {
       "id": "1700000000176",
@@ -81471,7 +81622,7 @@
       "tmdbId": 597219,
       "tmdbKind": "movie",
       "tmdbRating": 7.1,
-      "tmdbVoteCount": 1628
+      "tmdbVoteCount": 1632
     },
     {
       "id": "1700000000180",
@@ -81740,7 +81891,7 @@
       "cast": [],
       "tmdbId": 635918,
       "tmdbKind": "movie",
-      "tmdbRating": 7.1,
+      "tmdbRating": 7,
       "tmdbVoteCount": 191
     },
     {
@@ -81772,7 +81923,7 @@
       "tmdbId": 523977,
       "tmdbKind": "movie",
       "tmdbRating": 7.5,
-      "tmdbVoteCount": 235
+      "tmdbVoteCount": 236
     },
     {
       "id": "1700000000189",
@@ -81870,7 +82021,7 @@
       "tmdbId": 741011,
       "tmdbKind": "movie",
       "tmdbRating": 8,
-      "tmdbVoteCount": 287
+      "tmdbVoteCount": 289
     },
     {
       "id": "1700000000192",
@@ -81937,7 +82088,7 @@
       "tmdbId": 568467,
       "tmdbKind": "movie",
       "tmdbRating": 6.9,
-      "tmdbVoteCount": 660
+      "tmdbVoteCount": 662
     },
     {
       "id": "1700000000194",
@@ -82009,7 +82160,7 @@
       "tmdbId": 520172,
       "tmdbKind": "movie",
       "tmdbRating": 7.1,
-      "tmdbVoteCount": 1350
+      "tmdbVoteCount": 1353
     },
     {
       "id": "1700000000196",
@@ -82128,8 +82279,8 @@
       "cast": [],
       "tmdbId": 770336,
       "tmdbKind": "movie",
-      "tmdbRating": 5.2,
-      "tmdbVoteCount": 4
+      "tmdbRating": 5.4,
+      "tmdbVoteCount": 5
     },
     {
       "id": "1700000000201",
@@ -82198,7 +82349,7 @@
       "tmdbId": 611213,
       "tmdbKind": "movie",
       "tmdbRating": 6.1,
-      "tmdbVoteCount": 725
+      "tmdbVoteCount": 728
     },
     {
       "id": "1700000000203",
@@ -82331,7 +82482,7 @@
       "tmdbId": 541305,
       "tmdbKind": "movie",
       "tmdbRating": 6.3,
-      "tmdbVoteCount": 566
+      "tmdbVoteCount": 569
     },
     {
       "id": "1700000000207",
@@ -82430,7 +82581,7 @@
       "tmdbId": 601666,
       "tmdbKind": "movie",
       "tmdbRating": 6.6,
-      "tmdbVoteCount": 3088
+      "tmdbVoteCount": 3097
     },
     {
       "id": "1700000000210",
@@ -82460,7 +82611,7 @@
       "tmdbId": 506281,
       "tmdbKind": "movie",
       "tmdbRating": 7,
-      "tmdbVoteCount": 424
+      "tmdbVoteCount": 425
     },
     {
       "id": "1700000000211",
@@ -82594,8 +82745,8 @@
       "cast": [],
       "tmdbId": 821390,
       "tmdbKind": "movie",
-      "tmdbRating": 5,
-      "tmdbVoteCount": 76
+      "tmdbRating": 4.9,
+      "tmdbVoteCount": 79
     },
     {
       "id": "1700000000215",
@@ -82650,7 +82801,7 @@
       "tmdbId": 743599,
       "tmdbKind": "movie",
       "tmdbRating": 6.2,
-      "tmdbVoteCount": 112
+      "tmdbVoteCount": 113
     },
     {
       "id": "1700000000217",
@@ -82685,7 +82836,7 @@
       "tmdbId": 591273,
       "tmdbKind": "movie",
       "tmdbRating": 6.7,
-      "tmdbVoteCount": 2771
+      "tmdbVoteCount": 2781
     },
     {
       "id": "1700000000218",
@@ -82720,7 +82871,7 @@
       "tmdbId": 591274,
       "tmdbKind": "movie",
       "tmdbRating": 7.2,
-      "tmdbVoteCount": 2336
+      "tmdbVoteCount": 2344
     },
     {
       "id": "1700000000219",
@@ -82829,7 +82980,7 @@
       "tmdbId": 591275,
       "tmdbKind": "movie",
       "tmdbRating": 7.1,
-      "tmdbVoteCount": 2084
+      "tmdbVoteCount": 2091
     },
     {
       "id": "1700000000222",
@@ -83139,7 +83290,7 @@
       "tmdbId": 501929,
       "tmdbKind": "movie",
       "tmdbRating": 7.8,
-      "tmdbVoteCount": 3517
+      "tmdbVoteCount": 3527
     },
     {
       "id": "1700000000231",
@@ -83421,8 +83572,8 @@
       "nameEn": "A Primeira Morte de Joana",
       "tmdbId": 786375,
       "tmdbKind": "movie",
-      "tmdbRating": 3.8,
-      "tmdbVoteCount": 6
+      "tmdbRating": 4.3,
+      "tmdbVoteCount": 7
     },
     {
       "id": "1700000000239",
@@ -83624,7 +83775,7 @@
       "tmdbId": 754716,
       "tmdbKind": "movie",
       "tmdbRating": 6.8,
-      "tmdbVoteCount": 99
+      "tmdbVoteCount": 101
     },
     {
       "id": "1700000000245",
@@ -83759,7 +83910,7 @@
       "tmdbId": 683363,
       "tmdbKind": "movie",
       "tmdbRating": 6.6,
-      "tmdbVoteCount": 81
+      "tmdbVoteCount": 82
     },
     {
       "id": "1700000000249",
@@ -84049,7 +84200,7 @@
       "tmdbId": 860159,
       "tmdbKind": "movie",
       "tmdbRating": 7.4,
-      "tmdbVoteCount": 507
+      "tmdbVoteCount": 508
     },
     {
       "id": "1700000000258",
@@ -84079,8 +84230,8 @@
       "nameEn": "Le ragazze non piangono",
       "tmdbId": 986719,
       "tmdbKind": "movie",
-      "tmdbRating": 6.5,
-      "tmdbVoteCount": 9
+      "tmdbRating": 6.9,
+      "tmdbVoteCount": 10
     },
     {
       "id": "1700000000259",
@@ -84156,8 +84307,8 @@
       "nameEn": "단편영화",
       "tmdbId": 714964,
       "tmdbKind": "movie",
-      "tmdbRating": 5.6,
-      "tmdbVoteCount": 64
+      "tmdbRating": 5.5,
+      "tmdbVoteCount": 67
     },
     {
       "id": "1700000000261",
@@ -84325,7 +84476,7 @@
       "tmdbId": 762968,
       "tmdbKind": "movie",
       "tmdbRating": 6.4,
-      "tmdbVoteCount": 1045,
+      "tmdbVoteCount": 1049,
       "wlwFocus": "romance-secundario-protagonista"
     },
     {
@@ -84495,7 +84646,7 @@
       "tmdbId": 849869,
       "tmdbKind": "movie",
       "tmdbRating": 6.9,
-      "tmdbVoteCount": 577
+      "tmdbVoteCount": 580
     },
     {
       "id": "1700000000271",
@@ -84749,8 +84900,8 @@
       "nameEn": "婚禮",
       "tmdbId": 1096342,
       "tmdbKind": "movie",
-      "tmdbRating": 5.6,
-      "tmdbVoteCount": 320
+      "tmdbRating": 5.5,
+      "tmdbVoteCount": 322
     },
     {
       "id": "1700000000279",
@@ -84808,7 +84959,7 @@
       "tmdbId": 1113278,
       "tmdbKind": "movie",
       "tmdbRating": 5,
-      "tmdbVoteCount": 207
+      "tmdbVoteCount": 208
     },
     {
       "id": "1700000000281",
@@ -84960,7 +85111,7 @@
       "tmdbId": 814776,
       "tmdbKind": "movie",
       "tmdbRating": 6.8,
-      "tmdbVoteCount": 930
+      "tmdbVoteCount": 939
     },
     {
       "id": "1700000000286",
@@ -85076,7 +85227,7 @@
       "tmdbId": 957304,
       "tmdbKind": "movie",
       "tmdbRating": 5.5,
-      "tmdbVoteCount": 627
+      "tmdbVoteCount": 630
     },
     {
       "id": "1700000000291",
@@ -85315,7 +85466,7 @@
       "tmdbId": 827931,
       "tmdbKind": "movie",
       "tmdbRating": 5.6,
-      "tmdbVoteCount": 636
+      "tmdbVoteCount": 637
     },
     {
       "id": "1700000000298",
@@ -85375,7 +85526,7 @@
       "tmdbId": 948549,
       "tmdbKind": "movie",
       "tmdbRating": 6.6,
-      "tmdbVoteCount": 1042
+      "tmdbVoteCount": 1048
     },
     {
       "id": "1700000000300",
@@ -85468,7 +85619,7 @@
       "tmdbId": 1092506,
       "tmdbKind": "movie",
       "tmdbRating": 6.2,
-      "tmdbVoteCount": 138
+      "tmdbVoteCount": 143
     },
     {
       "id": "1700000000303",
@@ -85574,8 +85725,8 @@
       ],
       "tmdbId": "1290205",
       "tmdbKind": "movie",
-      "tmdbRating": 7.1,
-      "tmdbVoteCount": 19,
+      "tmdbRating": 7.2,
+      "tmdbVoteCount": 20,
       "moods": [],
       "tropos": [],
       "dinamica": [],
@@ -85623,7 +85774,7 @@
       "tmdbId": "1333141",
       "tmdbKind": "movie",
       "tmdbRating": 3.8,
-      "tmdbVoteCount": 235,
+      "tmdbVoteCount": 241,
       "moods": [],
       "tropos": [],
       "dinamica": [],
@@ -86009,7 +86160,7 @@
       "tmdbId": 14289,
       "tmdbKind": "movie",
       "tmdbRating": 5.7,
-      "tmdbVoteCount": 407
+      "tmdbVoteCount": 409
     },
     {
       "id": "1778611963184",
@@ -86295,7 +86446,7 @@
       "updatedAt": "2026-05-24T10:06:04.070Z",
       "tmdbId": 1178620,
       "tmdbKind": "movie",
-      "tmdbRating": 6.7,
+      "tmdbRating": 7,
       "tmdbVoteCount": 8
     },
     {
@@ -86342,7 +86493,7 @@
       "tmdbId": 20139,
       "tmdbKind": "movie",
       "tmdbRating": 7.7,
-      "tmdbVoteCount": 426
+      "tmdbVoteCount": 427
     },
     {
       "id": "1779638690965",
@@ -86398,7 +86549,7 @@
       "tmdbId": 329829,
       "tmdbKind": "movie",
       "tmdbRating": 6.2,
-      "tmdbVoteCount": 184
+      "tmdbVoteCount": 185
     },
     {
       "id": "1779639506085",
@@ -86482,7 +86633,7 @@
       "tmdbId": 1024,
       "tmdbKind": "movie",
       "tmdbRating": 7,
-      "tmdbVoteCount": 1068
+      "tmdbVoteCount": 1074
     },
     {
       "id": "1779990989856",
@@ -86526,7 +86677,7 @@
       "tmdbId": 1575337,
       "tmdbKind": "movie",
       "tmdbRating": 8.1,
-      "tmdbVoteCount": 119
+      "tmdbVoteCount": 123
     },
     {
       "id": "1780732422231",
@@ -86929,8 +87080,8 @@
       "couples": [],
       "tmdbId": 1373198,
       "tmdbKind": "movie",
-      "tmdbRating": 4.6,
-      "tmdbVoteCount": 58
+      "tmdbRating": 4.5,
+      "tmdbVoteCount": 61
     },
     {
       "id": "1787777300196",
@@ -87004,8 +87155,8 @@
       "updatedAt": "2026-08-26T20:50:58.506Z",
       "tmdbId": 1444595,
       "tmdbKind": "movie",
-      "tmdbRating": 7.5,
-      "tmdbVoteCount": 2
+      "tmdbRating": 7.3,
+      "tmdbVoteCount": 8
     },
     {
       "id": "1787777617721",
@@ -87038,7 +87189,11 @@
       "duration": 120,
       "cast": [],
       "productoraId": "",
-      "updatedAt": "2026-08-26T20:53:37.721Z"
+      "updatedAt": "2026-08-26T20:53:37.721Z",
+      "tmdbId": 1786375,
+      "tmdbKind": "movie",
+      "tmdbRating": "",
+      "tmdbVoteCount": 0
     },
     {
       "id": "1788715243320",
@@ -87804,7 +87959,7 @@
       "tmdbId": "664341",
       "tmdbKind": "movie",
       "tmdbRating": 5.8,
-      "tmdbVoteCount": 426,
+      "tmdbVoteCount": 428,
       "streaming": {},
       "updatedAt": "2026-10-10T09:25:28.962Z"
     },
@@ -91489,6 +91644,16 @@
       "photo": "https://image.tmdb.org/t/p/w300/a2aVzsK9NEPlP4Stwa2v07MptkW.jpg",
       "country": "Tailandia",
       "birthdate": "2000-12-17"
+    },
+    {
+      "id": "1792048931210",
+      "name": "\"Yuyu\" Ornicha Ongsritrakul",
+      "photo": "https://i.mydramalist.com/jQVzZv_5c.jpg",
+      "photoPosition": "50% 46%",
+      "photoZoom": 1,
+      "country": "Tailandia",
+      "birthdate": "1999-11-11",
+      "notes": "Actriz"
     }
   ],
   "ships": [
@@ -92243,6 +92408,19 @@
         "1778705516438",
         "1778705490259"
       ]
+    },
+    {
+      "id": "1792048955625",
+      "name": "TanYuyu",
+      "desc": "",
+      "retired": false,
+      "couplePhoto": "https://pbs.twimg.com/media/HN6ZdDYXgAAGu7M?format=jpg&name=small",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1778669135059",
+        "1792048931210"
+      ]
     }
   ],
   "productoras": [
@@ -92257,13 +92435,13 @@
       "actressIds": [
         "1778672754370",
         "1778761227248",
-        "1778672828977",
         "1778668951822",
         "1778672885792",
         "1778672794035",
         "1778669037769",
         "1778669135059",
-        "1778669089219"
+        "1778669089219",
+        "1792048931210"
       ]
     },
     {
@@ -93731,5 +93909,5 @@
       ]
     }
   },
-  "exportedAt": "2026-10-10T09:27:20.571Z"
+  "exportedAt": "2026-10-15T07:39:49.271Z"
 }
