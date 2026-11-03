@@ -214011,7 +214011,7 @@
       "poster": "https://pbs.twimg.com/media/HWMWkbSaYAAaVSa?format=jpg&name=4096x4096",
       "synopsis": "",
       "year": "",
-      "country": "",
+      "country": "Tailandia",
       "network": "",
       "networkUrl": "",
       "watchLinks": [],
@@ -214061,12 +214061,19 @@
       "snLastUpdate": "",
       "snNote": "",
       "productoraId": "1779134050424",
-      "tmdbId": "",
+      "tmdbId": "340902",
       "tmdbKind": "tv",
       "tmdbRating": "",
       "tmdbVoteCount": 0,
       "streaming": {},
-      "updatedAt": "2026-11-03T12:26:20.414Z"
+      "updatedAt": "2026-11-03T20:24:02.751Z",
+      "wlwFocusEpisode": "",
+      "i18n": {
+        "en": {
+          "title": "Above her class",
+          "source": "manual"
+        }
+      }
     },
     {
       "id": "1793708758521",
@@ -214075,7 +214082,7 @@
       "poster": "https://pbs.twimg.com/media/HWMTlawawAAO8SZ?format=jpg&name=4096x4096",
       "synopsis": "",
       "year": "",
-      "country": "",
+      "country": "Tailandia",
       "network": "",
       "networkUrl": "",
       "watchLinks": [],
@@ -214134,7 +214141,7 @@
       "tmdbRating": "",
       "tmdbVoteCount": 0,
       "streaming": {},
-      "updatedAt": "2026-11-03T12:26:29.036Z",
+      "updatedAt": "2026-11-03T20:26:49.644Z",
       "i18n": {
         "en": {
           "title": "Beyond You",
@@ -214146,11 +214153,11 @@
     {
       "id": "1793708920181",
       "name": "Kiss me, Stranger",
-      "nameEn": "",
+      "nameEn": "เธอแปลกหน้า",
       "poster": "https://pbs.twimg.com/media/HWMgcJzbEAAxNfu?format=jpg&name=4096x4096",
       "synopsis": "",
       "year": "",
-      "country": "",
+      "country": "Tailandia",
       "network": "",
       "networkUrl": "",
       "watchLinks": [],
@@ -214217,8 +214224,14 @@
           "premiereSchedule": []
         }
       ],
-      "updatedAt": "2026-11-03T12:42:03.361Z",
-      "wlwFocusEpisode": ""
+      "updatedAt": "2026-11-03T20:31:14.168Z",
+      "wlwFocusEpisode": "",
+      "i18n": {
+        "en": {
+          "title": "Kiss me, Stranger",
+          "source": "manual"
+        }
+      }
     },
     {
       "id": "1793708976662",
@@ -214227,7 +214240,7 @@
       "poster": "https://pbs.twimg.com/media/HWMnkdBaIAES3Qq?format=jpg&name=4096x4096",
       "synopsis": "",
       "year": "",
-      "country": "",
+      "country": "Tailandia",
       "network": "",
       "networkUrl": "",
       "watchLinks": [],
@@ -214283,7 +214296,7 @@
       "tmdbRating": "",
       "tmdbVoteCount": 0,
       "streaming": {},
-      "updatedAt": "2026-11-03T12:43:55.899Z"
+      "updatedAt": "2026-11-03T20:26:58.061Z"
     },
     {
       "id": "1793709042982",
@@ -214423,7 +214436,7 @@
       "tmdbRating": "",
       "tmdbVoteCount": 0,
       "streaming": {},
-      "updatedAt": "2026-11-03T12:58:31.410Z",
+      "updatedAt": "2026-11-03T20:26:26.164Z",
       "wlwFocusEpisode": ""
     },
     {
@@ -214524,13 +214537,13 @@
       "tmdbRating": "",
       "tmdbVoteCount": 0,
       "streaming": {},
-      "updatedAt": "2026-11-03T13:11:30.479Z",
+      "updatedAt": "2026-11-03T20:26:31.613Z",
       "wlwFocusEpisode": ""
     },
     {
       "id": "1793712096879",
       "name": "Safety Flirt",
-      "nameEn": "",
+      "nameEn": "ห้ามเข้าใกล้ หัวใจกำลังทำงาน",
       "poster": "https://pbs.twimg.com/media/HWM9TSmaUAAT8Q_?format=jpg&name=4096x4096",
       "synopsis": "Jira, una nueva empleada de un depósito de materiales de construcción, se ve perdida ante la indiferencia de Suki, su compañera de trabajo. Al cuestionarla sobre su comportamiento, termina descubriendo que la chica oculta sentimientos por ella\n\n(Source: X @hubgirlslove)",
       "year": "",
@@ -214569,7 +214582,12 @@
           "character": ""
         }
       ],
-      "couples": [],
+      "couples": [
+        [
+          "1793712558246",
+          "1793712516397"
+        ]
+      ],
       "sideCouples": [],
       "fanCouples": [],
       "animeSeason": "",
@@ -214584,12 +214602,19 @@
       "snLastUpdate": "",
       "snNote": "",
       "productoraId": "1779134050424",
-      "tmdbId": "",
+      "tmdbId": "340940",
       "tmdbKind": "tv",
       "tmdbRating": "",
       "tmdbVoteCount": 0,
       "streaming": {},
-      "updatedAt": "2026-11-03T13:35:09.982Z"
+      "updatedAt": "2026-11-03T20:30:56.780Z",
+      "i18n": {
+        "en": {
+          "title": "Safety Flirt",
+          "trailerUrl": "https://www.youtube.com/watch?v=StQ47CcKciE",
+          "source": "manual"
+        }
+      }
     }
   ],
   "movies": [
@@ -450935,7 +450960,9 @@
       "country": "Tailandia",
       "notes": "Actriz",
       "birthdate": "2004-06-01",
-      "height": 166
+      "height": 166,
+      "photoPosition": "50% 15%",
+      "photoZoom": 1
     },
     {
       "id": "1778667585326",
@@ -451057,11 +451084,13 @@
     {
       "id": "1778668798059",
       "name": "\"Becky\" Rebecca Armstrong",
-      "photo": "https://pics.filmaffinity.com/rebecca_armstrong-250227701367356-nm_200.jpg",
+      "photo": "https://pbs.twimg.com/media/HWMUw9oWMAA2Qxd?format=jpg&name=large",
       "country": "Tailandia",
       "notes": "Actriz, Cantante",
       "birthdate": "2002-12-05",
-      "height": 165
+      "height": 165,
+      "photoPosition": "50% 0%",
+      "photoZoom": 1.13
     },
     {
       "id": "1778668868889",
@@ -451226,11 +451255,12 @@
     {
       "id": "1778669620854",
       "name": "\"Frung\" Prompatcha Sanitwong Na Ayutthaya",
-      "photo": "https://thailansawadee.com/wp-content/uploads/2025/12/ly-lich-frung-prompatcha-sanitwong.jpg",
+      "photo": "https://image.tmdb.org/t/p/w500/8YzdISO1Uje2WWuMWkGWRnMvquX.jpg",
       "country": "Tailandia",
       "notes": "Actriz",
       "birthdate": "2003-04-17",
-      "height": null
+      "photoPosition": "50% 15%",
+      "photoZoom": 1
     },
     {
       "id": "1778669672693",
@@ -451462,11 +451492,13 @@
     {
       "id": "1778760735020",
       "name": "\"Lilly\" Ladapa Thongkham",
-      "photo": "https://thailansawadee.com/wp-content/uploads/2025/12/tieu-su-lilly-ladapa-thongkham.jpg",
+      "photo": "https://image.tmdb.org/t/p/w500/jdir5g2V37Qdj0JH1KGc5iBqFeQ.jpg",
       "country": "Tailandia",
       "birthdate": "2002-05-23",
       "height": 177,
-      "notes": "Actriz, Modelo"
+      "notes": "Actriz, Modelo",
+      "photoPosition": "50% 15%",
+      "photoZoom": 1
     },
     {
       "id": "1778760773120",
@@ -454496,7 +454528,7 @@
       "id": "tmdb_new_4431454_mvcum06p_0",
       "name": "\"Friend\" Dina Pophring",
       "tmdbPersonId": 4431454,
-      "photo": "https://scontent-mad1-1.cdninstagram.com/v/t51.82787-15/837799038_18629989879058006_1876984815607797402_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=NDAwMTk0MzkzNzI4MDY1NDcyNQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMzA3Mi5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=6xVHBYglSmoQ7kNvwETrGhC&_nc_oc=AdrXIFd6SfWSSrWhBDicGfrFc3uqu-aU3Fgsw8y7iUeKxteF1M_qszJ77uycHtDWcI_Of2nmRMqoXR7plNEnKaG1&_nc_zt=23&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_gid=DD6FCW5v0jMWE33JHGtwug&_nc_ss=7b6a8&oh=00_AQOw6kocmo780buzy-mDnKchVT8x5oGd-nr2nH0vfmshNg&oe=6AD9AD7C",
+      "photo": "https://i.mydramalist.com/eYvgjp_5c.jpg",
       "photoPosition": "50% 41%",
       "photoZoom": 1.04,
       "country": "Tailandia",
@@ -454507,7 +454539,7 @@
       "id": "tmdb_new_5439502_mvcum06q_1",
       "name": "\"Ninenine\" Natthanicha Srisawasdiphalodom",
       "tmdbPersonId": 5439502,
-      "photo": "https://scontent-mad2-1.cdninstagram.com/v/t51.82787-15/814728746_18633438154050871_3916563315676967618_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&ig_cache_key=Mzk4OTUxMjMxMzExNTczNzU2Ng%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMzA3Mi5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=raQIjpPmUAUQ7kNvwF96Ruj&_nc_oc=AdqVLsvybRB80wn5Geb3sL8jzjiPqMtCuxOyVJ2VH70aPs48dQqaQdK6ohWcLK4u_5sXfs-VbNEWsnCCX4ZnBsUS&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-mad2-1.cdninstagram.com&_nc_gid=fDSLsOeSUKSJvzI3MH9FZg&_nc_ss=7a22e&oh=00_AQMJcOvygwPN5lwp7PvQm6LzY-aknw-4i1DXi8IXB_LDnA&oe=6AD9AD74",
+      "photo": "https://image.tmdb.org/t/p/w500/4aGb1AT9RnGVj6Ew1l2KXjeKZWk.jpg",
       "photoPosition": "50% 15%",
       "photoZoom": 1,
       "country": "Tailandia",
@@ -455716,7 +455748,7 @@
       "name": "FriendNineNine",
       "desc": "",
       "retired": false,
-      "couplePhoto": "https://scontent-mad2-1.cdninstagram.com/v/t51.82787-15/694401093_18078192722333863_2081149137874217936_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&ig_cache_key=Mzg5MjYwMDI0NDIxMDY0NjgyOA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuNjQwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=_SygldTYd_gQ7kNvwFeqJT4&_nc_oc=Ado-hWKAkEtO0VirNxkKj5Lw2WUVIDSSgx-VQtNj2PU9glw8NJZjk5BSYBC1NLXFvBL_toIi48nH-aazLHBIJNgj&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-mad2-1.cdninstagram.com&_nc_gid=husxzUBAl98aYUKmfz5r0w&_nc_ss=7a22e&oh=00_AQO62gDgM0g9Ct8iqQ5l55MXx0HXpPp_1LFkl1JqPOfaqg&oe=6AD9A5DD",
+      "couplePhoto": "https://pbs.twimg.com/media/HIws3X3bUAAwEaU?format=jpg&name=large",
       "couplePhotoPosition": "50% 20%",
       "couplePhotoZoom": 1,
       "actressIds": [
@@ -455729,12 +455761,77 @@
       "name": "FriendPalm",
       "desc": "",
       "retired": false,
-      "couplePhoto": "https://scontent-mad1-1.cdninstagram.com/v/t51.82787-15/782093167_17952394605239350_1007601523161898742_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ig_cache_key=Mzk2OTAzMDQ0MTczMDMyNTk3Mg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMzA3My5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=0pkT4T1TPFAQ7kNvwEMvLQB&_nc_oc=Ado9UVRu1Cxh75FXqlvKUTzx7hynilv0nhq6UO8ohH0MmlkF7x-UjSrxGvmUPsmHpRi58wVHcVk1Bmv6iaPwwncQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_gid=CaxVHxvYuJFzALCw2UBE7Q&_nc_ss=7a22e&oh=00_AQMqH-MTbJrvzzPkTyucgmTRIE1ZQeAWzK9rpKo6ZvA-jg&oe=6AD99927",
+      "couplePhoto": "https://pbs.twimg.com/media/HP3zc0cW0AA8I-c?format=jpg&name=4096x4096",
       "couplePhotoPosition": "50% 20%",
       "couplePhotoZoom": 1,
       "actressIds": [
         "1778705135312",
         "1778705100123"
+      ]
+    },
+    {
+      "id": "1793744003809",
+      "name": "SangtAcare",
+      "desc": "",
+      "retired": false,
+      "couplePhoto": "https://pbs.twimg.com/amplify_video_thumb/2117660047392350208/img/5KPDlCkUK-8qEzjD?format=webp&name=medium",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1793711116684",
+        "1793711035190"
+      ]
+    },
+    {
+      "id": "1793744137555",
+      "name": "PangYoghurt",
+      "desc": "",
+      "retired": false,
+      "couplePhoto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR97sMWHFl88KNhlGflUn5uNnxR-sle17X2STj0V6UT10UuMBINIgjEKOub&s=10",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1778784337814",
+        "1793711170409"
+      ]
+    },
+    {
+      "id": "1793744189559",
+      "name": "JaoyingMewnich",
+      "desc": "",
+      "retired": false,
+      "couplePhoto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvCF43UexfGoOrhw-0nJ0TKDuKNWxBVA715GfGwrCDIKIeeRyE1fA9lVI&s=10",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "tmdb_3742339_mtyet9vn",
+        "1778668288034"
+      ]
+    },
+    {
+      "id": "1793744224830",
+      "name": "WaifhaTonkhaw",
+      "desc": "",
+      "retired": false,
+      "couplePhoto": "https://pbs.twimg.com/media/HWMYolLa4AAea3L?format=webp&name=large",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1778783968952",
+        "1778783797572"
+      ]
+    },
+    {
+      "id": "1793744290742",
+      "name": "NychaPrim",
+      "desc": "",
+      "retired": false,
+      "couplePhoto": "https://i.redd.it/boyyglkn21xh1.jpeg",
+      "couplePhotoPosition": "50% 20%",
+      "couplePhotoZoom": 1,
+      "actressIds": [
+        "1793712516397",
+        "1793712558246"
       ]
     }
   ],
@@ -455808,9 +455905,9 @@
     {
       "id": "1792273945492",
       "shipId": "1779105772062",
-      "name": "Gumberbear",
+      "name": "Lumi",
       "species": "Oso con alas de mariposa",
-      "photo": "https://scontent-mad1-1.cdninstagram.com/v/t51.82787-15/603936935_18059121887652902_4507916784276792581_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ig_cache_key=Mzc5MDY5NjIxNjQwMjE5MTQwNQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=VXQpyt4Q8rUQ7kNvwE1zIq4&_nc_oc=Adp1VPCIh5wUGRH6zMVLN9r6sjk1aEZhMCAcdRfUZo2fZDf1NSVUf0GHEbPjmEnzqjuvZ3Ft2Ua6uHfgwxw2Cod2&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_gid=o-3_dkdih69kGxQ5mZ-RvQ&_nc_ss=7a22e&oh=00_AQPyV_OSTa1mtIivw9uJNKLTV026z-Sp2dixtwM3vjAB8w&oe=6AD9B92E",
+      "photo": "https://pbs.twimg.com/media/HWMDdILXsAAYl7T?format=jpg&name=large",
       "photoPosition": "50% 20%",
       "photoZoom": 1,
       "birthdate": "2025-12-01",
@@ -457391,5 +457488,5 @@
       ]
     }
   },
-  "exportedAt": "2026-11-03T13:35:34.645Z"
+  "exportedAt": "2026-11-03T22:18:39.931Z"
 }
